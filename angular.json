@@ -2,5 +2,169 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "groot": {
+      "root": "projects/groot",
+      "sourceRoot": "projects/groot/src",
+      "projectType": "library",
+      "prefix": "groot",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/groot/tsconfig.lib.json",
+            "project": "projects/groot/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/groot/src/test.ts",
+            "tsConfig": "projects/groot/tsconfig.spec.json",
+            "karmaConfig": "projects/groot/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/groot/tsconfig.lib.json",
+              "projects/groot/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "groot-tester": {
+      "root": "projects/groot-tester/",
+      "sourceRoot": "projects/groot-tester/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/groot-tester",
+            "index": "projects/groot-tester/src/index.html",
+            "main": "projects/groot-tester/src/main.ts",
+            "polyfills": "projects/groot-tester/src/polyfills.ts",
+            "tsConfig": "projects/groot-tester/tsconfig.app.json",
+            "assets": [
+              "projects/groot-tester/src/favicon.ico",
+              "projects/groot-tester/src/assets"
+            ],
+            "styles": [
+              "projects/groot-tester/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/groot-tester/src/environments/environment.ts",
+                  "with": "projects/groot-tester/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "groot-tester:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "groot-tester:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "groot-tester:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/groot-tester/src/test.ts",
+            "polyfills": "projects/groot-tester/src/polyfills.ts",
+            "tsConfig": "projects/groot-tester/tsconfig.spec.json",
+            "karmaConfig": "projects/groot-tester/karma.conf.js",
+            "styles": [
+              "projects/groot-tester/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/groot-tester/src/favicon.ico",
+              "projects/groot-tester/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/groot-tester/tsconfig.app.json",
+              "projects/groot-tester/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "groot-tester-e2e": {
+      "root": "projects/groot-tester-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/groot-tester-e2e/protractor.conf.js",
+            "devServerTarget": "groot-tester:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "groot-tester:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/groot-tester-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "groot"
 }

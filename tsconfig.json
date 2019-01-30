@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "groot": [
+        "dist/groot"
+      ],
+      "groot/*": [
+        "dist/groot/*"
+      ]
+    }
   }
 }
