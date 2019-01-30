@@ -3,11 +3,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {DemoHomeComponent} from './demo-pages/demo-home/demo-home.component';
 import {DemoTabsComponent} from './demo-pages/demo-tabs/demo-tabs.component';
 import {DemoButtonsComponent} from './demo-pages/demo-buttons/demo-buttons.component';
+import {DemoLoadingComponent} from './demo-pages/demo-loading/demo-loading.component';
 
 const routes: Routes = [
   {component: DemoHomeComponent, path: 'demo'},
   {component: DemoButtonsComponent, path: 'demo/buttons'},
   {component: DemoTabsComponent, path: 'demo/tabs'},
+  {component: DemoLoadingComponent, path: 'demo/loading'},
   {path: '', pathMatch: 'full', redirectTo: 'demo'}
 ];
 

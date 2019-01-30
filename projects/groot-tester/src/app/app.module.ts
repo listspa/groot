@@ -13,6 +13,7 @@ import {DemoButtonsComponent} from './demo-pages/demo-buttons/demo-buttons.compo
 import {DemoTabsComponent} from './demo-pages/demo-tabs/demo-tabs.component';
 import {DemoHomeComponent} from './demo-pages/demo-home/demo-home.component';
 import {AppRoutingModule} from './app-routing.module';
+import {DemoLoadingComponent} from './demo-pages/demo-loading/demo-loading.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -23,7 +24,8 @@ defineLocale('it', itLocale);
     AppComponent,
     DemoButtonsComponent,
     DemoTabsComponent,
-    DemoHomeComponent
+    DemoHomeComponent,
+    DemoLoadingComponent
   ],
   imports: [
     BrowserModule,
