@@ -1,0 +1,26 @@
+@import "../../../style/bootstrap-customizations";
+
+.buttons {
+  cursor: pointer;
+  position: relative;
+  margin-left: 0.5rem;
+
+  > span {
+    position: absolute;
+    left: 0;
+    font-size: 1.5em;
+    top: -0.5em;
+
+    &+span {
+      top: 0;
+    }
+  }
+
+  .deselected {
+    color: $gray-450;
+  }
+
+  .active {
+    color: $primary;
+  }
+}

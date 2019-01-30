@@ -1,0 +1,113 @@
+// Roboto
+
+$groot-assets-base-dir: '~groot/src/assets' !default;
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'),
+  url($groot-assets-base-dir + '/fonts/Roboto-Regular.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/Roboto-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Italic'), local('Roboto-Italic'),
+  url($groot-assets-base-dir + '/fonts/Roboto-Italic.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/Roboto-Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'),
+  url($groot-assets-base-dir + '/fonts/Roboto-Light.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/Roboto-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 300;
+  src: local('Roboto Light Italic'), local('Roboto-LightItalic'),
+  url($groot-assets-base-dir + '/fonts/Roboto-LightItalic.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/Roboto-LightItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'),
+  url($groot-assets-base-dir + '/fonts/Roboto-Bold.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/Roboto-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: italic;
+  font-weight: 700;
+  src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'),
+  url($groot-assets-base-dir + '/fonts/Roboto-BoldItalic.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/Roboto-BoldItalic.woff') format('woff');
+}
+
+// Roboto Condensed
+
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Condensed'), local('RobotoCondensed'),
+  url($groot-assets-base-dir + '/fonts/RobotoCondensed-Regular.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/RobotoCondensed-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: italic;
+  font-weight: 400;
+  src: local('Roboto Condensed Italic'), local('Roboto Condensed-Italic'),
+  url($groot-assets-base-dir + '/fonts/RobotoCondensed-Italic.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/RobotoCondensed-Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Condensed Light'), local('Roboto Condensed-Light'),
+  url($groot-assets-base-dir + '/fonts/RobotoCondensed-Light.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/RobotoCondensed-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: italic;
+  font-weight: 300;
+  src: local('Roboto Condensed Light Italic'), local('Roboto Condensed-LightItalic'),
+  url($groot-assets-base-dir + '/fonts/RobotoCondensed-LightItalic.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/RobotoCondensed-LightItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Condensed Bold'), local('Roboto Condensed-Bold'),
+  url($groot-assets-base-dir + '/fonts/RobotoCondensed-Bold.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/RobotoCondensed-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: italic;
+  font-weight: 700;
+  src: local('Roboto Condensed Bold Italic'), local('Roboto Condensed-BoldItalic'),
+  url($groot-assets-base-dir + '/fonts/RobotoCondensed-BoldItalic.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/RobotoCondensed-BoldItalic.woff') format('woff');
+}

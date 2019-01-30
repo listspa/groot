@@ -1,0 +1,65 @@
+@import "../../../style/_bootstrap-customizations.scss";
+
+$paginator-margin: 0.5rem;
+$paginator-size: 1.8rem;
+$icon-size: 3rem;
+
+nav {
+  padding: 0.2rem 1rem;
+  color: $primary;
+  line-height: $icon-size;
+}
+
+.paginator-middle, .paginator-rows-info {
+  text-align: center;
+}
+
+.paginator-first-last {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.paginator-vertical-spacer, i.fa {
+  font-size: $icon-size;
+  position: relative;
+  top: 0.5rem;
+}
+
+.paginator-prev {
+  margin-right: $paginator-margin;
+}
+
+@mixin page-indicator {
+  height: $paginator-size;
+  min-width: $paginator-size;
+  padding: 0 0.2rem;
+  line-height: $paginator-size;
+  display: inline-block;
+  margin-right: $paginator-margin;
+}
+
+.page-ellipsis {
+  @include page-indicator();
+  position: relative;
+  top: -0.25rem;
+}
+
+.page-number {
+  @include page-indicator();
+  border-radius: 1rem;
+  border: 1px solid $primary;
+
+  &.active {
+    background-color: $primary;
+    color: $white;
+  }
+}
+
+a {
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

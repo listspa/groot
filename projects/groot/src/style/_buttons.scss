@@ -1,0 +1,40 @@
+.btn {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.btn-download {
+  @extend .btn-outline-brand;
+}
+
+.btn:hover:not([disabled]) {
+  @include white-on-dark-hover;
+}
+
+.btn:hover:disabled {
+  cursor: not-allowed;
+}
+
+.buttons-list {
+  @extend .text-right;
+
+  .btn {
+    margin-right: 0.8em;
+  }
+
+  .btn:last-child {
+    margin-right: inherit;
+  }
+}
+
+.buttons-list-bottom-right {
+  @extend .d-flex;
+  @extend .align-items-end;
+  @extend .justify-content-end;
+}
+
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color}:disabled {
+    background-color: $white;
+  }
+}

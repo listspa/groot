@@ -1,0 +1,24 @@
+table.table-bordered {
+  border: $table-border-width solid $table-border-color;
+
+  td {
+    border: none;
+  }
+
+  tr {
+    border: $table-border-width solid $table-border-color;
+  }
+
+  .thead-light th {
+    border: $table-border-width solid $white;
+    border-top-color: $table-border-color;
+
+    &:first-child {
+      border-left-color: $table-border-color;
+    }
+
+    &:last-child {
+      border-right-color: $table-border-color;
+    }
+  }
+}

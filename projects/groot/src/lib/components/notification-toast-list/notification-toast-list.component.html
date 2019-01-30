@@ -1,0 +1,18 @@
+<div class="toaster-area">
+  <div @items
+       class="toaster-toast"
+       *ngFor="let toast of displayedToast"
+       [ngClass]="'toaster-style-' + toast.style.toLowerCase()"
+       [class.clickable]="toast.clickable"
+       (click)="clickOnToast(toast)">
+    <div class="toaster-toast-title">
+      <strong>
+        <i [ngClass]="toast.icon" *ngIf="toast.icon.length > 0"></i>
+        {{toast.title}}
+      </strong>
+      <i class="notification-toast-close-icon fa fa-times"
+         (click)="toast.doRemove(); $event.stopPropagation()"></i>
+    </div>
+    <p>{{toast.label}}</p>
+  </div>
+</div>

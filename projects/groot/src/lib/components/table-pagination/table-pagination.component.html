@@ -1,0 +1,47 @@
+<nav class="row">
+  <div class="col-md clearfix">
+    <div class="float-left paginator-first-last">
+      <a [class.disabled]="_pageNum == 0" (click)="goDirectlyToPage(0)">
+        <i class="fa fa-angle-double-left"></i>
+        {{'common.firstPage' | translate}}
+      </a>
+    </div>
+    <div class="float-right paginator-first-last">
+      <a [class.disabled]="_pageNum + 1 >= _numPages"
+         (click)="goDirectlyToPage(_numPages - 1)">
+        {{'common.lastPage' | translate}}
+        <i class="fa fa-angle-double-right"></i>
+      </a>
+    </div>
+
+    <div class="paginator-middle">
+      <a class="paginator-prev" [class.disabled]="_pageNum == 0"
+         (click)="goDirectlyToPage(_pageNum - 1)">
+        <i class="fa fa-angle-left"></i>
+      </a>
+      <a class="page-ellipsis" *ngIf="_pageNum > 2"
+         (click)="goDirectlyToPage(_pageNum - 2)">...</a>
+      <a class="page-number" *ngIf="_pageNum > 1"
+         (click)="goDirectlyToPage(_pageNum - 2)">{{_pageNum - 1}}</a>
+      <a class="page-number" *ngIf="_pageNum > 0"
+         (click)="goDirectlyToPage(_pageNum -1)">{{_pageNum}}</a>
+      <a class="page-number active">{{_pageNum + 1}}</a>
+      <a class="page-number" *ngIf="_pageNum + 1 < _numPages"
+         (click)="goDirectlyToPage(_pageNum + 1)">{{_pageNum + 2}}</a>
+      <a class="page-number" *ngIf="_pageNum + 2 < _numPages"
+         (click)="goDirectlyToPage(_pageNum + 2)">{{_pageNum + 3}}</a>
+      <a class="page-ellipsis" *ngIf="_pageNum + 3 < _numPages"
+         (click)="goDirectlyToPage(_pageNum + 3)">...</a>
+      <a class="paginator-next" [class.disabled]="_pageNum + 1 >= _numPages"
+         (click)="goDirectlyToPage(_pageNum + 1)">
+        <i class="fa fa-angle-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="col-md paginator-rows-info">
+    <span class="paginator-vertical-spacer">&nbsp;</span>
+
+    <span>{{'common.paginationRowsInfo' | translate:{startRowIdx: _startRowIdx, endRowIdx: _endRowIdx, totalItems: _totalItems} }}</span>
+  </div>
+</nav>

@@ -1,0 +1,59 @@
+$tab-border-radius: 3px; // Slightly more than usual
+
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+
+  // Border also for inactive tabs
+  a.nav-link {
+    padding: 0.8rem 1.5rem;
+    border-color: $nav-tabs-link-active-border-color;
+    color: $gray-600;
+    background-color: $gray-250;
+
+    &.active {
+      font-weight: bold;
+      border-bottom-color: transparent;
+    }
+
+    &.disabled {
+      border-color: inherit;
+      color: $gray-600;
+      background-color: $gray-250;
+      opacity: 0.5;
+    }
+  }
+
+  .nav-item.disabled {
+    cursor: not-allowed;
+  }
+
+  li.nav-item + li > a {
+    border-left-color: transparent !important;
+
+    &.disabled {
+      border-left-color: transparent !important;
+    }
+  }
+
+  li.nav-item:first-child a {
+    border-top-left-radius: $tab-border-radius;
+  }
+
+  li.nav-item:last-child a {
+    border-top-right-radius: $tab-border-radius;
+  }
+}
+
+.nav-tabs .nav-link:hover {
+  @include white-on-dark-hover;
+}
+
+.tabs-bordered .tab-content {
+  border: $nav-tabs-border-width solid $nav-tabs-border-color;
+  border-top-color: transparent;
+}
+
+.tab-content {
+  padding: 0.5rem 1rem;
+}

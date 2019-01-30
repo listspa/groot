@@ -1,0 +1,47 @@
+@import '../../../style/bootstrap-customizations';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+$toast-border-radius: 10px;
+
+.toaster-area {
+  position: fixed;
+  bottom: 2rem;
+  left: 1rem;
+  padding: 0;
+  z-index: 2000;
+}
+
+.toaster-toast {
+  width: 25rem;
+  height: 9rem;
+  padding: 0.5rem 1rem;
+  border-radius: $toast-border-radius;
+  box-shadow: 5px 5px 10px $gray-400;
+  margin-top: 1rem;
+  position: relative;
+  opacity: 0.92;
+  color: $white;
+
+  .toaster-toast-title {
+    margin-bottom: 0.5rem
+  }
+
+  &.clickable {
+    cursor: pointer;
+  }
+}
+
+// Create a background style for each bootstrap color class
+@each $color, $value in $theme-colors {
+  .toaster-style-#{$color} {
+    background-color: $value;
+  }
+}
+
+i.notification-toast-close-icon {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  cursor: pointer
+}

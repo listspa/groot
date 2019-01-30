@@ -1,0 +1,20 @@
+// Fontawesome
+$fa-font-path: '~font-awesome/fonts';
+@import "~font-awesome/scss/font-awesome";
+
+// Our variables
+@import 'bootstrap-customizations';
+
+// Bootstrap 4 and ngx-bootstrap
+@import "~bootstrap/scss/bootstrap";
+@import "~ngx-bootstrap/datepicker/bs-datepicker.scss";
+@import "ng-select-bootstrap-theme"; // Our file, not from the library
+
+// Our css overriding bootstrap or adding new classes
+@import "mixins";
+@import "fonts";
+@import "typography";
+@import "forms";
+@import "tables";
+@import "buttons";
+@import "tabs";
