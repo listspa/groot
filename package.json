@@ -9,8 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_lib": "ng build groot",
+    "copy_lib_assets": "cd projects/groot && node assets-copy.js",
     "npm_pack": "cd dist/groot && npm pack",
-    "package": "npm run build_lib && npm run npm_pack"
+    "package": "npm run build_lib && npm run copy_lib_assets && npm run npm_pack"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +31,7 @@
     "ngx-bootstrap": "^3.2.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
+    "wrench": "^1.5.9",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
