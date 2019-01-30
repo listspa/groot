@@ -1,0 +1,23 @@
+image: gitlab.list-group.com:5000/a.bergia/docker-img-maven-node:java8-node10-chrome
+
+cache:
+  key: isp-bu-groot-cache
+  paths:
+  - node_modules/
+
+stages:
+- test
+- package
+
+before_script:
+- npm install
+
+test-angular:
+  stage: test
+  script:
+  - ./node_modules/.bin/ng test --watch=false --code-coverage=true --browsers=ChromeHeadlessNoSandbox
+
+built-angular-aot:
+  stage: package
+  script:
+    - npm run package
