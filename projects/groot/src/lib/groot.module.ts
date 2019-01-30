@@ -4,7 +4,6 @@ import {TablePaginationComponent} from './components/table-pagination/table-pagi
 import {FtTimePipe} from './pipes/ft-time/ft-time.pipe';
 import {TableHeaderComponent} from './components/table-header/table-header.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {DemoPageComponent} from './demo-page/demo-page.component';
 import {CollapsibleBoxComponent} from './components/collapsible-box/collapsible-box.component';
 import {LoadingDirective} from './directives/loading.directive';
 import {LoadingIndicatorComponent} from './components/loading-indicator/loading-indicator.component';
@@ -20,7 +19,6 @@ import {NavBarComponent} from './components/nav-bar/nav-bar.component';
     TablePaginationComponent,
     TableHeaderComponent,
     CollapsibleBoxComponent,
-    DemoPageComponent,
     FtTimePipe,
     LoadingDirective,
     LoadingIndicatorComponent,
@@ -37,7 +35,6 @@ import {NavBarComponent} from './components/nav-bar/nav-bar.component';
     TablePaginationComponent,
     TableHeaderComponent,
     CollapsibleBoxComponent,
-    DemoPageComponent,
     FtTimePipe,
     LoadingDirective,
     LoadingIndicatorComponent,
