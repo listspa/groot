@@ -1,0 +1,60 @@
+<div class="pos-f-t">
+  <!-- Bar -->
+  <nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+      <div class="row nav-row">
+        <div class="col-sm-11"></div>
+        <div class="col-sm text-right">
+          <button (click)="toggleMenu()" aria-controls="navbarToggleExternalContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                  class="navbar-toggler"
+                  type="button">
+            <span [class.open]="!menuCollapsed" class="animated-toggle-icon">
+              <span></span><span></span><span></span><span></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Menu content -->
+  <div [class.show]="!menuCollapsed"
+       class="collapse">
+    <div class="bg-dark p-4">
+      <div *ngIf="actualMenu && rootMenu" class="container-fluid menu-content">
+        <div class="row">
+          <div class="col-sm">
+            <small class="menu-family">
+              <span *ngFor="let subMenu of menuFamily">> {{subMenu.label| translate}} </span>
+            </small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <h4 class="text-white">
+              <i *ngIf="actualMenu.icon" class="{{actualMenu.icon}}"></i>
+              {{actualMenu.label | translate}}
+            </h4>
+          </div>
+        </div>
+        <div class="row">
+          <div *ngFor="let menuRows of rootMenu" class="col-sm-3">
+            <div *ngFor="let menu of menuRows" class="row">
+              <div class="col-sm">
+                <div (click)="onItemClick(menu)"
+                     *ngIf="menu"
+                     [class.selected]="menu.selected"
+                     class="menu-element">
+                  <i *ngIf="menu.icon" class="{{menu.icon}} menu-icon"></i>
+                  <span>{{menu.label | translate}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@ export * from './lib/groot.module';
 export * from './lib/nbpu.interfaces';
 export * from './lib/components/collapsible-box/collapsible-box.component';
 export * from './lib/components/loading-indicator/loading-indicator.component';
+export * from './lib/components/nav-bar/nav-bar.component';
 export * from './lib/components/notification-toast-list/notification-toast-list.component';
 export * from './lib/components/table-header/table-header.component';
 export * from './lib/components/table-pagination/table-pagination.component';

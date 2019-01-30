@@ -13,6 +13,7 @@ import {TabsModule} from 'ngx-bootstrap';
 import {NotificationToastListComponent} from './components/notification-toast-list/notification-toast-list.component';
 import {NotificationToastService} from './services/notification-toast.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NavBarComponent} from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     LoadingDirective,
     LoadingIndicatorComponent,
     NotificationToastListComponent,
+    NavBarComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +42,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     LoadingDirective,
     LoadingIndicatorComponent,
     NotificationToastListComponent,
+    NavBarComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

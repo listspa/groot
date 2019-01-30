@@ -1,0 +1,106 @@
+@import '../../../style/bootstrap-customizations';
+
+.nav-row {
+  flex-grow: 1;
+
+  > div {
+    &:last-child {
+      padding-right: 0;
+
+      .animated-toggle-icon {
+        display: block;
+        width: 1.88rem;
+        height: 1.45rem;
+        position: relative;
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+        transform: rotate(0deg);
+        transition: .5s ease-in-out;
+        cursor: pointer;
+
+        span {
+          display: block;
+          position: absolute;
+          height: 0.19rem;
+          width: 100%;
+          border-radius: 0.56rem;
+          opacity: 1;
+          left: 0;
+          transform: rotate(0deg);
+          transition: .25s ease-in-out;
+          background-color: $gray-100;
+
+          &:nth-child(1) {
+            top: 0;
+          }
+
+          &:nth-child(2), &:nth-child(3) {
+            top: 0.63rem;
+          }
+
+          &:nth-child(4) {
+            top: 1.25rem;
+          }
+        }
+
+        &.open {
+          span {
+            &:nth-child(1) {
+              top: 0.69rem;
+              width: 0;
+              left: 50%;
+            }
+
+            &:nth-child(2) {
+              transform: rotate(45deg);
+            }
+
+            &:nth-child(3) {
+              transform: rotate(-45deg);
+            }
+
+            &:nth-child(4) {
+              top: 0.69rem;
+              width: 0;
+              left: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.menu-content {
+  .menu-family {
+    color: $gray-400;
+    cursor: pointer;
+    width: max-content;
+    margin-bottom: 2rem;
+    display: block;
+
+    span:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .menu-element {
+    border: 1px solid $gray-250;
+    border-radius: 2px;
+    line-height: 1.5rem;
+    padding: 1rem;
+    color: $gray-250;
+    cursor: pointer;
+    margin: 0.5rem;
+    font-size: 1.1rem;
+
+    .menu-icon {
+      margin-right: 0.5rem;
+      font-size: 1.2em;
+    }
+
+    &:hover {
+      background-color: $primary;
+    }
+  }
+}
