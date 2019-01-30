@@ -9,11 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_lib": "ng build groot",
-    "copy-readme": "copy .\\README.md .\\dist\\groot",
     "copy-assets": "cd projects/groot && node assets-copy.js",
-    "copy-files": "npm run copy-readme && npm run copy-assets",
     "npm_pack": "cd dist/groot && npm pack",
-    "package": "npm run build_lib && npm run copy-files && npm run npm_pack"
+    "package": "npm run build_lib && npm run copy-assets && npm run npm_pack"
   },
   "private": true,
   "dependencies": {

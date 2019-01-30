@@ -1,5 +1,7 @@
-var wrench = require('wrench');
+const wrench = require('wrench');
+const fs = require('fs');
 
+fs.copyFileSync('../../README.md', '../../dist/groot/README.md');
 wrench.copyDirSyncRecursive('./src/style', '../../dist/groot/style', {
   forceDelete: true
 });
