@@ -1,0 +1,14 @@
+{
+  "pkgFiles": [
+    "package.json",
+    "projects/groot/package.json"
+  ],
+  "use": "pkg.version",
+  "git": {
+    "requireUpstream": false,
+    "tagName": "v${version}"
+  },
+  "npm": {
+    "publish": false
+  }
+}

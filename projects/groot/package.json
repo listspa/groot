@@ -1,9 +1,9 @@
 {
   "name": "@listspa/groot",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
-    "type" : "git",
-    "url" : "https://gitlab.list-group.com/isp-bu/libs/isp.groot"
+    "type": "git",
+    "url": "https://gitlab.list-group.com/isp-bu/libs/isp.groot"
   },
   "peerDependencies": {
     "@angular/common": "^7.2.0",

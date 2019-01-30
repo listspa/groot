@@ -1,6 +1,6 @@
 {
   "name": "groot",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,9 +9,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_lib": "ng build groot",
-    "copy-assets": "cd projects/groot && node assets-copy.js",
+    "copy-assets": "node scripts/assets-copy.js",
     "npm_pack": "cd dist/groot && npm pack",
-    "package": "npm run build_lib && npm run copy-assets && npm run npm_pack"
+    "package": "npm run build_lib && npm run copy-assets && npm run npm_pack",
+    "release": "release-it --disable-metrics && npm run package && node scripts/publish.js"
   },
   "private": true,
   "dependencies": {
@@ -40,9 +41,9 @@
     "@angular/cli": "~7.2.3",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
@@ -53,6 +54,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^4.2.0",
     "protractor": "~5.4.0",
+    "release-it": "^10.0.7",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",

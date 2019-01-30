@@ -18,13 +18,7 @@ as well. Otherwise it will not be available to the library's clients.
 
 # Making a release
 
-You need to do three things:
-
-- in `projects/groot/package.json` update the `version` to `xxx`
-- run `npm run package`
-- run `npm publish dist/groot/list-groot-xxx.tgz`
-
-TODO: We should find a way to automate everything with something like "npm run publish:snapshot" or similar.
+Simply run `npm run release` and answer the questions when prompted.
 
 # CI server
 
