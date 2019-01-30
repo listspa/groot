@@ -1,4 +1,7 @@
-# Usage:
+GRooT is our internal library of angular components and styles, designed to 
+provide the commonly used components that you need in an enterprise web app.
+
+# Usage
 
 ## Create project
 
@@ -22,16 +25,20 @@ with this content:
 
 ## Install
 
-You can now install the library and the required dependencies
+You can now install the library and the required dependencies:
  
+```
 npm install @listspa/groot @ngx-translate/core bootstrap ngx-bootstrap font-awesome
+```
 
 ## Css
 
 In your app's `style.scss` file you need start with:
 
+```
 $groot-assets-base-dir: '~@listspa/groot/assets';
 @import "~@listspa/groot/style/groot";
+```
 
 ## App module
 
