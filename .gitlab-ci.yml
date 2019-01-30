@@ -8,6 +8,7 @@ cache:
 stages:
 - test
 - package
+- deploy
 
 before_script:
 - npm install
@@ -16,8 +17,24 @@ test-angular:
   stage: test
   script:
   - ./node_modules/.bin/ng test --watch=false --code-coverage=true --browsers=ChromeHeadlessNoSandbox
+  artifacts:
+    paths:
+      - coverage/
 
 built-angular-aot:
   stage: package
   script:
-    - npm run package
+      - npm run package
+
+coverage-report:
+  stage: deploy
+  dependencies:
+    - test-angular
+  script:
+    - mv coverage/ public/
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  only:
+    - master
