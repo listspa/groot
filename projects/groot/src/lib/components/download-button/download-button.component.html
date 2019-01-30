@@ -1,0 +1,7 @@
+<button type="button"
+        class="btn btn-download"
+        [disabled]="disabled"
+        (click)="onClick()">
+  <i [ngClass]="icon"></i>
+  {{label | translate:labelArgs}}
+</button>

@@ -13,6 +13,7 @@ import {NotificationToastListComponent} from './components/notification-toast-li
 import {NotificationToastService} from './services/notification-toast.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';
+import {DownloadButtonComponent} from './components/download-button/download-button.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {NavBarComponent} from './components/nav-bar/nav-bar.component';
     LoadingIndicatorComponent,
     NotificationToastListComponent,
     NavBarComponent,
+    DownloadButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +42,7 @@ import {NavBarComponent} from './components/nav-bar/nav-bar.component';
     LoadingIndicatorComponent,
     NotificationToastListComponent,
     NavBarComponent,
+    DownloadButtonComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

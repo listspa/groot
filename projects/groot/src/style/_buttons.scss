@@ -18,11 +18,13 @@
 .buttons-list {
   @extend .text-right;
 
-  .btn {
+  // We need to use "*" and not .btn to handle correctly the download button component
+
+  > * {
     margin-right: 0.8em;
   }
 
-  .btn:last-child {
+  > *:last-child {
     margin-right: inherit;
   }
 }
