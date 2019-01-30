@@ -10,6 +10,12 @@ can use to demo and test the components.
 
 To work locally simply run `npm run start`. This launches the test application. 
 
+# Public API
+
+Note that, whenever you add a file, component, service, pipe etc that needs to be
+in the "public API" of the library you need to add it to the `public_api.ts` file
+as well. Otherwise it will not be available to the library's clients.
+
 # Making a release
 
 You need to do three things:
