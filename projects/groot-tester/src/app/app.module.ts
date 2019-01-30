@@ -9,6 +9,10 @@ import localeIt from '@angular/common/locales/it';
 import {TranslateModule} from '@ngx-translate/core';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {FormsModule} from '@angular/forms';
+import {DemoButtonsComponent} from './demo-pages/demo-buttons/demo-buttons.component';
+import {DemoTabsComponent} from './demo-pages/demo-tabs/demo-tabs.component';
+import {DemoHomeComponent} from './demo-pages/demo-home/demo-home.component';
+import {AppRoutingModule} from './app-routing.module';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -16,7 +20,10 @@ defineLocale('it', itLocale);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DemoButtonsComponent,
+    DemoTabsComponent,
+    DemoHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +34,7 @@ defineLocale('it', itLocale);
     TimepickerModule.forRoot(),
     TabsModule.forRoot(),
     GrootModule.forRoot(),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
