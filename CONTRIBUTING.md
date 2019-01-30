@@ -25,3 +25,10 @@ You need to do three things:
 - run `npm publish dist/groot/list-groot-xxx.tgz`
 
 TODO: We should find a way to automate everything with something like "npm run publish:snapshot" or similar.
+
+# CI server
+
+We use the built-in continuous integration that comes with GitLab. Every push 
+automatically launches a build, which you can see [on gitlab](https://gitlab.list-group.com/isp-bu/libs/isp.groot/pipelines).
+
+The build launches angular's unit tests.
