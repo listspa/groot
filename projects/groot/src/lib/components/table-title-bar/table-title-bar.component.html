@@ -1,16 +1,17 @@
 <div class="row">
   <div class="col-sm">
-    <h2 translate>common.searchResults</h2>
+    <h2>
+      {{label | translate}}
+      <small *ngIf="pageInfo" class="text-muted">{{'common.paginationRowsInfo' | translate:pageInfo}}</small>
+    </h2>
   </div>
-  <div class="col-sm clearfix">
+
+  <div class="col-sm clearfix download-button-area" *ngIf="downloadExcelUrl">
     <div class="float-right">
       <groot-download-button
-        *ngIf="downloadExcelUrl"
         [url]="downloadExcelUrl"
         [argsProvider]="downloadExcelArgsProvider"
       ></groot-download-button>
-
-      <span *ngIf="pageInfo">{{'common.paginationRowsInfo' | translate:pageInfo}}</span>
     </div>
   </div>
 </div>

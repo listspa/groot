@@ -13,6 +13,7 @@ interface PageInfo {
   styleUrls: ['./table-title-bar.component.scss']
 })
 export class TableTitleBarComponent implements OnInit {
+  @Input() label = 'common.searchResults';
   @Input() downloadExcelUrl: string = null;
   @Input() downloadExcelArgsProvider: () => object = null;
   pageInfo: PageInfo | null = null;

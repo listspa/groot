@@ -4,8 +4,6 @@
     [searchResults]="searchResults"
   ></groot-table-title-bar>
 
-  <p>Note: the sorting does NOT work; we do not have a real server but a hard-coded json file!</p>
-
   <table class="table table-bordered">
     <thead class="thead-light text-center">
     <tr>
@@ -39,4 +37,9 @@
     (pageNumChange)="onPageChanged($event)"
     [loadedPageNum]="searchResults.pageNum"
   ></groot-table-pagination>
+</div>
+
+<div class="alert alert-warning">
+  <i class="fa fa-info"></i>
+  Note: the sorting does NOT work; we do not have a real server but a hard-coded json file!
 </div>
