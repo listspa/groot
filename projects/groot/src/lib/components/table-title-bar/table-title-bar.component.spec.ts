@@ -5,6 +5,12 @@ import {DownloadButtonComponent} from '../download-button/download-button.compon
 import {TranslateModule} from '@ngx-translate/core';
 
 describe('TableTitleBarComponent', () => {
+  const searchResults = {
+    pageLen: 10,
+    pageNum: 1,
+    totalNumRecords: 29,
+    records: []
+  };
   let component: TableTitleBarComponent;
   let fixture: ComponentFixture<TableTitleBarComponent>;
 
@@ -35,12 +41,7 @@ describe('TableTitleBarComponent', () => {
 
   describe('when search results are given ', () => {
     beforeEach(() => {
-      component.searchResults = {
-        pageLen: 10,
-        pageNum: 1,
-        totalNumRecords: 29,
-        records: []
-      };
+      component.searchResults = searchResults;
       fixture.detectChanges();
     });
 
@@ -58,11 +59,22 @@ describe('TableTitleBarComponent', () => {
     expect(button).toBeNull();
   });
 
-  it('when download excel url is given it should display the download excel button', () => {
-    component.downloadExcelUrl = 'foo';
-    fixture.detectChanges();
+  describe('when download excel url is given', () => {
+    it('should not display the download excel button if there are no data', () => {
+      component.downloadExcelUrl = 'foo';
+      fixture.detectChanges();
 
-    const button = fixture.debugElement.nativeElement.querySelector('groot-download-button');
-    expect(button).not.toBeNull();
+      const button = fixture.debugElement.nativeElement.querySelector('groot-download-button');
+      expect(button).toBeNull();
+    });
+
+    it('should display the download excel button when there are data', () => {
+      component.downloadExcelUrl = 'foo';
+      component.searchResults = searchResults;
+      fixture.detectChanges();
+
+      const button = fixture.debugElement.nativeElement.querySelector('groot-download-button');
+      expect(button).not.toBeNull();
+    });
   });
 });
