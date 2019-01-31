@@ -14,7 +14,9 @@ import {DemoTabsComponent} from './demo-pages/demo-tabs/demo-tabs.component';
 import {DemoHomeComponent} from './demo-pages/demo-home/demo-home.component';
 import {AppRoutingModule} from './app-routing.module';
 import {DemoLoadingComponent} from './demo-pages/demo-loading/demo-loading.component';
-import { DemoToasterComponent } from './demo-pages/demo-toaster/demo-toaster.component';
+import {DemoToasterComponent} from './demo-pages/demo-toaster/demo-toaster.component';
+import {DemoTableComponent} from './demo-pages/demo-table/demo-table.component';
+import {HttpClientModule} from '@angular/common/http';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -27,10 +29,12 @@ defineLocale('it', itLocale);
     DemoTabsComponent,
     DemoHomeComponent,
     DemoLoadingComponent,
-    DemoToasterComponent
+    DemoToasterComponent,
+    DemoTableComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     NgSelectModule,
     TranslateModule.forRoot(),

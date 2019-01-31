@@ -1,0 +1,22 @@
+{
+  "records": [
+    {
+      "name": "Mario Rossi",
+      "dateOfBirth": "1977-04-13",
+      "wage": 30250.12
+    },
+    {
+      "name": "Aldo Verdi",
+      "dateOfBirth": "1980-01-30",
+      "wage": 40730.00
+    },
+    {
+      "name": "Luca Bianchi",
+      "dateOfBirth": "1961-12-25",
+      "wage": 50700.00
+    }
+  ],
+  "totalNumRecords": 3,
+  "pageNum": 0,
+  "pageLen": 15
+}

@@ -1,0 +1,39 @@
+<div>
+  <h2 translate>common.searchResults</h2>
+
+  <p>Note: the sorting does NOT work; we do not have a real server but a hard-coded json file!</p>
+
+  <table class="table table-bordered">
+    <thead class="thead-light text-center">
+    <tr>
+      <th>
+        <groot-table-header label="name"
+                            columnName="NAME" [(sort)]="sorting"></groot-table-header>
+      </th>
+      <th>
+        <groot-table-header label="dateOfBirth"
+                            columnName="DATE_OF_BIRTH" [(sort)]="sorting"></groot-table-header>
+      </th>
+      <th>
+        <groot-table-header label="wage"
+                            columnName="WAGE" [(sort)]="sorting"></groot-table-header>
+      </th>
+    </tr>
+    </thead>
+    <tbody *ngIf="searchResults">
+    <tr *ngFor="let row of searchResults.records">
+      <td>{{row.name}}</td>
+      <td>{{row.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
+      <td>{{row.wage | number:'0.2'}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <groot-table-pagination
+    *ngIf="searchResults"
+    [totalItems]="searchResults.totalNumRecords"
+    [pageSize]="pageSize"
+    (pageNumChange)="onPageChanged($event)"
+    [loadedPageNum]="searchResults.pageNum"
+  ></groot-table-pagination>
+</div>

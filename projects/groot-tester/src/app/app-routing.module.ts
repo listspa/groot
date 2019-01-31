@@ -5,6 +5,7 @@ import {DemoTabsComponent} from './demo-pages/demo-tabs/demo-tabs.component';
 import {DemoButtonsComponent} from './demo-pages/demo-buttons/demo-buttons.component';
 import {DemoLoadingComponent} from './demo-pages/demo-loading/demo-loading.component';
 import {DemoToasterComponent} from './demo-pages/demo-toaster/demo-toaster.component';
+import {DemoTableComponent} from './demo-pages/demo-table/demo-table.component';
 
 const routes: Routes = [
   {component: DemoHomeComponent, path: 'demo'},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {component: DemoTabsComponent, path: 'demo/tabs'},
   {component: DemoLoadingComponent, path: 'demo/loading'},
   {component: DemoToasterComponent, path: 'demo/toasts'},
+  {component: DemoTableComponent, path: 'demo/tables'},
   {path: '', pathMatch: 'full', redirectTo: 'demo'}
 ];
 
