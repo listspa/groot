@@ -22,6 +22,6 @@ export class DemoTableComponent extends GenericTableComponentBase<Person> implem
   }
 
   protected getDefaultSortColumn(): string {
-    return 'name';
+    return 'NAME';
   }
 }
