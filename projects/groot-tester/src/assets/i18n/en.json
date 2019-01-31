@@ -1,0 +1,9 @@
+{
+  "common.searchResults": "Results",
+  "common.firstPage": "First",
+  "common.lastPage": "Last",
+  "common.paginationRowsInfo": "Showing rows {{startRowIdx}} - {{endRowIdx}} out of {{totalItems}}",
+  "people.name": "Name",
+  "people.dateOfBirth": "Date of birth",
+  "people.wage": "Wage"
+}

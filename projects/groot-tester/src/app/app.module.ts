@@ -6,7 +6,7 @@ import {GrootModule} from '../../../groot/src/lib/groot.module';
 import {BsDatepickerModule, defineLocale, itLocale, TabsModule, TimepickerModule} from 'ngx-bootstrap';
 import {registerLocaleData} from '@angular/common';
 import localeIt from '@angular/common/locales/it';
-import {TranslateModule} from '@ngx-translate/core';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {FormsModule} from '@angular/forms';
 import {DemoButtonsComponent} from './demo-pages/demo-buttons/demo-buttons.component';
@@ -16,11 +16,17 @@ import {AppRoutingModule} from './app-routing.module';
 import {DemoLoadingComponent} from './demo-pages/demo-loading/demo-loading.component';
 import {DemoToasterComponent} from './demo-pages/demo-toaster/demo-toaster.component';
 import {DemoTableComponent} from './demo-pages/demo-table/demo-table.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 // Enable italian locale
 registerLocaleData(localeIt);
 defineLocale('it', itLocale);
+
+// Required as a separate function for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -37,7 +43,9 @@ defineLocale('it', itLocale);
     HttpClientModule,
     FormsModule,
     NgSelectModule,
-    TranslateModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {provide: TranslateLoader, useFactory: HttpLoaderFactory, deps: [HttpClient]}
+    }),
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
     TabsModule.forRoot(),
