@@ -1,5 +1,5 @@
-<nav class="row">
-  <div class="col-md clearfix">
+<nav>
+  <div class="clearfix paginator">
     <div class="float-left paginator-first-last">
       <a [class.disabled]="_pageNum == 0" (click)="goDirectlyToPage(0)">
         <i class="fa fa-angle-double-left"></i>
@@ -37,11 +37,5 @@
         <i class="fa fa-angle-right"></i>
       </a>
     </div>
-  </div>
-
-  <div class="col-md paginator-rows-info">
-    <span class="paginator-vertical-spacer">&nbsp;</span>
-
-    <span>{{'common.paginationRowsInfo' | translate:{startRowIdx: _startRowIdx, endRowIdx: _endRowIdx, totalItems: _totalItems} }}</span>
   </div>
 </nav>

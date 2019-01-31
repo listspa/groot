@@ -9,8 +9,6 @@ export class TablePaginationComponent {
   _pageNum = 0;
   _totalItems: number | null = null;
   _pageSize = 10;
-  _startRowIdx = 1;
-  _endRowIdx = 1;
   _numPages = 0;
 
   @Output() public pageNumChange = new EventEmitter<number>();
@@ -50,8 +48,6 @@ export class TablePaginationComponent {
     }
 
     this._numPages = Math.trunc((this._totalItems - 1) / this._pageSize) + 1;
-    this._startRowIdx = this._pageNum * this._pageSize + 1;
-    this._endRowIdx = Math.min((this._pageNum + 1) * this._pageSize, this._totalItems);
   }
 
   public goDirectlyToPage(n: number) {

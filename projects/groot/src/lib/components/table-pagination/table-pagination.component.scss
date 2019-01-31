@@ -1,16 +1,23 @@
 @import "../../../style/_bootstrap-customizations.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
 
 $paginator-margin: 0.5rem;
 $paginator-size: 1.8rem;
 $icon-size: 3rem;
 
 nav {
-  padding: 0.2rem 1rem;
   color: $primary;
   line-height: $icon-size;
+  margin-bottom: 1rem;
 }
 
-.paginator-middle, .paginator-rows-info {
+.paginator {
+  max-width: map-get($grid-breakpoints, 'md');
+  margin: auto;
+}
+
+.paginator-middle {
   text-align: center;
 }
 
@@ -19,7 +26,7 @@ nav {
   text-transform: uppercase;
 }
 
-.paginator-vertical-spacer, i.fa {
+i.fa {
   font-size: $icon-size;
   position: relative;
   top: 0.5rem;
