@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {PaginatedResponse} from '../../nbpu.interfaces';
 
 interface PageInfo {
@@ -12,7 +12,7 @@ interface PageInfo {
   templateUrl: './table-title-bar.component.html',
   styleUrls: ['./table-title-bar.component.scss']
 })
-export class TableTitleBarComponent implements OnInit {
+export class TableTitleBarComponent {
   @Input() label = 'common.searchResults';
   @Input() downloadExcelUrl: string = null;
   @Input() downloadExcelArgsProvider: () => object = null;
