@@ -12,6 +12,7 @@ export * from './lib/components/nav-bar/nav-bar.component';
 export * from './lib/components/notification-toast-list/notification-toast-list.component';
 export * from './lib/components/table-header/table-header.component';
 export * from './lib/components/table-pagination/table-pagination.component';
+export * from './lib/components/table-title-bar/table-title-bar.component';
 export * from './lib/directives/loading.directive';
 export * from './lib/pipes/ft-time/ft-time.pipe';
 export * from './lib/services/loading.service';

@@ -14,6 +14,7 @@ import {NotificationToastService} from './services/notification-toast.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';
 import {DownloadButtonComponent} from './components/download-button/download-button.component';
+import {TableTitleBarComponent} from './components/table-title-bar/table-title-bar.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import {DownloadButtonComponent} from './components/download-button/download-but
     NotificationToastListComponent,
     NavBarComponent,
     DownloadButtonComponent,
+    TableTitleBarComponent,
   ],
   imports: [
     CommonModule,
@@ -43,6 +45,7 @@ import {DownloadButtonComponent} from './components/download-button/download-but
     NotificationToastListComponent,
     NavBarComponent,
     DownloadButtonComponent,
+    TableTitleBarComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,
@@ -59,3 +62,5 @@ export class GrootModule {
     };
   }
 }
+
+// Remember to update public_abi.ts whenever you add a new angular object!

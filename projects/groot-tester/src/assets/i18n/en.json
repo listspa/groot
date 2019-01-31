@@ -3,6 +3,7 @@
   "common.firstPage": "First",
   "common.lastPage": "Last",
   "common.paginationRowsInfo": "Showing rows {{startRowIdx}} - {{endRowIdx}} out of {{totalItems}}",
+  "common.downloadExcel": "Download Excel",
   "people.name": "Name",
   "people.dateOfBirth": "Date of birth",
   "people.wage": "Wage"
