@@ -58,7 +58,7 @@ export abstract class GenericTableComponentBase<T> implements OnChanges {
     return this._sorting;
   }
 
-  private reload() {
+  protected reload() {
     this.doSearch({
       sortField: this._sorting.column || this.getDefaultSortColumn(),
       sortReversed: this._sorting.reverse,
