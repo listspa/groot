@@ -1,9 +1,10 @@
 // Fontawesome
+$groot-assets-base-dir: '~@listspa/groot/assets' !default;
 $fa-font-path: '~font-awesome/fonts';
 @import "~font-awesome/scss/font-awesome";
 
 // Our variables
-@import 'bootstrap-customizations';
+@import 'groot-variables';
 
 // Bootstrap 4 and ngx-bootstrap
 @import "~bootstrap/scss/bootstrap";

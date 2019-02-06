@@ -1,8 +1,5 @@
 // Copy & paste of the ng-select's default theme, with some modifications to make
-// it respect bootstrap's variables
-
-$hover-bg: $lightest-primary;
-$selected-bg: $lightest-primary;
+// it respect bootstrap's and GRooT's variables
 
 .ng-select {
   &.ng-select-opened {
@@ -123,7 +120,7 @@ $selected-bg: $lightest-primary;
         .ng-value {
           font-size: 0.9em;
           margin-bottom: 5px;
-          background-color: $hover-bg;
+          background-color: $ng-select-hover-bg-color;
           color: $black;
           border-radius: 2px;
           border: 1px solid #c2e0ff;
@@ -271,11 +268,11 @@ $selected-bg: $lightest-primary;
       }
 
       &.ng-option-marked {
-        background-color: $hover-bg;
+        background-color: $ng-select-hover-bg-color;
       }
 
       &.ng-option-selected {
-        background-color: $selected-bg;
+        background-color: $ng-select-selected-bg-color;
       }
     }
 
@@ -285,11 +282,11 @@ $selected-bg: $lightest-primary;
       padding: 8px 10px;
 
       &.ng-option-selected {
-        background-color: $selected-bg;
+        background-color: $ng-select-selected-bg-color;
       }
 
       &.ng-option-marked {
-        background-color: $hover-bg;
+        background-color: $ng-select-hover-bg-color;
       }
 
       &.ng-option-disabled {

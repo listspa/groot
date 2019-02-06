@@ -1,0 +1,145 @@
+// Colors
+
+$black: #000000 !default;
+$gray-900: #1D1D1D !default;
+$gray-800: #323232 !default;
+$gray-700: #424242 !default;
+$gray-600: #6C6C6C !default;
+$gray-500: #6F6F6F !default;
+$gray-430: #989898 !default;
+$gray-450: #999999 !default;
+$gray-400: #CCCCCC !default;
+$gray-300: #DFDFDF !default;
+$gray-250: #E4E4E4 !default;
+$gray-200: #EEEEEE !default;
+$gray-100: #F8F8F8 !default;
+$white: #FFFFFF !default;
+
+$isp-green: #258900;
+
+$blue: #1775BE !default;
+$light-blue: #4590CA !default;
+$lighter-blue: #73ABD7 !default;
+$lightest-blue: #E6F0F8 !default;
+$indigo: #976DF7 !default;
+$dark-purple: #5071DC !default;
+$purple: #C070F4 !default;
+$pink: #F60052 !default;
+$red: #F51500 !default;
+$orange: #FA9600 !default;
+$yellow: #FABE0A !default;
+$green: $isp-green !default;
+$dark-green: #008148 !default;
+$light-green: #7DBC00 !default;
+$lighter-green: #A8DF00 !default;
+$teal: #00BCBE !default;
+$cyan: #00A0FD !default;
+$light: $gray-200 !default;
+
+$colors: (
+  "blue": $blue,
+  "light-blue": $light-blue,
+  "lighter-blue": $lighter-blue,
+  "lightest-blue": $lightest-blue,
+  "indigo": $indigo,
+  "dark-purple": $dark-purple,
+  "purple": $purple,
+  "pink": $pink,
+  "red": $red,
+  "orange": $orange,
+  "yellow": $yellow,
+  "green": $green,
+  "dark-green": $dark-green,
+  "light-green": $light-green,
+  "lighter-green": $lighter-green,
+  "teal": $teal,
+  "cyan": $cyan,
+  "light": $light
+);
+
+$primary: $blue !default;
+$secondary: $green !default; // In Bootstrap it's gray by default
+$success: $light-green !default;
+$info: $light-blue !default;
+$warning: $orange !default;
+$danger: $red !default;
+
+$lighter-primary: $lighter-blue !default;
+$lightest-primary: $lightest-blue !default;
+$brand: $isp-green !default;
+$promotion: $purple !default;
+$deselected: $gray-100 !default;
+
+$theme-colors: (
+  'brand': $brand,
+  'promotion': $promotion,
+  'deselected': $deselected,
+);
+
+
+// NGX customizations
+
+$theme-gray: $secondary;
+$theme-green: $green;
+$theme-blue: $cyan;
+$theme-dark-blue: $primary;
+$theme-red: $red;
+$theme-orange: $orange;
+
+$theme-list: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'brand': $brand,
+  'promotion': $promotion,
+);
+
+// Fonts
+
+$font-family-sans-serif: Roboto, Arial !default;
+$font-weight-light: 400 !default;
+$font-weight-base: $font-weight-light !default;
+$headings-font-family: "Roboto Condensed", Arial !default;
+
+// Borders
+
+$border-radius: 2px !default;
+
+// Tables
+
+$table-head-bg: $gray-250 !default;
+$table-head-color: $gray-900 !default;
+$table-border-width: 1px !default;
+$table-border-color: $table-head-bg !default;
+
+// Buttons
+
+$btn-padding-y: 0.8em !default;
+$btn-padding-x: 1.5em !default;
+$btn-line-height: 1em !default;
+$btn-text-transform: uppercase !default;
+$btn-font-weight: bold !default;
+$standard-hover-bg-color: $gray-800 !default;
+$standard-hover-border-color: $standard-hover-bg-color !default;
+$standard-hover-fg-color: $white !default;
+
+// Forms
+
+$input-focus-border-color: $primary !default;
+$input-btn-focus-width: 1px !default;
+$input-btn-focus-box-shadow: none !default;
+$form-group-margin-bottom: 0.8em !default;
+$label-fg-color: $gray-800 !default;
+$ng-select-hover-bg-color: $lightest-primary !default;
+$ng-select-selected-bg-color: $lightest-primary !default;
+
+// Tabs
+
+$nav-tabs-border-color: $gray-430 !default;
+$nav-tabs-link-active-border-color: $gray-430 !default;
+$nav-tabs-link-active-color: $primary !default;
+$nav-tabs-border-radius: 0 !default;
+$tab-border-radius: 3px !default; // Slightly more than usual

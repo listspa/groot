@@ -1,5 +1,5 @@
-@mixin white-on-dark-hover {
-  background-color: $gray-800;
-  border-color: $gray-800;
-  color: $white;
+@mixin standard-hover-style {
+  background-color: $standard-hover-bg-color;
+  border-color: $standard-hover-border-color;
+  color: $standard-hover-fg-color;
 }
