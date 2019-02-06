@@ -1,4 +1,4 @@
-import {FileSizePipe} from './filesize.pipe';
+import {FileSizePipe} from './fileSize.pipe';
 
 describe('FilesizePipe', () => {
   const pipe = new FileSizePipe();
