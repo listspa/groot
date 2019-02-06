@@ -1,6 +1,6 @@
 import {FileSizePipe} from './fileSize.pipe';
 
-describe('FilesizePipe', () => {
+describe('FileSizePipe', () => {
   const pipe = new FileSizePipe();
 
   it('can format bytes', () => {
