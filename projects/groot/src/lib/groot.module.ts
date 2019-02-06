@@ -15,6 +15,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';
 import {DownloadButtonComponent} from './components/download-button/download-button.component';
 import {TableTitleBarComponent} from './components/table-title-bar/table-title-bar.component';
+import {FileSizePipe} from './pipes/filesize/filesize.pipe';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {TableTitleBarComponent} from './components/table-title-bar/table-title-b
     NavBarComponent,
     DownloadButtonComponent,
     TableTitleBarComponent,
+    FileSizePipe,
   ],
   imports: [
     CommonModule,
@@ -46,6 +48,7 @@ import {TableTitleBarComponent} from './components/table-title-bar/table-title-b
     NavBarComponent,
     DownloadButtonComponent,
     TableTitleBarComponent,
+    FileSizePipe,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

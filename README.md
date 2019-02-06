@@ -28,7 +28,7 @@ with this content:
 You can now install the library and the required dependencies:
  
 ```
-npm install @listspa/groot @ngx-translate/core bootstrap ngx-bootstrap font-awesome
+npm install @listspa/groot @ngx-translate/core bootstrap ngx-bootstrap font-awesome filesize
 ```
 
 ## Css

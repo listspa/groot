@@ -15,6 +15,7 @@ export * from './lib/components/table-pagination/table-pagination.component';
 export * from './lib/components/table-title-bar/table-title-bar.component';
 export * from './lib/directives/loading.directive';
 export * from './lib/pipes/ft-time/ft-time.pipe';
+export * from './lib/pipes/fileSize/fileSize.pipe';
 export * from './lib/services/loading.service';
 export * from './lib/services/notification-toast.service';
 export * from './lib/utils/date-utils';
