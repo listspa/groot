@@ -3,6 +3,11 @@
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins/transition';
 
+:host {
+  margin-bottom: 0.7rem;
+  display: block;
+}
+
 // Toggle icon
 .nav-row {
   flex-grow: 1;
