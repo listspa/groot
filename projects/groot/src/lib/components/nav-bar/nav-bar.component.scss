@@ -76,6 +76,21 @@
 }
 
 // Menu items
+.menuArea {
+  opacity: 0;
+  height: 0;
+  visibility: hidden;
+  @if $enable-transitions {
+    transition: opacity $fast-transition-speed ease-in-out;
+  }
+
+  &.menuAreaVisible {
+    visibility: visible;
+    height: auto;
+    opacity: 1;
+  }
+}
+
 .menu-content {
   .menu-family {
     color: $gray-400;

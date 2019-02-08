@@ -20,8 +20,7 @@
   </nav>
 
   <!-- Menu content -->
-  <div [class.show]="!menuCollapsed"
-       class="collapse">
+  <div class="menuArea" [class.menuAreaVisible]="!menuCollapsed">
     <div class="bg-dark p-4">
       <div *ngIf="rootMenu" class="container-fluid menu-content">
         <div class="row" *ngIf="breadcrumbs.length">
