@@ -62,25 +62,25 @@ export class AppComponent {
                     label: 'test.1.1',
                     children: [
                       [
-                        {label: 'test.1.1.1', url: 'test111'},
-                        {label: 'test.1.1.2', url: 'test112'},
+                        {label: 'test.1.1.1', url: '/test111'},
+                        {label: 'test.1.1.2', url: '/test112'},
                       ],
                       [
-                        {label: 'test.1.1.3', url: 'test113'},
+                        {label: 'test.1.1.3', url: '/test113'},
                       ]
                     ]
                   },
-                  {label: 'test.1.2', url: 'test12'}
+                  {label: 'test.1.2', url: '/test12'}
                 ],
                 [
-                  {label: 'test.1.3', url: 'test13'},
-                  {label: 'test.1.4', url: 'test14'}
+                  {label: 'test.1.3', url: '/test13'},
+                  {label: 'test.1.4', url: '/test14'}
                 ],
                 [
-                  {label: 'test.1.5', url: 'test15'}
+                  {label: 'test.1.5', url: '/test15'}
                 ],
                 [
-                  {label: 'test.1.6', url: 'test16'}
+                  {label: 'test.1.6', url: '/test16'}
                 ]
               ]
             }
@@ -90,10 +90,10 @@ export class AppComponent {
               label: 'test.2',
               children: [
                 [
-                  {label: 'test.2.1', url: 'test21'},
+                  {label: 'test.2.1', url: '/test21'},
                 ],
                 [
-                  {label: 'test.2.2', url: 'test22'}
+                  {label: 'test.2.2', url: '/test22'}
                 ]
               ]
             }
@@ -103,7 +103,7 @@ export class AppComponent {
               label: 'test.3',
               children: [
                 [
-                  {label: 'test.3.1', url: 'test31'},
+                  {label: 'test.3.1', url: '/test31'},
                 ]
               ]
             },
@@ -111,8 +111,8 @@ export class AppComponent {
               label: 'test.4',
               children: [
                 [
-                  {label: 'test.4.1', url: 'test41'},
-                  {label: 'test.4.2', url: 'test42'}
+                  {label: 'test.4.1', url: '/test41'},
+                  {label: 'test.4.2', url: '/test42'}
                 ]
               ]
             }
