@@ -32,6 +32,8 @@ export class NavBarComponent {
       children: items
     };
     this.currentMenu = this.rootMenu;
+    this.breadcrumbs = [];
+    console.log(this.breadcrumbs);
   }
 
   private checkUrlsStartWithSlash(items: Menu[][]) {
@@ -52,6 +54,7 @@ export class NavBarComponent {
       this.close();
     } else {
       this.breadcrumbs.push(item);
+      console.log(this.breadcrumbs);
       this.currentMenu = item;
     }
   }
@@ -69,7 +72,8 @@ export class NavBarComponent {
 
   selectBreadcrumb(subMenu: ConcreteMenu, index: number) {
     this.currentMenu = subMenu;
-    this.breadcrumbs = this.breadcrumbs.slice(0, index);
+    this.breadcrumbs = this.breadcrumbs.slice(0, index + 1);
+    console.log(this.breadcrumbs);
   }
 
   private highlightCurrentRoute() {
@@ -88,7 +92,7 @@ export class NavBarComponent {
 
       if (menu.url === currUrl) {
         this.currentMenu = parent;
-        this.breadcrumbs = path;
+        this.breadcrumbs = newPath;
         menu.selected = true;
       } else {
         this.visitToHighlightCurrentRoute(currUrl, menu, newPath);

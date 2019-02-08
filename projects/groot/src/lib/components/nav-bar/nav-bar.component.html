@@ -23,23 +23,20 @@
   <div class="menuArea" [class.menuAreaVisible]="!menuCollapsed">
     <div class="bg-dark p-4">
       <div *ngIf="rootMenu" class="container-fluid menu-content">
-        <div class="row" *ngIf="breadcrumbs.length">
-          <div class="col-sm">
-            <small class="menu-family">
-              <span *ngFor="let subMenu of breadcrumbs; let i = index" (click)="selectBreadcrumb(subMenu, i)">
-                &gt; {{subMenu.label| translate}}
-              </span>
-            </small>
-          </div>
+
+        <!-- Breadcrumbs -->
+        <div class="nav-breadcrumb">
+          <ul>
+            <li *ngFor="let item of breadcrumbs; let i = index"
+                (click)="selectBreadcrumb(item, i)"
+                [class.active]="i === breadcrumbs.length - 1">
+              <i *ngIf="item.icon" class="{{item.icon}}"></i>
+              {{item.label | translate}}
+            </li>
+          </ul>
         </div>
-        <div class="row" *ngIf="currentMenu">
-          <div class="col-sm">
-            <h4 class="text-white">
-              <i *ngIf="currentMenu.icon" class="{{currentMenu.icon}}"></i>
-              {{currentMenu.label | translate}}
-            </h4>
-          </div>
-        </div>
+
+        <!-- Table with children -->
         <div class="row">
           <div *ngFor="let menuRows of currentMenu.children" class="col-sm-3">
             <div *ngFor="let menu of menuRows" class="row">
