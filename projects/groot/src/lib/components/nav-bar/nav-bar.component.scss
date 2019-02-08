@@ -1,4 +1,7 @@
 @import '../../../style/groot-variables';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins/transition';
 
 // Toggle icon
 .nav-row {
@@ -95,6 +98,7 @@
     cursor: pointer;
     margin: 0.5rem;
     font-size: 1.1rem;
+    @include transition($btn-transition);
 
     .menu-icon {
       margin-right: 0.5rem;
