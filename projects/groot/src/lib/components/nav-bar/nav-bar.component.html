@@ -23,24 +23,24 @@
   <div [class.show]="!menuCollapsed"
        class="collapse">
     <div class="bg-dark p-4">
-      <div *ngIf="actualMenu && rootMenu" class="container-fluid menu-content">
-        <div class="row">
+      <div *ngIf="rootMenu" class="container-fluid menu-content">
+        <div class="row" *ngIf="breadcrumbs.length">
           <div class="col-sm">
             <small class="menu-family">
-              <span *ngFor="let subMenu of menuFamily">> {{subMenu.label| translate}} </span>
+              <span *ngFor="let subMenu of breadcrumbs">> {{subMenu.label| translate}} </span>
             </small>
           </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="currentMenu">
           <div class="col-sm">
             <h4 class="text-white">
-              <i *ngIf="actualMenu.icon" class="{{actualMenu.icon}}"></i>
-              {{actualMenu.label | translate}}
+              <i *ngIf="currentMenu.icon" class="{{currentMenu.icon}}"></i>
+              {{currentMenu.label | translate}}
             </h4>
           </div>
         </div>
         <div class="row">
-          <div *ngFor="let menuRows of rootMenu" class="col-sm-3">
+          <div *ngFor="let menuRows of currentMenu.children" class="col-sm-3">
             <div *ngFor="let menu of menuRows" class="row">
               <div class="col-sm">
                 <div (click)="onItemClick(menu)"
@@ -49,6 +49,7 @@
                      class="menu-element">
                   <i *ngIf="menu.icon" class="{{menu.icon}} menu-icon"></i>
                   <span>{{menu.label | translate}}</span>
+                  <pre>{{menu.selected | json}}</pre>
                 </div>
               </div>
             </div>

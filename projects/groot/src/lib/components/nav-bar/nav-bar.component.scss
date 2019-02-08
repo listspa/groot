@@ -1,5 +1,6 @@
 @import '../../../style/groot-variables';
 
+// Toggle icon
 .nav-row {
   flex-grow: 1;
 
@@ -71,6 +72,7 @@
   }
 }
 
+// Menu items
 .menu-content {
   .menu-family {
     color: $gray-400;
@@ -100,6 +102,10 @@
     }
 
     &:hover {
+      background-color: $primary;
+    }
+
+    &.selected {
       background-color: $primary;
     }
   }
