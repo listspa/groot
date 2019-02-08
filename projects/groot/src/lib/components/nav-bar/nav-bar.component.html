@@ -27,7 +27,9 @@
         <div class="row" *ngIf="breadcrumbs.length">
           <div class="col-sm">
             <small class="menu-family">
-              <span *ngFor="let subMenu of breadcrumbs">> {{subMenu.label| translate}} </span>
+              <span *ngFor="let subMenu of breadcrumbs; let i = index" (click)="selectBreadcrumb(subMenu, i)">
+                &gt; {{subMenu.label| translate}}
+              </span>
             </small>
           </div>
         </div>
@@ -49,7 +51,6 @@
                      class="menu-element">
                   <i *ngIf="menu.icon" class="{{menu.icon}} menu-icon"></i>
                   <span>{{menu.label | translate}}</span>
-                  <pre>{{menu.selected | json}}</pre>
                 </div>
               </div>
             </div>

@@ -58,7 +58,18 @@ export class AppComponent {
               label: 'test.1',
               children: [
                 [
-                  {label: 'test.1.1', url: 'test11'},
+                  {
+                    label: 'test.1.1',
+                    children: [
+                      [
+                        {label: 'test.1.1.1', url: 'test111'},
+                        {label: 'test.1.1.2', url: 'test112'},
+                      ],
+                      [
+                        {label: 'test.1.1.3', url: 'test113'},
+                      ]
+                    ]
+                  },
                   {label: 'test.1.2', url: 'test12'}
                 ],
                 [

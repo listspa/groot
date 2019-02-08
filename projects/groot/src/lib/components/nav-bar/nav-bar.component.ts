@@ -46,4 +46,9 @@ export class NavBarComponent {
       this.currentMenu = item;
     }
   }
+
+  selectBreadcrumb(subMenu: ConcreteMenu, index: number) {
+    this.currentMenu = subMenu;
+    this.breadcrumbs = this.breadcrumbs.slice(0, index);
+  }
 }
