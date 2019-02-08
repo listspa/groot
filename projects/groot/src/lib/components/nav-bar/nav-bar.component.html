@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row nav-row">
         <div class="col-sm-11">
-          <a class="navbar-brand" routerLink="/">
+          <a class="navbar-brand" [routerLink]="'/'">
             <i *ngIf="rootMenu.icon" class="{{rootMenu.icon}}"></i>
             <span>{{rootMenu.label}}</span>
           </a>

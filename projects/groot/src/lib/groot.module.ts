@@ -16,6 +16,7 @@ import {NavBarComponent} from './components/nav-bar/nav-bar.component';
 import {DownloadButtonComponent} from './components/download-button/download-button.component';
 import {TableTitleBarComponent} from './components/table-title-bar/table-title-bar.component';
 import {FileSizePipe} from './pipes/fileSize/fileSize.pipe';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {FileSizePipe} from './pipes/fileSize/fileSize.pipe';
     TranslateModule,
     TabsModule,
     BrowserAnimationsModule,
+    RouterModule,
   ],
   exports: [
     TablePaginationComponent,
