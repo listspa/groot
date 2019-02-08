@@ -110,7 +110,7 @@
   }
 
   li:not(:last-child):after {
-    content: '/';
+    content: '>';
     margin: 0 0.5rem 0 0.4rem;
   }
 }
@@ -142,6 +142,11 @@
     .menu-icon {
       margin-right: 0.5rem;
       font-size: 1.2em;
+    }
+
+    .menu-element-dir-indicator {
+      float: right;
+      color: $gray-450;
     }
 
     &:hover {

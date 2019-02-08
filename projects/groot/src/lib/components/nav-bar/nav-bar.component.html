@@ -47,6 +47,13 @@
                      class="menu-element">
                   <i *ngIf="menu.icon" class="{{menu.icon}} menu-icon"></i>
                   <span>{{menu.label | translate}}</span>
+
+                  <span class="menu-element-dir-indicator">
+                    <i class="fa"
+                       [class.fa-chevron-down]="menu.url"
+                       [class.fa-chevron-right]="!menu.url"
+                    ></i>
+                  </span>
                 </div>
               </div>
             </div>
