@@ -12,8 +12,12 @@ interface ConcreteMenu extends Menu {
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent {
+  private _rootMenuLabel = 'menu';
   public menuCollapsed = true;
-  public rootMenu: ConcreteMenu;
+  public rootMenu: ConcreteMenu = {
+    label: this._rootMenuLabel,
+    children: []
+  };
   public currentMenu: ConcreteMenu;
   public breadcrumbs: ConcreteMenu[] = [];
 
@@ -28,12 +32,17 @@ export class NavBarComponent {
     this.checkUrlsStartWithSlash(items);
 
     this.rootMenu = {
-      label: 'menu',
+      label: this._rootMenuLabel,
       children: items
     };
     this.currentMenu = this.rootMenu;
     this.breadcrumbs = [];
     console.log(this.breadcrumbs);
+  }
+
+  @Input() set rootMenuLabel(rootMenuLabel: string) {
+    this._rootMenuLabel = rootMenuLabel;
+    this.rootMenu.label = this._rootMenuLabel;
   }
 
   private checkUrlsStartWithSlash(items: Menu[][]) {
