@@ -12,10 +12,10 @@ interface ConcreteMenu extends Menu {
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent {
-  private _rootMenuLabel = 'menu';
   public menuCollapsed = true;
   public rootMenu: ConcreteMenu = {
-    label: this._rootMenuLabel,
+    label: 'menu',
+    icon: null,
     children: []
   };
   public currentMenu: ConcreteMenu;
@@ -31,18 +31,18 @@ export class NavBarComponent {
     }
     this.checkUrlsStartWithSlash(items);
 
-    this.rootMenu = {
-      label: this._rootMenuLabel,
-      children: items
-    };
+    this.rootMenu.children = items;
     this.currentMenu = this.rootMenu;
     this.breadcrumbs = [];
     console.log(this.breadcrumbs);
   }
 
   @Input() set rootMenuLabel(rootMenuLabel: string) {
-    this._rootMenuLabel = rootMenuLabel;
-    this.rootMenu.label = this._rootMenuLabel;
+    this.rootMenu.label = rootMenuLabel;
+  }
+
+  @Input() set rootMenuIcon(rootMenuIcon: string) {
+    this.rootMenu.icon = rootMenuIcon;
   }
 
   private checkUrlsStartWithSlash(items: Menu[][]) {
@@ -63,7 +63,6 @@ export class NavBarComponent {
       this.close();
     } else {
       this.breadcrumbs.push(item);
-      console.log(this.breadcrumbs);
       this.currentMenu = item;
     }
   }
@@ -82,7 +81,6 @@ export class NavBarComponent {
   selectBreadcrumb(subMenu: ConcreteMenu, index: number) {
     this.currentMenu = subMenu;
     this.breadcrumbs = this.breadcrumbs.slice(0, index + 1);
-    console.log(this.breadcrumbs);
   }
 
   private highlightCurrentRoute() {

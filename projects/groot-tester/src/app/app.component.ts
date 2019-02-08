@@ -13,6 +13,7 @@ export class AppComponent {
     [
       {
         label: 'demo pages',
+        icon: 'fa fa-thumbs-up',
         children: [
           [
             {
@@ -33,7 +34,8 @@ export class AppComponent {
           [
             {
               label: 'loading',
-              url: '/demo/loading'
+              url: '/demo/loading',
+              icon: 'fa fa-refresh'
             },
             {
               label: 'toasts',
@@ -43,7 +45,8 @@ export class AppComponent {
           [
             {
               label: 'tables',
-              url: '/demo/tables'
+              url: '/demo/tables',
+              icon: 'fa fa-table'
             }
           ]
         ]
