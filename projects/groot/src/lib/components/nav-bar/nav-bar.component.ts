@@ -34,7 +34,6 @@ export class NavBarComponent {
     this.rootMenu.children = items;
     this.currentMenu = this.rootMenu;
     this.breadcrumbs = [];
-    console.log(this.breadcrumbs);
   }
 
   @Input() set rootMenuLabel(rootMenuLabel: string) {
@@ -71,16 +70,16 @@ export class NavBarComponent {
     this.menuCollapsed = true;
   }
 
+  public selectBreadcrumb(subMenu: ConcreteMenu, index: number) {
+    this.currentMenu = subMenu;
+    this.breadcrumbs = this.breadcrumbs.slice(0, index + 1);
+  }
+
   public toggleMenu() {
     this.menuCollapsed = !this.menuCollapsed;
     if (!this.menuCollapsed) {
       this.highlightCurrentRoute();
     }
-  }
-
-  selectBreadcrumb(subMenu: ConcreteMenu, index: number) {
-    this.currentMenu = subMenu;
-    this.breadcrumbs = this.breadcrumbs.slice(0, index + 1);
   }
 
   private highlightCurrentRoute() {
