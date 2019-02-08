@@ -3,7 +3,12 @@
   <nav class="navbar navbar-dark bg-primary">
     <div class="container-fluid">
       <div class="row nav-row">
-        <div class="col-sm-11"></div>
+        <div class="col-sm-11">
+          <a class="navbar-brand" routerLink="/">
+            <i *ngIf="rootMenu.icon" class="{{rootMenu.icon}}"></i>
+            <span>{{rootMenu.label}}</span>
+          </a>
+        </div>
         <div class="col-sm text-right">
           <button (click)="toggleMenu()" aria-controls="navbarToggleExternalContent"
                   aria-expanded="false"
@@ -30,7 +35,7 @@
             <li *ngFor="let item of breadcrumbs; let i = index"
                 (click)="selectBreadcrumb(item, i)"
                 [class.active]="i === breadcrumbs.length - 1">
-              <i *ngIf="item.icon" class="{{item.icon}}"></i>
+              <i *ngIf="item.icon && i > 0" class="{{item.icon}}"></i>
               {{item.label | translate}}
             </li>
           </ul>
@@ -48,11 +53,12 @@
                   <i *ngIf="menu.icon" class="{{menu.icon}} menu-icon"></i>
                   <span>{{menu.label | translate}}</span>
 
-                  <span class="menu-element-dir-indicator">
-                    <i class="fa"
-                       [class.fa-chevron-down]="menu.url"
-                       [class.fa-chevron-right]="!menu.url"
-                    ></i>
+                  <span class="menu-element-dir-indicator" *ngIf="!menu.url">
+                    <!--<i class="fa"-->
+                    <!--[class.fa-chevron-down]="menu.url"-->
+                    <!--[class.fa-chevron-right]="!menu.url"-->
+                    <!--&gt;</i>-->
+                    <i class="fa fa-navicon"></i>
                   </span>
                 </div>
               </div>

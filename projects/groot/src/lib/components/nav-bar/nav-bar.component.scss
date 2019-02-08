@@ -8,6 +8,16 @@
   display: block;
 }
 
+a.navbar-brand {
+  color: $gray-100 !important;
+  font-size: 1.5rem;
+  font-family: $headings-font-family;
+
+  i {
+    margin-right: 0.5rem;
+  }
+}
+
 // Toggle icon
 .nav-row {
   flex-grow: 1;
