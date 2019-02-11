@@ -1,0 +1,17 @@
+<label for="{{name}}">
+  {{label | translate}}
+  <span *ngIf="required">*</span>
+</label>
+<input type="text"
+       class="form-control"
+       placeholder="{{label | translate}}"
+       [required]="required"
+       id="{{name}}"
+       [name]="name"
+       #input="ngModel"
+       [ngModel]="text"
+       (ngModelChange)="writeValue($event)"
+       [class.is-invalid]="!input.valid && !input.pristine">
+<div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
+  {{'common.required' | translate}}
+</div>

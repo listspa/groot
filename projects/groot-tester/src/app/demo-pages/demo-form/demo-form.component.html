@@ -88,3 +88,18 @@
   </div>
   <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
+
+<h2>Sample groot components</h2>
+
+<form novalidate>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <groot-input
+        label="Name (again)"
+        name="name"
+        [required]="true"
+        [(ngModel)]="form.name"
+      ></groot-input>
+    </div>
+  </div>
+</form>

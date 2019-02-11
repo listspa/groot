@@ -17,6 +17,8 @@ import {DownloadButtonComponent} from './components/download-button/download-but
 import {TableTitleBarComponent} from './components/table-title-bar/table-title-bar.component';
 import {FileSizePipe} from './pipes/fileSize/fileSize.pipe';
 import {RouterModule} from '@angular/router';
+import {GrootInputComponent} from './components/forms/groot-input/groot-input.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import {RouterModule} from '@angular/router';
     DownloadButtonComponent,
     TableTitleBarComponent,
     FileSizePipe,
+    GrootInputComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +41,7 @@ import {RouterModule} from '@angular/router';
     TabsModule,
     BrowserAnimationsModule,
     RouterModule,
+    FormsModule,
   ],
   exports: [
     TablePaginationComponent,
@@ -51,6 +55,7 @@ import {RouterModule} from '@angular/router';
     DownloadButtonComponent,
     TableTitleBarComponent,
     FileSizePipe,
+    GrootInputComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,
