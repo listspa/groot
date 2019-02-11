@@ -18,6 +18,7 @@ import {DemoToasterComponent} from './demo-pages/demo-toaster/demo-toaster.compo
 import {DemoTableComponent} from './demo-pages/demo-table/demo-table.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { DemoFormComponent } from './demo-pages/demo-form/demo-form.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -36,7 +37,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DemoHomeComponent,
     DemoLoadingComponent,
     DemoToasterComponent,
-    DemoTableComponent
+    DemoTableComponent,
+    DemoFormComponent
   ],
   imports: [
     BrowserModule,
