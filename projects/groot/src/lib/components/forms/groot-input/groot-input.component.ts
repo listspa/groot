@@ -17,10 +17,11 @@ export class GrootInputComponent implements ControlValueAccessor {
   @Input() name: string;
   @Input() required = false;
   @Input() disabled = false;
+  @Input() helpText: string = null;
   text: string;
 
-  onChange = (text: string) => {};
-  onTouched = () => {};
+  onChange = (text: string) => null;
+  onTouched = () => null;
 
   writeValue(text: string): void {
     this.text = text;

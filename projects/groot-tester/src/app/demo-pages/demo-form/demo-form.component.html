@@ -92,13 +92,31 @@
 <h2>Sample groot components</h2>
 
 <form novalidate>
+  <div class="row">
+    <div class="col-md-4">
+      Mandatory field, no help text
+    </div>
+    <div class="col-md-4">
+      Not mandatory field, with help text
+    </div>
+  </div>
   <div class="form-row">
-    <div class="col-md-4 mb-3">
+    <div class="col-md-4 ">
       <groot-input
-        label="Name (again)"
-        name="name"
+        label="Name 1"
+        name="name 1"
         [required]="true"
         [(ngModel)]="form.name"
+      ></groot-input>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <groot-input
+        label="Name 2"
+        name="name2"
+        [required]="false"
+        [(ngModel)]="form.name"
+        helpText="your first name, not your last name!"
       ></groot-input>
     </div>
   </div>
