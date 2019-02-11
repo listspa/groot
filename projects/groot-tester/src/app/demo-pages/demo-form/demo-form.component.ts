@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-demo-form',
@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./demo-form.component.scss']
 })
 export class DemoFormComponent implements OnInit {
-  constructor() { }
+  form = {
+    name: '',
+    lastName: ''
+  };
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
