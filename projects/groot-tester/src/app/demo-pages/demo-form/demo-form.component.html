@@ -1,6 +1,45 @@
 <h1>Demo of forms components</h1>
 
-<h2>Pure look & feel demo (no angular)</h2>
+<h2>Sample groot components</h2>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Mandatory field, no help text</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-input
+        label="Name 1"
+        name="name 1"
+        [required]="true"
+        [(ngModel)]="form.name"
+      ></groot-input>
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Not mandatory field, with help text</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-input
+        label="Name 2"
+        name="name2"
+        [required]="false"
+        [(ngModel)]="form.name"
+        helpText="your first name, not your last name!"
+      ></groot-input>
+    </form>
+  </div>
+</div>
+
+<div style="height: 50px;"></div>
+
+<h2>Pure bootstrap (no groot components)</h2>
 
 <form>
   <div class="form-row">
@@ -50,7 +89,9 @@
   </div>
 </form>
 
-<h2>Sample validation</h2>
+<div style="height: 50px;"></div>
+
+<h2>Pure bootstrap / angular validation (no groot components)</h2>
 
 <form novalidate>
   <div class="form-row">
@@ -84,40 +125,6 @@
       <div class="valid-feedback" *ngIf="lastName.valid && !lastName.pristine">
         Field OK!
       </div>
-    </div>
-  </div>
-  <button class="btn btn-primary" type="submit">Submit form</button>
-</form>
-
-<h2>Sample groot components</h2>
-
-<form novalidate>
-  <div class="row">
-    <div class="col-md-4">
-      Mandatory field, no help text
-    </div>
-    <div class="col-md-4">
-      Not mandatory field, with help text
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="col-md-4 ">
-      <groot-input
-        label="Name 1"
-        name="name 1"
-        [required]="true"
-        [(ngModel)]="form.name"
-      ></groot-input>
-    </div>
-
-    <div class="col-md-4 mb-3">
-      <groot-input
-        label="Name 2"
-        name="name2"
-        [required]="false"
-        [(ngModel)]="form.name"
-        helpText="your first name, not your last name!"
-      ></groot-input>
     </div>
   </div>
 </form>
