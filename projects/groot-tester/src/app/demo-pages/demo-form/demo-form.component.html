@@ -4,7 +4,7 @@
 
 <div class="row">
   <div class="col-md-2">
-    <div class="form-field-explanation">Mandatory field, no help text</div>
+    <div class="form-field-explanation">Mandatory field, no help text, icon right</div>
   </div>
   <div class="col-md-3">
     <form novalidate>
@@ -13,6 +13,7 @@
         name="name 1"
         [required]="true"
         [(ngModel)]="form.name"
+        iconRight="fa fa-user-o"
       ></groot-input>
     </form>
   </div>
@@ -22,7 +23,7 @@
 
 <div class="row">
   <div class="col-md-2">
-    <div class="form-field-explanation">Not mandatory field, with help text</div>
+    <div class="form-field-explanation">Not mandatory field, with help text and icon left</div>
   </div>
   <div class="col-md-3">
     <form novalidate>
@@ -32,6 +33,7 @@
         [required]="false"
         [(ngModel)]="form.name"
         helpText="your first name, not your last name!"
+        iconLeft="fa fa-image"
       ></groot-input>
     </form>
   </div>

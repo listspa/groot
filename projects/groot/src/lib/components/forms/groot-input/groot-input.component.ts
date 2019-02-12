@@ -18,6 +18,8 @@ export class GrootInputComponent implements ControlValueAccessor {
   @Input() required = false;
   @Input() disabled = false;
   @Input() helpText: string = null;
+  @Input() iconLeft: string | string[] | null = null;
+  @Input() iconRight: string | string[] | null = null;
   text: string;
 
   onChange = (text: string) => null;
