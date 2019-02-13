@@ -208,5 +208,23 @@
         Field OK!
       </div>
     </div>
+
+    <div class="col-md-4 mb-3">
+      <label>Sample Combo</label>
+      <ng-select [items]="demoCurrencies"
+                 [(ngModel)]="form.currency"
+                 name="currency"
+                 [required]="true"
+                 #currency="ngModel"
+                 [class.is-invalid]="!currency.valid && !currency.pristine"
+                 [class.is-valid]="currency.valid && !currency.pristine"
+      ></ng-select>
+      <div class="invalid-feedback" *ngIf="!currency.valid && !currency.pristine">
+        The field is mandatory
+      </div>
+      <div class="valid-feedback" *ngIf="currency.valid && !currency.pristine">
+        OK!
+      </div>
+    </div>
   </div>
 </form>

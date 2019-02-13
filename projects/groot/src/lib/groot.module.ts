@@ -22,6 +22,7 @@ import {FormsModule} from '@angular/forms';
 import {GrootCheckboxComponent} from './components/forms/groot-checkbox/groot-checkbox.component';
 import {GrootRadioComponent} from './components/forms/groot-radio/groot-radio.component';
 import {GrootTextAreaComponent} from './components/forms/groot-textarea/groot-textarea.component';
+import {NgSelectModule} from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {GrootTextAreaComponent} from './components/forms/groot-textarea/groot-te
     BrowserAnimationsModule,
     RouterModule,
     FormsModule,
+    NgSelectModule,
   ],
   exports: [
     TablePaginationComponent,

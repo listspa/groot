@@ -8,10 +8,11 @@ import {Component} from '@angular/core';
 export class DemoFormComponent {
   form = {
     name: '',
-    lastName: ''
+    lastName: '',
+    currency: null
   };
   public customCheck0 = true;
   public customCheck1 = false;
   public selectedRadio = 'first-radio';
-
+  public demoCurrencies = ['EUR', 'USD', 'CHF'];
 }
