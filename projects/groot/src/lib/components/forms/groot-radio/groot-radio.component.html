@@ -1,0 +1,13 @@
+<div class="custom-control custom-radio">
+  <input type="radio"
+         #radio="ngModel"
+         id="{{idRadio}}"
+         [name]="name"
+         [value]="_value"
+         [ngModel]="selectedValue"
+         class="custom-control-input"
+         (ngModelChange)="writeValue($event)"
+         [checked]="_checked"
+         [disabled]="disabled">
+  <label class="custom-control-label" for="{{idRadio}}">{{label | translate}}</label>
+</div>

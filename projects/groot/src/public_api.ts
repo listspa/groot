@@ -9,6 +9,7 @@ export * from './lib/components/collapsible-box/collapsible-box.component';
 export * from './lib/components/download-button/download-button.component';
 export * from './lib/components/forms/groot-checkbox/groot-checkbox.component';
 export * from './lib/components/forms/groot-input/groot-input.component';
+export * from './lib/components/forms/groot-radio/groot-radio.component';
 export * from './lib/components/loading-indicator/loading-indicator.component';
 export * from './lib/components/nav-bar/nav-bar.component';
 export * from './lib/components/notification-toast-list/notification-toast-list.component';

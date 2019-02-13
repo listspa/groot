@@ -65,6 +65,38 @@
   </div>
 </div>
 
+<hr>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Radio examples: selected, not selected, disabled</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-radio name="groot-radio"
+                   idRadio="gRadio1"
+                   value="first-radio"
+                   label="This is selected"
+                   [(ngModel)]="selectedRadio">
+      </groot-radio>
+
+      <groot-radio name="groot-radio"
+                   idRadio="gRadio2"
+                   value="second-radio"
+                   label="This is a radio"
+                   [(ngModel)]="selectedRadio">
+      </groot-radio>
+
+      <groot-radio name="groot-radio"
+                   idRadio="gRadio3"
+                   value="third-radio"
+                   label="This is disabled"
+                   [disabled]="true">
+      </groot-radio>
+    </form>
+  </div>
+</div>
+
 <div style="height: 50px;"></div>
 
 <h2>Pure bootstrap (no groot components)</h2>
@@ -112,6 +144,10 @@
       <div class="custom-control custom-radio">
         <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
         <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" disabled>
+        <label class="custom-control-label" for="customRadio3">This is disabled</label>
       </div>
     </div>
   </div>

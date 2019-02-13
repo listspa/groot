@@ -20,6 +20,7 @@ import {RouterModule} from '@angular/router';
 import {GrootInputComponent} from './components/forms/groot-input/groot-input.component';
 import {FormsModule} from '@angular/forms';
 import {GrootCheckboxComponent} from './components/forms/groot-checkbox/groot-checkbox.component';
+import {GrootRadioComponent} from './components/forms/groot-radio/groot-radio.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {GrootCheckboxComponent} from './components/forms/groot-checkbox/groot-ch
     FileSizePipe,
     GrootInputComponent,
     GrootCheckboxComponent,
+    GrootRadioComponent,
   ],
   imports: [
     CommonModule,
@@ -59,6 +61,7 @@ import {GrootCheckboxComponent} from './components/forms/groot-checkbox/groot-ch
     FileSizePipe,
     GrootInputComponent,
     GrootCheckboxComponent,
+    GrootRadioComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,
