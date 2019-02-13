@@ -115,6 +115,25 @@
   </div>
 </div>
 
+<hr>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Sample combo box with string values</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Currency"
+        name="currency"
+        [items]="currencies"
+        [required]="true"
+        [(ngModel)]="form.currency"
+      ></groot-combo>
+    </form>
+  </div>
+</div>
+
 <div style="height: 50px;"></div>
 
 <h2>Pure bootstrap (no groot components)</h2>
@@ -211,7 +230,7 @@
 
     <div class="col-md-4 mb-3">
       <label>Sample Combo</label>
-      <ng-select [items]="demoCurrencies"
+      <ng-select [items]="currencies"
                  [(ngModel)]="form.currency"
                  name="currency"
                  [required]="true"

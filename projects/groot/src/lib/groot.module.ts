@@ -23,6 +23,7 @@ import {GrootCheckboxComponent} from './components/forms/groot-checkbox/groot-ch
 import {GrootRadioComponent} from './components/forms/groot-radio/groot-radio.component';
 import {GrootTextAreaComponent} from './components/forms/groot-textarea/groot-textarea.component';
 import {NgSelectModule} from '@ng-select/ng-select';
+import {GrootComboComponent} from './components/forms/groot-combo/groot-combo.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {NgSelectModule} from '@ng-select/ng-select';
     GrootCheckboxComponent,
     GrootRadioComponent,
     GrootTextAreaComponent,
+    GrootComboComponent,
   ],
   imports: [
     CommonModule,
@@ -67,6 +69,7 @@ import {NgSelectModule} from '@ng-select/ng-select';
     GrootCheckboxComponent,
     GrootRadioComponent,
     GrootTextAreaComponent,
+    GrootComboComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,
