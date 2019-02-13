@@ -16,8 +16,7 @@ export class GrootRadioComponent implements ControlValueAccessor {
   @Input() public name: string;
   @Input() public idRadio: string;
   @Input() public label: string;
-  public _value: string;
-  public _checked = false;
+  @Input() public value: string;
   @Input() public disabled = false;
   selectedValue: string;
 
@@ -25,23 +24,6 @@ export class GrootRadioComponent implements ControlValueAccessor {
   onTouched = () => null;
 
   constructor() {
-  }
-
-  @Input()
-  public set checked(checked: boolean) {
-    checked = checked && !this.disabled;
-    this._checked = checked;
-    if (checked && this._value) {
-      this.writeValue(this._value);
-    }
-  }
-
-  @Input()
-  public set value(value: string) {
-    this._value = value;
-    if (this._checked && !this.disabled) {
-      this.writeValue(this._value);
-    }
   }
 
   registerOnChange(fn: (text: string) => null): void {
