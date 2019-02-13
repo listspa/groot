@@ -49,12 +49,12 @@
     <form novalidate>
       <groot-checkbox name="customCheck0"
                       label="This is selected"
-                      [(ngModel)]="customCheck0">
+                      [(ngModel)]="form.customCheck0">
       </groot-checkbox>
 
       <groot-checkbox name="customCheck1"
                       label="This is a checkbox"
-                      [(ngModel)]="customCheck1">
+                      [(ngModel)]="form.customCheck1">
       </groot-checkbox>
 
       <groot-checkbox name="customCheck2"
@@ -77,14 +77,14 @@
                    idRadio="gRadio1"
                    value="first-radio"
                    label="This is selected"
-                   [(ngModel)]="selectedRadio">
+                   [(ngModel)]="form.selectedRadio">
       </groot-radio>
 
       <groot-radio name="groot-radio"
                    idRadio="gRadio2"
                    value="second-radio"
                    label="This is a radio"
-                   [(ngModel)]="selectedRadio">
+                   [(ngModel)]="form.selectedRadio">
       </groot-radio>
 
       <groot-radio name="groot-radio"
@@ -119,7 +119,7 @@
 
 <div class="row">
   <div class="col-md-2">
-    <div class="form-field-explanation">Sample combo box with string values</div>
+    <div class="form-field-explanation">Combo box with string values</div>
   </div>
   <div class="col-md-3">
     <form novalidate>
@@ -132,6 +132,53 @@
       ></groot-combo>
     </form>
   </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Combo box with multiple selection</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Currency"
+        name="currencyMultiple"
+        [items]="currencies"
+        [required]="true"
+        [(ngModel)]="form.selectedCurrencies"
+        [multiple]="true"
+      ></groot-combo>
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Combo box with object values</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Album"
+        name="album"
+        [items]="albums"
+        [(ngModel)]="form.selectedAlbumId"
+        bindLabel="name"
+        bindValue="id"
+      ></groot-combo>
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<div class="alert alert-info">
+  <div class="alert-heading">Selected form:</div>
+  <pre>{{form | json}}</pre>
 </div>
 
 <div style="height: 50px;"></div>

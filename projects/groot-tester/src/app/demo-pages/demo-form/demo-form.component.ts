@@ -9,10 +9,27 @@ export class DemoFormComponent {
   form = {
     name: '',
     lastName: '',
-    currency: null
+    currency: null,
+    selectedCurrencies: [],
+    selectedAlbumId: null,
+    selectedRadio: 'first-radio',
+    customCheck0: true,
+    customCheck1: false
   };
-  public customCheck0 = true;
-  public customCheck1 = false;
-  public selectedRadio = 'first-radio';
+
   public currencies = ['EUR', 'USD', 'CHF'];
+  public albums = [
+    {
+      id: 1,
+      name: 'Dark side of the moon'
+    },
+    {
+      id: 2,
+      name: 'Who\'s next'
+    },
+    {
+      id: 3,
+      name: 'Tommy'
+    }
+  ];
 }
