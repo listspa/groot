@@ -97,6 +97,24 @@
   </div>
 </div>
 
+<hr>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Sample required textarea</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-textarea
+        label="Name"
+        name="name"
+        [required]="true"
+        [(ngModel)]="form.name"
+      ></groot-textarea>
+    </form>
+  </div>
+</div>
+
 <div style="height: 50px;"></div>
 
 <h2>Pure bootstrap (no groot components)</h2>
