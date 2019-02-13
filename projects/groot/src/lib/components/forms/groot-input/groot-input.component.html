@@ -19,13 +19,13 @@
          (ngModelChange)="writeValue($event)"
          [class.is-invalid]="!input.valid && !input.pristine"
          [disabled]="disabled">
-  <div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
-    {{'common.required' | translate}}
-  </div>
   <div class="input-group-append" *ngIf="iconRight">
     <span class="input-group-text">
       <i [ngClass]="iconRight"></i>
     </span>
+  </div>
+  <div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
+    {{'common.required' | translate}}
   </div>
 </div>
 <small class="form-text text-muted" *ngIf="helpText">
