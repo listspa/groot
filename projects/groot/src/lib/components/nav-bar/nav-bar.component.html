@@ -6,7 +6,7 @@
         <div class="col-sm-11">
           <a class="navbar-brand" [routerLink]="'/'">
             <i *ngIf="rootMenu.icon" class="{{rootMenu.icon}}"></i>
-            <span>{{rootMenu.label}}</span>
+            <span>{{rootMenu.label | translate}}</span>
           </a>
         </div>
         <div class="col-sm text-right">
