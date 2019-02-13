@@ -10,4 +10,6 @@ export class DemoFormComponent {
     name: '',
     lastName: ''
   };
+  public customCheck0 = true;
+  public customCheck1 = false;
 }

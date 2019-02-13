@@ -39,6 +39,32 @@
   </div>
 </div>
 
+<hr>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Checkbox examples: selected, not selected, disabled</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-checkbox name="customCheck0"
+                      label="This is selected"
+                      [(ngModel)]="customCheck0">
+      </groot-checkbox>
+
+      <groot-checkbox name="customCheck1"
+                      label="This is a checkbox"
+                      [(ngModel)]="customCheck1">
+      </groot-checkbox>
+
+      <groot-checkbox name="customCheck2"
+                      label="This is disabled"
+                      [disabled]="true">
+      </groot-checkbox>
+    </form>
+  </div>
+</div>
+
 <div style="height: 50px;"></div>
 
 <h2>Pure bootstrap (no groot components)</h2>
@@ -63,18 +89,18 @@
 
     <div class="col-md-4">
       <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheck0" checked>
-        <label class="custom-control-label" for="customCheck0">This is selected</label>
+        <input type="checkbox" class="custom-control-input" id="customCheck3" checked>
+        <label class="custom-control-label" for="customCheck3">This is selected</label>
       </div>
 
       <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheck1">
-        <label class="custom-control-label" for="customCheck1">This is a checkbox</label>
+        <input type="checkbox" class="custom-control-input" id="customCheck4">
+        <label class="custom-control-label" for="customCheck4">This is a checkbox</label>
       </div>
 
       <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheck2" disabled>
-        <label class="custom-control-label" for="customCheck2">This is disabled</label>
+        <input type="checkbox" class="custom-control-input" id="customCheck5" disabled>
+        <label class="custom-control-label" for="customCheck5">This is disabled</label>
       </div>
     </div>
 

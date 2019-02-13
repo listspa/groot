@@ -19,6 +19,7 @@ import {FileSizePipe} from './pipes/fileSize/fileSize.pipe';
 import {RouterModule} from '@angular/router';
 import {GrootInputComponent} from './components/forms/groot-input/groot-input.component';
 import {FormsModule} from '@angular/forms';
+import {GrootCheckboxComponent} from './components/forms/groot-checkbox/groot-checkbox.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {FormsModule} from '@angular/forms';
     TableTitleBarComponent,
     FileSizePipe,
     GrootInputComponent,
+    GrootCheckboxComponent,
   ],
   imports: [
     CommonModule,
@@ -56,6 +58,7 @@ import {FormsModule} from '@angular/forms';
     TableTitleBarComponent,
     FileSizePipe,
     GrootInputComponent,
+    GrootCheckboxComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,
