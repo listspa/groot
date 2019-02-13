@@ -17,7 +17,8 @@
          #input="ngModel"
          [ngModel]="text"
          (ngModelChange)="writeValue($event)"
-         [class.is-invalid]="!input.valid && !input.pristine">
+         [class.is-invalid]="!input.valid && !input.pristine"
+         [disabled]="disabled">
   <div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
     {{'common.required' | translate}}
   </div>
