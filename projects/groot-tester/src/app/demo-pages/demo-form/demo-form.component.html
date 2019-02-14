@@ -17,6 +17,17 @@
       ></groot-input>
     </form>
   </div>
+  <div class="col-md-7">
+    <pre class="form-field-sample-code"><code>
+      &lt;groot-input
+        label="Name 1"
+        name="name 1"
+        [required]="true"
+        [(ngModel)]="form.name"
+        iconRight="fa fa-user-o"
+      >&lt;/groot-input>
+    </code></pre>
+  </div>
 </div>
 
 <hr>
@@ -36,6 +47,18 @@
         iconLeft="fa fa-image"
       ></groot-input>
     </form>
+  </div>
+  <div class="col-md-7">
+    <pre class="form-field-sample-code"><code>
+    &lt;groot-input
+      label="Name 2"
+      name="name2"
+      [required]="false"
+      [(ngModel)]="form.name"
+      helpText="your first name, not your last name!"
+      iconLeft="fa fa-image"
+    >&lt;/groot-input>
+    </code></pre>
   </div>
 </div>
 
@@ -62,6 +85,24 @@
                       [disabled]="true">
       </groot-checkbox>
     </form>
+  </div>
+  <div class="col-md-7">
+    <pre class="form-field-sample-code"><code>
+      &lt;groot-checkbox name="customCheck0"
+                   label="This is selected"
+                   [(ngModel)]="form.customCheck0">
+      &lt;/groot-checkbox>
+
+      &lt;groot-checkbox name="customCheck1"
+                      label="This is a checkbox"
+                      [(ngModel)]="form.customCheck1">
+      &lt;/groot-checkbox>
+
+      &lt;groot-checkbox name="customCheck2"
+                      label="This is disabled"
+                      [disabled]="true">
+      &lt;/groot-checkbox>
+    </code></pre>
   </div>
 </div>
 
@@ -95,6 +136,30 @@
       </groot-radio>
     </form>
   </div>
+  <div class="col-md-7">
+    <pre class="form-field-sample-code"><code>
+      &lt;groot-radio name="groot-radio"
+                       idRadio="gRadio1"
+                       value="first-radio"
+                       label="This is selected"
+                       [(ngModel)]="form.selectedRadio">
+      &lt;/groot-radio>
+
+      &lt;groot-radio name="groot-radio"
+                   idRadio="gRadio2"
+                   value="second-radio"
+                   label="This is a radio"
+                   [(ngModel)]="form.selectedRadio">
+      &lt;/groot-radio>
+
+      &lt;groot-radio name="groot-radio"
+                   idRadio="gRadio3"
+                   value="third-radio"
+                   label="This is disabled"
+                   [disabled]="true">
+      &lt;/groot-radio>
+    </code></pre>
+  </div>
 </div>
 
 <hr>
@@ -112,6 +177,16 @@
         [(ngModel)]="form.name"
       ></groot-textarea>
     </form>
+  </div>
+  <div class="col-md-7">
+    <pre class="form-field-sample-code"><code>
+    &lt;groot-textarea
+       label="Name"
+       name="name"
+       [required]="true"
+       [(ngModel)]="form.name"
+    >&lt;/groot-textarea>
+    </code></pre>
   </div>
 </div>
 
@@ -131,6 +206,17 @@
         [(ngModel)]="form.currency"
       ></groot-combo>
     </form>
+  </div>
+  <div class="col-md-7">
+    <pre class="form-field-sample-code"><code>
+      &lt;groot-combo
+        label="Currency"
+        name="currency"
+        [items]="currencies"
+        [required]="true"
+        [(ngModel)]="form.currency"
+      >&lt;/groot-combo>
+    </code></pre>
   </div>
 </div>
 
@@ -152,6 +238,18 @@
       ></groot-combo>
     </form>
   </div>
+  <div class="col-md-7">
+    <pre class="form-field-sample-code"><code>
+      &lt;groot-combo
+        label="Currency"
+        name="currencyMultiple"
+        [items]="currencies"
+        [required]="true"
+        [(ngModel)]="form.selectedCurrencies"
+        [multiple]="true"
+      >&lt;/groot-combo>
+    </code></pre>
+  </div>
 </div>
 
 <hr>
@@ -172,6 +270,18 @@
       ></groot-combo>
     </form>
   </div>
+  <div class="col-md-7">
+    <pre class="form-field-sample-code"><code>
+      &lt;groot-combo
+        label="Album"
+        name="album"
+        [items]="albums"
+        [(ngModel)]="form.selectedAlbumId"
+        bindLabel="name"
+        bindValue="id"
+      >&lt;/groot-combo>
+    </code></pre>
+  </div>
 </div>
 
 <hr>
@@ -190,6 +300,17 @@
         helpText="select a date please"
       ></groot-date-picker>
     </form>
+  </div>
+  <div class="col-md-7">
+    <pre class="form-field-sample-code"><code>
+      &lt;groot-date-picker
+        label="Date"
+        name="date"
+        [required]="true"
+        [(ngModel)]="form.date"
+        helpText="select a date please"
+      >&lt;/groot-date-picker>
+    </code></pre>
   </div>
 </div>
 
