@@ -14,7 +14,8 @@ export class DemoFormComponent {
     selectedAlbumId: null,
     selectedRadio: 'first-radio',
     customCheck0: true,
-    customCheck1: false
+    customCheck1: false,
+    date: new Date()
   };
 
   public currencies = ['EUR', 'USD', 'CHF'];

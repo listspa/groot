@@ -218,9 +218,7 @@
         <input type="checkbox" class="custom-control-input" id="customCheck5" disabled>
         <label class="custom-control-label" for="customCheck5">This is disabled</label>
       </div>
-    </div>
 
-    <div class="col-md-4">
       <div class="custom-control custom-radio">
         <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
         <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
@@ -232,6 +230,23 @@
       <div class="custom-control custom-radio">
         <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" disabled>
         <label class="custom-control-label" for="customRadio3">This is disabled</label>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label translate>exchangeRates.settlementDateFrom</label>
+      <div class="input-group">
+        <input type="text"
+               class="form-control"
+               #settlementDateFromDP="bsDatepicker"
+               bsDatepicker
+               [(ngModel)]="form.date"
+               name="settlementDateFrom">
+        <div class="input-group-append" (click)="settlementDateFromDP.toggle()">
+          <span class="input-group-text">
+            <i class="fa fa-calendar"></i>
+          </span>
+        </div>
       </div>
     </div>
   </div>

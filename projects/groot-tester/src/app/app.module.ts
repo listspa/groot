@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {GrootModule} from '../../../groot/src/lib/groot.module';
-import {BsDatepickerModule, defineLocale, itLocale, TabsModule, TimepickerModule} from 'ngx-bootstrap';
+import {BsDatepickerConfig, BsDatepickerModule, defineLocale, itLocale, TabsModule, TimepickerModule} from 'ngx-bootstrap';
 import {registerLocaleData} from '@angular/common';
 import localeIt from '@angular/common/locales/it';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -18,7 +18,7 @@ import {DemoToasterComponent} from './demo-pages/demo-toaster/demo-toaster.compo
 import {DemoTableComponent} from './demo-pages/demo-table/demo-table.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { DemoFormComponent } from './demo-pages/demo-form/demo-form.component';
+import {DemoFormComponent} from './demo-pages/demo-form/demo-form.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -54,7 +54,17 @@ export function HttpLoaderFactory(http: HttpClient) {
     GrootModule.forRoot(),
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    // Configure date pickers to use the "primary" theme by default and non-US date format
+    {
+      provide: BsDatepickerConfig, useFactory: () => {
+        const conf = new BsDatepickerConfig();
+        conf.containerClass = 'theme-primary';
+        conf.dateInputFormat = 'DD/MM/YYYY';
+        return conf;
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
