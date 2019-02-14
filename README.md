@@ -61,3 +61,20 @@ In your `providers` section of your app module, add this:
     {provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker}
   ],
 ```
+
+### Logging missing translations
+
+If you want to log missing translations to the console, you can simply pass this:
+
+```
+  TranslateModule.forRoot({
+    // Your configuration
+    missingTranslationHandler: {
+      provide: MissingTranslationHandler,
+      useClass: GrootMissingTranslationLogger,
+      deps: [ConsoleLoggingService]
+    }
+  })
+```
+
+This will register our reporter for missing translations in the `Translate` service.

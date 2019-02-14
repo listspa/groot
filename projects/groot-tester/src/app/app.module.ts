@@ -6,7 +6,7 @@ import {GrootModule} from '../../../groot/src/lib/groot.module';
 import {BsDatepickerConfig, BsDatepickerModule, defineLocale, itLocale, TabsModule, TimepickerModule} from 'ngx-bootstrap';
 import {registerLocaleData} from '@angular/common';
 import localeIt from '@angular/common/locales/it';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {MissingTranslationHandler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {FormsModule} from '@angular/forms';
 import {DemoButtonsComponent} from './demo-pages/demo-buttons/demo-buttons.component';
@@ -20,6 +20,8 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {DemoFormComponent} from './demo-pages/demo-form/demo-form.component';
 import {grootConfigBsDatePicker} from '../../../groot/src/lib/components/forms/groot-date-picker/groot-date-picker-config';
+import {GrootMissingTranslationLogger} from '../../../groot/src/lib/utils/missing-translation-logger';
+import {ConsoleLoggingService} from '../../../groot/src/lib/services/console-logging.service';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -47,7 +49,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     NgSelectModule,
     TranslateModule.forRoot({
-      loader: {provide: TranslateLoader, useFactory: HttpLoaderFactory, deps: [HttpClient]}
+      loader: {provide: TranslateLoader, useFactory: HttpLoaderFactory, deps: [HttpClient]},
+      missingTranslationHandler: {
+        provide: MissingTranslationHandler,
+        useClass: GrootMissingTranslationLogger,
+        deps: [ConsoleLoggingService]
+      }
     }),
     BsDatepickerModule.forRoot(),
     TimepickerModule.forRoot(),
