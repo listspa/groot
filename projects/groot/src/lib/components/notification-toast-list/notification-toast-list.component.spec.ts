@@ -31,7 +31,7 @@ describe('NotificationToastListComponent', () => {
   it('should have no toasts at creation', () => {
     expect(component).toBeTruthy();
 
-    const toasts = fixture.debugElement.nativeElement.querySelector('.toaster-toast');
+    const toasts = fixture.debugElement.nativeElement.querySelector('.groot-notification-toasts-toast');
     expect(toasts).toBeNull();
   });
 
@@ -39,7 +39,7 @@ describe('NotificationToastListComponent', () => {
     service.addToast({label: 'hello'});
     fixture.detectChanges();
 
-    const firstToast = fixture.debugElement.nativeElement.querySelector('.toaster-toast');
+    const firstToast = fixture.debugElement.nativeElement.querySelector('.groot-notification-toasts-toast');
     expect(firstToast).not.toBeNull();
     const text = firstToast.querySelector('p');
     expect(text).not.toBeNull();
