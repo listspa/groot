@@ -19,3 +19,8 @@ $fa-font-path: '~font-awesome/fonts';
 @import "tables";
 @import "buttons";
 @import "tabs";
+
+// Our components *must* have the css included in this file, and not via the
+// angular's component-specific css file, otherwise we won't be able to skin them
+// (change the groot variables)
+@import "components/collapsible-box.component";
