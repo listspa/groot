@@ -8,8 +8,7 @@ interface ConcreteMenu extends Menu {
 
 @Component({
   selector: 'groot-nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  templateUrl: './nav-bar.component.html'
 })
 export class NavBarComponent {
   public menuCollapsed = true;
