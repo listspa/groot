@@ -64,8 +64,8 @@ $info: $light-blue !default;
 $warning: $orange !default;
 $danger: $red !default;
 
-$lighter-primary: $lighter-blue !default;
-$lightest-primary: $lightest-blue !default;
+$light-primary: desaturate(lighten($primary, 10), 20) !default;
+$lightest-primary: desaturate(lighten($primary, 50), 35) !default;
 $brand: $isp-green !default;
 $promotion: $purple !default;
 $deselected: $gray-100 !default;
