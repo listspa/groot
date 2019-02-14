@@ -5,7 +5,6 @@ import {animate, style, transition, trigger} from '@angular/animations';
 @Component({
   selector: 'groot-notification-toast-list',
   templateUrl: './notification-toast-list.component.html',
-  styleUrls: ['./notification-toast-list.component.scss'],
   animations: [
     // Stolen from https://medium.com/google-developer-experts/angular-applying-motion-principles-to-a-list-d5cdd35c899e
     trigger('items', [

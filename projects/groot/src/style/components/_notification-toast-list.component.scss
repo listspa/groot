@@ -1,10 +1,10 @@
-@import '../../../style/groot-variables';
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
+@import '../groot-variables';
+@import '../../../../../node_modules/bootstrap/scss/functions';
+@import '../../../../../node_modules/bootstrap/scss/variables';
 
 $toast-border-radius: 10px;
 
-.toaster-area {
+.groot-notification-toasts-toaster-area {
   position: fixed;
   bottom: 2rem;
   left: 1rem;
@@ -12,7 +12,7 @@ $toast-border-radius: 10px;
   z-index: 2000;
 }
 
-.toaster-toast {
+.groot-notification-toasts-toast {
   width: 25rem;
   height: 9rem;
   padding: 0.5rem 1rem;
