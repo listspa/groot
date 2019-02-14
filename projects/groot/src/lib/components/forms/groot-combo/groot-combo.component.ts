@@ -24,7 +24,7 @@ export class GrootComboComponent implements ControlValueAccessor {
   @Input() bindValue: string | null = null;
   selectedValue: any;
 
-  onChange = (selectedValue: string) => null;
+  onChange = (selectedValue: any) => null;
   onTouched = () => null;
 
   writeValue(selectedValue: any): void {
@@ -32,7 +32,7 @@ export class GrootComboComponent implements ControlValueAccessor {
     this.onChange(this.selectedValue);
   }
 
-  registerOnChange(fn: (selectedValue: string) => void): void {
+  registerOnChange(fn: (selectedValue: any) => void): void {
     this.onChange = fn;
   }
 
