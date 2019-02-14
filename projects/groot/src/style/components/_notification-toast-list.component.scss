@@ -21,7 +21,6 @@ $toast-border-radius: 10px;
   margin-top: 1rem;
   position: relative;
   opacity: 0.92;
-  color: $white;
 
   .toaster-toast-title {
     margin-bottom: 0.5rem
@@ -36,6 +35,7 @@ $toast-border-radius: 10px;
 @each $color, $value in $theme-colors {
   .toaster-style-#{$color} {
     background-color: $value;
+    color: color-yiq($value);
   }
 }
 

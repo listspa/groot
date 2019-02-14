@@ -9,7 +9,7 @@
     display: block;
     width: 100%;
     background-color: $light-primary;
-    color: $white;
+    color: color-yiq($light-primary);
     border-radius: $border-radius $border-radius 0 0;
     padding: 0.3rem 1rem;
     margin-bottom: 0;

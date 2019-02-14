@@ -55,7 +55,7 @@ groot-table-pagination {
 
     &.active {
       background-color: $primary;
-      color: $white;
+      color: color-yiq($primary);
     }
   }
 
