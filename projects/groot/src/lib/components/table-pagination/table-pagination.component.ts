@@ -2,8 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'groot-table-pagination',
-  templateUrl: './table-pagination.component.html',
-  styleUrls: ['./table-pagination.component.scss'],
+  templateUrl: './table-pagination.component.html'
 })
 export class TablePaginationComponent {
   _pageNum = 0;

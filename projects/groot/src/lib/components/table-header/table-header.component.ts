@@ -3,8 +3,7 @@ import {Sorting} from '../../nbpu.interfaces';
 
 @Component({
   selector: 'groot-table-header',
-  templateUrl: './table-header.component.html',
-  styleUrls: ['./table-header.component.scss']
+  templateUrl: './table-header.component.html'
 })
 export class TableHeaderComponent {
   @Input() label: string;

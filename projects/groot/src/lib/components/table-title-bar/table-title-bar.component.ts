@@ -9,8 +9,7 @@ interface PageInfo {
 
 @Component({
   selector: 'groot-table-title-bar',
-  templateUrl: './table-title-bar.component.html',
-  styleUrls: ['./table-title-bar.component.scss']
+  templateUrl: './table-title-bar.component.html'
 })
 export class TableTitleBarComponent {
   @Input() label = 'common.searchResults';
