@@ -29,7 +29,7 @@
     <div class="bg-dark p-4">
       <div class="container-fluid menu-content">
         <!-- Breadcrumbs -->
-        <div class="nav-breadcrumb">
+        <div class="nav-breadcrumb" *ngIf="breadcrumbs.length > 1 || showAlwaysBreadcrumbs">
           <ul>
             <li *ngFor="let item of breadcrumbs; let i = index"
                 (click)="selectBreadcrumb(item, i)"

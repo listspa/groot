@@ -20,6 +20,7 @@ export class NavBarComponent {
   };
   public currentMenu: ConcreteMenu;
   public breadcrumbs: ConcreteMenu[] = [];
+  @Input() public showAlwaysBreadcrumbs = true;
 
   constructor(private readonly router: Router) {
   }
