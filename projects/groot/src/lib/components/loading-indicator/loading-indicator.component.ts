@@ -5,13 +5,12 @@ import {LoadingService} from '../../services/loading.service';
   selector: 'groot-loading-indicator',
   template: `
     <div *ngIf="show">
-      <div class="background-mask"></div>
-      <svg class="spinner" viewBox="0 0 50 50">
+      <div class="groot-loading-indicator-background-mask"></div>
+      <svg class="groot-loading-indicator-spinner" viewBox="0 0 50 50">
         <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
       </svg>
     </div>
-  `,
-  styleUrls: ['./loading-indicator.component.scss']
+  `
 })
 export class LoadingIndicatorComponent implements OnInit {
   show = false;
