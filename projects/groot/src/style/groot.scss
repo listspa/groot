@@ -19,6 +19,7 @@ $fa-font-path: '~font-awesome/fonts';
 @import "tables";
 @import "buttons";
 @import "tabs";
+@import "modals";
 
 // Our components *must* have the css included in this file, and not via the
 // angular's component-specific css file, otherwise we won't be able to skin them

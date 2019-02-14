@@ -8,6 +8,7 @@ import {DemoToasterComponent} from './demo-pages/demo-toaster/demo-toaster.compo
 import {DemoTableComponent} from './demo-pages/demo-table/demo-table.component';
 import {DemoFormComponent} from './demo-pages/demo-form/demo-form.component';
 import {DemoBoxComponent} from './demo-pages/demo-box/demo-box.component';
+import {DemoModalsComponent} from './demo-pages/demo-modals/demo-modals.component';
 
 const routes: Routes = [
   {component: DemoHomeComponent, path: 'demo'},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {component: DemoTableComponent, path: 'demo/tables'},
   {component: DemoFormComponent, path: 'demo/forms'},
   {component: DemoBoxComponent, path: 'demo/boxes'},
+  {component: DemoModalsComponent, path: 'demo/modals'},
   {path: '', pathMatch: 'full', redirectTo: 'demo'}
 ];
 

@@ -1,0 +1,22 @@
+@each $color, $value in $theme-colors {
+  .modal-header.bg-#{$color} {
+    background-color: $value;
+    color: color-yiq($value);
+
+    .close {
+      color: color-yiq($value);
+    }
+  }
+}
+
+.modal-header {
+  padding: 0.5rem 1rem;
+
+  .close {
+    margin: -0.5rem -1rem -0.5rem;
+  }
+}
+
+.modal-title {
+  margin: auto 0;
+}

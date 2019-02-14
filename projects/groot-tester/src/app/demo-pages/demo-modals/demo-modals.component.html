@@ -1,0 +1,20 @@
+<ng-template #template>
+  <div class="modal-header bg-primary">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is a modal.
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary">Save changes</button>
+    <button type="button" class="btn btn-secondary">Close</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-primary"
+        (click)="openPopup(template)">
+  Open modal with embedded template
+</button>

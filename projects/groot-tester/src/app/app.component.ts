@@ -22,40 +22,18 @@ export class AppComponent {
             }
           ],
           [
-            {
-              label: 'buttoms',
-              url: '/demo/buttons'
-            },
-            {
-              label: 'tabs',
-              url: '/demo/tabs'
-            },
-            {
-              label: 'boxes',
-              url: '/demo/boxes'
-            }
+            {label: 'buttoms', url: '/demo/buttons'},
+            {label: 'tabs', url: '/demo/tabs'},
+            {label: 'boxes', url: '/demo/boxes'}
           ],
           [
-            {
-              label: 'loading',
-              url: '/demo/loading',
-              icon: 'fa fa-refresh'
-            },
-            {
-              label: 'toasts',
-              url: '/demo/toasts'
-            },
+            {label: 'loading', url: '/demo/loading', icon: 'fa fa-refresh'},
+            {label: 'toasts', url: '/demo/toasts'},
+            {label: 'modals', url: '/demo/modals', icon: 'fa fa-window'}
           ],
           [
-            {
-              label: 'tables',
-              url: '/demo/tables',
-              icon: 'fa fa-table'
-            },
-            {
-              label: 'forms',
-              url: '/demo/forms'
-            }
+            {label: 'tables', url: '/demo/tables', icon: 'fa fa-table'},
+            {label: 'forms', url: '/demo/forms'}
           ]
         ]
       }
