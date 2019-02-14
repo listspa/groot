@@ -29,6 +29,10 @@ export class AppComponent {
             {
               label: 'tabs',
               url: '/demo/tabs'
+            },
+            {
+              label: 'boxes',
+              url: '/demo/boxes'
             }
           ],
           [

@@ -22,6 +22,7 @@ import {DemoFormComponent} from './demo-pages/demo-form/demo-form.component';
 import {grootConfigBsDatePicker} from '../../../groot/src/lib/components/forms/groot-date-picker/groot-date-picker-config';
 import {GrootMissingTranslationLogger} from '../../../groot/src/lib/utils/missing-translation-logger';
 import {ConsoleLoggingService} from '../../../groot/src/lib/services/console-logging.service';
+import {DemoBoxComponent} from './demo-pages/demo-box/demo-box.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -41,7 +42,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DemoLoadingComponent,
     DemoToasterComponent,
     DemoTableComponent,
-    DemoFormComponent
+    DemoFormComponent,
+    DemoBoxComponent
   ],
   imports: [
     BrowserModule,
