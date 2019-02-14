@@ -8,7 +8,7 @@ import {CollapsibleBoxComponent} from './components/collapsible-box/collapsible-
 import {LoadingDirective} from './directives/loading.directive';
 import {LoadingIndicatorComponent} from './components/loading-indicator/loading-indicator.component';
 import {LoadingService} from './services/loading.service';
-import {TabsModule} from 'ngx-bootstrap';
+import {BsDatepickerModule, TabsModule} from 'ngx-bootstrap';
 import {NotificationToastListComponent} from './components/notification-toast-list/notification-toast-list.component';
 import {NotificationToastService} from './services/notification-toast.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -24,6 +24,7 @@ import {GrootRadioComponent} from './components/forms/groot-radio/groot-radio.co
 import {GrootTextAreaComponent} from './components/forms/groot-textarea/groot-textarea.component';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {GrootComboComponent} from './components/forms/groot-combo/groot-combo.component';
+import {GrootDatePickerComponent} from './components/forms/groot-date-picker/groot-date-picker.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {GrootComboComponent} from './components/forms/groot-combo/groot-combo.co
     GrootRadioComponent,
     GrootTextAreaComponent,
     GrootComboComponent,
+    GrootDatePickerComponent,
   ],
   imports: [
     CommonModule,
@@ -52,6 +54,7 @@ import {GrootComboComponent} from './components/forms/groot-combo/groot-combo.co
     RouterModule,
     FormsModule,
     NgSelectModule,
+    BsDatepickerModule,
   ],
   exports: [
     TablePaginationComponent,
@@ -70,6 +73,7 @@ import {GrootComboComponent} from './components/forms/groot-combo/groot-combo.co
     GrootRadioComponent,
     GrootTextAreaComponent,
     GrootComboComponent,
+    GrootDatePickerComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

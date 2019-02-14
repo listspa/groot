@@ -1,0 +1,31 @@
+<label for="{{name}}">
+  {{label | translate}}
+  <span *ngIf="required">*</span>
+</label>
+
+<div class="input-group">
+  <input type="text"
+         class="form-control"
+         placeholder="{{label | translate}}"
+         [required]="required"
+         id="{{name}}"
+         [name]="name"
+         bsDatepicker
+         #datePickerDirective="bsDatepicker"
+         #input=ngModel
+         [ngModel]="selectedDate"
+         (ngModelChange)="writeValue($event)"
+         [class.is-invalid]="!input.valid && !input.pristine"
+         [disabled]="disabled">
+  <div class="input-group-append" (click)="datePickerDirective.toggle()">
+    <span class="input-group-text">
+      <i class="fa fa-calendar"></i>
+    </span>
+  </div>
+  <div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
+    {{'common.required' | translate}}
+  </div>
+</div>
+<small class="form-text text-muted" *ngIf="helpText">
+  {{helpText | translate}}
+</small>

@@ -19,6 +19,7 @@ import {DemoTableComponent} from './demo-pages/demo-table/demo-table.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {DemoFormComponent} from './demo-pages/demo-form/demo-form.component';
+import {grootConfigBsDatePicker} from '../../../groot/src/lib/components/forms/groot-date-picker/groot-date-picker-config';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -55,15 +56,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
   ],
   providers: [
-    // Configure date pickers to use the "primary" theme by default and non-US date format
-    {
-      provide: BsDatepickerConfig, useFactory: () => {
-        const conf = new BsDatepickerConfig();
-        conf.containerClass = 'theme-primary';
-        conf.dateInputFormat = 'DD/MM/YYYY';
-        return conf;
-      }
-    }
+    {provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker}
   ],
   bootstrap: [AppComponent]
 })

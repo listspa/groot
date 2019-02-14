@@ -176,6 +176,25 @@
 
 <hr>
 
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Not mandatory field, with help text and icon left</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-date-picker
+        label="Date"
+        name="date"
+        [required]="true"
+        [(ngModel)]="form.date"
+        helpText="select a date please"
+      ></groot-date-picker>
+    </form>
+  </div>
+</div>
+
+<hr>
+
 <div class="alert alert-info">
   <div class="alert-heading">Selected form:</div>
   <pre>{{form | json}}</pre>

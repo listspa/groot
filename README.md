@@ -28,7 +28,7 @@ with this content:
 You can now install the library and the required dependencies:
  
 ```
-npm install @listspa/groot @ngx-translate/core bootstrap ngx-bootstrap font-awesome filesize
+npm install @listspa/groot @ngx-translate/core bootstrap filesize font-awesome ngx-bootstrap 
 ```
 
 ## Css
@@ -42,13 +42,22 @@ $groot-assets-base-dir: '~@listspa/groot/assets';
 
 ## App module
 
-In your app module, in the imports section, add our module and the required libraries:
+In your app module, in the `imports` section, add our module and the required libraries:
 
 ```
   imports: [
     BrowserModule,
     ...,
     TranslateModule.forRoot(),
-    GrootModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    GrootModule.forRoot(),
+  ],
+```
+
+In your `providers` section of your app module, add this:
+
+```
+  providers: [
+    {provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker}
   ],
 ```
