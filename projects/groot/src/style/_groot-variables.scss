@@ -151,3 +151,13 @@ $tab-border-radius: 3px !default; // Slightly more than usual
 // Transitions
 
 $fast-transition-speed: 0.15s;
+
+// Tooltips
+
+$tooltip-max-width: 300px !default;
+$tooltip-padding-x: .5rem !default;
+$tooltip-padding-y: .5rem !default;
+$tooltip-arrow-width: 1rem !default;
+$tooltip-arrow-height: 0.5rem !default;
+$tooltip-bg: $gray-900 !default;
+$tooltip-opacity: 0.96 !default;
