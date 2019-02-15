@@ -30,5 +30,6 @@ export * from './lib/services/logging.service';
 export * from './lib/services/notification-toast.service';
 export * from './lib/utils/date-utils';
 export * from './lib/utils/generic-table-component-base';
+export * from './lib/utils/missing-translation-logger';
 export * from './lib/utils/string-utils';
 export * from './lib/utils/translation-utils';
