@@ -10,6 +10,7 @@ import {DemoFormComponent} from './demo-pages/demo-form/demo-form.component';
 import {DemoBoxComponent} from './demo-pages/demo-box/demo-box.component';
 import {DemoModalsComponent} from './demo-pages/demo-modals/demo-modals.component';
 import {DemoTooltipComponent} from './demo-pages/demo-tooltip/demo-tooltip.component';
+import {DemoColorsComponent} from './demo-pages/demo-colors/demo-colors.component';
 
 const routes: Routes = [
   {component: DemoHomeComponent, path: 'demo'},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {component: DemoBoxComponent, path: 'demo/boxes'},
   {component: DemoModalsComponent, path: 'demo/modals'},
   {component: DemoTooltipComponent, path: 'demo/tooltips'},
+  {component: DemoColorsComponent, path: 'demo/colors'},
   {path: '', pathMatch: 'full', redirectTo: 'demo'}
 ];
 

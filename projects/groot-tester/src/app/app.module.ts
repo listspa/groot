@@ -34,6 +34,7 @@ import {ConsoleLoggingService} from '../../../groot/src/lib/services/console-log
 import {DemoBoxComponent} from './demo-pages/demo-box/demo-box.component';
 import {DemoModalsComponent} from './demo-pages/demo-modals/demo-modals.component';
 import {DemoTooltipComponent} from './demo-pages/demo-tooltip/demo-tooltip.component';
+import {DemoColorsComponent} from './demo-pages/demo-colors/demo-colors.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -56,7 +57,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DemoFormComponent,
     DemoBoxComponent,
     DemoModalsComponent,
-    DemoTooltipComponent
+    DemoTooltipComponent,
+    DemoColorsComponent
   ],
   imports: [
     BrowserModule,

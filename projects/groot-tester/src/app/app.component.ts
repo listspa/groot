@@ -24,7 +24,8 @@ export class AppComponent {
           [
             {label: 'buttoms', url: '/demo/buttons'},
             {label: 'tabs', url: '/demo/tabs'},
-            {label: 'boxes', url: '/demo/boxes'}
+            {label: 'boxes', url: '/demo/boxes'},
+            {label: 'colors', url: '/demo/colors'}
           ],
           [
             {label: 'loading', url: '/demo/loading', icon: 'fa fa-refresh'},
