@@ -12,6 +12,8 @@ Then, to create the project foo:
 ng new foo
 ```
 
+Be sure to add the routing and use SCSS as stylesheet format.
+
 ## Add our private npm repo
 
 Since our library is not public, we only publish it to a private npm repo.
@@ -28,7 +30,7 @@ with this content:
 You can now install the library and the required dependencies:
  
 ```
-npm install @listspa/groot @ngx-translate/core bootstrap filesize font-awesome ngx-bootstrap 
+npm install @listspa/groot @ngx-translate/core @ng-select/ng-select bootstrap filesize font-awesome ngx-bootstrap @ngx-translate/http-loader 
 ```
 
 ## Css
@@ -48,8 +50,14 @@ In your app module, in the `imports` section, add our module and the required li
   imports: [
     BrowserModule,
     ...,
+    FormsModule,
+    NgSelectModule,
     TranslateModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    TimepickerModule.forRoot(),
+    TabsModule.forRoot(),
+    ModalModule.forRoot(),
+    TooltipModule.forRoot(),
     GrootModule.forRoot(),
   ],
 ```
