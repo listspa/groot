@@ -3,7 +3,16 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {GrootModule} from '../../../groot/src/lib/groot.module';
-import {BsDatepickerConfig, BsDatepickerModule, defineLocale, itLocale, ModalModule, TabsModule, TimepickerModule} from 'ngx-bootstrap';
+import {
+  BsDatepickerConfig,
+  BsDatepickerModule,
+  defineLocale,
+  itLocale,
+  ModalModule,
+  TabsModule,
+  TimepickerModule,
+  TooltipModule
+} from 'ngx-bootstrap';
 import {registerLocaleData} from '@angular/common';
 import localeIt from '@angular/common/locales/it';
 import {MissingTranslationHandler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -24,6 +33,7 @@ import {GrootMissingTranslationLogger} from '../../../groot/src/lib/utils/missin
 import {ConsoleLoggingService} from '../../../groot/src/lib/services/console-logging.service';
 import {DemoBoxComponent} from './demo-pages/demo-box/demo-box.component';
 import {DemoModalsComponent} from './demo-pages/demo-modals/demo-modals.component';
+import {DemoTooltipComponent} from './demo-pages/demo-tooltip/demo-tooltip.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -45,7 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DemoTableComponent,
     DemoFormComponent,
     DemoBoxComponent,
-    DemoModalsComponent
+    DemoModalsComponent,
+    DemoTooltipComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +75,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TimepickerModule.forRoot(),
     TabsModule.forRoot(),
     ModalModule.forRoot(),
+    TooltipModule.forRoot(),
     GrootModule.forRoot(),
     AppRoutingModule,
   ],

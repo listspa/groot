@@ -1,0 +1,17 @@
+<h1>Demo of tooltips</h1>
+
+<p>
+  This is some text
+<span class="font-weight-bold"
+      tooltip="This is the tooltip"
+>with a tooltip.</span>
+</p>
+
+<p>
+  This is some other text with a tooltip <span class="font-weight-bold" [tooltip]="tooltipTemplate">from an angular template.</span>
+</p>
+<ng-template #tooltipTemplate>
+  <h4>This is a complex tooltip</h4>
+
+  <p>Useful to display multiple lines of information.</p>
+</ng-template>

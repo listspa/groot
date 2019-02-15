@@ -33,7 +33,8 @@ export class AppComponent {
           ],
           [
             {label: 'tables', url: '/demo/tables', icon: 'fa fa-table'},
-            {label: 'forms', url: '/demo/forms'}
+            {label: 'forms', url: '/demo/forms'},
+            {label: 'tooltips', url: '/demo/tooltips'}
           ]
         ]
       }
