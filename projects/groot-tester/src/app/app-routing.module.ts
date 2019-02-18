@@ -14,11 +14,13 @@ import {DemoColorsComponent} from './demo-pages/demo-colors/demo-colors.componen
 import {HomepageComponent} from './homepage/homepage.component';
 import {ExternalReferencesComponent} from './docs/external-references/external-references.component';
 import {GettingStartedComponent} from './docs/getting-started/getting-started.component';
+import {GrootStyleComponent} from './docs/groot-style/groot-style.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
   {component: GettingStartedComponent, path: 'docs/getting-started'},
   {component: ExternalReferencesComponent, path: 'docs/external-references'},
+  {component: GrootStyleComponent, path: 'docs/groot-style'},
   {component: DemoHomeComponent, path: 'demo'},
   {component: DemoButtonsComponent, path: 'demo/buttons'},
   {component: DemoTabsComponent, path: 'demo/tabs'},

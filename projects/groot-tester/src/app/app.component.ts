@@ -15,11 +15,16 @@ export class AppComponent {
         label: 'home', icon: 'fa fa-home', url: '/home'
       },
       {
-        label: 'docs',
+        label: 'Docs',
         icon: 'fa fa-book',
         children: [
           [
             {label: 'Getting started', url: '/docs/getting-started'},
+          ],
+          [
+            {label: 'Stylesheets and skins', url: '/docs/groot-style'},
+          ],
+          [
             {label: 'External references', url: '/docs/external-references'},
           ]
         ]
