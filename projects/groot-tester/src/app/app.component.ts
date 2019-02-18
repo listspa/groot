@@ -27,6 +27,7 @@ export class AppComponent {
           [
             {label: 'Stylesheets and skins', url: '/docs/groot-style'},
             {label: 'Icons', url: '/docs/icons'},
+            {label: 'Translations', url: '/docs/translations-guide'},
           ],
           [
             {label: 'Internet explorer', url: '/docs/ie-support', icon: 'fa fa-internet-explorer'},

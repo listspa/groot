@@ -1,0 +1,76 @@
+<h1>Translations</h1>
+
+<p>
+  In Groot we have decided to use <a href="https://github.com/ngx-translate/core" target="_blank">Ngx-Translate</a>
+  as the library for managing translations. The usage is very simple: <code>label | translate</code>.
+</p>
+
+<p>The translations can be loaded from two sources, depending on your server.</p>
+
+<h2>Using nbp-project-utils</h2>
+
+<p>
+  If you are already using the nbp-project-utils library, then the translations can be stored in the <code>NBPU_GUI_LABEL</code>
+  table. To load them in the Ngx-Translate library, use this in your app module file:
+</p>
+
+<pre><code>// Required as a separate function for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) &#123;
+  return new TranslateHttpLoader(http, `$&#123;BASE_URL}/labels?lang=`, '');
+}
+</code></pre>
+
+<p>
+  This function will load the translations from the nbp-project-utils controller, which in turns reads them from the
+  aforementioned table.
+</p>
+
+<h2>Not using nbp-project-utils</h2>
+
+<p>
+  Another solution is to load the translations from a static json file. In this case in your app module write this:
+</p>
+
+<pre><code>// Required as a separate function for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) &#123;
+  return new TranslateHttpLoader(http, `$&#123;BASE_URL}/assets/i18n/`);
+}
+</code></pre>
+
+<p>
+  The translations should be included in a file such as <code>assets/i18n/it.json</code>.
+</p>
+
+<h2>Setting the current language</h2>
+
+<p>The language will generally be set at the application startup in the constructor of <code>AppComponent</code>:</p>
+
+<pre><code>constructor(translate: TranslateService,
+              localeService: BsLocaleService) &#123;
+  translate.use('en');
+  localeService.use('en');
+}</code></pre>
+
+<p>Note that we are also setting the locale in the Ngx-Bootstrap service.</p>
+
+<p>
+  Of course you can call the same function to change the locale in your user's preferences page, or wherever
+  you want to include the "switch language" link in your application.
+</p>
+
+<h1>Italian support</h1>
+
+<p>
+  To correctly support the italian language, you need to add in your <code>AppModule</code> file this at the beginning:
+</p>
+
+<pre><code>import localeIt from '@angular/common/locales/it';
+import &#123;itLocale} from 'ngx-bootstrap';
+
+// Enable italian locale
+registerLocaleData(localeIt);
+defineLocale('it', itLocale);
+</code></pre>
+
+<p>This will ensure that all the relevant information, such as currencies and numbers settings, are set up
+  correctly.</p>

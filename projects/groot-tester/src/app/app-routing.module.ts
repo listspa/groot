@@ -17,6 +17,7 @@ import {GrootStyleComponent} from './docs/groot-style/groot-style.component';
 import {GettingHelpComponent} from './docs/getting-help/getting-help.component';
 import {IconsComponent} from './docs/icons/icons.component';
 import {IeSupportComponent} from './docs/ie-support/ie-support.component';
+import {TranslationsGuideComponent} from './docs/translations-guide/translations-guide.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {component: GettingHelpComponent, path: 'docs/getting-help'},
   {component: IconsComponent, path: 'docs/icons'},
   {component: IeSupportComponent, path: 'docs/ie-support'},
+  {component: TranslationsGuideComponent, path: 'docs/translations-guide'},
   {component: DemoButtonsComponent, path: 'demo/buttons'},
   {component: DemoTabsComponent, path: 'demo/tabs'},
   {component: DemoLoadingComponent, path: 'demo/loading'},
