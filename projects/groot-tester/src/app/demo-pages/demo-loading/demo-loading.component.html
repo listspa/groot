@@ -1,7 +1,35 @@
-<h1>Demo of loading mask</h1>
+<h1>Loading indicator</h1>
 
-<p>The loading indicator shows on top of the page</p>
+<p>Groot provides a loading indicator, that is shown on top of the page. Here's a button to try it:</p>
 
 <button class="btn btn-primary" (click)="testLoading()">
   Test loading (for 3 seconds)
 </button>
+
+<div class="mb-5"></div>
+
+<h2>How to use it</h2>
+
+<p>
+  To use it programmatically you need to do two things:
+</p>
+
+<ol>
+  <li>in your root component (generally <code>AppComponent</code>) add the appropriate tag:
+    <pre><code>&lt;groot-loading-indicator>&lt;/groot-loading-indicator></code></pre>
+  </li>
+  <li>when you want to enable the loading spinner use the <code>LoadingService</code> and call its
+    methods <code>startLoading()</code> and <code>doneLoading()</code>.
+  </li>
+</ol>
+
+<p>
+  To show it while an HTTP call is running, you might want to do something like this in your service:
+</p>
+
+<pre><code>public search(request: SearchRequest): Observable&lt;SearchResponse> &#123;
+  this.loadingService.startLoading();
+  return this.http.post&lt;SearchResponse>(`$&#123;BASE_URL}/exchangeRates/get`, request)
+    .pipe(finalize(() => this.loadingService.doneLoading()));
+}
+</code></pre>
