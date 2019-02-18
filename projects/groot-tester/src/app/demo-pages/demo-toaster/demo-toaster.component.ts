@@ -1,16 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {NotificationToastService, ToastStyle} from '../../../../../groot/src/lib/services/notification-toast.service';
 
 @Component({
   selector: 'app-demo-toaster',
   templateUrl: './demo-toaster.component.html'
 })
-export class DemoToasterComponent implements OnInit {
+export class DemoToasterComponent {
   constructor(private toastService: NotificationToastService) {
   }
 
-  ngOnInit(): void {
-    // On loading show some toasts
+  showToasts(): void {
     this.toastService.addToast({
       label: 'click on me to send me away',
       autoRemove: false

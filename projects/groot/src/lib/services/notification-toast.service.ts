@@ -62,7 +62,7 @@ export class NotificationToastService {
   /**
    * Time for auto-removal of toasts. Can be overridden.
    */
-  private static AUTO_REMOVE_TIME = 2000;
+  private static AUTO_REMOVE_TIME = 5000;
 
   public static overrideAutoRemoveTime(autoRemoveMs: number): void {
     NotificationToastService.AUTO_REMOVE_TIME = autoRemoveMs;

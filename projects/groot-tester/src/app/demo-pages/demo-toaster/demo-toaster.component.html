@@ -1,6 +1,26 @@
 <h1>Toasts</h1>
 
 <p>
-  Notification toasts can be used to display small success or error messages to the user.
-  They are (relatively) non intrusive.
+  Toast notification toasts can be used to display small success or error messages to the user.
+  They are (relatively) non intrusive. Click on the following button to display some of them:
+</p>
+
+<button class="btn btn-primary" (click)="showToasts()">Show toasts</button>
+
+<h2 class="mt-3">How to use them</h2>
+
+<p>To use the toasts you need to do two things:</p>
+
+<ol>
+  <li>in your root component (generally <code>AppComponent</code>) add the appropriate tag:
+    <pre><code>&lt;groot-notification-toast-list>&lt;/groot-notification-toast-list></code></pre>
+  </li>
+  <li>when you need to show one notification, inject the <code>NotificationToastService</code>
+    and call its function <code>addToast</code>.
+  </li>
+</ol>
+
+<p>
+  By default the toasts are added with the <code>autoRemove</code> set to true, meaning that
+  they will be automatically hidden after 5 seconds.
 </p>
