@@ -27,6 +27,7 @@ $loader-size: 80px;
     opacity: 0.7;
     stroke-linecap: round;
     animation: groot-loading-indicator-dash 1.5s ease-in-out infinite;
+    stroke-dasharray: 60, 150;
   }
 }
 
