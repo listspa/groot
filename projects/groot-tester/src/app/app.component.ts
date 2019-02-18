@@ -56,6 +56,9 @@ export class AppComponent {
             {label: 'Tables', url: '/demo/tables', icon: 'fa fa-table'},
             {label: 'Forms', url: '/demo/forms'},
             {label: 'Tooltips', url: '/demo/tooltips'}
+          ],
+          [
+            {label: 'Other utilities', url: '/demo/other-utilities'}
           ]
         ]
       }
