@@ -15,12 +15,16 @@ import {HomepageComponent} from './homepage/homepage.component';
 import {ExternalReferencesComponent} from './docs/external-references/external-references.component';
 import {GettingStartedComponent} from './docs/getting-started/getting-started.component';
 import {GrootStyleComponent} from './docs/groot-style/groot-style.component';
+import {GettingHelpComponent} from './docs/getting-help/getting-help.component';
+import {IconsComponent} from './docs/icons/icons.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
   {component: GettingStartedComponent, path: 'docs/getting-started'},
   {component: ExternalReferencesComponent, path: 'docs/external-references'},
   {component: GrootStyleComponent, path: 'docs/groot-style'},
+  {component: GettingHelpComponent, path: 'docs/getting-help'},
+  {component: IconsComponent, path: 'docs/icons'},
   {component: DemoHomeComponent, path: 'demo'},
   {component: DemoButtonsComponent, path: 'demo/buttons'},
   {component: DemoTabsComponent, path: 'demo/tabs'},

@@ -40,6 +40,8 @@ import {HomepageComponent} from './homepage/homepage.component';
 import {GettingStartedComponent} from './docs/getting-started/getting-started.component';
 import {ExternalReferencesComponent} from './docs/external-references/external-references.component';
 import {GrootStyleComponent} from './docs/groot-style/groot-style.component';
+import {GettingHelpComponent} from './docs/getting-help/getting-help.component';
+import {IconsComponent} from './docs/icons/icons.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -67,7 +69,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomepageComponent,
     GettingStartedComponent,
     ExternalReferencesComponent,
-    GrootStyleComponent
+    GrootStyleComponent,
+    GettingHelpComponent,
+    IconsComponent
   ],
   imports: [
     BrowserModule,

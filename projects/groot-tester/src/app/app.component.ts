@@ -20,9 +20,11 @@ export class AppComponent {
         children: [
           [
             {label: 'Getting started', url: '/docs/getting-started'},
+            {label: 'Getting help', url: '/docs/getting-help'},
           ],
           [
             {label: 'Stylesheets and skins', url: '/docs/groot-style'},
+            {label: 'Icons', url: '/docs/icons'},
           ],
           [
             {label: 'External references', url: '/docs/external-references'},
