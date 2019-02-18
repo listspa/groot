@@ -1,0 +1,52 @@
+<h1>Nav Bar</h1>
+
+<p>The menu bar on top of the application is called the "nav bar" in Bootstrap, and we have retained the name for Groot.
+  To use it you need to do two things:
+</p>
+
+<ol>
+  <li>in your root component (generally <code>AppComponent</code>) add the appropriate tag:
+    <pre><code>&lt;groot-nav-bar [menu]="menu" rootMenuLabel="MyAppName"&lt;/groot-loading-indicator></code></pre>
+  </li>
+  <li>in the relative class, define the <code>menu</code> variable, of type <code>Menu[][]</code> with your menu items.
+  </li>
+</ol>
+
+<p>
+  The menu is an array of arrays; the first level is the columns (the navbar shows four columns), and the second level
+  is the rows inside a given column. Each item must have a label and should have either an <code>url</code>, or a set of
+  <code>children</code> (again a <code>Menu[][]</code> with the same logic). Each item might optionally have an icon.
+</p>
+
+<p>
+  The nav bar shows in the first line the "breadcrums", i.e. the currently selected submenu path. If you only have
+  one level of menu items this is overkill; it can be disabled by passing <code>[showAlwaysBreadcrumbs]="false"</code>
+  to the nav bar component.
+</p>
+
+<h2>Example</h2>
+
+<pre><code>readonly menu: Menu[][] = [
+  [
+    &#123;label: 'Home', icon: 'fa fa-home', url: '/home'}
+  ],
+  [
+    &#123;label: 'Docs', icon: 'fa fa-book', children: [
+      [
+        &#123;label: 'Getting started', url: '/docs/getting-started', icon: 'fa fa-star-o'},
+        &#123;label: 'Getting help', url: '/docs/getting-help', icon: 'fa fa-ambulance'},
+      ],
+      [
+        &#123;label: 'Stylesheets and skins', url: '/docs/groot-style', icon: 'fa fa-paint-brush'},
+        &#123;label: 'Icons', url: '/docs/icons', icon: 'fa fa-picture-o'},
+        &#123;label: 'Translations', url: '/docs/translations-guide', icon: 'fa fa-plane'},
+      ],
+      [
+        &#123;label: 'Internet explorer', url: '/docs/ie-support', icon: 'fa fa-internet-explorer'},
+      ],
+      [
+        &#123;label: 'External references', url: '/docs/external-references', icon: 'fa fa-external-link'},
+      ]
+    ]}
+  ]
+]</code></pre>

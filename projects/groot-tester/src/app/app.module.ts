@@ -44,6 +44,7 @@ import {IconsComponent} from './docs/icons/icons.component';
 import {IeSupportComponent} from './docs/ie-support/ie-support.component';
 import {TranslationsGuideComponent} from './docs/translations-guide/translations-guide.component';
 import {OtherUtilitiesComponent} from './demo-pages/other-utilities/other-utilities.component';
+import {DemoNavbarComponent} from './demo-pages/demo-navbar/demo-navbar.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -75,7 +76,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     IconsComponent,
     IeSupportComponent,
     TranslationsGuideComponent,
-    OtherUtilitiesComponent
+    OtherUtilitiesComponent,
+    DemoNavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,7 @@ import {IconsComponent} from './docs/icons/icons.component';
 import {IeSupportComponent} from './docs/ie-support/ie-support.component';
 import {TranslationsGuideComponent} from './docs/translations-guide/translations-guide.component';
 import {OtherUtilitiesComponent} from './demo-pages/other-utilities/other-utilities.component';
+import {DemoNavbarComponent} from './demo-pages/demo-navbar/demo-navbar.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
@@ -40,6 +41,7 @@ const routes: Routes = [
   {component: DemoTooltipComponent, path: 'demo/tooltips'},
   {component: DemoColorsComponent, path: 'demo/colors'},
   {component: OtherUtilitiesComponent, path: 'demo/other-utilities'},
+  {component: DemoNavbarComponent, path: 'demo/nav-bar'},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 
