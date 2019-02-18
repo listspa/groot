@@ -1,3 +1,21 @@
+<h1>Modal windows</h1>
+
+<p>
+  We use the standard <a href="https://valor-software.com/ngx-bootstrap/#/modals" target="_blank">Ngx-Bootstrap
+  modals</a>. We have only customized a bit the look&amp;feel. Here's a quick demo:
+</p>
+
+<button class="btn btn-primary"
+        (click)="openPopup(template)">
+  Open modal
+</button>
+
+<p class="mt-2">
+  You can take a look <a
+  href="https://gitlab.list-group.com/isp-bu/libs/isp.groot/tree/master/projects/groot-tester/src/app/demo-pages/demo-modals"
+  target="_blank">the source for this page</a> to see the code.
+</p>
+
 <ng-template #template>
   <div class="modal-header bg-primary">
     <h4 class="modal-title pull-left">Modal</h4>
@@ -13,8 +31,3 @@
     <button type="button" class="btn btn-secondary">Close</button>
   </div>
 </ng-template>
-
-<button class="btn btn-primary"
-        (click)="openPopup(template)">
-  Open modal with embedded template
-</button>
