@@ -12,7 +12,8 @@
     "copy-assets": "node scripts/assets-copy.js",
     "npm_pack": "cd dist/groot && npm pack",
     "package": "npm run build_lib && npm run copy-assets && npm run npm_pack",
-    "release": "release-it --disable-metrics && npm run package && node scripts/publish.js"
+    "release": "release-it --disable-metrics && npm run package && node scripts/publish.js",
+    "deploy-demo-doc": "ng build groot-tester --prod && node scripts/release-demo-prj.js"
   },
   "private": true,
   "dependencies": {
@@ -57,6 +58,7 @@
     "ng-packagr": "^4.2.0",
     "protractor": "~5.4.0",
     "release-it": "^10.0.7",
+    "scp2": "^0.5.0",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",
