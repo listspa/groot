@@ -41,6 +41,7 @@ import {ExternalReferencesComponent} from './docs/external-references/external-r
 import {GrootStyleComponent} from './docs/groot-style/groot-style.component';
 import {GettingHelpComponent} from './docs/getting-help/getting-help.component';
 import {IconsComponent} from './docs/icons/icons.component';
+import {IeSupportComponent} from './docs/ie-support/ie-support.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -69,7 +70,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ExternalReferencesComponent,
     GrootStyleComponent,
     GettingHelpComponent,
-    IconsComponent
+    IconsComponent,
+    IeSupportComponent
   ],
   imports: [
     BrowserModule,

@@ -29,6 +29,9 @@ export class AppComponent {
             {label: 'Icons', url: '/docs/icons'},
           ],
           [
+            {label: 'Internet explorer', url: '/docs/ie-support', icon: 'fa fa-internet-explorer'},
+          ],
+          [
             {label: 'External references', url: '/docs/external-references'},
           ]
         ]
