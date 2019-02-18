@@ -12,8 +12,13 @@ export class AppComponent {
   readonly menu: Menu[][] = [
     [
       {
-        label: 'demo pages',
-        icon: 'fa fa-thumbs-up',
+        label: 'home', icon: 'fa fa-home', url: '/home'
+      }
+    ],
+    [
+      {
+        label: 'Demo pages',
+        icon: 'fa fa-flash',
         children: [
           [
             {
@@ -42,7 +47,7 @@ export class AppComponent {
     ],
     [
       {
-        label: 'tests',
+        label: 'tests (dummy links)',
         children: [
           [
             {

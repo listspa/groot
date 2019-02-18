@@ -11,8 +11,10 @@ import {DemoBoxComponent} from './demo-pages/demo-box/demo-box.component';
 import {DemoModalsComponent} from './demo-pages/demo-modals/demo-modals.component';
 import {DemoTooltipComponent} from './demo-pages/demo-tooltip/demo-tooltip.component';
 import {DemoColorsComponent} from './demo-pages/demo-colors/demo-colors.component';
+import {HomepageComponent} from './homepage/homepage.component';
 
 const routes: Routes = [
+  {component: HomepageComponent, path: 'home'},
   {component: DemoHomeComponent, path: 'demo'},
   {component: DemoButtonsComponent, path: 'demo/buttons'},
   {component: DemoTabsComponent, path: 'demo/tabs'},
@@ -24,7 +26,7 @@ const routes: Routes = [
   {component: DemoModalsComponent, path: 'demo/modals'},
   {component: DemoTooltipComponent, path: 'demo/tooltips'},
   {component: DemoColorsComponent, path: 'demo/colors'},
-  {path: '', pathMatch: 'full', redirectTo: 'demo'}
+  {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 
 @NgModule({

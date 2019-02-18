@@ -1,0 +1,136 @@
+<div class="jumbotron">
+  <h1 class="display-4">GRooT</h1>
+  <p class="lead">Internal framework for Angular apps</p>
+  <hr class="my-4">
+  <p>
+    GRooT is our internal library of angular components and styles, designed to
+    provide the commonly used components that you need in an enterprise web app.
+  </p>
+  <p>This documentation is available at:
+    <a href="http://192.168.232.41/groot-doc" target="_blank">http://192.168.232.41/groot-doc</a>
+  </p>
+</div>
+
+<h1>Library content</h1>
+
+<p>With the menu bar you can access various demo pages which showcase the various GRooT components.</p>
+
+<h2>Project references</h2>
+
+<ul>
+  <li>GitLab: <a href="https://gitlab.list-group.com/isp-bu/libs/isp.groot">https://gitlab.list-group.com/isp-bu/libs/isp.groot</a></li>
+  <li>Jira: <a href="http://jira.list-group.com:8080/secure/RapidBoard.jspa?rapidView=294&projectKey=ISPGROOT">http://jira.list-group.com:8080/secure/RapidBoard.jspa?rapidView=294&projectKey=ISPGROOT</a></li>
+  <li>Confluence: <a href="http://jira.list-group.com:8090/display/ISPGROOT">http://jira.list-group.com:8090/display/ISPGROOT</a></li>
+</ul>
+
+<h1>External libraries</h1>
+
+<p>
+  Groot is based upon other libraries; please refer to them for the relative documentation:
+</p>
+
+<ul>
+  <li><a href="https://angular.io" target="_blank">Angular</a></li>
+  <li><a href="https://getbootstrap.com/docs/" target="_blank">Bootstrap</a></li>
+  <li><a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">Font Awesome 4.7</a></li>
+  <li><a href="https://github.com/ngx-translate/core" target="_blank">Ngx-Translate</a></li>
+  <li><a href="https://ng-select.github.io/ng-select/" target="_blank">Ng-Select</a></li>
+</ul>
+
+<hr>
+
+<h1>Using GRooT</h1>
+
+<h2>Create new Angular project</h2>
+
+<p>
+  First install the <a href="https://cli.angular.io/">Angular CLI</a>, version 7 or above, via <code>npm install -g
+  @angular/cli</code>.<br>
+  If you have already installed it but aren't sure of the version, run a <code>npm update -g @angular/cli</code>.<br>
+  Then, to create a new project foo:
+</p>
+<pre><code>ng new foo</code></pre>
+
+<p>
+  When asked by the wizard, be sure to add the Angular Routing and use SCSS as the stylesheet format.
+</p>
+
+<h2>Setup our private npm repo</h2>
+
+<p>
+  Since our library is not public, we only publish it to a private npm repo (i.e. not on the internet).
+  To access it create, alongside the <code>package.json</code> file, a new <code>.npmrc</code> file
+  with this content:
+</p>
+
+<pre><code>@listspa:registry=http://192.168.232.41:4873
+//192.168.232.41:4873/:_authToken="vWULAixCByFhf15uM00ctA=="</code></pre>
+
+<p>
+  <i>Note:</i> Windows doesn't let you create a file whose name starts with a dot, but if you save the file as <code>.npmrc.</code>
+  (with a trailing dot) it will rename it automatically to <code>.npmrc</code>. Weird, but useful.
+</p>
+
+<h2>Adding GRooT to your project</h2>
+
+<p>You can now install the Groot library and the required dependencies:</p>
+
+<pre><code>
+npm install @listspa/groot @ngx-translate/core @ng-select/ng-select bootstrap filesize font-awesome ngx-bootstrap @ngx-translate/http-loader
+</code></pre>
+
+<h2>Setting up css</h2>
+
+<p>The Angular CLI will have created a <code>style.scss</code> file. In it you need to add, at the beginning:</p>
+
+<pre><code>$groot-assets-base-dir: '~@listspa/groot/assets';
+@import "~@listspa/groot/style/groot";</code></pre>
+
+<p>This will add all the GRooT style rules.</p>
+
+TODO: skin
+
+<h2>Configuring the NgModule</h2>
+
+<p>In your app module, in the <code>imports</code> section, add our module and the required libraries:</p>
+
+<pre><code>imports: [
+  BrowserModule,
+  FormsModule,
+  NgSelectModule,
+  TranslateModule.forRoot(&#123;
+    loader: &#123;provide: TranslateLoader, useFactory: HttpLoaderFactory, deps: [HttpClient]},
+    missingTranslationHandler: &#123;
+      provide: MissingTranslationHandler,
+      useClass: GrootMissingTranslationLogger,
+      deps: [ConsoleLoggingService]
+    }
+  }),
+  BsDatepickerModule.forRoot(),
+  TimepickerModule.forRoot(),
+  TabsModule.forRoot(),
+  ModalModule.forRoot(),
+  TooltipModule.forRoot(),
+  GrootModule.forRoot(),
+  // Your modules, such as HttpClientModule etc
+],</code></pre>
+
+<p>In your `providers` section of your app module, add this:</p>
+
+<pre><code>
+providers: [
+   &#123;provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker}
+],
+</code></pre>
+
+<p>Before the <code>@NgModule</code> class add this:</p>
+
+<pre><code>// Required as a separate function for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) &#123;
+  return new TranslateHttpLoader(http);
+}</code></pre>
+
+<p>
+  Please refer to the <a href="https://github.com/ngx-translate/core">Ngx-Translate</a> documentation for how to setup
+  the labels.
+</p>
