@@ -5,4 +5,5 @@ import {Component} from '@angular/core';
   templateUrl: './demo-buttons.component.html'
 })
 export class DemoButtonsComponent {
+  styles = ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'brand', 'promotion'];
 }

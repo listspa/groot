@@ -1,51 +1,84 @@
-<h1>Buttons!</h1>
+<h1>Buttons</h1>
 
-<p>The following is a list of buttons, in various styles, wrapped in a "buttons-list".</p>
+<p>
+  We do not have a specific component; we simply use the standard Bootstrap one,
+  at least for the moment.
+</p>
 
-<div class="row">
-  <div class="col-sm buttons-list">
-    <button class="btn btn-primary">
-      <i class="fa fa-search"></i>
-      Text
-    </button>
+<table class="table">
+  <tr>
+    <th>Style</th>
+    <th>Main style enabled</th>
+    <th>Main style disabled</th>
+    <th>Outline style enabled</th>
+    <th>Outline style disabled</th>
+  </tr>
 
-    <button class="btn btn-primary" disabled>
-      <i class="fa fa-search"></i>
-      Text
-    </button>
+  <tr *ngFor="let style of styles">
+    <th><code>{{style}}</code></th>
+    <td>
+      <button class="btn" [ngClass]="'btn-' + style">
+        <i class="fa fa-search"></i>
+        Enabled
+      </button>
+    </td>
+    <td>
+      <button class="btn" [ngClass]="'btn-' + style" disabled>
+        <i class="fa fa-search"></i>
+        Disabled
+      </button>
+    </td>
+    <td>
+      <button class="btn" [ngClass]="'btn-outline-' + style">
+        <i class="fa fa-search"></i>
+        Enabled
+      </button>
+    </td>
+    <td>
+      <button class="btn" [ngClass]="'btn-outline-' + style" disabled>
+        <i class="fa fa-search"></i>
+        Disabled
+      </button>
+    </td>
+  </tr>
+</table>
 
-    <button class="btn btn-outline-primary">
-      <i class="fa fa-search"></i>
-      Text
-    </button>
+<p>Code sample:</p>
 
-    <button class="btn btn-secondary">
-      Text
-    </button>
+<pre><code>&lt;button class="btn btn-primary" (click)="myFunc()">
+  &lt;i class="fa fa-search">&lt;/i>
+  label
+&lt;/button></code></pre>
 
-    <button class="btn btn-outline-secondary">
-      Text
-    </button>
+<h2>Download button</h2>
 
-    <button class="btn btn-danger">
-      Text
-    </button>
+<p>
+  We have a custom component for a "download button", named <code>groot-download-button</code>,
+  capable of downloading a file via a GET or POST request and pass arguments. This is how it looks:
+</p>
 
-    <button class="btn btn-outline-danger">
-      Text
-    </button>
+<groot-download-button
+  method="GET"
+  url="http://www.google.com"
+></groot-download-button>
 
-    <button class="btn btn-success">
-      Text
-    </button>
+<div class="mb-4"></div>
 
-    <button class="btn btn-warning">
-      Text
-    </button>
+<h2>List of buttons</h2>
 
-    <groot-download-button
-      method="GET"
-      url="http://www.google.com"
-    ></groot-download-button>
-  </div>
+<p>
+  When you have a (say) search form, you often need to align multiple buttons to the right of it
+  and leave some space between then. This can be done via our class <code>buttons-list</code>:
+</p>
+
+<div class="buttons-list">
+  <button class="btn btn-light">
+    <i class="fa fa-search"></i>
+    Reset
+  </button>
+
+  <button class="btn btn-primary" disabled>
+    <i class="fa fa-search"></i>
+    Search
+  </button>
 </div>
