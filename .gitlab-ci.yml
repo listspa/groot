@@ -38,3 +38,12 @@ pages:
     expire_in: 30 days
   only:
     - master
+
+deploy-demo:
+  stage: deploy
+  dependencies:
+    - test-angular
+  script:
+    - npm run deploy-demo-doc
+  only:
+    - master
