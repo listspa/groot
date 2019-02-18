@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {PaginatedResponse, PaginationOptions} from '../../../../../groot/src/lib/nbpu.interfaces';
 import {Observable} from 'rxjs';
+import {BASE_URL} from '../../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class PeopleService {
   }
 
   searchPeople(request: PaginationOptions): Observable<PaginatedResponse<Person>> {
-    return this.http.get<PaginatedResponse<Person>>('/assets/people.json');
+    return this.http.get<PaginatedResponse<Person>>(`${BASE_URL}/assets/people.json`);
   }
 }
 

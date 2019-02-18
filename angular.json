@@ -48,6 +48,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "/groot-doc/",
+            "deployUrl": "/groot-doc/",
             "outputPath": "dist/groot-tester",
             "index": "projects/groot-tester/src/index.html",
             "main": "projects/groot-tester/src/main.ts",

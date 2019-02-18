@@ -35,6 +35,7 @@ import {DemoBoxComponent} from './demo-pages/demo-box/demo-box.component';
 import {DemoModalsComponent} from './demo-pages/demo-modals/demo-modals.component';
 import {DemoTooltipComponent} from './demo-pages/demo-tooltip/demo-tooltip.component';
 import {DemoColorsComponent} from './demo-pages/demo-colors/demo-colors.component';
+import {BASE_URL} from './constants';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -42,7 +43,7 @@ defineLocale('it', itLocale);
 
 // Required as a separate function for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, `${BASE_URL}/assets/i18n/`);
 }
 
 @NgModule({
