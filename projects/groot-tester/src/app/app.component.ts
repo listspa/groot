@@ -12,8 +12,10 @@ export class AppComponent {
   readonly menu: Menu[][] = [
     [
       {
-        label: 'home', icon: 'fa fa-home', url: '/home'
-      },
+        label: 'Home', icon: 'fa fa-home', url: '/home'
+      }
+    ],
+    [
       {
         label: 'Docs',
         icon: 'fa fa-book',
@@ -30,106 +32,27 @@ export class AppComponent {
             {label: 'External references', url: '/docs/external-references'},
           ]
         ]
-      }
-    ],
-    [
+      },
       {
-        label: 'Demo pages',
+        label: 'Components',
         icon: 'fa fa-flash',
         children: [
           [
-            {
-              label: 'demo index',
-              url: '/demo'
-            }
+            {label: 'Buttons', url: '/demo/buttons'},
+            {label: 'Tabs', url: '/demo/tabs'},
+            {label: 'Boxes (accordions)', url: '/demo/boxes'},
+            {label: 'Colors', url: '/demo/colors'}
           ],
           [
-            {label: 'buttoms', url: '/demo/buttons'},
-            {label: 'tabs', url: '/demo/tabs'},
-            {label: 'boxes', url: '/demo/boxes'},
-            {label: 'colors', url: '/demo/colors'}
+            {label: 'Loading indicator', url: '/demo/loading', icon: 'fa fa-refresh'},
+            {label: 'Toasts', url: '/demo/toasts'},
+            {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-maximize'}
           ],
           [
-            {label: 'loading', url: '/demo/loading', icon: 'fa fa-refresh'},
-            {label: 'toasts', url: '/demo/toasts'},
-            {label: 'modals', url: '/demo/modals', icon: 'fa fa-window'}
-          ],
-          [
-            {label: 'tables', url: '/demo/tables', icon: 'fa fa-table'},
-            {label: 'forms', url: '/demo/forms'},
-            {label: 'tooltips', url: '/demo/tooltips'}
+            {label: 'Tables', url: '/demo/tables', icon: 'fa fa-table'},
+            {label: 'Forms', url: '/demo/forms'},
+            {label: 'Tooltips', url: '/demo/tooltips'}
           ]
-        ]
-      }
-    ],
-    [
-      {
-        label: 'tests (dummy links)',
-        children: [
-          [
-            {
-              label: 'test.1',
-              children: [
-                [
-                  {
-                    label: 'test.1.1',
-                    children: [
-                      [
-                        {label: 'test.1.1.1', url: '/test111'},
-                        {label: 'test.1.1.2', url: '/test112'},
-                      ],
-                      [
-                        {label: 'test.1.1.3', url: '/test113'},
-                      ]
-                    ]
-                  },
-                  {label: 'test.1.2', url: '/test12'}
-                ],
-                [
-                  {label: 'test.1.3', url: '/test13'},
-                  {label: 'test.1.4', url: '/test14'}
-                ],
-                [
-                  {label: 'test.1.5', url: '/test15'}
-                ],
-                [
-                  {label: 'test.1.6', url: '/test16'}
-                ]
-              ]
-            }
-          ],
-          [
-            {
-              label: 'test.2',
-              children: [
-                [
-                  {label: 'test.2.1', url: '/test21'},
-                ],
-                [
-                  {label: 'test.2.2', url: '/test22'}
-                ]
-              ]
-            }
-          ],
-          [
-            {
-              label: 'test.3',
-              children: [
-                [
-                  {label: 'test.3.1', url: '/test31'},
-                ]
-              ]
-            },
-            {
-              label: 'test.4',
-              children: [
-                [
-                  {label: 'test.4.1', url: '/test41'},
-                  {label: 'test.4.2', url: '/test42'}
-                ]
-              ]
-            }
-          ],
         ]
       }
     ]
