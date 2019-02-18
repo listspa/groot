@@ -28,6 +28,7 @@ export * from './lib/services/debug-logging.service';
 export * from './lib/services/loading.service';
 export * from './lib/services/logging.service';
 export * from './lib/services/notification-toast.service';
+export * from './lib/utils/browser-utils';
 export * from './lib/utils/date-utils';
 export * from './lib/utils/generic-table-component-base';
 export * from './lib/utils/missing-translation-logger';
