@@ -26,20 +26,20 @@ built-angular-aot:
   script:
       - npm run package
 
-pages:
-  stage: deploy
-  dependencies:
-    - test-angular
-  script:
-    - mv coverage/ public/
-  artifacts:
-    paths:
-      - public
-    expire_in: 30 days
-  only:
-    - master
+#pages:
+#  stage: deploy
+#  dependencies:
+#    - test-angular
+#  script:
+#    - mv coverage/ public/
+#  artifacts:
+#    paths:
+#      - public
+#    expire_in: 30 days
+#  only:
+#    - master
 
-deploy-demo:
+deploy-demo-doc:
   stage: deploy
   dependencies:
     - test-angular
