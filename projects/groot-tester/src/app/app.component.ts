@@ -13,6 +13,16 @@ export class AppComponent {
     [
       {
         label: 'home', icon: 'fa fa-home', url: '/home'
+      },
+      {
+        label: 'docs',
+        icon: 'fa fa-book',
+        children: [
+          [
+            {label: 'Getting started', url: '/docs/getting-started'},
+            {label: 'External references', url: '/docs/external-references'},
+          ]
+        ]
       }
     ],
     [

@@ -37,6 +37,8 @@ import {DemoTooltipComponent} from './demo-pages/demo-tooltip/demo-tooltip.compo
 import {DemoColorsComponent} from './demo-pages/demo-colors/demo-colors.component';
 import {BASE_URL} from './constants';
 import {HomepageComponent} from './homepage/homepage.component';
+import {GettingStartedComponent} from './docs/getting-started/getting-started.component';
+import {ExternalReferencesComponent} from './docs/external-references/external-references.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -61,7 +63,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     DemoModalsComponent,
     DemoTooltipComponent,
     DemoColorsComponent,
-    HomepageComponent
+    HomepageComponent,
+    GettingStartedComponent,
+    ExternalReferencesComponent
   ],
   imports: [
     BrowserModule,

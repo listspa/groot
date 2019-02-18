@@ -1,2 +1,8 @@
 $groot-assets-base-dir: '../../groot/src/assets';
 @import "../../groot/src/style/groot";
+
+pre code {
+  border-left: 2px solid $primary;
+  padding-left: 1rem;
+  display: block;
+}

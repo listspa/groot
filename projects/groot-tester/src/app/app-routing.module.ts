@@ -12,9 +12,13 @@ import {DemoModalsComponent} from './demo-pages/demo-modals/demo-modals.componen
 import {DemoTooltipComponent} from './demo-pages/demo-tooltip/demo-tooltip.component';
 import {DemoColorsComponent} from './demo-pages/demo-colors/demo-colors.component';
 import {HomepageComponent} from './homepage/homepage.component';
+import {ExternalReferencesComponent} from './docs/external-references/external-references.component';
+import {GettingStartedComponent} from './docs/getting-started/getting-started.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
+  {component: GettingStartedComponent, path: 'docs/getting-started'},
+  {component: ExternalReferencesComponent, path: 'docs/external-references'},
   {component: DemoHomeComponent, path: 'demo'},
   {component: DemoButtonsComponent, path: 'demo/buttons'},
   {component: DemoTabsComponent, path: 'demo/tabs'},
