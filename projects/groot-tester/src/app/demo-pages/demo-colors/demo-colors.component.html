@@ -1,8 +1,11 @@
-<h1>Demo of the various colors</h1>
+<h1>Colours and typography</h1>
 
-<p class="mb-5">
-  The class name is always <code>text-XXX</code> and <code>bg-XXX</code>. For instance, we have
-  <code>text-primary</code> and <code>bg-primary</code>.
+<h2>Colours</h2>
+
+<p>
+  Bootstrap includes various classes to highlight page components. We use (mostly) the standard classes,
+  plus a couple of additional ones. The class name is always <code>text-XXX</code> and <code>bg-XXX</code>.
+  For instance, we have <code>text-primary</code> and <code>bg-primary</code>.
 </p>
 
 <table class="table">
@@ -14,45 +17,24 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td><code>primary</code></td>
-    <td class="text-primary">Lorem ipsum dorem</td>
-    <td class="bg-primary text-white">Lorem ipsum dorem</td>
-  </tr>
-  <tr>
-    <td><code>secondary</code></td>
-    <td class="text-secondary">Lorem ipsum dorem</td>
-    <td class="bg-secondary text-white">Lorem ipsum dorem</td>
-  </tr>
-  <tr>
-    <td><code>success</code></td>
-    <td class="text-success">Lorem ipsum dorem</td>
-    <td class="bg-success text-white">Lorem ipsum dorem</td>
-  </tr>
-  <tr>
-    <td><code>info</code></td>
-    <td class="text-info">Lorem ipsum dorem</td>
-    <td class="bg-info text-white">Lorem ipsum dorem</td>
-  </tr>
-  <tr>
-    <td><code>warning</code></td>
-    <td class="text-warning">Lorem ipsum dorem</td>
-    <td class="bg-warning">Lorem ipsum dorem</td>
-  </tr>
-  <tr>
-    <td><code>danger</code></td>
-    <td class="text-danger">Lorem ipsum dorem</td>
-    <td class="bg-danger text-white">Lorem ipsum dorem</td>
-  </tr>
-  <tr>
-    <td><code>brand</code></td>
-    <td class="text-brand">Lorem ipsum dorem</td>
-    <td class="bg-brand text-white">Lorem ipsum dorem</td>
-  </tr>
-  <tr>
-    <td><code>promotion</code></td>
-    <td class="text-promotion">Lorem ipsum dorem</td>
-    <td class="bg-promotion text-white">Lorem ipsum dorem</td>
+  <tr *ngFor="let style of styles">
+    <td><code>{{style}}</code></td>
+    <td [ngClass]="'text-' + style">Lorem ipsum dorem</td>
+    <td [ngClass]="'bg-' + style" class="text-white">Lorem ipsum dorem</td>
   </tr>
   </tbody>
 </table>
+
+<h2>Typography</h2>
+
+<p>
+  We have customized the font; we use by default Roboto for the body and Roboto Condensed for the headings. You can
+  of course change the fonts; take a look at the <a routerLink="/docs/groot-style">stylesheets and skins</a> age.
+  We include the fonts using WebFonts; you can take a look at <a target="_blank"
+  href="https://gitlab.list-group.com/isp-bu/libs/isp.groot/blob/master/projects/groot/src/style/_fonts.scss">the
+  fonts.scss file</a> to see how we have done it, in case you want to use another custom font.
+</p>
+
+<p>
+  For titles, use simply <code>&lt;h1></code> and similar tags.
+</p>

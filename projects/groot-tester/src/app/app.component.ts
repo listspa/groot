@@ -41,7 +41,7 @@ export class AppComponent {
             {label: 'Buttons', url: '/demo/buttons'},
             {label: 'Tabs', url: '/demo/tabs'},
             {label: 'Boxes (accordions)', url: '/demo/boxes'},
-            {label: 'Colors', url: '/demo/colors'}
+            {label: 'Colors and typography', url: '/demo/colors'}
           ],
           [
             {label: 'Loading indicator', url: '/demo/loading', icon: 'fa fa-refresh'},
