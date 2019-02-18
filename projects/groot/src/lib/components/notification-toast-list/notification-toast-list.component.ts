@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NotificationToastService, Toast} from '../../services/notification-toast.service';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {isIe11OrEdge} from '../../utils/browser-utils';
 
 @Component({
   selector: 'groot-notification-toast-list',
@@ -13,7 +14,14 @@ import {animate, style, transition, trigger} from '@angular/animations';
         animate('1s cubic-bezier(.8, -0.6, 0.2, 1.5)',
           style({transform: 'scale(1)', opacity: 1}))  // final
       ]),
-      transition(':leave', [
+      transition((fromState, toState) => {
+        // Note: we cannot simply use :leave trigger, because it doesn't work correctly under IE11 or Edge.
+        // Under those browsers, we simply disable the leave animation.
+        // See https://blog.angularindepth.com/total-guide-to-dynamic-angular-animations-that-can-be-toggled-at-runtime-be5bb6778a0a
+        // and https://github.com/angular/angular/issues/24923
+        const isLeave = fromState === null && toState === 'void';
+        return !isIe11OrEdge() && isLeave;
+      }, [
         style({transform: 'scale(1)', opacity: 1, height: '*'}),
         animate('1s cubic-bezier(.8, -0.6, 0.2, 1.5)',
           style({
