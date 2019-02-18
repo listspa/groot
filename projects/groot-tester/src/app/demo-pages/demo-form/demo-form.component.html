@@ -1,10 +1,44 @@
-<h1>Demo of forms components</h1>
+<h1>Forms</h1>
 
-<h2>Sample groot components</h2>
+<p>
+  We have created some simple groot components to simplify the most common usages.
+  In case you need to do something more advanced, such as various validations, you can
+  take a look at the <a href="https://angular.io/guide/form-validation" target="_blank">Angular form validation
+  guide</a> and at the <a href="https://getbootstrap.com/docs/4.0/components/forms/" target="_blank">Bootstrap
+  documentation for forms</a>.
+</p>
+
+<h2>Groot Components</h2>
+
+<h3>Input box</h3>
 
 <div class="row">
   <div class="col-md-2">
-    <div class="form-field-explanation">Mandatory field, no help text, icon right</div>
+    <div class="form-field-explanation">Simple mandatory input field</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-input
+        label="Name 0"
+        name="name 0"
+        [required]="true"
+        [(ngModel)]="form.name"
+      ></groot-input>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre class="form-field-sample-code"><code>&lt;groot-input
+        label="Name 0"
+        name="name 0"
+        [required]="true"
+        [(ngModel)]="form.name"
+      >&lt;/groot-input></code></pre>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Help text and icon right</div>
   </div>
   <div class="col-md-3">
     <form novalidate>
@@ -18,23 +52,19 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre class="form-field-sample-code"><code>
-      &lt;groot-input
+    <pre class="form-field-sample-code"><code>&lt;groot-input
         label="Name 1"
         name="name 1"
         [required]="true"
         [(ngModel)]="form.name"
         iconRight="fa fa-user-o"
-      >&lt;/groot-input>
-    </code></pre>
+      >&lt;/groot-input></code></pre>
   </div>
 </div>
 
-<hr>
-
 <div class="row">
   <div class="col-md-2">
-    <div class="form-field-explanation">Not mandatory field, with help text and icon left</div>
+    <div class="form-field-explanation">Not mandatory field, help text and icon left</div>
   </div>
   <div class="col-md-3">
     <form novalidate>
@@ -49,20 +79,18 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre class="form-field-sample-code"><code>
-    &lt;groot-input
+    <pre class="form-field-sample-code"><code>&lt;groot-input
       label="Name 2"
       name="name2"
       [required]="false"
       [(ngModel)]="form.name"
       helpText="your first name, not your last name!"
       iconLeft="fa fa-image"
-    >&lt;/groot-input>
-    </code></pre>
+    >&lt;/groot-input></code></pre>
   </div>
 </div>
 
-<hr>
+<h3>Checkboxes</h3>
 
 <div class="row">
   <div class="col-md-2">
@@ -106,7 +134,7 @@
   </div>
 </div>
 
-<hr>
+<h3>Radio</h3>
 
 <div class="row">
   <div class="col-md-2">
@@ -162,7 +190,7 @@
   </div>
 </div>
 
-<hr>
+<h3>Textarea</h3>
 
 <div class="row">
   <div class="col-md-2">
@@ -190,7 +218,7 @@
   </div>
 </div>
 
-<hr>
+<h3>Combo boxes</h3>
 
 <div class="row">
   <div class="col-md-2">
@@ -219,8 +247,6 @@
     </code></pre>
   </div>
 </div>
-
-<hr>
 
 <div class="row">
   <div class="col-md-2">
@@ -252,8 +278,6 @@
   </div>
 </div>
 
-<hr>
-
 <div class="row">
   <div class="col-md-2">
     <div class="form-field-explanation">Combo box with object values</div>
@@ -284,7 +308,9 @@
   </div>
 </div>
 
-<hr>
+<h3>Date picker</h3>
+
+<p>The <code>ngModel</code> maps to a standard JavaScript <code>Date</code> object.</p>
 
 <div class="row">
   <div class="col-md-2">
@@ -314,138 +340,9 @@
   </div>
 </div>
 
-<hr>
+<h3>Selected values</h3>
 
 <div class="alert alert-info">
-  <div class="alert-heading">Selected form:</div>
+  <h4 class="alert-heading">The <code>form</code> object used as <code>ngModel</code> above is:</h4>
   <pre>{{form | json}}</pre>
 </div>
-
-<div style="height: 50px;"></div>
-
-<h2>Pure bootstrap (no groot components)</h2>
-
-<form>
-  <div class="form-row">
-    <div class="col-md-4">
-      <div class="form-group">
-        <label for="loginName">Login</label>
-        <input type="text" class="form-control" id="loginName" placeholder="Login">
-      </div>
-
-      <div class="form-group">
-        <label for="inputPassword5">Password</label>
-        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-        <small id="passwordHelpBlock" class="form-text text-muted">
-          Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special
-          characters, or emoji.
-        </small>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheck3" checked>
-        <label class="custom-control-label" for="customCheck3">This is selected</label>
-      </div>
-
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheck4">
-        <label class="custom-control-label" for="customCheck4">This is a checkbox</label>
-      </div>
-
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheck5" disabled>
-        <label class="custom-control-label" for="customCheck5">This is disabled</label>
-      </div>
-
-      <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked>
-        <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
-      </div>
-      <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-        <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
-      </div>
-      <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input" disabled>
-        <label class="custom-control-label" for="customRadio3">This is disabled</label>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <label translate>exchangeRates.settlementDateFrom</label>
-      <div class="input-group">
-        <input type="text"
-               class="form-control"
-               #settlementDateFromDP="bsDatepicker"
-               bsDatepicker
-               [(ngModel)]="form.date"
-               name="settlementDateFrom">
-        <div class="input-group-append" (click)="settlementDateFromDP.toggle()">
-          <span class="input-group-text">
-            <i class="fa fa-calendar"></i>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-
-<div style="height: 50px;"></div>
-
-<h2>Pure bootstrap / angular validation (no groot components)</h2>
-
-<form novalidate>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom01">First name</label>
-      <input type="text"
-             class="form-control"
-             id="validationCustom01"
-             placeholder="First name"
-             required
-             name="name"
-             #name="ngModel"
-             [(ngModel)]="form.name"
-             [class.is-invalid]="!name.valid && !name.pristine">
-      <div class="invalid-feedback" *ngIf="!name.valid && !name.pristine">
-        The field is mandatory
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom02">Last name</label>
-      <input type="text"
-             class="form-control"
-             id="validationCustom02"
-             placeholder="Last name"
-             required
-             name="lastName"
-             #lastName="ngModel"
-             [(ngModel)]="form.lastName"
-             [class.is-valid]="lastName.valid && !lastName.pristine">
-      <div class="valid-feedback" *ngIf="lastName.valid && !lastName.pristine">
-        Field OK!
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-3">
-      <label>Sample Combo</label>
-      <ng-select [items]="currencies"
-                 [(ngModel)]="form.currency"
-                 name="currency"
-                 [required]="true"
-                 #currency="ngModel"
-                 [class.is-invalid]="!currency.valid && !currency.pristine"
-                 [class.is-valid]="currency.valid && !currency.pristine"
-      ></ng-select>
-      <div class="invalid-feedback" *ngIf="!currency.valid && !currency.pristine">
-        The field is mandatory
-      </div>
-      <div class="valid-feedback" *ngIf="currency.valid && !currency.pristine">
-        OK!
-      </div>
-    </div>
-  </div>
-</form>
