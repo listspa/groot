@@ -1,0 +1,10 @@
+{
+  "common.searchResults": "Risultati",
+  "common.firstPage": "Primo",
+  "common.lastPage": "Ultimo",
+  "common.paginationRowsInfo": "Mostrate righe {{startRowIdx}} - {{endRowIdx}} di {{totalItems}}",
+  "common.downloadExcel": "Download Excel",
+  "people.name": "Name",
+  "people.dateOfBirth": "Date of birth",
+  "people.wage": "Wage"
+}
