@@ -20,6 +20,7 @@ import {IeSupportComponent} from './docs/ie-support/ie-support.component';
 import {TranslationsGuideComponent} from './docs/translations-guide/translations-guide.component';
 import {OtherUtilitiesComponent} from './demo-pages/other-utilities/other-utilities.component';
 import {DemoNavbarComponent} from './demo-pages/demo-navbar/demo-navbar.component';
+import {CallingTheServerComponent} from './docs/calling-the-server/calling-the-server.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {component: IconsComponent, path: 'docs/icons'},
   {component: IeSupportComponent, path: 'docs/ie-support'},
   {component: TranslationsGuideComponent, path: 'docs/translations-guide'},
+  {component: CallingTheServerComponent, path: 'docs/calling-the-server'},
   {component: DemoButtonsComponent, path: 'demo/buttons'},
   {component: DemoTabsComponent, path: 'demo/tabs'},
   {component: DemoLoadingComponent, path: 'demo/loading'},

@@ -1,0 +1,75 @@
+<h1>Calling the server</h1>
+
+<h2>Setting up a local port</h2>
+
+<p>
+  First and foremost: the Angular CLI allows us to run the server on the port 4200 by default.
+  Since we are likely to have multiple applications on one pc, let's change it: open <code>angular.json</code>
+  and search for the node <code>serve</code>. Underneath it, in the <code>options</code> node, add this:
+</p>
+
+<pre><code>"port": 4221,</code></pre>
+
+<h2>Moncalieri deploys: <code>portal</code> vs <code>script</code></h2>
+
+<p>
+  ISP applications, on Moncalieri, tend to have a couple of paths: something like <code>scriptEinv0</code>
+  for the WebLogic part, and <code>portalEinv0</code> for the apache files. To handle this, we need to modify
+  the <code>angular.json</code> file by adding these lines in the <code>architect</code> section, under the
+  <code>build</code> and <code>options</code> sections:
+</p>
+
+<pre><code>"architect": &#123;
+  "build": &#123;
+    "builder": "@angular-devkit/build-angular:browser",
+    "options": &#123;
+      "baseHref": "/scriptEinv0/einv-frontend/",
+      "deployUrl": "/scriptEinv0/einv-frontend/",</code></pre>
+
+<h2>Define base URL</h2>
+
+<p>
+  A good convention to follow is to create a file called <code>constants.ts</code> with a line similar to:
+</p>
+
+<pre><code>export const BASE_URL = '/scriptEinv0/einv-frontend';</code></pre>
+
+<p>
+  Then, in your servers, when you are doing an http call you can write:
+</p>
+
+<pre><code>return this.http.get&lt;MyObj>(`$&#123;BASE_URL}/spring/mapped/path`);</code></pre>
+
+<h2>Calling the server</h2>
+
+<p>
+  To call the server, we need to instruct the Angular dev server to <i>proxy</i> the calls to our Java backend.
+  This is similar to how we used to configure the <code>weblogic-handler</code> in apache.
+  To do this, we need to create a file <code>proxy.conf.json</code> alongisde the <code>package.json</code> one, with
+  a content similar to this:
+</p>
+
+<pre><code>&#123;
+  "/scriptEinv0/einv-frontend/": &#123;
+    "target": "http://localhost:8484/einv-frontend/",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": &#123;
+      "^/scriptEinv0/einv-frontend/": ""
+    }
+  }
+}
+</code></pre>
+
+<h2>Setting up the JSP</h2>
+
+<p>
+  TODO: we need to explain how to set up the build and fix the JSP!
+</p>
+
+<h2>Further steps</h2>
+
+<p>
+  To finish the initial setup, please checkout out the <a routerLink="/docs/translations-guide">translations guide</a>
+  to set up the labels and translations.
+</p>

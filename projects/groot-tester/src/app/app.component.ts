@@ -20,17 +20,18 @@ export class AppComponent {
         children: [
           [
             {label: 'Getting started', url: '/docs/getting-started', icon: 'fa fa-star-o'},
-            {label: 'Getting help', url: '/docs/getting-help', icon: 'fa fa-ambulance'},
+            {label: 'Calling the server', url: '/docs/calling-the-server', icon: 'fa fa-server'},
+            {label: 'Translations', url: '/docs/translations-guide', icon: 'fa fa-plane'},
           ],
           [
             {label: 'Stylesheets and skins', url: '/docs/groot-style', icon: 'fa fa-paint-brush'},
             {label: 'Icons', url: '/docs/icons', icon: 'fa fa-picture-o'},
-            {label: 'Translations', url: '/docs/translations-guide', icon: 'fa fa-plane'},
           ],
           [
             {label: 'Internet explorer', url: '/docs/ie-support', icon: 'fa fa-internet-explorer'},
           ],
           [
+            {label: 'Getting help', url: '/docs/getting-help', icon: 'fa fa-ambulance'},
             {label: 'External references', url: '/docs/external-references', icon: 'fa fa-external-link'},
           ]
         ]
