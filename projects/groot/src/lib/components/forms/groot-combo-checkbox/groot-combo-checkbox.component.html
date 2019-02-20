@@ -16,6 +16,10 @@
            [bindValue]="bindValue"
            [multiple]="true"
            [closeOnSelect]="false">
+  <ng-template ng-multi-label-tmp let-items="items">
+    {{items.length}}
+  </ng-template>
+
   <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
     <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/>
     {{bindValue ? item[bindValue] : item}}
