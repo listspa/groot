@@ -56,13 +56,13 @@ export class GrootComboCheckboxComponent implements ControlValueAccessor {
 
   selectAll() {
     if (this.bindValue) {
-      this.selectedValue = (this.items as any[]).map(item => item[this.bindValue]);
+      this.writeValue((this.items as any[]).map(item => item[this.bindValue]));
     } else {
-      this.selectedValue = [...this.items];
+      this.writeValue([...this.items]);
     }
   }
 
   unselectAll() {
-    this.selectedValue = [];
+    this.writeValue([]);
   }
 }
