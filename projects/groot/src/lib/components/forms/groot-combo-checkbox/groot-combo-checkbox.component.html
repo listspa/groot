@@ -17,19 +17,36 @@
            [multiple]="true"
            [closeOnSelect]="false">
   <ng-template ng-header-tmp>
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox"
-             id="item-all"
-             class="custom-control-input"
-             [ngModel]="isAllSelected()"
-             (ngModelChange)="toggleSelectAll()">
-      <label class="custom-control-label font-italic"
-             for="item-all">All</label>
+    <div class="buttons-list-left">
+      <button type="button" class="btn btn-outline-primary btn-sm"
+              (click)="selectAll()"
+              [disabled]="isAllSelected()">
+        {{'common.selectAll' | translate}}
+      </button>
+
+      <button type="button" class="btn btn-outline-primary btn-sm"
+              (click)="unselectAll()"
+              [disabled]="isNoneSelected()">
+        {{'common.unselectAll' | translate}}
+      </button>
     </div>
   </ng-template>
 
   <ng-template ng-multi-label-tmp let-items="items">
-    {{items.length}} selected items
+    <div class="ng-value">
+      <span class="ng-value-label"
+            *ngIf="isAllSelected()">
+        {{'common.allValuesSelected' | translate}}
+      </span>
+      <span class="ng-value-label"
+            *ngIf="!isAllSelected() && items.length > 1">
+        {{'common.numValuesSelected' | translate:{numSelected: items.length} }}
+      </span>
+      <span class="ng-value-label"
+            *ngIf="!isAllSelected() && items.length == 1">
+        {{'common.oneValueSelected' | translate}}
+      </span>
+    </div>
   </ng-template>
 
   <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">

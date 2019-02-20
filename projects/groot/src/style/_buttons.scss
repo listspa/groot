@@ -15,9 +15,7 @@
   cursor: not-allowed;
 }
 
-.buttons-list {
-  @extend .text-right;
-
+.buttons-list-left {
   // We need to use "*" and not .btn to handle correctly the download button component
 
   > * {
@@ -27,6 +25,11 @@
   > *:last-child {
     margin-right: inherit;
   }
+}
+
+.buttons-list {
+  @extend .buttons-list-left;
+  @extend .text-right;
 }
 
 .buttons-list-bottom-right {

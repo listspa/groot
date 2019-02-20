@@ -4,6 +4,12 @@
   "common.lastPage": "Ultimo",
   "common.paginationRowsInfo": "Mostrate righe {{startRowIdx}} - {{endRowIdx}} di {{totalItems}}",
   "common.downloadExcel": "Download Excel",
+  "common.selectAll": "Select all",
+  "common.unselectAll": "Unselect all",
+  "common.allValuesSelected": "All values selected",
+  "common.oneValueSelected": "One value selected",
+  "common.numValuesSelected": "{{numSelected}} values selected",
+  "common.required": "The field is required",
   "people.name": "Name",
   "people.dateOfBirth": "Date of birth",
   "people.wage": "Wage"
