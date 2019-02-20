@@ -21,17 +21,17 @@ export class GrootComboCheckboxComponent implements ControlValueAccessor {
   @Input() items: string[] | object[];
   @Input() bindLabel: string | null = null;
   @Input() bindValue: string | null = null;
-  selectedValue: any;
+  selectedValue: any[];
 
-  onChange = (selectedValue: any) => null;
+  onChange = (selectedValue: any[]) => null;
   onTouched = () => null;
 
-  writeValue(selectedValue: any): void {
+  writeValue(selectedValue: any[]): void {
     this.selectedValue = selectedValue;
     this.onChange(this.selectedValue);
   }
 
-  registerOnChange(fn: (selectedValue: any) => void): void {
+  registerOnChange(fn: (selectedValue: any[]) => void): void {
     this.onChange = fn;
   }
 
@@ -55,7 +55,11 @@ export class GrootComboCheckboxComponent implements ControlValueAccessor {
   }
 
   selectAll() {
-    this.selectedValue = [...this.items];
+    if (this.bindValue) {
+      this.selectedValue = (this.items as any[]).map(item => item[this.bindValue]);
+    } else {
+      this.selectedValue = [...this.items];
+    }
   }
 
   unselectAll() {

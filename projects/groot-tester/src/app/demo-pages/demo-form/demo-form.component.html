@@ -310,7 +310,7 @@
 
 <div class="row">
   <div class="col-md-2">
-    <div class="form-field-explanation">Combo box with checkboxes</div>
+    <div class="form-field-explanation">Combo box with checkboxes from strings</div>
   </div>
   <div class="col-md-3">
     <form novalidate>
@@ -331,6 +331,37 @@
         [items]="manyCurrencies"
         [required]="true"
         [(ngModel)]="form.selectedManyCurrencies"
+      >&lt;/groot-combo-checkbox>
+    </code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Combo box with checkboxes and objects</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo-checkbox
+        label="Currencies objects"
+        name="manyCurrencyObj"
+        [items]="manyCurrenciesObjects"
+        [required]="true"
+        [(ngModel)]="form.selectedManyCurrenciesById"
+        bindLabel="currency"
+        bindValue="id"
+      ></groot-combo-checkbox>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>
+      &lt;groot-combo-checkbox
+        label="Currencies objects"
+        name="manyCurrencyObj"
+        [items]="manyCurrenciesObjects"
+        [required]="true"
+        [(ngModel)]="form.selectedManyCurrenciesById"
+        bindLabel="currency"
+        bindValue="id"
       >&lt;/groot-combo-checkbox>
     </code></pre>
   </div>

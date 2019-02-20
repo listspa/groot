@@ -12,6 +12,7 @@ export class DemoFormComponent {
     currency: null,
     selectedCurrencies: [],
     selectedManyCurrencies: [],
+    selectedManyCurrenciesById: [],
     selectedAlbumId: null,
     selectedRadio: 'first-radio',
     customCheck0: true,
@@ -228,4 +229,5 @@ export class DemoFormComponent {
     'ZWD',
     'ZWL',
   ];
+  public manyCurrenciesObjects = this.manyCurrencies.map((curr, idx) => ({id: idx, currency: curr}));
 }
