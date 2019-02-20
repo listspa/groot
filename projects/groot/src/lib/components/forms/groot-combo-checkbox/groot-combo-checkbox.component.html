@@ -17,12 +17,17 @@
            [multiple]="true"
            [closeOnSelect]="false">
   <ng-template ng-multi-label-tmp let-items="items">
-    {{items.length}}
+    {{items.length}} selected items
   </ng-template>
 
   <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-    <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/>
-    {{bindValue ? item[bindValue] : item}}
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox"
+             id="item-{{index}}"
+             class="custom-control-input"
+             [ngModel]="item$.selected">
+      <label class="custom-control-label">{{bindValue ? item[bindValue] : item}}</label>
+    </div>
   </ng-template>
 </ng-select>
 <div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
