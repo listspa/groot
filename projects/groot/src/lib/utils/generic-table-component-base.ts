@@ -22,6 +22,7 @@ import {PaginatedResponse, PaginationOptions, Sorting} from '../nbpu.interfaces'
  *     </tr>
  *     </tbody>
  *   </table>
+ *
  *   <groot-table-pagination
  *     [totalItems]="searchResults.totalNumRecords"
  *     [pageSize]="pageSize"
@@ -58,7 +59,18 @@ export abstract class GenericTableComponentBase<T> implements OnChanges {
     return this._sorting;
   }
 
+  /**
+   * @deprecated use reloadTable
+   */
   protected reload() {
+    this.reloadTable(false);
+  }
+
+  protected reloadTable(resetPageNumber = false) {
+    if (resetPageNumber) {
+      this._currentPageNum = 0;
+    }
+
     this.doSearch({
       sortField: this._sorting.column || this.getDefaultSortColumn(),
       sortReversed: this._sorting.reverse,
