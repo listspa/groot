@@ -15,6 +15,7 @@
            [bindLabel]="bindLabel"
            [bindValue]="bindValue"
            [multiple]="multiple"
+           [closeOnSelect]="!multiple"
 ></ng-select>
 <div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
   {{'common.required' | translate}}
