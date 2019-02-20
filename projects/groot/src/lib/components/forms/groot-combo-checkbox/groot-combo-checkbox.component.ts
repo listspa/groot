@@ -54,14 +54,6 @@ export class GrootComboCheckboxComponent implements ControlValueAccessor {
       this.selectedValue.length === 0;
   }
 
-  toggleSelectAll() {
-    if (this.isAllSelected()) {
-      this.selectedValue = [];
-    } else {
-      this.selectedValue = [...this.items];
-    }
-  }
-
   selectAll() {
     this.selectedValue = [...this.items];
   }
