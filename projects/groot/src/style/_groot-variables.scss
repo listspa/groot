@@ -65,6 +65,7 @@ $warning: $orange !default;
 $danger: $red !default;
 
 $light-primary: desaturate(lighten($primary, 10), 20) !default;
+$lighter-primary: desaturate(lighten($primary, 42), 30) !default;
 $lightest-primary: desaturate(lighten($primary, 50), 35) !default;
 $brand: $isp-green !default;
 $promotion: $purple !default;
@@ -133,7 +134,7 @@ $input-btn-focus-width: 1px !default;
 $input-btn-focus-box-shadow: none !default;
 $form-group-margin-bottom: 0.8em !default;
 $label-fg-color: $gray-800 !default;
-$ng-select-hover-bg-color: $lightest-primary !default;
+$ng-select-hover-bg-color: $lighter-primary !default;
 $ng-select-selected-bg-color: $lightest-primary !default;
 
 // Checkbox
