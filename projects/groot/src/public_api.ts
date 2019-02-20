@@ -9,6 +9,7 @@ export * from './lib/components/collapsible-box/collapsible-box.component';
 export * from './lib/components/download-button/download-button.component';
 export * from './lib/components/forms/groot-checkbox/groot-checkbox.component';
 export * from './lib/components/forms/groot-combo/groot-combo.component';
+export * from './lib/components/forms/groot-combo-checkbox/groot-combo-checkbox.component';
 export * from './lib/components/forms/groot-date-picker/groot-date-picker.component';
 export * from './lib/components/forms/groot-date-picker/groot-date-picker-config';
 export * from './lib/components/forms/groot-input/groot-input.component';

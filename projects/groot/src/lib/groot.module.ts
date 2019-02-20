@@ -25,6 +25,7 @@ import {GrootTextAreaComponent} from './components/forms/groot-textarea/groot-te
 import {NgSelectModule} from '@ng-select/ng-select';
 import {GrootComboComponent} from './components/forms/groot-combo/groot-combo.component';
 import {GrootDatePickerComponent} from './components/forms/groot-date-picker/groot-date-picker.component';
+import {GrootComboCheckboxComponent} from './components/forms/groot-combo-checkbox/groot-combo-checkbox.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {GrootDatePickerComponent} from './components/forms/groot-date-picker/gro
     GrootTextAreaComponent,
     GrootComboComponent,
     GrootDatePickerComponent,
+    GrootComboCheckboxComponent,
   ],
   imports: [
     CommonModule,
@@ -74,6 +76,7 @@ import {GrootDatePickerComponent} from './components/forms/groot-date-picker/gro
     GrootTextAreaComponent,
     GrootComboComponent,
     GrootDatePickerComponent,
+    GrootComboCheckboxComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

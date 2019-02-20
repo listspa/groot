@@ -308,6 +308,23 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Combo box with checkboxes</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo-checkbox
+        label="Currency"
+        name="manyCurrency"
+        [items]="manyCurrencies"
+        [required]="true"
+        [(ngModel)]="form.selectedManyCurrencies"
+      ></groot-combo-checkbox>
+    </form>
+  </div>
+</div>
+
 <h3>Date picker</h3>
 
 <p>The <code>ngModel</code> maps to a standard JavaScript <code>Date</code> object.</p>

@@ -1,0 +1,29 @@
+<label for="{{name}}">
+  {{label | translate}}
+  <span *ngIf="required">*</span>
+</label>
+<ng-select [items]="items"
+           [placeholder]="label | translate"
+           [required]="required"
+           id="{{name}}"
+           [name]="name"
+           #input="ngModel"
+           [ngModel]="selectedValue"
+           (ngModelChange)="writeValue($event)"
+           [class.is-invalid]="!input.valid && !input.pristine"
+           [disabled]="disabled"
+           [bindLabel]="bindLabel"
+           [bindValue]="bindValue"
+           [multiple]="true"
+           [closeOnSelect]="false">
+  <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+    <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/>
+    {{bindValue ? item[bindValue] : item}}
+  </ng-template>
+</ng-select>
+<div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
+  {{'common.required' | translate}}
+</div>
+<small class="form-text text-muted" *ngIf="helpText">
+  {{helpText | translate}}
+</small>
