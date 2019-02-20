@@ -16,6 +16,18 @@
            [bindValue]="bindValue"
            [multiple]="true"
            [closeOnSelect]="false">
+  <ng-template ng-header-tmp>
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox"
+             id="item-all"
+             class="custom-control-input"
+             [ngModel]="isAllSelected()"
+             (ngModelChange)="toggleSelectAll()">
+      <label class="custom-control-label font-italic"
+             for="item-all">All</label>
+    </div>
+  </ng-template>
+
   <ng-template ng-multi-label-tmp let-items="items">
     {{items.length}} selected items
   </ng-template>

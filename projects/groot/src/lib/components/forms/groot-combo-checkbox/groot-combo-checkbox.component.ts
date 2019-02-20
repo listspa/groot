@@ -42,4 +42,18 @@ export class GrootComboCheckboxComponent implements ControlValueAccessor {
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
+
+  isAllSelected() {
+    return this.items &&
+      this.selectedValue &&
+      this.items.length === this.selectedValue.length;
+  }
+
+  toggleSelectAll() {
+    if (this.isAllSelected()) {
+      this.selectedValue = [];
+    } else {
+      this.selectedValue = [...this.items];
+    }
+  }
 }
