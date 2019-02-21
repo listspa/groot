@@ -17,10 +17,29 @@
 
 <p>You might want to start with our <a routerLink="/docs/getting-started">Getting Started</a> guide.</p>
 
-<h2>Project references</h2>
+<h1>Project references</h1>
 
 <ul>
-  <li>GitLab: <a href="https://gitlab.list-group.com/isp-bu/libs/isp.groot">https://gitlab.list-group.com/isp-bu/libs/isp.groot</a></li>
-  <li>Jira: <a href="http://jira.list-group.com:8080/secure/RapidBoard.jspa?rapidView=294&projectKey=ISPGROOT">http://jira.list-group.com:8080/secure/RapidBoard.jspa?rapidView=294&projectKey=ISPGROOT</a></li>
-  <li>Confluence: <a href="http://jira.list-group.com:8090/display/ISPGROOT">http://jira.list-group.com:8090/display/ISPGROOT</a></li>
+  <li>GitLab: <a href="https://gitlab.list-group.com/isp-bu/libs/isp.groot">https://gitlab.list-group.com/isp-bu/libs/isp.groot</a>
+  </li>
+  <li>Jira: <a href="http://jira.list-group.com:8080/secure/RapidBoard.jspa?rapidView=294&projectKey=ISPGROOT">http://jira.list-group.com:8080/secure/RapidBoard.jspa?rapidView=294&projectKey=ISPGROOT</a>
+  </li>
+  <li>Confluence: <a href="http://jira.list-group.com:8090/display/ISPGROOT">http://jira.list-group.com:8090/display/ISPGROOT</a>
+  </li>
 </ul>
+
+<hr>
+
+<h1 class="text-danger"><i class="fa fa-exclamation-triangle"></i> Breaking changes</h1>
+
+<div class="breaking-changes">
+  <div class="version">
+    <div class="version-name">Version 0.3.0</div>
+    <ul>
+      <li>Changed the <code>LoadingService</code>: removed the <code>doneLoading()</code> function. Now the
+        <code>startLoading()</code> function returns a function that you should invoke to signal the loading
+        completion.
+      </li>
+    </ul>
+  </div>
+</div>
