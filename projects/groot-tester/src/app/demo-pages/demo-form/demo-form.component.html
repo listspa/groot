@@ -261,7 +261,23 @@
         [required]="true"
         [(ngModel)]="form.selectedCurrencies"
         [multiple]="true"
-      ></groot-combo>
+        [itemTemplate]="itemTemplate1"
+        [labelTemplate]="labelTemplate1"
+        [multiLabelTemplate]="multiLabelTemplate1"
+      >
+        <ng-template #itemTemplate1 let-item="item">
+          <span class="bg-info">divise: {{item}}</span>
+        </ng-template>
+
+        <ng-template #labelTemplate1 let-item="item">
+          <span class="bg-info">divise: {{item}}</span>
+        </ng-template>
+
+        <ng-template #multiLabelTemplate1 let-items="items">
+          <span class="bg-info">divise scelte: {{items | json}}</span>
+        </ng-template>
+
+      </groot-combo>
     </form>
   </div>
   <div class="col-md-7">
@@ -291,12 +307,16 @@
         [(ngModel)]="form.selectedAlbumId"
         bindLabel="name"
         bindValue="id"
-        [itemTemplate]="itemTemplate"
+        [itemTemplate]="itemTemplate2"
+        [labelTemplate]="labelTemplate2"
       >
-        <ng-template #itemTemplate let-item="item">
+        <ng-template #itemTemplate2 let-item="item">
           <span class="bg-info">CD name: {{item.name}}</span>
         </ng-template>
 
+        <ng-template #labelTemplate2 let-item="item">
+          <span class="bg-info">CD name: {{item.name}}</span>
+        </ng-template>
       </groot-combo>
     </form>
   </div>

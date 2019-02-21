@@ -23,6 +23,8 @@ export class GrootComboComponent implements ControlValueAccessor {
   @Input() bindLabel: string | null = null;
   @Input() bindValue: string | null = null;
   @Input() itemTemplate: TemplateRef<any> | null;
+  @Input() labelTemplate: TemplateRef<any> | null;
+  @Input() multiLabelTemplate: TemplateRef<any> | null;
   selectedValue: any;
 
   onChange = (selectedValue: any) => null;

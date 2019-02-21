@@ -29,6 +29,26 @@
     </ng-container>
   </ng-template>
 
+  <!-- Custom label (selected object) template -->
+  <ng-template *ngIf="labelTemplate"
+               ng-label-tmp
+               let-item="item"
+               let-clear="clear"
+               let-label="label">
+    <ng-container
+      *ngTemplateOutlet="labelTemplate; context: {item: item, clear: clear, label: label}">
+    </ng-container>
+  </ng-template>
+
+  <!-- Custom template for multiple selections (replaces the label template) -->
+  <ng-template *ngIf="multiLabelTemplate"
+               ng-multi-label-tmp
+               let-items="items"
+               let-clear="clear">
+    <ng-container
+      *ngTemplateOutlet="multiLabelTemplate; context: {items: items, clear: clear}">
+    </ng-container>
+  </ng-template>
 </ng-select>
 <div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
   {{'common.required' | translate}}
