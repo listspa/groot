@@ -1,6 +1,7 @@
 $paginator-margin: 0.5rem;
 $paginator-size: 1.8rem;
 $icon-size: 3rem;
+$active-page-number-color: color-yiq($primary);
 
 groot-table-pagination {
   nav {
@@ -55,7 +56,7 @@ groot-table-pagination {
 
     &.active {
       background-color: $primary;
-      color: color-yiq($primary);
+      color: $active-page-number-color;
     }
   }
 
@@ -65,6 +66,11 @@ groot-table-pagination {
     &.disabled {
       opacity: 0.5;
       cursor: not-allowed;
+    }
+
+    &:not([href]):not([tabindex]):hover.active,
+    &:not([href]):not([tabindex]):focus.active {
+      color: $active-page-number-color;
     }
   }
 }
