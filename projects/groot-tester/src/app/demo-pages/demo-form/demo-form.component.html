@@ -397,6 +397,11 @@
   </li>
 </ul>
 
+<p>
+  For the combo checkbox component, you can customize far less: you can only pass a <code>itemTemplate</code>
+  that will be displayed <i>alongside</i> the existing checkbox.
+</p>
+
 <div class="row">
   <div class="col-md-2">
     <div class="form-field-explanation">Custom template for single selection</div>
@@ -413,7 +418,7 @@
       >
         <ng-template #templateCurrItem1 let-item="item">
           <span class="ng-option-label">
-            <i class="fa text-danger" [ngClass]="'fa-' + item.toLowerCase()"></i>
+            <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
             {{item}}
           </span>
         </ng-template>
@@ -432,7 +437,7 @@
        >
         &lt;ng-template #templateCurrItem1 let-item="item">
           &lt;span class="ng-option-label">
-            &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toLowerCase()">&lt;/i>
+            &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
       &lt;/span>
         &lt;/ng-template>
@@ -545,8 +550,8 @@
         &lt;ng-template #templateCurrItem3 let-item="item">
           &lt;span class="ng-option-label">
             &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
-            {{item}}
-          &lt;/span>
+      {{item}}
+      &lt;/span>
         &lt;/ng-template>
 
         &lt;ng-template #multiLabelTemplate3 let-items="items">
@@ -555,6 +560,47 @@
           &lt;/div>
         &lt;/ng-template>
       &lt;/groot-combo>
+    </code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Custom template with combo checkbox</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo-checkbox
+        label="Custom template combo"
+        name="currencyCombCheckboxCustom"
+        [items]="currencies"
+        [(ngModel)]="form.currency"
+        [itemTemplate]="templateCurrItem4"
+      >
+        <ng-template #templateCurrItem4 let-item="item">
+          <span class="ng-option-label">
+            <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
+            {{item}}
+          </span>
+        </ng-template>
+      </groot-combo-checkbox>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code ngNonBindable>
+       &lt;groot-combo-checkbox
+         label="Custom template combo"
+         name="currencyCombCheckboxCustom"
+         [items]="currencies"
+         [(ngModel)]="form.currency"
+         [itemTemplate]="templateCurrItem4"
+       >
+        &lt;ng-template #templateCurrItem4 let-item="item">
+          &lt;span class="ng-option-label">
+            &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+            {{item}}
+          &lt;/span>
+        &lt;/ng-template>
+      &lt;/groot-combo-checkbox>
     </code></pre>
   </div>
 </div>

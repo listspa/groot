@@ -49,13 +49,23 @@
     </div>
   </ng-template>
 
-  <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+  <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" let-searchTerm="searchTerm">
     <div class="custom-control custom-checkbox">
       <input type="checkbox"
              id="item-{{index}}"
              class="custom-control-input"
              [ngModel]="item$.selected">
-      <label class="custom-control-label">{{bindLabel ? item[bindLabel] : item}}</label>
+      <label class="custom-control-label">
+        <!-- Default item template -->
+        <ng-container *ngIf="!itemTemplate">{{bindLabel ? item[bindLabel] : item}}</ng-container>
+
+        <!-- Custom item templates -->
+        <ng-container *ngIf="itemTemplate">
+          <ng-container
+            *ngTemplateOutlet="itemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
+          </ng-container>
+        </ng-container>
+      </label>
     </div>
   </ng-template>
 </ng-select>
