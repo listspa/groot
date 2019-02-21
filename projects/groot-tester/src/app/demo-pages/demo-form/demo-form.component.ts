@@ -20,7 +20,7 @@ export class DemoFormComponent {
     date: new Date()
   };
 
-  public currencies = ['EUR', 'USD', 'CHF'];
+  public currencies = ['EUR', 'USD', 'JPY', 'CNY', 'RUB'];
   public albums = [
     {
       id: 1,

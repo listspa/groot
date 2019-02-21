@@ -261,23 +261,7 @@
         [required]="true"
         [(ngModel)]="form.selectedCurrencies"
         [multiple]="true"
-        [itemTemplate]="itemTemplate1"
-        [labelTemplate]="labelTemplate1"
-        [multiLabelTemplate]="multiLabelTemplate1"
-      >
-        <ng-template #itemTemplate1 let-item="item">
-          <span class="bg-info">divise: {{item}}</span>
-        </ng-template>
-
-        <ng-template #labelTemplate1 let-item="item">
-          <span class="bg-info">divise: {{item}}</span>
-        </ng-template>
-
-        <ng-template #multiLabelTemplate1 let-items="items">
-          <span class="bg-info">divise scelte: {{items | json}}</span>
-        </ng-template>
-
-      </groot-combo>
+      ></groot-combo>
     </form>
   </div>
   <div class="col-md-7">
@@ -307,17 +291,7 @@
         [(ngModel)]="form.selectedAlbumId"
         bindLabel="name"
         bindValue="id"
-        [itemTemplate]="itemTemplate2"
-        [labelTemplate]="labelTemplate2"
-      >
-        <ng-template #itemTemplate2 let-item="item">
-          <span class="bg-info">CD name: {{item.name}}</span>
-        </ng-template>
-
-        <ng-template #labelTemplate2 let-item="item">
-          <span class="bg-info">CD name: {{item.name}}</span>
-        </ng-template>
-      </groot-combo>
+      ></groot-combo>
     </form>
   </div>
   <div class="col-md-7">
@@ -389,6 +363,198 @@
         bindLabel="currency"
         bindValue="id"
       >&lt;/groot-combo-checkbox>
+    </code></pre>
+  </div>
+</div>
+
+<h3>Customizing combo templates</h3>
+
+<p>
+  If you need to render special items in the combo, we provide some forms of template customization.
+  If you need to do something really fancy though, please use the raw
+  <a href="https://ng-select.github.io/ng-select" target="_blank">ng-select</a> component, rather than our wrapper.
+  You might also want to check out the
+  <a href="https://github.com/ng-select/ng-select/tree/master/src/ng-select" target="_blank">source code</a> of
+  ng-select to better understand how to use the templates.
+</p>
+
+<p>
+  You have the option to pass custom angular templates to the components:
+</p>
+
+<ul>
+  <li><code>itemTemplate</code> is the template used to render a specific item in the dropdown</li>
+  <li><code>labelTemplate</code> is the template used to render one selected item. It can be used both for single
+    and multiple selections. In case of single selections, you might want to use the same template as
+    <code>itemTemplate</code> to achieve the same look and feel; in case of multiple selections, though, you
+    might want to use a different template to add the "x" to unselect an item. Please checkout the <a
+      href="https://github.com/ng-select/ng-select/blob/4ea3e33de52a4dda7d97bb486f9b9f944a9f6fc1/src/ng-select/ng-select.component.html#L7"
+      target="_blank">default template</a> to see how it is done.
+  </li>
+  <li>the combo will show multiple <code>labelTemplate</code> side by side in case of multiple selections. You can also
+    pass a <code>multiLabelTemplate</code> to replace them all with just one template, that you can customize
+    as necessary.
+  </li>
+</ul>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Custom template for single selection</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Currency with icon (single selection)"
+        name="currencyWithIconSingle"
+        [items]="currencies"
+        [(ngModel)]="form.currency"
+        [itemTemplate]="templateCurrItem1"
+        [labelTemplate]="templateCurrItem1"
+      >
+        <ng-template #templateCurrItem1 let-item="item">
+          <span class="ng-option-label">
+            <i class="fa text-danger" [ngClass]="'fa-' + item.toLowerCase()"></i>
+            {{item}}
+          </span>
+        </ng-template>
+      </groot-combo>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code ngNonBindable>
+       &lt;groot-combo
+         label="Currency with icon (single selection)"
+         name="currencyWithIconSingle"
+         [items]="currencies"
+         [(ngModel)]="form.currency"
+         [itemTemplate]="templateCurrItem1"
+         [labelTemplate]="templateCurrItem1"
+       >
+        &lt;ng-template #templateCurrItem1 let-item="item">
+          &lt;span class="ng-option-label">
+            &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toLowerCase()">&lt;/i>
+      {{item}}
+      &lt;/span>
+        &lt;/ng-template>
+      &lt;/groot-combo>
+    </code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Custom template for multiple selection (with clear icon)</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Currency with icon (multiple selection)"
+        name="currencyWithIconMultiple"
+        [items]="currencies"
+        [(ngModel)]="form.selectedCurrencies"
+        [itemTemplate]="templateCurrItem2"
+        [labelTemplate]="templateCurrLabel2"
+        [multiple]="true"
+      >
+        <ng-template #templateCurrItem2 let-item="item">
+          <span class="ng-option-label">
+            <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
+            {{item}}
+          </span>
+        </ng-template>
+
+        <ng-template #templateCurrLabel2 let-item="item" let-clear="clear">
+          <span class="ng-value-icon left" (click)="clear(item)">×</span>
+          <span class="ng-value-label">
+            <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
+            {{item}}
+          </span>
+        </ng-template>
+      </groot-combo>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code ngNonBindable>
+       &lt;groot-combo
+         label="Currency with icon (multiple selection)"
+         name="currencyWithIconMultiple"
+         [items]="currencies"
+         [(ngModel)]="form.selectedCurrencies"
+         [itemTemplate]="templateCurrItem2"
+         [labelTemplate]="templateCurrLabel2"
+         [multiple]="true"
+       >
+        &lt;ng-template #templateCurrItem2 let-item="item">
+          &lt;span class="ng-option-label">
+            &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+      {{item}}
+      &lt;/span>
+        &lt;/ng-template>
+
+        &lt;ng-template #templateCurrLabel2 let-item="item" let-clear="clear">
+          &lt;span class="ng-value-icon left" (click)="clear(item)">×&lt;/span>
+          &lt;span class="ng-value-label">
+            &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+      {{item}}
+      &lt;/span>
+        &lt;/ng-template>
+      &lt;/groot-combo>
+    </code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Custom template for multiple selection (replaces label template)</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Currency with icon (multiple selection, multi template)"
+        name="currencyWithIconMultiple2"
+        [items]="currencies"
+        [(ngModel)]="form.selectedCurrencies"
+        [itemTemplate]="templateCurrItem3"
+        [multiLabelTemplate]="multiLabelTemplate3"
+        [multiple]="true"
+      >
+        <ng-template #templateCurrItem3 let-item="item">
+          <span class="ng-option-label">
+            <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
+            {{item}}
+          </span>
+        </ng-template>
+
+        <ng-template #multiLabelTemplate3 let-items="items">
+          <div class="ng-value">
+            <span class="ng-value-label">You have selected: {{items.length}} items.</span>
+          </div>
+        </ng-template>
+      </groot-combo>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code ngNonBindable>
+      &lt;groot-combo
+        label="Currency with icon (multiple selection, multi template)"
+        name="currencyWithIconMultiple2"
+        [items]="currencies"
+        [(ngModel)]="form.selectedCurrencies"
+        [itemTemplate]="templateCurrItem3"
+        [multiLabelTemplate]="multiLabelTemplate3"
+        [multiple]="true"
+      >
+        &lt;ng-template #templateCurrItem3 let-item="item">
+          &lt;span class="ng-option-label">
+            &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+            {{item}}
+          &lt;/span>
+        &lt;/ng-template>
+
+        &lt;ng-template #multiLabelTemplate3 let-items="items">
+          &lt;div class="ng-value">
+            &lt;span class="ng-value-label">You have selected: {{items.length}} items.&lt;/span>
+          &lt;/div>
+        &lt;/ng-template>
+      &lt;/groot-combo>
     </code></pre>
   </div>
 </div>
