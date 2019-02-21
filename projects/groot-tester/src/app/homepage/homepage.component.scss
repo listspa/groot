@@ -1,13 +1,17 @@
 @import "../../../../groot/src/style/groot-variables";
 
-.breaking-changes {
+.version-history {
   .version {
     padding: 0.5rem 1rem;
   }
 
   .version-name {
     font-size: 1.5em;
-    font-weight: bold;
+    font-family: $headings-font-family;
+  }
+
+  .breaking-change {
     color: $danger;
+    font-weight: bold;
   }
 }

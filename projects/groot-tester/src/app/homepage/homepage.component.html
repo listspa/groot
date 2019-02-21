@@ -30,16 +30,22 @@
 
 <hr>
 
-<h1 class="text-danger"><i class="fa fa-exclamation-triangle"></i> Breaking changes</h1>
+<h1><i class="fa fa-version"></i> Version history</h1>
 
-<div class="breaking-changes">
+<div class="version-history">
   <div class="version">
     <div class="version-name">Version 0.3.0</div>
     <ul>
-      <li>Changed the <code>LoadingService</code>: removed the <code>doneLoading()</code> function. Now the
+      <li>
+        <span class="breaking-change"><i class="fa fa-exclamation-triangle"></i> Breaking change:</span>
+        Changed the <code>LoadingService</code>: removed the <code>doneLoading()</code> function. Now the
         <code>startLoading()</code> function returns a function that you should invoke to signal the loading
         completion.
       </li>
+      <li>Allowed customization of rendering of an item in the combo. See the <a routerLink="/demo/forms">forms page</a>
+        for a demo and the details.
+      </li>
+      <li>Removed week numbers in the date picker.</li>
     </ul>
   </div>
 </div>
