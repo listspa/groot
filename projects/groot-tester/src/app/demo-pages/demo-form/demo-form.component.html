@@ -291,7 +291,13 @@
         [(ngModel)]="form.selectedAlbumId"
         bindLabel="name"
         bindValue="id"
-      ></groot-combo>
+        [itemTemplate]="itemTemplate"
+      >
+        <ng-template #itemTemplate let-item="item">
+          <span class="bg-info">CD name: {{item.name}}</span>
+        </ng-template>
+
+      </groot-combo>
     </form>
   </div>
   <div class="col-md-7">

@@ -15,8 +15,21 @@
            [bindLabel]="bindLabel"
            [bindValue]="bindValue"
            [multiple]="multiple"
-           [closeOnSelect]="!multiple"
-></ng-select>
+           [closeOnSelect]="!multiple">
+
+  <!-- Custom item templates -->
+  <ng-template *ngIf="itemTemplate"
+               ng-option-tmp
+               let-item="item"
+               let-item$="item$"
+               let-index="index"
+               let-searchTerm="searchTerm">
+    <ng-container
+      *ngTemplateOutlet="itemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
+    </ng-container>
+  </ng-template>
+
+</ng-select>
 <div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
   {{'common.required' | translate}}
 </div>

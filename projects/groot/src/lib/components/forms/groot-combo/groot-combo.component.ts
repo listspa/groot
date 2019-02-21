@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {Component, forwardRef, Input, TemplateRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
@@ -22,6 +22,7 @@ export class GrootComboComponent implements ControlValueAccessor {
   @Input() multiple = false;
   @Input() bindLabel: string | null = null;
   @Input() bindValue: string | null = null;
+  @Input() itemTemplate: TemplateRef<any> | null;
   selectedValue: any;
 
   onChange = (selectedValue: any) => null;
