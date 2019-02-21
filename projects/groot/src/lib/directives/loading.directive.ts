@@ -13,6 +13,7 @@ import {LoadingService} from '../services/loading.service';
 })
 export class LoadingDirective {
   previousStatus: boolean | null = null;
+  loadingCallbacks = [];
 
   constructor(private loadingService: LoadingService) {
   }
@@ -22,9 +23,11 @@ export class LoadingDirective {
     if (loading === this.previousStatus) {
       // Nothing to do
     } else if (loading) {
-      this.loadingService.startLoading();
+      const doneCallback = this.loadingService.startLoading();
+      this.loadingCallbacks.push(doneCallback);
     } else {
-      this.loadingService.doneLoading();
+      const doneCallback = this.loadingCallbacks.pop();
+      doneCallback();
     }
     this.previousStatus = loading;
   }

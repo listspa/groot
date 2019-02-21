@@ -2,9 +2,14 @@
 
 <p>Groot provides a loading indicator, that is shown on top of the page. Here's a button to try it:</p>
 
-<button class="btn btn-primary" (click)="testLoading()">
-  Test loading (for 3 seconds)
-</button>
+<div class="buttons-list-left">
+  <button class="btn btn-primary" (click)="testLoading()">
+    Test loading (for 3 seconds)
+  </button>
+  <button class="btn btn-primary" (click)="testFastLoading()">
+    Test fast loading (for 100 ms)
+  </button>
+</div>
 
 <div class="mb-5"></div>
 
@@ -19,7 +24,8 @@
     <pre><code>&lt;groot-loading-indicator>&lt;/groot-loading-indicator></code></pre>
   </li>
   <li>when you want to enable the loading spinner use the <code>LoadingService</code> and call its
-    methods <code>startLoading()</code> and <code>doneLoading()</code>.
+    methods <code>startLoading()</code>. This will return a function that you have to call to signal that the loading is
+    complete.
   </li>
 </ol>
 
@@ -28,8 +34,8 @@
 </p>
 
 <pre><code>public search(request: SearchRequest): Observable&lt;SearchResponse> &#123;
-  this.loadingService.startLoading();
+  const doneCallback = this.loadingService.startLoading();
   return this.http.post&lt;SearchResponse>(`$&#123;BASE_URL}/exchangeRates/get`, request)
-    .pipe(finalize(() => this.loadingService.doneLoading()));
+    .pipe(finalize(doneCallback));
 }
 </code></pre>

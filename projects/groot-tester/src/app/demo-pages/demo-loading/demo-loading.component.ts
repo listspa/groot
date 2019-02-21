@@ -11,7 +11,12 @@ export class DemoLoadingComponent {
   }
 
   testLoading() {
-    this.loadingService.startLoading();
-    timer(3000).subscribe(() => this.loadingService.doneLoading());
+    const stopLoading = this.loadingService.startLoading();
+    timer(3000).subscribe(stopLoading);
+  }
+
+  testFastLoading() {
+    const stopLoading = this.loadingService.startLoading();
+    timer(100).subscribe(stopLoading);
   }
 }
