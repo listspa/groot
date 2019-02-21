@@ -56,15 +56,13 @@
              class="custom-control-input"
              [ngModel]="item$.selected">
       <label class="custom-control-label">
-        <!-- Default item template -->
-        <ng-container *ngIf="!itemTemplate">{{bindLabel ? item[bindLabel] : item}}</ng-container>
+        <ng-container
+          *ngTemplateOutlet="itemTemplate || defaultItemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}"
+        ></ng-container>
 
-        <!-- Custom item templates -->
-        <ng-container *ngIf="itemTemplate">
-          <ng-container
-            *ngTemplateOutlet="itemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
-          </ng-container>
-        </ng-container>
+        <ng-template #defaultItemTemplate>
+          {{bindLabel ? item[bindLabel] : item}}
+        </ng-template>
       </label>
     </div>
   </ng-template>
