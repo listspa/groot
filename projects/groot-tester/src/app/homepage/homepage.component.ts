@@ -8,7 +8,7 @@ import {Release, ReleaseChangeType} from './release.model';
 export class HomepageComponent {
   releases: Release[] = [
     {
-      version: 'next', released: false, changes: [
+      version: '0.3.1', released: true, changes: [
         {
           type: ReleaseChangeType.BREAKING_CHANGE, html: `
 Added an appropriate label, for the table headers, in case "no rows found". Note: you need to add a translation with the key
