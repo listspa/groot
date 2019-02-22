@@ -1,0 +1,7 @@
+<label>{{label}}</label>
+<div class="toggle"
+     [class.inactive]="!value"
+     [class.active]="value"
+(click)="toggleStatus()">
+  <div class="toggle-button"></div>
+</div>

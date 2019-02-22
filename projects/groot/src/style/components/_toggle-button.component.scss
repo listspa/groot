@@ -1,0 +1,41 @@
+$toggle-bar-width: 2.8rem;
+$toggle-bar-height: 1.1rem;
+$toggle-button-size: 1.5rem;
+
+.toggle {
+  display: inline-block;
+  width: $toggle-bar-width;
+  height: $toggle-bar-height;
+  border-radius: $toggle-bar-height / 2;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+
+  .toggle-button {
+    position: absolute;
+    top: -$toggle-button-size / 2 + $toggle-bar-height / 2;
+    height: $toggle-button-size;
+    width: $toggle-button-size;
+    border-radius: $toggle-button-size;
+    transition: all 0.15s ease-in-out;
+  }
+
+  &.active {
+    background-color: $desaturated-primary;
+
+    .toggle-button {
+      background-color: $primary;
+      //right: -1px;
+      left: $toggle-bar-width - $toggle-button-size + 0.1rem;
+    }
+  }
+
+  &.inactive {
+    background-color: $gray-600;
+
+    .toggle-button {
+      left: -0.1rem;
+      background-color: $gray-400;
+    }
+  }
+}

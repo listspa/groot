@@ -15,6 +15,7 @@ export * from './lib/components/forms/groot-date-picker/groot-date-picker-config
 export * from './lib/components/forms/groot-input/groot-input.component';
 export * from './lib/components/forms/groot-radio/groot-radio.component';
 export * from './lib/components/forms/groot-textarea/groot-textarea.component';
+export * from './lib/components/forms/groot-toggle-button/groot-toggle-button.component';
 export * from './lib/components/loading-indicator/loading-indicator.component';
 export * from './lib/components/nav-bar/nav-bar.component';
 export * from './lib/components/notification-toast-list/notification-toast-list.component';

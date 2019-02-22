@@ -64,6 +64,7 @@ $info: $light-blue !default;
 $warning: $orange !default;
 $danger: $red !default;
 
+$desaturated-primary: desaturate(lighten($primary, 23), 20) !default;
 $light-primary: desaturate(lighten($primary, 10), 20) !default;
 $lighter-primary: desaturate(lighten($primary, 42), 30) !default;
 $lightest-primary: desaturate(lighten($primary, 50), 35) !default;
