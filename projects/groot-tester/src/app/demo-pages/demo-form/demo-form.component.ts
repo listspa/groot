@@ -230,4 +230,8 @@ export class DemoFormComponent {
     'ZWL',
   ];
   public manyCurrenciesObjects = this.manyCurrencies.map((curr, idx) => ({id: idx, currency: curr}));
+
+  onModelChange(field: string, value: any) {
+    console.log('field %o changed: %o', field, value);
+  }
 }

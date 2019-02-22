@@ -23,6 +23,7 @@
         name="name 0"
         [required]="true"
         [(ngModel)]="form.name"
+        (ngModelChange)="onModelChange('name input', $event)"
       ></groot-input>
     </form>
   </div>
@@ -32,6 +33,7 @@
         name="name 0"
         [required]="true"
         [(ngModel)]="form.name"
+        (ngModelChange)="onModelChange('name input', $event)"
       >&lt;/groot-input></code></pre>
   </div>
 </div>
@@ -100,8 +102,9 @@
     <form novalidate>
       <groot-checkbox name="customCheck0"
                       label="This is selected"
-                      [(ngModel)]="form.customCheck0">
-      </groot-checkbox>
+                      [(ngModel)]="form.customCheck0"
+                      (ngModelChange)="onModelChange('customCheck0', $event)"
+      ></groot-checkbox>
 
       <groot-checkbox name="customCheck1"
                       label="This is a checkbox"
@@ -118,8 +121,9 @@
     <pre><code>
       &lt;groot-checkbox name="customCheck0"
                    label="This is selected"
-                   [(ngModel)]="form.customCheck0">
-      &lt;/groot-checkbox>
+                   [(ngModel)]="form.customCheck0"
+                   (ngModelChange)="onModelChange('customCheck0', $event)"
+      >&lt;/groot-checkbox>
 
       &lt;groot-checkbox name="customCheck1"
                       label="This is a checkbox"
@@ -146,15 +150,17 @@
                    idRadio="gRadio1"
                    value="first-radio"
                    label="This is selected"
-                   [(ngModel)]="form.selectedRadio">
-      </groot-radio>
+                   [(ngModel)]="form.selectedRadio"
+                   (ngModelChange)="onModelChange('radio', $event)"
+      ></groot-radio>
 
       <groot-radio name="groot-radio"
                    idRadio="gRadio2"
                    value="second-radio"
                    label="This is a radio"
-                   [(ngModel)]="form.selectedRadio">
-      </groot-radio>
+                   [(ngModel)]="form.selectedRadio"
+                   (ngModelChange)="onModelChange('radio', $event)"
+      ></groot-radio>
 
       <groot-radio name="groot-radio"
                    idRadio="gRadio3"
@@ -170,15 +176,16 @@
                        idRadio="gRadio1"
                        value="first-radio"
                        label="This is selected"
-                       [(ngModel)]="form.selectedRadio">
-      &lt;/groot-radio>
+                       (ngModelChange)="onModelChange('radio', $event)"
+      >&lt;/groot-radio>
 
       &lt;groot-radio name="groot-radio"
                    idRadio="gRadio2"
                    value="second-radio"
                    label="This is a radio"
                    [(ngModel)]="form.selectedRadio">
-      &lt;/groot-radio>
+                   (ngModelChange)="onModelChange('radio', $event)"
+      >&lt;/groot-radio>
 
       &lt;groot-radio name="groot-radio"
                    idRadio="gRadio3"
@@ -203,6 +210,7 @@
         name="name"
         [required]="true"
         [(ngModel)]="form.name"
+        (ngModelChange)="onModelChange('textarea', $event)"
       ></groot-textarea>
     </form>
   </div>
@@ -213,6 +221,7 @@
        name="name"
        [required]="true"
        [(ngModel)]="form.name"
+       (ngModelChange)="onModelChange('radio', $event)"
     >&lt;/groot-textarea>
     </code></pre>
   </div>
@@ -232,6 +241,7 @@
         [items]="currencies"
         [required]="true"
         [(ngModel)]="form.currency"
+        (ngModelChange)="onModelChange('combo currency', $event)"
       ></groot-combo>
     </form>
   </div>
@@ -243,6 +253,7 @@
         [items]="currencies"
         [required]="true"
         [(ngModel)]="form.currency"
+        (ngModelChange)="onModelChange('combo currency', $event)"
       >&lt;/groot-combo>
     </code></pre>
   </div>
@@ -261,6 +272,7 @@
         [required]="true"
         [(ngModel)]="form.selectedCurrencies"
         [multiple]="true"
+        (ngModelChange)="onModelChange('combo multiple currencies', $event)"
       ></groot-combo>
     </form>
   </div>
@@ -273,6 +285,7 @@
         [required]="true"
         [(ngModel)]="form.selectedCurrencies"
         [multiple]="true"
+        (ngModelChange)="onModelChange('combo multiple currencies', $event)"
       >&lt;/groot-combo>
     </code></pre>
   </div>
@@ -349,6 +362,7 @@
         [(ngModel)]="form.selectedManyCurrenciesById"
         bindLabel="currency"
         bindValue="id"
+        (ngModelChange)="onModelChange('combo checkbox', $event)"
       ></groot-combo-checkbox>
     </form>
   </div>
@@ -362,6 +376,7 @@
         [(ngModel)]="form.selectedManyCurrenciesById"
         bindLabel="currency"
         bindValue="id"
+        (ngModelChange)="onModelChange('combo checkbox', $event)"
       >&lt;/groot-combo-checkbox>
     </code></pre>
   </div>
@@ -597,8 +612,8 @@
         &lt;ng-template #templateCurrItem4 let-item="item">
           &lt;span class="ng-option-label">
             &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
-            {{item}}
-          &lt;/span>
+      {{item}}
+      &lt;/span>
         &lt;/ng-template>
       &lt;/groot-combo-checkbox>
     </code></pre>
