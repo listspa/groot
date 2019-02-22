@@ -17,7 +17,8 @@ export class DemoFormComponent {
     selectedRadio: 'first-radio',
     customCheck0: true,
     customCheck1: false,
-    date: new Date()
+    date: new Date(),
+    toggler: false
   };
 
   public currencies = ['EUR', 'USD', 'JPY', 'CNY', 'RUB'];

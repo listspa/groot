@@ -652,6 +652,59 @@
   </div>
 </div>
 
+<h3>Toggle button</h3>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Toggle button</div>
+  </div>
+  <div class="col-md-3">
+    <form>
+      <groot-toggle-button
+        label="Toggle me"
+        name="toggler"
+        [(ngModel)]="form.toggler"
+        (ngModelChange)="onModelChange('toggle', $event)"
+      ></groot-toggle-button>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>
+      &lt;groot-toggle-button
+        label="Toggle me"
+        name="toggler"
+        [(ngModel)]="form.toggler"
+        (ngModelChange)="onModelChange('toggle', $event)"
+      >&lt;/groot-toggle-button>
+    </code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Disabled</div>
+  </div>
+  <div class="col-md-3">
+    <form>
+      <groot-toggle-button
+        label="Toggle me 2"
+        name="toggler 2"
+        [(ngModel)]="form.toggler"
+        [disabled]="true"
+      ></groot-toggle-button>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>
+      &lt;groot-toggle-button
+        label="Toggle me 2"
+        name="toggler 2"
+        [(ngModel)]="form.toggler"
+        [disabled]=true
+      >&lt;/groot-toggle-button>
+    </code></pre>
+  </div>
+</div>
+
 <h3>Selected values</h3>
 
 <div class="alert alert-info">
