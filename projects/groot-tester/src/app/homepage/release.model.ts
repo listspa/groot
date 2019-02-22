@@ -1,6 +1,6 @@
 export interface Release {
   version: string;
-  released: false;
+  released: boolean;
   changes: ReleaseChange[];
 }
 
