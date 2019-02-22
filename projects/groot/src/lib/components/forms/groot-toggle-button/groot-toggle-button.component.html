@@ -2,6 +2,7 @@
 <div class="toggle"
      [class.inactive]="!value"
      [class.active]="value"
-(click)="toggleStatus()">
+     [class.disabled]="disabled"
+     (click)="toggleStatus()">
   <div class="toggle-button"></div>
 </div>

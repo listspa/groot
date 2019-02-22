@@ -1,6 +1,7 @@
 $toggle-bar-width: 2.8rem;
 $toggle-bar-height: 1.1rem;
 $toggle-button-size: 1.5rem;
+$toggle-margin: 0.5rem;
 
 .toggle {
   display: inline-block;
@@ -10,6 +11,7 @@ $toggle-button-size: 1.5rem;
   position: relative;
   cursor: pointer;
   transition: background-color 0.15s ease-in-out;
+  margin-right: $toggle-margin;
 
   .toggle-button {
     position: absolute;
@@ -38,4 +40,16 @@ $toggle-button-size: 1.5rem;
       background-color: $gray-400;
     }
   }
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+groot-toggle-button label {
+  margin-left: 0;
+  margin-right: $toggle-margin;
+  line-height: $toggle-button-size;
+  vertical-align: middle;
 }
