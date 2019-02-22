@@ -3,6 +3,7 @@
   "common.firstPage": "Primo",
   "common.lastPage": "Ultimo",
   "common.paginationRowsInfo": "Mostrate righe {{startRowIdx}} - {{endRowIdx}} di {{totalItems}}",
+  "common.noRowsFound": "Nessuna riga trovata",
   "common.downloadExcel": "Scarica Excel",
   "common.selectAll": "Seleziona tutti",
   "common.unselectAll": "Deseleziona tutti",

@@ -3,6 +3,7 @@
   "common.firstPage": "First",
   "common.lastPage": "Last",
   "common.paginationRowsInfo": "Showing rows {{startRowIdx}} - {{endRowIdx}} out of {{totalItems}}",
+  "common.noRowsFound": "No rows found",
   "common.downloadExcel": "Download Excel",
   "common.selectAll": "Select all",
   "common.unselectAll": "Unselect all",
