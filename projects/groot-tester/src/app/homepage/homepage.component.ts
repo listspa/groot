@@ -14,6 +14,12 @@ export class HomepageComponent {
 Added an appropriate label, for the table headers, in case "no rows found". Note: you need to add a translation with the key
 <code>"common.noRowsFound"</code> (the label should be something like "No rows found").
 `
+        },
+        {
+          type: ReleaseChangeType.NEW_FEATURE, html: `
+Added new boolean toggle component <code>groot-toggle-button</code>. See the <a routerLink="/demo/forms">forms page</a>
+for a demo and the details.
+`
         }
       ]
     },
