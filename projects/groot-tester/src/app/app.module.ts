@@ -46,6 +46,7 @@ import {TranslationsGuideComponent} from './docs/translations-guide/translations
 import {OtherUtilitiesComponent} from './demo-pages/other-utilities/other-utilities.component';
 import {DemoNavbarComponent} from './demo-pages/demo-navbar/demo-navbar.component';
 import { CallingTheServerComponent } from './docs/calling-the-server/calling-the-server.component';
+import { ReleaseComponent } from './homepage/release/release.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -79,7 +80,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslationsGuideComponent,
     OtherUtilitiesComponent,
     DemoNavbarComponent,
-    CallingTheServerComponent
+    CallingTheServerComponent,
+    ReleaseComponent
   ],
   imports: [
     BrowserModule,

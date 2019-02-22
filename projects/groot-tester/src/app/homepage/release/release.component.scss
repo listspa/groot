@@ -1,0 +1,25 @@
+@import "../../../../../groot/src/style/groot-variables";
+
+:host {
+  padding: 0.5rem 1rem;
+}
+
+.version-name {
+  font-size: 1.5em;
+  font-family: $headings-font-family;
+}
+
+.breaking-change {
+  color: $danger;
+  font-weight: bold;
+}
+
+.bug-fix {
+  color: $success;
+  font-weight: bold;
+}
+
+.new-feature {
+  color: $primary;
+  font-weight: bold;
+}
