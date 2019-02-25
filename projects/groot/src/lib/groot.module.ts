@@ -27,6 +27,7 @@ import {GrootComboComponent} from './components/forms/groot-combo/groot-combo.co
 import {GrootDatePickerComponent} from './components/forms/groot-date-picker/groot-date-picker.component';
 import {GrootComboCheckboxComponent} from './components/forms/groot-combo-checkbox/groot-combo-checkbox.component';
 import {GrootToggleButtonComponent} from './components/forms/groot-toggle-button/groot-toggle-button.component';
+import {NeedsCapabilityDirective} from './directives/needsCapability.directive';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import {GrootToggleButtonComponent} from './components/forms/groot-toggle-button
     GrootDatePickerComponent,
     GrootComboCheckboxComponent,
     GrootToggleButtonComponent,
+    NeedsCapabilityDirective,
   ],
   imports: [
     CommonModule,
@@ -80,6 +82,7 @@ import {GrootToggleButtonComponent} from './components/forms/groot-toggle-button
     GrootDatePickerComponent,
     GrootComboCheckboxComponent,
     GrootToggleButtonComponent,
+    NeedsCapabilityDirective,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

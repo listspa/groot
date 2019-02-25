@@ -47,6 +47,8 @@ import {OtherUtilitiesComponent} from './demo-pages/other-utilities/other-utilit
 import {DemoNavbarComponent} from './demo-pages/demo-navbar/demo-navbar.component';
 import { CallingTheServerComponent } from './docs/calling-the-server/calling-the-server.component';
 import { ReleaseComponent } from './homepage/release/release.component';
+import {GrootCapabilityService} from '../../../groot/src/lib/services/capability.service';
+import {DemoCapabilityService} from './demo-capability.service';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -105,7 +107,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
   ],
   providers: [
-    {provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker}
+    {provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker},
+    {provide: GrootCapabilityService, useClass: DemoCapabilityService}
   ],
   bootstrap: [AppComponent]
 })
