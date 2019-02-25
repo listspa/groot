@@ -6,7 +6,7 @@ import {GrootCapabilityService} from '../../../groot/src/lib/services/capability
 })
 export class DemoCapabilityService extends GrootCapabilityService {
   hasCapability(capabilityName: string): boolean {
-    console.log('checking has capability: ' + capabilityName);
+    console.log('Checking whether the user has capability: ' + capabilityName);
     return !capabilityName.startsWith('no-');
   }
 }

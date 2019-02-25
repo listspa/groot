@@ -48,7 +48,8 @@
                 <div (click)="onItemClick(menu)"
                      *ngIf="menu"
                      [class.selected]="menu.selected"
-                     class="menu-element">
+                     class="menu-element"
+                     [grootNeedsCapability]="menu.requiredCapability">
                   <i *ngIf="menu.icon" class="{{menu.icon}} menu-icon"></i>
                   <span>{{menu.label | translate}}</span>
 

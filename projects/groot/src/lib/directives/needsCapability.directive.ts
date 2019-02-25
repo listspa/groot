@@ -15,8 +15,6 @@ export class NeedsCapabilityDirective {
 
   @Input()
   set grootNeedsCapability(capabilityName: string | string[]) {
-    console.log('checking needs capabilities: %o', capabilityName);
-
     const capabilities = NeedsCapabilityDirective.makeArrayOfCapabilitiesNames(capabilityName);
     const hasCapability = this.hasAtLeastOneOfCapabilities(capabilities);
     if (!hasCapability) {
@@ -24,15 +22,21 @@ export class NeedsCapabilityDirective {
     }
   }
 
-  static makeArrayOfCapabilitiesNames(capabilityName: string | string[]): string[] {
-    if (typeof capabilityName !== 'string') {
+  static makeArrayOfCapabilitiesNames(capabilityName: null | undefined | string | string[]): string[] {
+    if (!capabilityName) {
+      return [];
+    } else if (typeof capabilityName !== 'string') {
       return capabilityName;
     } else {
-      return capabilityName.split(/\s/);
+      return capabilityName.toString().split(/\s/);
     }
   }
 
-  private hasAtLeastOneOfCapabilities(capabilities: string[]) {
+  private hasAtLeastOneOfCapabilities(capabilities: string[]): boolean {
+    // No capabilities means "yes, it's visible". It's an useful default for the menu bar.
+    if (!capabilities.length) {
+      return true;
+    }
     return capabilities.some(c => this.capabilityService.hasCapability(c));
   }
 }

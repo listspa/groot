@@ -3,4 +3,5 @@ export interface Menu {
   icon?: string;
   children?: Menu[][];
   url?: string;
+  requiredCapability?: string | string[];
 }

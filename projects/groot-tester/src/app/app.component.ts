@@ -21,7 +21,8 @@ export class AppComponent {
           [
             {label: 'Getting started', url: '/docs/getting-started', icon: 'fa fa-star-o'},
             {label: 'Calling the server', url: '/docs/calling-the-server', icon: 'fa fa-server'},
-            {label: 'Translations', url: '/docs/translations-guide', icon: 'fa fa-plane'},
+            {label: 'Translations', url: '/docs/translations-guide', icon: 'fa fa-plane', requiredCapability: 'yes-capability'},
+            {label: 'DUMMY HIDDEN', url: '/docs/translations-guide', requiredCapability: 'no-capability'},
           ],
           [
             {label: 'Stylesheets and skins', url: '/docs/groot-style', icon: 'fa fa-paint-brush'},
