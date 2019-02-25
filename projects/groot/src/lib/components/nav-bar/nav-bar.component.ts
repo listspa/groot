@@ -1,8 +1,11 @@
 import {Component, Input} from '@angular/core';
-import {Menu} from './nav-bar.model';
+import {Menu, SimpleNavBarItem} from './nav-bar.model';
 import {Router} from '@angular/router';
 
 interface ConcreteMenu extends Menu {
+  selected?: boolean;
+}
+interface ConcreteSimpleNavBarItem extends SimpleNavBarItem {
   selected?: boolean;
 }
 
@@ -17,11 +20,22 @@ export class NavBarComponent {
     icon: null,
     children: []
   };
+  public _simpleNavBarItems: ConcreteSimpleNavBarItem[];
   public currentMenu: ConcreteMenu;
   public breadcrumbs: ConcreteMenu[] = [];
   @Input() public showAlwaysBreadcrumbs = true;
 
   constructor(private readonly router: Router) {
+  }
+
+  @Input()
+  public set simpleNavBarItems(items: SimpleNavBarItem[]) {
+    if (!items || items.length < 1) {
+      return;
+    }
+    this.checkSimpleUrlsStartWithSlash(items);
+
+    this._simpleNavBarItems = items;
   }
 
   @Input()
@@ -53,6 +67,17 @@ export class NavBarComponent {
         this.checkUrlsStartWithSlash(menu.children);
       }
     }));
+  }
+
+  private checkSimpleUrlsStartWithSlash(items: SimpleNavBarItem[]) {
+    items.forEach(r => {
+      if (r.url && !r.url.startsWith('/')) {
+        throw new Error(`URLs in r should start with slash (found "${r.url}")`);
+      }
+      if (r.children) {
+        this.checkSimpleUrlsStartWithSlash(r.children);
+      }
+    });
   }
 
   public onItemClick(item: ConcreteMenu) {

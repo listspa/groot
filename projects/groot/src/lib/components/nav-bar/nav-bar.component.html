@@ -8,6 +8,25 @@
             <i *ngIf="rootMenu.icon" class="{{rootMenu.icon}}"></i>
             <span>{{rootMenu.label | translate}}</span>
           </a>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item" *ngFor="let item of _simpleNavBarItems"
+                routerLinkActive="active">
+              <a *ngIf="!item.children" class="nav-link" [routerLink]="item.url">
+                {{item.label | translate}}
+              </a>
+              <div *ngIf="item.children" class="dropdown">
+                <a class="nav-link dropdown-toggle"
+                   href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+                  {{item.label | translate}}
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" *ngFor="let child of item.children" [routerLink]="child.url">
+                    {{child.label | translate}}
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
         <div class="col-sm text-right">
           <button (click)="toggleMenu()" aria-controls="navbarToggleExternalContent"
@@ -65,3 +84,4 @@
     </div>
   </div>
 </div>
+

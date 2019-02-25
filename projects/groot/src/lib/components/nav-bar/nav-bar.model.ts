@@ -5,3 +5,11 @@ export interface Menu {
   url?: string;
   requiredCapability?: string | string[];
 }
+
+export interface SimpleNavBarItem {
+  label: string;
+  icon?: string;
+  children?: SimpleNavBarItem[];
+  url?: string;
+  requiredCapability?: string | string[];
+}
