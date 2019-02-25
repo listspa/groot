@@ -8,6 +8,16 @@ import {Release, ReleaseChangeType} from './release.model';
 export class HomepageComponent {
   releases: Release[] = [
     {
+      version: '0.4.0', released: false, changes: [
+        {
+          type: ReleaseChangeType.BREAKING_CHANGE, html: `
+Added support for capabilities. Note that you <i>need</i> to add a provider for the <code>GrootCapabilityService</code>.
+See <a routerLink="/demo/capabilities">the capabilities page</a> for details.
+`
+        }
+      ]
+    },
+    {
       version: '0.3.1', released: true, changes: [
         {
           type: ReleaseChangeType.BREAKING_CHANGE, html: `

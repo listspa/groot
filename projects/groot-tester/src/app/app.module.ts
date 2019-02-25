@@ -49,6 +49,7 @@ import { CallingTheServerComponent } from './docs/calling-the-server/calling-the
 import { ReleaseComponent } from './homepage/release/release.component';
 import {GrootCapabilityService} from '../../../groot/src/lib/services/capability.service';
 import {DemoCapabilityService} from './demo-capability.service';
+import { CapabilitiesComponent } from './demo-pages/capabilities/capabilities.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -83,7 +84,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     OtherUtilitiesComponent,
     DemoNavbarComponent,
     CallingTheServerComponent,
-    ReleaseComponent
+    ReleaseComponent,
+    CapabilitiesComponent
   ],
   imports: [
     BrowserModule,

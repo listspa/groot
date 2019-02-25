@@ -21,6 +21,7 @@ import {TranslationsGuideComponent} from './docs/translations-guide/translations
 import {OtherUtilitiesComponent} from './demo-pages/other-utilities/other-utilities.component';
 import {DemoNavbarComponent} from './demo-pages/demo-navbar/demo-navbar.component';
 import {CallingTheServerComponent} from './docs/calling-the-server/calling-the-server.component';
+import {CapabilitiesComponent} from './demo-pages/capabilities/capabilities.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
@@ -44,6 +45,7 @@ const routes: Routes = [
   {component: DemoColorsComponent, path: 'demo/colors'},
   {component: OtherUtilitiesComponent, path: 'demo/other-utilities'},
   {component: DemoNavbarComponent, path: 'demo/nav-bar'},
+  {component: CapabilitiesComponent, path: 'demo/capabilities'},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 

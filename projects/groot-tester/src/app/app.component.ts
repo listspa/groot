@@ -58,7 +58,8 @@ export class AppComponent {
             {label: 'Nav bar', url: '/demo/nav-bar', icon: 'fa fa-bars'}
           ],
           [
-            {label: 'Other utilities', url: '/demo/other-utilities'}
+            {label: 'Other utilities', url: '/demo/other-utilities'},
+            {label: 'Capabilities', url: '/demo/capabilities'}
           ]
         ]
       }

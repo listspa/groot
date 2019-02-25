@@ -1,0 +1,43 @@
+<h1>Capabilities</h1>
+
+<p>
+  Groot provides access to the current user's set of capabilities in two ways:
+</p>
+
+<ul>
+  <li>the service <code>GrootCapabilityService</code> can be used programmatically;</li>
+  <li>the directive <code>grootNeedsCapability</code> can be applied to an element, which will be "removed" (
+    <code>display</code> set to <code>none</code>) in case the user doesn't have the required capability. Note that you
+    can pass multiple capabilities by passing an array of strings, or a single string with the capabilities' names
+    separated by whitespace. The element will be displayed in case the user has at least one of the required
+    capabilities.
+  </li>
+</ul>
+
+<div class="alert alert-warning">
+  <h2 class="alert-heading"><i class="fa fa-exclamation-triangle"></i> Warning!</h2>
+  <p>
+    Note that the capability service is an abstract class. You will need to extend it in your application,
+    or use the dummy implementation <code>NoCheckCapabilityService</code> which allows all the capabilities to the user.
+    Wheter you use a custom implementation of your own, you will need to provide it in your app's root module:
+  </p>
+
+  <pre><code>providers: [
+    &#123;provide: GrootCapabilityService, useClass: DemoCapabilityService}
+  ]</code></pre>
+</div>
+
+<p>
+  Sample directive usage:
+</p>
+
+<pre><code>&lt;my-element grootNeedsCapability="my-capability">&lt;/my-element></code></pre>
+
+<div class="row">
+  <div class="col-sm">
+    <div class="alert alert-success" grootNeedsCapability="yes-capability">I can be seen</div>
+  </div>
+  <div class="col-sm">
+    <div class="alert alert-danger" grootNeedsCapability="no-capability">I am hidden</div>
+  </div>
+</div>
