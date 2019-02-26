@@ -5,9 +5,6 @@ import {Router} from '@angular/router';
 interface ConcreteMenu extends Menu {
   selected?: boolean;
 }
-interface ConcreteSimpleNavBarItem extends SimpleNavBarItem {
-  selected?: boolean;
-}
 
 @Component({
   selector: 'groot-nav-bar',
@@ -20,7 +17,7 @@ export class NavBarComponent {
     icon: null,
     children: []
   };
-  public _simpleNavBarItems: ConcreteSimpleNavBarItem[];
+  public _simpleNavBarItems: SimpleNavBarItem[];
   public currentMenu: ConcreteMenu;
   public breadcrumbs: ConcreteMenu[] = [];
   @Input() public showAlwaysBreadcrumbs = true;
