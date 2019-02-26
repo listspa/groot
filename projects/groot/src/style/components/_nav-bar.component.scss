@@ -31,6 +31,10 @@ groot-nav-bar {
         display: inline-block;
         margin-right: 1rem;
       }
+
+      .dropdown-menu {
+        position: absolute;
+      }
     }
 
     > div {
