@@ -15,7 +15,7 @@
                 {{item.label | translate}}
               </a>
               <div *ngIf="item.children" class="dropdown">
-                <a class="nav-link dropdown-toggle"
+                <a class="nav-link dropdown-toggle" [ngClass]="{'active': router.url.indexOf(item.url)===0}"
                    href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
                   {{item.label | translate}}
                 </a>
