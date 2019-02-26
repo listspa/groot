@@ -2,16 +2,19 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CollapsibleBoxComponent} from './collapsible-box.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('CollapsibleBoxComponent', () => {
   let component: CollapsibleBoxComponent;
   let fixture: ComponentFixture<CollapsibleBoxComponent>;
-  let content: any;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CollapsibleBoxComponent],
-      imports: [TranslateModule.forRoot()]
+      imports: [
+        TranslateModule.forRoot(),
+        BrowserAnimationsModule
+      ]
     }).compileComponents();
   }));
 
@@ -19,18 +22,17 @@ describe('CollapsibleBoxComponent', () => {
     fixture = TestBed.createComponent(CollapsibleBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    content = fixture.debugElement.nativeElement.querySelector('.content');
   });
 
   it('should create and display content', () => {
-    expect(content.hidden).toBeFalsy();
+    expect(component.state).toBe('expanded');
   });
 
   it('should hide content when clicked', () => {
     fixture.debugElement.nativeElement.querySelector('.box-icons').click();
     fixture.detectChanges();
 
-    expect(content.hidden).toBeTruthy();
+    expect(component.state).toBe('collapsed');
   });
 
   it('should reset content when clicked twice', () => {
@@ -40,7 +42,7 @@ describe('CollapsibleBoxComponent', () => {
     fixture.debugElement.nativeElement.querySelector('.box-icons').click();
     fixture.detectChanges();
 
-    expect(content.hidden).toBeFalsy();
+    expect(component.state).toBe('expanded');
   });
 
   it('should emit events when clicked', () => {

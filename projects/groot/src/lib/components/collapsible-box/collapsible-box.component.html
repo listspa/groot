@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="content" [hidden]="!open">
+  <div [@toggle]="state" class="content">
     <ng-content></ng-content>
   </div>
 </div>
