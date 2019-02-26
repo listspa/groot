@@ -14,6 +14,11 @@ export class HomepageComponent {
 Added support for capabilities. Note that you <i>need</i> to add a provider for the <code>GrootCapabilityService</code>.
 See <a routerLink="/demo/capabilities">the capabilities page</a> for details.
 `
+        },
+        {
+          type: ReleaseChangeType.NEW_FEATURE, html: `
+Animated the <code>groot-collapsible-box</code>.
+`
         }
       ]
     },
