@@ -5,7 +5,8 @@ import {AppComponent} from './app.component';
 import {GrootModule} from '../../../groot/src/lib/groot.module';
 import {
   BsDatepickerConfig,
-  BsDatepickerModule, BsDropdownModule,
+  BsDatepickerModule,
+  BsDropdownModule,
   defineLocale,
   itLocale,
   ModalModule,
@@ -45,11 +46,11 @@ import {IeSupportComponent} from './docs/ie-support/ie-support.component';
 import {TranslationsGuideComponent} from './docs/translations-guide/translations-guide.component';
 import {OtherUtilitiesComponent} from './demo-pages/other-utilities/other-utilities.component';
 import {DemoNavbarComponent} from './demo-pages/demo-navbar/demo-navbar.component';
-import { CallingTheServerComponent } from './docs/calling-the-server/calling-the-server.component';
-import { ReleaseComponent } from './homepage/release/release.component';
+import {CallingTheServerComponent} from './docs/calling-the-server/calling-the-server.component';
+import {ReleaseComponent} from './homepage/release/release.component';
 import {GrootCapabilityService} from '../../../groot/src/lib/services/capability.service';
 import {DemoCapabilityService} from './demo-capability.service';
-import { CapabilitiesComponent } from './demo-pages/capabilities/capabilities.component';
+import {CapabilitiesComponent} from './demo-pages/capabilities/capabilities.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);

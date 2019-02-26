@@ -5,7 +5,7 @@ export interface AbstractNavBarItem {
   requiredCapability?: string | string[];
 }
 
-export interface Menu extends AbstractNavBarItem{
+export interface Menu extends AbstractNavBarItem {
   children?: Menu[][];
 }
 
