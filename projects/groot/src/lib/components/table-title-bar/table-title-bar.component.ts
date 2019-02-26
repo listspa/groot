@@ -14,6 +14,7 @@ interface PageInfo {
 export class TableTitleBarComponent {
   @Input() label = 'common.searchResults';
   @Input() downloadExcelUrl: string = null;
+  @Input() downloadExcelUrlProvider: () => string = null;
   @Input() downloadExcelArgsProvider: () => object = null;
   pageInfo: PageInfo | null = null;
 
