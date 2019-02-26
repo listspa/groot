@@ -8,6 +8,13 @@ import {Release, ReleaseChangeType} from './release.model';
 export class HomepageComponent {
   releases: Release[] = [
     {
+      version: '0.4.1', released: true, changes: [
+        {
+          type: ReleaseChangeType.BUG_FIX, html: `Fixed a bug that prevented any application from compling. Ups!`
+        }
+      ]
+    },
+    {
       version: '0.4.0', released: true, changes: [
         {
           type: ReleaseChangeType.BREAKING_CHANGE, html: `

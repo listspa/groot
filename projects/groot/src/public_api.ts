@@ -26,6 +26,7 @@ export * from './lib/directives/loading.directive';
 export * from './lib/directives/needsCapability.directive';
 export * from './lib/pipes/ft-time/ft-time.pipe';
 export * from './lib/pipes/fileSize/fileSize.pipe';
+export * from './lib/services/capability.service';
 export * from './lib/services/console-logging.service';
 export * from './lib/services/debug-logging.service';
 export * from './lib/services/loading.service';
