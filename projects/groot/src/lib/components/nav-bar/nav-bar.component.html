@@ -1,45 +1,43 @@
 <div class="pos-f-t">
   <!-- Bar -->
-  <nav class="navbar navbar-dark bg-primary">
-    <div class="container-fluid">
-      <div class="row nav-row">
-        <div class="col-sm-11">
-          <a class="navbar-brand" [routerLink]="'/'">
-            <i *ngIf="rootMenu.icon" class="{{rootMenu.icon}}"></i>
-            <span>{{rootMenu.label | translate}}</span>
+  <nav class="navbar navbar-dark bg-primary nav-row">
+    <a class="navbar-brand" [routerLink]="'/'">
+      <i *ngIf="rootMenu.icon" class="{{rootMenu.icon}}"></i>
+      <span>{{rootMenu.label | translate}}</span>
+    </a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngFor="let item of _simpleNavBarItems"
+          routerLinkActive="active">
+        <a *ngIf="!item.children" class="nav-link" [routerLink]="item.url">
+          {{item.label | translate}}
+        </a>
+        <div *ngIf="item.children" class="dropdown">
+          <a class="nav-link dropdown-toggle" [ngClass]="{'active': router.url.indexOf(item.url)===0}"
+             href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
+            {{item.label | translate}}
           </a>
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item" *ngFor="let item of _simpleNavBarItems"
-                routerLinkActive="active">
-              <a *ngIf="!item.children" class="nav-link" [routerLink]="item.url">
-                {{item.label | translate}}
-              </a>
-              <div *ngIf="item.children" class="dropdown">
-                <a class="nav-link dropdown-toggle" [ngClass]="{'active': router.url.indexOf(item.url)===0}"
-                   href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
-                  {{item.label | translate}}
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" *ngFor="let child of item.children" [routerLink]="child.url">
-                    {{child.label | translate}}
-                  </a>
-                </div>
-              </div>
-            </li>
-          </ul>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" *ngFor="let child of item.children" [routerLink]="child.url">
+              {{child.label | translate}}
+            </a>
+          </div>
         </div>
-        <div class="col-sm text-right" *ngIf="rootMenu.children">
-          <button (click)="toggleMenu()" aria-controls="navbarToggleExternalContent"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                  class="navbar-toggler"
-                  type="button">
-            <span [class.open]="!menuCollapsed" class="animated-toggle-icon">
-              <span></span><span></span><span></span><span></span>
-            </span>
-          </button>
-        </div>
-      </div>
+      </li>
+    </ul>
+    <form class="form-inline ml-auto">
+      <ng-content select="[right-widget]"></ng-content>
+    </form>
+    <div class="ml-sm-2 text-right" *ngIf="rootMenu.children">
+        <button (click)="toggleMenu()" *ngIf="rootMenu.children"
+                aria-controls="navbarToggleExternalContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                class="navbar-toggler"
+                type="button">
+                <span [class.open]="!menuCollapsed" class="animated-toggle-icon">
+                  <span></span><span></span><span></span><span></span>
+                </span>
+        </button>
     </div>
   </nav>
 
