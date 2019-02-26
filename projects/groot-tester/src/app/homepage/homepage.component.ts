@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Release, ReleaseChangeType} from './release.model';
+import {BsDropdownModule} from "ngx-bootstrap";
 
 @Component({
   selector: 'app-homepage',
@@ -13,6 +14,11 @@ export class HomepageComponent {
           type: ReleaseChangeType.BREAKING_CHANGE, html: `
 Added support for capabilities. Note that you <i>need</i> to add a provider for the <code>GrootCapabilityService</code>.
 See <a routerLink="/demo/capabilities">the capabilities page</a> for details.
+`
+        },
+        {
+          type: ReleaseChangeType.BREAKING_CHANGE, html: `
+Added dropdown from ngx-bootstrap to the nav bar. You need to add <code>BsDropdownModule.forRoot()</code> to your module imports
 `
         }
       ]

@@ -61,7 +61,7 @@ import {NeedsCapabilityDirective} from './directives/needsCapability.directive';
     FormsModule,
     NgSelectModule,
     BsDatepickerModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule
   ],
   exports: [
     TablePaginationComponent,

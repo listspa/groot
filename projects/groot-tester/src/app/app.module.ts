@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {GrootModule} from '../../../groot/src/lib/groot.module';
 import {
   BsDatepickerConfig,
-  BsDatepickerModule,
+  BsDatepickerModule, BsDropdownModule,
   defineLocale,
   itLocale,
   ModalModule,
@@ -106,6 +106,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
     GrootModule.forRoot(),
+    BsDropdownModule.forRoot(),
     AppRoutingModule,
   ],
   providers: [
