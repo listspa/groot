@@ -60,21 +60,42 @@ describe('TableTitleBarComponent', () => {
   });
 
   describe('when download excel url is given', () => {
-    it('should not display the download excel button if there are no data', () => {
-      component.downloadExcelUrl = 'foo';
-      fixture.detectChanges();
+    describe('with hard coded string', () => {
+      it('should not display the download excel button if there are no data', () => {
+        component.downloadExcelUrl = 'foo';
+        fixture.detectChanges();
 
-      const button = fixture.debugElement.nativeElement.querySelector('groot-download-button');
-      expect(button).toBeNull();
+        const button = fixture.debugElement.nativeElement.querySelector('groot-download-button');
+        expect(button).toBeNull();
+      });
+
+      it('should display the download excel button when there are data', () => {
+        component.downloadExcelUrl = 'foo';
+        component.searchResults = searchResults;
+        fixture.detectChanges();
+
+        const button = fixture.debugElement.nativeElement.querySelector('groot-download-button');
+        expect(button).not.toBeNull();
+      });
     });
 
-    it('should display the download excel button when there are data', () => {
-      component.downloadExcelUrl = 'foo';
-      component.searchResults = searchResults;
-      fixture.detectChanges();
+    describe('with url provider', () => {
+      it('should not display the download excel button if there are no data', () => {
+        component.downloadExcelUrlProvider = () => 'foo';
+        fixture.detectChanges();
 
-      const button = fixture.debugElement.nativeElement.querySelector('groot-download-button');
-      expect(button).not.toBeNull();
+        const button = fixture.debugElement.nativeElement.querySelector('groot-download-button');
+        expect(button).toBeNull();
+      });
+
+      it('should display the download excel button when there are data', () => {
+        component.downloadExcelUrlProvider = () => 'foo';
+        component.searchResults = searchResults;
+        fixture.detectChanges();
+
+        const button = fixture.debugElement.nativeElement.querySelector('groot-download-button');
+        expect(button).not.toBeNull();
+      });
     });
   });
 });

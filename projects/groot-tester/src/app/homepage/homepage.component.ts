@@ -18,6 +18,13 @@ See <a routerLink="/demo/capabilities">the capabilities page</a> for details.
       ]
     },
     {
+      version: '0.3.2', released: true, changes: [
+        {
+          type: ReleaseChangeType.NEW_FEATURE, html: `Allowed table title bar to receive a url callback rather than a string.`
+        }
+      ]
+    },
+    {
       version: '0.3.1', released: true, changes: [
         {
           type: ReleaseChangeType.BREAKING_CHANGE, html: `
