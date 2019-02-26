@@ -111,17 +111,10 @@ groot-nav-bar {
 
   // Menu items
   .menuArea {
-    opacity: 0;
-    height: 0;
-    visibility: hidden;
+    height: auto;
+    opacity: 1;
     @if $enable-transitions {
       transition: opacity $fast-transition-speed ease-in-out;
-    }
-
-    &.menuAreaVisible {
-      visibility: visible;
-      height: auto;
-      opacity: 1;
     }
   }
 

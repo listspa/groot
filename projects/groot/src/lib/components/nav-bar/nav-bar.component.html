@@ -45,7 +45,7 @@
   </nav>
 
   <!-- Menu content -->
-  <div class="menuArea" *ngIf="rootMenu.children" [class.menuAreaVisible]="!menuCollapsed">
+  <div class="menuArea" *ngIf="rootMenu.children" [@toggle]="state">
     <div class="bg-dark p-4">
       <div class="container-fluid menu-content">
         <!-- Breadcrumbs -->

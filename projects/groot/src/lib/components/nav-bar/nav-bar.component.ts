@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Menu, SimpleNavBarItem} from './nav-bar.model';
 import {Router} from '@angular/router';
+import {dropDownAnimation} from '../../utils/animations-utils';
 
 interface ConcreteMenu extends Menu {
   selected?: boolean;
@@ -8,10 +9,12 @@ interface ConcreteMenu extends Menu {
 
 @Component({
   selector: 'groot-nav-bar',
-  templateUrl: './nav-bar.component.html'
+  templateUrl: './nav-bar.component.html',
+  animations: [dropDownAnimation]
 })
 export class NavBarComponent {
-  public menuCollapsed = true;
+  private _menuCollapsed = true;
+  public state: 'collapsed' | 'expanded' = 'collapsed';
   public rootMenu: ConcreteMenu = {
     label: 'menu',
     icon: null,
@@ -64,6 +67,15 @@ export class NavBarComponent {
         this.checkUrlsStartWithSlash(menu.children);
       }
     }));
+  }
+
+  public set menuCollapsed(menuCollapsed: boolean) {
+    this.state = menuCollapsed ? 'collapsed' : 'expanded';
+    this._menuCollapsed = menuCollapsed;
+  }
+
+  public get menuCollapsed(): boolean {
+    return this._menuCollapsed;
   }
 
   private checkSimpleUrlsStartWithSlash(items: SimpleNavBarItem[]) {
