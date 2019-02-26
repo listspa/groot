@@ -8,7 +8,7 @@ import {CollapsibleBoxComponent} from './components/collapsible-box/collapsible-
 import {LoadingDirective} from './directives/loading.directive';
 import {LoadingIndicatorComponent} from './components/loading-indicator/loading-indicator.component';
 import {LoadingService} from './services/loading.service';
-import {BsDatepickerModule, TabsModule} from 'ngx-bootstrap';
+import {BsDatepickerModule, TabsModule, BsDropdownModule} from 'ngx-bootstrap';
 import {NotificationToastListComponent} from './components/notification-toast-list/notification-toast-list.component';
 import {NotificationToastService} from './services/notification-toast.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -61,6 +61,7 @@ import {NeedsCapabilityDirective} from './directives/needsCapability.directive';
     FormsModule,
     NgSelectModule,
     BsDatepickerModule,
+    BsDropdownModule
   ],
   exports: [
     TablePaginationComponent,

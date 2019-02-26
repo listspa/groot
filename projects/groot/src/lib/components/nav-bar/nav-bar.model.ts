@@ -1,7 +1,14 @@
-export interface Menu {
+export interface AbstractNavBarItem {
   label: string;
   icon?: string;
-  children?: Menu[][];
   url?: string;
   requiredCapability?: string | string[];
+}
+
+export interface Menu extends AbstractNavBarItem {
+  children?: Menu[][];
+}
+
+export interface SimpleNavBarItem extends AbstractNavBarItem {
+  children?: SimpleNavBarItem[];
 }

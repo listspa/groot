@@ -16,6 +16,11 @@ See <a routerLink="/demo/capabilities">the capabilities page</a> for details.
 `
         },
         {
+          type: ReleaseChangeType.BREAKING_CHANGE, html: `
+Added dropdown from ngx-bootstrap to the nav bar. You need to add <code>BsDropdownModule.forRoot()</code> to your module imports
+`
+        },
+        {
           type: ReleaseChangeType.NEW_FEATURE, html: `
 Animated the <code>groot-collapsible-box</code>.
 `

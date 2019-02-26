@@ -6,11 +6,26 @@
 
 <ol>
   <li>in your root component (generally <code>AppComponent</code>) add the appropriate tag:
-    <pre><code>&lt;groot-nav-bar [menu]="menu" rootMenuLabel="MyAppName"&lt;/groot-loading-indicator></code></pre>
+    <pre><code>&lt;groot-nav-bar [simpleNavBarItems]="navBarItems" [menu]="menu" rootMenuLabel="MyAppName"&lt;/groot-loading-indicator></code></pre>
   </li>
-  <li>in the relative class, define the <code>menu</code> variable, of type <code>Menu[][]</code> with your menu items.
+  <li>in the relative class, define the <code>navBarItems</code> and <code>menu</code> variables,
+    of types <code>SimpleNavBarItem[]</code> and <code>Menu[][]</code> with your menu items.
   </li>
 </ol>
+
+<p>
+  Each item of the <code>simpleNavBarItems</code> array must have a label and should have either an <code>url</code>, or a set of
+  <code>children</code> (again a <code>SimpleNavBarItem[]</code>; submenus are not supported at this time).
+  Each item might optionally have an icon.
+  An element with children should have a <code>url</code> anyway, which should be a prefix of the <code>url</code> of the children.
+  The navbar relies on this to keep the parent highlighted when one of the children is selected.
+</p>
+
+<p>
+  The <code>menu</code> is an array of arrays; the first level is the columns (the navbar shows four columns), and the second level
+  is the rows inside a given column. Each item must have a label and should have either an <code>url</code>, or a set of
+  <code>children</code> (again a <code>Menu[][]</code> with the same logic). Each item might optionally have an icon.
+</p>
 
 <p>
   The menu is an array of arrays; the first level is the columns (the navbar shows four columns), and the second level
@@ -19,14 +34,33 @@
 </p>
 
 <p>
-  The nav bar shows in the first line the "breadcrums", i.e. the currently selected submenu path. If you only have
+  The nav bar menu shows in the first line the "breadcrums", i.e. the currently selected submenu path. If you only have
   one level of menu items this is overkill; it can be disabled by passing <code>[showAlwaysBreadcrumbs]="false"</code>
   to the nav bar component.
 </p>
 
 <h2>Example</h2>
 
-<pre><code>readonly menu: Menu[][] = [
+<pre><code>readonly navBarItems: SimpleNavBarItem[] = [
+  &#123;label: 'Getting started', url: '/docs/getting-started', icon: 'fa fa-star-o'},
+  &#123;label: 'Components', icon: 'fa fa-flash', url: '/demo', children: [
+      &#123;label: 'Buttons', url: '/demo/buttons', icon: 'fa fa-hand-pointer-o'},
+      &#123;label: 'Tabs', url: '/demo/tabs', icon: 'fa fa-th-large'},
+      &#123;label: 'Boxes (accordions)', url: '/demo/boxes', icon: 'fa fa-chevron-circle-down'},
+      &#123;label: 'Colors and typography', url: '/demo/colors', icon: 'fa fa-paint-brush'},
+      &#123;label: 'Loading indicator', url: '/demo/loading', icon: 'fa fa-refresh'},
+      &#123;label: 'Toasts', url: '/demo/toasts', icon: 'fa fa-bell'},
+      &#123;label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-maximize'},
+      &#123;label: 'Tables', url: '/demo/tables', icon: 'fa fa-table'},
+      &#123;label: 'Forms', url: '/demo/forms', icon: 'fa fa-pencil-square-o'},
+      &#123;label: 'Tooltips', url: '/demo/tooltips', icon: 'fa fa-square'},
+      &#123;label: 'Nav bar', url: '/demo/nav-bar', icon: 'fa fa-bars'},
+      &#123;label: 'Other utilities', url: '/demo/other-utilities'},
+      &#123;label: 'Capabilities', url: '/demo/capabilities'}
+    ]
+  }
+];
+readonly menu: Menu[][] = [
   [
     &#123;label: 'Home', icon: 'fa fa-home', url: '/home'}
   ],
@@ -50,3 +84,28 @@
     ]}
   ]
 ]</code></pre>
+
+
+
+<h1>Adding widgets to the top right of the navbar</h1>
+
+The navbar feature an element to embed widgets in the top right corner declared as
+<pre><code>&lt;ng-content select="[right-widget]"&gt;&lt;/ng-content&gt;</code></pre>
+
+Use it by putting html into your <code>&lt;groot-nav-bar&gt;</code> with the <code>right-widget</code> attribute
+
+<pre><code>&lt;groot-nav-bar [menu]="menu"
+               rootMenuLabel="GRooT"
+               rootMenuIcon="fa fa-home"
+               [simpleNavBarItems]="navBarItems"&gt;
+  &lt;div class="input-group" right-widget&gt;
+    &lt;input type="text"
+           class="form-control"
+           placeholder="Search...(doesn't work in demo)"&gt;
+    &lt;div class="input-group-append" *ngIf="iconRight"&gt;
+      &lt;span class="input-group-text"&gt;
+        &lt;i [ngClass]="iconRight"&gt;&lt;/i&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/groot-nav-bar&gt;</code></pre>
