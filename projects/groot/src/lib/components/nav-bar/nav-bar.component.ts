@@ -25,7 +25,7 @@ export class NavBarComponent {
   public breadcrumbs: ConcreteMenu[] = [];
   @Input() public showAlwaysBreadcrumbs = true;
 
-  constructor(private readonly router: Router) {
+  constructor(public readonly router: Router) {
   }
 
   @Input()
