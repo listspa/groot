@@ -31,7 +31,7 @@
       <ng-content select="[right-widget]"></ng-content>
     </form>
     <div class="ml-sm-2 text-right" *ngIf="rootMenu.children">
-        <button (click)="toggleMenu()" *ngIf="rootMenu.children"
+        <button (click)="toggleMenu()"
                 aria-controls="navbarToggleExternalContent"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
@@ -45,7 +45,7 @@
   </nav>
 
   <!-- Menu content -->
-  <div class="menuArea" [class.menuAreaVisible]="!menuCollapsed">
+  <div class="menuArea" *ngIf="rootMenu.children" [class.menuAreaVisible]="!menuCollapsed">
     <div class="bg-dark p-4">
       <div class="container-fluid menu-content">
         <!-- Breadcrumbs -->

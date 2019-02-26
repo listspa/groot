@@ -15,7 +15,7 @@ export class NavBarComponent {
   public rootMenu: ConcreteMenu = {
     label: 'menu',
     icon: null,
-    children: []
+    children: null
   };
   public _simpleNavBarItems: SimpleNavBarItem[];
   public currentMenu: ConcreteMenu;
