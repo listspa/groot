@@ -28,7 +28,7 @@
             </li>
           </ul>
         </div>
-        <div class="col-sm text-right">
+        <div class="col-sm text-right" *ngIf="rootMenu.children">
           <button (click)="toggleMenu()" aria-controls="navbarToggleExternalContent"
                   aria-expanded="false"
                   aria-label="Toggle navigation"
