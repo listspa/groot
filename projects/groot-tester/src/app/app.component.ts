@@ -10,8 +10,8 @@ import {Menu, SimpleNavBarItem} from '../../../groot/src/lib/components/nav-bar/
 })
 export class AppComponent {
   readonly navBarItems: SimpleNavBarItem[] = [
-    {'label': 'Getting started', 'url': '/docs/getting-started'},
-    {'label': 'Components', url: '/demo', children: [
+    {'label': 'Getting started', 'url': '/docs/getting-started', icon: 'fa fa-star-o'},
+    {'label': 'Components', icon: 'fa fa-flash', url: '/demo', children: [
         {label: 'Buttons', url: '/demo/buttons', icon: 'fa fa-hand-pointer-o'},
         {label: 'Tabs', url: '/demo/tabs', icon: 'fa fa-th-large'},
         {label: 'Boxes (accordions)', url: '/demo/boxes', icon: 'fa fa-chevron-circle-down'},
