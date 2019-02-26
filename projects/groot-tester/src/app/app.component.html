@@ -2,15 +2,10 @@
                rootMenuLabel="GRooT"
                rootMenuIcon="fa fa-home"
                [simpleNavBarItems]="navBarItems">
-  <div class="input-group" right-widget>
+  <div right-widget>
     <input type="text"
            class="form-control"
            placeholder="Search...(doesn't work in demo)">
-    <div class="input-group-append" *ngIf="iconRight">
-      <span class="input-group-text">
-        <i [ngClass]="iconRight"></i>
-      </span>
-    </div>
   </div>
 </groot-nav-bar>
 <groot-loading-indicator></groot-loading-indicator>
