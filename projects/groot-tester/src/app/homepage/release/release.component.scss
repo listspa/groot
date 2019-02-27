@@ -9,6 +9,10 @@
   font-family: $headings-font-family;
 }
 
+.change-type {
+  margin-right: 0.2em;
+}
+
 .breaking-change {
   color: $danger;
   font-weight: bold;
