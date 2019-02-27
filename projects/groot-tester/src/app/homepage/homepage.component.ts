@@ -10,7 +10,12 @@ export class HomepageComponent {
     {
       version: '0.4.7', released: false, changes: [
         {
-          type: ReleaseChangeType.NEW_FEATURE, html: ` Restyled the <code>groot-nav-bar</code> (simple navbar).`
+          type: ReleaseChangeType.BUG_FIX,
+          html: ` Added missing label translation for <code>groot-toggle-button</code>.`
+        },
+        {
+          type: ReleaseChangeType.NEW_FEATURE,
+          html: ` Restyled the <code>groot-nav-bar</code> (simple navbar).`
         }
       ]
     },
