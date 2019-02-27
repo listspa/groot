@@ -11,8 +11,14 @@ describe('FtDatePipe', () => {
     expect(pipe.transform('20141225')).toEqual('25/12/2014');
   });
 
+  it('can print a number with default date format', () => {
+    const pipe = new FtDatePipe();
+    expect(pipe.transform(20141225)).toEqual('25/12/2014');
+  });
+
   it('respects the given date format', () => {
     const pipe = new FtDatePipe();
     expect(pipe.transform('20141225', 'yyyy-MM-dd')).toEqual('2014-12-25');
+    expect(pipe.transform(20141225, 'yyyy-MM-dd')).toEqual('2014-12-25');
   });
 });
