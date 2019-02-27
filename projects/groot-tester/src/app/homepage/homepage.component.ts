@@ -11,11 +11,15 @@ export class HomepageComponent {
       version: '0.4.2', released: false, changes: [
         {
           type: ReleaseChangeType.NEW_FEATURE,
-          html: ` Restyled <code>groot-nav-bar</code>.`
+          html: `Restyled <code>groot-nav-bar</code>.`
         },
         {
           type: ReleaseChangeType.NEW_FEATURE,
-          html: ` Animated the <code>groot-nav-bar</code>.`
+          html: `Animated the <code>groot-nav-bar</code>.`
+        },
+        {
+          type: ReleaseChangeType.NEW_FEATURE,
+          html: `Added a new style for the table: <code>thead-primary</code>.`
         }
       ]
     },

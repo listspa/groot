@@ -9,7 +9,7 @@ groot-table-header .buttons {
     font-size: 1.5em;
     top: -0.5em;
 
-    &+span {
+    & + span {
       top: 0;
     }
   }
@@ -20,5 +20,15 @@ groot-table-header .buttons {
 
   .active {
     color: $primary;
+  }
+}
+
+.thead-primary groot-table-header .buttons {
+  .deselected {
+    color: rgba(color-yiq($light-primary), 0.5);
+  }
+
+  .active {
+    color: color-yiq($light-primary);
   }
 }
