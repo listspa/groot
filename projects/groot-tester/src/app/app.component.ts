@@ -11,7 +11,8 @@ import {Menu, SimpleNavBarItem} from '../../../groot/src/lib/components/nav-bar/
 export class AppComponent {
   readonly navBarItems: SimpleNavBarItem[] = [
     {'label': 'Getting started', 'url': '/docs/getting-started', icon: 'fa fa-star-o'},
-    {'label': 'Components', icon: 'fa fa-flash', url: '/demo', children: [
+    {
+      'label': 'Components', icon: 'fa fa-flash', url: '/demo', children: [
         {label: 'Buttons', url: '/demo/buttons', icon: 'fa fa-hand-pointer-o'},
         {label: 'Tabs', url: '/demo/tabs', icon: 'fa fa-th-large'},
         {label: 'Boxes (accordions)', url: '/demo/boxes', icon: 'fa fa-chevron-circle-down'},
@@ -40,7 +41,12 @@ export class AppComponent {
           [
             {label: 'Getting started', url: '/docs/getting-started', icon: 'fa fa-star-o'},
             {label: 'Calling the server', url: '/docs/calling-the-server', icon: 'fa fa-server'},
-            {label: 'Translations', url: '/docs/translations-guide', icon: 'fa fa-plane', requiredCapability: 'yes-capability'},
+            {
+              label: 'Translations',
+              url: '/docs/translations-guide',
+              icon: 'fa fa-plane',
+              requiredCapability: 'yes-capability'
+            },
             {label: 'DUMMY HIDDEN', url: '/docs/translations-guide', requiredCapability: 'no-capability'},
           ],
           [

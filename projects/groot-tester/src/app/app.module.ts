@@ -51,6 +51,7 @@ import {ReleaseComponent} from './homepage/release/release.component';
 import {GrootCapabilityService} from '../../../groot/src/lib/services/capability.service';
 import {DemoCapabilityService} from './demo-capability.service';
 import {CapabilitiesComponent} from './demo-pages/capabilities/capabilities.component';
+import { DemoCompleteFormComponent } from './demo-pages/demo-complete-form/demo-complete-form.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -86,7 +87,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DemoNavbarComponent,
     CallingTheServerComponent,
     ReleaseComponent,
-    CapabilitiesComponent
+    CapabilitiesComponent,
+    DemoCompleteFormComponent
   ],
   imports: [
     BrowserModule,

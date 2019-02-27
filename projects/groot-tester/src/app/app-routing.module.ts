@@ -22,6 +22,7 @@ import {OtherUtilitiesComponent} from './demo-pages/other-utilities/other-utilit
 import {DemoNavbarComponent} from './demo-pages/demo-navbar/demo-navbar.component';
 import {CallingTheServerComponent} from './docs/calling-the-server/calling-the-server.component';
 import {CapabilitiesComponent} from './demo-pages/capabilities/capabilities.component';
+import {DemoCompleteFormComponent} from './demo-pages/demo-complete-form/demo-complete-form.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
@@ -46,6 +47,7 @@ const routes: Routes = [
   {component: OtherUtilitiesComponent, path: 'demo/other-utilities'},
   {component: DemoNavbarComponent, path: 'demo/nav-bar'},
   {component: CapabilitiesComponent, path: 'demo/capabilities'},
+  {component: DemoCompleteFormComponent, path: 'demo/complete-forms'},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 
