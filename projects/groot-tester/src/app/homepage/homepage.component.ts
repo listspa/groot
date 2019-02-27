@@ -8,6 +8,14 @@ import {Release, ReleaseChangeType} from './release.model';
 export class HomepageComponent {
   releases: Release[] = [
     {
+      version: '0.4.9', released: true, changes: [
+        {
+          type: ReleaseChangeType.NEW_FEATURE,
+          html: `Made the method <code>reloadTable</code> of <code>GrootTableComponent</code> public.`
+        }
+      ]
+    },
+    {
       version: '0.4.8', released: true, changes: [
         {
           type: ReleaseChangeType.NEW_FEATURE,

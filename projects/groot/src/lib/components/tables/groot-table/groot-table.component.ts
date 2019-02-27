@@ -49,7 +49,7 @@ export class GrootTableComponent<T> implements OnInit {
     return this.sorting;
   }
 
-  protected reloadTable(resetPageNumber = false) {
+  reloadTable(resetPageNumber = false) {
     if (resetPageNumber) {
       this._currentPageNum = 0;
     }
