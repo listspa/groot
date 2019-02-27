@@ -8,7 +8,7 @@ import {Release, ReleaseChangeType} from './release.model';
 export class HomepageComponent {
   releases: Release[] = [
     {
-      version: '0.4.2', released: false, changes: [
+      version: '0.4.2', released: true, changes: [
         {
           type: ReleaseChangeType.NEW_FEATURE,
           html: `Restyled <code>groot-nav-bar</code>.`
