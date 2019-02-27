@@ -22,10 +22,6 @@ export class GrootTableComponent<T> implements OnInit {
   private _currentPageNum = 0;
   public setSortingCbk = this.setSorting.bind(this);
 
-  protected getDefaultSortColumn(): string {
-    return this.defaultSortColumn;
-  }
-
   ngOnInit(): void {
     this.sorting = {column: this.defaultSortColumn, reverse: this.defaultSortReverseFlag};
     this.reloadTable(true);
@@ -50,12 +46,17 @@ export class GrootTableComponent<T> implements OnInit {
   }
 
   reloadTable(resetPageNumber = false) {
+    if (!this.sorting) {
+      // Before our ngOnInit
+      return;
+    }
+
     if (resetPageNumber) {
       this._currentPageNum = 0;
     }
 
     this.search.emit({
-      sortField: this.sorting.column || this.getDefaultSortColumn(),
+      sortField: this.sorting.column || this.defaultSortColumn,
       sortReversed: this.sorting.reverse,
       pageNum: this._currentPageNum,
       pageLen: this.pageSize

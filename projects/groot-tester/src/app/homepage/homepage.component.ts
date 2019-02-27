@@ -3,6 +3,14 @@ import {Release, ReleaseChangeType} from './release.model';
 
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.4.10', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Solved a bug when calling Made the method <code>reloadTable</code> of <code>GrootTableComponent</code> during initialization.`
+      }
+    ]
+  },
+  {
     version: '0.4.9', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
