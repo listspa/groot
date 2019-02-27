@@ -58,6 +58,7 @@ groot-toggle-button label {
     font-weight: bold;
     color: $label-fg-color;
     font-size: 0.9em;
+    margin-bottom: $input-height-inner / 2;
   }
 }
 
