@@ -30,7 +30,17 @@
 
 <hr>
 
-<h1><i class="fa fa-version"></i> Version history</h1>
+<div class="row">
+  <div class="col-sm">
+    <h1><i class="fa fa-version"></i> Version history</h1>
+  </div>
+  <div class="col-sm">
+    <groot-toggle-button label="Only breaking changes"
+                         [(ngModel)]="onlyBreakingChanges"
+                         (ngModelChange)="filterReleases()"
+    ></groot-toggle-button>
+  </div>
+</div>
 
 <div class="version-history">
   <app-release
