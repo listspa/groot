@@ -13,6 +13,10 @@ export class HomepageComponent {
         {
           type: ReleaseChangeType.NEW_FEATURE,
           html: `Enable support for scrollbar in tables.`
+        },
+        {
+          type: ReleaseChangeType.NEW_FEATURE,
+          html: `Added pipe <code>ftDate</code>, similar to <code>ftTime</code>, to format FastTrack's dates.`
         }
       ]
     },
