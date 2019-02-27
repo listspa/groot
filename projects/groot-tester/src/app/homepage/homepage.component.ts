@@ -8,6 +8,15 @@ import {Release, ReleaseChangeType} from './release.model';
 export class HomepageComponent {
   releases: Release[] = [
     {
+
+      version: '0.4.2', released: true, changes: [
+        {
+          type: ReleaseChangeType.NEW_FEATURE,
+          html: `Enable support for scrollbar in tables.`
+        }
+      ]
+    },
+    {
       version: '0.4.2', released: true, changes: [
         {
           type: ReleaseChangeType.NEW_FEATURE,

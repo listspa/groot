@@ -31,3 +31,30 @@ table.table-bordered {
     border-color: $light-primary;
   }
 }
+
+
+// For scrolling
+
+.table-container {
+  .table {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  margin-bottom: $spacer;
+}
+
+.table-scrollbar {
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    height: 1rem;
+    border-radius: 1rem;
+    background-color: $gray-250;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background-color: $gray-430;
+  }
+}
