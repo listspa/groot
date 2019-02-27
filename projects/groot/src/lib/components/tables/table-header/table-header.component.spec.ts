@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {TableHeaderComponent} from './table-header.component';
-import {Sorting} from '../../nbpu.interfaces';
+import {Sorting} from '../../../nbpu.interfaces';
 
 describe('SortColumnButtonComponent', () => {
   let component: TableHeaderComponent;
