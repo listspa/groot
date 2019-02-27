@@ -5,6 +5,7 @@ groot-nav-bar {
   a.navbar-brand {
     color: $gray-100 !important;
     font-family: $headings-font-family;
+    font-weight: $navbar-brand-font-weight;
 
     i {
       margin-right: 0.5rem;
@@ -26,14 +27,36 @@ groot-nav-bar {
 
     ul.navbar-nav {
       display: inline-block;
+      margin-left: $navbar-simple-margin-left;
 
       li.nav-item {
         display: inline-block;
         margin-right: 1rem;
+
+        &.active {
+          a.nav-link {
+            color: $navbar-dark-active-color;
+          }
+        }
+
+        a.nav-link {
+          font-size: $navbar-simple-font-size;
+          color: $navbar-simple-color;
+        }
       }
 
       .dropdown-menu {
         position: absolute;
+        border: 1px solid $gray-400;
+        border-radius: 2px;
+
+        .dropdown-item {
+          color: $gray-250;
+
+          &:hover {
+            background-color: $primary;
+          }
+        }
       }
     }
 
@@ -107,6 +130,10 @@ groot-nav-bar {
         }
       }
     }
+  }
+
+  .form-inline {
+    margin-right: $navbar-form-margin-right;
   }
 
   // Menu items

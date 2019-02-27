@@ -165,5 +165,11 @@ $tooltip-bg: $gray-900 !default;
 $tooltip-opacity: 0.96 !default;
 
 // Navbar
-$navbar-brand-padding-y: 0.5rem;
-$navbar-brand-font-size: 1.5rem;
+$navbar-brand-padding-y: 0.3rem !default;
+$navbar-brand-font-size: 1.7rem !default;
+$navbar-brand-font-weight: bold !default;
+$navbar-simple-margin-left: 1.5rem !default;
+$navbar-simple-font-size: 1.3rem !default;
+$navbar-simple-color: rgba($white, 0.7) !default;
+$navbar-form-margin-right: $navbar-simple-margin-left !default;
+

@@ -18,7 +18,7 @@
             <i *ngIf="item.icon" class="{{item.icon}}"></i>
             {{item.label | translate}}
           </a>
-          <div class="dropdown-menu" *dropdownMenu>
+          <div class="dropdown-menu bg-dark" *dropdownMenu>
             <a class="dropdown-item" *ngFor="let child of item.children" [routerLink]="child.url">
               <i *ngIf="child.icon" class="{{child.icon}}"></i>
               {{child.label | translate}}
