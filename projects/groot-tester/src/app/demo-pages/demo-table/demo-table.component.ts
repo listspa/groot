@@ -1,27 +1,25 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {PeopleService, Person} from './people.service';
-import {GenericTableComponentBase} from '../../../../../groot/src/lib/utils/generic-table-component-base';
-import {PaginationOptions} from '../../../../../groot/src/lib/nbpu.interfaces';
+import {PaginatedResponse, PaginationOptions} from '../../../../../groot/src/lib/nbpu.interfaces';
 
 @Component({
   selector: 'app-demo-table',
   templateUrl: './demo-table.component.html'
 })
-export class DemoTableComponent extends GenericTableComponentBase<Person> implements OnInit {
+export class DemoTableComponent {
+  searchResultsData: PaginatedResponse<Person> = null;
+  noResultsData: PaginatedResponse<Person> = {
+    pageLen: 15,
+    pageNum: 0,
+    totalNumRecords: 0,
+    records: []
+  };
+
   constructor(private peopleService: PeopleService) {
-    super();
   }
 
-  ngOnInit(): void {
-    this.reload();
-  }
-
-  protected doSearch(paginationAndSorting: PaginationOptions) {
+  doSearch(paginationAndSorting: PaginationOptions) {
     this.peopleService.searchPeople(paginationAndSorting)
-      .subscribe(data => this.searchResults = data);
-  }
-
-  protected getDefaultSortColumn(): string {
-    return 'NAME';
+      .subscribe(data => this.searchResultsData = data);
   }
 }

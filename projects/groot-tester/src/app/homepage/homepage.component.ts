@@ -8,25 +8,30 @@ import {Release, ReleaseChangeType} from './release.model';
 export class HomepageComponent {
   releases: Release[] = [
     {
-      version: '0.4.7', released: false, changes: [
+      version: '0.4.7', released: true, changes: [
         {
           type: ReleaseChangeType.NEW_FEATURE,
-          html: ` Added possibility to have horizontal label for <code>groot-toggle-button</code>.`
+          html: `Added new component <code>groot-table</code> to simplify creating tables. See the 
+<a href="#/demo/tables">tables documentation</a> for the details.`
+        },
+        {
+          type: ReleaseChangeType.NEW_FEATURE,
+          html: `Added possibility to have horizontal label for <code>groot-toggle-button</code>.`
         },
         {
           type: ReleaseChangeType.BUG_FIX,
-          html: ` Added missing label translation for <code>groot-toggle-button</code>.`
+          html: `Added missing label translation for <code>groot-toggle-button</code>.`
         },
         {
           type: ReleaseChangeType.NEW_FEATURE,
-          html: ` Restyled the <code>groot-nav-bar</code> (simple navbar).`
+          html: `Restyled the <code>groot-nav-bar</code> (simple navbar).`
         }
       ]
     },
     {
       version: '0.4.6', released: true, changes: [
         {
-          type: ReleaseChangeType.NEW_FEATURE, html: ` More animations for the <code>groot-nav-bar</code>.`
+          type: ReleaseChangeType.NEW_FEATURE, html: `More animations for the <code>groot-nav-bar</code>.`
         }
       ]
     },
@@ -70,7 +75,7 @@ export class HomepageComponent {
         {
           type: ReleaseChangeType.BREAKING_CHANGE, html: `
 Added support for capabilities. Note that you <i>need</i> to add a provider for the <code>GrootCapabilityService</code>.
-See <a routerLink="/demo/capabilities">the capabilities page</a> for details.
+See <a href="#/demo/capabilities">the capabilities page</a> for details.
 `
         },
         {
@@ -103,7 +108,7 @@ Added an appropriate label, for the table headers, in case "no rows found". Note
         },
         {
           type: ReleaseChangeType.NEW_FEATURE, html: `
-Added new boolean toggle component <code>groot-toggle-button</code>. See the <a routerLink="/demo/forms">forms page</a>
+Added new boolean toggle component <code>groot-toggle-button</code>. See the <a href="#/demo/forms">forms page</a>
 for a demo and the details.
 `
         }
@@ -119,7 +124,7 @@ completion.`
         },
         {
           type: ReleaseChangeType.NEW_FEATURE, html: `
-Allowed customization of rendering of an item in the combo. See the <a routerLink="/demo/forms">forms page</a>
+Allowed customization of rendering of an item in the combo. See the <a href="#/demo/forms">forms page</a>
 for a demo and the details.
       `
         }, {

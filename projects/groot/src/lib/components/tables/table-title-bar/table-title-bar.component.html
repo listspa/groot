@@ -3,7 +3,6 @@
     <h2>
       {{label | translate}}
       <small *ngIf="pageInfo && pageInfo.totalItems > 0" class="text-muted">{{'common.paginationRowsInfo' | translate:pageInfo}}</small>
-      <small *ngIf="pageInfo && pageInfo.totalItems == 0" class="text-muted">{{'common.noRowsFound' | translate}}</small>
     </h2>
   </div>
 

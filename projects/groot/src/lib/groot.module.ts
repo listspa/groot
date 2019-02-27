@@ -1,9 +1,9 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {TablePaginationComponent} from './components/table-pagination/table-pagination.component';
+import {TablePaginationComponent} from './components/tables/table-pagination/table-pagination.component';
 import {FtTimePipe} from './pipes/ft-time/ft-time.pipe';
 import {FtDatePipe} from './pipes/ft-date/ft-date.pipe';
-import {TableHeaderComponent} from './components/table-header/table-header.component';
+import {TableHeaderComponent} from './components/tables/table-header/table-header.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {CollapsibleBoxComponent} from './components/collapsible-box/collapsible-box.component';
 import {LoadingDirective} from './directives/loading.directive';
@@ -15,7 +15,7 @@ import {NotificationToastService} from './services/notification-toast.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';
 import {DownloadButtonComponent} from './components/download-button/download-button.component';
-import {TableTitleBarComponent} from './components/table-title-bar/table-title-bar.component';
+import {TableTitleBarComponent} from './components/tables/table-title-bar/table-title-bar.component';
 import {FileSizePipe} from './pipes/fileSize/fileSize.pipe';
 import {RouterModule} from '@angular/router';
 import {GrootInputComponent} from './components/forms/groot-input/groot-input.component';
@@ -29,6 +29,7 @@ import {GrootDatePickerComponent} from './components/forms/groot-date-picker/gro
 import {GrootComboCheckboxComponent} from './components/forms/groot-combo-checkbox/groot-combo-checkbox.component';
 import {GrootToggleButtonComponent} from './components/forms/groot-toggle-button/groot-toggle-button.component';
 import {NeedsCapabilityDirective} from './directives/needsCapability.directive';
+import {GrootTableComponent} from './components/tables/groot-table/groot-table.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {NeedsCapabilityDirective} from './directives/needsCapability.directive';
     GrootComboCheckboxComponent,
     GrootToggleButtonComponent,
     NeedsCapabilityDirective,
+    GrootTableComponent,
   ],
   imports: [
     CommonModule,
@@ -87,6 +89,7 @@ import {NeedsCapabilityDirective} from './directives/needsCapability.directive';
     GrootComboCheckboxComponent,
     GrootToggleButtonComponent,
     NeedsCapabilityDirective,
+    GrootTableComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

@@ -1,0 +1,34 @@
+<groot-table-title-bar
+  [searchResults]="searchResults"
+  [downloadExcelUrl]="downloadExcelUrl"
+  [downloadExcelUrlProvider]="downloadExcelUrlProvider"
+  [downloadExcelArgsProvider]="downloadExcelArgs"
+></groot-table-title-bar>
+
+<div class="table-container table-scrollbar" *ngIf="searchResults && searchResults.totalNumRecords > 0">
+  <table class="table table-bordered table-striped">
+    <thead class="text-center" [ngClass]="tHeadClassName">
+    <ng-container
+      *ngTemplateOutlet="headerTemplate; context: {searchResults: searchResults, currentSorting: currentSorting, setSorting: setSortingCbk}"></ng-container>
+    </thead>
+
+    <tbody>
+    <ng-container *ngIf="searchResults">
+      <ng-container
+        *ngTemplateOutlet="bodyTemplate; context: {searchResults: searchResults, $implicit: searchResults}"></ng-container>
+    </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<groot-table-pagination
+  *ngIf="searchResults && searchResults.totalNumRecords > 0 && searchResults.totalNumRecords > searchResults.pageLen"
+  [totalItems]="searchResults.totalNumRecords"
+  [pageSize]="pageSize"
+  (pageNumChange)="onPageChanged($event)"
+  [loadedPageNum]="searchResults.pageNum"
+></groot-table-pagination>
+
+<div class="alert alert-info" *ngIf="searchResults && searchResults.totalNumRecords == 0">
+  {{'common.noRowsFound' | translate}}
+</div>

@@ -1,85 +1,161 @@
 <h1>Tables</h1>
 
-<p>We have customized a bit the look&amp;feel of tables, as you can see from the example below.</p>
+<h2>Simple usage</h2>
 
-<p>We have various useful components:</p>
+<p>
+  We have customized a bit the look&amp;feel of tables, as you can see from the example below.
+  We also have a relatively simple-to-use component that displays a generic sortable table, paginaged,
+  with a nice looking heade, called <code>groot-table</code>.
+</p>
+
+<p>
+  In short, the component emits an event "search" whenever it needs data, with the <code>PaginationOptions</code>
+  as <code>$event</code>. In your callback, you should perform the request to load the data you need and then
+  update the input <code>searchResultsData</code> of the component.<br>
+  You need to define two angular templates, one for the table header and one for the body.
+</p>
+
+<p>We also have various classes for the look and feel of tables: the standard Bootstrap
+  <code>thead-light</code> and <code>thead-dark</code>, or our own <code>thread-primary</code>. You can pass those as
+  the property <code>tHeadClassName</code> of the component.
+</p>
+
+<h3>Sample code:</h3>
+
+<h4>template html</h4>
+
+<pre><code ngNonBindable>&lt;groot-table
+  downloadExcelUrl="foobar"
+  defaultSortColumn="NAME"
+  [defaultSortReverseFlag]="true"
+  [pageSize]="3"
+  (search)="doSearch($event)"
+  [searchResultsData]="searchResultsData"
+  [headerTemplate]="tableHeader"
+  [bodyTemplate]="tableBody"
+>
+  &lt;ng-template #tableHeader>
+    &lt;tr>
+      &lt;th>
+        &lt;groot-table-header label="people.name" columnName="NAME">&lt;/groot-table-header>
+      &lt;/th>
+      &lt;th>
+        &lt;groot-table-header label="people.dateOfBirth" columnName="DATE_OF_BIRTH">&lt;/groot-table-header>
+      &lt;/th>
+      &lt;th>
+        &lt;groot-table-header label="people.wage">&lt;/groot-table-header>
+      &lt;/th>
+    &lt;/tr>
+  &lt;/ng-template>
+
+  &lt;ng-template #tableBody let-searchResults>
+    &lt;tr *ngFor="let row of searchResults.records">
+      &lt;td>{{row.name}}&lt;/td>
+      &lt;td>{{row.dateOfBirth | date: 'dd/MM/yyyy'}}&lt;/td>
+      &lt;td>{{row.wage | number:'0.2'}}&lt;/td>
+    &lt;/tr>
+  &lt;/ng-template>
+&lt;/groot-table>
+</code></pre>
+
+<h4>TypeScript class</h4>
+
+<pre><code>export class DemoTableComponent &#123;
+  searchResultsData: PaginatedResponse&lt;Person> = null;
+
+  constructor(private peopleService: PeopleService) &#123;
+  }
+
+  doSearch(paginationAndSorting: PaginationOptions) &#123;
+    this.peopleService.searchPeople(paginationAndSorting)
+      .subscribe(data => this.searchResultsData = data);
+  }
+}</code></pre>
+
+
+<p>You can also take a look
+  <a
+    href="https://gitlab.list-group.com/isp-bu/libs/isp.groot/tree/master/projects/groot-tester/src/app/demo-pages/demo-table"
+    target="_blank">at the source code for this page on GitLab.</a>
+</p>
+
+<h2>Customizing heavily</h2>
+
+<p>
+  Alternatively, if you need to heavily customize a table, we have some various building blocks that might help you:
+</p>
 
 <ul>
   <li>a component <code>groot-table-title-bar</code> that is useful as a table heading. Can also
     include the "download excel" button;
   </li>
-  <li>an abstract TypeScript class <code>GenericTableComponentBase</code> that you can override in
-    your component to help get sorting and pagination
-  </li>
   <li>a component <code>groot-table-header</code>, to help get a standard look & feel and
-    sorting capabilities
+    sorting capabilities;
   </li>
-  <li>a component <code>groot-table-pagination</code> to show the page indicator.</li>
+  <li>a component <code>groot-table-pagination</code> to show the page indicator;</li>
+  <li>an abstract TypeScript class <code>GenericTableComponentBase</code> that you can override in
+    your component to help get sorting and pagination.
+  </li>
 </ul>
 
-<p>We also have various classes for the look and feel of tables: the standard Bootstrap
-  <code>thead-light</code> and <code>thead-dark</code>, or our own <code>thread-primary</code>.
+<p>
+  If your custom table is large and might have to scroll, wrap it in a <code>div</code> with the classes
+  <code>table-container table-scrollbar</code>. These classes are already included by the standard
+  <code>groot-table</code> component.
 </p>
+
+<h2>Examples</h2>
 
 <p>
-  If your table is large and might have to scroll, wrap it in a <code>div</code> with the classes
-  <code>table-container table-scrollbar</code>.
+  This is a standard <code>groot-table</code>:
 </p>
 
-<h2>Example</h2>
+<groot-table
+  downloadExcelUrl="foobar"
+  defaultSortColumn="NAME"
+  [defaultSortReverseFlag]="true"
+  [pageSize]="3"
+  (search)="doSearch($event)"
+  [searchResultsData]="searchResultsData"
+  [headerTemplate]="tableHeader"
+  [bodyTemplate]="tableBody"
+>
+  <ng-template #tableHeader>
+    <tr>
+      <th>
+        <groot-table-header label="people.name" columnName="NAME"></groot-table-header>
+      </th>
+      <th>
+        <groot-table-header label="people.dateOfBirth" columnName="DATE_OF_BIRTH"></groot-table-header>
+      </th>
+      <th>
+        <groot-table-header label="people.wage"></groot-table-header>
+      </th>
+    </tr>
+  </ng-template>
 
-<p>You can take a look <a
-  href="https://gitlab.list-group.com/isp-bu/libs/isp.groot/tree/master/projects/groot-tester/src/app/demo-pages/demo-table"
-  target="_blank">at the source code for this page on GitLab.</a></p>
+  <ng-template #tableBody let-searchResults>
+    <tr *ngFor="let row of searchResults.records">
+      <td>{{row.name}}</td>
+      <td>{{row.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
+      <td>{{row.wage | number:'0.2'}}</td>
+    </tr>
+  </ng-template>
+</groot-table>
 
 <div class="alert alert-warning">
   <h4 class="alert-heading">
     <i class="fa fa-info-circle"></i>
     Warning!
   </h4>
-  In this example page the sorting does NOT work; we do not have a real server but a hard-coded json file!
-  For the same reason, the download excel doesn't work either.
+  In this example page the sorting and the pagination do NOT work; we do not have a real server but a hard-coded
+  json file! For the same reason, the download excel doesn't work either.
 </div>
 
 <hr>
 
-<div>
-  <groot-table-title-bar
-    downloadExcelUrl="foobar"
-    [searchResults]="searchResults"
-  ></groot-table-title-bar>
+<p>This is an empty table:</p>
 
-  <table class="table table-bordered table-striped">
-    <thead class="thead-primary text-center">
-    <tr>
-      <th>
-        <groot-table-header label="people.name"
-                            columnName="NAME" [(sort)]="sorting"></groot-table-header>
-      </th>
-      <th>
-        <groot-table-header label="people.dateOfBirth"
-                            columnName="DATE_OF_BIRTH" [(sort)]="sorting"></groot-table-header>
-      </th>
-      <th>
-        <groot-table-header label="people.wage"
-                            columnName="WAGE" [(sort)]="sorting"></groot-table-header>
-      </th>
-    </tr>
-    </thead>
-    <tbody *ngIf="searchResults">
-    <tr *ngFor="let row of searchResults.records">
-      <td>{{row.name}}</td>
-      <td>{{row.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
-      <td>{{row.wage | number:'0.2'}}</td>
-    </tr>
-    </tbody>
-  </table>
-
-  <groot-table-pagination
-    *ngIf="searchResults"
-    [totalItems]="searchResults.totalNumRecords"
-    [pageSize]="pageSize"
-    (pageNumChange)="onPageChanged($event)"
-    [loadedPageNum]="searchResults.pageNum"
-  ></groot-table-pagination>
-</div>
+<groot-table
+  [searchResultsData]="noResultsData">
+</groot-table>

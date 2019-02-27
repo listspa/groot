@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {TableTitleBarComponent} from './table-title-bar.component';
-import {DownloadButtonComponent} from '../download-button/download-button.component';
+import {DownloadButtonComponent} from '../../download-button/download-button.component';
 import {TranslateModule} from '@ngx-translate/core';
 
 describe('TableTitleBarComponent', () => {
