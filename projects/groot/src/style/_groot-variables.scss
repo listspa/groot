@@ -116,6 +116,7 @@ $table-head-bg: $gray-250 !default;
 $table-head-color: $gray-900 !default;
 $table-border-width: 1px !default;
 $table-border-color: $table-head-bg !default;
+$table-accent-bg: $gray-100 !default;
 
 // Buttons
 
@@ -172,4 +173,3 @@ $navbar-simple-margin-left: 1.5rem !default;
 $navbar-simple-font-size: 1.3rem !default;
 $navbar-simple-color: rgba($white, 0.7) !default;
 $navbar-form-margin-right: $navbar-simple-margin-left !default;
-
