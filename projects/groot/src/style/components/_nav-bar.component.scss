@@ -47,14 +47,20 @@ groot-nav-bar {
 
       .dropdown-menu {
         position: absolute;
-        border: 1px solid $gray-400;
+        border: 1px solid $gray-800;
         border-radius: 2px;
 
         .dropdown-item {
-          color: $gray-250;
+          color: $gray-800;
+          font-family: $navbar-simple-font-family;
+
+          i {
+            margin-right: 0.3rem;
+          }
 
           &:hover {
             background-color: $primary;
+            color: $white;
           }
         }
       }

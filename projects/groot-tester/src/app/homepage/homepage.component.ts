@@ -8,6 +8,13 @@ import {Release, ReleaseChangeType} from './release.model';
 export class HomepageComponent {
   releases: Release[] = [
     {
+      version: '0.4.7', released: false, changes: [
+        {
+          type: ReleaseChangeType.NEW_FEATURE, html: ` Restyled the <code>groot-nav-bar</code> (simple navbar).`
+        }
+      ]
+    },
+    {
       version: '0.4.6', released: true, changes: [
         {
           type: ReleaseChangeType.NEW_FEATURE, html: ` More animations for the <code>groot-nav-bar</code>.`
