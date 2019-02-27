@@ -2,6 +2,7 @@ groot-table-header .buttons {
   cursor: pointer;
   position: relative;
   margin-left: 0.5rem;
+  margin-right: $table-cell-padding;
 
   > span {
     position: absolute;
