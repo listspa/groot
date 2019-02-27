@@ -2,19 +2,41 @@ import {Component, Input} from '@angular/core';
 import {Menu, SimpleNavBarItem} from './nav-bar.model';
 import {Router} from '@angular/router';
 import {dropDownAnimation} from '../../utils/animations-utils';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 interface ConcreteMenu extends Menu {
   selected?: boolean;
 }
 
+export function slideRight(fromState, toState) {
+  return fromState < toState;
+}
+
+export function slideLeft(fromState, toState) {
+  return !slideRight(fromState, toState);
+}
+
+
 @Component({
   selector: 'groot-nav-bar',
   templateUrl: './nav-bar.component.html',
-  animations: [dropDownAnimation]
+  animations: [dropDownAnimation,
+    trigger('slide', [
+      transition(slideRight, [
+        animate('0s', style({transform: 'translateX(100%)'})), // move first the old menu in position to give the illusion nothing has changed
+        animate('0.15s ease-in-out', style({transform: 'translateX(0%)'}))
+      ]),
+      transition(slideLeft, [
+        animate('0s', style({transform: 'translateX(-101.5%)'})),
+        animate('0.15s ease-in-out', style({transform: 'translateX(0%)'}))
+      ])
+    ])
+  ]
 })
 export class NavBarComponent {
   private _menuCollapsed = true;
   public state: 'collapsed' | 'expanded' = 'collapsed';
+  public slide: string = 'r0'; // r[0-9]+ it will trigger right animation | l[0-9]+ it will trigger left animation. The first letter indicate which transition trigger.
   public rootMenu: ConcreteMenu = {
     label: 'menu',
     icon: null,
@@ -22,6 +44,7 @@ export class NavBarComponent {
   };
   public _simpleNavBarItems: SimpleNavBarItem[];
   public currentMenu: ConcreteMenu;
+  public oldMenu: ConcreteMenu; // To allow the animation, the previous menu screen must be rendered at the right (or left) of the current menu.
   public breadcrumbs: ConcreteMenu[] = [];
   @Input() public showAlwaysBreadcrumbs = true;
 
@@ -96,7 +119,9 @@ export class NavBarComponent {
       this.close();
     } else {
       this.breadcrumbs.push(item);
+      this.oldMenu = this.currentMenu;
       this.currentMenu = item;
+      this.slide = 'r' + this.breadcrumbs.length;
     }
   }
 
@@ -105,8 +130,10 @@ export class NavBarComponent {
   }
 
   public selectBreadcrumb(subMenu: ConcreteMenu, index: number) {
+    this.oldMenu = this.currentMenu;
     this.currentMenu = subMenu;
     this.breadcrumbs = this.breadcrumbs.slice(0, index + 1);
+    this.slide = 'l' + this.breadcrumbs.length;
   }
 
   public toggleMenu() {
@@ -114,6 +141,10 @@ export class NavBarComponent {
     if (!this.menuCollapsed) {
       this.highlightCurrentRoute();
     }
+  }
+
+  public cleanAnimation() {
+    this.oldMenu = null;
   }
 
   private highlightCurrentRoute() {

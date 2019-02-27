@@ -61,24 +61,55 @@
         </div>
 
         <!-- Table with children -->
-        <div class="row">
-          <div *ngFor="let menuRows of currentMenu.children" class="col-sm-3">
-            <div *ngFor="let menu of menuRows" class="row">
-              <div class="col-sm">
-                <div (click)="onItemClick(menu)"
-                     *ngIf="menu"
-                     [class.selected]="menu.selected"
-                     class="menu-element"
-                     [grootNeedsCapability]="menu.requiredCapability">
-                  <i *ngIf="menu.icon" class="{{menu.icon}} menu-icon"></i>
-                  <span>{{menu.label | translate}}</span>
+        <div class="row menuSlider">
+          <div [@slide]="slide" (@slide.done)="cleanAnimation()" class="col-sm slider-col">
+            <div class="row">
+              <div *ngFor="let menuRows of currentMenu.children" class="col-sm-3">
+                <div *ngFor="let menu of menuRows" class="row">
+                  <div class="col-sm">
+                    <div (click)="onItemClick(menu)"
+                         *ngIf="menu"
+                         [class.selected]="menu.selected"
+                         class="menu-element"
+                         [grootNeedsCapability]="menu.requiredCapability">
+                      <i *ngIf="menu.icon" class="{{menu.icon}} menu-icon"></i>
+                      <span>{{menu.label | translate}}</span>
 
-                  <span class="menu-element-dir-indicator" *ngIf="!menu.url">
+                      <span class="menu-element-dir-indicator" *ngIf="!menu.url">
                     <i class="fa fa-navicon"></i>
                   </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+            <!--See comment in ts file, why we have to duplicate menu-->
+            <div *ngIf="oldMenu" class="row fake-menu" [class.right]="slide.startsWith('r')"
+                 [class.left]="slide.startsWith('l')">
+              <div class="col-sm">
+                <div class="row">
+                  <div *ngFor="let menuRows of oldMenu.children" class="col-sm-3">
+                    <div *ngFor="let menu of menuRows" class="row">
+                      <div class="col-sm">
+                        <div (click)="onItemClick(menu)"
+                             *ngIf="menu"
+                             [class.selected]="menu.selected"
+                             class="menu-element"
+                             [grootNeedsCapability]="menu.requiredCapability">
+                          <i *ngIf="menu.icon" class="{{menu.icon}} menu-icon"></i>
+                          <span>{{menu.label | translate}}</span>
+
+                          <span class="menu-element-dir-indicator" *ngIf="!menu.url">
+                            <i class="fa fa-navicon"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

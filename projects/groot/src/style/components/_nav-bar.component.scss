@@ -170,15 +170,30 @@ groot-nav-bar {
   }
 
   .menu-content {
-    .menu-family {
-      color: $gray-400;
-      cursor: pointer;
-      width: max-content;
-      margin-bottom: 2rem;
-      display: block;
+    .menuSlider {
+      overflow: hidden;
 
-      span:hover {
-        text-decoration: underline;
+      .slider-col {
+        margin: 0;
+        padding: 0;
+
+        .fake-menu {
+          display: inline-flex;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 100%;
+
+          &.right {
+            transform: translateX(-200%);
+            padding-right: 1%;
+          }
+
+          &.left {
+            margin-left: 1%;
+          }
+        }
       }
     }
 
