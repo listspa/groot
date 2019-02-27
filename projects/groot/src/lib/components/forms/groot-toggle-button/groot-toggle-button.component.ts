@@ -15,6 +15,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 export class GrootToggleButtonComponent implements ControlValueAccessor {
   @Input() label: string;
   @Input() disabled = false;
+  @Input() horizontalLabel = false;
   value: boolean;
 
   onChange = (checked: boolean) => null;

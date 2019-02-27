@@ -52,4 +52,12 @@ groot-toggle-button label {
   margin-right: $toggle-margin;
   line-height: $toggle-button-size;
   vertical-align: middle;
+
+  &.horizontalAlign {
+    display: block;
+    font-weight: bold;
+    color: $label-fg-color;
+    font-size: 0.9em;
+  }
 }
+

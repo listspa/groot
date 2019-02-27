@@ -704,6 +704,33 @@
     </code></pre>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Toggle button with horizontal label</div>
+  </div>
+  <div class="col-md-3">
+    <form>
+      <groot-toggle-button
+        label="Toggle me 3"
+        name="toggler 3"
+        [horizontalLabel]="true"
+        [(ngModel)]="form.toggler"
+        (ngModelChange)="onModelChange('toggle', $event)"
+      ></groot-toggle-button>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>
+      &lt;groot-toggle-button
+        label="Toggle me 3"
+        name="toggler 3"
+        [horizontalLabel]="true"
+        [(ngModel)]="form.toggler"
+        (ngModelChange)="onModelChange('toggle', $event)"
+      >&lt;/groot-toggle-button>
+    </code></pre>
+  </div>
+</div>
 
 <h3>Selected values</h3>
 
