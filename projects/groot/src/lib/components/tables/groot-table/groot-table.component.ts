@@ -13,6 +13,7 @@ export class GrootTableComponent<T> implements OnInit {
   @Input() defaultSortReverseFlag = false;
   @Input() pageSize = 15;
   @Input() tHeadClassName: string | string[] = 'thead-primary';
+  @Input() striped = true;
   @Input() headerTemplate: TemplateRef<any>;
   @Input() bodyTemplate: TemplateRef<any>;
   @Output() search = new EventEmitter<PaginationOptions>();

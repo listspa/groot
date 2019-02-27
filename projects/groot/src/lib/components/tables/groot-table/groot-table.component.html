@@ -6,7 +6,7 @@
 ></groot-table-title-bar>
 
 <div class="table-container table-scrollbar" *ngIf="searchResults && searchResults.totalNumRecords > 0">
-  <table class="table table-bordered table-striped">
+  <table class="table table-bordered" [class.table-striped]="striped">
     <thead class="text-center" [ngClass]="tHeadClassName">
     <ng-container
       *ngTemplateOutlet="headerTemplate; context: {searchResults: searchResults, currentSorting: currentSorting, setSorting: setSortingCbk}"></ng-container>

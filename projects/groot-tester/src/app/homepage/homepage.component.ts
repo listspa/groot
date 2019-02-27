@@ -8,6 +8,14 @@ import {Release, ReleaseChangeType} from './release.model';
 export class HomepageComponent {
   releases: Release[] = [
     {
+      version: '0.4.8', released: true, changes: [
+        {
+          type: ReleaseChangeType.NEW_FEATURE,
+          html: `Allowed the user of <code>groot-table</code> to disable the class <code>table-striped</code>.`
+        }
+      ]
+    },
+    {
       version: '0.4.7', released: true, changes: [
         {
           type: ReleaseChangeType.NEW_FEATURE,
