@@ -5,7 +5,7 @@ import {formatDate} from '@angular/common';
  * Can format an SKLDate (yyyyMMdd).
  */
 @Pipe({
-  name: 'ftTime'
+  name: 'ftDate'
 })
 export class FtDatePipe implements PipeTransform {
   transform(dateObj: any,
