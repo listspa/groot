@@ -62,6 +62,7 @@
             "styles": [
               "projects/groot-tester/src/styles.scss"
             ],
+            "statsJson": true,
             "scripts": []
           },
           "configurations": {

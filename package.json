@@ -13,7 +13,9 @@
     "npm_pack": "cd dist/groot && npm pack",
     "package": "npm run build_lib && npm run copy-assets && npm run npm_pack",
     "release": "npm run build_lib && release-it --disable-metrics && npm run package && node scripts/publish.js",
-    "deploy-demo-doc": "ng build groot-tester --prod && node scripts/release-demo-prj.js"
+    "build-demo-app": "ng build groot-tester --prod",
+    "deploy-demo-doc": "ng run build-demo-app && node scripts/release-demo-prj.js",
+    "bundle-report": "ng run build-demo-app && webpack-bundle-analyzer dist/groot-tester/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -63,6 +65,7 @@
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.2.2"
+    "typescript": "~3.2.2",
+    "webpack-bundle-analyzer": "^3.0.4"
   }
 }
