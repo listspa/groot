@@ -14,8 +14,8 @@
     "package": "npm run build_lib && npm run copy-assets && npm run npm_pack",
     "release": "npm run build_lib && release-it --disable-metrics && npm run package && node scripts/publish.js",
     "build-demo-app": "ng build groot-tester --prod",
-    "deploy-demo-doc": "ng run build-demo-app && node scripts/release-demo-prj.js",
-    "bundle-report": "ng run build-demo-app && webpack-bundle-analyzer dist/groot-tester/stats.json"
+    "deploy-demo-doc": "npm run build-demo-app && node scripts/release-demo-prj.js",
+    "bundle-report": "npm run build-demo-app && webpack-bundle-analyzer dist/groot-tester/stats.json"
   },
   "private": true,
   "dependencies": {
