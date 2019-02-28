@@ -47,7 +47,6 @@ export class GrootInputComponent implements ControlValueAccessor {
   public onEnterPressed() {
     if (this.text !== this.textSent) {
       this.textSent = this.text;
-      console.log(this.text);
       this.enter.emit(this.text);
     }
   }
