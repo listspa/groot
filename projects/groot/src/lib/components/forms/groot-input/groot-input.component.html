@@ -17,6 +17,7 @@
          #input="ngModel"
          [ngModel]="text"
          (ngModelChange)="writeValue($event)"
+         (keyup.enter)="onEnterPressed()"
          [class.is-invalid]="!input.valid && !input.pristine"
          [disabled]="disabled">
   <div class="input-group-append" *ngIf="iconRight">

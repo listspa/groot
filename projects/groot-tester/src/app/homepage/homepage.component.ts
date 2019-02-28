@@ -3,6 +3,14 @@ import {Release, ReleaseChangeType} from './release.model';
 
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.4.12', released: false, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: ` Added new event (<code>enter</code>) for component <code>groot-input</code> on 'enter key' pressed event. The event will be triggered if the text is not already sent.`
+      }
+    ]
+  },
+  {
     version: '0.4.11', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,

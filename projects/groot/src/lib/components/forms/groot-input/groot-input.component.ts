@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
@@ -20,7 +20,9 @@ export class GrootInputComponent implements ControlValueAccessor {
   @Input() helpText: string = null;
   @Input() iconLeft: string | string[] | null = null;
   @Input() iconRight: string | string[] | null = null;
+  @Output() enter: EventEmitter<string> = new EventEmitter();
   text: string;
+  private textSent: string;
 
   onChange = (text: string) => null;
   onTouched = () => null;
@@ -40,5 +42,13 @@ export class GrootInputComponent implements ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+  }
+
+  public onEnterPressed() {
+    if (this.text !== this.textSent) {
+      this.textSent = this.text;
+      console.log(this.text);
+      this.enter.emit(this.text);
+    }
   }
 }
