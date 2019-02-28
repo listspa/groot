@@ -3,6 +3,15 @@ import {Release, ReleaseChangeType} from './release.model';
 
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.4.11', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Solved  <code>horizontalLabel</code> value of <code>groot-toggle-button</code>:  
+               when <code>horizontalLabel</code> is set to true, the label is actually in horizontal position.`
+      }
+    ]
+  },
+  {
     version: '0.4.10', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
