@@ -14,5 +14,6 @@
          (click)="toast.doRemove(); $event.stopPropagation()"></i>
     </div>
     <p>{{toast.label}}</p>
+    <p *ngIf="toast.additionalDetails">{{toast.additionalDetails}}</p>
   </div>
 </div>

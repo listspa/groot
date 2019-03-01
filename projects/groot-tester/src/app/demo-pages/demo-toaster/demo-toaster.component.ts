@@ -12,6 +12,7 @@ export class DemoToasterComponent {
   showToasts(): void {
     this.toastService.addToast({
       label: 'click on me to send me away',
+      additionalDetails: '(other details)',
       autoRemove: false
     }).subscribe(toast => {
       console.log('going away!');
