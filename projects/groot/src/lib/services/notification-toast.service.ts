@@ -15,6 +15,7 @@ export class Toast {
   constructor(public readonly style: ToastStyle,
               public readonly title: string | null,
               public readonly label: string,
+              public readonly additionalDetails: string | null,
               public readonly icon: string[],
               public readonly clickable: boolean,
               public readonly clickCallback: EventEmitter<Toast>,
@@ -37,6 +38,7 @@ export interface NewToastConfig {
   translateTitleArgs?: any;
   clickable?: boolean;
   autoRemove?: boolean;
+  additionalDetails?: string | null;
 }
 
 const DEFAULT_TOAST_CONFIG: NewToastConfig = {
@@ -49,7 +51,8 @@ const DEFAULT_TOAST_CONFIG: NewToastConfig = {
   translateTitle: true,
   translateTitleArgs: {},
   clickable: true,
-  autoRemove: true
+  autoRemove: true,
+  additionalDetails: null
 };
 
 /**
@@ -68,6 +71,7 @@ export class NotificationToastService {
     NotificationToastService.AUTO_REMOVE_TIME = autoRemoveMs;
   }
 
+  /* tslint:disable:member-ordering */
   toastAdded = new ReplaySubject<Toast>();
   toastRemoved = new ReplaySubject<Toast>();
 
@@ -90,7 +94,7 @@ export class NotificationToastService {
     forkJoin(title$, label$)
       .subscribe(([title, label]) => {
         const newToast = new Toast(
-          actualConfig.style, title, label,
+          actualConfig.style, title, label, actualConfig.additionalDetails,
           NotificationToastService.handleIcon(actualConfig),
           actualConfig.clickable,
           callback,
