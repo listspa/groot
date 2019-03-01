@@ -134,21 +134,25 @@ export class NotificationToastService {
     });
   }
 
-  public showGenericCannotSaveNotification() {
+  public showGenericCannotSaveNotification(response: any = null) {
+    const additionalDetails = response ? response.data ? response.data.message : null : null;
     this.addToast({
       title: 'common.dynamicGui.cannotSave.title',
       icon: 'fa fa-frown-o',
       label: 'common.dynamicGui.cannotSave.details',
-      style: ToastStyle.DANGER
+      style: ToastStyle.DANGER,
+      additionalDetails
     });
   }
 
-  public showGenericCannotLoadNotification() {
+  public showGenericCannotLoadNotification(response: any = null) {
+    const additionalDetails = response ? response.data ? response.data.message : null : null;
     this.addToast({
       title: 'common.dynamicGui.cannotLoad.title',
       icon: 'fa fa-frown-o',
       label: 'common.dynamicGui.cannotLoad.details',
-      style: ToastStyle.DANGER
+      style: ToastStyle.DANGER,
+      additionalDetails
     });
   }
 }
