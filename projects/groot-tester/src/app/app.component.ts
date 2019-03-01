@@ -24,6 +24,7 @@ export class AppComponent {
         {label: 'Forms', url: '/demo/forms', icon: 'fa fa-pencil-square-o'},
         {label: 'Tooltips', url: '/demo/tooltips', icon: 'fa fa-square'},
         {label: 'Nav bar', url: '/demo/nav-bar', icon: 'fa fa-bars'},
+        {label: 'Page title', url: '/demo/page-title', icon: 'fa fa-th-list'},
         {label: 'Other utilities', url: '/demo/other-utilities'},
         {label: 'Capabilities', url: '/demo/capabilities'}
       ]
@@ -81,7 +82,8 @@ export class AppComponent {
             {label: 'Tables', url: '/demo/tables', icon: 'fa fa-table'},
             {label: 'Forms', url: '/demo/forms', icon: 'fa fa-pencil-square-o'},
             {label: 'Tooltips', url: '/demo/tooltips', icon: 'fa fa-square'},
-            {label: 'Nav bar', url: '/demo/nav-bar', icon: 'fa fa-bars'}
+            {label: 'Nav bar', url: '/demo/nav-bar', icon: 'fa fa-bars'},
+            {label: 'Page title', url: '/demo/page-title', icon: 'fa fa-th-list'}
           ],
           [
             {label: 'Other utilities', url: '/demo/other-utilities'},

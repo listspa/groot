@@ -3,6 +3,14 @@ import {Release, ReleaseChangeType} from './release.model';
 
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.4.15', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added a new component <code>groot-page-title</code>. Check out <a href="#demo/page-title">its page</a> for a demo.`
+      }
+    ]
+  },
+  {
     version: '0.4.14', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,

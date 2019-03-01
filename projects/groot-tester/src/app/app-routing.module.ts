@@ -23,6 +23,7 @@ import {DemoNavbarComponent} from './demo-pages/demo-navbar/demo-navbar.componen
 import {CallingTheServerComponent} from './docs/calling-the-server/calling-the-server.component';
 import {CapabilitiesComponent} from './demo-pages/capabilities/capabilities.component';
 import {DemoCompleteFormComponent} from './demo-pages/demo-complete-form/demo-complete-form.component';
+import {DemoPageTitleComponent} from './demo-pages/demo-page-title/demo-page-title.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
@@ -48,6 +49,7 @@ const routes: Routes = [
   {component: DemoNavbarComponent, path: 'demo/nav-bar'},
   {component: CapabilitiesComponent, path: 'demo/capabilities'},
   {component: DemoCompleteFormComponent, path: 'demo/complete-forms'},
+  {component: DemoPageTitleComponent, path: 'demo/page-title', data: {pageTitle: {title: 'Page Title Demo', subTitle: 'Page sub title'}}},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 
