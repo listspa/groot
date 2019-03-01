@@ -13,6 +13,7 @@ $fa-font-path: '~font-awesome/fonts';
 
 // Our css overriding bootstrap or adding new classes
 @import "mixins";
+@import "functions";
 @import "fonts";
 @import "typography";
 @import "forms";

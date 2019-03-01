@@ -1,0 +1,42 @@
+/**
+ * Extract the correct side from a padding/border/margin compact definition.
+ * Sample usage: extract-from-compact( $padding-list, top );
+ * See https://stackoverflow.com/questions/37918393/how-to-get-vertical-padding-out-of-compact-form-in-sass
+ */
+@function extract-from-compact($value, $side) {
+  $index: 1;
+
+  @if ($side == top or length($value) == 1) {
+    // Top values are always at index 1. The same for when the list has only one item
+    $index: 1;
+  } @else if (length($value) == 2) {
+    // Covers "vertical horizontal" style
+    @if ($side == left or $side == right) {
+      $index: 2;
+    }
+    @if ($side == bottom) {
+      $index: 1;
+    }
+  } @else if (length($value) == 3) {
+    // Covers "top horizontal bottom" style
+    @if ($side == left or $side == right) {
+      $index: 2;
+    }
+    @if ($side == bottom) {
+      $index: 3;
+    }
+  } @else if (length($value) == 4) {
+    // Covers "top right bottom left" style
+    @if ($side == right) {
+      $index: 2;
+    }
+    @if ($side == bottom) {
+      $index: 3;
+    }
+    @if ($side == left) {
+      $index: 4;
+    }
+  }
+
+  @return nth($value, $index);
+}
