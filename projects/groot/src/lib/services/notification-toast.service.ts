@@ -124,4 +124,31 @@ export class NotificationToastService {
   private removeToast(newToast: Toast) {
     this.toastRemoved.next(newToast);
   }
+
+  public showGenericSavedNotification() {
+    this.addToast({
+      title: 'common.dynamicGui.saved.title',
+      icon: 'fa fa-check',
+      label: 'common.dynamicGui.saved.details',
+      style: ToastStyle.SUCCESS
+    });
+  }
+
+  public showGenericCannotSaveNotification() {
+    this.addToast({
+      title: 'common.dynamicGui.cannotSave.title',
+      icon: 'fa fa-frown-o',
+      label: 'common.dynamicGui.cannotSave.details',
+      style: ToastStyle.DANGER
+    });
+  }
+
+  public showGenericCannotLoadNotification() {
+    this.addToast({
+      title: 'common.dynamicGui.cannotLoad.title',
+      icon: 'fa fa-frown-o',
+      label: 'common.dynamicGui.cannotLoad.details',
+      style: ToastStyle.DANGER
+    });
+  }
 }
