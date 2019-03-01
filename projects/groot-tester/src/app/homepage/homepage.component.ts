@@ -3,10 +3,19 @@ import {Release, ReleaseChangeType} from './release.model';
 
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.4.12', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added some methods to <code>NotificationToastService</code> to generate standard notifications
+for "saved", "cannot save", "cannot load".`
+      }
+    ]
+  },
+  {
     version: '0.4.11', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
-        html: `Solved  <code>horizontalLabel</code> value of <code>groot-toggle-button</code>:  
+        html: `Solved  <code>horizontalLabel</code> value of <code>groot-toggle-button</code>:
                when <code>horizontalLabel</code> is set to true, the label is actually in horizontal position.`
       }
     ]
@@ -15,7 +24,8 @@ const RELEASE_NOTES: Release[] = [
     version: '0.4.10', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
-        html: `Solved a bug when calling Made the method <code>reloadTable</code> of <code>GrootTableComponent</code> during initialization.`
+        html: `Solved a bug when calling Made the method <code>reloadTable</code> of
+<code>GrootTableComponent</code> during initialization.`
       }
     ]
   },
@@ -39,7 +49,7 @@ const RELEASE_NOTES: Release[] = [
     version: '0.4.7', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
-        html: `Added new component <code>groot-table</code> to simplify creating tables. See the 
+        html: `Added new component <code>groot-table</code> to simplify creating tables. See the
 <a href="#/demo/tables">tables documentation</a> for the details.`
       },
       {
