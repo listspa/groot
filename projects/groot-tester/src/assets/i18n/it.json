@@ -11,6 +11,10 @@
   "common.oneValueSelected": "Un valore selezionato",
   "common.numValuesSelected": "{{numSelected}} valori selezionati",
   "common.required": "Il campo è obbligatorio",
+  "common.dynamicGui.cannotLoad.title": "Errore",
+  "common.dynamicGui.cannotLoad.details": "Impossibile caricare i record. Si prega di ritentare in seguito.",
+  "common.dynamicGui.cannotSave.title": "Errore",
+  "common.dynamicGui.cannotSave.details": "Non è stato possibile salvare le modifiche. Si prega di ritentare in seguito.",
   "people.name": "Name",
   "people.dateOfBirth": "Date of birth",
   "people.wage": "Wage"

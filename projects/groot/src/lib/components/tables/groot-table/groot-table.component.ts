@@ -1,6 +1,14 @@
 import {Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
 import {PaginatedResponse, PaginationOptions, Sorting} from '../../../nbpu.interfaces';
 
+export interface LoadingFailed {
+  loadingFailed: true;
+}
+
+export function isLoadingFailed<T>(t: PaginatedResponse<T> | LoadingFailed): t is LoadingFailed {
+  return t && t.hasOwnProperty('loadingFailed') && (t as any).loadingFailed === true;
+}
+
 @Component({
   selector: 'groot-table',
   templateUrl: './groot-table.component.html'
@@ -21,14 +29,21 @@ export class GrootTableComponent<T> implements OnInit {
   public sorting: Sorting;
   private _currentPageNum = 0;
   public setSortingCbk = this.setSorting.bind(this);
+  public failed = false;
 
   ngOnInit(): void {
     this.sorting = {column: this.defaultSortColumn, reverse: this.defaultSortReverseFlag};
     this.reloadTable(true);
   }
 
-  @Input() set searchResultsData(searchResultsData: PaginatedResponse<T>) {
-    this.searchResults = searchResultsData;
+  @Input() set searchResultsData(searchResultsData: PaginatedResponse<T> | LoadingFailed) {
+    if (isLoadingFailed(searchResultsData)) {
+      this.failed = true;
+      this.searchResults = null;
+    } else {
+      this.failed = false;
+      this.searchResults = searchResultsData;
+    }
   }
 
   onPageChanged(newPageNum: number): void {

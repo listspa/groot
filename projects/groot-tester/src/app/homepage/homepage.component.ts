@@ -1,7 +1,28 @@
 import {Component} from '@angular/core';
 import {Release, ReleaseChangeType} from './release.model';
 
+/* tslint:disable:max-line-length */
 const RELEASE_NOTES: Release[] = [
+  {
+    version: '0.5.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Supported the case "loading failed" for tables. Please see the <a href="#demo/tables">tables documentation page</a>.`
+      },
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `You need to add four labels to your translations: <table class="table table-sm">
+<thead class="thead-light">
+<tr><th>Label</th><th>en</th><th>it</th></tr>
+</thead>
+<tr><td>common.dynamicGui.cannotLoad.title</td><td>Error</td><td>Errore</td></tr>
+<tr><td>common.dynamicGui.cannotLoad.details</td><td>Cannot load the records. Please try again later.</td><td>Impossibile caricare i record. Si prega di ritentare in seguito.</td></tr>
+<tr><td>common.dynamicGui.cannotSave.title</td><td>Error</td><td>Errore</td></tr>
+<tr><td>common.dynamicGui.cannotSave.details</td><td>Could not save your changes. Please try again later.</td><td>Non è stato possibile salvare le modifiche. Si prega di ritentare in seguito.</td></tr>
+</table>`
+      }
+    ]
+  },
   {
     version: '0.4.16', released: true, changes: [
       {

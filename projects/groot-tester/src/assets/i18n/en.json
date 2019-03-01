@@ -11,6 +11,10 @@
   "common.oneValueSelected": "One value selected",
   "common.numValuesSelected": "{{numSelected}} values selected",
   "common.required": "The field is required",
+  "common.dynamicGui.cannotLoad.title": "Error",
+  "common.dynamicGui.cannotLoad.details": "Cannot load the records. Please try again later.",
+  "common.dynamicGui.cannotSave.title": "Error",
+  "common.dynamicGui.cannotSave.details": "Could not save your changes. Please try again later.",
   "people.name": "Name",
   "people.dateOfBirth": "Date of birth",
   "people.wage": "Wage"

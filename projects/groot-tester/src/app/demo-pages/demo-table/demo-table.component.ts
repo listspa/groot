@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {PeopleService, Person} from './people.service';
 import {PaginatedResponse, PaginationOptions} from '../../../../../groot/src/lib/nbpu.interfaces';
+import {LoadingFailed} from '../../../../../groot/src/lib/components/tables/groot-table/groot-table.component';
 
 @Component({
   selector: 'app-demo-table',
@@ -14,6 +15,7 @@ export class DemoTableComponent {
     totalNumRecords: 0,
     records: []
   };
+  failedData: LoadingFailed = {loadingFailed: true};
 
   constructor(private peopleService: PeopleService) {
   }
