@@ -1,0 +1,7 @@
+<div class="page-title" *ngIf="title">
+  <div class="title">
+    <i [ngClass]="icon" *ngIf="icon"></i>
+    {{title | translate}}
+  </div>
+  <div class="subTitle" *ngIf="subTitle">{{subTitle | translate}}</div>
+</div>

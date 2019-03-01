@@ -1,0 +1,26 @@
+groot-page-title .page-title {
+  width: 100%;
+  min-height: 3rem;
+  text-align: center;
+  background-color: $page-title-background-color;
+  border-bottom: 1px solid $page-title-border-color;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  margin-top: -$navbar-margin-bottom;
+  margin-bottom: $page-title-margin-bottom;
+  padding: 0.5rem 0 0.3rem;
+
+  .title {
+    font-weight: bold;
+    font-family: $headings-font-family;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+
+  .subTitle {
+    font-family: $headings-font-family;
+  }
+}

@@ -30,6 +30,7 @@ import {GrootComboCheckboxComponent} from './components/forms/groot-combo-checkb
 import {GrootToggleButtonComponent} from './components/forms/groot-toggle-button/groot-toggle-button.component';
 import {NeedsCapabilityDirective} from './directives/needsCapability.directive';
 import {GrootTableComponent} from './components/tables/groot-table/groot-table.component';
+import {PageTitleComponent} from './components/page-title/page-title.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import {GrootTableComponent} from './components/tables/groot-table/groot-table.c
     GrootToggleButtonComponent,
     NeedsCapabilityDirective,
     GrootTableComponent,
+    PageTitleComponent,
   ],
   imports: [
     CommonModule,
@@ -90,6 +92,7 @@ import {GrootTableComponent} from './components/tables/groot-table/groot-table.c
     GrootToggleButtonComponent,
     NeedsCapabilityDirective,
     GrootTableComponent,
+    PageTitleComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

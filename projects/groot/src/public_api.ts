@@ -20,6 +20,7 @@ export * from './lib/components/tables/groot-table/groot-table.component';
 export * from './lib/components/loading-indicator/loading-indicator.component';
 export * from './lib/components/nav-bar/nav-bar.component';
 export * from './lib/components/notification-toast-list/notification-toast-list.component';
+export * from './lib/components/page-title/page-title.component';
 export * from './lib/components/tables/table-header/table-header.component';
 export * from './lib/components/tables/table-pagination/table-pagination.component';
 export * from './lib/components/tables/table-title-bar/table-title-bar.component';

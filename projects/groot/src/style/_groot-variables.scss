@@ -166,6 +166,7 @@ $tooltip-bg: $gray-900 !default;
 $tooltip-opacity: 0.96 !default;
 
 // Navbar
+
 $navbar-brand-padding-y: 0.3rem !default;
 $navbar-brand-font-size: 1.7rem !default;
 $navbar-brand-font-weight: bold !default;
@@ -174,3 +175,10 @@ $navbar-simple-font-size: 1.3rem !default;
 $navbar-simple-color: rgba($white, 0.7) !default;
 $navbar-simple-font-family: "Roboto Condensed", Arial !default;
 $navbar-form-margin-right: $navbar-simple-margin-left !default;
+$navbar-margin-bottom: 0.7rem !default;
+
+// Page title
+
+$page-title-margin-bottom: 1.2rem !default;
+$page-title-background-color: $gray-100 !default;
+$page-title-border-color: $gray-400 !default;
