@@ -12,7 +12,7 @@ export class FtDatePipe implements PipeTransform {
             dateFormat: string = 'dd/MM/yyyy',
             timezone: string = 'it'): any {
     const dateStr = dateObj.toString();
-    if(dateStr === '0'){
+    if (dateStr === '0') {
       return null;
     }
     const yyyy = parseInt(dateStr.substr(0, 4), 10);
