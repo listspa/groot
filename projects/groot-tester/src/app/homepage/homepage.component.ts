@@ -4,6 +4,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:max-line-length */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.5.3', released: false, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed placeholder color for IE and firefox.`
+      }
+    ]
+  },
+  {
     version: '0.5.2', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
