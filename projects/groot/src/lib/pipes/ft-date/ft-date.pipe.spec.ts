@@ -21,4 +21,10 @@ describe('FtDatePipe', () => {
     expect(pipe.transform('20141225', 'yyyy-MM-dd')).toEqual('2014-12-25');
     expect(pipe.transform(20141225, 'yyyy-MM-dd')).toEqual('2014-12-25');
   });
+
+  it('zero input value', () => {
+    const pipe = new FtDatePipe();
+    expect(pipe.transform('20141225', 'yyyy-MM-dd')).toEqual('2014-12-25');
+    expect(pipe.transform(0, 'yyyy-MM-dd')).toEqual(null);
+  });
 });
