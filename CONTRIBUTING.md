@@ -18,7 +18,8 @@ as well. Otherwise it will not be available to the library's clients.
 
 # Making a release
 
-Simply run `npm run release` and answer the questions when prompted.
+First, update the release notes in `homepage.component.ts`. Afterwards, simply run `npm run release`
+and answer the questions when prompted.
 
 # CI server
 
