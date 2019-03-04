@@ -4,6 +4,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:max-line-length */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.5.1', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New function <code>translateStrings</code> to translate an array of strings, similar to the existing
+<code>translateLabels</code>.`
+      }
+    ]
+  },
+  {
     version: '0.5.0', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,

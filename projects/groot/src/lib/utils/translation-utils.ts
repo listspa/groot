@@ -14,3 +14,9 @@ export function translateLabel(translateService: TranslateService,
   return translateService.get(item.label)
     .pipe(map(translation => ({value: item.value, label: translation})));
 }
+
+export function translateStrings(translateService: TranslateService,
+                                 items: string[])
+  : Observable<string[]> {
+  return forkJoin(items.map(item => translateService.get(item)));
+}
