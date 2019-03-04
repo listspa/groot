@@ -4,6 +4,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:max-line-length */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.5.2', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Handled case in which no valid data is sent to the pipe <code>ftDate</code>.`
+      }
+    ]
+  },
+  {
     version: '0.5.1', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
