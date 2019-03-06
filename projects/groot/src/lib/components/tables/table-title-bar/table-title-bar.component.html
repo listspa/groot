@@ -2,13 +2,15 @@
   <div class="col-sm">
     <h2>
       {{label | translate}}
-      <small *ngIf="pageInfo && pageInfo.totalItems > 0" class="text-muted">{{'common.paginationRowsInfo' | translate:pageInfo}}</small>
+      <small *ngIf="pageInfo && pageInfo.totalItems > 0"
+             class="text-muted">{{'common.paginationRowsInfo' | translate:pageInfo}}</small>
     </h2>
   </div>
 
   <div class="col-sm clearfix download-button-area" *ngIf="(downloadExcelUrl || downloadExcelUrlProvider) && pageInfo">
     <div class="float-right">
       <groot-download-button
+        [label]="downloadExcelLabel"
         [url]="downloadExcelUrl"
         [urlProvider]="downloadExcelUrlProvider"
         [argsProvider]="downloadExcelArgsProvider"
