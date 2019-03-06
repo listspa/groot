@@ -4,6 +4,46 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:max-line-length */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.6.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `It is possible to override more labels for the <code>groot-combo</code> element.`
+      },
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `You need to add five labels to your translations: 
+              <table class="table table-sm">
+                <thead class="thead-light">
+                  <tr>
+                    <th>Label</th>
+                    <th>en</th>
+                    <th>it</th>
+                  </tr>
+                </thead>
+                <tr>
+                  <td>combo.noItems</td><td>No items found</td><td>Nessun elemento trovato</td>
+                 </tr>
+                 <tr>
+                  <td>combo.addItem</td><td>Add item</td><td>Add item</td>
+                 </tr>
+                 <tr>
+                  <td>combo.clearAll</td><td>Clear all</td><td>Rimuovi tutti</td>
+                 </tr>
+                 <tr>
+                  <td>combo.loading</td><td>Loading...</td><td>Caricamento...</td>
+                 </tr>
+                 <tr>
+                  <td>combo.typeToSearch</td><td>Type to search</td><td>Scrivi per ricercare</td>
+                 </tr>
+              </table>`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `If possible, the element <code>groot-date-picker</code> will draw the calendar inside the page.`
+      }
+    ]
+  },
+  {
     version: '0.5.3', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
