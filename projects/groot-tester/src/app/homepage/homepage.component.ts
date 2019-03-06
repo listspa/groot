@@ -4,7 +4,11 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:max-line-length */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.5.3', released: false, changes: [
+    version: '0.5.3', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added possibility to change download label in <code>groot-table</code> with <code>downloadExcelLabel</code> input.`
+      },
       {
         type: ReleaseChangeType.BUG_FIX,
         html: `Fixed placeholder color for IE and firefox.`
