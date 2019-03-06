@@ -24,7 +24,7 @@ const RELEASE_NOTES: Release[] = [
                   <td>combo.noItems</td><td>No items found</td><td>Nessun elemento trovato</td>
                  </tr>
                  <tr>
-                  <td>combo.addItem</td><td>Add item</td><td>Add item</td>
+                  <td>combo.addItem</td><td>Add item</td><td>Aggiungi elemento</td>
                  </tr>
                  <tr>
                   <td>combo.clearAll</td><td>Clear all</td><td>Rimuovi tutti</td>
