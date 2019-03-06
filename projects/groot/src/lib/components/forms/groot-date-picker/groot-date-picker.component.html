@@ -13,11 +13,13 @@
          bsDatepicker
          #datePickerDirective="bsDatepicker"
          #input=ngModel
+         [placement]="placement"
          [ngModel]="selectedDate"
+         triggers=""
          (ngModelChange)="writeValue($event)"
          [class.is-invalid]="!input.valid && !input.pristine"
          [disabled]="disabled">
-  <div class="input-group-append" (click)="datePickerDirective.toggle()">
+  <div class="input-group-append">
     <span class="input-group-text">
       <i class="fa fa-calendar"></i>
     </span>
