@@ -21,8 +21,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
   @Input() helpText: string = null;
   placement = 'bottom';
   selectedDate: Date;
-  @ViewChild("datePickerDirective")
-  private datePickerDirective: BsDatepickerDirective;
+  @ViewChild("datePickerDirective") private datePickerDirective: BsDatepickerDirective;
 
   constructor(private _element: ElementRef) {
   }
