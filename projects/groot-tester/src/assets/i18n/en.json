@@ -17,5 +17,10 @@
   "common.dynamicGui.cannotSave.details": "Could not save your changes. Please try again later.",
   "people.name": "Name",
   "people.dateOfBirth": "Date of birth",
-  "people.wage": "Wage"
+  "people.wage": "Wage",
+  "combo.noItems": "No items found",
+  "combo.addItem": "Add item",
+  "combo.clearAll": "Clear all",
+  "combo.loading": "Loading...",
+  "combo.typeToSearch": "Type to search"
 }

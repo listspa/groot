@@ -17,5 +17,10 @@
   "common.dynamicGui.cannotSave.details": "Non è stato possibile salvare le modifiche. Si prega di ritentare in seguito.",
   "people.name": "Name",
   "people.dateOfBirth": "Date of birth",
-  "people.wage": "Wage"
+  "people.wage": "Wage",
+  "combo.noItems": "Nessun elemento trovato",
+  "combo.addItem": "Add item",
+  "combo.clearAll": "Rimuovi tutti",
+  "combo.loading": "Caricamento...",
+  "combo.typeToSearch": "Scrivi per ricercare"
 }
