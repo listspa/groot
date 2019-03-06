@@ -14,6 +14,11 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 })
 export class GrootComboComponent implements ControlValueAccessor {
   @Input() label: string;
+  @Input() notFoundText = 'combo.noItems';
+  @Input() addTagText = 'combo.addItem';
+  @Input() clearAllText = 'combo.clearAll';
+  @Input() loadingText = 'combo.loading';
+  @Input() typeToSearchText = 'combo.typeToSearch';
   @Input() name: string;
   @Input() required = false;
   @Input() disabled = false;

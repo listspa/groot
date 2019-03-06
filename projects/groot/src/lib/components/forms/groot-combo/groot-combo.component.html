@@ -4,6 +4,11 @@
 </label>
 <ng-select [items]="items"
            [placeholder]="label | translate"
+           [notFoundText]="notFoundText | translate"
+           [addTagText]="addTagText | translate"
+           [clearAllText]="clearAllText | translate"
+           [loadingText]="loadingText | translate"
+           [typeToSearchText]="typeToSearchText | translate"
            [required]="required"
            id="{{name}}"
            [name]="name"
