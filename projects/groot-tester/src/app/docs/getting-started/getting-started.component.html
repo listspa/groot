@@ -56,6 +56,7 @@
   BrowserModule,
   FormsModule,
   NgSelectModule,
+  HttpClientModule,
   TranslateModule.forRoot(&#123;
     loader: &#123;provide: TranslateLoader, useFactory: HttpLoaderFactory, deps: [HttpClient]},
     missingTranslationHandler: &#123;
@@ -71,7 +72,7 @@
   ModalModule.forRoot(),
   TooltipModule.forRoot(),
   GrootModule.forRoot(),
-  // Your modules, such as HttpClientModule etc
+  // Your modules
 ],</code></pre>
 
 <p>In your `providers` section of your app module, add this:</p>
