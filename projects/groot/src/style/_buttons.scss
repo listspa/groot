@@ -32,6 +32,12 @@
   @extend .text-right;
 }
 
+.buttons-list-bottom-left {
+  @extend .d-flex;
+  @extend .buttons-list;
+  @extend .align-items-end;
+}
+
 .buttons-list-bottom-right {
   @extend .d-flex;
   @extend .align-items-end;
