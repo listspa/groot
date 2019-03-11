@@ -5,10 +5,33 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.6.1', released: false, changes: [
+    version: '0.7.0', released: false, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
-        html: `New class <code>buttons-list-bottom-left</code>`
+        html: `Introduced new component <code>groot-file-input</code>.`
+      },
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `You need to add two labels to your translations:
+<table class="table table-sm">
+  <thead class="thead-light">
+    <tr>
+      <th>Label</th>
+      <th>en</th>
+      <th>it</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>common.browse</td><td>Browse</td><td>Scegli</td>
+  </tr>
+  <tr>
+    <td>common.upload</td><td>Upload</td><td>Upload</td>
+  </tr>
+</table>`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New css class <code>buttons-list-bottom-left</code>.`
       }
     ]
   }, {
