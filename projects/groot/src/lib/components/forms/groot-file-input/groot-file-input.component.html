@@ -1,0 +1,25 @@
+<label for="{{name}}">
+  {{label | translate}}
+  <span *ngIf="required">*</span>
+</label>
+<div class="input-group">
+  <div class="file-input-name">
+    <span class="file-input-text">
+      <span>{{text}}</span>
+    </span>
+    <span class="btn btn-file">
+      <i class="{{icon}}"></i>
+      {{buttonText | translate}}
+      <input id="{{name}}"
+             [name]="name"
+             type="file"
+             [required]="required"
+             [attr.multiple]="multiple"
+             (change)="fileEvent($event)">
+    </span>
+  </div>
+
+  <div class="invalid-feedback" *ngIf="!touched && (files == null || files.length == 0)">
+    {{'common.required' | translate}}
+  </div>
+</div>

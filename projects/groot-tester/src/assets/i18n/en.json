@@ -15,6 +15,8 @@
   "common.dynamicGui.cannotLoad.details": "Cannot load the records. Please try again later.",
   "common.dynamicGui.cannotSave.title": "Error",
   "common.dynamicGui.cannotSave.details": "Could not save your changes. Please try again later.",
+  "common.browse": "Browse",
+  "common.upload": "Upload",
   "people.name": "Name",
   "people.dateOfBirth": "Date of birth",
   "people.wage": "Wage",

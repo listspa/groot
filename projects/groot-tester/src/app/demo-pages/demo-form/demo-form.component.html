@@ -732,6 +732,61 @@
   </div>
 </div>
 
+<h3>File upload</h3>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">File input</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-file-input
+        label="File"
+        name="File"
+        [required]="true"
+        [(ngModel)]="form.file"
+        (ngModelChange)="onModelChange('file input', $event)"
+      ></groot-file-input>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-file-input
+      label="File"
+      name="File"
+      [required]="true"
+      [(ngModel)]="form.file"
+      (ngModelChange)="onModelChange('file input', $event)"
+    >&lt;/groot-file-input></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Multiple file input</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-file-input
+        label="Files"
+        name="Files"
+        [multiple]="true"
+        [required]="true"
+        [(ngModel)]="form.files"
+        (ngModelChange)="onModelChange('files input', $event)"
+      ></groot-file-input>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-file-input
+      label="Files"
+      name="Files"
+      [multiple]="true"
+      [required]="true"
+      [(ngModel)]="form.files"
+      (ngModelChange)="onModelChange('files input', $event)"
+    >&lt;/groot-file-input></code></pre>
+  </div>
+</div>
+
 <h3>Selected values</h3>
 
 <div class="alert alert-info">

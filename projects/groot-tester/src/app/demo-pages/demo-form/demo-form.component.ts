@@ -18,7 +18,9 @@ export class DemoFormComponent {
     customCheck0: true,
     customCheck1: false,
     date: new Date(),
-    toggler: false
+    toggler: false,
+    file: null,
+    files: null
   };
 
   public currencies = ['EUR', 'USD', 'JPY', 'CNY', 'RUB'];

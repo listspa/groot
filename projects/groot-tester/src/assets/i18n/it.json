@@ -15,6 +15,8 @@
   "common.dynamicGui.cannotLoad.details": "Impossibile caricare i record. Si prega di ritentare in seguito.",
   "common.dynamicGui.cannotSave.title": "Errore",
   "common.dynamicGui.cannotSave.details": "Non è stato possibile salvare le modifiche. Si prega di ritentare in seguito.",
+  "common.browse": "Scegli",
+  "common.upload": "Upload",
   "people.name": "Name",
   "people.dateOfBirth": "Date of birth",
   "people.wage": "Wage",

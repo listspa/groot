@@ -12,6 +12,7 @@ export * from './lib/components/forms/groot-combo/groot-combo.component';
 export * from './lib/components/forms/groot-combo-checkbox/groot-combo-checkbox.component';
 export * from './lib/components/forms/groot-date-picker/groot-date-picker.component';
 export * from './lib/components/forms/groot-date-picker/groot-date-picker-config';
+export * from './lib/components/forms/groot-file-input/groot-file-input.component';
 export * from './lib/components/forms/groot-input/groot-input.component';
 export * from './lib/components/forms/groot-radio/groot-radio.component';
 export * from './lib/components/forms/groot-textarea/groot-textarea.component';

@@ -1,0 +1,61 @@
+groot-file-input {
+  .file-input-name {
+    display: inline-flex;
+    border-radius: $input-border-radius;
+    border: $input-border-width solid $input-border-color;
+    height: $input-height;
+    width: 100%;
+    vertical-align: middle;
+    justify-content: space-between;
+
+    .file-input-text {
+      display: flex;
+      align-items: center;
+      padding-left: $input-padding-x;
+      overflow: hidden;
+
+      span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .btn-file {
+      flex: 0 0 auto;
+      overflow: hidden;
+      cursor: pointer;
+      border: none;
+      border-left: $input-border-width solid $input-border-color;
+      border-radius: 0 $input-border-radius $input-border-radius 0;
+      padding: $input-padding-y $input-padding-x;
+      margin-bottom: 0;
+      font-size: $font-size-base;
+      font-weight: $font-weight-normal;
+      line-height: $input-line-height;
+      color: $input-group-addon-color;
+      background-color: $input-group-addon-bg;
+      text-transform: capitalize;
+
+      &:hover {
+        background-color: $input-group-addon-bg;
+        border-color: $input-border-color;
+        color: $input-group-addon-color;
+      }
+    }
+
+    // Hidden
+    input[type=file] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      min-width: 100%;
+      min-height: 100%;
+      text-align: right;
+      opacity: 0;
+      outline: none;
+      cursor: inherit;
+      display: block;
+    }
+  }
+}

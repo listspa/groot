@@ -31,6 +31,7 @@ import {GrootToggleButtonComponent} from './components/forms/groot-toggle-button
 import {NeedsCapabilityDirective} from './directives/needsCapability.directive';
 import {GrootTableComponent} from './components/tables/groot-table/groot-table.component';
 import {PageTitleComponent} from './components/page-title/page-title.component';
+import {UploadFileComponent} from './components/forms/groot-file-input/groot-file-input.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import {PageTitleComponent} from './components/page-title/page-title.component';
     NeedsCapabilityDirective,
     GrootTableComponent,
     PageTitleComponent,
+    UploadFileComponent,
   ],
   imports: [
     CommonModule,
@@ -93,6 +95,7 @@ import {PageTitleComponent} from './components/page-title/page-title.component';
     NeedsCapabilityDirective,
     GrootTableComponent,
     PageTitleComponent,
+    UploadFileComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,
