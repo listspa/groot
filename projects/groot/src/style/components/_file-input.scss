@@ -1,4 +1,8 @@
 groot-file-input {
+  .invalid-feedback {
+    display: block;
+  }
+
   .file-input-name {
     display: inline-flex;
     border-radius: $input-border-radius;

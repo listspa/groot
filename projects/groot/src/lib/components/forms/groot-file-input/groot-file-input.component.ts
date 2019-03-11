@@ -21,6 +21,7 @@ export class UploadFileComponent implements ControlValueAccessor {
   @Input() icon = 'fa fa-upload';
   @Input() multiple = false;
   touched = false;
+  invalid = false;
   files: File | File[];
   text = '';
   onChange = (files: File | File[]) => null;
@@ -37,7 +38,7 @@ export class UploadFileComponent implements ControlValueAccessor {
   }
 
   private mapFileListToFileOrArrayOfFiles(files: FileList) {
-    if (files) {
+    if (files && files.length > 0) {
       if (this.multiple) {
         this.files = [];
         for (let i = 0; i < files.length; ++i) {
@@ -48,9 +49,11 @@ export class UploadFileComponent implements ControlValueAccessor {
         this.files = files.item(0);
         this.text = this.files.name;
       }
+      this.invalid = false;
     } else {
       this.files = this.multiple ? [] : null;
       this.text = '';
+      this.invalid = true;
     }
   }
 

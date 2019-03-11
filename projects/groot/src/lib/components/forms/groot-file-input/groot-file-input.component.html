@@ -18,8 +18,7 @@
              (change)="fileEvent($event)">
     </span>
   </div>
-
-  <div class="invalid-feedback" *ngIf="!touched && (files == null || files.length == 0)">
+  <div class="invalid-feedback" *ngIf="required && touched && invalid">
     {{'common.required' | translate}}
   </div>
 </div>
