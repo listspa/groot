@@ -32,6 +32,7 @@ import {NeedsCapabilityDirective} from './directives/needsCapability.directive';
 import {GrootTableComponent} from './components/tables/groot-table/groot-table.component';
 import {PageTitleComponent} from './components/page-title/page-title.component';
 import {UploadFileComponent} from './components/forms/groot-file-input/groot-file-input.component';
+import {GrootButtonComponent} from './components/forms/groot-button/groot-button.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import {UploadFileComponent} from './components/forms/groot-file-input/groot-fil
     GrootTableComponent,
     PageTitleComponent,
     UploadFileComponent,
+    GrootButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -96,6 +98,7 @@ import {UploadFileComponent} from './components/forms/groot-file-input/groot-fil
     GrootTableComponent,
     PageTitleComponent,
     UploadFileComponent,
+    GrootButtonComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

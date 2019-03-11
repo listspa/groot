@@ -7,4 +7,8 @@ import {BOOTSTRAP_STYLES} from '../../constants';
 })
 export class DemoButtonsComponent {
   styles = BOOTSTRAP_STYLES;
+
+  clicked() {
+    console.log('clicked!');
+  }
 }

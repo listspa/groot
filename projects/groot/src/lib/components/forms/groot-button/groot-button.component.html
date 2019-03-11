@@ -1,0 +1,6 @@
+<button class="btn"
+        [ngClass]="classes"
+        [disabled]="disabled">
+  <i *ngIf="icon" [ngClass]="icon"></i>
+  {{label | translate}}
+</button>

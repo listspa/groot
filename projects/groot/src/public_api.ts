@@ -7,6 +7,7 @@ export * from './lib/groot.module';
 export * from './lib/nbpu.interfaces';
 export * from './lib/components/collapsible-box/collapsible-box.component';
 export * from './lib/components/download-button/download-button.component';
+export * from './lib/components/forms/groot-button/groot-button.component';
 export * from './lib/components/forms/groot-checkbox/groot-checkbox.component';
 export * from './lib/components/forms/groot-combo/groot-combo.component';
 export * from './lib/components/forms/groot-combo-checkbox/groot-combo-checkbox.component';
