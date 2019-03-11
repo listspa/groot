@@ -5,7 +5,7 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.7.0', released: false, changes: [
+    version: '0.7.0', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `Introduced new component <code>groot-button</code>. See <a href="#/demo/buttons">the buttons page</a> 
