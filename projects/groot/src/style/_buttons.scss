@@ -27,18 +27,20 @@
   }
 }
 
-.buttons-list {
+.buttons-list-right {
   @extend .buttons-list-left;
-  @extend .text-right;
+  @extend .d-flex;
+  @extend .justify-content-end
 }
 
 .buttons-list-bottom-left {
+  @extend .buttons-list-left;
   @extend .d-flex;
-  @extend .buttons-list;
   @extend .align-items-end;
 }
 
 .buttons-list-bottom-right {
+  @extend .buttons-list-left;
   @extend .d-flex;
   @extend .align-items-end;
   @extend .justify-content-end;

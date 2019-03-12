@@ -5,7 +5,11 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.7.2', released: false, changes: [
+    version: '0.8.0', released: false, changes: [
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `Changed classes for <code>buttons-list</code>: now you need to use <code>buttons-list-right</code> or similar.`
+      },
       {
         type: ReleaseChangeType.BUG_FIX,
         html: `Fixed some look & feel issues with the css class <code>thead-primary</code>`
