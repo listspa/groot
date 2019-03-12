@@ -20,12 +20,14 @@
   "common.dynamicGui.saved.details": "Your modifications have been saved correctly.",
   "common.browse": "Browse",
   "common.upload": "Upload",
-  "people.name": "Name",
-  "people.dateOfBirth": "Date of birth",
-  "people.wage": "Wage",
+  "common.cancel": "Cancel",
+  "common.save": "Save",
   "combo.noItems": "No items found",
   "combo.addItem": "Add item",
   "combo.clearAll": "Clear all",
   "combo.loading": "Loading...",
-  "combo.typeToSearch": "Type to search"
+  "combo.typeToSearch": "Type to search",
+  "people.name": "Name",
+  "people.dateOfBirth": "Date of birth",
+  "people.wage": "Wage"
 }

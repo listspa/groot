@@ -22,12 +22,14 @@
   "common.upload": "Upload",
   "common.collapse": "Collassa",
   "common.expand": "Espandi",
-  "people.name": "Name",
-  "people.dateOfBirth": "Date of birth",
-  "people.wage": "Wage",
+  "common.cancel": "Annulla",
+  "common.save": "Salva",
   "combo.noItems": "Nessun elemento trovato",
   "combo.addItem": "Aggiungi elemento",
   "combo.clearAll": "Rimuovi tutti",
   "combo.loading": "Caricamento...",
-  "combo.typeToSearch": "Scrivi per ricercare"
+  "combo.typeToSearch": "Scrivi per ricercare",
+  "people.name": "Name",
+  "people.dateOfBirth": "Date of birth",
+  "people.wage": "Wage"
 }
