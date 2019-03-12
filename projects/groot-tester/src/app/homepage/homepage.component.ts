@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.7.1', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Attempt to make <code>groot-file-input</code> validation work correctly when the form is reset`
+      }
+    ]
+  },
+  {
     version: '0.7.0', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,

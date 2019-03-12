@@ -24,6 +24,7 @@ export class UploadFileComponent implements ControlValueAccessor {
   invalid = false;
   files: File | File[];
   text = '';
+  filesNgModel: any;
   onChange = (files: File | File[]) => null;
   onTouched = () => null;
 

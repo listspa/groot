@@ -15,10 +15,12 @@
              type="file"
              [required]="required"
              [attr.multiple]="multiple"
-             (change)="fileEvent($event)">
+             (change)="fileEvent($event)"
+             [ngModel]="filesNgModel"
+             #input="ngModel">
     </span>
   </div>
-  <div class="invalid-feedback" *ngIf="required && touched && invalid">
+  <div class="invalid-feedback" *ngIf="required && !input.pristine && invalid">
     {{'common.required' | translate}}
   </div>
 </div>
