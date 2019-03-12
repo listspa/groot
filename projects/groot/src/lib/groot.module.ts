@@ -33,6 +33,7 @@ import {GrootTableComponent} from './components/tables/groot-table/groot-table.c
 import {PageTitleComponent} from './components/page-title/page-title.component';
 import {UploadFileComponent} from './components/forms/groot-file-input/groot-file-input.component';
 import {GrootButtonComponent} from './components/forms/groot-button/groot-button.component';
+import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import {GrootButtonComponent} from './components/forms/groot-button/groot-button
     PageTitleComponent,
     UploadFileComponent,
     GrootButtonComponent,
+    ConfirmModalComponent,
   ],
   imports: [
     CommonModule,
@@ -99,9 +101,11 @@ import {GrootButtonComponent} from './components/forms/groot-button/groot-button
     PageTitleComponent,
     UploadFileComponent,
     GrootButtonComponent,
+    ConfirmModalComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,
+    ConfirmModalComponent,
   ]
 })
 export class GrootModule {

@@ -1,0 +1,24 @@
+<div class="modal-header bg-primary">
+  <h4 class="modal-title pull-left">{{title | translate}}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="onCancel()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  {{text | translate}}
+</div>
+<div class="modal-footer buttons-list-bottom-right">
+  <groot-button
+    classes="btn-outline-danger"
+    [label]="noLabel"
+    icon="fa fa-times"
+    (click)="onCancel()"
+  ></groot-button>
+
+  <groot-button
+    classes="btn-outline-success"
+    [label]="yesLabel"
+    icon="fa fa-check"
+    (click)="onConfirm()"
+  ></groot-button>
+</div>

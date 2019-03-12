@@ -5,6 +5,7 @@
 // Please keep this list in alphabetical order!!
 export * from './lib/groot.module';
 export * from './lib/nbpu.interfaces';
+export * from './lib/components/confirm-modal/confirm-modal.component';
 export * from './lib/components/collapsible-box/collapsible-box.component';
 export * from './lib/components/download-button/download-button.component';
 export * from './lib/components/forms/groot-button/groot-button.component';
@@ -32,6 +33,7 @@ export * from './lib/pipes/ft-date/ft-date.pipe';
 export * from './lib/pipes/ft-time/ft-time.pipe';
 export * from './lib/pipes/fileSize/fileSize.pipe';
 export * from './lib/services/capability.service';
+export * from './lib/services/confirm-modal.service';
 export * from './lib/services/console-logging.service';
 export * from './lib/services/debug-logging.service';
 export * from './lib/services/loading.service';

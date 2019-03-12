@@ -10,6 +10,39 @@ const RELEASE_NOTES: Release[] = [
         type: ReleaseChangeType.NEW_FEATURE,
         html: `Changed success color to make it far more readable.`
       },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added <code>ConfirmModalService</code> to help ask for a simple yes/no confirmation. See
+<a href="#/demo/modals">the modals documentation page</a> for details.`
+      },
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `You need to add two labels to your translations:
+<table class="table table-sm">
+  <thead class="thead-light">
+    <tr>
+      <th>Label</th>
+      <th>en</th>
+      <th>it</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>common.delete</td><td>Delete</td><td>Elimina</td>
+  </tr>
+  <tr>
+    <td>common.confirm</td><td>Confirm</td><td>Conferma</td>
+  </tr>
+  <tr>
+    <td>common.pleaseConfirm</td><td>Please confirm</td><td>Conferma richiesta</td>
+  </tr>
+  <tr>
+    <td>common.yes</td><td>Yes</td><td>Sì</td>
+  </tr>
+  <tr>
+    <td>common.no</td><td>No</td><td>No</td>
+  </tr>
+</table>`
+      }
     ]
   },
   {

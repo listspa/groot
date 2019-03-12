@@ -31,3 +31,18 @@
     <button type="button" class="btn btn-secondary">Close</button>
   </div>
 </ng-template>
+
+<h2>Confirmation</h2>
+
+<p>
+  For a simple yes/no confirmation, you can use the <code>ConfirmModalService</code>. Here's an example:
+</p>
+
+<groot-button
+  label="test confirmation"
+  (click)="showConfirmationModal()"
+></groot-button>
+
+<div class="alert alert-info mt-2">
+  Selected confirmation value is: {{confirmResult | json}}.
+</div>
