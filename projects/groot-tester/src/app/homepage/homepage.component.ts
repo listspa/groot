@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.7.2', released: false, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed some look & feel issues with the css class <code>thead-primary</code>`
+      }
+    ]
+  },
+  {
     version: '0.7.1', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,

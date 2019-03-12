@@ -14,8 +14,7 @@ table.table-bordered {
     border: $table-border-width solid $table-border-color;
   }
 
-  .thead-light th,
-  .thead-primary th {
+  .thead-light th {
     border: $table-border-width solid $white;
     border-top-color: $table-border-color;
 
@@ -27,14 +26,25 @@ table.table-bordered {
       border-right-color: $table-border-color;
     }
   }
+
+  .thead-primary th {
+    border-color: $white;
+    border-top-color: $light-primary;
+    border-bottom-color: $light-primary;
+
+    &:first-child {
+      border-left-color: $light-primary;
+    }
+
+    &:last-child {
+      border-right-color: $light-primary;
+    }
+  }
 }
 
-.thead-primary {
-  th {
-    color: color-yiq($light-primary);
-    background-color: $light-primary;
-    border-color: $light-primary;
-  }
+.thead-primary th {
+  color: color-yiq($light-primary);
+  background-color: $light-primary;
 }
 
 
