@@ -104,6 +104,14 @@
   <code>groot-table</code> component.
 </p>
 
+<h2>Selectable tables</h2>
+
+<p>
+  If you have a table and you want to allow the user to select some rows, do not use the <code>table-striped</code>
+  class but rather add on your table the class <code>table-selectable</code>. To highlight the chosen rows, use
+  the class <code>selected</code> on your <code>tr</code>.
+</p>
+
 <h2>Examples</h2>
 
 <p>
@@ -166,4 +174,5 @@
 
 <groot-table
   [searchResultsData]="failedData">
-></groot-table>
+  >
+</groot-table>

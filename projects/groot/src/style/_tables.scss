@@ -73,3 +73,17 @@ table.table-bordered {
     background-color: $gray-430;
   }
 }
+
+// Hover
+
+.table-selectable {
+  @extend .table-hover;
+
+  tbody tr {
+    cursor: pointer;
+
+    &.selected {
+      background-color: $table-selected-bg;
+    }
+  }
+}

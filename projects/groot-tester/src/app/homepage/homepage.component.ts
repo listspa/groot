@@ -11,6 +11,10 @@ const RELEASE_NOTES: Release[] = [
         html: `Changed classes for <code>buttons-list</code>: now you need to use <code>buttons-list-right</code> or similar.`
       },
       {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added class <code>table-selectable</code>.`
+      },
+      {
         type: ReleaseChangeType.BUG_FIX,
         html: `Fixed some look & feel issues with the css class <code>thead-primary</code>`
       }
