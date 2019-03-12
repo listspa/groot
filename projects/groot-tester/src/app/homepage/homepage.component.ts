@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: 'next', released: false, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Changed success color to make it far more readable.`
+      },
+    ]
+  },
+  {
     version: '0.8.0', released: true, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,

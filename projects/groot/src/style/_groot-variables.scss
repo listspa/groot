@@ -30,6 +30,7 @@ $orange: #FA9600 !default;
 $yellow: #FABE0A !default;
 $green: $isp-green !default;
 $dark-green: #008148 !default;
+$brilliant-green: #28A745 !default;
 $light-green: #7DBC00 !default;
 $lighter-green: #A8DF00 !default;
 $teal: #00BCBE !default;
@@ -59,7 +60,7 @@ $colors: (
 
 $primary: $blue !default;
 $secondary: $green !default; // In Bootstrap it's gray by default
-$success: $light-green !default;
+$success: $brilliant-green !default;
 $info: $light-blue !default;
 $warning: $orange !default;
 $danger: $red !default;
