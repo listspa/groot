@@ -7,10 +7,12 @@ import {Subject} from 'rxjs';
   templateUrl: './confirm-modal.component.html'
 })
 export class ConfirmModalComponent {
-  @Input() yesLabel;
-  @Input() noLabel;
-  @Input() title;
-  @Input() text;
+  text: string;
+  titleArguments?: object | null;
+  title: string;
+  textArguments?: object | null;
+  yesLabel: string;
+  noLabel: string;
   resultSubject: Subject<boolean>;
 
   constructor(private modalRef: BsModalRef) {

@@ -19,7 +19,7 @@ export class DemoModalsComponent {
   }
 
   showConfirmationModal() {
-    this.confirmModalService.showConfirmation('example confirmation', 'titolo')
+    this.confirmModalService.showConfirmation({text: 'demoConfirmMessage'})
       .subscribe(value => this.confirmResult = value);
   }
 }
