@@ -12,6 +12,10 @@ const RELEASE_NOTES: Release[] = [
       },
       {
         type: ReleaseChangeType.NEW_FEATURE,
+        html: `Allowed placing an icon inside a <code>groot-table-header</code>`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
         html: `Added <code>ConfirmModalService</code> to help ask for a simple yes/no confirmation. See
 <a href="#/demo/modals">the modals documentation page</a> for details.`
       },

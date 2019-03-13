@@ -8,6 +8,7 @@ import {GrootTableComponent} from '../groot-table/groot-table.component';
 })
 export class TableHeaderComponent {
   @Input() label: string;
+  @Input() icon: string;
   @Input() columnName: string | null; // If null, sorting is disabled
   @Output() sortChange = new EventEmitter<Sorting>();
   private _sort: Sorting | null = null;
