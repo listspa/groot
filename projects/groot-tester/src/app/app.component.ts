@@ -20,8 +20,8 @@ export class AppComponent {
         {label: 'Colors and typography', url: '/demo/colors', icon: 'fa fa-paint-brush'},
         {label: 'Loading indicator', url: '/demo/loading', icon: 'fa fa-refresh'},
         {label: 'Toasts', url: '/demo/toasts', icon: 'fa fa-bell'},
-        {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-maximize'},
-        {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window'},
+        {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-restore'},
+        {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window-maximize'},
         {label: 'Tables', url: '/demo/tables', icon: 'fa fa-table'},
         {label: 'Forms', url: '/demo/forms', icon: 'fa fa-pencil-square-o'},
         {label: 'Tooltips', url: '/demo/tooltips', icon: 'fa fa-square'},
@@ -78,8 +78,8 @@ export class AppComponent {
           [
             {label: 'Loading indicator', url: '/demo/loading', icon: 'fa fa-refresh'},
             {label: 'Toasts', url: '/demo/toasts', icon: 'fa fa-bell'},
-            {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-maximize'},
-            {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window'},
+            {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-restore'},
+            {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window-maximize'},
           ],
           [
             {label: 'Tables', url: '/demo/tables', icon: 'fa fa-table'},
