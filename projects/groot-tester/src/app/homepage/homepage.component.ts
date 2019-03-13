@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: 'next', released: false, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added <code>UploadFileService</code> to simplify sending a file to the server`
+      },
+    ]
+  },
+    {
     version: '0.10.0', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,

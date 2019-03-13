@@ -32,3 +32,12 @@
 
 <p>To format FastTrack's date and times (<code>SKLDate</code> and <code>SKLTime</code>), we have two pipes,
   called <code>ftDate</code> and <code>ftTime</code> to allow for simple formatting.</p>
+
+<h2>Uploading files</h2>
+
+<p>
+  To send a file to the server, the service <code>UploadFileService</code> can help. It offers a way to
+  send a file, plus additionally various other paremters, in a format that works well with Spring.
+  On the server you want to declare a <code>@PostMapping</code> method with a
+  <code>@RequestParam("file") MultipartFile file</code> parameter.
+</p>
