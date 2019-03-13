@@ -34,6 +34,7 @@ import {PageTitleComponent} from './components/page-title/page-title.component';
 import {UploadFileComponent} from './components/forms/groot-file-input/groot-file-input.component';
 import {GrootButtonComponent} from './components/forms/groot-button/groot-button.component';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.
     UploadFileComponent,
     GrootButtonComponent,
     ConfirmModalComponent,
+    FooterComponent,
   ],
   imports: [
     CommonModule,
@@ -102,6 +104,7 @@ import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.
     UploadFileComponent,
     GrootButtonComponent,
     ConfirmModalComponent,
+    FooterComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

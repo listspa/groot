@@ -5,7 +5,26 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: 'next', released: false, changes: [
+    version: '0.10.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added component <code>groot-footer</code>. See <a href="#/demo/footer">its documentation</a>
+for the details`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `We now store and reload the last selected language at the startup. See the 
+<a href="#/docs/translations-guide">translations guide page</a> for details.`
+      },
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `In your app component, ask for injection of <code>translationsLanguageService: 
+TranslationsLanguageService</code> rather than <code>TranslateService</code> and <code>BsLocaleService</code>`
+      }
+    ]
+  },
+  {
+    version: '0.9.0', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `Changed success color to make it far more readable.`

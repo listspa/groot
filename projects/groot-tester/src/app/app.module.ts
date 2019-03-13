@@ -51,8 +51,10 @@ import {ReleaseComponent} from './homepage/release/release.component';
 import {GrootCapabilityService} from '../../../groot/src/lib/services/capability.service';
 import {DemoCapabilityService} from './demo-capability.service';
 import {CapabilitiesComponent} from './demo-pages/capabilities/capabilities.component';
-import { DemoCompleteFormComponent } from './demo-pages/demo-complete-form/demo-complete-form.component';
-import { DemoPageTitleComponent } from './demo-pages/demo-page-title/demo-page-title.component';
+import {DemoCompleteFormComponent} from './demo-pages/demo-complete-form/demo-complete-form.component';
+import {DemoPageTitleComponent} from './demo-pages/demo-page-title/demo-page-title.component';
+import {DemoFooterComponent} from './demo-pages/demo-footer/demo-footer.component';
+import {DEFAULT_LANGUAGE} from '../../../groot/src/lib/services/translations-language.service';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -90,7 +92,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReleaseComponent,
     CapabilitiesComponent,
     DemoCompleteFormComponent,
-    DemoPageTitleComponent
+    DemoPageTitleComponent,
+    DemoFooterComponent
   ],
   imports: [
     BrowserModule,
@@ -116,7 +119,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     {provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker},
-    {provide: GrootCapabilityService, useClass: DemoCapabilityService}
+    {provide: GrootCapabilityService, useClass: DemoCapabilityService},
+    {provide: DEFAULT_LANGUAGE, useValue: 'en'}
   ],
   bootstrap: [AppComponent]
 })

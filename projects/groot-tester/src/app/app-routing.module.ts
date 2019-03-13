@@ -24,6 +24,7 @@ import {CallingTheServerComponent} from './docs/calling-the-server/calling-the-s
 import {CapabilitiesComponent} from './demo-pages/capabilities/capabilities.component';
 import {DemoCompleteFormComponent} from './demo-pages/demo-complete-form/demo-complete-form.component';
 import {DemoPageTitleComponent} from './demo-pages/demo-page-title/demo-page-title.component';
+import {DemoFooterComponent} from './demo-pages/demo-footer/demo-footer.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
@@ -49,6 +50,7 @@ const routes: Routes = [
   {component: DemoNavbarComponent, path: 'demo/nav-bar'},
   {component: CapabilitiesComponent, path: 'demo/capabilities'},
   {component: DemoCompleteFormComponent, path: 'demo/complete-forms'},
+  {component: DemoFooterComponent, path: 'demo/footer'},
   {component: DemoPageTitleComponent, path: 'demo/page-title', data: {pageTitle: {title: 'Page Title Demo', subTitle: 'Page sub title'}}},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];

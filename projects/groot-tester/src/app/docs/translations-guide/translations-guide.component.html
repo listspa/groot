@@ -43,20 +43,34 @@ export function HttpLoaderFactory(http: HttpClient) &#123;
 
 <h2>Setting the current language</h2>
 
-<p>The language will generally be set at the application startup in the constructor of <code>AppComponent</code>:</p>
-
-<pre><code>constructor(translate: TranslateService,
-              localeService: BsLocaleService) &#123;
-  translate.use('en');
-  localeService.use('en');
-}</code></pre>
-
-<p>Note that we are also setting the locale in the Ngx-Bootstrap service.</p>
+<p>
+  The language set by default is italian. The service <code>TranslationsLanguageService</code> can be used
+  to set the current language. It will also store and reload automatically the last chosen language,
+  by default in the browser's local storage. To customize this behavior (for instance if you want to save it
+  on the server), you can implement the class <code>LanguageSaver</code> and register your implementation
+  as a provider in your app module.
+</p>
 
 <p>
-  Of course you can call the same function to change the locale in your user's preferences page, or wherever
-  you want to include the "switch language" link in your application.
+  To change the default language, say to English, register a provider in your application module:
 </p>
+
+<code><pre>&#123;provide: DEFAULT_LANGUAGE, useValue: 'en'}</pre></code>
+
+<p>
+  A possibility to show a language switcher is to use the <a routerLink="/demo/footer">groot-footer</a> component:
+  it has a selector built in. Otherwise, you can build your own, for instance in a preferences page.
+</p>
+
+<p>
+  If you do not use the footer, you will need to manually instantiate the <code>TranslationsLanguageService</code>:
+  in your app component simply ask for it:
+</p>
+
+<code><pre>export class AppComponent &#123;
+  constructor(translationsLanguageService: TranslationsLanguageService) &#123;
+    // ...
+  }</pre></code>
 
 <h1>Italian support</h1>
 

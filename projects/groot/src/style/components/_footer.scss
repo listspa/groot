@@ -1,0 +1,42 @@
+groot-footer footer {
+  &.footer-sticky {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  border-top: 1px solid $footer-border-color;
+  height: $footer-height;
+  background-color: $footer-background-color;
+  padding: $footer-padding;
+  display: flex;
+  align-items: center;
+
+  .logo {
+    color: $footer-logo-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-right: 0.4rem;
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 0.4rem;
+      height: $footer-img-height;
+    }
+  }
+
+  .lang-selector {
+    margin-left: auto;
+
+    a {
+      margin-left: 0.5rem;
+
+      &.active {
+        font-weight: bold;
+        color: $primary;
+      }
+    }
+  }
+}

@@ -36,6 +36,7 @@ $lighter-green: #A8DF00 !default;
 $teal: #00BCBE !default;
 $cyan: #00A0FD !default;
 $light: $gray-200 !default;
+$list-blue: #002D69;
 
 $colors: (
   "blue": $blue,
@@ -186,3 +187,12 @@ $navbar-margin-bottom: 0.7rem !default;
 $page-title-margin-bottom: 1.2rem !default;
 $page-title-background-color: $gray-100 !default;
 $page-title-border-color: $gray-400 !default;
+
+// Footer
+
+$footer-background-color: $page-title-background-color !default;
+$footer-border-color: $page-title-border-color !default;
+$footer-height: 2.5rem !default;
+$footer-padding: 0 1rem !default;;
+$footer-logo-color: $list-blue !default;
+$footer-img-height: 1.6rem !default;

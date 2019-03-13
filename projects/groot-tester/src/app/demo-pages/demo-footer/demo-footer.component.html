@@ -1,0 +1,29 @@
+<h1>Footer</h1>
+
+<p>
+  You can create a footer by using the component <code>groot-footer</code>. You generally
+  will want to add this after your <code>div.container</code> element, in your app's main
+  component. By default the footer will show to the left its content, for which you might
+  want to use the class <code>logo</code>, and to the right the language selector,
+  which will show italian and english by default.
+</p>
+
+<p>
+  By default the footer will use the <code>footer-sticky</code> class, which will anchor
+  it to the bottom. You can pass whatever classes you need to it, though, via the
+  <code>classes</code> property.
+</p>
+
+<h2>Example</h2>
+
+<pre><code>&lt;groot-footer>
+  &lt;div class="logo">
+    List &amp;copy; 2019
+  &lt;/div>
+&lt;/groot-footer></code></pre>
+
+<groot-footer classes="">
+  <div class="logo">
+    List &copy; 2019
+  </div>
+</groot-footer>

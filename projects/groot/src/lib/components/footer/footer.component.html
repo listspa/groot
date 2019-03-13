@@ -1,0 +1,11 @@
+<footer [ngClass]="classes">
+  <ng-content></ng-content>
+
+  <div class="lang-selector">
+    <a *ngFor="let language of languages"
+       (click)="translationsLanguageService.setLang(language)"
+       [class.active]="translationsLanguageService.currLang == language">
+      {{language.toLocaleUpperCase()}}
+    </a>
+  </div>
+</footer>

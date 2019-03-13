@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {BsLocaleService} from 'ngx-bootstrap';
 import {TranslateService} from '@ngx-translate/core';
 import {Menu, SimpleNavBarItem} from '../../../groot/src/lib/components/nav-bar/nav-bar.model';
+import {TranslationsLanguageService} from '../../../groot/src/lib/services/translations-language.service';
 
 @Component({
   selector: 'app-root',
@@ -20,13 +21,14 @@ export class AppComponent {
         {label: 'Loading indicator', url: '/demo/loading', icon: 'fa fa-refresh'},
         {label: 'Toasts', url: '/demo/toasts', icon: 'fa fa-bell'},
         {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-maximize'},
+        {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window'},
         {label: 'Tables', url: '/demo/tables', icon: 'fa fa-table'},
         {label: 'Forms', url: '/demo/forms', icon: 'fa fa-pencil-square-o'},
         {label: 'Tooltips', url: '/demo/tooltips', icon: 'fa fa-square'},
         {label: 'Nav bar', url: '/demo/nav-bar', icon: 'fa fa-bars'},
         {label: 'Page title', url: '/demo/page-title', icon: 'fa fa-th-list'},
         {label: 'Other utilities', url: '/demo/other-utilities'},
-        {label: 'Capabilities', url: '/demo/capabilities'}
+        {label: 'Capabilities', url: '/demo/capabilities'},
       ]
     }
   ];
@@ -76,7 +78,8 @@ export class AppComponent {
           [
             {label: 'Loading indicator', url: '/demo/loading', icon: 'fa fa-refresh'},
             {label: 'Toasts', url: '/demo/toasts', icon: 'fa fa-bell'},
-            {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-maximize'}
+            {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-maximize'},
+            {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window'},
           ],
           [
             {label: 'Tables', url: '/demo/tables', icon: 'fa fa-table'},
@@ -94,9 +97,6 @@ export class AppComponent {
     ]
   ];
 
-  constructor(translate: TranslateService,
-              localeService: BsLocaleService) {
-    translate.use('en');
-    localeService.use('en');
+  constructor(translationsLanguageService: TranslationsLanguageService) {
   }
 }
