@@ -16,7 +16,7 @@ const RELEASE_NOTES: Release[] = [
       },
     ]
   },
-    {
+  {
     version: '0.10.0', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
@@ -448,7 +448,10 @@ export class HomepageComponent {
 
   filterReleases() {
     if (this.onlyBreakingChanges) {
-      this.releases = RELEASE_NOTES.filter(release => release.changes.some(change => change.type === ReleaseChangeType.BREAKING_CHANGE));
+      this.releases = RELEASE_NOTES.map(release => ({
+        ...release,
+        changes: release.changes.filter(change => change.type === ReleaseChangeType.BREAKING_CHANGE)
+      })).filter(release => release.changes.length > 0);
     } else {
       this.releases = RELEASE_NOTES;
     }
