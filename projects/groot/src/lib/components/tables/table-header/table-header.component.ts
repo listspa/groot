@@ -7,7 +7,10 @@ import {GrootTableComponent} from '../groot-table/groot-table.component';
   templateUrl: './table-header.component.html'
 })
 export class TableHeaderComponent {
+  /** Label to use as text (translated) */
   @Input() label: string;
+  /** Literal label to use as text (not translated) */
+  @Input() literalLabel: string;
   @Input() icon: string;
   @Input() columnName: string | null; // If null, sorting is disabled
   @Output() sortChange = new EventEmitter<Sorting>();

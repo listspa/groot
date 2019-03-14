@@ -10,6 +10,10 @@ const RELEASE_NOTES: Release[] = [
         type: ReleaseChangeType.NEW_FEATURE,
         html: `Added <code>UploadFileService</code> to simplify sending a file to the server`
       },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `The <code>groot-table-header</code> component supports a <code>literalLabel</code> argument, which will not be translated`
+      },
     ]
   },
     {

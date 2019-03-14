@@ -1,5 +1,6 @@
 <i *ngIf="icon" [ngClass]="icon"></i>
 <span *ngIf="label" translate>{{label}}</span>
+<span *ngIf="literalLabel">{{literalLabel}}</span>
 <span *ngIf="columnName"
       class="buttons"
       (click)="toggle()">
