@@ -2,74 +2,76 @@
   {{label | translate}}
   <span *ngIf="required">*</span>
 </label>
-<ng-select [items]="items"
-           [placeholder]="label | translate"
-           [required]="required"
-           id="{{name}}"
-           [name]="name"
-           #input="ngModel"
-           [ngModel]="selectedValue"
-           (ngModelChange)="writeValue($event)"
-           [class.is-invalid]="!input.valid && !input.pristine"
-           [disabled]="disabled"
-           [bindLabel]="bindLabel"
-           [bindValue]="bindValue"
-           [multiple]="true"
-           [closeOnSelect]="false">
-  <ng-template ng-header-tmp>
-    <div class="buttons-list-left">
-      <button type="button" class="btn btn-outline-primary btn-sm"
-              (click)="selectAll()"
-              [disabled]="isAllSelected()">
-        {{'common.selectAll' | translate}}
-      </button>
+<div class="mb-2">
+  <ng-select [items]="items"
+             [placeholder]="label | translate"
+             [required]="required"
+             id="{{name}}"
+             [name]="name"
+             #input="ngModel"
+             [ngModel]="selectedValue"
+             (ngModelChange)="writeValue($event)"
+             [class.is-invalid]="!input.valid && !input.pristine"
+             [disabled]="disabled"
+             [bindLabel]="bindLabel"
+             [bindValue]="bindValue"
+             [multiple]="true"
+             [closeOnSelect]="false">
+    <ng-template ng-header-tmp>
+      <div class="buttons-list-left">
+        <button type="button" class="btn btn-outline-primary btn-sm"
+                (click)="selectAll()"
+                [disabled]="isAllSelected()">
+          {{'common.selectAll' | translate}}
+        </button>
 
-      <button type="button" class="btn btn-outline-primary btn-sm"
-              (click)="unselectAll()"
-              [disabled]="isNoneSelected()">
-        {{'common.unselectAll' | translate}}
-      </button>
-    </div>
-  </ng-template>
+        <button type="button" class="btn btn-outline-primary btn-sm"
+                (click)="unselectAll()"
+                [disabled]="isNoneSelected()">
+          {{'common.unselectAll' | translate}}
+        </button>
+      </div>
+    </ng-template>
 
-  <ng-template ng-multi-label-tmp let-items="items">
-    <div class="ng-value">
-      <span class="ng-value-label"
-            *ngIf="isAllSelected()">
-        {{'common.allValuesSelected' | translate}}
-      </span>
-      <span class="ng-value-label"
-            *ngIf="!isAllSelected() && items.length > 1">
-        {{'common.numValuesSelected' | translate:{numSelected: items.length} }}
-      </span>
-      <span class="ng-value-label"
-            *ngIf="!isAllSelected() && items.length == 1">
-        {{'common.oneValueSelected' | translate}}
-      </span>
-    </div>
-  </ng-template>
+    <ng-template ng-multi-label-tmp let-items="items">
+      <div class="ng-value">
+        <span class="ng-value-label"
+              *ngIf="isAllSelected()">
+          {{'common.allValuesSelected' | translate}}
+        </span>
+        <span class="ng-value-label"
+              *ngIf="!isAllSelected() && items.length > 1">
+          {{'common.numValuesSelected' | translate:{numSelected: items.length} }}
+        </span>
+        <span class="ng-value-label"
+              *ngIf="!isAllSelected() && items.length == 1">
+          {{'common.oneValueSelected' | translate}}
+        </span>
+      </div>
+    </ng-template>
 
-  <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" let-searchTerm="searchTerm">
-    <div class="custom-control custom-checkbox">
-      <input type="checkbox"
-             id="item-{{index}}"
-             class="custom-control-input"
-             [ngModel]="item$.selected">
-      <label class="custom-control-label">
-        <ng-container
-          *ngTemplateOutlet="itemTemplate || defaultItemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}"
-        ></ng-container>
+    <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" let-searchTerm="searchTerm">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox"
+               id="item-{{index}}"
+               class="custom-control-input"
+               [ngModel]="item$.selected">
+        <label class="custom-control-label">
+          <ng-container
+            *ngTemplateOutlet="itemTemplate || defaultItemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}"
+          ></ng-container>
 
-        <ng-template #defaultItemTemplate>
-          {{bindLabel ? item[bindLabel] : item}}
-        </ng-template>
-      </label>
-    </div>
-  </ng-template>
-</ng-select>
-<div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
-  {{'common.required' | translate}}
+          <ng-template #defaultItemTemplate>
+            {{bindLabel ? item[bindLabel] : item}}
+          </ng-template>
+        </label>
+      </div>
+    </ng-template>
+  </ng-select>
+  <div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
+    {{'common.required' | translate}}
+  </div>
+  <small class="form-text text-muted" *ngIf="helpText">
+    {{helpText | translate}}
+  </small>
 </div>
-<small class="form-text text-muted" *ngIf="helpText">
-  {{helpText | translate}}
-</small>

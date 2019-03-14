@@ -14,6 +14,11 @@ const RELEASE_NOTES: Release[] = [
         type: ReleaseChangeType.NEW_FEATURE,
         html: `The <code>groot-table-header</code> component supports a <code>literalLabel</code> argument, which will not be translated`
       },
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `The <code>groot-combo</code> and <code>groot-combo-checkbox></code> components did not have the correct
+margin-bottom that the other inputs have`
+      },
     ]
   },
   {

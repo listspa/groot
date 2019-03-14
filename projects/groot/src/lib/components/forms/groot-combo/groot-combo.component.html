@@ -2,62 +2,64 @@
   {{label | translate}}
   <span *ngIf="required">*</span>
 </label>
-<ng-select [items]="items"
-           [placeholder]="label | translate"
-           [notFoundText]="notFoundText | translate"
-           [addTagText]="addTagText | translate"
-           [clearAllText]="clearAllText | translate"
-           [loadingText]="loadingText | translate"
-           [typeToSearchText]="typeToSearchText | translate"
-           [required]="required"
-           id="{{name}}"
-           [name]="name"
-           #input="ngModel"
-           [ngModel]="selectedValue"
-           (ngModelChange)="writeValue($event)"
-           [class.is-invalid]="!input.valid && !input.pristine"
-           [disabled]="disabled"
-           [bindLabel]="bindLabel"
-           [bindValue]="bindValue"
-           [multiple]="multiple"
-           [closeOnSelect]="!multiple">
+<div class="mb-2">
+  <ng-select [items]="items"
+             [placeholder]="label | translate"
+             [notFoundText]="notFoundText | translate"
+             [addTagText]="addTagText | translate"
+             [clearAllText]="clearAllText | translate"
+             [loadingText]="loadingText | translate"
+             [typeToSearchText]="typeToSearchText | translate"
+             [required]="required"
+             id="{{name}}"
+             [name]="name"
+             #input="ngModel"
+             [ngModel]="selectedValue"
+             (ngModelChange)="writeValue($event)"
+             [class.is-invalid]="!input.valid && !input.pristine"
+             [disabled]="disabled"
+             [bindLabel]="bindLabel"
+             [bindValue]="bindValue"
+             [multiple]="multiple"
+             [closeOnSelect]="!multiple">
 
-  <!-- Custom item templates -->
-  <ng-template *ngIf="itemTemplate"
-               ng-option-tmp
-               let-item="item"
-               let-item$="item$"
-               let-index="index"
-               let-searchTerm="searchTerm">
-    <ng-container
-      *ngTemplateOutlet="itemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
-    </ng-container>
-  </ng-template>
+    <!-- Custom item templates -->
+    <ng-template *ngIf="itemTemplate"
+                 ng-option-tmp
+                 let-item="item"
+                 let-item$="item$"
+                 let-index="index"
+                 let-searchTerm="searchTerm">
+      <ng-container
+        *ngTemplateOutlet="itemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
+      </ng-container>
+    </ng-template>
 
-  <!-- Custom label (selected object) template -->
-  <ng-template *ngIf="labelTemplate"
-               ng-label-tmp
-               let-item="item"
-               let-clear="clear"
-               let-label="label">
-    <ng-container
-      *ngTemplateOutlet="labelTemplate; context: {item: item, clear: clear, label: label}">
-    </ng-container>
-  </ng-template>
+    <!-- Custom label (selected object) template -->
+    <ng-template *ngIf="labelTemplate"
+                 ng-label-tmp
+                 let-item="item"
+                 let-clear="clear"
+                 let-label="label">
+      <ng-container
+        *ngTemplateOutlet="labelTemplate; context: {item: item, clear: clear, label: label}">
+      </ng-container>
+    </ng-template>
 
-  <!-- Custom template for multiple selections (replaces the label template) -->
-  <ng-template *ngIf="multiLabelTemplate"
-               ng-multi-label-tmp
-               let-items="items"
-               let-clear="clear">
-    <ng-container
-      *ngTemplateOutlet="multiLabelTemplate; context: {items: items, clear: clear}">
-    </ng-container>
-  </ng-template>
-</ng-select>
-<div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
-  {{'common.required' | translate}}
+    <!-- Custom template for multiple selections (replaces the label template) -->
+    <ng-template *ngIf="multiLabelTemplate"
+                 ng-multi-label-tmp
+                 let-items="items"
+                 let-clear="clear">
+      <ng-container
+        *ngTemplateOutlet="multiLabelTemplate; context: {items: items, clear: clear}">
+      </ng-container>
+    </ng-template>
+  </ng-select>
+  <div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
+    {{'common.required' | translate}}
+  </div>
+  <small class="form-text text-muted" *ngIf="helpText">
+    {{helpText | translate}}
+  </small>
 </div>
-<small class="form-text text-muted" *ngIf="helpText">
-  {{helpText | translate}}
-</small>
