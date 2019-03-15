@@ -13,6 +13,10 @@ const RELEASE_NOTES: Release[] = [
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `Allowed to pass the type of a <code>groot-input</code> (i.e. <code>numeric, password, ...</code>)`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Raised slightly the notifications toasts to avoid being on top of the footer`
       }
     ]
   },

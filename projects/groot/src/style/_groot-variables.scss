@@ -196,3 +196,7 @@ $footer-height: 2.5rem !default;
 $footer-padding: 0 1rem !default;;
 $footer-logo-color: $list-blue !default;
 $footer-img-height: 1.6rem !default;
+
+// Toasts
+
+$toasts-area-bottom: 3.2em !default;  // If you do not use the footer, lower this to 2em

@@ -6,7 +6,7 @@ $toast-border-radius: 10px;
 
 .groot-notification-toasts-toaster-area {
   position: fixed;
-  bottom: 2rem;
+  bottom: $toasts-area-bottom;
   left: 1rem;
   padding: 0;
   z-index: 2000;
