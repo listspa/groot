@@ -23,6 +23,7 @@ export class GrootTableComponent<T> implements OnInit {
   @Input() pageSize = 15;
   @Input() tHeadClassName: string | string[] = 'thead-primary';
   @Input() striped = true;
+  @Input() selectable = false;
   @Input() headerTemplate: TemplateRef<any>;
   @Input() bodyTemplate: TemplateRef<any>;
   @Output() search = new EventEmitter<PaginationOptions>();

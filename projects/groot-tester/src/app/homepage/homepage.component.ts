@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.10.4', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added new input <code>selectable</code> to the groot table`
+      }
+    ]
+  },
+  {
     version: '0.10.3', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
