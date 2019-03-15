@@ -26,9 +26,9 @@
 
   .content {
     padding: 0.5rem 1rem;
-    border: 1px solid $gray-400;
+    border: 1px solid $box-border-color;
     border-top-width: 0;
     border-radius: 0 0 $border-radius $border-radius;
-    background-color: $gray-100;
+    background-color: $box-bg-color;
   }
 }

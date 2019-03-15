@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.10.3', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `CSS tweaks to cards and boxes`
+      }
+    ]
+  },
+  {
     version: '0.10.2', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,

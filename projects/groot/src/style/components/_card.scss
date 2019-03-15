@@ -3,9 +3,13 @@
   background-color: $light-primary;
   color: color-yiq($light-primary);
 
-  h4 {
+  h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
   }
+}
+
+.card-body-box-bg {
+  background-color: $box-bg-color;
 }
 
 @each $color, $value in $theme-colors {
