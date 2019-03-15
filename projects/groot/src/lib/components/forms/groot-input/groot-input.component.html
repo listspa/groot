@@ -8,7 +8,7 @@
       <i [ngClass]="iconLeft"></i>
     </span>
   </div>
-  <input type="text"
+  <input [type]="type"
          class="form-control"
          placeholder="{{label | translate}}"
          [required]="required"

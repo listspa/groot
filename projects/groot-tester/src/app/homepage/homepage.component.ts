@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.10.2', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Allowed to pass the type of a <code>groot-input</code> (i.e. <code>numeric, password, ...</code>)`
+      }
+    ]
+  },
+  {
     version: '0.10.1', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
