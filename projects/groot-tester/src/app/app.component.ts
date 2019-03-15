@@ -21,6 +21,7 @@ export class AppComponent {
         {label: 'Loading indicator', url: '/demo/loading', icon: 'fa fa-refresh'},
         {label: 'Toasts', url: '/demo/toasts', icon: 'fa fa-bell'},
         {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-restore'},
+        {label: 'Cards', url: '/demo/cards', icon: 'fa fa-pencil-square'},
         {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window-maximize'},
         {label: 'Tables', url: '/demo/tables', icon: 'fa fa-table'},
         {label: 'Forms', url: '/demo/forms', icon: 'fa fa-pencil-square-o'},
@@ -79,6 +80,7 @@ export class AppComponent {
             {label: 'Loading indicator', url: '/demo/loading', icon: 'fa fa-refresh'},
             {label: 'Toasts', url: '/demo/toasts', icon: 'fa fa-bell'},
             {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-restore'},
+            {label: 'Cards', url: '/demo/cards', icon: 'fa fa-pencil-square'},
             {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window-maximize'},
           ],
           [

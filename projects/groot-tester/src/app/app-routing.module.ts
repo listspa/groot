@@ -25,6 +25,7 @@ import {CapabilitiesComponent} from './demo-pages/capabilities/capabilities.comp
 import {DemoCompleteFormComponent} from './demo-pages/demo-complete-form/demo-complete-form.component';
 import {DemoPageTitleComponent} from './demo-pages/demo-page-title/demo-page-title.component';
 import {DemoFooterComponent} from './demo-pages/demo-footer/demo-footer.component';
+import {DemoCardsComponent} from './demo-pages/demo-cards/demo-cards.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
@@ -52,6 +53,7 @@ const routes: Routes = [
   {component: DemoCompleteFormComponent, path: 'demo/complete-forms'},
   {component: DemoFooterComponent, path: 'demo/footer'},
   {component: DemoPageTitleComponent, path: 'demo/page-title', data: {pageTitle: {title: 'Page Title Demo', subTitle: 'Page sub title'}}},
+  {component: DemoCardsComponent, path: 'demo/cards'},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 

@@ -55,6 +55,7 @@ import {DemoCompleteFormComponent} from './demo-pages/demo-complete-form/demo-co
 import {DemoPageTitleComponent} from './demo-pages/demo-page-title/demo-page-title.component';
 import {DemoFooterComponent} from './demo-pages/demo-footer/demo-footer.component';
 import {DEFAULT_LANGUAGE} from '../../../groot/src/lib/services/translations-language.service';
+import { DemoCardsComponent } from './demo-pages/demo-cards/demo-cards.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -93,7 +94,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CapabilitiesComponent,
     DemoCompleteFormComponent,
     DemoPageTitleComponent,
-    DemoFooterComponent
+    DemoFooterComponent,
+    DemoCardsComponent
   ],
   imports: [
     BrowserModule,

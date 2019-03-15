@@ -8,6 +8,10 @@ const RELEASE_NOTES: Release[] = [
     version: '0.10.2', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
+        html: `Introduced the <a href="#/demo/cards">cards</a> components`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
         html: `Allowed to pass the type of a <code>groot-input</code> (i.e. <code>numeric, password, ...</code>)`
       }
     ]

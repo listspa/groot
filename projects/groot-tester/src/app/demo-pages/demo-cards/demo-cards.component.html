@@ -1,0 +1,66 @@
+<h1>Cards</h1>
+
+<p>
+  Bootstrap supports the <a href="https://getbootstrap.com/docs/4.3/components/card/" target="_blank">cards</a>
+  to wrap some content, such as a form. It looks pretty good and can be useful if you have a page with a couple
+  of forms. We do not have a specific component at the moment, but rather simply a css customization.
+</p>
+
+<p>
+  The header by default looks the same as a <code>groot-collapsible-box</code>. However you can
+  customize its color by using the classes <code>card-header-primary</code> (and similar).
+</p>
+
+<p>
+  Here's a sample card with a small form:
+</p>
+
+<form #form="ngForm">
+<div class="card"
+     style="width: 40rem">
+
+    <div class="card-header">
+      <h4>Card title</h4>
+    </div>
+
+    <div class="card-body">
+      <div class="form-row">
+        <div class="col-sm-8">
+          <groot-input
+            label="Name"
+            name="name"
+            [(ngModel)]="record.name"
+            [required]="true"
+          ></groot-input>
+        </div>
+
+        <div class="col-sm-4">
+          <groot-checkbox
+            label="Spam me!"
+            name="spamMe"
+            [(ngModel)]="record.spamMe"
+          ></groot-checkbox>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="buttons-list-bottom-right">
+        <groot-button
+          label="common.cancel"
+          icon="fa fa-times"
+          (click)="resetForm()"
+          classes="btn-outline-danger"
+        ></groot-button>
+
+        <groot-button
+          label="common.save"
+          icon="fa fa-check"
+          (click)="submitForm()"
+          [disabled]="form.invalid"
+        ></groot-button>
+      </div>
+    </div>
+  </div>
+</form>
+
