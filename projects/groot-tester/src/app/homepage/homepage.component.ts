@@ -13,6 +13,12 @@ const RELEASE_NOTES: Release[] = [
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `Added function <code>parseDate</code>`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Created directives <code>grootTableHeader</code> and <code>grootTableBody</code> to simply pass 
+the table header and body template to the groot table, avoiding passing the input explicitly. See the updated
+example in the <a href="#/demo/tables">tables documentation page.</a>`
       }
     ]
   },

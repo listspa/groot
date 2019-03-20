@@ -31,10 +31,8 @@
   [pageSize]="3"
   (search)="doSearch($event)"
   [searchResultsData]="searchResultsData"
-  [headerTemplate]="tableHeader"
-  [bodyTemplate]="tableBody"
 >
-  &lt;ng-template #tableHeader>
+  &lt;ng-template grootTableHeader>
     &lt;tr>
       &lt;th>
         &lt;groot-table-header label="people.name" columnName="NAME" icon="fa fa-user-o">&lt;/groot-table-header>
@@ -48,7 +46,7 @@
     &lt;/tr>
   &lt;/ng-template>
 
-  &lt;ng-template #tableBody let-searchResults>
+  &lt;ng-template grootTableBody let-searchResults>
     &lt;tr *ngFor="let row of searchResults.records">
       &lt;td>{{row.name}}&lt;/td>
       &lt;td>{{row.dateOfBirth | date: 'dd/MM/yyyy'}}&lt;/td>
@@ -125,10 +123,8 @@
   [pageSize]="3"
   (search)="doSearch($event)"
   [searchResultsData]="searchResultsData"
-  [headerTemplate]="tableHeader"
-  [bodyTemplate]="tableBody"
 >
-  <ng-template #tableHeader>
+  <ng-template grootTableHeader>
     <tr>
       <th>
         <groot-table-header label="people.name" columnName="NAME" icon="fa fa-user-o"></groot-table-header>
@@ -142,7 +138,7 @@
     </tr>
   </ng-template>
 
-  <ng-template #tableBody let-searchResults>
+  <ng-template grootTableBody let-searchResults>
     <tr *ngFor="let row of searchResults.records">
       <td>{{row.name}}</td>
       <td>{{row.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
