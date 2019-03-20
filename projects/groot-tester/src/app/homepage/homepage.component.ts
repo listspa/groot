@@ -5,7 +5,7 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.10.6', released: false, changes: [
+    version: '0.10.6', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
         html: `The labels in the <code>groot-combo-checkbox</code> should be in bold, similar to the other ones`
