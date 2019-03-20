@@ -13,7 +13,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
   ]
 })
 export class GrootInputComponent implements ControlValueAccessor {
-  @Input() type: 'text' | 'password' | 'color' | 'email' | 'number' = 'text';
+  @Input() type: 'text' | 'password' | 'color' | 'email' | 'number' | 'search' = 'text';
   @Input() label: string;
   @Input() name: string;
   @Input() required = false;
