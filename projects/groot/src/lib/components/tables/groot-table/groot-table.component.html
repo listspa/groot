@@ -11,6 +11,7 @@
 
 <div class="table-container table-scrollbar" *ngIf="searchResults && searchResults.totalNumRecords > 0">
   <table class="table table-bordered"
+         [ngClass]="tableClassName"
          [class.table-striped]="striped"
          [class.table-selectable]="selectable"
   >

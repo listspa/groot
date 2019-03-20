@@ -23,6 +23,7 @@ export class GrootTableComponent<T> implements OnInit {
   @Input() defaultSortColumn: string;
   @Input() defaultSortReverseFlag = false;
   @Input() pageSize = 15;
+  @Input() tableClassName: string | string[] = '';
   @Input() tHeadClassName: string | string[] = 'thead-primary';
   @Input() striped = true;
   @Input() selectable = false;
