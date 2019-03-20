@@ -32,6 +32,16 @@
   (search)="doSearch($event)"
   [searchResultsData]="searchResultsData"
 >
+  &lt;ng-template grootTableTitleRightArea>
+    &lt;groot-input
+      name="search"
+      type="search"
+      iconRight="fa fa-search"
+    >&lt;/groot-input>
+
+    &lt;groot-button label="New" icon="fa fa-plus" classes="btn-outline-primary">&lt;/groot-button>
+  &lt;/ng-template>
+  
   &lt;ng-template grootTableHeader>
     &lt;tr>
       &lt;th>
@@ -124,6 +134,16 @@
   (search)="doSearch($event)"
   [searchResultsData]="searchResultsData"
 >
+  <ng-template grootTableTitleRightArea>
+    <groot-input
+      name="search"
+      type="search"
+      iconRight="fa fa-search"
+      ></groot-input>
+
+    <groot-button label="New" icon="fa fa-plus" classes="btn-outline-primary"></groot-button>
+  </ng-template>
+
   <ng-template grootTableHeader>
     <tr>
       <th>

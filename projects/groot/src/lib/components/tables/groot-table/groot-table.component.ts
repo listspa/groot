@@ -1,6 +1,6 @@
 import {Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
 import {PaginatedResponse, PaginationOptions, Sorting} from '../../../nbpu.interfaces';
-import {GrootTableBodyDirective, GrootTableHeaderDirective} from './groot-table.directive';
+import {GrootTableBodyDirective, GrootTableHeaderDirective, GrootTableTitleRightAreaDirective} from './groot-table.directive';
 
 export interface LoadingFailed {
   loadingFailed: true;
@@ -28,6 +28,7 @@ export class GrootTableComponent<T> implements OnInit {
   @Input() selectable = false;
   @Input() @ContentChild(GrootTableHeaderDirective, {read: TemplateRef}) headerTemplate: TemplateRef<any>;
   @Input() @ContentChild(GrootTableBodyDirective, {read: TemplateRef}) bodyTemplate: TemplateRef<any>;
+  @Input() @ContentChild(GrootTableTitleRightAreaDirective, {read: TemplateRef}) tableTitleRightArea: TemplateRef<any>;
   @Output() search = new EventEmitter<PaginationOptions>();
   public searchResults: PaginatedResponse<T> = null;
   public sorting: Sorting;

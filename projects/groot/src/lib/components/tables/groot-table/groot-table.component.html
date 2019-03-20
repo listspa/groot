@@ -5,7 +5,9 @@
   [downloadExcelUrlProvider]="downloadExcelUrlProvider"
   [downloadExcelArgsProvider]="downloadExcelArgs"
   *ngIf="!hideTitleBar"
-></groot-table-title-bar>
+>
+  <ng-container *ngTemplateOutlet="tableTitleRightArea"></ng-container>
+</groot-table-title-bar>
 
 <div class="table-container table-scrollbar" *ngIf="searchResults && searchResults.totalNumRecords > 0">
   <table class="table table-bordered"

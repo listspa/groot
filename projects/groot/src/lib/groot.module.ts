@@ -35,7 +35,11 @@ import {UploadFileComponent} from './components/forms/groot-file-input/groot-fil
 import {GrootButtonComponent} from './components/forms/groot-button/groot-button.component';
 import {ConfirmModalComponent} from './components/confirm-modal/confirm-modal.component';
 import {FooterComponent} from './components/footer/footer.component';
-import {GrootTableBodyDirective, GrootTableHeaderDirective} from './components/tables/groot-table/groot-table.directive';
+import {
+  GrootTableBodyDirective,
+  GrootTableHeaderDirective,
+  GrootTableTitleRightAreaDirective
+} from './components/tables/groot-table/groot-table.directive';
 
 @NgModule({
   declarations: [
@@ -68,6 +72,7 @@ import {GrootTableBodyDirective, GrootTableHeaderDirective} from './components/t
     FooterComponent,
     GrootTableHeaderDirective,
     GrootTableBodyDirective,
+    GrootTableTitleRightAreaDirective,
   ],
   imports: [
     CommonModule,
@@ -110,6 +115,7 @@ import {GrootTableBodyDirective, GrootTableHeaderDirective} from './components/t
     FooterComponent,
     GrootTableHeaderDirective,
     GrootTableBodyDirective,
+    GrootTableTitleRightAreaDirective,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

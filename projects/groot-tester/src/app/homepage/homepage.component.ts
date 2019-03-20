@@ -16,9 +16,15 @@ const RELEASE_NOTES: Release[] = [
       },
       {
         type: ReleaseChangeType.NEW_FEATURE,
-        html: `Created directives <code>grootTableHeader</code> and <code>grootTableBody</code> to simply pass 
-the table header and body template to the groot table, avoiding passing the input explicitly. See the updated
-example in the <a href="#/demo/tables">tables documentation page.</a>`
+        html: `The <code>groot-table-title-bar</code> component can show additional widgets to the right (i.e.
+a "new" button or a search box.`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Created directives <code>grootTableHeader</code>, <code>grootTableBody</code> 
+and <code>grootTableTitleRightArea</code> to simply pass the table header, body template and additional header buttons
+to the <code>groot-table</code>, avoiding passing the input explicitly. See the updated example in the 
+<a href="#/demo/tables">tables documentation page.</a>`
       }
     ]
   },

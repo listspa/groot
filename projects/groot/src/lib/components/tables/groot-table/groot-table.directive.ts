@@ -11,3 +11,9 @@ export class GrootTableBodyDirective {
   constructor(public template: TemplateRef<any>) {
   }
 }
+
+@Directive({selector: '[grootTableTitleRightArea]'})
+export class GrootTableTitleRightAreaDirective {
+  constructor(public template: TemplateRef<any>) {
+  }
+}

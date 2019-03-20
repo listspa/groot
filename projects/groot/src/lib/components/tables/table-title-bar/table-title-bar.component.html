@@ -6,15 +6,16 @@
              class="text-muted">{{'common.paginationRowsInfo' | translate:pageInfo}}</small>
     </h2>
   </div>
+  <div class="col-sm buttons-list-right">
+    <ng-content></ng-content>
 
-  <div class="col-sm clearfix download-button-area" *ngIf="(downloadExcelUrl || downloadExcelUrlProvider) && pageInfo">
-    <div class="float-right">
-      <groot-download-button
-        [label]="downloadExcelLabel"
-        [url]="downloadExcelUrl"
-        [urlProvider]="downloadExcelUrlProvider"
-        [argsProvider]="downloadExcelArgsProvider"
-      ></groot-download-button>
-    </div>
+    <groot-download-button
+      class="mb-2"
+      *ngIf="(downloadExcelUrl || downloadExcelUrlProvider) && pageInfo"
+      [label]="downloadExcelLabel"
+      [url]="downloadExcelUrl"
+      [urlProvider]="downloadExcelUrlProvider"
+      [argsProvider]="downloadExcelArgsProvider"
+    ></groot-download-button>
   </div>
 </div>
