@@ -40,6 +40,7 @@ import {
   GrootTableHeaderDirective,
   GrootTableTitleRightAreaDirective
 } from './components/tables/groot-table/groot-table.directive';
+import {GrootAccordionIndicatorComponent} from './components/tables/groot-accordion-indicator/groot-accordion-indicator.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import {
     GrootTableHeaderDirective,
     GrootTableBodyDirective,
     GrootTableTitleRightAreaDirective,
+    GrootAccordionIndicatorComponent,
   ],
   imports: [
     CommonModule,
@@ -116,6 +118,7 @@ import {
     GrootTableHeaderDirective,
     GrootTableBodyDirective,
     GrootTableTitleRightAreaDirective,
+    GrootAccordionIndicatorComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

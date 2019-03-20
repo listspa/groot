@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.10.7', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added an example and some css classes for tables with an accordion`
+      }
+    ]
+  },
+  {
     version: '0.10.6', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,

@@ -25,6 +25,7 @@ export * from './lib/components/loading-indicator/loading-indicator.component';
 export * from './lib/components/nav-bar/nav-bar.component';
 export * from './lib/components/notification-toast-list/notification-toast-list.component';
 export * from './lib/components/page-title/page-title.component';
+export * from './lib/components/tables/groot-accordion-indicator/groot-accordion-indicator.component';
 export * from './lib/components/tables/groot-table/groot-table.component';
 export * from './lib/components/tables/groot-table/groot-table.directive';
 export * from './lib/components/tables/table-header/table-header.component';

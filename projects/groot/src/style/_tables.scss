@@ -87,3 +87,14 @@ table.table-bordered {
     }
   }
 }
+
+.table-row-selectable:hover {
+  cursor: pointer;
+  background-color: $table-hover-bg;
+}
+
+// Accordions
+
+.table-accordion-col {
+  width: 1rem;
+}
