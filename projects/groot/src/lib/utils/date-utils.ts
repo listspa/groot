@@ -21,3 +21,17 @@ export function isoDateNullable(date: Date | null | undefined): string | null {
     return null;
   }
 }
+
+/**
+ * Given a string containing a date in ISO form, or a date object,
+ * returns a date object.
+ */
+export function parseDate(date: string | Date): Date {
+  if (typeof date === 'string') {
+    // year-month-day
+    const parts = date.split('-');
+    return new Date(+parts[0], +parts[1] - 1, +parts[2]);
+  } else {
+    return date;
+  }
+}

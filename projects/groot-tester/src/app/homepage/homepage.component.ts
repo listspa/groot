@@ -9,6 +9,10 @@ const RELEASE_NOTES: Release[] = [
       {
         type: ReleaseChangeType.BUG_FIX,
         html: `The labels in the <code>groot-combo-checkbox</code> should be in bold, similar to the other ones`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added function <code>parseDate</code>`
       }
     ]
   },
