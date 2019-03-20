@@ -25,6 +25,10 @@ a "new" button or a search box.`
 and <code>grootTableTitleRightArea</code> to simply pass the table header, body template and additional header buttons
 to the <code>groot-table</code>, avoiding passing the input explicitly. See the updated example in the 
 <a href="#/demo/tables">tables documentation page.</a>`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `The labels of the various input components are now optional.`
       }
     ]
   },

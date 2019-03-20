@@ -1,4 +1,4 @@
-<label for="{{name}}">
+<label for="{{name}}" *ngIf="label">
   {{label | translate}}
   <span *ngIf="required">*</span>
 </label>
