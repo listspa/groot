@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.10.8', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed IE weird autocomplete feature in the <code>groot-combo</code>`
+      }
+    ]
+  },
+  {
     version: '0.10.7', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,

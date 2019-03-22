@@ -6,7 +6,7 @@
   <ng-select [items]="items"
              [placeholder]="label | translate"
              [required]="required"
-             id="{{name}}"
+             [labelForId]="name"
              [name]="name"
              #input="ngModel"
              [ngModel]="selectedValue"
