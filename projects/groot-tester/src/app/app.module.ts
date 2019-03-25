@@ -26,7 +26,6 @@ import {DemoLoadingComponent} from './demo-pages/demo-loading/demo-loading.compo
 import {DemoToasterComponent} from './demo-pages/demo-toaster/demo-toaster.component';
 import {DemoTableComponent} from './demo-pages/demo-table/demo-table.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {DemoFormComponent} from './demo-pages/demo-form/demo-form.component';
 import {grootConfigBsDatePicker} from '../../../groot/src/lib/components/forms/groot-date-picker/groot-date-picker-config';
 import {GrootMissingTranslationLogger} from '../../../groot/src/lib/utils/missing-translation-logger';
@@ -55,7 +54,8 @@ import {DemoCompleteFormComponent} from './demo-pages/demo-complete-form/demo-co
 import {DemoPageTitleComponent} from './demo-pages/demo-page-title/demo-page-title.component';
 import {DemoFooterComponent} from './demo-pages/demo-footer/demo-footer.component';
 import {DEFAULT_LANGUAGE} from '../../../groot/src/lib/services/translations-language.service';
-import { DemoCardsComponent } from './demo-pages/demo-cards/demo-cards.component';
+import {DemoCardsComponent} from './demo-pages/demo-cards/demo-cards.component';
+import {GrootTranslateHttpLoader} from '../../../groot/src/lib/utils/groot-translations';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -63,7 +63,7 @@ defineLocale('it', itLocale);
 
 // Required as a separate function for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, `${BASE_URL}/assets/i18n/`);
+  return new GrootTranslateHttpLoader(http, `${BASE_URL}/assets/i18n/`);
 }
 
 @NgModule({

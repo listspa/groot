@@ -50,6 +50,7 @@ export * from './lib/utils/animations-utils';
 export * from './lib/utils/browser-utils';
 export * from './lib/utils/date-utils';
 export * from './lib/utils/generic-table-component-base';
+export * from './lib/utils/groot-translations';
 export * from './lib/utils/missing-translation-logger';
 export * from './lib/utils/string-utils';
 export * from './lib/utils/translation-utils';

@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import {BsLocaleService} from 'ngx-bootstrap';
-import {TranslateService} from '@ngx-translate/core';
 import {Menu, SimpleNavBarItem} from '../../../groot/src/lib/components/nav-bar/nav-bar.model';
 import {TranslationsLanguageService} from '../../../groot/src/lib/services/translations-language.service';
 
