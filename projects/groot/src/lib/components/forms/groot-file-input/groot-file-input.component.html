@@ -10,7 +10,7 @@
     <span class="btn btn-file">
       <i class="{{icon}}"></i>
       {{buttonText | translate}}
-      <input id="{{name}}"
+      <input [id]="name"
              [name]="name"
              type="file"
              [required]="required"
