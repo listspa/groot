@@ -25,14 +25,14 @@ describe('CollapsibleBoxComponent', () => {
   });
 
   it('should create and display content', () => {
-    expect(component.state).toBe('expanded');
+    expect(component.open).toBe(true);
   });
 
   it('should hide content when clicked', () => {
     fixture.debugElement.nativeElement.querySelector('.box-icons').click();
     fixture.detectChanges();
 
-    expect(component.state).toBe('collapsed');
+    expect(component.open).toBe(false);
   });
 
   it('should reset content when clicked twice', () => {
@@ -42,7 +42,7 @@ describe('CollapsibleBoxComponent', () => {
     fixture.debugElement.nativeElement.querySelector('.box-icons').click();
     fixture.detectChanges();
 
-    expect(component.state).toBe('expanded');
+    expect(component.open).toBe(true);
   });
 
   it('should emit events when clicked', () => {
