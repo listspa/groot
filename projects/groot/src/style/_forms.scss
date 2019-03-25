@@ -5,13 +5,19 @@ label {
   font-size: 0.9em;
 }
 
+// Checkbox style
+
+.custom-control-label::before, .custom-control-label::after {
+  top: 0.1em;
+}
+
 // Radio button style
 
 $indicator-icon-checked: str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='#{$primary}'/%3e%3c/svg%3e"), "#", "%23");
 .custom-control.custom-radio {
   .custom-control-label {
     &::after {
-      background-size: 70% 70%;
+      background-size: 9px;
     }
   }
 
@@ -32,3 +38,8 @@ $indicator-icon-checked: str-replace(url("data:image/svg+xml,%3csvg xmlns='http:
   }
 }
 
+groot-radio {
+  .custom-control-label::before, .custom-control-label::after {
+    top: 0.09em;
+  }
+}

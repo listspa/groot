@@ -5,7 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.10.9', released: false, changes: [
+    version: '0.10.10', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Aligned checkboxes and radio`
+      }
+    ]
+  },
+  {
+    version: '0.10.9', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
         html: `Fixed validity of disabled groot-input (if not pristine it was considered invalid)`
