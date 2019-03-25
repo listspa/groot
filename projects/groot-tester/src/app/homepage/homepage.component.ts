@@ -5,6 +5,19 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.11.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Made the animations work with Angular 7.2.8+.`
+      },
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `Removed the <code>dropDown</code> animation. You now need to use <code>dropDownOnCreateAnimation</code>,
+which works with any <code>*ngIf</code>, rather than defining the state <code>collapsed/expanded</code>.`
+      }
+    ]
+  },
+  {
     version: '0.10.10', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,

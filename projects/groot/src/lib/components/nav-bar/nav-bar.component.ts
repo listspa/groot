@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Menu, SimpleNavBarItem} from './nav-bar.model';
 import {Router} from '@angular/router';
-import {dropDownAnimation} from '../../utils/animations-utils';
+import {dropDownOnCreateAnimation} from '../../utils/animations-utils';
 import {animate, style, transition, trigger} from '@angular/animations';
 
 interface ConcreteMenu extends Menu {
@@ -20,7 +20,7 @@ export function slideLeft(fromState, toState) {
 @Component({
   selector: 'groot-nav-bar',
   templateUrl: './nav-bar.component.html',
-  animations: [dropDownAnimation,
+  animations: [dropDownOnCreateAnimation,
     trigger('slide', [
       transition(slideRight, [
         animate('0s', style({transform: 'translateX(100%)'})), // move first the old menu in position to give the illusion nothing has changed
@@ -34,8 +34,7 @@ export function slideLeft(fromState, toState) {
   ]
 })
 export class NavBarComponent {
-  private _menuCollapsed = true;
-  public state: 'collapsed' | 'expanded' = 'collapsed';
+  public menuCollapsed = true;
   public slide: string = 'r0'; // r[0-9]+ it will trigger right animation | l[0-9]+ it will trigger left animation. The first letter indicate which transition trigger.
   public rootMenu: ConcreteMenu = {
     label: 'menu',
@@ -90,15 +89,6 @@ export class NavBarComponent {
         this.checkUrlsStartWithSlash(menu.children);
       }
     }));
-  }
-
-  public set menuCollapsed(menuCollapsed: boolean) {
-    this.state = menuCollapsed ? 'collapsed' : 'expanded';
-    this._menuCollapsed = menuCollapsed;
-  }
-
-  public get menuCollapsed(): boolean {
-    return this._menuCollapsed;
   }
 
   private checkSimpleUrlsStartWithSlash(items: SimpleNavBarItem[]) {

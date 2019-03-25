@@ -1,4 +1,4 @@
-<div class="groot-collapsible-box">
+<div class="groot-collapsible-box" [@emptyEnter]>
   <div class="box-title clearfix"
        [class.box-collapsed]="!open"
        (click)="toggle()"
@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div [@toggle]="state" class="content">
+  <div [@dropDown] *ngIf="open" class="content">
     <ng-content></ng-content>
   </div>
 </div>
