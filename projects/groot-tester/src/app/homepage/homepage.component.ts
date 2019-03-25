@@ -5,6 +5,16 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.12.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `Built-in groot translations can automatically be used if you replace <code>TranslateHttpLoader</code>
+with <code>GrootTranslateHttpLoader</code> in your app module. It is not really a breaking change, but it's very much
+recommended!`
+      }
+    ]
+  },
+  {
     version: '0.11.0', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,

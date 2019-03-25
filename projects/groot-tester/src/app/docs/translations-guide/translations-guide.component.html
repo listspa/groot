@@ -16,13 +16,13 @@
 
 <pre><code>// Required as a separate function for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) &#123;
-  return new TranslateHttpLoader(http, `$&#123;BASE_URL}/labels?lang=`, '');
+  return new GrootTranslateHttpLoader(http, `$&#123;BASE_URL}/labels?lang=`, '');
 }
 </code></pre>
 
 <p>
   This function will load the translations from the nbp-project-utils controller, which in turns reads them from the
-  aforementioned table.
+  aforementioned table. Furthermore, it will also add the built-in Groot translations.
 </p>
 
 <h2>Not using nbp-project-utils</h2>
@@ -33,12 +33,13 @@ export function HttpLoaderFactory(http: HttpClient) &#123;
 
 <pre><code>// Required as a separate function for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) &#123;
-  return new TranslateHttpLoader(http, `$&#123;BASE_URL}/assets/i18n/`);
+  return new GrootTranslateHttpLoader(http, `$&#123;BASE_URL}/assets/i18n/`);
 }
 </code></pre>
 
 <p>
-  The translations should be included in a file such as <code>assets/i18n/it.json</code>.
+  The translations should be included in a file such as <code>assets/i18n/it.json</code>. The built-in
+  Groot translations will be automatically applied as well.
 </p>
 
 <h2>Setting the current language</h2>
