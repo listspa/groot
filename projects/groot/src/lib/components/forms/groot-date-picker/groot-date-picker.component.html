@@ -18,14 +18,14 @@
          [ngModel]="selectedDate"
          triggers=""
          (ngModelChange)="writeValue($event)"
-         [class.is-invalid]="!input.valid && !input.pristine"
+         [class.is-invalid]="input.invalid && !input.pristine"
          [disabled]="disabled">
   <div class="input-group-append">
     <span class="input-group-text">
       <i class="fa fa-calendar"></i>
     </span>
   </div>
-  <div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
+  <div class="invalid-feedback" *ngIf="input.invalid && !input.pristine">
     {{'common.required' | translate}}
   </div>
 </div>

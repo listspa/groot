@@ -11,7 +11,7 @@
              #input="ngModel"
              [ngModel]="selectedValue"
              (ngModelChange)="writeValue($event)"
-             [class.is-invalid]="!input.valid && !input.pristine"
+             [class.is-invalid]="input.invalid && !input.pristine"
              [disabled]="disabled"
              [bindLabel]="bindLabel"
              [bindValue]="bindValue"
@@ -68,7 +68,7 @@
       </div>
     </ng-template>
   </ng-select>
-  <div class="invalid-feedback" *ngIf="!input.valid && !input.pristine">
+  <div class="invalid-feedback" *ngIf="input.invalid && !input.pristine">
     {{'common.required' | translate}}
   </div>
   <small class="form-text text-muted" *ngIf="helpText">
