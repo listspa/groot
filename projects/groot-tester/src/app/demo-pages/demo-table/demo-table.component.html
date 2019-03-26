@@ -186,6 +186,28 @@
 
 <hr>
 
+<p>This is an empty table that shows headers anyway:</p>
+
+<groot-table
+  [searchResultsData]="noResultsData"
+  [hideTableIfEmpty]="false">
+  <ng-template grootTableHeader>
+    <tr>
+      <th>
+        <groot-table-header label="people.name" columnName="NAME" icon="fa fa-user-o"></groot-table-header>
+      </th>
+      <th>
+        <groot-table-header literalLabel="date of birth" columnName="DATE_OF_BIRTH"></groot-table-header>
+      </th>
+      <th>
+        <groot-table-header label="people.wage"></groot-table-header>
+      </th>
+    </tr>
+  </ng-template>
+</groot-table>
+
+<hr>
+
 <p>This is a table that failed to load:</p>
 
 <groot-table

@@ -9,7 +9,7 @@
   <ng-container *ngTemplateOutlet="tableTitleRightArea"></ng-container>
 </groot-table-title-bar>
 
-<div class="table-container table-scrollbar" *ngIf="searchResults && searchResults.totalNumRecords > 0">
+<div class="table-container table-scrollbar" *ngIf="!hideTableIfEmpty || (searchResults && searchResults.totalNumRecords > 0)">
   <table class="table table-bordered"
          [ngClass]="tableClassName"
          [class.table-striped]="striped"

@@ -27,6 +27,7 @@ export class GrootTableComponent<T> implements OnInit {
   @Input() tHeadClassName: string | string[] = 'thead-primary';
   @Input() striped = true;
   @Input() selectable = false;
+  @Input() hideTableIfEmpty = true;
   @Input() @ContentChild(GrootTableHeaderDirective, {read: TemplateRef}) headerTemplate: TemplateRef<any>;
   @Input() @ContentChild(GrootTableBodyDirective, {read: TemplateRef}) bodyTemplate: TemplateRef<any>;
   @Input() @ContentChild(GrootTableTitleRightAreaDirective, {read: TemplateRef}) tableTitleRightArea: TemplateRef<any>;
