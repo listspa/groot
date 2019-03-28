@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, forwardRef, HostListener, Input, ViewChild} from '@angular/core';
+import {Component, ElementRef, forwardRef, HostListener, Input, ViewChild} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {BsDatepickerDirective} from 'ngx-bootstrap';
 
@@ -13,7 +13,7 @@ import {BsDatepickerDirective} from 'ngx-bootstrap';
     }
   ]
 })
-export class GrootDatePickerComponent implements ControlValueAccessor, AfterViewInit {
+export class GrootDatePickerComponent implements ControlValueAccessor {
   @Input() label: string;
   @Input() name: string;
   @Input() required = false;
@@ -21,13 +21,9 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
   @Input() helpText: string = null;
   placement = 'bottom';
   selectedDate: Date;
-  @ViewChild("datePickerDirective") private datePickerDirective: BsDatepickerDirective;
+  @ViewChild('datePickerDirective') private datePickerDirective: BsDatepickerDirective;
 
   constructor(private _element: ElementRef) {
-  }
-
-  ngAfterViewInit(): void {
-    this.placement = this.calculatePosition();
   }
 
   @HostListener('click', ['$event'])
@@ -56,7 +52,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
       return position;
     }
 
-    let rect: ClientRect | DOMRect = this._element.nativeElement.childNodes[1].getBoundingClientRect();
+    const rect: ClientRect | DOMRect = this._element.nativeElement.childNodes[1].getBoundingClientRect();
 
     const height = 315;
     const width = 308;

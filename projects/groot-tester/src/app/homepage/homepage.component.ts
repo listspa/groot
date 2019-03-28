@@ -5,13 +5,22 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.12.2', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Resolved a warning in console when using a <code>groot-date-picker</code>`
+      }
+    ]
+  },
+  {
     version: '0.12.1', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `Groot table can also show headers when empty.`
       }
     ]
-  },{
+  },
+  {
     version: '0.12.0', released: true, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
