@@ -4,7 +4,7 @@
 </label>
 <div class="mb-2">
   <ng-select [items]="items"
-             [placeholder]="label | translate"
+             [placeholder]="(placeholder || label) | translate"
              [notFoundText]="notFoundText | translate"
              [addTagText]="addTagText | translate"
              [clearAllText]="clearAllText | translate"

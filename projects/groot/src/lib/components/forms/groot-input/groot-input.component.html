@@ -11,7 +11,7 @@
   <input [type]="type"
          autocomplete="off"
          class="form-control"
-         placeholder="{{label | translate}}"
+         [placeholder]="(placeholder || label) | translate"
          [required]="required"
          [id]="name"
          [name]="name"

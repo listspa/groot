@@ -15,6 +15,7 @@ import {BsDatepickerDirective} from 'ngx-bootstrap';
 })
 export class GrootDatePickerComponent implements ControlValueAccessor {
   @Input() label: string;
+  @Input() placeholder: string | null;
   @Input() name: string;
   @Input() required = false;
   @Input() disabled = false;

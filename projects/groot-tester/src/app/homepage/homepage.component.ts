@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.12.3', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Allowing in the various inputs to pass a placeholder text, different from the label.`
+      }
+    ]
+  },
+  {
     version: '0.12.2', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,

@@ -14,6 +14,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 })
 export class GrootComboCheckboxComponent implements ControlValueAccessor {
   @Input() label: string;
+  @Input() placeholder: string | null;
   @Input() name: string;
   @Input() required = false;
   @Input() disabled = false;
