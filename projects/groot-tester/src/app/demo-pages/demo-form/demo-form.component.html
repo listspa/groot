@@ -30,13 +30,13 @@
   </div>
   <div class="col-md-7">
     <pre><code>&lt;groot-input
-        placeholder="Name placeholder
-        label="Name 0"
-        name="name 0"
-        [required]="true"
-        [(ngModel)]="form.name"
-        (ngModelChange)="onModelChange('name input', $event)"
-      >&lt;/groot-input></code></pre>
+  placeholder="Name placeholder
+  label="Name 0"
+  name="name 0"
+  [required]="true"
+  [(ngModel)]="form.name"
+  (ngModelChange)="onModelChange('name input', $event)"
+>&lt;/groot-input></code></pre>
   </div>
 </div>
 
@@ -60,8 +60,7 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-&lt;groot-input
+    <pre><code>&lt;groot-input
   label="Name 1"
   name="name 1"
   [required]="true"
@@ -71,8 +70,7 @@
   &lt;ng-template #templateRightAddOn>
     (Nome)
   &lt;/ng-template>
-&lt;/groot-input>
-    </code></pre>
+&lt;/groot-input></code></pre>
   </div>
 </div>
 
@@ -95,8 +93,7 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-&lt;groot-input
+    <pre><code>&lt;groot-input
   label="Name 1"
   name="name 1"
   [required]="true"
@@ -105,8 +102,7 @@
   &lt;ng-template grootInputIconRight>
     (Nome)
   &lt;/ng-template>
-&lt;/groot-input>
-    </code></pre>
+&lt;/groot-input></code></pre>
   </div>
 </div>
 
@@ -128,13 +124,13 @@
   </div>
   <div class="col-md-7">
     <pre><code>&lt;groot-input
-      label="Name 2"
-      name="name2"
-      [required]="false"
-      [(ngModel)]="form.name"
-      helpText="your first name, not your last name!"
-      iconLeft="fa fa-image"
-    >&lt;/groot-input></code></pre>
+  label="Name 2"
+  name="name2"
+  [required]="false"
+  [(ngModel)]="form.name"
+  helpText="your first name, not your last name!"
+  iconLeft="fa fa-image"
+>&lt;/groot-input></code></pre>
   </div>
 </div>
 
@@ -146,41 +142,45 @@
   </div>
   <div class="col-md-3">
     <form novalidate>
-      <groot-checkbox name="customCheck0"
-                      label="This is selected"
-                      [(ngModel)]="form.customCheck0"
-                      (ngModelChange)="onModelChange('customCheck0', $event)"
-      ></groot-checkbox>
-
-      <groot-checkbox name="customCheck1"
-                      label="This is a checkbox"
-                      [(ngModel)]="form.customCheck1">
+      <groot-checkbox
+        name="customCheck0"
+        label="This is selected"
+        [(ngModel)]="form.customCheck0"
+        (ngModelChange)="onModelChange('customCheck0', $event)">
       </groot-checkbox>
 
-      <groot-checkbox name="customCheck2"
-                      label="This is disabled"
-                      [disabled]="true">
+      <groot-checkbox
+        name="customCheck1"
+        label="This is a checkbox"
+        [(ngModel)]="form.customCheck1">
+      </groot-checkbox>
+
+      <groot-checkbox
+        name="customCheck2"
+        label="This is disabled"
+        [disabled]="true">
       </groot-checkbox>
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-      &lt;groot-checkbox name="customCheck0"
-                   label="This is selected"
-                   [(ngModel)]="form.customCheck0"
-                   (ngModelChange)="onModelChange('customCheck0', $event)"
-      >&lt;/groot-checkbox>
+    <pre><code>&lt;groot-checkbox
+  name="customCheck0"
+  label="This is selected"
+  [(ngModel)]="form.customCheck0"
+  (ngModelChange)="onModelChange('customCheck0', $event)">
+&lt;/groot-checkbox>
 
-      &lt;groot-checkbox name="customCheck1"
-                      label="This is a checkbox"
-                      [(ngModel)]="form.customCheck1">
-      &lt;/groot-checkbox>
+&lt;groot-checkbox
+  name="customCheck1"
+  label="This is a checkbox"
+  [(ngModel)]="form.customCheck1">
+&lt;/groot-checkbox>
 
-      &lt;groot-checkbox name="customCheck2"
-                      label="This is disabled"
-                      [disabled]="true">
-      &lt;/groot-checkbox>
-    </code></pre>
+&lt;groot-checkbox
+  name="customCheck2"
+  label="This is disabled"
+  [disabled]="true">
+&lt;/groot-checkbox></code></pre>
   </div>
 </div>
 
@@ -192,54 +192,58 @@
   </div>
   <div class="col-md-3">
     <form novalidate>
-      <groot-radio name="groot-radio"
-                   idRadio="gRadio1"
-                   value="first-radio"
-                   label="This is selected"
-                   [(ngModel)]="form.selectedRadio"
-                   (ngModelChange)="onModelChange('radio', $event)"
+      <groot-radio
+        name="groot-radio"
+        idRadio="gRadio1"
+        value="first-radio"
+        label="This is selected"
+        [(ngModel)]="form.selectedRadio"
+        (ngModelChange)="onModelChange('radio', $event)"
       ></groot-radio>
 
-      <groot-radio name="groot-radio"
-                   idRadio="gRadio2"
-                   value="second-radio"
-                   label="This is a radio"
-                   [(ngModel)]="form.selectedRadio"
-                   (ngModelChange)="onModelChange('radio', $event)"
+      <groot-radio
+        name="groot-radio"
+        idRadio="gRadio2"
+        value="second-radio"
+        label="This is a radio"
+        [(ngModel)]="form.selectedRadio"
+        (ngModelChange)="onModelChange('radio', $event)"
       ></groot-radio>
 
-      <groot-radio name="groot-radio"
-                   idRadio="gRadio3"
-                   value="third-radio"
-                   label="This is disabled"
-                   [disabled]="true">
+      <groot-radio
+        name="groot-radio"
+        idRadio="gRadio3"
+        value="third-radio"
+        label="This is disabled"
+        [disabled]="true">
       </groot-radio>
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-      &lt;groot-radio name="groot-radio"
-                       idRadio="gRadio1"
-                       value="first-radio"
-                       label="This is selected"
-                       (ngModelChange)="onModelChange('radio', $event)"
-      >&lt;/groot-radio>
+    <pre><code>&lt;groot-radio
+  name="groot-radio"
+  idRadio="gRadio1"
+  value="first-radio"
+  label="This is selected"
+  (ngModelChange)="onModelChange('radio', $event)">
+&lt;/groot-radio>
 
-      &lt;groot-radio name="groot-radio"
-                   idRadio="gRadio2"
-                   value="second-radio"
-                   label="This is a radio"
-                   [(ngModel)]="form.selectedRadio">
-                   (ngModelChange)="onModelChange('radio', $event)"
-      >&lt;/groot-radio>
+&lt;groot-radio
+  name="groot-radio"
+  idRadio="gRadio2"
+  value="second-radio"
+  label="This is a radio"
+  [(ngModel)]="form.selectedRadio">
+  (ngModelChange)="onModelChange('radio', $event)">
+&lt;/groot-radio>
 
-      &lt;groot-radio name="groot-radio"
-                   idRadio="gRadio3"
-                   value="third-radio"
-                   label="This is disabled"
-                   [disabled]="true">
-      &lt;/groot-radio>
-    </code></pre>
+&lt;groot-radio
+  name="groot-radio"
+  idRadio="gRadio3"
+  value="third-radio"
+  label="This is disabled"
+  [disabled]="true">
+&lt;/groot-radio></code></pre>
   </div>
 </div>
 
@@ -261,15 +265,13 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-    &lt;groot-textarea
-       label="Name"
-       name="name"
-       [required]="true"
-       [(ngModel)]="form.name"
-       (ngModelChange)="onModelChange('radio', $event)"
-    >&lt;/groot-textarea>
-    </code></pre>
+    <pre><code>&lt;groot-textarea
+  label="Name"
+  name="name"
+  [required]="true"
+  [(ngModel)]="form.name"
+  (ngModelChange)="onModelChange('radio', $event)"
+>&lt;/groot-textarea></code></pre>
   </div>
 </div>
 
@@ -292,16 +294,14 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-      &lt;groot-combo
-        label="Currency"
-        name="currency"
-        [items]="currencies"
-        [required]="true"
-        [(ngModel)]="form.currency"
-        (ngModelChange)="onModelChange('combo currency', $event)"
-      >&lt;/groot-combo>
-    </code></pre>
+    <pre><code>&lt;groot-combo
+  label="Currency"
+  name="currency"
+  [items]="currencies"
+  [required]="true"
+  [(ngModel)]="form.currency"
+  (ngModelChange)="onModelChange('combo currency', $event)"
+>&lt;/groot-combo></code></pre>
   </div>
 </div>
 
@@ -323,17 +323,15 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-      &lt;groot-combo
-        label="Currency"
-        name="currencyMultiple"
-        [items]="currencies"
-        [required]="true"
-        [(ngModel)]="form.selectedCurrencies"
-        [multiple]="true"
-        (ngModelChange)="onModelChange('combo multiple currencies', $event)"
-      >&lt;/groot-combo>
-    </code></pre>
+    <pre><code>&lt;groot-combo
+  label="Currency"
+  name="currencyMultiple"
+  [items]="currencies"
+  [required]="true"
+  [(ngModel)]="form.selectedCurrencies"
+  [multiple]="true"
+  (ngModelChange)="onModelChange('combo multiple currencies', $event)"
+>&lt;/groot-combo></code></pre>
   </div>
 </div>
 
@@ -354,16 +352,14 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-      &lt;groot-combo
-        label="Album"
-        name="album"
-        [items]="albums"
-        [(ngModel)]="form.selectedAlbumId"
-        bindLabel="name"
-        bindValue="id"
-      >&lt;/groot-combo>
-    </code></pre>
+    <pre><code>&lt;groot-combo
+  label="Album"
+  name="album"
+  [items]="albums"
+  [(ngModel)]="form.selectedAlbumId"
+  bindLabel="name"
+  bindValue="id"
+>&lt;/groot-combo></code></pre>
   </div>
 </div>
 
@@ -383,15 +379,13 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-      &lt;groot-combo-checkbox
-        label="Currency"
-        name="manyCurrency"
-        [items]="manyCurrencies"
-        [required]="true"
-        [(ngModel)]="form.selectedManyCurrencies"
-      >&lt;/groot-combo-checkbox>
-    </code></pre>
+    <pre><code>&lt;groot-combo-checkbox
+  label="Currency"
+  name="manyCurrency"
+  [items]="manyCurrencies"
+  [required]="true"
+  [(ngModel)]="form.selectedManyCurrencies"
+>&lt;/groot-combo-checkbox></code></pre>
   </div>
 </div>
 <div class="row">
@@ -413,18 +407,16 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-      &lt;groot-combo-checkbox
-        label="Currencies objects"
-        name="manyCurrencyObj"
-        [items]="manyCurrenciesObjects"
-        [required]="true"
-        [(ngModel)]="form.selectedManyCurrenciesById"
-        bindLabel="currency"
-        bindValue="id"
-        (ngModelChange)="onModelChange('combo checkbox', $event)"
-      >&lt;/groot-combo-checkbox>
-    </code></pre>
+    <pre><code>&lt;groot-combo-checkbox
+  label="Currencies objects"
+  name="manyCurrencyObj"
+  [items]="manyCurrenciesObjects"
+  [required]="true"
+  [(ngModel)]="form.selectedManyCurrenciesById"
+  bindLabel="currency"
+  bindValue="id"
+  (ngModelChange)="onModelChange('combo checkbox', $event)"
+>&lt;/groot-combo-checkbox></code></pre>
   </div>
 </div>
 
@@ -487,23 +479,20 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code ngNonBindable>
-       &lt;groot-combo
-         label="Currency with icon (single selection)"
-         name="currencyWithIconSingle"
-         [items]="currencies"
-         [(ngModel)]="form.currency"
-         [itemTemplate]="templateCurrItem1"
-         [labelTemplate]="templateCurrItem1"
-       >
-        &lt;ng-template #templateCurrItem1 let-item="item">
-          &lt;span class="ng-option-label">
-            &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+    <pre><code ngNonBindable>&lt;groot-combo
+  label="Currency with icon (single selection)"
+  name="currencyWithIconSingle"
+  [items]="currencies"
+  [(ngModel)]="form.currency"
+  [itemTemplate]="templateCurrItem1"
+  [labelTemplate]="templateCurrItem1">
+  &lt;ng-template #templateCurrItem1 let-item="item">
+    &lt;span class="ng-option-label">
+      &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
       &lt;/span>
-        &lt;/ng-template>
-      &lt;/groot-combo>
-    </code></pre>
+  &lt;/ng-template>
+&lt;/groot-combo></code></pre>
   </div>
 </div>
 <div class="row">
@@ -539,32 +528,29 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code ngNonBindable>
-       &lt;groot-combo
-         label="Currency with icon (multiple selection)"
-         name="currencyWithIconMultiple"
-         [items]="currencies"
-         [(ngModel)]="form.selectedCurrencies"
-         [itemTemplate]="templateCurrItem2"
-         [labelTemplate]="templateCurrLabel2"
-         [multiple]="true"
-       >
-        &lt;ng-template #templateCurrItem2 let-item="item">
-          &lt;span class="ng-option-label">
-            &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+    <pre><code ngNonBindable>&lt;groot-combo
+  label="Currency with icon (multiple selection)"
+  name="currencyWithIconMultiple"
+  [items]="currencies"
+  [(ngModel)]="form.selectedCurrencies"
+  [itemTemplate]="templateCurrItem2"
+  [labelTemplate]="templateCurrLabel2"
+  [multiple]="true">
+  &lt;ng-template #templateCurrItem2 let-item="item">
+    &lt;span class="ng-option-label">
+      &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
       &lt;/span>
-        &lt;/ng-template>
+  &lt;/ng-template>
 
-        &lt;ng-template #templateCurrLabel2 let-item="item" let-clear="clear">
-          &lt;span class="ng-value-icon left" (click)="clear(item)">×&lt;/span>
-          &lt;span class="ng-value-label">
-            &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+  &lt;ng-template #templateCurrLabel2 let-item="item" let-clear="clear">
+    &lt;span class="ng-value-icon left" (click)="clear(item)">×&lt;/span>
+    &lt;span class="ng-value-label">
+      &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
       &lt;/span>
-        &lt;/ng-template>
-      &lt;/groot-combo>
-    </code></pre>
+  &lt;/ng-template>
+&lt;/groot-combo></code></pre>
   </div>
 </div>
 <div class="row">
@@ -598,30 +584,27 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code ngNonBindable>
-      &lt;groot-combo
-        label="Currency with icon (multiple selection, multi template)"
-        name="currencyWithIconMultiple2"
-        [items]="currencies"
-        [(ngModel)]="form.selectedCurrencies"
-        [itemTemplate]="templateCurrItem3"
-        [multiLabelTemplate]="multiLabelTemplate3"
-        [multiple]="true"
-      >
-        &lt;ng-template #templateCurrItem3 let-item="item">
-          &lt;span class="ng-option-label">
-            &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+    <pre><code ngNonBindable>&lt;groot-combo
+  label="Currency with icon (multiple selection, multi template)"
+  name="currencyWithIconMultiple2"
+  [items]="currencies"
+  [(ngModel)]="form.selectedCurrencies"
+  [itemTemplate]="templateCurrItem3"
+  [multiLabelTemplate]="multiLabelTemplate3"
+  [multiple]="true">
+  &lt;ng-template #templateCurrItem3 let-item="item">
+    &lt;span class="ng-option-label">
+      &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
       &lt;/span>
-        &lt;/ng-template>
+  &lt;/ng-template>
 
-        &lt;ng-template #multiLabelTemplate3 let-items="items">
-          &lt;div class="ng-value">
-            &lt;span class="ng-value-label">You have selected: {{items.length}} items.&lt;/span>
-          &lt;/div>
-        &lt;/ng-template>
-      &lt;/groot-combo>
-    </code></pre>
+  &lt;ng-template #multiLabelTemplate3 let-items="items">
+    &lt;div class="ng-value">
+      &lt;span class="ng-value-label">You have selected: {{items.length}} items.&lt;/span>
+    &lt;/div>
+  &lt;/ng-template>
+&lt;/groot-combo></code></pre>
   </div>
 </div>
 <div class="row">
@@ -647,22 +630,19 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code ngNonBindable>
-       &lt;groot-combo-checkbox
-         label="Custom template combo"
-         name="currencyCombCheckboxCustom"
-         [items]="currencies"
-         [(ngModel)]="form.currency"
-         [itemTemplate]="templateCurrItem4"
-       >
-        &lt;ng-template #templateCurrItem4 let-item="item">
-          &lt;span class="ng-option-label">
-            &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+    <pre><code ngNonBindable>&lt;groot-combo-checkbox
+  label="Custom template combo"
+  name="currencyCombCheckboxCustom"
+  [items]="currencies"
+  [(ngModel)]="form.currency"
+  [itemTemplate]="templateCurrItem4">
+  &lt;ng-template #templateCurrItem4 let-item="item">
+    &lt;span class="ng-option-label">
+      &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
       &lt;/span>
-        &lt;/ng-template>
-      &lt;/groot-combo-checkbox>
-    </code></pre>
+  &lt;/ng-template>
+&lt;/groot-combo-checkbox></code></pre>
   </div>
 </div>
 
@@ -686,15 +666,13 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-      &lt;groot-date-picker
-        label="Date"
-        name="date"
-        [required]="true"
-        [(ngModel)]="form.date"
-        helpText="select a date please"
-      >&lt;/groot-date-picker>
-    </code></pre>
+    <pre><code>&lt;groot-date-picker
+  label="Date"
+  name="date"
+  [required]="true"
+  [(ngModel)]="form.date"
+  helpText="select a date please"
+>&lt;/groot-date-picker></code></pre>
   </div>
 </div>
 
@@ -715,14 +693,12 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-      &lt;groot-toggle-button
-        label="Toggle me"
-        name="toggler"
-        [(ngModel)]="form.toggler"
-        (ngModelChange)="onModelChange('toggle', $event)"
-      >&lt;/groot-toggle-button>
-    </code></pre>
+    <pre><code>&lt;groot-toggle-button
+  label="Toggle me"
+  name="toggler"
+  [(ngModel)]="form.toggler"
+  (ngModelChange)="onModelChange('toggle', $event)"
+>&lt;/groot-toggle-button></code></pre>
   </div>
 </div>
 <div class="row">
@@ -740,14 +716,12 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-      &lt;groot-toggle-button
-        label="Toggle me 2"
-        name="toggler 2"
-        [(ngModel)]="form.toggler"
-        [disabled]=true
-      >&lt;/groot-toggle-button>
-    </code></pre>
+    <pre><code>&lt;groot-toggle-button
+  label="Toggle me 2"
+  name="toggler 2"
+  [(ngModel)]="form.toggler"
+  [disabled]=true
+>&lt;/groot-toggle-button></code></pre>
   </div>
 </div>
 <div class="row">
@@ -766,15 +740,13 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>
-      &lt;groot-toggle-button
-        label="Toggle me 3"
-        name="toggler 3"
-        [horizontalLabel]="false"
-        [(ngModel)]="form.toggler"
-        (ngModelChange)="onModelChange('toggle', $event)"
-      >&lt;/groot-toggle-button>
-    </code></pre>
+    <pre><code>&lt;groot-toggle-button
+  label="Toggle me 3"
+  name="toggler 3"
+  [horizontalLabel]="false"
+  [(ngModel)]="form.toggler"
+  (ngModelChange)="onModelChange('toggle', $event)"
+>&lt;/groot-toggle-button></code></pre>
   </div>
 </div>
 
@@ -797,12 +769,12 @@
   </div>
   <div class="col-md-7">
     <pre><code>&lt;groot-file-input
-      label="File"
-      name="File"
-      [required]="true"
-      [(ngModel)]="form.file"
-      (ngModelChange)="onModelChange('file input', $event)"
-    >&lt;/groot-file-input></code></pre>
+  label="File"
+  name="File"
+  [required]="true"
+  [(ngModel)]="form.file"
+  (ngModelChange)="onModelChange('file input', $event)"
+>&lt;/groot-file-input></code></pre>
   </div>
 </div>
 <div class="row">
@@ -823,13 +795,13 @@
   </div>
   <div class="col-md-7">
     <pre><code>&lt;groot-file-input
-      label="Files"
-      name="Files"
-      [multiple]="true"
-      [required]="true"
-      [(ngModel)]="form.files"
-      (ngModelChange)="onModelChange('files input', $event)"
-    >&lt;/groot-file-input></code></pre>
+  label="Files"
+  name="Files"
+  [multiple]="true"
+  [required]="true"
+  [(ngModel)]="form.files"
+  (ngModelChange)="onModelChange('files input', $event)"
+>&lt;/groot-file-input></code></pre>
   </div>
 </div>
 
