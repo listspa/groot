@@ -19,7 +19,7 @@ export const closeDivAnimation = animation([
 /**
  * Animation that can be used with an *ngIf to animate an element: when the
  * condition goes from false to true, the element will be animated, entering
- * from the top and sliding down.
+ * from the top and sliding down. The trigger to use is `dropDown`.
  */
 export const dropDownOnCreateAnimation = trigger('dropDown', [
   transition(':enter', [useAnimation(openDivAnimation)]),
