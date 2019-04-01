@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.12.4', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Allowed left and right template for the groot input, more complex than a simple icon
+(which is still supported). See the <a href="#/demo/forms">forms page</a> for an example.`
+      }
+    ]
+  },
+  {
     version: '0.12.3', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
