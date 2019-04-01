@@ -1,4 +1,4 @@
-import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, Output, TemplateRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
@@ -21,7 +21,9 @@ export class GrootInputComponent implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() helpText: string = null;
   @Input() iconLeft: string | string[] | null = null;
+  @Input() templateLeft: TemplateRef<any> = null;
   @Input() iconRight: string | string[] | null = null;
+  @Input() templateRight: TemplateRef<any> = null;
   @Output() enter: EventEmitter<string> = new EventEmitter();
   text: string;
   private textSent: string;

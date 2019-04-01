@@ -3,10 +3,14 @@
   <span *ngIf="required">*</span>
 </label>
 <div class="input-group mb-2">
-  <div class="input-group-prepend" *ngIf="iconLeft">
+  <div class="input-group-prepend" *ngIf="templateLeft || iconLeft">
     <span class="input-group-text">
-      <i [ngClass]="iconLeft"></i>
+      <ng-container *ngTemplateOutlet="templateLeft || templateIconLeft"></ng-container>
     </span>
+
+    <ng-template #templateIconLeft>
+      <i [ngClass]="iconLeft"></i>
+    </ng-template>
   </div>
   <input [type]="type"
          autocomplete="off"
@@ -21,10 +25,14 @@
          (keyup.enter)="onEnterPressed()"
          [class.is-invalid]="input.invalid && !input.pristine"
          [disabled]="disabled">
-  <div class="input-group-append" *ngIf="iconRight">
+  <div class="input-group-append" *ngIf="templateRight || iconRight">
     <span class="input-group-text">
-      <i [ngClass]="iconRight"></i>
+      <ng-container *ngTemplateOutlet="templateRight || templateIconRight"></ng-container>
     </span>
+
+    <ng-template #templateIconRight>
+      <i [ngClass]="iconRight"></i>
+    </ng-template>
   </div>
   <div class="invalid-feedback" *ngIf="input.invalid && !input.pristine">
     {{'common.required' | translate}}

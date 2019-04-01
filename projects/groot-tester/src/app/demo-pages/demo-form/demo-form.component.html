@@ -42,7 +42,7 @@
 
 <div class="row">
   <div class="col-md-2">
-    <div class="form-field-explanation">Help text and icon right</div>
+    <div class="form-field-explanation">Help text and template right</div>
   </div>
   <div class="col-md-3">
     <form novalidate>
@@ -51,18 +51,28 @@
         name="name 1"
         [required]="true"
         [(ngModel)]="form.name"
-        iconRight="fa fa-user-o"
+        [templateRight]="templateRightAddOn"
       ></groot-input>
+
+      <ng-template #templateRightAddOn>
+        (Nome)
+      </ng-template>
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>&lt;groot-input
-        label="Name 1"
-        name="name 1"
-        [required]="true"
-        [(ngModel)]="form.name"
-        iconRight="fa fa-user-o"
-      >&lt;/groot-input></code></pre>
+    <pre><code>
+&lt;groot-input
+  label="Name 1"
+  name="name 1"
+  [required]="true"
+  [(ngModel)]="form.name"
+  [templateRight]="templateRightAddOn"
+>&lt;/groot-input>
+
+&lt;ng-template #templateRightAddOn>
+  (Nome)
+&lt;/ng-template>
+    </code></pre>
   </div>
 </div>
 
