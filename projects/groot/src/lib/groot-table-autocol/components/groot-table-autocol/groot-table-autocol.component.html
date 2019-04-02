@@ -29,7 +29,8 @@
         cdkDropListOrientation="horizontal"
         (cdkDropListDropped)="moveColumn($event)">
       <th *ngFor="let column of selectedColumns"
-          cdkDrag>
+          cdkDrag
+          class="groot-table-header-draggable">
         <groot-table-header [label]="column.label"
                             [columnName]="column.columnName"
                             [icon]="column.icon"

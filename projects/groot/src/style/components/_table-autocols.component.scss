@@ -1,15 +1,4 @@
 groot-table-autocol {
-  // TODO: drag & drop for other colors
-  .cdk-drag-preview {
-    vertical-align: bottom;
-    text-align: center;
-    border: 1px solid $gray-200;
-    color: $white;
-    background-color: $primary;
-    padding: $table-cell-padding;
-    opacity: 0.9;
-  }
-
   th {
     position: relative;
     background-clip: padding-box;
@@ -35,4 +24,15 @@ groot-table-autocol {
     opacity: 0.25;
     position: absolute;
   }
+}
+
+// TODO: drag & drop for other colors
+.groot-table-header-draggable.cdk-drag-preview {
+  vertical-align: bottom;
+  text-align: center;
+  border: 1px solid $gray-200;
+  color: $white;
+  background-color: $primary;
+  padding: $table-cell-padding;
+  opacity: 0.9;
 }
