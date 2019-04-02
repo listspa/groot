@@ -1,5 +1,23 @@
 {
   "people.name": "Name",
   "people.dateOfBirth": "Date of birth",
-  "people.wage": "Wage"
+  "people.wage": "Wage",
+  "deals.fchubFeId": "Frontend",
+  "deals.soaCode": "SOA",
+  "deals.branch": "Branch",
+  "deals.dealIdFe": "Deal ID",
+  "deals.contractIdRootFe": "Contract ID Root",
+  "deals.mFamily": "Family",
+  "deals.mGroup": "Group",
+  "deals.mType": "Type",
+  "deals.packageIdFe": "Package ID",
+  "deals.uti": "UTI",
+  "deals.tradeDate": "Trade date",
+  "deals.ndgCode": "NDG",
+  "deals.shortDescription": "Description",
+  "deals.arrivalTime": "Arrival time",
+  "deals.sendTime": "Send time",
+  "deals.msgTypeWeb": "Message Type",
+  "deals.des": "Description",
+  "deals.reason": "Reason"
 }

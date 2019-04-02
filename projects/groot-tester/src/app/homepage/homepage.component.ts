@@ -5,6 +5,20 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.13.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Introduced the <code>groot-table-autocol</code>: a table with selectable,
+draggable and resizable columns. See the <a href="#/demo/table-autocol">demo page</a>
+for details.`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New function <code>compareBy</code> to help sort arrays of objects.`
+      }
+    ]
+  },
+  {
     version: '0.12.4', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
