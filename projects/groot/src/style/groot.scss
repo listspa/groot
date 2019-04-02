@@ -21,6 +21,7 @@ $fa-font-path: '~font-awesome/fonts';
 @import "buttons";
 @import "tabs";
 @import "modals";
+@import "drag-and-drop";
 
 // Our components *must* have the css included in this file, and not via the
 // angular's component-specific css file, otherwise we won't be able to skin them

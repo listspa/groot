@@ -8,17 +8,17 @@
 <ul cdkDropList
     [cdkDropListData]="columns"
     (cdkDropListDropped)="onDropColumn($event)"
-    class="columns-list">
+    class="groot-columns-selector-list">
   <li *ngFor="let col of columns"
-      class="columns-list-col"
+      class="groot-columns-selector-col"
       cdkDrag
       cdkDragBoundary=".modal-body">
     {{col.label | translate}}
-    <div class="columns-list-col-placeholder" *cdkDragPlaceholder></div>
+    <div class="groot-columns-selector-placeholder" *cdkDragPlaceholder></div>
   </li>
 
   <li *ngIf="!columns.length"
-      class="columns-list-empty">
+      class="groot-columns-selector-placeholder">
     Drag here
   </li>
 </ul>
