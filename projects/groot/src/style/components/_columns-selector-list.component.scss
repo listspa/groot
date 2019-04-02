@@ -1,0 +1,40 @@
+groot-columns-selector {
+  .cdk-drop-list-dragging .columns-list-empty {
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+  }
+}
+
+groot-columns-selector-list {
+  .columns-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .columns-list-col {
+    border: 1px solid $box-border-color;
+    background-color: $box-bg-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.3rem;
+    padding: 0.2rem 0.5rem;
+    margin-bottom: 4px;
+  }
+
+  .columns-list-col-placeholder {
+    @extend .columns-list-col;
+    border: 2px dashed $gray-450;
+    background-color: $gray-200;
+  }
+
+  .columns-list-empty {
+    @extend .columns-list-col-placeholder;
+  }
+
+  .cdk-drag-preview {
+    z-index: $zindex-modal + 1 !important;
+    box-shadow: 3px 3px 5px 0 $gray-300;
+  }
+}

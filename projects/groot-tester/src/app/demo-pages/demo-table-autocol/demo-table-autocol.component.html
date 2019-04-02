@@ -1,0 +1,18 @@
+<groot-table-autocol
+  [pageSize]="10"
+  defaultSortColumn="dealid_fe"
+  [defaultSortReverseFlag]="true"
+
+  [searchResultsData]="searchResultsData"
+  (search)="doSearch($event)"
+
+  [availableColumns]="availableColumns"
+  [selectedColumns]="selectedColumns"
+  [accordionColumns]="accordionColumns"
+  (columnsSelectionChanged)="onColumnsSelectionChanged($event)"
+  (columnResized)="onColumnResized($event)"
+>
+  <ng-template #feIdTemplate let-value>
+    ANDREA: {{value}}
+  </ng-template>
+</groot-table-autocol>

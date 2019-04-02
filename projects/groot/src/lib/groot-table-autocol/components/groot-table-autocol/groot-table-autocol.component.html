@@ -1,0 +1,105 @@
+<groot-table
+  [downloadExcelLabel]="downloadExcelLabel"
+  [downloadExcelUrl]="downloadExcelUrl"
+  [downloadExcelUrlProvider]="downloadExcelUrlProvider"
+  [downloadExcelArgs]="downloadExcelArgs"
+  [defaultSortColumn]="defaultSortColumn"
+  [defaultSortReverseFlag]="defaultSortReverseFlag"
+  [pageSize]="pageSize"
+  [tableClassName]="tableClassName"
+  [tHeadClassName]="tHeadClassName"
+  [hideTableIfEmpty]="hideTableIfEmpty"
+  (search)="search.emit($event)"
+  [searchResultsData]="searchResultsData"
+  [striped]="false"
+>
+  <ng-template grootTableTitleRightArea>
+    <groot-button
+      label="common.selectColumns"
+      classes="btn-outline-primary"
+      icon="fa fa-list"
+      (click)="selectColumns()"
+      class="mb-2"
+    ></groot-button>
+  </ng-template>
+
+  <ng-template grootTableHeader>
+    <tr cdkDropList
+        cdkDropListLockAxis="x"
+        cdkDropListOrientation="horizontal"
+        (cdkDropListDropped)="moveColumn($event)">
+      <th *ngFor="let column of selectedColumns"
+          cdkDrag>
+        <groot-table-header [label]="column.label"
+                            [columnName]="column.columnName"
+                            [icon]="column.icon"
+        ></groot-table-header>
+
+        <div class="drag-drop-indicator"
+             (mousedown)="onStartResizingColumn($event, column)"
+        ></div>
+      </th>
+      <th class="table-accordion-col" *ngIf="accordionColumns.length > 0">&nbsp;</th>
+    </tr>
+  </ng-template>
+
+  <ng-template grootTableBody let-searchResults>
+    <ng-container *ngFor="let row of searchResults.records">
+      <!-- Row -->
+      <tr [ngClass]="trClassName"
+          [class.table-row-selectable]="accordionColumns.length > 0"
+          (click)="row.$accordionVisible = !row.$accordionVisible">
+        <td *ngFor="let column of selectedColumns"
+            [ngClass]="column.tdClassName">
+          <ng-template
+            [ngTemplateOutlet]="column.customTemplate || defaultFieldTemplate"
+            [ngTemplateOutletContext]="{row: row, column: column, value: row[column.fieldName], $implicit: row[column.fieldName]}"
+          ></ng-template>
+        </td>
+        <td *ngIf="accordionColumns.length > 0">
+          <groot-accordion-indicator [row]="row"></groot-accordion-indicator>
+        </td>
+      </tr>
+
+      <!-- Accordion -->
+      <tr *ngIf="row.$accordionVisible"
+          [@dropDown]>
+        <td [attr.colspan]="selectedColumns.length + 1">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6 col-md-4 col-lg-3 mb-2"
+                   *ngFor="let column of accordionColumns">
+                <div><b>{{column.label | translate}}</b></div>
+                <ng-template
+                  [ngTemplateOutlet]="column.customTemplate || defaultFieldTemplate"
+                  [ngTemplateOutletContext]="{row: row, column: column, value: row[column.fieldName], $implicit: row[column.fieldName]}"
+                ></ng-template>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #defaultFieldTemplate let-value="value" let-column="column">
+    <ng-container [ngSwitch]="column.rendering">
+      <ng-container *ngSwitchCase="TableColumnRendering.DATE">
+        {{value| date: 'dd/MM/yyyy'}}
+      </ng-container>
+      <ng-container *ngSwitchCase="TableColumnRendering.TIMESTAMP">
+        {{value| date: 'dd/MM/yyyy'}}
+        <small>{{value| date: 'HH:mm'}}</small>
+      </ng-container>
+      <div *ngSwitchCase="TableColumnRendering.NUMBER" class="text-right">
+        {{value | number: '0.2'}}
+      </div>
+      <div *ngSwitchCase="TableColumnRendering.INTEGER" class="text-right">
+        {{value | number: '0.0'}}
+      </div>
+      <ng-container *ngSwitchDefault>{{value}}</ng-container>
+    </ng-container>
+  </ng-template>
+</groot-table>
+
+<div class="resizing-col-indicator" #resizingColIndicator></div>

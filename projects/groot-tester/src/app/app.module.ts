@@ -56,6 +56,8 @@ import {DemoFooterComponent} from './demo-pages/demo-footer/demo-footer.componen
 import {DEFAULT_LANGUAGE} from '../../../groot/src/lib/groot-base/services/translations-language.service';
 import {DemoCardsComponent} from './demo-pages/demo-cards/demo-cards.component';
 import {GrootTranslateHttpLoader} from '../../../groot/src/lib/groot-base/utils/groot-translations';
+import {GrootTableAutocolModule} from '../../../groot/src/lib/groot-table-autocol/groot-table-autocol.module';
+import { DemoTableAutocolComponent } from './demo-pages/demo-table-autocol/demo-table-autocol.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -95,7 +97,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DemoCompleteFormComponent,
     DemoPageTitleComponent,
     DemoFooterComponent,
-    DemoCardsComponent
+    DemoCardsComponent,
+    DemoTableAutocolComponent
   ],
   imports: [
     BrowserModule,
@@ -118,6 +121,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     GrootModule.forRoot(),
     BsDropdownModule.forRoot(),
     AppRoutingModule,
+    GrootTableAutocolModule,
   ],
   providers: [
     {provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker},

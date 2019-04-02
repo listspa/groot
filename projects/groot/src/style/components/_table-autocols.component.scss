@@ -1,0 +1,38 @@
+groot-table-autocol {
+  // TODO: drag & drop for other colors
+  .cdk-drag-preview {
+    vertical-align: bottom;
+    text-align: center;
+    border: 1px solid $gray-200;
+    color: $white;
+    background-color: $primary;
+    padding: $table-cell-padding;
+    opacity: 0.9;
+  }
+
+  th {
+    position: relative;
+    background-clip: padding-box;
+  }
+
+  .drag-drop-indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    display: block;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    cursor: col-resize;
+    border: 1px solid transparent;
+  }
+
+  .resizing-col-indicator {
+    display: none;
+    border: 3px solid $gray-800;
+    background-color: $gray-300;
+    opacity: 0.25;
+    position: absolute;
+  }
+}

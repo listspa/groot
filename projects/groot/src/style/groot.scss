@@ -27,6 +27,7 @@ $fa-font-path: '~font-awesome/fonts';
 // (change the groot variables)
 @import "components/collapsible-box.component";
 @import "components/combo-checkbox.component";
+@import "components/columns-selector-list.component";
 @import "components/loading-indicator.component";
 @import "components/file-input";
 @import "components/footer";
@@ -34,6 +35,7 @@ $fa-font-path: '~font-awesome/fonts';
 @import "components/notification-toast-list.component";
 @import "components/page-title.scss";
 @import "components/table-accordion-indicator";
+@import "components/table-autocols.component";
 @import "components/table-header.component";
 @import "components/table-pagination.component";
 @import "components/table-title-bar.component";
