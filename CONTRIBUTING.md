@@ -19,7 +19,14 @@ as well. Otherwise it will not be available to the library's clients.
 # Making a release
 
 First, update the release notes in `homepage.component.ts`. Afterwards, simply run `npm run release`
-and answer the questions when prompted.
+and answer the questions when prompted. To do a pre-release (because you need to test it in another
+project), simply enter something like "0.13.0-alpha.0".
+
+The script will automatically create a git tag for every release. To do an hotfix, the procedure is:
+
+- create a branch v0.12.4-hotfix
+- commit your fixes (ideally) on the master and cherry-pick them on the branch, or vice-versa
+- do a release such as 0.12.4-hotfix.0 on your branch
 
 # CI server
 
