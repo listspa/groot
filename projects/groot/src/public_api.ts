@@ -49,6 +49,7 @@ export * from './lib/groot-base/services/translations-language.service';
 export * from './lib/groot-base/services/upload-file.service';
 export * from './lib/groot-base/utils/animations-utils';
 export * from './lib/groot-base/utils/browser-utils';
+export * from './lib/groot-base/utils/compare-by';
 export * from './lib/groot-base/utils/date-utils';
 export * from './lib/groot-base/utils/generic-table-component-base';
 export * from './lib/groot-base/utils/groot-translations';

@@ -6,6 +6,7 @@
     "url": "https://gitlab.list-group.com/isp-bu/libs/isp.groot"
   },
   "peerDependencies": {
+    "@angular/cdk": "^7.2.0",
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0",
     "@ng-select/ng-select": "^2.15.1",
