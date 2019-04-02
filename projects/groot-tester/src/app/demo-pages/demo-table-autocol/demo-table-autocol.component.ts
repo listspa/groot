@@ -19,7 +19,8 @@ export class DemoTableAutocolComponent implements OnInit {
   availableColumns: TableColumns;
   selectedColumns: TableColumns;
   accordionColumns: TableColumns;
-  @ViewChild('feIdTemplate') feIdTemplate: TemplateRef<any>;
+  @ViewChild('dealIdTemplate') dealIdTemplate: TemplateRef<any>;
+  @ViewChild('assetClassTemplate') assetClassTemplate: TemplateRef<any>;
 
   constructor(private dealsService: DealsService) {
   }
@@ -30,8 +31,7 @@ export class DemoTableAutocolComponent implements OnInit {
         key: 'fchubFeId',
         label: 'deals.fchubFeId',
         columnName: 'fchubFeId',
-        fieldName: 'fchubFeId',
-        customTemplate: this.feIdTemplate
+        fieldName: 'fchubFeId'
       },
       {
         key: 'soaCode',
@@ -49,7 +49,8 @@ export class DemoTableAutocolComponent implements OnInit {
         key: 'dealIdFe',
         label: 'deals.dealIdFe',
         columnName: 'dealIdFe',
-        fieldName: 'dealIdFe'
+        fieldName: 'dealIdFe',
+        customTemplate: this.dealIdTemplate
       },
       {
         key: 'contractIdRootFe',
@@ -74,6 +75,12 @@ export class DemoTableAutocolComponent implements OnInit {
         label: 'deals.mType',
         columnName: 'mType',
         fieldName: 'mType'
+      },
+      // In addition to the raw three columns, we add a "virtual" column with special rendering
+      {
+        key: 'assetClass',
+        label: 'deals.assetClass',
+        customTemplate: this.assetClassTemplate
       },
       {
         key: 'packageIdFe',
@@ -141,7 +148,7 @@ export class DemoTableAutocolComponent implements OnInit {
     ];
 
     this.selectedColumns = extractColumns(this.availableColumns, 'dealIdFe', 'packageIdFe', 'uti', 'tradeDate', 'des', 'reason');
-    this.accordionColumns = extractColumns(this.availableColumns, 'mFamily', 'mGroup', 'mType', 'ndgCode', 'sendTime', 'arrivalTime');
+    this.accordionColumns = extractColumns(this.availableColumns, 'assetClass', 'mFamily', 'mGroup', 'mType', 'ndgCode', 'sendTime', 'arrivalTime');
   }
 
   doSearch(pagination: PaginationOptions) {

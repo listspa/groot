@@ -1,3 +1,11 @@
+<h2>Tables with columns selector</h2>
+
+<p>
+  In addition to the standard <a href="#/demo/tables"><code>groot-table</code></a> component, we also have a less
+  customizable component, which automatically handles columns selection, drag to reorder and resizing.
+  Here's an example:
+</p>
+
 <groot-table-autocol
   [pageSize]="10"
   defaultSortColumn="dealid_fe"
@@ -12,7 +20,29 @@
   (columnsSelectionChanged)="onColumnsSelectionChanged($event)"
   (columnResized)="onColumnResized($event)"
 >
-  <ng-template #feIdTemplate let-value>
-    ANDREA: {{value}}
+  <ng-template #dealIdTemplate let-value>
+    <div style="font-size: 1.3rem; font-family: 'Roboto Condensed'; background-color: #eee; text-align: center">
+      {{value}}
+    </div>
+  </ng-template>
+
+  <ng-template #assetClassTemplate let-row="row">
+    <span style="font-style: italic;">
+      {{row.mFamily}}-{{row.mGroup}}-{{row.mType}}
+    </span>
   </ng-template>
 </groot-table-autocol>
+
+<p>
+  The component is called <code>groot-table-autocol</code>. To use it, you need to pass to it three arrays of
+  <code>TableColumn</code> objects: the list of all available fields, the currently selected ones and the
+  one chosen to go in the accordion. You also need to subscribe the event <code>columnsSelectionChanged</code>,
+  where you will need to update the arrays and perhaps save them to the server or to the local storage.
+  Finally, to handle resizing, you will need to handle the <code>columnResized</code> event to set the new size.
+</p>
+
+<p>
+  The type <code>TableColumn</code> allows you to specify the label, the column name (for sorting), the field name
+  and the rendering if you can live with the defaults or a custom template if you need to render your field in some
+  special way. In the example, there are two custom template for the deal ID and the asset class.
+</p>

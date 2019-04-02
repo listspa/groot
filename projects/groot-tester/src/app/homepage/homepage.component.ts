@@ -7,6 +7,11 @@ const RELEASE_NOTES: Release[] = [
   {
     version: '0.13.0', released: true, changes: [
       {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `You need to run <code>npm install @angular/cdk</code> once. Do not worry, it will not be included 
+in your application unless you start using it.`
+      },
+      {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `Introduced the <code>groot-table-autocol</code>: a table with selectable,
 draggable and resizable columns. See the <a href="#/demo/table-autocol">demo page</a>

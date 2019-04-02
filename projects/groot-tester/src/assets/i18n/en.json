@@ -19,5 +19,6 @@
   "deals.sendTime": "Send time",
   "deals.msgTypeWeb": "Message Type",
   "deals.des": "Description",
-  "deals.reason": "Reason"
+  "deals.reason": "Reason",
+  "deals.assetClass": "Asset class"
 }
