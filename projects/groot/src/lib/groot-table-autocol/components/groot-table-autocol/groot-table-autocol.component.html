@@ -30,7 +30,8 @@
         (cdkDropListDropped)="moveColumn($event)">
       <th *ngFor="let column of selectedColumns"
           cdkDrag
-          class="groot-table-header-draggable">
+          class="groot-table-header-draggable"
+          [ngStyle]="{'width.px': column.widthPx ? '' + column.widthPx : null, 'min-width.px': column.widthPx ? '' + column.widthPx : null}">
         <groot-table-header [label]="column.label"
                             [columnName]="column.columnName"
                             [icon]="column.icon"

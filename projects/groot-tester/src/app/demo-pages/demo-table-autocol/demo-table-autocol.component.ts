@@ -86,7 +86,8 @@ export class DemoTableAutocolComponent implements OnInit {
         key: 'packageIdFe',
         label: 'deals.packageIdFe',
         columnName: 'packageIdFe',
-        fieldName: 'packageIdFe'
+        fieldName: 'packageIdFe',
+        widthPx: 350
       },
       {
         key: 'uti',
@@ -147,8 +148,10 @@ export class DemoTableAutocolComponent implements OnInit {
       },
     ];
 
-    this.selectedColumns = extractColumns(this.availableColumns, 'dealIdFe', 'packageIdFe', 'uti', 'tradeDate', 'des', 'reason');
-    this.accordionColumns = extractColumns(this.availableColumns, 'assetClass', 'mFamily', 'mGroup', 'mType', 'ndgCode', 'sendTime', 'arrivalTime');
+    this.selectedColumns = extractColumns(this.availableColumns,
+      'dealIdFe', 'packageIdFe', 'uti', 'tradeDate', 'des', 'reason');
+    this.accordionColumns = extractColumns(this.availableColumns,
+      'assetClass', 'mFamily', 'mGroup', 'mType', 'ndgCode', 'sendTime', 'arrivalTime');
   }
 
   doSearch(pagination: PaginationOptions) {
@@ -168,7 +171,6 @@ export class DemoTableAutocolComponent implements OnInit {
 
   onColumnResized(columnAndWidth: ColumnAndWidth) {
     console.log('Should set width %o for column %o', columnAndWidth.newPixelsWidth, columnAndWidth.column);
-    columnAndWidth.thElement.style.width = columnAndWidth.newPixelsWidth + 'px';
-    columnAndWidth.thElement.style.minWidth = columnAndWidth.newPixelsWidth + 'px';
+    columnAndWidth.column.widthPx = columnAndWidth.newPixelsWidth;
   }
 }

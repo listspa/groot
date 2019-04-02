@@ -17,6 +17,7 @@ export interface TableColumn {
   tdClassName?: string | string[] | null;
   rendering?: TableColumnRendering;
   customTemplate?: TemplateRef<any> | null;
+  widthPx?: number | null;
 }
 
 export type TableColumns = TableColumn[];
