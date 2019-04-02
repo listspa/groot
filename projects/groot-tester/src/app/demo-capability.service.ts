@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {GrootCapabilityService} from '../../../groot/src/lib/services/capability.service';
+import {GrootCapabilityService} from '../../../groot/src/lib/groot-base/services/capability.service';
 
 @Injectable({
   providedIn: 'root'

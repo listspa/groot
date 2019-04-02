@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NotificationToastService, ToastStyle} from '../../../../../groot/src/lib/services/notification-toast.service';
+import {NotificationToastService, ToastStyle} from '../../../../../groot/src/lib/groot-base/services/notification-toast.service';
 
 @Component({
   selector: 'app-demo-toaster',

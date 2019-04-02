@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {PeopleService, Person} from './people.service';
-import {PaginatedResponse, PaginationOptions} from '../../../../../groot/src/lib/nbpu.interfaces';
-import {LoadingFailed} from '../../../../../groot/src/lib/components/tables/groot-table/groot-table.component';
+import {PaginatedResponse, PaginationOptions} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
+import {LoadingFailed} from '../../../../../groot/src/lib/groot-base/components/tables/groot-table/groot-table.component';
 
 @Component({
   selector: 'app-demo-table',

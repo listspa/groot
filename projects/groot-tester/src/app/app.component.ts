@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {Menu, SimpleNavBarItem} from '../../../groot/src/lib/components/nav-bar/nav-bar.model';
-import {TranslationsLanguageService} from '../../../groot/src/lib/services/translations-language.service';
+import {Menu, SimpleNavBarItem} from '../../../groot/src/lib/groot-base/components/nav-bar/nav-bar.model';
+import {TranslationsLanguageService} from '../../../groot/src/lib/groot-base/services/translations-language.service';
 
 @Component({
   selector: 'app-root',

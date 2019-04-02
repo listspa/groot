@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {GrootModule} from '../../../groot/src/lib/groot.module';
+import {GrootModule} from '../../../groot/src/lib/groot-base/groot.module';
 import {
   BsDatepickerConfig,
   BsDatepickerModule,
@@ -27,9 +27,9 @@ import {DemoToasterComponent} from './demo-pages/demo-toaster/demo-toaster.compo
 import {DemoTableComponent} from './demo-pages/demo-table/demo-table.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {DemoFormComponent} from './demo-pages/demo-form/demo-form.component';
-import {grootConfigBsDatePicker} from '../../../groot/src/lib/components/forms/groot-date-picker/groot-date-picker-config';
-import {GrootMissingTranslationLogger} from '../../../groot/src/lib/utils/missing-translation-logger';
-import {ConsoleLoggingService} from '../../../groot/src/lib/services/console-logging.service';
+import {grootConfigBsDatePicker} from '../../../groot/src/lib/groot-base/components/forms/groot-date-picker/groot-date-picker-config';
+import {GrootMissingTranslationLogger} from '../../../groot/src/lib/groot-base/utils/missing-translation-logger';
+import {ConsoleLoggingService} from '../../../groot/src/lib/groot-base/services/console-logging.service';
 import {DemoBoxComponent} from './demo-pages/demo-box/demo-box.component';
 import {DemoModalsComponent} from './demo-pages/demo-modals/demo-modals.component';
 import {DemoTooltipComponent} from './demo-pages/demo-tooltip/demo-tooltip.component';
@@ -47,15 +47,15 @@ import {OtherUtilitiesComponent} from './demo-pages/other-utilities/other-utilit
 import {DemoNavbarComponent} from './demo-pages/demo-navbar/demo-navbar.component';
 import {CallingTheServerComponent} from './docs/calling-the-server/calling-the-server.component';
 import {ReleaseComponent} from './homepage/release/release.component';
-import {GrootCapabilityService} from '../../../groot/src/lib/services/capability.service';
+import {GrootCapabilityService} from '../../../groot/src/lib/groot-base/services/capability.service';
 import {DemoCapabilityService} from './demo-capability.service';
 import {CapabilitiesComponent} from './demo-pages/capabilities/capabilities.component';
 import {DemoCompleteFormComponent} from './demo-pages/demo-complete-form/demo-complete-form.component';
 import {DemoPageTitleComponent} from './demo-pages/demo-page-title/demo-page-title.component';
 import {DemoFooterComponent} from './demo-pages/demo-footer/demo-footer.component';
-import {DEFAULT_LANGUAGE} from '../../../groot/src/lib/services/translations-language.service';
+import {DEFAULT_LANGUAGE} from '../../../groot/src/lib/groot-base/services/translations-language.service';
 import {DemoCardsComponent} from './demo-pages/demo-cards/demo-cards.component';
-import {GrootTranslateHttpLoader} from '../../../groot/src/lib/utils/groot-translations';
+import {GrootTranslateHttpLoader} from '../../../groot/src/lib/groot-base/utils/groot-translations';
 
 // Enable italian locale
 registerLocaleData(localeIt);

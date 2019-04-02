@@ -1,6 +1,6 @@
 import {Component, TemplateRef} from '@angular/core';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap';
-import {ConfirmModalService} from '../../../../../groot/src/lib/services/confirm-modal.service';
+import {ConfirmModalService} from '../../../../../groot/src/lib/groot-base/services/confirm-modal.service';
 
 @Component({
   selector: 'app-demo-modals',

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {LoadingService} from '../../../../../groot/src/lib/services/loading.service';
+import {LoadingService} from '../../../../../groot/src/lib/groot-base/services/loading.service';
 import {timer} from 'rxjs';
 
 @Component({
