@@ -25,8 +25,9 @@ export type TableColumns = TableColumn[];
  * Returns a subset of the given columns, extracting them by their keys
  */
 export function extractColumns(cols: TableColumns, ...colNames: string[]): TableColumns {
-  const colNamesSet = new Set<string>(colNames);
-  return cols.filter(c => colNamesSet.has(c.key));
+  const colsByKey = new Map();
+  cols.forEach(c => colsByKey.set(c.key, c));
+  return colNames.map(c => colsByKey.get(c)).filter(c => Boolean(c));
 }
 
 export interface SelectedColumns {
