@@ -2,8 +2,8 @@
 
 .groot-combo-listbox {
   .ng-dropdown-panel {
-    position: unset;
-    border: unset;
+    position: static;
+    border: none;
   }
 
   .ng-dropdown-panel .scroll-host {
