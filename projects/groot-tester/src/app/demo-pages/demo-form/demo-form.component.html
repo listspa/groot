@@ -420,6 +420,66 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">List box (combo always open)</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="List Box Currencies"
+        name="currencyMultiple"
+        [items]="currencies"
+        [(ngModel)]="form.currency"
+        (ngModelChange)="onModelChange('listbox currency', $event)"
+        [showAsListBox]="true"
+        [required]="true"
+      ></groot-combo>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-combo
+  label="List Box Currencies"
+  name="currencyMultiple"
+  [items]="currencies"
+  [(ngModel)]="form.currency"
+  (ngModelChange)="onModelChange('listbox currency', $event)"
+  [showAsListBox]="true"
+  [required]="true"
+>&lt;/groot-combo></code></pre>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">List box with checkboxes</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo-checkbox
+        label="Currencies listbox"
+        name="checkBoxMultiple"
+        [items]="manyCurrencies"
+        [required]="true"
+        [(ngModel)]="form.selectedCurrencies"
+        (ngModelChange)="onModelChange('listbox checkbox currencies', $event)"
+        [showAsListBox]="true"
+      ></groot-combo-checkbox>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-combo-checkbox
+  label="Currencies listbox"
+  name="checkBoxMultiple"
+  [items]="manyCurrencies"
+  [required]="true"
+  [(ngModel)]="form.selectedCurrencies"
+  (ngModelChange)="onModelChange('listbox checkbox currencies', $event)"
+  [showAsListBox]="true"
+>&lt;/groot-combo-checkbox></code></pre>
+  </div>
+</div>
+
 <h3>Customizing combo templates</h3>
 
 <p>

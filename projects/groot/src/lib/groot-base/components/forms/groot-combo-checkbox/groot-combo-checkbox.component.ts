@@ -24,6 +24,8 @@ export class GrootComboCheckboxComponent implements ControlValueAccessor {
   @Input() bindValue: string | null = null;
   @Input() itemTemplate: TemplateRef<any> | null;
   selectedValue: any[];
+  open = null;
+  private _showAsListBox = false;
 
   onChange = (selectedValue: any[]) => null;
   onTouched = () => null;
@@ -66,5 +68,16 @@ export class GrootComboCheckboxComponent implements ControlValueAccessor {
 
   unselectAll() {
     this.writeValue([]);
+  }
+
+  @Input() set showAsListBox(v: boolean) {
+    this._showAsListBox = v;
+    if (v) {
+      this.open = true;
+    }
+  }
+
+  get showAsListBox(): boolean {
+    return this._showAsListBox;
   }
 }

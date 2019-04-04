@@ -5,7 +5,7 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.13.0', released: true, changes: [
+    version: '0.13.0', released: false, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `You need to run <code>npm install @angular/cdk</code> once. Do not worry, it will not be included 
@@ -20,7 +20,11 @@ for details.`
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `New function <code>compareBy</code> to help sort arrays of objects.`
-      }
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Extended the combo to support a listbox-like mode, which means always opened.`
+      },
     ]
   },
   {

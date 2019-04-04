@@ -16,8 +16,10 @@
              [bindLabel]="bindLabel"
              [bindValue]="bindValue"
              [multiple]="true"
-             [closeOnSelect]="false">
-    <ng-template ng-header-tmp>
+             [closeOnSelect]="false"
+             [isOpen]="open"
+             [class.groot-combo-listbox]="showAsListBox">
+  <ng-template ng-header-tmp>
       <div class="buttons-list-left">
         <button type="button" class="btn btn-outline-primary btn-sm"
                 (click)="selectAll()"

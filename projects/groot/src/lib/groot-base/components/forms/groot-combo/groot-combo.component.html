@@ -21,7 +21,9 @@
              [bindLabel]="bindLabel"
              [bindValue]="bindValue"
              [multiple]="multiple"
-             [closeOnSelect]="!multiple">
+             [closeOnSelect]="!multiple"
+             [isOpen]="open"
+             [class.groot-combo-listbox]="showAsListBox">
 
     <!-- Custom item templates -->
     <ng-template *ngIf="itemTemplate"

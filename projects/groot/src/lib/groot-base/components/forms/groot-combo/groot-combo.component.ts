@@ -31,7 +31,9 @@ export class GrootComboComponent implements ControlValueAccessor {
   @Input() itemTemplate: TemplateRef<any> | null;
   @Input() labelTemplate: TemplateRef<any> | null;
   @Input() multiLabelTemplate: TemplateRef<any> | null;
+  open = null;
   selectedValue: any;
+  private _showAsListBox = false;
 
   onChange = (selectedValue: any) => null;
   onTouched = () => null;
@@ -51,5 +53,16 @@ export class GrootComboComponent implements ControlValueAccessor {
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+  }
+
+  @Input() set showAsListBox(v: boolean) {
+    this._showAsListBox = v;
+    if (v) {
+      this.open = true;
+    }
+  }
+
+  get showAsListBox(): boolean {
+    return this._showAsListBox;
   }
 }

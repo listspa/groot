@@ -27,6 +27,7 @@ $fa-font-path: '~font-awesome/fonts';
 // angular's component-specific css file, otherwise we won't be able to skin them
 // (change the groot variables)
 @import "components/collapsible-box.component";
+@import "components/combo-listbox.component";
 @import "components/combo-checkbox.component";
 @import "components/columns-selector-list.component";
 @import "components/loading-indicator.component";

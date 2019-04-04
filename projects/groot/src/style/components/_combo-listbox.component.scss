@@ -1,0 +1,27 @@
+// Override of the ng-select style
+
+.groot-combo-listbox {
+  .ng-dropdown-panel {
+    position: unset;
+    border: unset;
+  }
+
+  .ng-dropdown-panel .scroll-host {
+    margin-top: -1px;
+    border: 1px solid $ng-select-border-color;
+  }
+
+  .ng-dropdown-panel .ng-dropdown-header {
+    border-left: 1px solid $ng-select-border-color;
+    border-right: 1px solid $ng-select-border-color;
+    margin-top: -1px;
+  }
+
+  .ng-arrow-wrapper {
+    display: none;
+  }
+
+  &.is-invalid .ng-select-container {
+    border-color: $danger;
+  }
+}

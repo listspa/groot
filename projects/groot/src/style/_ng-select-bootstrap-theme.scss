@@ -67,7 +67,7 @@
       border-radius: 0;
     }
 
-    border: 1px solid #ccc;
+    border: 1px solid $ng-select-border-color;
     min-height: $input-height;
     align-items: center;
 
@@ -205,7 +205,7 @@
 
 .ng-dropdown-panel {
   background-color: $input-bg;
-  border: 1px solid #ccc;
+  border: 1px solid $ng-select-border-color;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   left: 0;
 
@@ -244,12 +244,12 @@
   }
 
   .ng-dropdown-header {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $ng-select-border-color;
     padding: 5px 7px;
   }
 
   .ng-dropdown-footer {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid $ng-select-border-color;
     padding: 5px 7px;
   }
 
