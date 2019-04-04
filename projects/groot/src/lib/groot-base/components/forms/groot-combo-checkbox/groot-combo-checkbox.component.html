@@ -19,7 +19,7 @@
              [closeOnSelect]="false"
              [isOpen]="open"
              [class.groot-combo-listbox]="showAsListBox">
-  <ng-template ng-header-tmp>
+    <ng-template ng-header-tmp>
       <div class="buttons-list-left">
         <button type="button" class="btn btn-outline-primary btn-sm"
                 (click)="selectAll()"
@@ -36,20 +36,24 @@
     </ng-template>
 
     <ng-template ng-multi-label-tmp let-items="items">
-      <div class="ng-value">
-        <span class="ng-value-label"
-              *ngIf="isAllSelected()">
-          {{'common.allValuesSelected' | translate}}
-        </span>
-        <span class="ng-value-label"
-              *ngIf="!isAllSelected() && items.length > 1">
-          {{'common.numValuesSelected' | translate:{numSelected: items.length} }}
-        </span>
-        <span class="ng-value-label"
-              *ngIf="!isAllSelected() && items.length == 1">
-          {{'common.oneValueSelected' | translate}}
-        </span>
-      </div>
+      <ng-container *ngIf="!showAsListBox">
+        <div class="ng-value">
+          <span class="ng-value-label"
+                *ngIf="isAllSelected()">
+            {{'common.allValuesSelected' | translate}}
+          </span>
+          <span class="ng-value-label"
+                *ngIf="!isAllSelected() && items.length > 1">
+            {{'common.numValuesSelected' | translate:{numSelected: items.length} }}
+          </span>
+          <span class="ng-value-label"
+                *ngIf="!isAllSelected() && items.length == 1">
+            {{'common.oneValueSelected' | translate}}
+          </span>
+        </div>
+      </ng-container>
+
+      <!-- Empty template for list box -->
     </ng-template>
 
     <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" let-searchTerm="searchTerm">

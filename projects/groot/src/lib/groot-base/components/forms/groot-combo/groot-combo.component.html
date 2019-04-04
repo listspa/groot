@@ -38,14 +38,18 @@
     </ng-template>
 
     <!-- Custom label (selected object) template -->
-    <ng-template *ngIf="labelTemplate"
+    <ng-template *ngIf="labelTemplate || showAsListBox"
                  ng-label-tmp
                  let-item="item"
                  let-clear="clear"
                  let-label="label">
-      <ng-container
-        *ngTemplateOutlet="labelTemplate; context: {item: item, clear: clear, label: label}">
+      <ng-container *ngIf="labelTemplate">
+        <ng-container
+          *ngTemplateOutlet="labelTemplate; context: {item: item, clear: clear, label: label}">
+        </ng-container>
       </ng-container>
+
+      <!-- Empty template for list box -->
     </ng-template>
 
     <!-- Custom template for multiple selections (replaces the label template) -->

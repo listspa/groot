@@ -24,4 +24,8 @@
   &.is-invalid .ng-select-container {
     border-color: $danger;
   }
+
+  .ng-has-value .ng-placeholder {
+    display: block;
+  }
 }
