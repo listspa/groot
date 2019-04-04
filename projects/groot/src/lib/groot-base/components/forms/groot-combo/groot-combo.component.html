@@ -23,7 +23,8 @@
              [multiple]="multiple"
              [closeOnSelect]="!multiple"
              [isOpen]="open"
-             [class.groot-combo-listbox]="showAsListBox">
+             [class.groot-combo-listbox]="showAsListBox"
+             [dropdownPosition]="showAsListBox ? 'bottom' : 'auto'">
 
     <!-- Custom item templates -->
     <ng-template *ngIf="itemTemplate"

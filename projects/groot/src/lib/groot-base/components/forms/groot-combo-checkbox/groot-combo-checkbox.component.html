@@ -18,7 +18,10 @@
              [multiple]="true"
              [closeOnSelect]="false"
              [isOpen]="open"
-             [class.groot-combo-listbox]="showAsListBox">
+             [class.groot-combo-listbox]="showAsListBox"
+             [dropdownPosition]="showAsListBox ? 'bottom' : 'auto'">
+
+    <!-- Header with buttons select all / unselect all -->
     <ng-template ng-header-tmp>
       <div class="buttons-list-left">
         <button type="button" class="btn btn-outline-primary btn-sm"
@@ -35,6 +38,7 @@
       </div>
     </ng-template>
 
+    <!-- Selected items row template -->
     <ng-template ng-multi-label-tmp let-items="items">
       <ng-container *ngIf="!showAsListBox">
         <div class="ng-value">
@@ -56,6 +60,7 @@
       <!-- Empty template for list box -->
     </ng-template>
 
+    <!-- Single item template: checkboxes -->
     <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" let-searchTerm="searchTerm">
       <div class="custom-control custom-checkbox">
         <input type="checkbox"
@@ -74,6 +79,7 @@
       </div>
     </ng-template>
   </ng-select>
+
   <div class="invalid-feedback" *ngIf="input.invalid && !input.pristine">
     {{'common.required' | translate}}
   </div>
