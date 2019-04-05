@@ -1,12 +1,5 @@
 import {TemplateRef} from '@angular/core';
-
-export enum TableColumnRendering {
-  STRING,
-  NUMBER,
-  INTEGER,
-  DATE,
-  TIMESTAMP
-}
+import {NbpuSchemaFieldType} from '../../groot-base/nbpu.interfaces';
 
 export interface TableColumn {
   key: string;
@@ -15,7 +8,7 @@ export interface TableColumn {
   columnName?: string | null; // If null, it will not be sortable
   fieldName?: string;
   tdClassName?: string | string[] | null;
-  rendering?: TableColumnRendering;
+  columnType?: NbpuSchemaFieldType;
   customTemplate?: TemplateRef<any> | null;
   widthPx?: number | null;
 }

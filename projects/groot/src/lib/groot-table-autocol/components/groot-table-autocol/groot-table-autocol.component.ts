@@ -3,11 +3,18 @@ import {BsModalService} from 'ngx-bootstrap';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {Subject, Subscription} from 'rxjs';
 import {ColumnsSelectorComponent} from './columns-selector/columns-selector.component';
-import {SelectedColumns, TableColumn, TableColumnRendering, TableColumns} from '../../model/table-columns.model';
+import {SelectedColumns, TableColumn, TableColumns} from '../../model/table-columns.model';
 import {dropDownOnCreateAnimation} from '../../../groot-base/utils/animations-utils';
-import {PaginatedResponse, PaginationOptions} from '../../../groot-base/nbpu.interfaces';
+import {
+  FilterOperator,
+  FilterOption,
+  FilterPaginationOptions,
+  NbpuSchemaFieldType,
+  PaginatedResponse,
+  PaginationOptions
+} from '../../../groot-base/nbpu.interfaces';
 import {ElementResizingHandler} from '../../../groot-base/utils/element-resizing-handler';
-import {LoadingFailed} from '../../../groot-base/components/tables/groot-table/groot-table.component';
+import {GrootTableComponent, LoadingFailed} from '../../../groot-base/components/tables/groot-table/groot-table.component';
 
 export interface ColumnAndWidth {
   column: TableColumn;
@@ -43,7 +50,7 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
   @Input() tHeadClassName: string | string[] = 'thead-primary';
   @Input() trClassName: string | string[] = 'text-nowrap';
   @Input() hideTableIfEmpty = true;
-  @Output() search = new EventEmitter<PaginationOptions>();
+  @Output() search = new EventEmitter<FilterPaginationOptions>();
   @Input() searchResultsData: PaginatedResponse<T> | LoadingFailed;
 
   // Column selector
@@ -54,12 +61,14 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
   @Output() columnResized = new EventEmitter<ColumnAndWidth>();
   @Output() searchPopoverNeedsData = new EventEmitter<PopoverDataRequest>();
 
-  TableColumnRendering = TableColumnRendering;
+  NbpuSchemaFieldType = NbpuSchemaFieldType;
   private resizingSubscription: Subscription;
   @ViewChild('resizingColIndicator') resizingColIndicator: ElementRef;
 
   // Filter popover
-  filterPopoverData: { [key: string]: string[] } = {};
+  @ViewChild('grootTable') grootTable: GrootTableComponent<T>;
+  filterPopoverDomain: { [key: string]: string[] } = {};
+  filterPopoverValues: { [key: string]: string[] } = {};
 
   constructor(private bsModalService: BsModalService) {
   }
@@ -160,7 +169,29 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
   // Popover
 
   onPopoverShow(column: TableColumn) {
-    this.filterPopoverData[column.key] = null;
-    this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, this.filterPopoverData));
+    this.filterPopoverDomain[column.key] = null;
+    this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, this.filterPopoverDomain));
+  }
+
+  applyPopoverFilter() {
+    this.grootTable.reloadTable(true);
+  }
+
+  onSearch(event: PaginationOptions) {
+    this.search.emit({
+      ...event,
+      filters: this.getFilters()
+    });
+  }
+
+  private getFilters(): FilterOption[] {
+    return this.selectedColumns
+      .filter(c => this.filterPopoverValues[c.key] && this.filterPopoverValues[c.key].length)
+      .map(c => ({
+        column: c.columnName,
+        type: c.columnType || NbpuSchemaFieldType.STRING,
+        value: this.filterPopoverValues[c.key],
+        operator: FilterOperator.IN
+      }));
   }
 }

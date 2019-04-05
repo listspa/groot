@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {LoadingService} from '../../../../../groot/src/lib/groot-base/services/loading.service';
-import {FilterPaginationOptions, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
+import {FilterOption, FilterPaginationOptions, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
 import {Observable} from 'rxjs';
 import {finalize} from 'rxjs/operators';
 import {BASE_URL} from '../../constants';
@@ -42,14 +42,24 @@ export class DealsService {
     return this.http.get<PaginatedResponse<Deal>>(`${BASE_URL}/assets/deals.json`)
       .pipe(
         tap(response => {
-
           // Simulate pagination by sorting and filtering the returned json
-          const rows = [...response.records];
+          const rows = this.filter(request, response.records);
           rows.sort(compareBy(request.sortField, request.sortReversed));
           const startIdx = request.pageNum * request.pageLen;
           const endIdx = (request.pageNum + 1) * request.pageLen;
           response.records = rows.slice(startIdx, endIdx);
         }),
         finalize(doneLoading));
+  }
+
+  private filter(request: FilterPaginationOptions, records: Deal[]) {
+    return records.filter(rec => {
+      return request.filters.every(filter => this.filterMatches(filter, rec));
+    });
+  }
+
+  private filterMatches(filter: FilterOption, rec: Deal) {
+    const value = String(rec[filter.column]);
+    return (filter.value as string[]).some(s => value === s);
   }
 }

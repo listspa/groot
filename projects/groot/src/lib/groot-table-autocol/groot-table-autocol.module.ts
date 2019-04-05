@@ -7,6 +7,7 @@ import {ColumnsSelectorListComponent} from './components/groot-table-autocol/col
 import {CommonModule} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 import {PopoverModule} from 'ngx-bootstrap';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {PopoverModule} from 'ngx-bootstrap';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     TranslateModule,
     GrootModule,
     PopoverModule,

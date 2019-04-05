@@ -9,9 +9,10 @@
   [tableClassName]="tableClassName"
   [tHeadClassName]="tHeadClassName"
   [hideTableIfEmpty]="hideTableIfEmpty"
-  (search)="search.emit($event)"
+  (search)="onSearch($event)"
   [searchResultsData]="searchResultsData"
   [striped]="false"
+  #grootTable
 >
   <ng-template grootTableTitleRightArea>
     <groot-button
@@ -96,18 +97,24 @@
   </ng-template>
 
   <ng-template #defaultFieldTemplate let-value="value" let-column="column">
-    <ng-container [ngSwitch]="column.rendering">
-      <ng-container *ngSwitchCase="TableColumnRendering.DATE">
+    <ng-container [ngSwitch]="column.columnType">
+      <ng-container *ngSwitchCase="NbpuSchemaFieldType.DATE">
         {{value| date: 'dd/MM/yyyy'}}
       </ng-container>
-      <ng-container *ngSwitchCase="TableColumnRendering.TIMESTAMP">
+      <ng-container *ngSwitchCase="NbpuSchemaFieldType.TIMESTAMP">
         {{value| date: 'dd/MM/yyyy'}}
         <small>{{value| date: 'HH:mm'}}</small>
       </ng-container>
-      <div *ngSwitchCase="TableColumnRendering.NUMBER" class="text-right">
+      <ng-container *ngSwitchCase="NbpuSchemaFieldType.TIME">
+        {{value| date: 'HH:mm'}}
+      </ng-container>
+      <div *ngSwitchCase="NbpuSchemaFieldType.DOUBLE" class="text-right">
         {{value | number: '0.2'}}
       </div>
-      <div *ngSwitchCase="TableColumnRendering.INTEGER" class="text-right">
+      <div *ngSwitchCase="NbpuSchemaFieldType.INT32" class="text-right">
+        {{value | number: '0.0'}}
+      </div>
+      <div *ngSwitchCase="NbpuSchemaFieldType.INT64" class="text-right">
         {{value | number: '0.0'}}
       </div>
       <ng-container *ngSwitchDefault>{{value}}</ng-container>
@@ -115,13 +122,13 @@
   </ng-template>
 
   <ng-template #filterTemplate let-column="column">
-    <ng-container *ngIf="filterPopoverData[column.key]; else filterLoadingTemplate">
+    <ng-container *ngIf="filterPopoverDomain[column.key]; else filterLoadingTemplate">
       <groot-combo-checkbox
-        [items]="filterPopoverData[column.key]"
         name="filter-column"
-        [showAsListBox]="true"
         placeholder="common.filter"
-        style="width: 36rem"
+        [showAsListBox]="true"
+        [items]="filterPopoverDomain[column.key]"
+        [(ngModel)]="filterPopoverValues[column.key]"
       ></groot-combo-checkbox>
     </ng-container>
     <ng-template #filterLoadingTemplate>
@@ -139,9 +146,10 @@
       ></groot-button>
 
       <groot-button
-        classes="btn-primary"
+        classes="btn-success"
         icon="fa fa-filter"
         label="common.apply"
+        (click)="applyPopoverFilter()"
       ></groot-button>
     </div>
   </ng-template>

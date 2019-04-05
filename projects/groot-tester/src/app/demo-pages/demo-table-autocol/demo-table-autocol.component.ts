@@ -1,18 +1,12 @@
 import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {
-  extractColumns,
-  SelectedColumns,
-  TableColumnRendering,
-  TableColumns
-} from '../../../../../groot/src/lib/groot-table-autocol/model/table-columns.model';
+import {extractColumns, SelectedColumns, TableColumns} from '../../../../../groot/src/lib/groot-table-autocol/model/table-columns.model';
 import {isLoadingFailed, LoadingFailed} from '../../../../../groot/src/lib/groot-base/components/tables/groot-table/groot-table.component';
-import {PaginatedResponse, PaginationOptions} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
+import {FilterPaginationOptions, NbpuSchemaFieldType, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
 import {Deal, DealsService} from './deals-service';
 import {
   ColumnAndWidth,
   PopoverDataRequest
 } from '../../../../../groot/src/lib/groot-table-autocol/components/groot-table-autocol/groot-table-autocol.component';
-import {timer} from 'rxjs';
 
 @Component({
   selector: 'app-demo-table-autocol',
@@ -104,7 +98,7 @@ export class DemoTableAutocolComponent implements OnInit {
         label: 'deals.tradeDate',
         columnName: 'tradeDate',
         fieldName: 'tradeDate',
-        rendering: TableColumnRendering.DATE
+        columnType: NbpuSchemaFieldType.DATE
       },
       {
         key: 'ndgCode',
@@ -123,14 +117,14 @@ export class DemoTableAutocolComponent implements OnInit {
         label: 'deals.arrivalTime',
         columnName: 'arrivalTime',
         fieldName: 'arrivalTime',
-        rendering: TableColumnRendering.TIMESTAMP
+        columnType: NbpuSchemaFieldType.TIMESTAMP
       },
       {
         key: 'sendTime',
         label: 'deals.sendTime',
         columnName: 'sendTime',
         fieldName: 'sendTime',
-        rendering: TableColumnRendering.TIMESTAMP
+        columnType: NbpuSchemaFieldType.TIMESTAMP
       },
       {
         key: 'msgTypeWeb',
@@ -158,8 +152,8 @@ export class DemoTableAutocolComponent implements OnInit {
       'assetClass', 'mFamily', 'mGroup', 'mType', 'ndgCode', 'sendTime', 'arrivalTime');
   }
 
-  doSearch(pagination: PaginationOptions) {
-    const request = {...pagination, filters: []};
+  doSearch(request: FilterPaginationOptions) {
+    console.log('Searching deals: %o', request);
     this.dealsService.searchDeals(request)
       .subscribe(
         response => this.searchResultsData = response,
@@ -179,19 +173,16 @@ export class DemoTableAutocolComponent implements OnInit {
   }
 
   onColumnNeedsData(request: PopoverDataRequest) {
-    timer(1200)
-      .subscribe(() => {
-        if (isLoadingFailed(this.searchResultsData)) {
-          return;
-        }
+    if (isLoadingFailed(this.searchResultsData)) {
+      return;
+    }
 
-        // Very simple algorithm: extracts the values from the visible rows
-        const rawItems = this.searchResultsData.records
-          .map(r => r[request.column.fieldName])
-          .filter(v => v);
-        const distinctItems = Array.from(new Set<string>(rawItems).values());
-        distinctItems.sort();
-        request.items = distinctItems;
-      });
+    // Very simple algorithm: extracts the values from the visible rows
+    const rawItems = this.searchResultsData.records
+      .map(r => r[request.column.fieldName])
+      .filter(v => v);
+    const distinctItems = Array.from(new Set<string>(rawItems).values());
+    distinctItems.sort();
+    request.items = distinctItems;
   }
 }
