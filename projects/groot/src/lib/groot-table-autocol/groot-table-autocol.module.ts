@@ -6,6 +6,7 @@ import {ColumnsSelectorComponent} from './components/groot-table-autocol/columns
 import {ColumnsSelectorListComponent} from './components/groot-table-autocol/columns-selector-list/columns-selector-list.component';
 import {CommonModule} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
+import {PopoverModule} from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {TranslateModule} from '@ngx-translate/core';
     CommonModule,
     TranslateModule,
     GrootModule,
+    PopoverModule,
     DragDropModule
   ],
   exports: [

@@ -10,6 +10,7 @@ import {
   defineLocale,
   itLocale,
   ModalModule,
+  PopoverModule,
   TabsModule,
   TimepickerModule,
   TooltipModule
@@ -57,7 +58,7 @@ import {DEFAULT_LANGUAGE} from '../../../groot/src/lib/groot-base/services/trans
 import {DemoCardsComponent} from './demo-pages/demo-cards/demo-cards.component';
 import {GrootTranslateHttpLoader} from '../../../groot/src/lib/groot-base/utils/groot-translations';
 import {GrootTableAutocolModule} from '../../../groot/src/lib/groot-table-autocol/groot-table-autocol.module';
-import { DemoTableAutocolComponent } from './demo-pages/demo-table-autocol/demo-table-autocol.component';
+import {DemoTableAutocolComponent} from './demo-pages/demo-table-autocol/demo-table-autocol.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -120,6 +121,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TooltipModule.forRoot(),
     GrootModule.forRoot(),
     BsDropdownModule.forRoot(),
+    PopoverModule.forRoot(),
     AppRoutingModule,
     GrootTableAutocolModule,
   ],

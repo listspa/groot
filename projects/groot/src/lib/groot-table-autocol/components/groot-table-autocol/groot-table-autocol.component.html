@@ -32,6 +32,16 @@
           cdkDrag
           class="groot-table-header-draggable"
           [ngStyle]="{'width.px': column.widthPx ? '' + column.widthPx : null, 'min-width.px': column.widthPx ? '' + column.widthPx : null}">
+
+        <i class="fa fa-filter"
+           [popover]="filterTemplate"
+           containerClass="popover-filters"
+           placement="bottom"
+           container="body"
+           [outsideClick]="true"
+           [popoverContext]="{column: column}"
+        ></i>
+
         <groot-table-header [label]="column.label"
                             [columnName]="column.columnName"
                             [icon]="column.icon"
@@ -101,6 +111,30 @@
       </div>
       <ng-container *ngSwitchDefault>{{value}}</ng-container>
     </ng-container>
+  </ng-template>
+
+  <ng-template #filterTemplate let-column="column">
+    <groot-combo-checkbox
+      [items]="columnValues"
+      name="filter-column"
+      [showAsListBox]="true"
+      placeholder="common.filter"
+      style="width: 36rem"
+    ></groot-combo-checkbox>
+
+    <div class="buttons-list-bottom-right">
+      <groot-button
+        classes="btn-outline-danger"
+        icon="fa fa-cross"
+        label="common.cancel"
+      ></groot-button>
+
+      <groot-button
+        classes="btn-primary"
+        icon="fa fa-filter"
+        label="common.apply"
+      ></groot-button>
+    </div>
   </ng-template>
 </groot-table>
 

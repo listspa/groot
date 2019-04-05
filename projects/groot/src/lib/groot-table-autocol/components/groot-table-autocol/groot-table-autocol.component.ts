@@ -47,6 +47,15 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
   private resizingSubscription: Subscription;
   @ViewChild('resizingColIndicator') resizingColIndicator: ElementRef;
 
+
+  columnValues: string[] = [
+    'MX03',
+    'ORC',
+    'RISKNET',
+    'K+',
+    'LOANIQ'
+  ];
+
   constructor(private bsModalService: BsModalService) {
   }
 
