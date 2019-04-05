@@ -19,6 +19,7 @@
   [accordionColumns]="accordionColumns"
   (columnsSelectionChanged)="onColumnsSelectionChanged($event)"
   (columnResized)="onColumnResized($event)"
+  (searchPopoverNeedsData)="onColumnNeedsData($event)"
 >
   <ng-template #dealIdTemplate let-value>
     <div style="font-size: 1.3rem; font-family: 'Roboto Condensed'; background-color: #eee; text-align: center">

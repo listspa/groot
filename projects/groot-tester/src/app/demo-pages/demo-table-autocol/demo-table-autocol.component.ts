@@ -5,10 +5,13 @@ import {
   TableColumnRendering,
   TableColumns
 } from '../../../../../groot/src/lib/groot-table-autocol/model/table-columns.model';
-import {LoadingFailed} from '../../../../../groot/src/lib/groot-base/components/tables/groot-table/groot-table.component';
+import {isLoadingFailed, LoadingFailed} from '../../../../../groot/src/lib/groot-base/components/tables/groot-table/groot-table.component';
 import {PaginatedResponse, PaginationOptions} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
 import {Deal, DealsService} from './deals-service';
-import {ColumnAndWidth} from '../../../../../groot/src/lib/groot-table-autocol/components/groot-table-autocol/groot-table-autocol.component';
+import {
+  ColumnAndWidth,
+  PopoverDataRequest
+} from '../../../../../groot/src/lib/groot-table-autocol/components/groot-table-autocol/groot-table-autocol.component';
 
 @Component({
   selector: 'app-demo-table-autocol',
@@ -172,5 +175,18 @@ export class DemoTableAutocolComponent implements OnInit {
   onColumnResized(columnAndWidth: ColumnAndWidth) {
     console.log('Should set width %o for column %o', columnAndWidth.newPixelsWidth, columnAndWidth.column);
     columnAndWidth.column.widthPx = columnAndWidth.newPixelsWidth;
+  }
+
+  onColumnNeedsData(request: PopoverDataRequest) {
+    if (isLoadingFailed(this.searchResultsData)) {
+      return;
+    }
+
+    // Very simple algorithm: extracts the values from the visible rows
+    const rawItems = this.searchResultsData.records
+      .map(r => r[request.column.fieldName]);
+    const distinctItems = Array.from(new Set<string>(rawItems).values());
+    distinctItems.sort();
+    request.items = distinctItems;
   }
 }

@@ -40,6 +40,8 @@
            container="body"
            [outsideClick]="true"
            [popoverContext]="{column: column}"
+           (click)="openPopover(column)"
+           [isOpen]="filterPopoverOpen[column.key]"
         ></i>
 
         <groot-table-header [label]="column.label"
@@ -115,7 +117,7 @@
 
   <ng-template #filterTemplate let-column="column">
     <groot-combo-checkbox
-      [items]="columnValues"
+      [items]="filterPopoverData[column.key]"
       name="filter-column"
       [showAsListBox]="true"
       placeholder="common.filter"

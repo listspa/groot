@@ -15,6 +15,16 @@ export interface ColumnAndWidth {
   thElement: HTMLElement;
 }
 
+export class PopoverDataRequest {
+  constructor(public column: TableColumn,
+              private filterPopoverData: { [key: string]: string[] }) {
+  }
+
+  set items(values: string[]) {
+    this.filterPopoverData[this.column.key] = values;
+  }
+}
+
 @Component({
   selector: 'groot-table-autocol',
   templateUrl: './groot-table-autocol.component.html',
@@ -42,19 +52,15 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
   @Input() accordionColumns: TableColumns;
   @Output() columnsSelectionChanged = new EventEmitter<SelectedColumns>();
   @Output() columnResized = new EventEmitter<ColumnAndWidth>();
+  @Output() searchPopoverNeedsData = new EventEmitter<PopoverDataRequest>();
 
   TableColumnRendering = TableColumnRendering;
   private resizingSubscription: Subscription;
   @ViewChild('resizingColIndicator') resizingColIndicator: ElementRef;
 
-
-  columnValues: string[] = [
-    'MX03',
-    'ORC',
-    'RISKNET',
-    'K+',
-    'LOANIQ'
-  ];
+  // Filter popover
+  filterPopoverOpen: { [key: string]: boolean } = {};
+  filterPopoverData: { [key: string]: string[] } = {};
 
   constructor(private bsModalService: BsModalService) {
   }
@@ -150,5 +156,12 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
     if (this.resizingSubscription) {
       this.resizingSubscription.unsubscribe();
     }
+  }
+
+  // Popover
+
+  openPopover(column: TableColumn) {
+    this.filterPopoverOpen[column.key] = true;
+    this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, this.filterPopoverData));
   }
 }
