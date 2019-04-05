@@ -2,8 +2,8 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {LoadingService} from '../../../../../groot/src/lib/groot-base/services/loading.service';
 import {FilterOption, FilterPaginationOptions, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
-import {Observable} from 'rxjs';
-import {finalize} from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
+import {finalize, map} from 'rxjs/operators';
 import {BASE_URL} from '../../constants';
 import {tap} from 'rxjs/internal/operators/tap';
 import {compareBy} from '../../../../../groot/src/lib/groot-base/utils/compare-by';
@@ -33,13 +33,15 @@ export interface Deal {
   providedIn: 'root'
 })
 export class DealsService {
+  private cachedDealsResponse: PaginatedResponse<Deal> = null;
+
   constructor(private http: HttpClient,
               private loadingService: LoadingService) {
   }
 
   searchDeals(request: FilterPaginationOptions): Observable<PaginatedResponse<Deal>> {
     const doneLoading = this.loadingService.startLoading();
-    return this.http.get<PaginatedResponse<Deal>>(`${BASE_URL}/assets/deals.json`)
+    return this.getDeals()
       .pipe(
         tap(response => {
           // Simulate pagination by sorting and filtering the returned json
@@ -62,5 +64,27 @@ export class DealsService {
   private filterMatches(filter: FilterOption, rec: Deal) {
     const value = String(rec[filter.column]);
     return (filter.value as string[]).some(s => value === s);
+  }
+
+  getFilterDomain(columnName: string): Observable<string[]> {
+    return this.getDeals()
+      .pipe(map(response => {
+        // Very simple algorithm: extracts the values from the visible rows
+        const rawItems: string[] = response.records
+          .map(r => r[columnName])
+          .filter(v => v);
+        const distinctItems: string[] = Array.from(
+          new Set<string>(rawItems).values());
+        distinctItems.sort();
+        return distinctItems;
+      }));
+  }
+
+  private getDeals(): Observable<PaginatedResponse<Deal>> {
+    if (this.cachedDealsResponse) {
+      return of(this.cachedDealsResponse);
+    } else {
+      return this.http.get<PaginatedResponse<Deal>>(`${BASE_URL}/assets/deals.json`);
+    }
   }
 }

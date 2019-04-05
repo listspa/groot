@@ -176,13 +176,7 @@ export class DemoTableAutocolComponent implements OnInit {
     if (isLoadingFailed(this.searchResultsData)) {
       return;
     }
-
-    // Very simple algorithm: extracts the values from the visible rows
-    const rawItems = this.searchResultsData.records
-      .map(r => r[request.column.fieldName])
-      .filter(v => v);
-    const distinctItems = Array.from(new Set<string>(rawItems).values());
-    distinctItems.sort();
-    request.items = distinctItems;
+    this.dealsService.getFilterDomain(request.column.fieldName)
+      .subscribe(values => request.items = values);
   }
 }
