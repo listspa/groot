@@ -30,10 +30,10 @@ groot-table-header .buttons {
 
 .thead-primary groot-table-header .buttons {
   .deselected {
-    color: rgba(color-yiq($light-primary), 0.5);
+    color: $table-header-inactive-color;
   }
 
   .active {
-    color: color-yiq($light-primary);
+    color: $table-header-active-color;
   }
 }

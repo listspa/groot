@@ -59,7 +59,6 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
   @ViewChild('resizingColIndicator') resizingColIndicator: ElementRef;
 
   // Filter popover
-  filterPopoverOpen: { [key: string]: boolean } = {};
   filterPopoverData: { [key: string]: string[] } = {};
 
   constructor(private bsModalService: BsModalService) {
@@ -160,8 +159,8 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
 
   // Popover
 
-  openPopover(column: TableColumn) {
-    this.filterPopoverOpen[column.key] = true;
+  onPopoverShow(column: TableColumn) {
+    this.filterPopoverData[column.key] = null;
     this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, this.filterPopoverData));
   }
 }

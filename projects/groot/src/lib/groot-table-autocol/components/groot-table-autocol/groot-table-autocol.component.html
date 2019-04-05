@@ -32,17 +32,16 @@
           cdkDrag
           class="groot-table-header-draggable"
           [ngStyle]="{'width.px': column.widthPx ? '' + column.widthPx : null, 'min-width.px': column.widthPx ? '' + column.widthPx : null}">
-
-        <i class="fa fa-filter"
-           [popover]="filterTemplate"
-           containerClass="popover-filters"
-           placement="bottom"
-           container="body"
-           [outsideClick]="true"
-           [popoverContext]="{column: column}"
-           (click)="openPopover(column)"
-           [isOpen]="filterPopoverOpen[column.key]"
-        ></i>
+        <div class="groot-table-header-filter-icon"
+             [popover]="filterTemplate"
+             containerClass="popover-filters"
+             placement="bottom"
+             container="body"
+             [outsideClick]="true"
+             [popoverContext]="{column: column}"
+             (onShown)="onPopoverShow(column)">
+          <i class="fa fa-filter"></i>
+        </div>
 
         <groot-table-header [label]="column.label"
                             [columnName]="column.columnName"
@@ -116,13 +115,21 @@
   </ng-template>
 
   <ng-template #filterTemplate let-column="column">
-    <groot-combo-checkbox
-      [items]="filterPopoverData[column.key]"
-      name="filter-column"
-      [showAsListBox]="true"
-      placeholder="common.filter"
-      style="width: 36rem"
-    ></groot-combo-checkbox>
+    <ng-container *ngIf="filterPopoverData[column.key]; else filterLoadingTemplate">
+      <groot-combo-checkbox
+        [items]="filterPopoverData[column.key]"
+        name="filter-column"
+        [showAsListBox]="true"
+        placeholder="common.filter"
+        style="width: 36rem"
+      ></groot-combo-checkbox>
+    </ng-container>
+    <ng-template #filterLoadingTemplate>
+      <div class="loading-indicator">
+        <i class="fa fa-spin fa-spinner"></i>
+        {{'common.loading' | translate}}
+      </div>
+    </ng-template>
 
     <div class="buttons-list-bottom-right">
       <groot-button

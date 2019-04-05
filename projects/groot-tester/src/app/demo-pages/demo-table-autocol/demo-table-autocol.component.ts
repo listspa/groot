@@ -12,6 +12,7 @@ import {
   ColumnAndWidth,
   PopoverDataRequest
 } from '../../../../../groot/src/lib/groot-table-autocol/components/groot-table-autocol/groot-table-autocol.component';
+import {timer} from 'rxjs';
 
 @Component({
   selector: 'app-demo-table-autocol',
@@ -178,15 +179,19 @@ export class DemoTableAutocolComponent implements OnInit {
   }
 
   onColumnNeedsData(request: PopoverDataRequest) {
-    if (isLoadingFailed(this.searchResultsData)) {
-      return;
-    }
+    timer(1200)
+      .subscribe(() => {
+        if (isLoadingFailed(this.searchResultsData)) {
+          return;
+        }
 
-    // Very simple algorithm: extracts the values from the visible rows
-    const rawItems = this.searchResultsData.records
-      .map(r => r[request.column.fieldName]);
-    const distinctItems = Array.from(new Set<string>(rawItems).values());
-    distinctItems.sort();
-    request.items = distinctItems;
+        // Very simple algorithm: extracts the values from the visible rows
+        const rawItems = this.searchResultsData.records
+          .map(r => r[request.column.fieldName])
+          .filter(v => v);
+        const distinctItems = Array.from(new Set<string>(rawItems).values());
+        distinctItems.sort();
+        request.items = distinctItems;
+      });
   }
 }

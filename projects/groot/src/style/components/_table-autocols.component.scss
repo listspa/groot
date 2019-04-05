@@ -24,6 +24,14 @@ groot-table-autocol {
     opacity: 0.25;
     position: absolute;
   }
+
+  .groot-table-header-filter-icon {
+    position: absolute;
+    left: extract-from-compact($table-cell-padding, left);
+    display: block;
+    cursor: pointer;
+    color: $table-header-inactive-color;
+  }
 }
 
 // TODO: drag & drop for other colors
@@ -40,4 +48,12 @@ groot-table-autocol {
 .popover-filters {
   max-width: 27rem;
   width: 27rem;
+  
+  .loading-indicator {
+    padding: 0.5rem;
+    background-color: $box-bg-color;
+    border: 1px solid $box-border-color;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
 }
