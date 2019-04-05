@@ -40,7 +40,8 @@
              container="body"
              [outsideClick]="true"
              [popoverContext]="{column: column}"
-             (onShown)="onPopoverShow(column)">
+             (onShown)="onPopoverShow(column)"
+             [class.active]="filterPopoverValues[column.key] && filterPopoverValues[column.key].length">
           <i class="fa fa-filter"></i>
         </div>
 

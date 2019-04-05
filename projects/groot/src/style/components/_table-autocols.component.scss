@@ -31,6 +31,10 @@ groot-table-autocol {
     display: block;
     cursor: pointer;
     color: $table-header-inactive-color;
+
+    &.active {
+      color: $table-header-active-color;
+    }
   }
 }
 
