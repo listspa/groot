@@ -36,7 +36,7 @@
         <div class="groot-table-header-filter-icon"
              [popover]="filterTemplate"
              containerClass="popover-filters"
-             placement="bottom"
+             placement="auto"
              container="body"
              [outsideClick]="true"
              [popoverContext]="{column: column}"
@@ -144,6 +144,7 @@
         classes="btn-outline-danger"
         icon="fa fa-cross"
         label="common.cancel"
+        (click)="closePopoverFilter()"
       ></groot-button>
 
       <groot-button

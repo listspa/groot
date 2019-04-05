@@ -1,5 +1,5 @@
-import {Component, ElementRef, EventEmitter, Input, OnDestroy, Output, ViewChild} from '@angular/core';
-import {BsModalService} from 'ngx-bootstrap';
+import {Component, ElementRef, EventEmitter, Input, OnDestroy, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {BsModalService, PopoverDirective} from 'ngx-bootstrap';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {Subject, Subscription} from 'rxjs';
 import {ColumnsSelectorComponent} from './columns-selector/columns-selector.component';
@@ -67,6 +67,7 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
 
   // Filter popover
   @ViewChild('grootTable') grootTable: GrootTableComponent<T>;
+  @ViewChildren(PopoverDirective) popovers: QueryList<PopoverDirective>;
   filterPopoverDomain: { [key: string]: string[] } = {};
   filterPopoverValues: { [key: string]: string[] } = {};
 
@@ -175,6 +176,11 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
 
   applyPopoverFilter() {
     this.grootTable.reloadTable(true);
+    this.closePopoverFilter();
+  }
+
+  closePopoverFilter() {
+    this.popovers.filter(p => p.isOpen).forEach(p => p.hide());
   }
 
   onSearch(event: PaginationOptions) {
