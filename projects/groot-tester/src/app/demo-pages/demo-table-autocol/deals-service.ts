@@ -48,6 +48,7 @@ export class DealsService {
           const startIdx = request.pageNum * request.pageLen;
           const endIdx = (request.pageNum + 1) * request.pageLen;
           response.records = rows.slice(startIdx, endIdx);
+          response.totalNumRecords = rows.length;
         }),
         finalize(doneLoading));
   }
