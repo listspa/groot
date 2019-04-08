@@ -171,7 +171,10 @@ export class DemoTableAutocolComponent implements OnInit {
     console.log('Searching deals: %o', request);
     this.dealsService.searchDeals(request)
       .subscribe(
-        response => this.searchResultsData = response,
+        response => {
+          this.searchResultsData = response;
+          console.log('Found deals: %o', response);
+        },
         () => this.searchResultsData = {loadingFailed: true}
       );
   }
@@ -191,7 +194,7 @@ export class DemoTableAutocolComponent implements OnInit {
     if (isLoadingFailed(this.searchResultsData)) {
       return;
     }
-    this.dealsService.getFilterDomain(request.column.fieldName)
-      .subscribe(values => request.items = values);
+    this.dealsService.getFilterDomain(request.column.fieldName, request.filters)
+      .subscribe(request.domain);
   }
 }

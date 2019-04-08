@@ -25,11 +25,8 @@ export interface ColumnAndWidth {
 
 export class PopoverDataRequest {
   constructor(public column: TableColumn,
-              private domainSubject: Subject<string[]>) {
-  }
-
-  set items(values: string[]) {
-    this.domainSubject.next(values);
+              public filters: FilterOption[],
+              public domain: Subject<string[]>) {
   }
 }
 
@@ -174,11 +171,13 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
     const domainSubject = new Subject<string[]>();
     this.popoverFilterService.showPopover(column, event, domainSubject, this.filterPopoverValues[column.key])
       .subscribe(selectedValues => {
-        this.filterPopoverValues[column.key] = selectedValues;
-        this.grootTable.reloadTable(true);
-      });
+          this.filterPopoverValues[column.key] = selectedValues;
+          this.grootTable.reloadTable(true);
+        });
 
-    this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, domainSubject));
+    // Request domains data
+    const filters = this.getFilters().filter(f => f.column !== column.columnName);
+    this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, filters, domainSubject));
   }
 
   onSearch(event: PaginationOptions) {

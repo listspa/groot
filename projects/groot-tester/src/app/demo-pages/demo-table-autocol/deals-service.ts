@@ -43,21 +43,24 @@ export class DealsService {
     const doneLoading = this.loadingService.startLoading();
     return this.getDeals()
       .pipe(
-        tap(response => {
+        map(response => {
           // Simulate pagination by sorting and filtering the returned json
-          const rows = this.filter(request, response.records);
+          const rows = this.filter(request.filters, response.records);
           rows.sort(compareBy(request.sortField, request.sortReversed));
           const startIdx = request.pageNum * request.pageLen;
           const endIdx = (request.pageNum + 1) * request.pageLen;
-          response.records = rows.slice(startIdx, endIdx);
-          response.totalNumRecords = rows.length;
+          return {
+            ...response,
+            records: rows.slice(startIdx, endIdx),
+            totalNumRecords: rows.length
+          };
         }),
         finalize(doneLoading));
   }
 
-  private filter(request: FilterPaginationOptions, records: Deal[]) {
+  private filter(filters: FilterOption[], records: Deal[]) {
     return records.filter(rec => {
-      return request.filters.every(filter => this.filterMatches(filter, rec));
+      return filters.every(filter => this.filterMatches(filter, rec));
     });
   }
 
@@ -66,11 +69,12 @@ export class DealsService {
     return (filter.value as string[]).some(s => value === s);
   }
 
-  getFilterDomain(columnName: string): Observable<string[]> {
+  getFilterDomain(columnName: string, filters: FilterOption[]): Observable<string[]> {
     return this.getDeals()
       .pipe(map(response => {
         // Very simple algorithm: extracts the values from the visible rows
-        const rawItems: string[] = response.records
+        const rows = this.filter(filters, response.records);
+        const rawItems: string[] = rows
           .map(r => r[columnName])
           .filter(v => v);
         const distinctItems: string[] = Array.from(
@@ -84,7 +88,8 @@ export class DealsService {
     if (this.cachedDealsResponse) {
       return of(this.cachedDealsResponse);
     } else {
-      return this.http.get<PaginatedResponse<Deal>>(`${BASE_URL}/assets/deals.json`);
+      return this.http.get<PaginatedResponse<Deal>>(`${BASE_URL}/assets/deals.json`)
+        .pipe(tap(response => this.cachedDealsResponse = response));
     }
   }
 }
