@@ -174,12 +174,13 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
 
   showFilterPopover(column: TableColumn, event: MouseEvent) {
     const domainSubject = new Subject<string[]>();
-    this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, domainSubject));
     this.popoverFilterService.showPopover(column, event, domainSubject, this.filterPopoverValues[column.key])
       .subscribe(selectedValues => {
         this.filterPopoverValues[column.key] = selectedValues;
         this.grootTable.reloadTable(true);
       });
+
+    this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, domainSubject));
   }
 
   onSearch(event: PaginationOptions) {
