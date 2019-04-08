@@ -57,10 +57,10 @@ export class PopoverFilterService {
     const popoverW = PopoverFilterService.convertRemToPixels(28.5);
     let left = (th.offsetLeft + th.offsetWidth / 2 - popoverW / 2);
     if (left < 0) {
-      left = 5;
+      left = 10;
     }
     if (left + popoverW > window.innerWidth) {
-      left = window.innerWidth - popoverW - 5;
+      left = window.innerWidth - popoverW - 10;
     }
 
     domElem.style.left = left + 'px';

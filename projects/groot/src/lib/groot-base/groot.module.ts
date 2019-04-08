@@ -42,6 +42,7 @@ import {
 } from './components/tables/groot-table/groot-table.directive';
 import {GrootAccordionIndicatorComponent} from './components/tables/groot-accordion-indicator/groot-accordion-indicator.component';
 import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './components/forms/groot-input/groot-input.directive';
+import './polyfills/polyfill-element-closest';
 
 @NgModule({
   declarations: [
