@@ -46,6 +46,7 @@
         <groot-table-header [label]="column.label"
                             [columnName]="column.columnName"
                             [icon]="column.icon"
+                            [class.groot-table-header-after-filters]="column.showFilters"
         ></groot-table-header>
 
         <div class="drag-drop-indicator"

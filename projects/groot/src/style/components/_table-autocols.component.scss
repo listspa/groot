@@ -36,6 +36,11 @@ groot-table-autocol {
       color: $table-header-active-color;
     }
   }
+
+  .groot-table-header-after-filters {
+    // Since the filter icon has a position absolute, we need to leave the necessary space for it
+    margin-left: 1.5rem;
+  }
 }
 
 // TODO: drag & drop for other colors
@@ -60,7 +65,7 @@ groot-popover-filter {
 .popover-filters {
   max-width: 28.5rem;
   width: 28.5rem;
-  
+
   .loading-indicator {
     padding: 0.5rem;
     background-color: $box-bg-color;
