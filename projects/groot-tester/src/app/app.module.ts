@@ -10,7 +10,6 @@ import {
   defineLocale,
   itLocale,
   ModalModule,
-  PopoverModule,
   TabsModule,
   TimepickerModule,
   TooltipModule
@@ -121,7 +120,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     TooltipModule.forRoot(),
     GrootModule.forRoot(),
     BsDropdownModule.forRoot(),
-    PopoverModule.forRoot(),
     AppRoutingModule,
     GrootTableAutocolModule,
   ],

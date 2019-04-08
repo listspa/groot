@@ -6,9 +6,8 @@ import {ColumnsSelectorComponent} from './components/groot-table-autocol/columns
 import {ColumnsSelectorListComponent} from './components/groot-table-autocol/columns-selector-list/columns-selector-list.component';
 import {CommonModule} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
-import {PopoverModule} from 'ngx-bootstrap';
 import {FormsModule} from '@angular/forms';
-import { PopoverFilterComponent } from './components/groot-table-autocol/popover-filter/popover-filter.component';
+import {PopoverFilterComponent} from './components/groot-table-autocol/popover-filter/popover-filter.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { PopoverFilterComponent } from './components/groot-table-autocol/popover
     FormsModule,
     TranslateModule,
     GrootModule,
-    PopoverModule,
     DragDropModule
   ],
   exports: [
