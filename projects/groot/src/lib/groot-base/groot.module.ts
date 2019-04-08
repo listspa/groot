@@ -43,6 +43,7 @@ import {
 import {GrootAccordionIndicatorComponent} from './components/tables/groot-accordion-indicator/groot-accordion-indicator.component';
 import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './components/forms/groot-input/groot-input.directive';
 import './polyfills/polyfill-element-closest';
+import { YesNoCheckComponent } from './components/yes-no-check/yes-no-check.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import './polyfills/polyfill-element-closest';
     GrootAccordionIndicatorComponent,
     GrootInputIconLeftDirective,
     GrootInputIconRightDirective,
+    YesNoCheckComponent,
   ],
   imports: [
     CommonModule,

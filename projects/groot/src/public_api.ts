@@ -32,6 +32,7 @@ export * from './lib/groot-base/components/tables/groot-table/groot-table.direct
 export * from './lib/groot-base/components/tables/table-header/table-header.component';
 export * from './lib/groot-base/components/tables/table-pagination/table-pagination.component';
 export * from './lib/groot-base/components/tables/table-title-bar/table-title-bar.component';
+export * from './lib/groot-base/components/yes-no-check/yes-no-check.component';
 export * from './lib/groot-base/directives/loading.directive';
 export * from './lib/groot-base/directives/needsCapability.directive';
 export * from './lib/groot-base/pipes/ft-date/ft-date.pipe';
@@ -60,6 +61,8 @@ export * from './lib/groot-base/utils/string-utils';
 export * from './lib/groot-base/utils/translation-utils';
 export * from './lib/groot-table-autocol/groot-table-autocol.module';
 export * from './lib/groot-table-autocol/components/groot-table-autocol/groot-table-autocol.component';
+export * from './lib/groot-table-autocol/components/groot-table-autocol/popover-filter.service';
 export * from './lib/groot-table-autocol/components/groot-table-autocol/columns-selector/columns-selector.component';
 export * from './lib/groot-table-autocol/components/groot-table-autocol/columns-selector-list/columns-selector-list.component';
+export * from './lib/groot-table-autocol/components/groot-table-autocol/popover-filter/popover-filter.component';
 export * from './lib/groot-table-autocol/model/table-columns.model';
