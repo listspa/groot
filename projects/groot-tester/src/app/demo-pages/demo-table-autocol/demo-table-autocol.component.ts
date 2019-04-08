@@ -29,50 +29,58 @@ export class DemoTableAutocolComponent implements OnInit {
         key: 'fchubFeId',
         label: 'deals.fchubFeId',
         columnName: 'fchubFeId',
-        fieldName: 'fchubFeId'
+        fieldName: 'fchubFeId',
+        showFilters: true
       },
       {
         key: 'soaCode',
         label: 'deals.soaCode',
         columnName: 'soaCode',
-        fieldName: 'soaCode'
+        fieldName: 'soaCode',
+        showFilters: true
       },
       {
         key: 'branch',
         label: 'deals.branch',
         columnName: 'branch',
-        fieldName: 'branch'
+        fieldName: 'branch',
+        showFilters: true
       },
       {
         key: 'dealIdFe',
         label: 'deals.dealIdFe',
         columnName: 'dealIdFe',
         fieldName: 'dealIdFe',
-        customTemplate: this.dealIdTemplate
+        customTemplate: this.dealIdTemplate,
+        showFilters: true
       },
       {
         key: 'contractIdRootFe',
         label: 'deals.contractIdRootFe',
         columnName: 'contractIdRootFe',
-        fieldName: 'contractIdRootFe'
+        fieldName: 'contractIdRootFe',
+        showFilters: true
       },
       {
         key: 'mFamily',
         label: 'deals.mFamily',
         columnName: 'mFamily',
-        fieldName: 'mFamily'
+        fieldName: 'mFamily',
+        showFilters: true
       },
       {
         key: 'mGroup',
         label: 'deals.mGroup',
         columnName: 'mGroup',
-        fieldName: 'mGroup'
+        fieldName: 'mGroup',
+        showFilters: true
       },
       {
         key: 'mType',
         label: 'deals.mType',
         columnName: 'mType',
-        fieldName: 'mType'
+        fieldName: 'mType',
+        showFilters: true
       },
       // In addition to the raw three columns, we add a "virtual" column with special rendering
       {
@@ -85,13 +93,15 @@ export class DemoTableAutocolComponent implements OnInit {
         label: 'deals.packageIdFe',
         columnName: 'packageIdFe',
         fieldName: 'packageIdFe',
-        widthPx: 350
+        widthPx: 350,
+        showFilters: true
       },
       {
         key: 'uti',
         label: 'deals.uti',
         columnName: 'uti',
-        fieldName: 'uti'
+        fieldName: 'uti',
+        showFilters: true
       },
       {
         key: 'tradeDate',
@@ -104,13 +114,15 @@ export class DemoTableAutocolComponent implements OnInit {
         key: 'ndgCode',
         label: 'deals.ndgCode',
         columnName: 'ndgCode',
-        fieldName: 'ndgCode'
+        fieldName: 'ndgCode',
+        showFilters: true
       },
       {
         key: 'shortDescription',
         label: 'deals.shortDescription',
         columnName: 'shortDescription',
-        fieldName: 'shortDescription'
+        fieldName: 'shortDescription',
+        showFilters: true
       },
       {
         key: 'arrivalTime',
@@ -130,19 +142,22 @@ export class DemoTableAutocolComponent implements OnInit {
         key: 'msgTypeWeb',
         label: 'deals.msgTypeWeb',
         columnName: 'msgTypeWeb',
-        fieldName: 'msgTypeWeb'
+        fieldName: 'msgTypeWeb',
+        showFilters: true
       },
       {
         key: 'des',
         label: 'deals.des',
         columnName: 'des',
-        fieldName: 'des'
+        fieldName: 'des',
+        showFilters: true
       },
       {
         key: 'reason',
         label: 'deals.reason',
         columnName: 'reason',
-        fieldName: 'reason'
+        fieldName: 'reason',
+        showFilters: true
       },
     ];
 

@@ -33,6 +33,7 @@
           cdkDrag
           class="groot-table-header-draggable"
           [ngStyle]="{'width.px': column.widthPx ? '' + column.widthPx : null, 'min-width.px': column.widthPx ? '' + column.widthPx : null}">
+
         <div class="groot-table-header-filter-icon"
              [popover]="filterTemplate"
              containerClass="popover-filters"
@@ -41,7 +42,8 @@
              [outsideClick]="true"
              [popoverContext]="{column: column}"
              (onShown)="onPopoverShow(column)"
-             [class.active]="filterPopoverValues[column.key] && filterPopoverValues[column.key].length">
+             [class.active]="filterPopoverValues[column.key] && filterPopoverValues[column.key].length"
+             *ngIf="column.showFilters">
           <i class="fa fa-filter"></i>
         </div>
 
@@ -141,28 +143,28 @@
 
     <div class="d-flex justify-content-between">
       <div class="buttons-list-bottom-left">
-      <groot-button
-        classes="btn-outline-info"
-        icon="fa fa-trash-o"
-        label="common.clear"
-        (click)="clearFilter(column)"
-      ></groot-button>
+        <groot-button
+          classes="btn-outline-info"
+          icon="fa fa-trash-o"
+          label="common.clear"
+          (click)="clearFilter(column)"
+        ></groot-button>
       </div>
 
       <div class="buttons-list-bottom-right">
-      <groot-button
-        classes="btn-outline-danger"
-        icon="fa fa-cross"
-        label="common.cancel"
-        (click)="closePopoverFilter()"
-      ></groot-button>
+        <groot-button
+          classes="btn-outline-danger"
+          icon="fa fa-cross"
+          label="common.cancel"
+          (click)="closePopoverFilter()"
+        ></groot-button>
 
-      <groot-button
-        classes="btn-success"
-        icon="fa fa-filter"
-        label="common.apply"
-        (click)="applyPopoverFilter(column)"
-      ></groot-button>
+        <groot-button
+          classes="btn-success"
+          icon="fa fa-filter"
+          label="common.apply"
+          (click)="applyPopoverFilter(column)"
+        ></groot-button>
       </div>
     </div>
   </ng-template>

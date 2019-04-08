@@ -11,6 +11,7 @@ export interface TableColumn {
   columnType?: NbpuSchemaFieldType;
   customTemplate?: TemplateRef<any> | null;
   widthPx?: number | null;
+  showFilters?: boolean;
 }
 
 export type TableColumns = TableColumn[];
