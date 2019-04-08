@@ -10,8 +10,15 @@
   </ng-container>
   <ng-template #filterLoadingTemplate>
     <div class="loading-indicator">
-      <i class="fa fa-spin fa-spinner"></i>
-      {{'common.loading' | translate}}
+      <ng-container *ngIf="!loadingError">
+        <i class="fa fa-spin fa-spinner"></i>
+        {{'common.loading' | translate}}
+      </ng-container>
+
+      <ng-container *ngIf="loadingError">
+        <i class="fa fa-exclamation-triangle text-danger"></i>
+        {{'common.cannotLoadFilters' | translate}}
+      </ng-container>
     </div>
   </ng-template>
 

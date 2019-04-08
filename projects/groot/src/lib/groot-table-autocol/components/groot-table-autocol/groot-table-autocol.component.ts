@@ -1,7 +1,7 @@
 import {Component, ElementRef, EventEmitter, Input, OnDestroy, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {BsModalService, PopoverDirective} from 'ngx-bootstrap';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
-import {Subject, Subscription} from 'rxjs';
+import {ReplaySubject, Subject, Subscription} from 'rxjs';
 import {ColumnsSelectorComponent} from './columns-selector/columns-selector.component';
 import {SelectedColumns, TableColumn, TableColumns} from '../../model/table-columns.model';
 import {dropDownOnCreateAnimation} from '../../../groot-base/utils/animations-utils';
@@ -23,11 +23,10 @@ export interface ColumnAndWidth {
   thElement: HTMLElement;
 }
 
-export class PopoverDataRequest {
-  constructor(public column: TableColumn,
-              public filters: FilterOption[],
-              public domain: Subject<string[]>) {
-  }
+export interface PopoverDataRequest {
+  column: TableColumn;
+  filters: FilterOption[];
+  domainSubject: ReplaySubject<string[]>;
 }
 
 @Component({
@@ -168,16 +167,16 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
   // Popover
 
   showFilterPopover(column: TableColumn, event: MouseEvent) {
-    const domainSubject = new Subject<string[]>();
+    const domainSubject = new ReplaySubject<string[]>();
     this.popoverFilterService.showPopover(column, event, domainSubject, this.filterPopoverValues[column.key])
       .subscribe(selectedValues => {
-          this.filterPopoverValues[column.key] = selectedValues;
-          this.grootTable.reloadTable(true);
-        });
+        this.filterPopoverValues[column.key] = selectedValues;
+        this.grootTable.reloadTable(true);
+      });
 
     // Request domains data
     const filters = this.getFilters().filter(f => f.column !== column.columnName);
-    this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, filters, domainSubject));
+    this.searchPopoverNeedsData.emit({column, filters, domainSubject});
   }
 
   onSearch(event: PaginationOptions) {

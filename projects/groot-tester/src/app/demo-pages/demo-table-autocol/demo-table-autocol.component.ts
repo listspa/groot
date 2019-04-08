@@ -194,7 +194,13 @@ export class DemoTableAutocolComponent implements OnInit {
     if (isLoadingFailed(this.searchResultsData)) {
       return;
     }
-    this.dealsService.getFilterDomain(request.column.fieldName, request.filters)
-      .subscribe(request.domain);
+
+    if (request.column.key === 'uti') {
+      // Use as an example to check out the error rendering
+      request.domainSubject.error('error');
+    } else {
+      this.dealsService.getFilterDomain(request.column.fieldName, request.filters)
+        .subscribe(request.domainSubject);
+    }
   }
 }

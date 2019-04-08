@@ -1,7 +1,7 @@
 import {ApplicationRef, ComponentFactoryResolver, ComponentRef, EmbeddedViewRef, Injectable, Injector} from '@angular/core';
 import {TableColumn} from '../../model/table-columns.model';
 import {PopoverFilterComponent} from './popover-filter/popover-filter.component';
-import {fromEvent, Observable, Subject, Subscription} from 'rxjs';
+import {fromEvent, Observable, Subject} from 'rxjs';
 import {finalize, skip, takeUntil} from 'rxjs/operators';
 import {merge} from 'rxjs/internal/observable/merge';
 
@@ -22,13 +22,13 @@ export class PopoverFilterService {
     const resultSubject = new Subject<string[]>();
 
     const {componentRef, domElem} = this.createComponent(event);
-    const domainSub = this.fillInputs(componentRef, column, resultSubject, currentValues, domain);
+    this.fillInputs(componentRef, column, resultSubject, currentValues, domain);
 
     this.setupPositioning(domElem, event, resultSubject);
-    this.closeComponentOnClickOutside(domElem, componentRef, domainSub, resultSubject);
+    this.closeComponentOnClickOutside(domElem, componentRef, resultSubject);
 
     return resultSubject.pipe(
-      finalize(() => this.closeComponent(componentRef, domainSub)));
+      finalize(() => this.closeComponent(componentRef)));
   }
 
   // See https://hackernoon.com/angular-pro-tip-how-to-dynamically-create-components-in-body-ba200cc289e6
@@ -54,13 +54,12 @@ export class PopoverFilterService {
                      column: TableColumn,
                      resultSubject,
                      currentValues: string[] | null,
-                     domain: Observable<string[]>)
-    : Subscription {
+                     domain: Observable<string[]>) {
     const popoverFilterComponent = componentRef.instance;
     popoverFilterComponent.column = column;
     popoverFilterComponent.results = resultSubject;
     popoverFilterComponent.selectedValues = currentValues ? [...currentValues] : [];
-    return domain.subscribe(d => popoverFilterComponent.domain = d);
+    popoverFilterComponent.domain$ = domain;
   }
 
   private setupPositioning(domElem: HTMLElement, event: MouseEvent, cancelObservable: Observable<any>) {
@@ -102,7 +101,6 @@ export class PopoverFilterService {
 
   private closeComponentOnClickOutside(domElem: HTMLElement,
                                        componentRef: ComponentRef<any>,
-                                       domainSub: Subscription,
                                        cancelObservable: Observable<any>) {
     // Close when the body receives a click (skipping the current one)
     fromEvent(window.document.body, 'click')
@@ -110,7 +108,7 @@ export class PopoverFilterService {
         takeUntil(cancelObservable),
         skip(1),
       )
-      .subscribe(() => this.closeComponent(componentRef, domainSub));
+      .subscribe(() => this.closeComponent(componentRef));
 
     // ...but avoid bubbling up click events from a click on the popover
     fromEvent(domElem, 'click')
@@ -119,10 +117,8 @@ export class PopoverFilterService {
 
   }
 
-  private closeComponent(componentRef: ComponentRef<any>, domainSub: Subscription) {
+  private closeComponent(componentRef: ComponentRef<any>) {
     this.appRef.detachView(componentRef.hostView);
     componentRef.destroy();
-
-    domainSub.unsubscribe();
   }
 }
