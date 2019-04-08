@@ -98,3 +98,21 @@ table.table-bordered {
 .table-accordion-col {
   width: 1rem;
 }
+
+table.table-bordered tr.accordion-expanded {
+  background-color: $box-bg-color;
+  border-bottom: 0;
+}
+
+table.table-bordered tr.accordion-row {
+  border-top: none;
+}
+
+.accordion-container {
+  background-color: $box-bg-color;
+  padding: 0.5rem;
+
+  .accordion-content {
+    background-color: $white;
+  }
+}

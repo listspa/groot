@@ -14,7 +14,7 @@ in your application unless you start using it.`
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `Introduced the <code>groot-table-autocol</code>: a table with selectable,
-draggable and resizable columns. See the <a href="#/demo/table-autocol">demo page</a>
+draggable and resizable columns. See the <a href="#/demo/tables-autocol">demo page</a>
 for details.`
       },
       {
@@ -29,6 +29,11 @@ for details.`
         type: ReleaseChangeType.NEW_FEATURE,
         html: `New component <code>groot-yes-no-check</code> to show a check or a cross depending
 on a boolean value.`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New css classes to improve the accordion look & feel. See the 
+<a href="#/demo/tables">tables documentation page</a> for the example.`
       },
     ]
   },

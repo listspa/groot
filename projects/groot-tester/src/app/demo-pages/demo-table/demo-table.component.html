@@ -247,7 +247,8 @@
   <ng-template grootTableBody let-searchResults>
     <ng-container *ngFor="let row of searchResults.records">
       <tr class="table-row-selectable"
-          (click)="row.$accordionVisible = !row.$accordionVisible">
+          (click)="row.$accordionVisible = !row.$accordionVisible"
+          [class.accordion-expanded]="row.$accordionVisible">
         <td>{{row.name}}</td>
         <td>{{row.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
         <td>{{row.wage | number:'0.2'}}</td>
@@ -255,9 +256,11 @@
           <groot-accordion-indicator [row]="row"></groot-accordion-indicator>
         </td>
       </tr>
-      <tr *ngIf="row.$accordionVisible">
-        <td colspan="4">
-          accordion content here
+      <tr *ngIf="row.$accordionVisible" class="accordion-row">
+        <td colspan="4" class="accordion-container">
+          <div class="accordion-content">
+            accordion content here
+          </div>
         </td>
       </tr>
     </ng-container>
@@ -294,7 +297,8 @@
   &lt;ng-template grootTableBody let-searchResults>
     &lt;ng-container *ngFor="let row of searchResults.records">
       &lt;tr class="table-row-selectable"
-          (click)="row.$accordionVisible = !row.$accordionVisible">
+          (click)="row.$accordionVisible = !row.$accordionVisible"
+          [class.accordion-expanded]="row.$accordionVisible">
         &lt;td>{{row.name}}&lt;/td>
         &lt;td>{{row.dateOfBirth | date: 'dd/MM/yyyy'}}&lt;/td>
         &lt;td>{{row.wage | number:'0.2'}}&lt;/td>
@@ -302,12 +306,13 @@
           &lt;groot-accordion-indicator [row]="row">&lt;/groot-accordion-indicator>
         &lt;/td>
       &lt;/tr>
-      &lt;tr *ngIf="row.$accordionVisible">
-        &lt;td colspan="4">
-          accordion content here
+      &lt;tr *ngIf="row.$accordionVisible" class="accordion-row">
+        &lt;td colspan="4" class="accordion-container">
+          &lt;div class="accordion-content">
+            accordion content here
+          &lt;/div>
         &lt;/td>
       &lt;/tr>
     &lt;/ng-container>
   &lt;/ng-template>
-&lt;/groot-table>
-</code></pre>
+&lt;/groot-table></code></pre>
