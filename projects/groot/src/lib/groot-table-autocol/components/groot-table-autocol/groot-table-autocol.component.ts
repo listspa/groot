@@ -69,6 +69,7 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
   @ViewChild('grootTable') grootTable: GrootTableComponent<T>;
   @ViewChildren(PopoverDirective) popovers: QueryList<PopoverDirective>;
   filterPopoverDomain: { [key: string]: string[] } = {};
+  filterPopoverTempValues: { [key: string]: string[] } = {};
   filterPopoverValues: { [key: string]: string[] } = {};
 
   constructor(private bsModalService: BsModalService) {
@@ -171,10 +172,16 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
 
   onPopoverShow(column: TableColumn) {
     this.filterPopoverDomain[column.key] = null;
+    this.filterPopoverTempValues[column.key] = [...(this.filterPopoverValues[column.key] || [])];
     this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, this.filterPopoverDomain));
   }
 
-  applyPopoverFilter() {
+  applyPopoverFilter(column: TableColumn) {
+    if (this.filterPopoverTempValues[column.key] && this.filterPopoverTempValues[column.key].length) {
+      this.filterPopoverValues[column.key] = [...this.filterPopoverTempValues[column.key]];
+    } else {
+      delete this.filterPopoverValues[column.key];
+    }
     this.grootTable.reloadTable(true);
     this.closePopoverFilter();
   }

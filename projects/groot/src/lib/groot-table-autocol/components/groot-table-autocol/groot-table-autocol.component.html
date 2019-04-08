@@ -129,7 +129,7 @@
         placeholder="common.filter"
         [showAsListBox]="true"
         [items]="filterPopoverDomain[column.key]"
-        [(ngModel)]="filterPopoverValues[column.key]"
+        [(ngModel)]="filterPopoverTempValues[column.key]"
       ></groot-combo-checkbox>
     </ng-container>
     <ng-template #filterLoadingTemplate>
@@ -151,7 +151,7 @@
         classes="btn-success"
         icon="fa fa-filter"
         label="common.apply"
-        (click)="applyPopoverFilter()"
+        (click)="applyPopoverFilter(column)"
       ></groot-button>
     </div>
   </ng-template>
