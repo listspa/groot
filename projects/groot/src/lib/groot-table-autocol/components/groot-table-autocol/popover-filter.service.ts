@@ -18,13 +18,7 @@ export class PopoverFilterService {
     const resultSubject = new Subject<string[]>();
 
     const {domElem, componentRef} = this.createComponent();
-    const popoverFilterComponent = componentRef.instance;
-    popoverFilterComponent.column = column;
-    popoverFilterComponent.results = resultSubject;
-    popoverFilterComponent.selectedValues = currentValues ? [...currentValues] : [];
-
-    const domainSub = domain.subscribe(d => popoverFilterComponent.domain = d);
-
+    const domainSub = this.fillInputs(componentRef, column, resultSubject, currentValues, domain);
     this.position(domElem, event);
 
     // this.closeComponentOnClickOutside(componentRef, domainSub);
@@ -34,7 +28,7 @@ export class PopoverFilterService {
   }
 
   // See https://hackernoon.com/angular-pro-tip-how-to-dynamically-create-components-in-body-ba200cc289e6
-  private createComponent() {
+  private createComponent(): { domElem: HTMLElement, componentRef: ComponentRef<PopoverFilterComponent> } {
     const componentRef = this.componentFactoryResolver
       .resolveComponentFactory(PopoverFilterComponent)
       .create(this.injector);
@@ -44,7 +38,20 @@ export class PopoverFilterService {
     return {domElem, componentRef};
   }
 
-  private appendDomElementToBody(componentRef) {
+  private fillInputs(componentRef: ComponentRef<PopoverFilterComponent>,
+                     column: TableColumn,
+                     resultSubject,
+                     currentValues: string[] | null,
+                     domain: Observable<string[]>)
+    : Subscription {
+    const popoverFilterComponent = componentRef.instance;
+    popoverFilterComponent.column = column;
+    popoverFilterComponent.results = resultSubject;
+    popoverFilterComponent.selectedValues = currentValues ? [...currentValues] : [];
+    return domain.subscribe(d => popoverFilterComponent.domain = d);
+  }
+
+  private appendDomElementToBody(componentRef): HTMLElement {
     const domElem = (componentRef.hostView as EmbeddedViewRef<any>)
       .rootNodes[0] as HTMLElement;
     document.body.appendChild(domElem);

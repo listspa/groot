@@ -172,30 +172,14 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
 
   // Popover
 
-  onPopoverShow(column: TableColumn) {
-    this.filterPopoverDomain[column.key] = null;
-    this.filterPopoverTempValues[column.key] = [...(this.filterPopoverValues[column.key] || [])];
-    // this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, this.filterPopoverDomain));
-  }
-
-  applyPopoverFilter(column: TableColumn) {
-    if (this.filterPopoverTempValues[column.key] && this.filterPopoverTempValues[column.key].length) {
-      this.filterPopoverValues[column.key] = [...this.filterPopoverTempValues[column.key]];
-    } else {
-      delete this.filterPopoverValues[column.key];
-    }
-    this.grootTable.reloadTable(true);
-    this.closePopoverFilter();
-  }
-
-  clearFilter(column: TableColumn) {
-    delete this.filterPopoverValues[column.key];
-    this.grootTable.reloadTable(true);
-    this.closePopoverFilter();
-  }
-
-  closePopoverFilter() {
-    this.popovers.filter(p => p.isOpen).forEach(p => p.hide());
+  showFilterPopover(column: TableColumn, event: MouseEvent) {
+    const domainSubject = new Subject<string[]>();
+    this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, domainSubject));
+    this.popoverFilterService.showPopover(column, event, domainSubject, this.filterPopoverValues[column.key])
+      .subscribe(selectedValues => {
+        this.filterPopoverValues[column.key] = selectedValues;
+        this.grootTable.reloadTable(true);
+      });
   }
 
   onSearch(event: PaginationOptions) {
@@ -214,15 +198,5 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
         value: this.filterPopoverValues[c.key],
         operator: FilterOperator.IN
       }));
-  }
-
-  showFilterPopover(column: TableColumn, event: MouseEvent) {
-    const domainSubject = new Subject<string[]>();
-    this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, domainSubject));
-    this.popoverFilterService.showPopover(column, event, domainSubject, this.filterPopoverValues[column.key])
-      .subscribe(selectedValues => {
-        this.filterPopoverValues[column.key] = selectedValues;
-        this.grootTable.reloadTable(true);
-      });
   }
 }

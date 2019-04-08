@@ -10,10 +10,9 @@ export class PopoverFilterComponent {
   @HostBinding('class') hostClass = 'popover popover-filters';
 
   @Input() column: TableColumn;
-  @Input() closeCallback: () => void;
   @Input() results: Subject<string[] | null>;
-  @Input() domain: string[] | null = null;
   @Input() selectedValues: string[] = [];
+  @Input() domain: string[] | null = null;
 
   clear() {
     this.results.next(null);
