@@ -49,6 +49,14 @@ groot-table-autocol {
   opacity: 0.9;
 }
 
+
+// Popover for filters
+
+groot-popover-filter {
+  display: block;
+  position: absolute;
+}
+
 .popover-filters {
   max-width: 28.5rem;
   width: 28.5rem;

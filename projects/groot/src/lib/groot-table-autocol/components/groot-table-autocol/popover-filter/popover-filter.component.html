@@ -1,0 +1,44 @@
+<div class="popover-content popover-body">
+  <ng-container *ngIf="domain; else filterLoadingTemplate">
+    <groot-combo-checkbox
+      name="filter-column"
+      placeholder="common.filter"
+      [showAsListBox]="true"
+      [items]="domain"
+      [(ngModel)]="selectedValues"
+    ></groot-combo-checkbox>
+  </ng-container>
+  <ng-template #filterLoadingTemplate>
+    <div class="loading-indicator">
+      <i class="fa fa-spin fa-spinner"></i>
+      {{'common.loading' | translate}}
+    </div>
+  </ng-template>
+
+  <div class="d-flex justify-content-between">
+    <div class="buttons-list-bottom-left">
+      <groot-button
+        classes="btn-outline-info"
+        icon="fa fa-trash-o"
+        label="common.clear"
+        (click)="clear()"
+      ></groot-button>
+    </div>
+
+    <div class="buttons-list-bottom-right">
+      <groot-button
+        classes="btn-outline-danger"
+        icon="fa fa-cross"
+        label="common.cancel"
+        (click)="close()"
+      ></groot-button>
+
+      <groot-button
+        classes="btn-success"
+        icon="fa fa-filter"
+        label="common.apply"
+        (click)="apply()"
+      ></groot-button>
+    </div>
+  </div>
+</div>

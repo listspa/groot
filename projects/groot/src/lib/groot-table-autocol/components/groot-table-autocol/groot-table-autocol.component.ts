@@ -15,6 +15,7 @@ import {
 } from '../../../groot-base/nbpu.interfaces';
 import {ElementResizingHandler} from '../../../groot-base/utils/element-resizing-handler';
 import {GrootTableComponent, LoadingFailed} from '../../../groot-base/components/tables/groot-table/groot-table.component';
+import {PopoverFilterService} from './popover-filter.service';
 
 export interface ColumnAndWidth {
   column: TableColumn;
@@ -24,11 +25,11 @@ export interface ColumnAndWidth {
 
 export class PopoverDataRequest {
   constructor(public column: TableColumn,
-              private filterPopoverData: { [key: string]: string[] }) {
+              private domainSubject: Subject<string[]>) {
   }
 
   set items(values: string[]) {
-    this.filterPopoverData[this.column.key] = values;
+    this.domainSubject.next(values);
   }
 }
 
@@ -72,7 +73,8 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
   filterPopoverTempValues: { [key: string]: string[] } = {};
   filterPopoverValues: { [key: string]: string[] } = {};
 
-  constructor(private bsModalService: BsModalService) {
+  constructor(private bsModalService: BsModalService,
+              private popoverFilterService: PopoverFilterService) {
   }
 
   // Columns drag & drop
@@ -173,7 +175,7 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
   onPopoverShow(column: TableColumn) {
     this.filterPopoverDomain[column.key] = null;
     this.filterPopoverTempValues[column.key] = [...(this.filterPopoverValues[column.key] || [])];
-    this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, this.filterPopoverDomain));
+    // this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, this.filterPopoverDomain));
   }
 
   applyPopoverFilter(column: TableColumn) {
@@ -212,5 +214,15 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
         value: this.filterPopoverValues[c.key],
         operator: FilterOperator.IN
       }));
+  }
+
+  showFilterPopover(column: TableColumn, event: MouseEvent) {
+    const domainSubject = new Subject<string[]>();
+    this.searchPopoverNeedsData.emit(new PopoverDataRequest(column, domainSubject));
+    this.popoverFilterService.showPopover(column, event, domainSubject, this.filterPopoverValues[column.key])
+      .subscribe(selectedValues => {
+        this.filterPopoverValues[column.key] = selectedValues;
+        this.grootTable.reloadTable(true);
+      });
   }
 }

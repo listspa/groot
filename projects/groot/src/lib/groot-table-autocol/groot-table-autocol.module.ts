@@ -8,12 +8,14 @@ import {CommonModule} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 import {PopoverModule} from 'ngx-bootstrap';
 import {FormsModule} from '@angular/forms';
+import { PopoverFilterComponent } from './components/groot-table-autocol/popover-filter/popover-filter.component';
 
 @NgModule({
   declarations: [
     GrootTableAutocolComponent,
     ColumnsSelectorComponent,
     ColumnsSelectorListComponent,
+    PopoverFilterComponent,
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import {FormsModule} from '@angular/forms';
     DragDropModule
   ],
   entryComponents: [
-    ColumnsSelectorComponent
+    ColumnsSelectorComponent,
+    PopoverFilterComponent
   ]
 })
 export class GrootTableAutocolModule {

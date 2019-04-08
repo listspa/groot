@@ -34,16 +34,22 @@
           class="groot-table-header-draggable"
           [ngStyle]="{'width.px': column.widthPx ? '' + column.widthPx : null, 'min-width.px': column.widthPx ? '' + column.widthPx : null}">
 
-        <div class="groot-table-header-filter-icon"
-             [popover]="filterTemplate"
-             containerClass="popover-filters"
-             placement="auto"
-             container="body"
-             [outsideClick]="true"
-             [popoverContext]="{column: column}"
-             (onShown)="onPopoverShow(column)"
+        <!--        <div class="groot-table-header-filter-icon"-->
+        <!--             [popover]="filterTemplate"-->
+        <!--             containerClass="popover-filters"-->
+        <!--             container="body"-->
+        <!--             [outsideClick]="true"-->
+        <!--             [popoverContext]="{column: column}"-->
+        <!--             (onShown)="onPopoverShow(column)"-->
+        <!--             [class.active]="filterPopoverValues[column.key] && filterPopoverValues[column.key].length"-->
+        <!--             *ngIf="column.showFilters">-->
+        <!--          <i class="fa fa-filter"></i>-->
+        <!--        </div>-->
+
+        <div *ngIf="column.showFilters"
+             class="groot-table-header-filter-icon"
              [class.active]="filterPopoverValues[column.key] && filterPopoverValues[column.key].length"
-             *ngIf="column.showFilters">
+             (click)="showFilterPopover(column, $event)">
           <i class="fa fa-filter"></i>
         </div>
 
