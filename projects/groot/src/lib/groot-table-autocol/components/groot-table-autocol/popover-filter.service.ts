@@ -2,7 +2,8 @@ import {ApplicationRef, ComponentFactoryResolver, ComponentRef, EmbeddedViewRef,
 import {TableColumn} from '../../model/table-columns.model';
 import {PopoverFilterComponent} from './popover-filter/popover-filter.component';
 import {fromEvent, Observable, Subject, Subscription} from 'rxjs';
-import {finalize, skip} from 'rxjs/operators';
+import {finalize, skip, takeUntil} from 'rxjs/operators';
+import {merge} from 'rxjs/internal/observable/merge';
 
 // Notes: this service is very much bound to the PopoverFilterComponent.
 // However, there's a lot that could be made generic. Eventually we should split it in two;
@@ -20,56 +21,33 @@ export class PopoverFilterService {
     : Observable<string[] | null> {
     const resultSubject = new Subject<string[]>();
 
-    const componentRef = this.createComponent(event);
+    const {componentRef, domElem} = this.createComponent(event);
     const domainSub = this.fillInputs(componentRef, column, resultSubject, currentValues, domain);
 
-    // this.closeComponentOnClickOutside(componentRef, domainSub);
+    this.setupPositioning(domElem, event, resultSubject);
+    this.closeComponentOnClickOutside(domElem, componentRef, domainSub, resultSubject);
 
     return resultSubject.pipe(
       finalize(() => this.closeComponent(componentRef, domainSub)));
   }
 
   // See https://hackernoon.com/angular-pro-tip-how-to-dynamically-create-components-in-body-ba200cc289e6
-  private createComponent(event: MouseEvent): ComponentRef<PopoverFilterComponent> {
+  private createComponent(event: MouseEvent): { componentRef: ComponentRef<PopoverFilterComponent>, domElem: HTMLElement } {
     const componentRef = this.componentFactoryResolver
       .resolveComponentFactory(PopoverFilterComponent)
       .create(this.injector);
     this.appRef.attachView(componentRef.hostView);
 
     const domElem = this.appendDomElementToBody(componentRef);
-    this.position(domElem, event);
-    return componentRef;
+    return {componentRef, domElem};
   }
 
+  // noinspection JSMethodCanBeStatic
   private appendDomElementToBody(componentRef): HTMLElement {
     const domElem = (componentRef.hostView as EmbeddedViewRef<any>)
       .rootNodes[0] as HTMLElement;
     document.body.appendChild(domElem);
     return domElem;
-  }
-
-  private position(domElem, event: MouseEvent) {
-    const target: any = event.target;
-    const th = target.closest('th');
-    console.log(th);
-
-    // TODO: at this point the domElem.offsetWidth is not correct, so we hard code the width
-    const popoverW = PopoverFilterService.convertRemToPixels(28.5);
-    let left = (th.offsetLeft + th.offsetWidth / 2 - popoverW / 2);
-    if (left < 0) {
-      left = 10;
-    }
-    if (left + popoverW > window.innerWidth) {
-      left = window.innerWidth - popoverW - 10;
-    }
-
-    domElem.style.left = left + 'px';
-    domElem.style.top = (th.offsetTop + th.offsetHeight - 10) + 'px';
-  }
-
-  // tslint:disable-next-line:member-ordering
-  private static convertRemToPixels(rem) {
-    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
   }
 
   private fillInputs(componentRef: ComponentRef<PopoverFilterComponent>,
@@ -85,10 +63,60 @@ export class PopoverFilterService {
     return domain.subscribe(d => popoverFilterComponent.domain = d);
   }
 
-  private closeComponentOnClickOutside(componentRef: ComponentRef<any>, domainSub: Subscription) {
+  private setupPositioning(domElem: HTMLElement, event: MouseEvent, cancelObservable: Observable<any>) {
+    const target: any = event.target;
+    const th = target.closest('th');
+
+    // Initial positioning
+    this.position(domElem, th);
+
+    const onResize = fromEvent(window, 'resize');
+    const onScroll = fromEvent(th.closest('.table-container'), 'scroll');
+    merge(onResize, onScroll)
+      .pipe(takeUntil(cancelObservable))
+      .subscribe(() => this.position(domElem, th));
+  }
+
+  // noinspection JSMethodCanBeStatic
+  private position(domElem: HTMLElement, th: HTMLElement) {
+    const thRect = th.getBoundingClientRect();
+
+    // TODO: at this point the domElem.offsetWidth is not correct, so we hard code the width
+    const popoverW = PopoverFilterService.convertRemToPixels(28.5);
+    let left = (thRect.left + th.offsetWidth / 2 - popoverW / 2);
+    if (left < 0) {
+      left = 10;
+    }
+    if (left + popoverW > window.innerWidth) {
+      left = window.innerWidth - popoverW - 10;
+    }
+
+    domElem.style.left = left + 'px';
+    domElem.style.top = (thRect.top + th.offsetHeight - 10) + 'px';
+  }
+
+  // tslint:disable-next-line:member-ordering
+  private static convertRemToPixels(rem) {
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+  }
+
+  private closeComponentOnClickOutside(domElem: HTMLElement,
+                                       componentRef: ComponentRef<any>,
+                                       domainSub: Subscription,
+                                       cancelObservable: Observable<any>) {
+    // Close when the body receives a click (skipping the current one)
     fromEvent(window.document.body, 'click')
-      .pipe(skip(1))
+      .pipe(
+        takeUntil(cancelObservable),
+        skip(1),
+      )
       .subscribe(() => this.closeComponent(componentRef, domainSub));
+
+    // ...but avoid bubbling up click events from a click on the popover
+    fromEvent(domElem, 'click')
+      .pipe(takeUntil(cancelObservable))
+      .subscribe(e => e.stopPropagation());
+
   }
 
   private closeComponent(componentRef: ComponentRef<any>, domainSub: Subscription) {
