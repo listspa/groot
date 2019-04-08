@@ -32,7 +32,6 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log(this);
     this.domainSubscription = this.domain$.subscribe(
       d => this.domain = d,
       () => this.loadingError = true);
