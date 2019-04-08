@@ -69,8 +69,6 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
   // Filter popover
   @ViewChild('grootTable') grootTable: GrootTableComponent<T>;
   @ViewChildren(PopoverDirective) popovers: QueryList<PopoverDirective>;
-  filterPopoverDomain: { [key: string]: string[] } = {};
-  filterPopoverTempValues: { [key: string]: string[] } = {};
   filterPopoverValues: { [key: string]: string[] } = {};
 
   constructor(private bsModalService: BsModalService,
