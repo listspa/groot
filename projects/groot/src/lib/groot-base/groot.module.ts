@@ -127,6 +127,7 @@ import { YesNoCheckComponent } from './components/yes-no-check/yes-no-check.comp
     GrootAccordionIndicatorComponent,
     GrootInputIconLeftDirective,
     GrootInputIconRightDirective,
+    YesNoCheckComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

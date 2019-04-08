@@ -25,6 +25,11 @@ for details.`
         type: ReleaseChangeType.NEW_FEATURE,
         html: `Extended the combo to support a listbox-like mode, which means always opened.`
       },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New component <code>groot-yes-no-check</code> to show a check or a cross depending
+on a boolean value.`
+      },
     ]
   },
   {
