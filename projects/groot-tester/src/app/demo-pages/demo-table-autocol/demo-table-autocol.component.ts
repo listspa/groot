@@ -187,7 +187,7 @@ export class DemoTableAutocolComponent implements OnInit {
     columnAndWidth.column.widthPx = columnAndWidth.newPixelsWidth;
   }
 
-  onColumnNeedsData(request: PopoverDataRequest) {
+  searchPopoverNeedsData(request: PopoverDataRequest) {
     if (isLoadingFailed(this.searchResultsData)) {
       return;
     }
