@@ -117,6 +117,9 @@
       <div *ngSwitchCase="NbpuSchemaFieldType.INT64" class="text-right">
         {{value | number: '0.0'}}
       </div>
+      <div *ngSwitchCase="NbpuSchemaFieldType.BOOLEAN" class="text-center">
+        <groot-yes-no-check [value]="value"></groot-yes-no-check>
+      </div>
       <ng-container *ngSwitchDefault>{{value}}</ng-container>
     </ng-container>
   </ng-template>
