@@ -139,7 +139,17 @@
       </div>
     </ng-template>
 
-    <div class="buttons-list-bottom-right">
+    <div class="d-flex justify-content-between">
+      <div class="buttons-list-bottom-left">
+      <groot-button
+        classes="btn-outline-info"
+        icon="fa fa-trash-o"
+        label="common.clear"
+        (click)="clearFilter(column)"
+      ></groot-button>
+      </div>
+
+      <div class="buttons-list-bottom-right">
       <groot-button
         classes="btn-outline-danger"
         icon="fa fa-cross"
@@ -153,6 +163,7 @@
         label="common.apply"
         (click)="applyPopoverFilter(column)"
       ></groot-button>
+      </div>
     </div>
   </ng-template>
 </groot-table>

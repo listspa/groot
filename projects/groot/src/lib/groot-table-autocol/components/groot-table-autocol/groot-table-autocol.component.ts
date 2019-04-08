@@ -186,6 +186,12 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
     this.closePopoverFilter();
   }
 
+  clearFilter(column: TableColumn) {
+    delete this.filterPopoverValues[column.key];
+    this.grootTable.reloadTable(true);
+    this.closePopoverFilter();
+  }
+
   closePopoverFilter() {
     this.popovers.filter(p => p.isOpen).forEach(p => p.hide());
   }
