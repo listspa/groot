@@ -3,7 +3,7 @@
   <span *ngIf="required">*</span>
 </label>
 <div class="mb-2">
-  <ng-select [items]="items"
+  <ng-select [items]="allItems"
              [placeholder]="(placeholder || label) | translate"
              [notFoundText]="notFoundText | translate"
              [addTagText]="addTagText | translate"
@@ -25,7 +25,10 @@
              [isOpen]="open"
              [class.groot-combo-checkbox]="checkboxes"
              [class.groot-combo-listbox]="showAsListBox"
-             [dropdownPosition]="showAsListBox ? 'bottom' : 'auto'">
+             [dropdownPosition]="showAsListBox ? 'bottom' : 'auto'"
+             [typeahead]="typeahead"
+             [virtualScroll]="fetchDataIncrementally"
+             (scroll)="onScroll($event)">
 
 
     <!-- For checkboxes: header with buttons select all / unselect all -->

@@ -1,5 +1,8 @@
-import {Component, forwardRef, Input, TemplateRef} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, OnInit, Output, TemplateRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {Subject} from 'rxjs';
+import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
+import {ComboDataRequest} from '../../../nbpu.interfaces';
 
 @Component({
   selector: 'groot-combo',
@@ -12,7 +15,9 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
     }
   ]
 })
-export class GrootComboComponent implements ControlValueAccessor {
+export class GrootComboComponent implements ControlValueAccessor, OnInit {
+  @Output() requestData = new EventEmitter<ComboDataRequest>();
+
   @Input() label: string;
   @Input() placeholder: string | null;
   @Input() notFoundText = 'combo.noItems';
@@ -24,13 +29,14 @@ export class GrootComboComponent implements ControlValueAccessor {
   @Input() required = false;
   @Input() disabled = false;
   @Input() helpText: string = null;
-  @Input() items: string[] | object[];
   @Input() multiple = false;
   @Input() bindLabel: string | null = null;
   @Input() bindValue: string | null = null;
   @Input() itemTemplate: TemplateRef<any> | null;
   @Input() labelTemplate: TemplateRef<any> | null;
   @Input() multiLabelTemplate: TemplateRef<any> | null;
+  @Input() fetchDataIncrementally = false;
+  @Input() maxItemsAtATime = 100;
 
   @Input() set checkboxes(value: boolean) {
     this._checkboxes = value;
@@ -44,10 +50,37 @@ export class GrootComboComponent implements ControlValueAccessor {
     }
   }
 
+  @Input() set filterServerSide(value: boolean) {
+    if (value) {
+      this.typeahead = new Subject();
+    }
+  }
+
+  /**
+   * Use only when giving all the items at one time.
+   */
+  @Input() set items(value: string[] | any[]) {
+    this.allItems = value;
+  }
+
+  /**
+   * Use only when giving items incrementally, i.e. when `fetchDataIncrementally` is true.
+   */
+  @Input() set itemsPage(value: string[] | any[]) {
+    if (!value) {
+      return;
+    }
+    this.allItems = this.allItems.concat(value);
+  }
+
   open = null;
+  allItems: string[] | any[] = [];
   selectedValue: any | any[];
+  typeahead: Subject<string>;
   private _showAsListBox = false;
   private _checkboxes = false;
+  private _lastDataRequestPageNum = 0;
+  private _lastTypeaheadValue: string;
 
   onChange = (selectedValue: any | any[]) => null;
   onTouched = () => null;
@@ -77,6 +110,8 @@ export class GrootComboComponent implements ControlValueAccessor {
     return this._checkboxes;
   }
 
+  // Checkboxes
+
   isAllSelected() {
     return this.items &&
       this.selectedValue &&
@@ -98,5 +133,41 @@ export class GrootComboComponent implements ControlValueAccessor {
 
   unselectAll() {
     this.writeValue([]);
+  }
+
+  // Incremental loading
+
+  ngOnInit(): void {
+    if (this.typeahead) {
+      this.typeahead.pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+      ).subscribe(searchTerm => {
+        // Reset current values
+        this.allItems = [];
+        this._lastDataRequestPageNum = 0;
+
+        // Search
+        this._lastTypeaheadValue = searchTerm;
+        this.doRequestData();
+      });
+    }
+  }
+
+  onScroll({end}) {
+    if (end < this.allItems.length) {
+      return;
+    }
+    ++this._lastDataRequestPageNum;
+    this.doRequestData();
+  }
+
+  private doRequestData() {
+    const request: ComboDataRequest = {
+      filterText: this._lastTypeaheadValue,
+      pageNum: this._lastDataRequestPageNum,
+      pageLen: this.maxItemsAtATime
+    };
+    this.requestData.emit(request);
   }
 }

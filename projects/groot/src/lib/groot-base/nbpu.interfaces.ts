@@ -56,8 +56,8 @@ export interface Pagination {
 }
 
 export interface PaginationOptions extends Pagination {
-    sortField: string;
-    sortReversed: boolean;
+  sortField: string;
+  sortReversed: boolean;
 }
 
 export enum NbpuSchemaFieldType {
@@ -100,6 +100,10 @@ export interface FilterOption {
 
 export interface FilterPaginationOptions extends PaginationOptions {
     filters: FilterOption[];
+}
+
+export interface ComboDataRequest extends Pagination {
+  filterText?: string | null;
 }
 
 // GUI metadata
