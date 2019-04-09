@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {ComboDataRequest} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
 
 @Component({
   selector: 'app-demo-form',
@@ -233,8 +234,30 @@ export class DemoFormComponent {
     'ZWL',
   ];
   public manyCurrenciesObjects = this.manyCurrencies.map((curr, idx) => ({id: idx, currency: curr}));
+  currenciesFiltered: string[];
+  currenciesPage: string[];
 
   onModelChange(field: string, value: any) {
     console.log('field %o changed: %o', field, value);
+  }
+
+  loadCurrenciesFiltered(event: ComboDataRequest) {
+    console.log('asked for filtered set of currencies: %o', event);
+    this.currenciesFiltered = this.manyCurrencies
+      .filter(text => DemoFormComponent.currencyMatches(text, event));
+  }
+
+  loadCurrenciesPage(event: ComboDataRequest) {
+    console.log('asked for page of currencies: %o', event);
+    this.currenciesPage = this.manyCurrencies
+      .filter(text => DemoFormComponent.currencyMatches(text, event))
+      .slice(
+        event.pageNum * event.pageLen,
+        (event.pageNum + 1) * event.pageLen);
+  }
+
+  // tslint:disable-next-line:member-ordering
+  private static currencyMatches(text, event: ComboDataRequest) {
+    return text.indexOf(event.filterText || '') !== -1;
   }
 }

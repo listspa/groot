@@ -3,6 +3,8 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {ComboDataRequest} from '../../../nbpu.interfaces';
+import {of} from 'rxjs/internal/observable/of';
+import {merge} from 'rxjs/internal/observable/merge';
 
 @Component({
   selector: 'groot-combo',
@@ -35,7 +37,6 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() itemTemplate: TemplateRef<any> | null;
   @Input() labelTemplate: TemplateRef<any> | null;
   @Input() multiLabelTemplate: TemplateRef<any> | null;
-  @Input() fetchDataIncrementally = false;
   @Input() maxItemsAtATime = 100;
 
   @Input() set checkboxes(value: boolean) {
@@ -50,10 +51,24 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
     }
   }
 
+  /**
+   * Use when you want to have the filter done in your callback, rather than automatically
+   * by the combo. The combo will emit an event `requestData` and you will need to send it
+   * the new items in `items` or `itemsPage`.
+   */
   @Input() set filterServerSide(value: boolean) {
     if (value) {
       this.typeahead = new Subject();
     }
+  }
+
+  /**
+   * Use when the combo has lots of values and you need to fetch them a few at a time from
+   * the server. Implies `filterServerSide`.
+   */
+  @Input() set fetchDataIncrementally(value: boolean) {
+    this._fetchDataIncrementally = value;
+    this.filterServerSide = true;
   }
 
   /**
@@ -81,6 +96,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   private _checkboxes = false;
   private _lastDataRequestPageNum = 0;
   private _lastTypeaheadValue: string;
+  private _fetchDataIncrementally = false;
 
   onChange = (selectedValue: any | any[]) => null;
   onTouched = () => null;
@@ -109,6 +125,11 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   get checkboxes(): boolean {
     return this._checkboxes;
   }
+
+  get fetchDataIncrementally(): boolean {
+    return this._fetchDataIncrementally;
+  }
+
 
   // Checkboxes
 
@@ -139,9 +160,13 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit(): void {
     if (this.typeahead) {
-      this.typeahead.pipe(
-        debounceTime(300),
-        distinctUntilChanged(),
+      // Emit one value at the start
+      merge(
+        of(null),
+        this.typeahead.pipe(
+          debounceTime(300),
+          distinctUntilChanged(),
+        )
       ).subscribe(searchTerm => {
         // Reset current values
         this.allItems = [];
@@ -166,7 +191,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
     const request: ComboDataRequest = {
       filterText: this._lastTypeaheadValue,
       pageNum: this._lastDataRequestPageNum,
-      pageLen: this.maxItemsAtATime
+      pageLen: this._fetchDataIncrementally ? this.maxItemsAtATime : 999999
     };
     this.requestData.emit(request);
   }

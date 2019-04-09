@@ -8,9 +8,9 @@
   documentation for forms</a>.
 </p>
 
-<h2>Groot Components</h2>
+<h1>Groot Components</h1>
 
-<h3>Input box</h3>
+<h2>Input box</h2>
 
 <div class="row">
   <div class="col-md-2">
@@ -134,7 +134,7 @@
   </div>
 </div>
 
-<h3>Checkboxes</h3>
+<h2>Checkboxes</h2>
 
 <div class="row">
   <div class="col-md-2">
@@ -184,7 +184,7 @@
   </div>
 </div>
 
-<h3>Radio</h3>
+<h2>Radio</h2>
 
 <div class="row">
   <div class="col-md-2">
@@ -247,7 +247,7 @@
   </div>
 </div>
 
-<h3>Textarea</h3>
+<h2>Textarea</h2>
 
 <div class="row">
   <div class="col-md-2">
@@ -275,7 +275,7 @@
   </div>
 </div>
 
-<h3>Combo boxes</h3>
+<h2>Combo boxes</h2>
 
 <div class="row">
   <div class="col-md-2">
@@ -713,7 +713,64 @@
   </div>
 </div>
 
-<h3>Date picker</h3>
+<h3>Filter text manually or very large combo</h3>
+
+<p>
+  Sometimes you might want to filter your combo text by some special field (generally because
+  you have a special rendering template). Another possible scenario is that you need to render
+  a combo box with a very large number of values, and thus you want to load items a few at a time.
+</p>
+
+<p>
+  To support the first scenario, the <code>groot-combo</code> supports a property
+  <code>[filterServerSide]="true"</code>. To support the second, it supports
+  <code>[fetchDataIncrementally]="true"</code>. Note that the second implies the first.
+  In both these cases, you need to subscribe to the event <code>(requestData)</code>, which
+  will be emitted when the user enters some text for searching the combo or when she scrolls
+  down and the combo needs to load more values. At this point, you need to load the data and
+  set either <code>[items]</code> (when <code>fetchDataIncrementally</code> is false)
+  or <code>[itemsPage]</code> (when it is true).
+</p>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Filter server side, no incremental load</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Filtered currencies"
+        [filterServerSide]="true"
+        (requestData)="loadCurrenciesFiltered($event)"
+        [items]="currenciesFiltered"
+      ></groot-combo>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code ngNonBindable>todo</code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Incremental loading and server side filter</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Incremental loading"
+        [fetchDataIncrementally]="true"
+        [maxItemsAtATime]="15"
+        (requestData)="loadCurrenciesPage($event)"
+        [itemsPage]="currenciesPage"
+      ></groot-combo>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code ngNonBindable>todo</code></pre>
+  </div>
+</div>
+
+<h2>Date picker</h2>
 
 <p>The <code>ngModel</code> maps to a standard JavaScript <code>Date</code> object.</p>
 
@@ -743,7 +800,7 @@
   </div>
 </div>
 
-<h3>Toggle button</h3>
+<h2>Toggle button</h2>
 
 <div class="row">
   <div class="col-md-2">
@@ -817,7 +874,7 @@
   </div>
 </div>
 
-<h3>File upload</h3>
+<h2>File upload</h2>
 
 <div class="row">
   <div class="col-md-2">
@@ -872,7 +929,7 @@
   </div>
 </div>
 
-<h3>Yes - no check</h3>
+<h2>Yes - no check</h2>
 
 <div class="row">
   <div class="col-md-2">
@@ -897,7 +954,7 @@
   </div>
 </div>
 
-<h3>Selected values</h3>
+<h2>Selected values</h2>
 
 <div class="alert alert-info">
   <h4 class="alert-heading">The <code>form</code> object used as <code>ngModel</code> above is:</h4>
