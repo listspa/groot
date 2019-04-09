@@ -50,9 +50,12 @@ export interface Sorting {
   reverse: boolean;
 }
 
-export interface PaginationOptions {
+export interface Pagination {
     pageNum: number;
     pageLen: number;
+}
+
+export interface PaginationOptions extends Pagination {
     sortField: string;
     sortReversed: boolean;
 }
