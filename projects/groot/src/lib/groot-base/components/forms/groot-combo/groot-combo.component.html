@@ -28,7 +28,8 @@
              [dropdownPosition]="showAsListBox ? 'bottom' : 'auto'"
              [typeahead]="typeahead"
              [virtualScroll]="fetchDataIncrementally"
-             (scroll)="onScroll($event)">
+             (scroll)="onScroll($event)"
+             [loading]="loading">
 
 
     <!-- For checkboxes: header with buttons select all / unselect all -->

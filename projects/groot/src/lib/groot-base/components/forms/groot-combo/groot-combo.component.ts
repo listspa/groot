@@ -76,6 +76,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
    */
   @Input() set items(value: string[] | any[]) {
     this.allItems = value;
+    this.loading = false;
   }
 
   /**
@@ -86,12 +87,14 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
       return;
     }
     this.allItems = this.allItems.concat(value);
+    this.loading = false;
   }
 
   open = null;
   allItems: string[] | any[] = [];
   selectedValue: any | any[];
   typeahead: Subject<string>;
+  loading = false;
   private _showAsListBox = false;
   private _checkboxes = false;
   private _lastDataRequestPageNum = 0;
@@ -194,5 +197,6 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
       pageLen: this._fetchDataIncrementally ? this.maxItemsAtATime : 999999
     };
     this.requestData.emit(request);
+    this.loading = true;
   }
 }

@@ -243,8 +243,10 @@ export class DemoFormComponent {
 
   loadCurrenciesFiltered(event: ComboDataRequest) {
     console.log('asked for filtered set of currencies: %o', event);
-    this.currenciesFiltered = this.manyCurrencies
-      .filter(text => DemoFormComponent.currencyMatches(text, event));
+    setTimeout(() => {
+      this.currenciesFiltered = this.manyCurrencies
+        .filter(text => DemoFormComponent.currencyMatches(text, event));
+    }, 400);
   }
 
   loadCurrenciesPage(event: ComboDataRequest) {
