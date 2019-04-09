@@ -24,10 +24,6 @@ for details.`
       },
       {
         type: ReleaseChangeType.NEW_FEATURE,
-        html: `New function <code>compareBy</code> to help sort arrays of objects.`
-      },
-      {
-        type: ReleaseChangeType.NEW_FEATURE,
         html: `Extended the combo to support a listbox-like mode, which means always opened.`
       },
       {
@@ -39,6 +35,15 @@ on a boolean value.`
         type: ReleaseChangeType.NEW_FEATURE,
         html: `New css classes to improve the accordion look & feel. See the 
 <a href="#/demo/tables">tables documentation page</a> for the example.`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New function <code>compareBy</code> to help sort arrays of objects.`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New functions <code>startIndex</code> and <code>endIndex</code> to work 
+with <code>Pagination</code> objects.`
       },
     ]
   },

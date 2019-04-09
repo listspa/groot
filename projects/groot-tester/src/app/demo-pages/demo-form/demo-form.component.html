@@ -747,7 +747,12 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code ngNonBindable>todo</code></pre>
+    <pre><code ngNonBindable>&lt;groot-combo
+  label="Filtered currencies"
+  [filterServerSide]="true"
+  (requestData)="loadCurrenciesFiltered($event)"
+  [items]="currenciesFiltered"
+>&lt;/groot-combo></code></pre>
   </div>
 </div>
 <div class="row">
@@ -766,7 +771,13 @@
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code ngNonBindable>todo</code></pre>
+    <pre><code ngNonBindable>&lt;groot-combo
+  label="Incremental loading"
+  [fetchDataIncrementally]="true"
+  [maxItemsAtATime]="15"
+  (requestData)="loadCurrenciesPage($event)"
+  [itemsPage]="currenciesPage"
+>&lt;/groot-combo></code></pre>
   </div>
 </div>
 

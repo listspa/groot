@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ComboDataRequest} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
+import {endIndex, startIndex} from '../../../../../groot/src/lib/groot-base/utils/pagination-utils';
 
 @Component({
   selector: 'app-demo-form',
@@ -243,6 +244,9 @@ export class DemoFormComponent {
 
   loadCurrenciesFiltered(event: ComboDataRequest) {
     console.log('asked for filtered set of currencies: %o', event);
+
+    // Filter in javascript, with a timeout to show the "loading" indicator.
+    // In real code you would filter on the server
     setTimeout(() => {
       this.currenciesFiltered = this.manyCurrencies
         .filter(text => DemoFormComponent.currencyMatches(text, event));
@@ -253,9 +257,7 @@ export class DemoFormComponent {
     console.log('asked for page of currencies: %o', event);
     this.currenciesPage = this.manyCurrencies
       .filter(text => DemoFormComponent.currencyMatches(text, event))
-      .slice(
-        event.pageNum * event.pageLen,
-        (event.pageNum + 1) * event.pageLen);
+      .slice(startIndex(event), endIndex(event));
   }
 
   // tslint:disable-next-line:member-ordering

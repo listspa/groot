@@ -57,6 +57,7 @@ export * from './lib/groot-base/utils/generic-table-component-base';
 export * from './lib/groot-base/utils/geometry.model';
 export * from './lib/groot-base/utils/groot-translations';
 export * from './lib/groot-base/utils/missing-translation-logger';
+export * from './lib/groot-base/utils/pagination-utils';
 export * from './lib/groot-base/utils/string-utils';
 export * from './lib/groot-base/utils/translation-utils';
 export * from './lib/groot-table-autocol/groot-table-autocol.module';
