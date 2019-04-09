@@ -29,7 +29,8 @@
              [typeahead]="typeahead"
              [virtualScroll]="fetchDataIncrementally"
              (scroll)="onScroll($event)"
-             [loading]="loading">
+             [loading]="loading"
+             (open)="onOpen()">
 
 
     <!-- For checkboxes: header with buttons select all / unselect all -->

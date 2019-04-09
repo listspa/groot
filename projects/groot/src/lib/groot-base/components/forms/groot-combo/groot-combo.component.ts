@@ -3,8 +3,6 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {ComboDataRequest} from '../../../nbpu.interfaces';
-import {of} from 'rxjs/internal/observable/of';
-import {merge} from 'rxjs/internal/observable/merge';
 
 @Component({
   selector: 'groot-combo',
@@ -163,23 +161,21 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
 
   ngOnInit(): void {
     if (this.typeahead) {
-      // Emit one value at the start
-      merge(
-        of(null),
-        this.typeahead.pipe(
-          debounceTime(300),
-          distinctUntilChanged(),
-        )
-      ).subscribe(searchTerm => {
-        // Reset current values
-        this.allItems = [];
-        this._lastDataRequestPageNum = 0;
-
-        // Search
-        this._lastTypeaheadValue = searchTerm;
-        this.doRequestData();
-      });
+      this.typeahead.pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+      ).subscribe(searchTerm => this.filterValues(searchTerm));
     }
+  }
+
+  private filterValues(searchTerm: string | null): void {
+    // Reset current values
+    this.allItems = [];
+    this._lastDataRequestPageNum = 0;
+
+    // Search
+    this._lastTypeaheadValue = searchTerm;
+    this.doRequestData();
   }
 
   onScroll({end}) {
@@ -198,5 +194,11 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
     };
     this.requestData.emit(request);
     this.loading = true;
+  }
+
+  onOpen() {
+    if (this.typeahead) {
+      this.filterValues(null);
+    }
   }
 }
