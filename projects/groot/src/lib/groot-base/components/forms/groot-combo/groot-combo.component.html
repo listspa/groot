@@ -1,4 +1,4 @@
-<label for="{{name}}" *ngIf="label">
+<label [for]="name" *ngIf="label">
   {{label | translate}}
   <span *ngIf="required">*</span>
 </label>
@@ -23,22 +23,72 @@
              [multiple]="multiple"
              [closeOnSelect]="!multiple"
              [isOpen]="open"
+             [class.groot-combo-checkbox]="checkboxes"
              [class.groot-combo-listbox]="showAsListBox"
              [dropdownPosition]="showAsListBox ? 'bottom' : 'auto'">
 
+
+    <!-- For checkboxes: header with buttons select all / unselect all -->
+    <ng-template *ngIf="checkboxes"
+                 ng-header-tmp>
+      <div class="buttons-list-left">
+        <button type="button" class="btn btn-outline-primary btn-sm"
+                (click)="selectAll()"
+                [disabled]="isAllSelected()">
+          {{'common.selectAll' | translate}}
+        </button>
+
+        <button type="button" class="btn btn-outline-primary btn-sm"
+                (click)="unselectAll()"
+                [disabled]="isNoneSelected()">
+          {{'common.unselectAll' | translate}}
+        </button>
+      </div>
+    </ng-template>
+
+
     <!-- Custom item templates -->
-    <ng-template *ngIf="itemTemplate"
+    <ng-template *ngIf="checkboxes || itemTemplate"
                  ng-option-tmp
                  let-item="item"
                  let-item$="item$"
                  let-index="index"
                  let-searchTerm="searchTerm">
-      <ng-container
-        *ngTemplateOutlet="itemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
+      <!-- With checkboxes use our template (which optionally embeds the item template, if present) -->
+      <ng-container *ngIf="checkboxes">
+        <ng-container
+          *ngTemplateOutlet="checkboxItemTpl; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
+        </ng-container>
+      </ng-container>
+      <!-- Otherwise use our custom -->
+      <ng-container *ngIf="!checkboxes">
+        <ng-container
+          *ngTemplateOutlet="itemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
+        </ng-container>
       </ng-container>
     </ng-template>
 
-    <!-- Custom label (selected object) template -->
+    <!-- Single item template: checkboxes -->
+    <ng-template #checkboxItemTpl let-item="item" let-item$="item$" let-index="index" let-searchTerm="searchTerm">
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox"
+               id="item-{{index}}"
+               class="custom-control-input"
+               [ngModel]="item$.selected">
+        <label class="custom-control-label">
+          <ng-container
+            *ngTemplateOutlet="itemTemplate || defaultItemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}"
+          ></ng-container>
+
+          <ng-template #defaultItemTemplate>
+            {{bindLabel ? item[bindLabel] : item}}
+          </ng-template>
+        </label>
+      </div>
+    </ng-template>
+
+
+    <!-- Custom label (selected object) template for SINGLE selection or listboxes -->
     <ng-template *ngIf="labelTemplate || showAsListBox"
                  ng-label-tmp
                  let-item="item"
@@ -53,16 +103,44 @@
       <!-- Empty template for list box -->
     </ng-template>
 
-    <!-- Custom template for multiple selections (replaces the label template) -->
-    <ng-template *ngIf="multiLabelTemplate"
+
+    <!-- Custom template for MULTIPLE selections (replaces the label template) -->
+    <ng-template *ngIf="checkboxes || multiLabelTemplate"
                  ng-multi-label-tmp
                  let-items="items"
                  let-clear="clear">
-      <ng-container
-        *ngTemplateOutlet="multiLabelTemplate; context: {items: items, clear: clear}">
+      <ng-container *ngIf="multiLabelTemplate">
+        <ng-container
+          *ngTemplateOutlet="multiLabelTemplate; context: {items: items, clear: clear}">
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="!multiLabelTemplate && checkboxes && !showAsListBox">
+        <ng-container
+          *ngTemplateOutlet="checkboxSelectedTpl; context: {items: items}">
+        </ng-container>
       </ng-container>
     </ng-template>
+
+
+    <!-- Selected items row template -->
+    <ng-template #checkboxSelectedTpl let-items="items">
+      <div class="ng-value">
+        <span class="ng-value-label"
+              *ngIf="isAllSelected()">
+          {{'common.allValuesSelected' | translate}}
+        </span>
+        <span class="ng-value-label"
+              *ngIf="!isAllSelected() && items.length > 1">
+          {{'common.numValuesSelected' | translate:{numSelected: items.length} }}
+        </span>
+        <span class="ng-value-label"
+              *ngIf="!isAllSelected() && items.length == 1">
+          {{'common.oneValueSelected' | translate}}
+        </span>
+      </div>
+    </ng-template>
   </ng-select>
+
   <div class="invalid-feedback" *ngIf="input.invalid && !input.pristine">
     {{'common.required' | translate}}
   </div>

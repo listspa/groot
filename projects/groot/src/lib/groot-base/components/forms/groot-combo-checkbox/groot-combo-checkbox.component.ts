@@ -1,6 +1,9 @@
 import {Component, forwardRef, Input, TemplateRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
+/**
+ * @deprecated use groot-combo with the flag "checkboxes=true"
+ */
 @Component({
   selector: 'groot-combo-checkbox',
   templateUrl: './groot-combo-checkbox.component.html',

@@ -369,23 +369,25 @@
   </div>
   <div class="col-md-3">
     <form novalidate>
-      <groot-combo-checkbox
+      <groot-combo
         label="Currency"
         name="manyCurrency"
         [items]="manyCurrencies"
         [required]="true"
         [(ngModel)]="form.selectedManyCurrencies"
-      ></groot-combo-checkbox>
+        [checkboxes]="true"
+      ></groot-combo>
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>&lt;groot-combo-checkbox
+    <pre><code>&lt;groot-combo
   label="Currency"
   name="manyCurrency"
   [items]="manyCurrencies"
   [required]="true"
   [(ngModel)]="form.selectedManyCurrencies"
->&lt;/groot-combo-checkbox></code></pre>
+  [checkboxes]="true"
+>&lt;/groot-combo></code></pre>
   </div>
 </div>
 <div class="row">
@@ -394,7 +396,7 @@
   </div>
   <div class="col-md-3">
     <form novalidate>
-      <groot-combo-checkbox
+      <groot-combo
         label="Currencies objects"
         name="manyCurrencyObj"
         [items]="manyCurrenciesObjects"
@@ -403,11 +405,12 @@
         bindLabel="currency"
         bindValue="id"
         (ngModelChange)="onModelChange('combo checkbox', $event)"
-      ></groot-combo-checkbox>
+        [checkboxes]="true"
+      ></groot-combo>
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>&lt;groot-combo-checkbox
+    <pre><code>&lt;groot-combo
   label="Currencies objects"
   name="manyCurrencyObj"
   [items]="manyCurrenciesObjects"
@@ -416,7 +419,8 @@
   bindLabel="currency"
   bindValue="id"
   (ngModelChange)="onModelChange('combo checkbox', $event)"
->&lt;/groot-combo-checkbox></code></pre>
+  [checkboxes]="true"
+>&lt;/groot-combo></code></pre>
   </div>
 </div>
 
@@ -456,7 +460,7 @@
   </div>
   <div class="col-md-3">
     <form novalidate>
-      <groot-combo-checkbox
+      <groot-combo
         label="Currencies listbox"
         name="checkBoxMultiple"
         [items]="manyCurrencies"
@@ -464,11 +468,12 @@
         [(ngModel)]="form.selectedCurrencies"
         (ngModelChange)="onModelChange('listbox checkbox currencies', $event)"
         [showAsListBox]="true"
-      ></groot-combo-checkbox>
+        [checkboxes]="true"
+      ></groot-combo>
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code>&lt;groot-combo-checkbox
+    <pre><code>&lt;groot-combo
   label="Currencies listbox"
   name="checkBoxMultiple"
   [items]="manyCurrencies"
@@ -476,7 +481,8 @@
   [(ngModel)]="form.selectedCurrencies"
   (ngModelChange)="onModelChange('listbox checkbox currencies', $event)"
   [showAsListBox]="true"
->&lt;/groot-combo-checkbox></code></pre>
+  [checkboxes]="true"
+>&lt;/groot-combo></code></pre>
   </div>
 </div>
 
@@ -673,36 +679,37 @@
   </div>
   <div class="col-md-3">
     <form novalidate>
-      <groot-combo-checkbox
+      <groot-combo
         label="Custom template combo"
         name="currencyCombCheckboxCustom"
         [items]="currencies"
         [(ngModel)]="form.currency"
         [itemTemplate]="templateCurrItem4"
-      >
+        [checkboxes]="true">
         <ng-template #templateCurrItem4 let-item="item">
           <span class="ng-option-label">
             <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
             {{item}}
           </span>
         </ng-template>
-      </groot-combo-checkbox>
+      </groot-combo>
     </form>
   </div>
   <div class="col-md-7">
-    <pre><code ngNonBindable>&lt;groot-combo-checkbox
+    <pre><code ngNonBindable>&lt;groot-combo
   label="Custom template combo"
   name="currencyCombCheckboxCustom"
   [items]="currencies"
   [(ngModel)]="form.currency"
-  [itemTemplate]="templateCurrItem4">
+  [itemTemplate]="templateCurrItem4"
+  [checkboxes]="true">
   &lt;ng-template #templateCurrItem4 let-item="item">
     &lt;span class="ng-option-label">
       &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
       &lt;/span>
   &lt;/ng-template>
-&lt;/groot-combo-checkbox></code></pre>
+&lt;/groot-combo></code></pre>
   </div>
 </div>
 

@@ -31,19 +31,33 @@ export class GrootComboComponent implements ControlValueAccessor {
   @Input() itemTemplate: TemplateRef<any> | null;
   @Input() labelTemplate: TemplateRef<any> | null;
   @Input() multiLabelTemplate: TemplateRef<any> | null;
-  open = null;
-  selectedValue: any;
-  private _showAsListBox = false;
 
-  onChange = (selectedValue: any) => null;
+  @Input() set checkboxes(value: boolean) {
+    this._checkboxes = value;
+    this.multiple = true;
+  }
+
+  @Input() set showAsListBox(v: boolean) {
+    this._showAsListBox = v;
+    if (v) {
+      this.open = true;
+    }
+  }
+
+  open = null;
+  selectedValue: any | any[];
+  private _showAsListBox = false;
+  private _checkboxes = false;
+
+  onChange = (selectedValue: any | any[]) => null;
   onTouched = () => null;
 
-  writeValue(selectedValue: any): void {
+  writeValue(selectedValue: any | any[]): void {
     this.selectedValue = selectedValue;
     this.onChange(this.selectedValue);
   }
 
-  registerOnChange(fn: (selectedValue: any) => void): void {
+  registerOnChange(fn: (selectedValue: any | any[]) => void): void {
     this.onChange = fn;
   }
 
@@ -55,14 +69,34 @@ export class GrootComboComponent implements ControlValueAccessor {
     this.disabled = isDisabled;
   }
 
-  @Input() set showAsListBox(v: boolean) {
-    this._showAsListBox = v;
-    if (v) {
-      this.open = true;
+  get showAsListBox(): boolean {
+    return this._showAsListBox;
+  }
+
+  get checkboxes(): boolean {
+    return this._checkboxes;
+  }
+
+  isAllSelected() {
+    return this.items &&
+      this.selectedValue &&
+      this.items.length === this.selectedValue.length;
+  }
+
+  isNoneSelected() {
+    return !this.selectedValue ||
+      this.selectedValue.length === 0;
+  }
+
+  selectAll() {
+    if (this.bindValue) {
+      this.writeValue((this.items as any[]).map(item => item[this.bindValue]));
+    } else {
+      this.writeValue([...this.items]);
     }
   }
 
-  get showAsListBox(): boolean {
-    return this._showAsListBox;
+  unselectAll() {
+    this.writeValue([]);
   }
 }

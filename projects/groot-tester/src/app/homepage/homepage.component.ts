@@ -12,6 +12,11 @@ const RELEASE_NOTES: Release[] = [
 in your application unless you start using it.`
       },
       {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `Deprecated the component <code>groot-combo-checkbox</code>: use simply the <code>groot-combo</code>
+with the flag <code>[checkboxes]="true"</code>.`
+      },
+      {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `Introduced the <code>groot-table-autocol</code>: a table with selectable,
 draggable and resizable columns. See the <a href="#/demo/tables-autocol">demo page</a>
