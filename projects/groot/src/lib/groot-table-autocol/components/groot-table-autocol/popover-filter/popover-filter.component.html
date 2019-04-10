@@ -8,6 +8,7 @@
       [fetchDataIncrementally]="true"
       (requestData)="comboDataRequest($event)"
       [itemsPage]="domainPage"
+      [totalNumItems]="totalLength"
       [(ngModel)]="selectedValues"
       [maxItemsAtATime]="COMBO_SIZE"
     ></groot-combo>

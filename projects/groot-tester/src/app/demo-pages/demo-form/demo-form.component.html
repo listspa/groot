@@ -784,6 +784,29 @@
   </div>
 </div>
 
+<p>
+  <b>Note:</b> when you receive a <code>PopoverDataRequest</code> do <i>not</i> write code like this:
+</p>
+
+<pre><code>
+  searchPopoverNeedsData(request: PopoverDataRequest) &#123;
+    this.myService.getDomainValues(...)
+      .subscribe(request.domainSubject);
+</code></pre>
+
+<p>
+  This would forward the values that your service loads which is good, but also the <code>complete</code>,
+  which would break incremental loading. Rather do something like this:
+</p>
+
+<pre><code>
+  searchPopoverNeedsData(request: PopoverDataRequest) &#123;
+    this.myService.getDomainValues(...)
+      .subscribe(
+        data => request.domainSubject.next(data),
+        err => request.domainSubject.error(err));
+</code></pre>
+
 <h2>Date picker</h2>
 
 <p>The <code>ngModel</code> maps to a standard JavaScript <code>Date</code> object.</p>

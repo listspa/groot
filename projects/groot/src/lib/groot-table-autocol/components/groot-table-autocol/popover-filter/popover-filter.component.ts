@@ -15,10 +15,13 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
   @Input() results: Subject<string[] | null>;
   @Input() selectedValues: string[] = [];
   @Input() domain$: Observable<string[]>;
+  @Input() totalLength$: Observable<number>;
   @Input() dataRequest: Subject<ComboDataRequest>;
   domainPage: string[] | null;
+  totalLength: number | null;
   loadingError = false;
   private domainSubscription: Subscription;
+  private totalLengthSubscription: Subscription;
 
   clear() {
     this.results.next(null);
@@ -37,6 +40,9 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.domainSubscription = this.domain$.subscribe(
       d => this.domainPage = d,
+      () => this.loadingError = true);
+    this.totalLengthSubscription = this.totalLength$.subscribe(
+      l => this.totalLength = l,
       () => this.loadingError = true);
   }
 

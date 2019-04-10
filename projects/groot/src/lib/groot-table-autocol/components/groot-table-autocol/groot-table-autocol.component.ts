@@ -27,7 +27,8 @@ export interface ColumnAndWidth {
 export interface PopoverDataRequest extends ComboDataRequest {
   column: TableColumn;
   filters: FilterOption[];
-  domainSubject: ReplaySubject<string[]>;
+  domainSubject: Subject<string[]>;
+  totalLengthSubject: Subject<number>;
 }
 
 @Component({
@@ -168,17 +169,20 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
 
   showFilterPopover(column: TableColumn, event: MouseEvent) {
     const domainSubject = new ReplaySubject<string[]>();
-    const dataRequestSubect = new Subject<ComboDataRequest>();
-    this.popoverFilterService.showPopover(column, event, domainSubject, this.filterPopoverValues[column.key], dataRequestSubect)
+    const totalLengthSubject = new ReplaySubject<number>();
+    const dataRequestSubject = new Subject<ComboDataRequest>();
+    this.popoverFilterService.showPopover(
+      column, event, domainSubject, totalLengthSubject,
+      this.filterPopoverValues[column.key], dataRequestSubject)
       .subscribe(selectedValues => {
         this.filterPopoverValues[column.key] = selectedValues;
         this.grootTable.reloadTable(true);
       });
 
-    dataRequestSubect.subscribe((comboDataRequest: ComboDataRequest) => {
+    dataRequestSubject.subscribe((comboDataRequest: ComboDataRequest) => {
       // Request domains data
       const filters = this.getFilters().filter(f => f.column !== column.columnName);
-      this.searchPopoverNeedsData.emit({...comboDataRequest, column, filters, domainSubject});
+      this.searchPopoverNeedsData.emit({...comboDataRequest, column, filters, domainSubject, totalLengthSubject});
     });
   }
 

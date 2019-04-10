@@ -20,14 +20,15 @@ export class PopoverFilterService {
 
   showPopover(column: TableColumn,
               event: MouseEvent,
-              domain: Observable<string[]>,
+              domainSubject: Observable<string[]>,
+              totalLengthSubject: Observable<number>,
               currentValues: string[] | null,
               dataRequest: Subject<ComboDataRequest>)
     : Observable<string[] | null> {
     const resultSubject = new Subject<string[]>();
 
     const {componentRef, domElem} = this.createComponent(event);
-    this.fillInputs(componentRef, column, resultSubject, currentValues, domain, dataRequest);
+    this.fillInputs(componentRef, column, resultSubject, currentValues, domainSubject, totalLengthSubject, dataRequest);
 
     this.setupPositioning(domElem, event, resultSubject);
     this.closeComponentOnClickOutside(domElem, componentRef, resultSubject);
@@ -59,13 +60,15 @@ export class PopoverFilterService {
                      column: TableColumn,
                      resultSubject,
                      currentValues: string[] | null,
-                     domain: Observable<string[]>,
+                    domainSubject: Observable<string[]>,
+                    totalLengthSubject: Observable<number>,
                      dataRequest: Subject<ComboDataRequest>) {
     const popoverFilterComponent = componentRef.instance;
     popoverFilterComponent.column = column;
     popoverFilterComponent.results = resultSubject;
     popoverFilterComponent.selectedValues = currentValues ? [...currentValues] : [];
-    popoverFilterComponent.domain$ = domain;
+    popoverFilterComponent.domain$ = domainSubject;
+    popoverFilterComponent.totalLength$ = totalLengthSubject;
     popoverFilterComponent.dataRequest = dataRequest;
   }
 

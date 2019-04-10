@@ -201,7 +201,9 @@ export class DemoTableAutocolComponent implements OnInit {
       request.domainSubject.error('error');
     } else {
       this.dealsService.getFilterDomain(request.column.fieldName, request.filters)
-        .subscribe(request.domainSubject);
+        .subscribe(
+          data => request.domainSubject.next(data),
+          err => request.domainSubject.error(err));
     }
   }
 }
