@@ -28,3 +28,40 @@
     <pre><code>&lt;groot-yes-no-check [value]="false">&lt;/groot-yes-no-check></code></pre>
   </div>
 </div>
+
+<h2>Operations button</h2>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Action buttons with title</div>
+  </div>
+  <div class="col-md-3">
+    <groot-actions-button popoverTitle="the title">
+      <groot-actions-button-entry label="test" (click)="onClickActionProva()"></groot-actions-button-entry>
+      <groot-actions-button-entry label="dummy"></groot-actions-button-entry>
+    </groot-actions-button>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-actions-button popoverTitle="the title">
+  &lt;groot-actions-button-entry label="test" (click)="onClickActionProva()">&lt;/groot-actions-button-entry>
+  &lt;groot-actions-button-entry label="dummy">&lt;/groot-actions-button-entry>
+&lt;/groot-actions-button></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Action buttons without title</div>
+  </div>
+  <div class="col-md-3">
+    <groot-actions-button>
+      <groot-actions-button-entry label="test" (click)="onClickActionProva()"></groot-actions-button-entry>
+      <groot-actions-button-entry label="dummy"></groot-actions-button-entry>
+    </groot-actions-button>
+  </div>
+  <div class="col-md-7">
+    <pre><code> &lt;groot-actions-button>
+  &lt;groot-actions-button-entry label="test" (click)="onClickActionProva()">&lt;/groot-actions-button-entry>
+  &lt;groot-actions-button-entry label="dummy">&lt;/groot-actions-button-entry>
+&lt;/groot-actions-button></code></pre>
+  </div>
+</div>

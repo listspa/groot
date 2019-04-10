@@ -1,0 +1,12 @@
+<div class="fa-stack fa-lg text-primary"
+     [popover]="popoverActions"
+     [outsideClick]="true"
+     [placement]="placement"
+     [popoverTitle]="popoverTitle">
+  <i class="fa fa-circle-thin fa-stack-2x"></i>
+  <i class="fa fa-ellipsis-v fa-stack-1x"></i>
+</div>
+
+<ng-template #popoverActions>
+  <ng-content></ng-content>
+</ng-template>

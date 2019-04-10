@@ -5,4 +5,7 @@ import {Component} from '@angular/core';
   templateUrl: './demo-small-components.component.html',
 })
 export class DemoSmallComponentsComponent {
+  onClickActionProva() {
+    alert('test test');
+  }
 }

@@ -5,6 +5,8 @@
 // Please keep this list in alphabetical order!!
 export * from './lib/groot-base/groot.module';
 export * from './lib/groot-base/nbpu.interfaces';
+export * from './lib/groot-base/components/actions-button/actions-button.component';
+export * from './lib/groot-base/components/actions-button/actions-button-entry/actions-button-entry.component';
 export * from './lib/groot-base/components/confirm-modal/confirm-modal.component';
 export * from './lib/groot-base/components/collapsible-box/collapsible-box.component';
 export * from './lib/groot-base/components/download-button/download-button.component';

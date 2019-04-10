@@ -9,7 +9,7 @@ import {CollapsibleBoxComponent} from './components/collapsible-box/collapsible-
 import {LoadingDirective} from './directives/loading.directive';
 import {LoadingIndicatorComponent} from './components/loading-indicator/loading-indicator.component';
 import {LoadingService} from './services/loading.service';
-import {BsDatepickerModule, BsDropdownModule, TabsModule} from 'ngx-bootstrap';
+import {BsDatepickerModule, BsDropdownModule, PopoverModule, TabsModule} from 'ngx-bootstrap';
 import {NotificationToastListComponent} from './components/notification-toast-list/notification-toast-list.component';
 import {NotificationToastService} from './services/notification-toast.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -43,7 +43,9 @@ import {
 import {GrootAccordionIndicatorComponent} from './components/tables/groot-accordion-indicator/groot-accordion-indicator.component';
 import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './components/forms/groot-input/groot-input.directive';
 import './polyfills/polyfill-element-closest';
-import { YesNoCheckComponent } from './components/yes-no-check/yes-no-check.component';
+import {YesNoCheckComponent} from './components/yes-no-check/yes-no-check.component';
+import {ActionsButtonComponent} from './components/actions-button/actions-button.component';
+import {ActionsButtonEntryComponent} from './components/actions-button/actions-button-entry/actions-button-entry.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +83,8 @@ import { YesNoCheckComponent } from './components/yes-no-check/yes-no-check.comp
     GrootInputIconLeftDirective,
     GrootInputIconRightDirective,
     YesNoCheckComponent,
+    ActionsButtonComponent,
+    ActionsButtonEntryComponent,
   ],
   imports: [
     CommonModule,
@@ -91,7 +95,8 @@ import { YesNoCheckComponent } from './components/yes-no-check/yes-no-check.comp
     FormsModule,
     NgSelectModule,
     BsDatepickerModule,
-    BsDropdownModule
+    BsDropdownModule,
+    PopoverModule,
   ],
   exports: [
     TablePaginationComponent,
@@ -128,6 +133,8 @@ import { YesNoCheckComponent } from './components/yes-no-check/yes-no-check.comp
     GrootInputIconLeftDirective,
     GrootInputIconRightDirective,
     YesNoCheckComponent,
+    ActionsButtonComponent,
+    ActionsButtonEntryComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,
