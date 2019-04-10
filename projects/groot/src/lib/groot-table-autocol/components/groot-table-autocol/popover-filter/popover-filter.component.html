@@ -1,24 +1,21 @@
 <div class="popover-content popover-body">
-  <ng-container *ngIf="domain; else filterLoadingTemplate">
-    <groot-combo-checkbox
+  <ng-container *ngIf="!loadingError; else loadingErrorTemplate">
+    <groot-combo
       name="filter-column"
       placeholder="common.filter"
       [showAsListBox]="true"
-      [items]="domain"
+      [checkboxes]="true"
+      [fetchDataIncrementally]="true"
+      (requestData)="comboDataRequest($event)"
+      [itemsPage]="domainPage"
       [(ngModel)]="selectedValues"
-    ></groot-combo-checkbox>
+      [maxItemsAtATime]="COMBO_SIZE"
+    ></groot-combo>
   </ng-container>
-  <ng-template #filterLoadingTemplate>
+  <ng-template #loadingErrorTemplate>
     <div class="loading-indicator">
-      <ng-container *ngIf="!loadingError">
-        <i class="fa fa-spin fa-spinner"></i>
-        {{'common.loading' | translate}}
-      </ng-container>
-
-      <ng-container *ngIf="loadingError">
-        <i class="fa fa-exclamation-triangle text-danger"></i>
-        {{'common.cannotLoadFilters' | translate}}
-      </ng-container>
+      <i class="fa fa-exclamation-triangle text-danger"></i>
+      {{'common.cannotLoadFilters' | translate}}
     </div>
   </ng-template>
 

@@ -1,6 +1,7 @@
 import {Component, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
 import {TableColumn} from '../../../model/table-columns.model';
 import {Observable, Subject, Subscription} from 'rxjs';
+import {ComboDataRequest} from '../../../../groot-base/nbpu.interfaces';
 
 @Component({
   selector: 'groot-popover-filter',
@@ -9,11 +10,13 @@ import {Observable, Subject, Subscription} from 'rxjs';
 export class PopoverFilterComponent implements OnInit, OnDestroy {
   @HostBinding('class') hostClass = 'popover popover-filters';
 
+  readonly COMBO_SIZE = 100;
   @Input() column: TableColumn;
   @Input() results: Subject<string[] | null>;
   @Input() selectedValues: string[] = [];
   @Input() domain$: Observable<string[]>;
-  domain: string[] | null;
+  @Input() dataRequest: Subject<ComboDataRequest>;
+  domainPage: string[] | null;
   loadingError = false;
   private domainSubscription: Subscription;
 
@@ -33,11 +36,16 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.domainSubscription = this.domain$.subscribe(
-      d => this.domain = d,
+      d => this.domainPage = d,
       () => this.loadingError = true);
   }
 
   ngOnDestroy(): void {
     this.domainSubscription.unsubscribe();
+    this.dataRequest.complete();
+  }
+
+  comboDataRequest(event: ComboDataRequest) {
+    this.dataRequest.next(event);
   }
 }

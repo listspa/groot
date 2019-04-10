@@ -6,6 +6,7 @@ import {ColumnsSelectorComponent} from './columns-selector/columns-selector.comp
 import {SelectedColumns, TableColumn, TableColumns} from '../../model/table-columns.model';
 import {dropDownOnCreateAnimation} from '../../../groot-base/utils/animations-utils';
 import {
+  ComboDataRequest,
   FilterOperator,
   FilterOption,
   FilterPaginationOptions,
@@ -23,7 +24,7 @@ export interface ColumnAndWidth {
   thElement: HTMLElement;
 }
 
-export interface PopoverDataRequest {
+export interface PopoverDataRequest extends ComboDataRequest {
   column: TableColumn;
   filters: FilterOption[];
   domainSubject: ReplaySubject<string[]>;
@@ -168,15 +169,18 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
 
   showFilterPopover(column: TableColumn, event: MouseEvent) {
     const domainSubject = new ReplaySubject<string[]>();
-    this.popoverFilterService.showPopover(column, event, domainSubject, this.filterPopoverValues[column.key])
+    const dataRequestSubect = new Subject<ComboDataRequest>();
+    this.popoverFilterService.showPopover(column, event, domainSubject, this.filterPopoverValues[column.key], dataRequestSubect)
       .subscribe(selectedValues => {
         this.filterPopoverValues[column.key] = selectedValues;
         this.grootTable.reloadTable(true);
       });
 
-    // Request domains data
-    const filters = this.getFilters().filter(f => f.column !== column.columnName);
-    this.searchPopoverNeedsData.emit({column, filters, domainSubject});
+    dataRequestSubect.subscribe((comboDataRequest: ComboDataRequest) => {
+      // Request domains data
+      const filters = this.getFilters().filter(f => f.column !== column.columnName);
+      this.searchPopoverNeedsData.emit({...comboDataRequest, column, filters, domainSubject});
+    });
   }
 
   onSearch(event: PaginationOptions) {

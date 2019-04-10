@@ -4,6 +4,7 @@ import {PopoverFilterComponent} from './popover-filter/popover-filter.component'
 import {fromEvent, Observable, Subject} from 'rxjs';
 import {finalize, skip, takeUntil} from 'rxjs/operators';
 import {merge} from 'rxjs/internal/observable/merge';
+import {ComboDataRequest} from '../../../groot-base/nbpu.interfaces';
 
 // Notes: this service is very much bound to the PopoverFilterComponent.
 // However, there's a lot that could be made generic. Eventually we should split it in two;
@@ -17,12 +18,16 @@ export class PopoverFilterService {
               private injector: Injector) {
   }
 
-  showPopover(column: TableColumn, event: MouseEvent, domain: Observable<string[]>, currentValues: string[] | null)
+  showPopover(column: TableColumn,
+              event: MouseEvent,
+              domain: Observable<string[]>,
+              currentValues: string[] | null,
+              dataRequest: Subject<ComboDataRequest>)
     : Observable<string[] | null> {
     const resultSubject = new Subject<string[]>();
 
     const {componentRef, domElem} = this.createComponent(event);
-    this.fillInputs(componentRef, column, resultSubject, currentValues, domain);
+    this.fillInputs(componentRef, column, resultSubject, currentValues, domain, dataRequest);
 
     this.setupPositioning(domElem, event, resultSubject);
     this.closeComponentOnClickOutside(domElem, componentRef, resultSubject);
@@ -54,12 +59,14 @@ export class PopoverFilterService {
                      column: TableColumn,
                      resultSubject,
                      currentValues: string[] | null,
-                     domain: Observable<string[]>) {
+                     domain: Observable<string[]>,
+                     dataRequest: Subject<ComboDataRequest>) {
     const popoverFilterComponent = componentRef.instance;
     popoverFilterComponent.column = column;
     popoverFilterComponent.results = resultSubject;
     popoverFilterComponent.selectedValues = currentValues ? [...currentValues] : [];
     popoverFilterComponent.domain$ = domain;
+    popoverFilterComponent.dataRequest = dataRequest;
   }
 
   private setupPositioning(domElem: HTMLElement, event: MouseEvent, cancelObservable: Observable<any>) {

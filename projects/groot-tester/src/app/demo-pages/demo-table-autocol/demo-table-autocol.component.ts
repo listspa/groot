@@ -191,6 +191,7 @@ export class DemoTableAutocolComponent implements OnInit {
   }
 
   searchPopoverNeedsData(request: PopoverDataRequest) {
+    console.log('search popover data request: %o', request);
     if (isLoadingFailed(this.searchResultsData)) {
       return;
     }
