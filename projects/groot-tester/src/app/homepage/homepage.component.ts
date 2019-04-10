@@ -13,6 +13,10 @@ in your application unless you start using it.`
       },
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `In your app module you need to import the module <code>PopoverModule.forRoot()</code>.`
+      },
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
         html: `Deprecated the component <code>groot-combo-checkbox</code>: use simply the <code>groot-combo</code>
 with the flag <code>[checkboxes]="true"</code>.`
       },
@@ -33,7 +37,12 @@ for details.`
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `New component <code>groot-yes-no-check</code> to show a check or a cross depending
-on a boolean value.`
+on a boolean value. See its <a href="#/demo/misc-small-components">documentation page</a>.`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New component <code>groot-actions-button</code> to show a clickable button which
+shows a menu when clicked. See its <a href="#/demo/misc-small-components">documentation page</a>.`
       },
       {
         type: ReleaseChangeType.NEW_FEATURE,
