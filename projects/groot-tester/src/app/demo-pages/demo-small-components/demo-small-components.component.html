@@ -37,7 +37,7 @@
   </div>
   <div class="col-md-3">
     <groot-actions-button popoverTitle="the title">
-      <groot-actions-button-entry label="test" (click)="onClickActionProva()"></groot-actions-button-entry>
+      <groot-actions-button-entry label="test" (actionTriggered)="onClickActionProva()"></groot-actions-button-entry>
       <groot-actions-button-entry label="dummy"></groot-actions-button-entry>
     </groot-actions-button>
   </div>
@@ -57,7 +57,7 @@
 
     <ng-template #actionsTpl>
       <h2>Actions:</h2>
-      <groot-actions-button-entry label="test" (click)="onClickActionProva()"></groot-actions-button-entry>
+      <groot-actions-button-entry label="test" (actionTriggered)="onClickActionProva()"></groot-actions-button-entry>
     </ng-template>
   </div>
   <div class="col-md-7">

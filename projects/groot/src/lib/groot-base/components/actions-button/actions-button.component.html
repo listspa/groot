@@ -5,7 +5,8 @@
      [placement]="placement"
      [popoverTitle]="popoverTitle"
      (mouseenter)="hover = true"
-     (mouseleave)="hover = false">
+     (mouseleave)="hover = false"
+     (click)="$event.stopPropagation()">
   <i class="fa fa-stack-2x"
      [class.fa-circle-thin]="!hover"
      [class.fa-circle]="hover"

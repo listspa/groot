@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'groot-actions-button-entry',
@@ -7,4 +7,11 @@ import {Component, Input} from '@angular/core';
 export class ActionsButtonEntryComponent {
   @Input() label: string;
   @Input() icon: string | string[] | null = null;
+  @Output() actionTriggered = new EventEmitter<void>();
+
+  @HostListener('click', ['$event'])
+  onClick($event: MouseEvent) {
+    this.actionTriggered.next();
+    $event.stopPropagation();
+  }
 }
