@@ -1,10 +1,17 @@
-<div class="fa-stack fa-lg text-primary"
+<div class="fa-stack fa-lg groot-actions-button"
      [popover]="popoverActions"
      [outsideClick]="true"
      [placement]="placement"
-     [popoverTitle]="popoverTitle">
-  <i class="fa fa-circle-thin fa-stack-2x"></i>
-  <i class="fa fa-ellipsis-v fa-stack-1x"></i>
+     [popoverTitle]="popoverTitle"
+     (mouseenter)="hover = true"
+     (mouseleave)="hover = false">
+  <i class="fa fa-stack-2x"
+     [class.fa-circle-thin]="!hover"
+     [class.fa-circle]="hover"
+  ></i>
+  <i class="fa fa-ellipsis-v fa-stack-1x"
+     [class.text-white]="hover"
+  ></i>
 </div>
 
 <ng-template #popoverActions>

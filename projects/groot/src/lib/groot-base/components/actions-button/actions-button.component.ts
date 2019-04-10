@@ -7,4 +7,6 @@ import {Component, Input} from '@angular/core';
 export class ActionsButtonComponent {
   @Input() placement: 'top' | 'bottom' | 'right' | 'left' | 'auto' = 'right';
   @Input() popoverTitle: string | null;
+
+  hover: boolean;
 }
