@@ -110,7 +110,7 @@ export class PopoverFilterService {
                                        componentRef: ComponentRef<any>,
                                        cancelObservable: Observable<any>) {
     // Close when the body receives a click (skipping the current one)
-    fromEvent(window.document.body, 'click')
+    fromEvent(window, 'click')
       .pipe(
         takeUntil(cancelObservable),
         skip(1),
