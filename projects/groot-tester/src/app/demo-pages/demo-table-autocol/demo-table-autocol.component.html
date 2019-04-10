@@ -39,7 +39,9 @@
   <code>TableColumn</code> objects: the list of all available fields, the currently selected ones and the
   one chosen to go in the accordion. You also need to subscribe the event <code>columnsSelectionChanged</code>,
   where you will need to update the arrays and perhaps save them to the server or to the local storage.
-  Finally, to handle resizing, you will need to handle the <code>columnResized</code> event to set the new size.
+  To handle resizing, you will need to handle the <code>columnResized</code> event to set the new size.
+  Finally, to handle the column filtering, you will need to handle the <code>searchPopoverNeedsData</code>
+  event, which is similar to a standard <code>groot-combo</code> event for loading the items with pagination.
 </p>
 
 <p>
