@@ -9,4 +9,8 @@ groot-actions-button-entry {
   font-weight: bold;
   padding: 0.2rem;
   cursor: pointer;
+
+  &:hover {
+    color: $light-primary;
+  }
 }
