@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ComboDataRequest} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
+import {ComboDataRequest, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
 import {endIndex, startIndex} from '../../../../../groot/src/lib/groot-base/utils/pagination-utils';
 
 @Component({
@@ -236,8 +236,7 @@ export class DemoFormComponent {
   ];
   public manyCurrenciesObjects = this.manyCurrencies.map((curr, idx) => ({id: idx, currency: curr}));
   currenciesFiltered: string[];
-  currenciesPage: string[];
-  currenciesPageLength: number;
+  currenciesPage: PaginatedResponse<string>;
 
   onModelChange(field: string, value: any) {
     console.log('field %o changed: %o', field, value);
@@ -258,8 +257,13 @@ export class DemoFormComponent {
     console.log('asked for page of currencies: %o', event);
     const filteredCurrencies = this.manyCurrencies
       .filter(text => DemoFormComponent.currencyMatches(text, event));
-    this.currenciesPage = filteredCurrencies.slice(startIndex(event), endIndex(event));
-    this.currenciesPageLength = filteredCurrencies.length;
+    const rows = filteredCurrencies.slice(startIndex(event), endIndex(event));
+    this.currenciesPage = {
+      pageNum: event.pageNum,
+      pageLen: event.pageLen,
+      records: rows,
+      totalNumRecords: filteredCurrencies.length
+    };
   }
 
   // tslint:disable-next-line:member-ordering

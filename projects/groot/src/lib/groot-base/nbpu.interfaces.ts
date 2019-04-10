@@ -1,5 +1,7 @@
 // CRUD Responses
 
+import {PopoverDataRequest} from '../groot-table-autocol/components/groot-table-autocol/groot-table-autocol.component';
+
 export interface PaginatedResponse<T> {
     records: T[];
     totalNumRecords: number;
@@ -104,6 +106,21 @@ export interface FilterPaginationOptions extends PaginationOptions {
 
 export interface ComboDataRequest extends Pagination {
   filterText?: string | null;
+}
+
+export interface SearchColumnValuesRequest extends ComboDataRequest {
+  columnName: string;
+  filters: FilterOption[];
+}
+
+export function toSearchColumnValuesRequest(request: PopoverDataRequest): SearchColumnValuesRequest {
+  return {
+    pageNum: request.pageNum,
+    pageLen: request.pageLen,
+    filterText: request.filterText,
+    columnName: request.column.columnName,
+    filters: request.filters,
+  };
 }
 
 // GUI metadata

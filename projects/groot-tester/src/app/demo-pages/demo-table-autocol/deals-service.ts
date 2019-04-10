@@ -1,7 +1,12 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {LoadingService} from '../../../../../groot/src/lib/groot-base/services/loading.service';
-import {FilterOption, FilterPaginationOptions, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
+import {
+  FilterOption,
+  FilterPaginationOptions,
+  PaginatedResponse,
+  SearchColumnValuesRequest
+} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
 import {Observable, of} from 'rxjs';
 import {finalize, map} from 'rxjs/operators';
 import {BASE_URL} from '../../constants';
@@ -69,18 +74,24 @@ export class DealsService {
     return (filter.value as string[]).some(s => value === s);
   }
 
-  getFilterDomain(columnName: string, filters: FilterOption[]): Observable<string[]> {
+  getFilterDomain(request: SearchColumnValuesRequest): Observable<PaginatedResponse<string>> {
     return this.getDeals()
       .pipe(map(response => {
         // Very simple algorithm: extracts the values from the visible rows
-        const rows = this.filter(filters, response.records);
+        const rows = this.filter(request.filters, response.records);
         const rawItems: string[] = rows
-          .map(r => r[columnName])
+          .map(r => r[request.columnName])
           .filter(v => v);
         const distinctItems: string[] = Array.from(
           new Set<string>(rawItems).values());
         distinctItems.sort();
-        return distinctItems;
+
+        return {
+          pageNum: request.pageNum,
+          pageLen: request.pageLen,
+          records: distinctItems,
+          totalNumRecords: distinctItems.length
+        };
       }));
   }
 

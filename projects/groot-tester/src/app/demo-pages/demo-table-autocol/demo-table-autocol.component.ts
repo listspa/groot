@@ -1,7 +1,12 @@
 import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {extractColumns, SelectedColumns, TableColumns} from '../../../../../groot/src/lib/groot-table-autocol/model/table-columns.model';
 import {isLoadingFailed, LoadingFailed} from '../../../../../groot/src/lib/groot-base/components/tables/groot-table/groot-table.component';
-import {FilterPaginationOptions, NbpuSchemaFieldType, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
+import {
+  FilterPaginationOptions,
+  NbpuSchemaFieldType,
+  PaginatedResponse,
+  toSearchColumnValuesRequest
+} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
 import {Deal, DealsService} from './deals-service';
 import {
   ColumnAndWidth,
@@ -200,7 +205,7 @@ export class DemoTableAutocolComponent implements OnInit {
       // Use as an example to check out the error rendering
       request.domainSubject.error('error');
     } else {
-      this.dealsService.getFilterDomain(request.column.fieldName, request.filters)
+      this.dealsService.getFilterDomain(toSearchColumnValuesRequest(request))
         .subscribe(
           data => request.domainSubject.next(data),
           err => request.domainSubject.error(err));

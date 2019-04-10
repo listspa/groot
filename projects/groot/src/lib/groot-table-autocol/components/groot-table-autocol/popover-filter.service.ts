@@ -4,7 +4,7 @@ import {PopoverFilterComponent} from './popover-filter/popover-filter.component'
 import {fromEvent, Observable, Subject} from 'rxjs';
 import {finalize, skip, takeUntil} from 'rxjs/operators';
 import {merge} from 'rxjs/internal/observable/merge';
-import {ComboDataRequest} from '../../../groot-base/nbpu.interfaces';
+import {ComboDataRequest, PaginatedResponse} from '../../../groot-base/nbpu.interfaces';
 
 // Notes: this service is very much bound to the PopoverFilterComponent.
 // However, there's a lot that could be made generic. Eventually we should split it in two;
@@ -20,15 +20,14 @@ export class PopoverFilterService {
 
   showPopover(column: TableColumn,
               event: MouseEvent,
-              domainSubject: Observable<string[]>,
-              totalLengthSubject: Observable<number>,
+              domainSubject: Observable<PaginatedResponse<string>>,
               currentValues: string[] | null,
               dataRequest: Subject<ComboDataRequest>)
     : Observable<string[] | null> {
     const resultSubject = new Subject<string[]>();
 
-    const {componentRef, domElem} = this.createComponent(event);
-    this.fillInputs(componentRef, column, resultSubject, currentValues, domainSubject, totalLengthSubject, dataRequest);
+    const {componentRef, domElem} = this.createComponent();
+    this.fillInputs(componentRef, column, resultSubject, currentValues, domainSubject, dataRequest);
 
     this.setupPositioning(domElem, event, resultSubject);
     this.closeComponentOnClickOutside(domElem, componentRef, resultSubject);
@@ -38,7 +37,7 @@ export class PopoverFilterService {
   }
 
   // See https://hackernoon.com/angular-pro-tip-how-to-dynamically-create-components-in-body-ba200cc289e6
-  private createComponent(event: MouseEvent): { componentRef: ComponentRef<PopoverFilterComponent>, domElem: HTMLElement } {
+  private createComponent(): { componentRef: ComponentRef<PopoverFilterComponent>, domElem: HTMLElement } {
     const componentRef = this.componentFactoryResolver
       .resolveComponentFactory(PopoverFilterComponent)
       .create(this.injector);
@@ -60,15 +59,13 @@ export class PopoverFilterService {
                      column: TableColumn,
                      resultSubject,
                      currentValues: string[] | null,
-                    domainSubject: Observable<string[]>,
-                    totalLengthSubject: Observable<number>,
+                     domainSubject: Observable<PaginatedResponse<string>>,
                      dataRequest: Subject<ComboDataRequest>) {
     const popoverFilterComponent = componentRef.instance;
     popoverFilterComponent.column = column;
     popoverFilterComponent.results = resultSubject;
     popoverFilterComponent.selectedValues = currentValues ? [...currentValues] : [];
     popoverFilterComponent.domain$ = domainSubject;
-    popoverFilterComponent.totalLength$ = totalLengthSubject;
     popoverFilterComponent.dataRequest = dataRequest;
   }
 

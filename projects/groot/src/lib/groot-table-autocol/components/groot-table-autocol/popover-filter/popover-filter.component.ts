@@ -1,7 +1,7 @@
 import {Component, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
 import {TableColumn} from '../../../model/table-columns.model';
 import {Observable, Subject, Subscription} from 'rxjs';
-import {ComboDataRequest} from '../../../../groot-base/nbpu.interfaces';
+import {ComboDataRequest, PaginatedResponse} from '../../../../groot-base/nbpu.interfaces';
 
 @Component({
   selector: 'groot-popover-filter',
@@ -14,14 +14,11 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
   @Input() column: TableColumn;
   @Input() results: Subject<string[] | null>;
   @Input() selectedValues: string[] = [];
-  @Input() domain$: Observable<string[]>;
-  @Input() totalLength$: Observable<number>;
+  @Input() domain$: Observable<PaginatedResponse<string>>;
   @Input() dataRequest: Subject<ComboDataRequest>;
-  domainPage: string[] | null;
-  totalLength: number | null;
+  domainPage: PaginatedResponse<string>;
   loadingError = false;
   private domainSubscription: Subscription;
-  private totalLengthSubscription: Subscription;
 
   clear() {
     this.results.next(null);
@@ -40,9 +37,6 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.domainSubscription = this.domain$.subscribe(
       d => this.domainPage = d,
-      () => this.loadingError = true);
-    this.totalLengthSubscription = this.totalLength$.subscribe(
-      l => this.totalLength = l,
       () => this.loadingError = true);
   }
 

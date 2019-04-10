@@ -2,7 +2,7 @@ import {Component, EventEmitter, forwardRef, Input, OnInit, Output, TemplateRef}
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
-import {ComboDataRequest} from '../../../nbpu.interfaces';
+import {ComboDataRequest, PaginatedResponse} from '../../../nbpu.interfaces';
 
 @Component({
   selector: 'groot-combo',
@@ -36,11 +36,6 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() labelTemplate: TemplateRef<any> | null;
   @Input() multiLabelTemplate: TemplateRef<any> | null;
   @Input() maxItemsAtATime = 100;
-
-  /**
-   * The total number of items that can be found on the server. Use only with `fetchDataIncrementally`.
-   */
-  @Input() totalNumItems: number;
 
   @Input() set checkboxes(value: boolean) {
     this._checkboxes = value;
@@ -85,11 +80,14 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   /**
    * Use only when giving items incrementally, i.e. when `fetchDataIncrementally` is true.
    */
-  @Input() set itemsPage(value: string[] | any[]) {
-    if (!value) {
+  @Input() set itemsPage(page: PaginatedResponse<string | any>) {
+    if (!page) {
       return;
     }
-    this.allItems = this.allItems.concat(value);
+    this._pages[page.pageNum] = page.records;
+    this._totalNumItems = page.totalNumRecords;
+
+    this.allItems = [].concat(...this._pages);
     this.loading = false;
   }
 
@@ -100,9 +98,10 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   loading = false;
   private _showAsListBox = false;
   private _checkboxes = false;
-  private _lastDataRequestPageNum = 0;
   private _lastTypeaheadValue: string;
   private _fetchDataIncrementally = false;
+  private _pages: string[][] = [];
+  private _totalNumItems: number | null = null;
 
   onChange = (selectedValue: any | any[]) => null;
   onTouched = () => null;
@@ -169,42 +168,50 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
       this.typeahead.pipe(
         debounceTime(300),
         distinctUntilChanged(),
-      ).subscribe(searchTerm => this.filterValues(searchTerm));
+      ).subscribe(searchTerm => this.onFilterTextChanged(searchTerm));
     }
   }
 
-  private filterValues(searchTerm: string | null): void {
+  private onFilterTextChanged(searchTerm: string | null): void {
     // Reset current values
     this.allItems = [];
-    this._lastDataRequestPageNum = 0;
+    this._pages = [];
+    this._totalNumItems = null;
 
     // Search
     this._lastTypeaheadValue = searchTerm;
-    this.doRequestData();
+    this.doRequestData(0);
   }
 
   onScroll({end}) {
-    if (end > 0 && end < this.allItems.length &&
-      (this.totalNumItems !== undefined && this.totalNumItems !== null ? end < this.totalNumItems : true)) {
+    if (end > 0 && end < this.allItems.length) {
       return;
     }
-    ++this._lastDataRequestPageNum;
-    this.doRequestData();
+    if (this._totalNumItems !== undefined && this._totalNumItems !== null && end >= this._totalNumItems) {
+      return;
+    }
+    const pageToLoad = Math.trunc(end / this.maxItemsAtATime);
+    if (this._pages[pageToLoad]) {
+      return;
+    }
+
+    this.doRequestData(pageToLoad);
   }
 
-  private doRequestData() {
+  private doRequestData(pageToLoad: number) {
     const request: ComboDataRequest = {
       filterText: this._lastTypeaheadValue,
-      pageNum: this._lastDataRequestPageNum,
+      pageNum: pageToLoad,
       pageLen: this._fetchDataIncrementally ? this.maxItemsAtATime : 999999
     };
     this.loading = true;
     this.requestData.emit(request);
+    this._pages[pageToLoad] = [];
   }
 
   onOpen() {
     if (this.typeahead) {
-      this.filterValues(null);
+      this.onFilterTextChanged(null);
     }
   }
 }
