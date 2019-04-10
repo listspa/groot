@@ -179,7 +179,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   }
 
   onScroll({end}) {
-    if (end < this.allItems.length) {
+    if (end > 0 && end <= this.allItems.length) {
       return;
     }
     ++this._lastDataRequestPageNum;
@@ -192,8 +192,8 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
       pageNum: this._lastDataRequestPageNum,
       pageLen: this._fetchDataIncrementally ? this.maxItemsAtATime : 999999
     };
-    this.requestData.emit(request);
     this.loading = true;
+    this.requestData.emit(request);
   }
 
   onOpen() {
