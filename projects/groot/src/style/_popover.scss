@@ -2,3 +2,42 @@
 .popover {
   background-clip: border-box;
 }
+
+.popover.popover-dark {
+  background-color: $dark-popover-bg;
+  border-color: $dark-popover-border-color;
+
+  .popover-body {
+    color: $dark-popover-body-color;
+  }
+
+  .popover-header {
+    background-color: $dark-popover-header-bg;
+    border-bottom: $popover-border-width solid darken($dark-popover-header-bg, 5%);
+    color: $dark-popover-header-color;
+  }
+
+  &.bs-popover-top .arrow {
+    &::after {
+      border-top-color: $dark-popover-border-color;
+    }
+  }
+
+  &.bs-popover-right .arrow {
+    &::after {
+      border-right-color: $dark-popover-border-color;
+    }
+  }
+
+  &.bs-popover-bottom .arrow {
+    &::after {
+      border-bottom-color: $dark-popover-border-color;
+    }
+  }
+
+  &.bs-popover-left .arrow {
+    &::after {
+      border-left-color: $dark-popover-border-color;
+    }
+  }
+}

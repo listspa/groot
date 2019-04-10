@@ -211,7 +211,8 @@ $box-bg-color: $gray-100 !default;
 
 // Popover
 
-$popover-bg: $gray-800 !default;
-$popover-border-color: $gray-900 !default;
-$popover-body-color: $gray-200 !default;
-$popover-header-color: $gray-100 !default;
+$dark-popover-bg: $gray-800 !default;
+$dark-popover-border-color: $gray-900 !default;
+$dark-popover-body-color: $gray-200 !default;
+$dark-popover-header-color: $gray-100 !default;
+$dark-popover-header-bg: $dark-popover-border-color !default;
