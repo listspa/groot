@@ -206,8 +206,8 @@ $toasts-area-bottom: 3.2em !default; // If you do not use the footer, lower this
 
 // Box, cards
 
-$box-border-color: $gray-400;
-$box-bg-color: $gray-100;
+$box-border-color: $gray-400 !default;
+$box-bg-color: $gray-100 !default;
 
 // Popover
 
