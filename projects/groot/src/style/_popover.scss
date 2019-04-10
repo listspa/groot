@@ -1,0 +1,4 @@
+// Avoid a subtle "white" border that annoys us very much
+.popover {
+  background-clip: border-box;
+}
