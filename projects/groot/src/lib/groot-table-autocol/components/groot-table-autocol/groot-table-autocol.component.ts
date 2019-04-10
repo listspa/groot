@@ -1,5 +1,5 @@
-import {Component, ElementRef, EventEmitter, Input, OnDestroy, Output, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {BsModalService, PopoverDirective} from 'ngx-bootstrap';
+import {Component, ElementRef, EventEmitter, Input, OnDestroy, Output, ViewChild} from '@angular/core';
+import {BsModalService} from 'ngx-bootstrap';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {ReplaySubject, Subject, Subscription} from 'rxjs';
 import {ColumnsSelectorComponent} from './columns-selector/columns-selector.component';
@@ -65,7 +65,6 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
 
   // Filter popover
   @ViewChild('grootTable') grootTable: GrootTableComponent<T>;
-  @ViewChildren(PopoverDirective) popovers: QueryList<PopoverDirective>;
   filterPopoverValues: { [key: string]: string[] } = {};
 
   constructor(private bsModalService: BsModalService,
