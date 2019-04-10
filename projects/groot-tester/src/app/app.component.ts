@@ -27,6 +27,7 @@ export class AppComponent {
         {label: 'Tooltips', url: '/demo/tooltips', icon: 'fa fa-square'},
         {label: 'Nav bar', url: '/demo/nav-bar', icon: 'fa fa-bars'},
         {label: 'Page title', url: '/demo/page-title', icon: 'fa fa-th-list'},
+        {label: 'Misc small components', url: '/demo/misc-small-components', icon: 'fa fa-ellipsis-h'},
         {label: 'Other utilities', url: '/demo/other-utilities'},
         {label: 'Capabilities', url: '/demo/capabilities'},
       ]
@@ -91,6 +92,7 @@ export class AppComponent {
             {label: 'Page title', url: '/demo/page-title', icon: 'fa fa-th-list'}
           ],
           [
+            {label: 'Misc small components', url: '/demo/misc-small-components', icon: 'fa fa-ellipsis-h'},
             {label: 'Other utilities', url: '/demo/other-utilities'},
             {label: 'Capabilities', url: '/demo/capabilities'}
           ]

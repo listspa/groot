@@ -4,8 +4,7 @@ import {endIndex, startIndex} from '../../../../../groot/src/lib/groot-base/util
 
 @Component({
   selector: 'app-demo-form',
-  templateUrl: './demo-form.component.html',
-  styleUrls: ['./demo-form.component.scss']
+  templateUrl: './demo-form.component.html'
 })
 export class DemoFormComponent {
   form = {

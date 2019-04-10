@@ -27,6 +27,7 @@ import {DemoPageTitleComponent} from './demo-pages/demo-page-title/demo-page-tit
 import {DemoFooterComponent} from './demo-pages/demo-footer/demo-footer.component';
 import {DemoCardsComponent} from './demo-pages/demo-cards/demo-cards.component';
 import {DemoTableAutocolComponent} from './demo-pages/demo-table-autocol/demo-table-autocol.component';
+import {DemoSmallComponentsComponent} from './demo-pages/demo-small-components/demo-small-components.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
@@ -56,6 +57,7 @@ const routes: Routes = [
   {component: DemoFooterComponent, path: 'demo/footer'},
   {component: DemoPageTitleComponent, path: 'demo/page-title', data: {pageTitle: {title: 'Page Title Demo', subTitle: 'Page sub title'}}},
   {component: DemoCardsComponent, path: 'demo/cards'},
+  {component: DemoSmallComponentsComponent, path: 'demo/misc-small-components'},
   {path: '', pathMatch: 'full', redirectTo: 'home'}
 ];
 

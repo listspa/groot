@@ -6,3 +6,11 @@ pre code {
   padding-left: 1rem;
   display: block;
 }
+
+.form-field-explanation {
+  padding: 0.3rem;
+  border-right: 2px solid $yellow;
+  height: 90%;
+  display: flex;
+  align-items: center;
+}
