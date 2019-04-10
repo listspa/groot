@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Input, OnDestroy, Output, ViewChild} from '@angular/core';
+import {Component, ContentChild, ElementRef, EventEmitter, Input, OnDestroy, Output, TemplateRef, ViewChild} from '@angular/core';
 import {BsModalService} from 'ngx-bootstrap';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {ReplaySubject, Subject, Subscription} from 'rxjs';
@@ -17,6 +17,7 @@ import {
 import {ElementResizingHandler} from '../../../groot-base/utils/element-resizing-handler';
 import {GrootTableComponent, LoadingFailed} from '../../../groot-base/components/tables/groot-table/groot-table.component';
 import {PopoverFilterService} from './popover-filter.service';
+import {GrootTableAutocolActionsDirective} from './groot-table-autocol.directive';
 
 export interface ColumnAndWidth {
   column: TableColumn;
@@ -50,6 +51,7 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
   @Input() hideTableIfEmpty = true;
   @Output() search = new EventEmitter<FilterPaginationOptions>();
   @Input() searchResultsData: PaginatedResponse<T> | LoadingFailed;
+  @Input() @ContentChild(GrootTableAutocolActionsDirective, {read: TemplateRef}) actionsTemplate: TemplateRef<any>;
 
   // Column selector
   @Input() availableColumns: TableColumns;

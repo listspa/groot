@@ -64,6 +64,7 @@ export * from './lib/groot-base/utils/string-utils';
 export * from './lib/groot-base/utils/translation-utils';
 export * from './lib/groot-table-autocol/groot-table-autocol.module';
 export * from './lib/groot-table-autocol/components/groot-table-autocol/groot-table-autocol.component';
+export * from './lib/groot-table-autocol/components/groot-table-autocol/groot-table-autocol.directive';
 export * from './lib/groot-table-autocol/components/groot-table-autocol/popover-filter.service';
 export * from './lib/groot-table-autocol/components/groot-table-autocol/columns-selector/columns-selector.component';
 export * from './lib/groot-table-autocol/components/groot-table-autocol/columns-selector-list/columns-selector-list.component';

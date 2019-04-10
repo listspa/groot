@@ -29,6 +29,7 @@
         cdkDropListLockAxis="x"
         cdkDropListOrientation="horizontal"
         (cdkDropListDropped)="moveColumn($event)">
+      <th *ngIf="actionsTemplate" class="table-actions-col">&nbsp;</th>
       <th *ngFor="let column of selectedColumns"
           cdkDrag
           class="groot-table-header-draggable"
@@ -64,6 +65,9 @@
           [class.table-row-selectable]="accordionColumns.length > 0"
           [class.accordion-expanded]="row.$accordionVisible"
           (click)="row.$accordionVisible = !row.$accordionVisible">
+        <td *ngIf="actionsTemplate">
+          <groot-actions-button [popoverTemplate]="actionsTemplate"></groot-actions-button>
+        </td>
         <td *ngFor="let column of selectedColumns"
             [ngClass]="column.tdClassName">
           <ng-template
@@ -80,7 +84,7 @@
       <tr *ngIf="row.$accordionVisible"
           class="accordion-row"
           [@dropDown]>
-        <td [attr.colspan]="selectedColumns.length + 1"
+        <td [attr.colspan]="selectedColumns.length + 1 + (actionsTemplate ? 1 : 0)"
             class="accordion-container">
           <div class="container-fluid accordion-content">
             <div class="row">

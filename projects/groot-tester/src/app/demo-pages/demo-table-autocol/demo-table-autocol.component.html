@@ -21,6 +21,10 @@
   (columnResized)="onColumnResized($event)"
   (searchPopoverNeedsData)="searchPopoverNeedsData($event)"
 >
+  <ng-template grootTableAutocolActions>
+    <groot-actions-button-entry label="Details"></groot-actions-button-entry>
+  </ng-template>
+
   <ng-template #dealIdTemplate let-value>
     <div style="font-size: 1.3rem; font-family: 'Roboto Condensed'; background-color: #eee; text-align: center">
       {{value}}
@@ -55,6 +59,12 @@
   Note that the component lives in a separate angular module, to help with tree shaking (saving space
   in your app by excluding items you do not use). To use this component, therefore, you need to import the module
   <code>GrootTableAutocolModule</code>.
+</p>
+
+<p>
+  The component supports optionally an "action" button in each row; to use it simply add a template with the
+  directive <code>grootTableAutocolActions</code> in it. See also the <a href="#/demo/misc-small-components">
+  documentation page for the action button component</a> for more examples.
 </p>
 
 <p>
