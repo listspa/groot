@@ -237,6 +237,7 @@ export class DemoFormComponent {
   public manyCurrenciesObjects = this.manyCurrencies.map((curr, idx) => ({id: idx, currency: curr}));
   currenciesFiltered: string[];
   currenciesPage: string[];
+  currenciesPageLength: number;
 
   onModelChange(field: string, value: any) {
     console.log('field %o changed: %o', field, value);
@@ -255,9 +256,10 @@ export class DemoFormComponent {
 
   loadCurrenciesPage(event: ComboDataRequest) {
     console.log('asked for page of currencies: %o', event);
-    this.currenciesPage = this.manyCurrencies
-      .filter(text => DemoFormComponent.currencyMatches(text, event))
-      .slice(startIndex(event), endIndex(event));
+    const filteredCurrencies = this.manyCurrencies
+      .filter(text => DemoFormComponent.currencyMatches(text, event));
+    this.currenciesPage = filteredCurrencies.slice(startIndex(event), endIndex(event));
+    this.currenciesPageLength = filteredCurrencies.length;
   }
 
   // tslint:disable-next-line:member-ordering

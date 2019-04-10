@@ -729,7 +729,8 @@
   will be emitted when the user enters some text for searching the combo or when she scrolls
   down and the combo needs to load more values. At this point, you need to load the data and
   set either <code>[items]</code> (when <code>fetchDataIncrementally</code> is false)
-  or <code>[itemsPage]</code> (when it is true).
+  or <code>[itemsPage]</code> (when it is true). If possible, you can also set
+  <code>[totalNumItems]</code> to the total size of the input.
 </p>
 
 <div class="row">
@@ -767,6 +768,7 @@
         [maxItemsAtATime]="15"
         (requestData)="loadCurrenciesPage($event)"
         [itemsPage]="currenciesPage"
+        [totalNumItems]="currenciesPageLength"
       ></groot-combo>
     </form>
   </div>
@@ -774,9 +776,10 @@
     <pre><code ngNonBindable>&lt;groot-combo
   label="Incremental loading"
   [fetchDataIncrementally]="true"
-  [maxItemsAtATime]="15"
+  [maxItemsAtATime]="10"
   (requestData)="loadCurrenciesPage($event)"
   [itemsPage]="currenciesPage"
+  [totalNumItems]="currenciesPageLength"
 >&lt;/groot-combo></code></pre>
   </div>
 </div>

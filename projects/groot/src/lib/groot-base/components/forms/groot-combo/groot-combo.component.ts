@@ -37,6 +37,11 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() multiLabelTemplate: TemplateRef<any> | null;
   @Input() maxItemsAtATime = 100;
 
+  /**
+   * The total number of items that can be found on the server. Use only with `fetchDataIncrementally`.
+   */
+  @Input() totalNumItems: number;
+
   @Input() set checkboxes(value: boolean) {
     this._checkboxes = value;
     this.multiple = true;
@@ -179,7 +184,8 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   }
 
   onScroll({end}) {
-    if (end > 0 && end <= this.allItems.length) {
+    if (end > 0 && end < this.allItems.length &&
+      (this.totalNumItems !== undefined && this.totalNumItems !== null ? end < this.totalNumItems : true)) {
       return;
     }
     ++this._lastDataRequestPageNum;
