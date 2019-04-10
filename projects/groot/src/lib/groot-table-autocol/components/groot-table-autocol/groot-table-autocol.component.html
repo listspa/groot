@@ -62,6 +62,7 @@
       <!-- Row -->
       <tr [ngClass]="trClassName"
           [class.table-row-selectable]="accordionColumns.length > 0"
+          [class.accordion-expanded]="row.$accordionVisible"
           (click)="row.$accordionVisible = !row.$accordionVisible">
         <td *ngFor="let column of selectedColumns"
             [ngClass]="column.tdClassName">
@@ -77,9 +78,11 @@
 
       <!-- Accordion -->
       <tr *ngIf="row.$accordionVisible"
+          class="accordion-row"
           [@dropDown]>
-        <td [attr.colspan]="selectedColumns.length + 1">
-          <div class="container-fluid">
+        <td [attr.colspan]="selectedColumns.length + 1"
+            class="accordion-container">
+          <div class="container-fluid accordion-content">
             <div class="row">
               <div class="col-sm-6 col-md-4 col-lg-3 mb-2"
                    *ngFor="let column of accordionColumns">
