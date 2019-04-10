@@ -1,5 +1,6 @@
 <div class="fa-stack fa-lg groot-actions-button"
-     [popover]="popoverActions"
+     [popover]="popoverTemplate || defaultTemplate"
+     [popoverContext]="popoverContext"
      [outsideClick]="true"
      [placement]="placement"
      [popoverTitle]="popoverTitle"
@@ -14,6 +15,6 @@
   ></i>
 </div>
 
-<ng-template #popoverActions>
+<ng-template #defaultTemplate>
   <ng-content></ng-content>
 </ng-template>

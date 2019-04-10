@@ -33,7 +33,7 @@
 
 <div class="row">
   <div class="col-md-2">
-    <div class="form-field-explanation">Action buttons with title</div>
+    <div class="form-field-explanation">Action buttons with title and content</div>
   </div>
   <div class="col-md-3">
     <groot-actions-button popoverTitle="the title">
@@ -50,18 +50,22 @@
 </div>
 <div class="row">
   <div class="col-md-2">
-    <div class="form-field-explanation">Action buttons without title</div>
+    <div class="form-field-explanation">Action buttons without title and with template</div>
   </div>
   <div class="col-md-3">
-    <groot-actions-button>
+    <groot-actions-button [popoverTemplate]="actionsTpl"></groot-actions-button>
+
+    <ng-template #actionsTpl>
+      <h2>Actions:</h2>
       <groot-actions-button-entry label="test" (click)="onClickActionProva()"></groot-actions-button-entry>
-      <groot-actions-button-entry label="dummy"></groot-actions-button-entry>
-    </groot-actions-button>
+    </ng-template>
   </div>
   <div class="col-md-7">
-    <pre><code> &lt;groot-actions-button>
+    <pre><code>&lt;groot-actions-button [popoverTemplate]="actionsTpl">&lt;/groot-actions-button>
+
+&lt;ng-template #actionsTpl>
+  &lt;h2>Actions:&lt;/h2>
   &lt;groot-actions-button-entry label="test" (click)="onClickActionProva()">&lt;/groot-actions-button-entry>
-  &lt;groot-actions-button-entry label="dummy">&lt;/groot-actions-button-entry>
-&lt;/groot-actions-button></code></pre>
+&lt;/ng-template></code></pre>
   </div>
 </div>

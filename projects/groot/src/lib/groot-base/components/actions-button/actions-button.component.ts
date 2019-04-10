@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, TemplateRef} from '@angular/core';
 
 @Component({
   selector: 'groot-actions-button',
@@ -7,6 +7,8 @@ import {Component, Input} from '@angular/core';
 export class ActionsButtonComponent {
   @Input() placement: 'top' | 'bottom' | 'right' | 'left' | 'auto' = 'right';
   @Input() popoverTitle: string | null;
+  @Input() popoverTemplate: TemplateRef<any>;
+  @Input() popoverContext: any;
 
   hover: boolean;
 }
