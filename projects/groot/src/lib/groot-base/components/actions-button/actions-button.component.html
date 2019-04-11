@@ -1,4 +1,5 @@
-<div class="fa-stack fa-lg groot-actions-button"
+<div class="fa-stack groot-actions-button"
+     [class.fa-lg]="!insideTable"
      [popover]="popoverTemplate || defaultTemplate"
      [popoverContext]="popoverContext"
      [outsideClick]="true"
@@ -7,9 +8,7 @@
      containerClass="popover-dark"
      (mouseenter)="hover = true"
      (mouseleave)="hover = false"
-     (click)="$event.stopPropagation()"
-     [attr.title]="'common.actions' | translate"
-     #popover="bs-popover">
+     [attr.title]="'common.actions' | translate">
   <i class="fa fa-stack-2x"
      [class.fa-circle-thin]="!hover"
      [class.fa-circle]="hover"

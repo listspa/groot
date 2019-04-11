@@ -1,5 +1,4 @@
-import {Component, HostListener, Input, TemplateRef, ViewChild} from '@angular/core';
-import {PopoverDirective} from 'ngx-bootstrap';
+import {Component, Input, TemplateRef} from '@angular/core';
 
 @Component({
   selector: 'groot-actions-button',
@@ -10,13 +9,7 @@ export class ActionsButtonComponent {
   @Input() popoverTitle: string | null;
   @Input() popoverTemplate: TemplateRef<any>;
   @Input() popoverContext: any;
+  @Input() insideTable = false;
 
   hover: boolean;
-  @ViewChild('popover') popover: PopoverDirective;
-
-  @HostListener('click', ['$event'])
-  onClick($event) {
-    this.popover.hide();
-    $event.stopPropagation();
-  }
 }
