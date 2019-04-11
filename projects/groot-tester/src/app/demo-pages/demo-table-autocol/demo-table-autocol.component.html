@@ -25,7 +25,7 @@
     <groot-actions-button-entry label="Details" (actionTriggered)="showDetails(row)"></groot-actions-button-entry>
   </ng-template>
 
-  <ng-template #dealIdTemplate let-value>
+  <ng-template grootTableAutocolTemplateForColumn="dealIdFe" let-value>
     <div style="font-size: 1.3rem; font-family: 'Roboto Condensed'; background-color: #eee; text-align: center">
       {{value}}
     </div>
@@ -52,7 +52,8 @@
   The type <code>TableColumn</code> allows you to specify the label, the column name (for sorting), the field name
   and the rendering if you can live with the defaults or a custom template if you need to render your field in some
   special way. In the example, there are two custom template for the deal ID and the asset class. You can also set
-  a width (in pixel) of a column.
+  a width (in pixel) of a column. The template can be set in your controller, or automatically in the template
+  via the directive <code>grootTableAutocolTemplateForColumn</code>. In this page you can see both approaches.
 </p>
 
 <p>

@@ -1,4 +1,17 @@
-import {Component, ContentChild, ElementRef, EventEmitter, Input, OnDestroy, Output, TemplateRef, ViewChild} from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  ContentChildren,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  Output,
+  QueryList,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
 import {BsModalService} from 'ngx-bootstrap';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {ReplaySubject, Subject, Subscription} from 'rxjs';
@@ -17,7 +30,7 @@ import {
 import {ElementResizingHandler} from '../../../groot-base/utils/element-resizing-handler';
 import {GrootTableComponent, LoadingFailed} from '../../../groot-base/components/tables/groot-table/groot-table.component';
 import {PopoverFilterService} from './popover-filter.service';
-import {GrootTableAutocolActionsDirective} from './groot-table-autocol.directive';
+import {GrootTableAutocolActionsDirective, GrootTableAutocolTemplateForColumnDirective} from './groot-table-autocol.directive';
 
 export interface ColumnAndWidth {
   column: TableColumn;
@@ -36,7 +49,7 @@ export interface PopoverDataRequest extends ComboDataRequest {
   templateUrl: './groot-table-autocol.component.html',
   animations: [dropDownOnCreateAnimation]
 })
-export class GrootTableAutocolComponent<T> implements OnDestroy {
+export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestroy {
   // Groot-table inputs
   @Input() downloadExcelLabel = 'common.downloadExcel';
   @Input() downloadExcelUrl: string | null;
@@ -52,6 +65,7 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
   @Output() search = new EventEmitter<FilterPaginationOptions>();
   @Input() searchResultsData: PaginatedResponse<T> | LoadingFailed;
   @Input() @ContentChild(GrootTableAutocolActionsDirective, {read: TemplateRef}) actionsTemplate: TemplateRef<any>;
+  @ContentChildren(GrootTableAutocolTemplateForColumnDirective) columnsTemplates: QueryList<GrootTableAutocolTemplateForColumnDirective>;
 
   // Column selector
   @Input() availableColumns: TableColumns;
@@ -71,6 +85,16 @@ export class GrootTableAutocolComponent<T> implements OnDestroy {
 
   constructor(private bsModalService: BsModalService,
               private popoverFilterService: PopoverFilterService) {
+  }
+
+  // Automatically set the templates from the directive
+
+  ngAfterContentInit(): void {
+    this.columnsTemplates.forEach(colTpl => {
+      this.availableColumns
+        .filter(c => c.key === colTpl.columnKey)
+        .forEach(c => c.customTemplate = colTpl.template);
+    });
   }
 
   // Columns drag & drop

@@ -8,7 +8,10 @@ import {CommonModule} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule} from '@angular/forms';
 import {PopoverFilterComponent} from './components/groot-table-autocol/popover-filter/popover-filter.component';
-import {GrootTableAutocolActionsDirective} from './components/groot-table-autocol/groot-table-autocol.directive';
+import {
+  GrootTableAutocolActionsDirective,
+  GrootTableAutocolTemplateForColumnDirective
+} from './components/groot-table-autocol/groot-table-autocol.directive';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,7 @@ import {GrootTableAutocolActionsDirective} from './components/groot-table-autoco
     ColumnsSelectorListComponent,
     PopoverFilterComponent,
     GrootTableAutocolActionsDirective,
+    GrootTableAutocolTemplateForColumnDirective,
   ],
   imports: [
     CommonModule,
@@ -31,6 +35,7 @@ import {GrootTableAutocolActionsDirective} from './components/groot-table-autoco
     ColumnsSelectorComponent,
     ColumnsSelectorListComponent,
     GrootTableAutocolActionsDirective,
+    GrootTableAutocolTemplateForColumnDirective,
   ],
   entryComponents: [
     ColumnsSelectorComponent,

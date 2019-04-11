@@ -22,7 +22,6 @@ export class DemoTableAutocolComponent implements OnInit {
   availableColumns: TableColumns;
   selectedColumns: TableColumns;
   accordionColumns: TableColumns;
-  @ViewChild('dealIdTemplate') dealIdTemplate: TemplateRef<any>;
   @ViewChild('assetClassTemplate') assetClassTemplate: TemplateRef<any>;
 
   constructor(private dealsService: DealsService) {
@@ -56,7 +55,6 @@ export class DemoTableAutocolComponent implements OnInit {
         label: 'deals.dealIdFe',
         columnName: 'dealIdFe',
         fieldName: 'dealIdFe',
-        customTemplate: this.dealIdTemplate,
         showFilters: true
       },
       {
