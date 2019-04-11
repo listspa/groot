@@ -65,9 +65,15 @@
           [class.table-row-selectable]="accordionColumns.length > 0"
           [class.accordion-expanded]="row.$accordionVisible"
           (click)="row.$accordionVisible = !row.$accordionVisible">
+        <!-- Actions button -->
         <td *ngIf="actionsTemplate">
-          <groot-actions-button [popoverTemplate]="actionsTemplate"></groot-actions-button>
+          <groot-actions-button
+            [popoverTemplate]="actionsTemplate"
+            [popoverContext]="{row: row, $implicit: row}"
+          ></groot-actions-button>
         </td>
+
+        <!-- Fields -->
         <td *ngFor="let column of selectedColumns"
             [ngClass]="column.tdClassName">
           <ng-template
@@ -75,6 +81,8 @@
             [ngTemplateOutletContext]="{row: row, column: column, value: row[column.fieldName], $implicit: row[column.fieldName]}"
           ></ng-template>
         </td>
+
+        <!-- Accordion button -->
         <td *ngIf="accordionColumns.length > 0">
           <groot-accordion-indicator [row]="row"></groot-accordion-indicator>
         </td>

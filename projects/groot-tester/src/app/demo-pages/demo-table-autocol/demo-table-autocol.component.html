@@ -21,8 +21,8 @@
   (columnResized)="onColumnResized($event)"
   (searchPopoverNeedsData)="searchPopoverNeedsData($event)"
 >
-  <ng-template grootTableAutocolActions>
-    <groot-actions-button-entry label="Details"></groot-actions-button-entry>
+  <ng-template grootTableAutocolActions let-row>
+    <groot-actions-button-entry label="Details" (actionTriggered)="showDetails(row)"></groot-actions-button-entry>
   </ng-template>
 
   <ng-template #dealIdTemplate let-value>

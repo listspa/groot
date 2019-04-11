@@ -211,4 +211,8 @@ export class DemoTableAutocolComponent implements OnInit {
           err => request.domainSubject.error(err));
     }
   }
+
+  showDetails(row: Deal) {
+    alert('Showing details of ' + row.dealIdFe);
+  }
 }
