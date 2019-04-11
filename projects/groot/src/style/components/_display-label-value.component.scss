@@ -1,0 +1,9 @@
+groot-display-label-value {
+  margin-bottom: 0.6rem;
+  display: block;
+
+  .display-label-value-label {
+    font-weight: bold;
+    color: $label-fg-color;
+  }
+}

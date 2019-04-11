@@ -1,6 +1,6 @@
 // Fontawesome
 $groot-assets-base-dir: '~@listspa/groot/assets' !default;
-$fa-font-path: '~font-awesome/fonts';
+$fa-font-path: '~font-awesome/fonts' !default;
 @import "~font-awesome/scss/font-awesome";
 
 // Our variables
@@ -33,6 +33,7 @@ $fa-font-path: '~font-awesome/fonts';
 @import "components/combo-listbox.component";
 @import "components/combo-checkbox.component";
 @import "components/columns-selector-list.component";
+@import "components/display-label-value.component.scss";
 @import "components/loading-indicator.component";
 @import "components/file-input";
 @import "components/footer";

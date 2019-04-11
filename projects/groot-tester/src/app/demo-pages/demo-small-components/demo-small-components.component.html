@@ -69,3 +69,134 @@
 &lt;/ng-template></code></pre>
   </div>
 </div>
+
+<h2>Display labels</h2>
+
+<p>
+  To show a simple table-like formatting of fields, you can use the simple <code>groot-display-label-value</code>.
+</p>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">String formatting</div>
+  </div>
+  <div class="col-md-3">
+    <groot-display-label-value label="label"
+                               [value]="'a string'"
+    ></groot-display-label-value>
+  </div>
+  <div class="col-md-7">
+    <pre><code></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Integers</div>
+  </div>
+  <div class="col-md-3">
+    <groot-display-label-value label="number"
+                               [value]="93128"
+                               [dataType]="NbpuSchemaFieldType.INT32"
+    ></groot-display-label-value>
+  </div>
+  <div class="col-md-7">
+    <pre><code></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Double</div>
+  </div>
+  <div class="col-md-3">
+    <groot-display-label-value label="number"
+                               [value]="32312.4115"
+                               [dataType]="NbpuSchemaFieldType.DOUBLE"
+    ></groot-display-label-value>
+  </div>
+  <div class="col-md-7">
+    <pre><code></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Dates</div>
+  </div>
+  <div class="col-md-3">
+    <groot-display-label-value label="date"
+                               [value]="now"
+                               [dataType]="NbpuSchemaFieldType.DATE"
+    ></groot-display-label-value>
+  </div>
+  <div class="col-md-7">
+    <pre><code></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Hour</div>
+  </div>
+  <div class="col-md-3">
+    <groot-display-label-value label="hour"
+                               [value]="now"
+                               [dataType]="NbpuSchemaFieldType.TIME"
+    ></groot-display-label-value>
+  </div>
+  <div class="col-md-7">
+    <pre><code></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Timestamps</div>
+  </div>
+  <div class="col-md-3">
+    <groot-display-label-value label="timestamp"
+                               [value]="now"
+                               [dataType]="NbpuSchemaFieldType.TIMESTAMP"
+    ></groot-display-label-value>
+  </div>
+  <div class="col-md-7">
+    <pre><code></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Boolean true</div>
+  </div>
+  <div class="col-md-3">
+    <groot-display-label-value label="boolean"
+                               [value]="true"
+                               [dataType]="NbpuSchemaFieldType.BOOLEAN"
+    ></groot-display-label-value>
+  </div>
+  <div class="col-md-7">
+    <pre><code></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Boolean false</div>
+  </div>
+  <div class="col-md-3">
+    <groot-display-label-value label="boolean"
+                               [value]="false"
+                               [dataType]="NbpuSchemaFieldType.BOOLEAN"
+    ></groot-display-label-value>
+  </div>
+  <div class="col-md-7">
+    <pre><code></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Multiple values</div>
+  </div>
+  <div class="col-md-3">
+    <groot-display-label-value label="multiple strings"
+                               [value]="['first', 'second', 'third']"
+    ></groot-display-label-value>
+  </div>
+  <div class="col-md-7">
+    <pre><code></code></pre>
+  </div>
+</div>

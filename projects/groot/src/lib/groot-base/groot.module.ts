@@ -46,6 +46,7 @@ import './polyfills/polyfill-element-closest';
 import {YesNoCheckComponent} from './components/yes-no-check/yes-no-check.component';
 import {ActionsButtonComponent} from './components/actions-button/actions-button.component';
 import {ActionsButtonEntryComponent} from './components/actions-button/actions-button-entry/actions-button-entry.component';
+import {DisplayLabelValueComponent} from './components/display-label-value/display-label-value.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import {ActionsButtonEntryComponent} from './components/actions-button/actions-b
     YesNoCheckComponent,
     ActionsButtonComponent,
     ActionsButtonEntryComponent,
+    DisplayLabelValueComponent,
   ],
   imports: [
     CommonModule,
@@ -135,6 +137,7 @@ import {ActionsButtonEntryComponent} from './components/actions-button/actions-b
     YesNoCheckComponent,
     ActionsButtonComponent,
     ActionsButtonEntryComponent,
+    DisplayLabelValueComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

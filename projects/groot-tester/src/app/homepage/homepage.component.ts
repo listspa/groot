@@ -46,6 +46,11 @@ shows a menu when clicked. See its <a href="#/demo/misc-small-components">docume
       },
       {
         type: ReleaseChangeType.NEW_FEATURE,
+        html: `New component <code>groot-display-label-value</code> to display a pair label and value.
+See its <a href="#/demo/misc-small-components">documentation page</a>.`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
         html: `New css classes to improve the accordion look & feel. See the 
 <a href="#/demo/tables">tables documentation page</a> for the example.`
       },
