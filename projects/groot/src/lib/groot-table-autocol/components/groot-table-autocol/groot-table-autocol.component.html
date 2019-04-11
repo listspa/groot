@@ -68,8 +68,10 @@
         <!-- Actions button -->
         <td *ngIf="actionsTemplate">
           <groot-actions-button
+            [insideTable]="true"
             [popoverTemplate]="actionsTemplate"
             [popoverContext]="{row: row, $implicit: row}"
+            (click)="$event.stopPropagation()"
           ></groot-actions-button>
         </td>
 
