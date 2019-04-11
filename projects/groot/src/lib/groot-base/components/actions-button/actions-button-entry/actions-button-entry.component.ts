@@ -9,9 +9,8 @@ export class ActionsButtonEntryComponent {
   @Input() icon: string | string[] | null = null;
   @Output() actionTriggered = new EventEmitter<void>();
 
-  @HostListener('click', ['$event'])
-  onClick($event: MouseEvent) {
+  @HostListener('click')
+  onClick() {
     this.actionTriggered.next();
-    $event.stopPropagation();
   }
 }

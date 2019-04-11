@@ -8,7 +8,8 @@
      (mouseenter)="hover = true"
      (mouseleave)="hover = false"
      (click)="$event.stopPropagation()"
-     [attr.title]="'common.actions' | translate">
+     [attr.title]="'common.actions' | translate"
+     #popover="bs-popover">
   <i class="fa fa-stack-2x"
      [class.fa-circle-thin]="!hover"
      [class.fa-circle]="hover"
