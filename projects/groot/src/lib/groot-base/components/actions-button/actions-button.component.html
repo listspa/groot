@@ -6,15 +6,17 @@
      [placement]="placement"
      [popoverTitle]="popoverTitle"
      containerClass="popover-dark"
+     (onShown)="open = true"
+     (onHidden)="open = false"
      (mouseenter)="hover = true"
      (mouseleave)="hover = false"
      [attr.title]="'common.actions' | translate">
   <i class="fa fa-stack-2x"
-     [class.fa-circle-thin]="!hover"
-     [class.fa-circle]="hover"
+     [class.fa-circle-thin]="!hover && !open"
+     [class.fa-circle]="hover || open"
   ></i>
   <i class="fa fa-ellipsis-v fa-stack-1x"
-     [class.text-white]="hover"
+     [class.text-white]="hover || open"
   ></i>
 </div>
 

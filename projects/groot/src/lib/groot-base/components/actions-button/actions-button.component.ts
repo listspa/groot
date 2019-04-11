@@ -12,4 +12,5 @@ export class ActionsButtonComponent {
   @Input() insideTable = false;
 
   hover: boolean;
+  open: boolean;
 }
