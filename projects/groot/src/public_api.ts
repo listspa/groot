@@ -26,6 +26,7 @@ export * from './lib/groot-base/components/forms/groot-toggle-button/groot-toggl
 export * from './lib/groot-base/components/tables/groot-table/groot-table.component';
 export * from './lib/groot-base/components/loading-indicator/loading-indicator.component';
 export * from './lib/groot-base/components/nav-bar/nav-bar.component';
+export * from './lib/groot-base/components/nav-bar/nav-bar.model';
 export * from './lib/groot-base/components/notification-toast-list/notification-toast-list.component';
 export * from './lib/groot-base/components/page-title/page-title.component';
 export * from './lib/groot-base/components/tables/groot-accordion-indicator/groot-accordion-indicator.component';
