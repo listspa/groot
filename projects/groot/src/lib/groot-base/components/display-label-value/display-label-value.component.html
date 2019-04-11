@@ -1,4 +1,7 @@
-<div class="display-label-value-label">{{label | translate}}</div>
+<div class="display-label-value-label"
+     *ngIf="label">
+  {{label | translate}}
+</div>
 <ng-container *ngIf="value !== null && value !== undefined; else dash">
   <div [ngSwitch]="dataType">
     <ng-container *ngSwitchCase="NbpuSchemaFieldType.DATE">

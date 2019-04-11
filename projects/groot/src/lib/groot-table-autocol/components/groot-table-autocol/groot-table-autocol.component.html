@@ -114,31 +114,10 @@
   </ng-template>
 
   <ng-template #defaultFieldTemplate let-value="value" let-column="column">
-    <ng-container [ngSwitch]="column.columnType">
-      <ng-container *ngSwitchCase="NbpuSchemaFieldType.DATE">
-        {{value| date: 'dd/MM/yyyy'}}
-      </ng-container>
-      <ng-container *ngSwitchCase="NbpuSchemaFieldType.TIMESTAMP">
-        {{value| date: 'dd/MM/yyyy'}}
-        <small>{{value| date: 'HH:mm'}}</small>
-      </ng-container>
-      <ng-container *ngSwitchCase="NbpuSchemaFieldType.TIME">
-        {{value| date: 'HH:mm'}}
-      </ng-container>
-      <div *ngSwitchCase="NbpuSchemaFieldType.DOUBLE" class="text-right">
-        {{value | number: '0.2'}}
-      </div>
-      <div *ngSwitchCase="NbpuSchemaFieldType.INT32" class="text-right">
-        {{value | number: '0.0'}}
-      </div>
-      <div *ngSwitchCase="NbpuSchemaFieldType.INT64" class="text-right">
-        {{value | number: '0.0'}}
-      </div>
-      <div *ngSwitchCase="NbpuSchemaFieldType.BOOLEAN" class="text-center">
-        <groot-yes-no-check [value]="value"></groot-yes-no-check>
-      </div>
-      <ng-container *ngSwitchDefault>{{value}}</ng-container>
-    </ng-container>
+    <groot-display-label-value
+      [value]="value"
+      [dataType]="column.columnType"
+    ></groot-display-label-value>
   </ng-template>
 </groot-table>
 
