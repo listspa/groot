@@ -1,6 +1,6 @@
 <div [@emptyEnter]
      class="card">
-  <div class="card-header groot-collapsible-box-header"
+  <div class="card-header"
        [ngClass]="headerClasses"
        [class.box-collapsed]="!open"
        (click)="toggle()"
@@ -13,7 +13,8 @@
 
   <div *ngIf="open"
        [@dropDown]
-       class="card-body">
+       class="card-body"
+       [ngClass]="bodyClasses">
     <ng-content></ng-content>
   </div>
 </div>

@@ -1,12 +1,12 @@
 groot-collapsible-box {
   display: block;
-}
 
-.card-header.groot-collapsible-box-header {
-  display: flex;
-  justify-content: space-between;
+  .card-header {
+    display: flex;
+    justify-content: space-between;
 
-  &.box-collapsed {
-    border-radius: $border-radius;
+    &.box-collapsed {
+      border-radius: $border-radius;
+    }
   }
 }
