@@ -34,11 +34,13 @@
     <tr cdkDropList
         cdkDropListLockAxis="x"
         cdkDropListOrientation="horizontal"
-        (cdkDropListDropped)="moveColumn($event)">
+        (cdkDropListDropped)="moveColumn($event)"
+        [cdkDropListDisabled]="!allowReorderColumns">
       <th *ngIf="actionsTemplate" class="table-actions-col">&nbsp;</th>
       <th *ngFor="let column of selectedColumns"
           cdkDrag
           class="groot-table-header-draggable"
+          [class.groot-table-header-drag-disabled]="!allowReorderColumns"
           [ngStyle]="{'width.px': column.widthPx ? '' + column.widthPx : null, 'min-width.px': column.widthPx ? '' + column.widthPx : null}">
 
         <!-- Filters -->

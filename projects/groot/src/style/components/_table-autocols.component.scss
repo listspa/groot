@@ -41,6 +41,10 @@ groot-table-autocol {
     // Since the filter icon has a position absolute, we need to leave the necessary space for it
     margin-left: 1.5rem;
   }
+
+  .groot-table-header-drag-disabled {
+    cursor: default;
+  }
 }
 
 // TODO: drag & drop for other colors
