@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {NbpuSchemaFieldType} from '../../nbpu.interfaces';
+import {NbpuSchemaFieldType} from '../../utils/pagination.model';
 
 @Component({
   selector: 'groot-display-label-value',

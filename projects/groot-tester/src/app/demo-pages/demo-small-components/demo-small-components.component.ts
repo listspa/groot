@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NbpuSchemaFieldType} from 'projects/groot/src/lib/groot-base/nbpu.interfaces';
+import {NbpuSchemaFieldType} from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
 
 @Component({
   selector: 'app-demo-small-components',

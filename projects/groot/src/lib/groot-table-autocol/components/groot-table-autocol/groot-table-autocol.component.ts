@@ -26,7 +26,7 @@ import {
   NbpuSchemaFieldType,
   PaginatedResponse,
   PaginationOptions
-} from '../../../groot-base/nbpu.interfaces';
+} from '../../../groot-base/utils/pagination.model';
 import {ElementResizingHandler} from '../../../groot-base/utils/element-resizing-handler';
 import {GrootTableComponent, LoadingFailed} from '../../../groot-base/components/tables/groot-table/groot-table.component';
 import {PopoverFilterService} from './popover-filter.service';
@@ -35,17 +35,12 @@ import {
   GrootTableAutocolTemplateForColumnDirective,
   GrootTableTitleAutocolRightAreaDirective
 } from './groot-table-autocol.directive';
+import {PopoverDataRequest} from '../../model/popover-filter.model';
 
 export interface ColumnAndWidth {
   column: TableColumn;
   newPixelsWidth: number;
   thElement: HTMLElement;
-}
-
-export interface PopoverDataRequest extends ComboDataRequest {
-  column: TableColumn;
-  filters: FilterOption[];
-  domainSubject: Subject<PaginatedResponse<string>>;
 }
 
 @Component({

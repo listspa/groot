@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {PaginatedResponse, PaginationOptions} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
+import {PaginatedResponse, PaginationOptions} from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
 import {Observable} from 'rxjs';
 import {BASE_URL} from '../../constants';
 

@@ -1,4 +1,4 @@
-import {DomainElement} from '../nbpu.interfaces';
+import {DomainElement} from './pagination.model';
 import {forkJoin, Observable} from 'rxjs';
 import {TranslateService} from '@ngx-translate/core';
 import {map} from 'rxjs/operators';

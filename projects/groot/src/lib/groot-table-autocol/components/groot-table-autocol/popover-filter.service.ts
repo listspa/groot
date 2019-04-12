@@ -4,7 +4,7 @@ import {PopoverFilterComponent} from './popover-filter/popover-filter.component'
 import {fromEvent, Observable, Subject} from 'rxjs';
 import {finalize, skip, takeUntil} from 'rxjs/operators';
 import {merge} from 'rxjs/internal/observable/merge';
-import {ComboDataRequest, PaginatedResponse} from '../../../groot-base/nbpu.interfaces';
+import {ComboDataRequest, PaginatedResponse} from '../../../groot-base/utils/pagination.model';
 
 // Notes: this service is very much bound to the PopoverFilterComponent.
 // However, there's a lot that could be made generic. Eventually we should split it in two;

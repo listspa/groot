@@ -4,7 +4,6 @@
 
 // Please keep this list in alphabetical order!!
 export * from './lib/groot-base/groot.module';
-export * from './lib/groot-base/nbpu.interfaces';
 export * from './lib/groot-base/components/actions-button/actions-button.component';
 export * from './lib/groot-base/components/actions-button/actions-button-entry/actions-button-entry.component';
 export * from './lib/groot-base/components/confirm-modal/confirm-modal.component';
@@ -61,6 +60,7 @@ export * from './lib/groot-base/utils/generic-table-component-base';
 export * from './lib/groot-base/utils/geometry.model';
 export * from './lib/groot-base/utils/groot-translations';
 export * from './lib/groot-base/utils/missing-translation-logger';
+export * from './lib/groot-base/utils/pagination.model';
 export * from './lib/groot-base/utils/pagination-utils';
 export * from './lib/groot-base/utils/string-utils';
 export * from './lib/groot-base/utils/translation-utils';
@@ -71,4 +71,5 @@ export * from './lib/groot-table-autocol/components/groot-table-autocol/popover-
 export * from './lib/groot-table-autocol/components/groot-table-autocol/columns-selector/columns-selector.component';
 export * from './lib/groot-table-autocol/components/groot-table-autocol/columns-selector-list/columns-selector-list.component';
 export * from './lib/groot-table-autocol/components/groot-table-autocol/popover-filter/popover-filter.component';
+export * from './lib/groot-table-autocol/model/popover-filter.model';
 export * from './lib/groot-table-autocol/model/table-columns.model';

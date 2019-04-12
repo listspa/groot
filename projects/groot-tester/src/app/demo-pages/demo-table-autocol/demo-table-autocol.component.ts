@@ -1,17 +1,15 @@
 import {Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {extractColumns, SelectedColumns, TableColumns} from '../../../../../groot/src/lib/groot-table-autocol/model/table-columns.model';
 import {isLoadingFailed, LoadingFailed} from '../../../../../groot/src/lib/groot-base/components/tables/groot-table/groot-table.component';
+import {Deal, DealsService} from './deals-service';
 import {
   FilterPaginationOptions,
   NbpuSchemaFieldType,
-  PaginatedResponse,
-  toSearchColumnValuesRequest
-} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
-import {Deal, DealsService} from './deals-service';
-import {
-  ColumnAndWidth,
-  PopoverDataRequest
-} from '../../../../../groot/src/lib/groot-table-autocol/components/groot-table-autocol/groot-table-autocol.component';
+  PaginatedResponse
+} from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
+import {PopoverDataRequest, toSearchColumnValuesRequest} from '../../../../../groot/src/lib/groot-table-autocol/model/popover-filter.model';
+// tslint:disable-next-line
+import {ColumnAndWidth} from '../../../../../groot/src/lib/groot-table-autocol/components/groot-table-autocol/groot-table-autocol.component';
 
 @Component({
   selector: 'app-demo-table-autocol',

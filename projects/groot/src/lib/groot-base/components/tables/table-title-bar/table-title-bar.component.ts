@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {PaginatedResponse} from '../../../nbpu.interfaces';
+import {PaginatedResponse} from '../../../utils/pagination.model';
 
 interface PageInfo {
   startRowIdx: number;

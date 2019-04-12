@@ -1,5 +1,5 @@
 import {Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
-import {PaginatedResponse, PaginationOptions, Sorting} from '../../../nbpu.interfaces';
+import {PaginatedResponse, PaginationOptions, Sorting} from '../../../utils/pagination.model';
 import {GrootTableBodyDirective, GrootTableHeaderDirective, GrootTableTitleRightAreaDirective} from './groot-table.directive';
 
 export interface LoadingFailed {

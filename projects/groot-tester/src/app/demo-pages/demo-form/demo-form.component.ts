@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ComboDataRequest, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
+import {ComboDataRequest, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
 import {endIndex, startIndex} from '../../../../../groot/src/lib/groot-base/utils/pagination-utils';
 
 @Component({

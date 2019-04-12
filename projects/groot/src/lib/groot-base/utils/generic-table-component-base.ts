@@ -1,5 +1,5 @@
 import {Input, OnChanges, SimpleChanges} from '@angular/core';
-import {PaginatedResponse, PaginationOptions, Sorting} from '../nbpu.interfaces';
+import {PaginatedResponse, PaginationOptions, Sorting} from './pagination.model';
 
 /**
  * Base class for components that need to display a backend-paginated, sortable table.

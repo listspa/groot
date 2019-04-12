@@ -1,5 +1,5 @@
 import {TemplateRef} from '@angular/core';
-import {NbpuSchemaFieldType} from '../../groot-base/nbpu.interfaces';
+import {NbpuSchemaFieldType} from '../../groot-base/utils/pagination.model';
 
 export interface TableColumn {
   key: string;

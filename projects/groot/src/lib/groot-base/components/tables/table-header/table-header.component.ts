@@ -1,5 +1,5 @@
 import {Component, EventEmitter, forwardRef, Inject, Input, Optional, Output} from '@angular/core';
-import {Sorting} from '../../../nbpu.interfaces';
+import {Sorting} from '../../../utils/pagination.model';
 import {GrootTableComponent} from '../groot-table/groot-table.component';
 
 @Component({

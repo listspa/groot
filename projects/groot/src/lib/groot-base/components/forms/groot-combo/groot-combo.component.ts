@@ -2,7 +2,7 @@ import {Component, EventEmitter, forwardRef, Input, OnInit, Output, TemplateRef}
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
-import {ComboDataRequest, PaginatedResponse} from '../../../nbpu.interfaces';
+import {ComboDataRequest, PaginatedResponse} from '../../../utils/pagination.model';
 
 @Component({
   selector: 'groot-combo',

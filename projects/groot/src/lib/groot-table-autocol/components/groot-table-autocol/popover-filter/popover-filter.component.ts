@@ -1,7 +1,7 @@
 import {Component, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
 import {TableColumn} from '../../../model/table-columns.model';
 import {Observable, Subject, Subscription} from 'rxjs';
-import {ComboDataRequest, PaginatedResponse} from '../../../../groot-base/nbpu.interfaces';
+import {ComboDataRequest, PaginatedResponse} from '../../../../groot-base/utils/pagination.model';
 
 @Component({
   selector: 'groot-popover-filter',

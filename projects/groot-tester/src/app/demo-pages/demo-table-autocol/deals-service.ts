@@ -6,7 +6,7 @@ import {
   FilterPaginationOptions,
   PaginatedResponse,
   SearchColumnValuesRequest
-} from '../../../../../groot/src/lib/groot-base/nbpu.interfaces';
+} from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
 import {Observable, of} from 'rxjs';
 import {finalize, map} from 'rxjs/operators';
 import {BASE_URL} from '../../constants';
