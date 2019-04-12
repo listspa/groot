@@ -63,6 +63,10 @@ See its <a href="#/demo/misc-small-components">documentation page</a>.`
         html: `New functions <code>startIndex</code> and <code>endIndex</code> to work 
 with <code>Pagination</code> objects.`
       },
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Filters ftDate and ftTime now work even with null or empty values.`
+      },
     ]
   },
   {
