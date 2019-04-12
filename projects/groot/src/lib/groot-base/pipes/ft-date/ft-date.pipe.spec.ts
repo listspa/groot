@@ -26,4 +26,19 @@ describe('FtDatePipe', () => {
     const pipe = new FtDatePipe();
     expect(pipe.transform(0, 'yyyy-MM-dd')).toEqual(null);
   });
+
+  it('blank string input value', () => {
+    const pipe = new FtDatePipe();
+    expect(pipe.transform(' ', 'yyyy-MM-dd')).toEqual(null);
+  });
+
+  it('empty string input value', () => {
+    const pipe = new FtDatePipe();
+    expect(pipe.transform('', 'yyyy-MM-dd')).toEqual(null);
+  });
+
+  it('null string input value', () => {
+    const pipe = new FtDatePipe();
+    expect(pipe.transform(null, 'yyyy-MM-dd')).toEqual(null);
+  });
 });

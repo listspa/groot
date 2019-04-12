@@ -16,4 +16,19 @@ describe('FtTimePipe', () => {
     const pipe = new FtTimePipe();
     expect(pipe.transform('12131401', 'hh:mm:ss')).toEqual('12:13:14');
   });
+
+  it('blank string input value', () => {
+    const pipe = new FtTimePipe();
+    expect(pipe.transform(' ', 'hh:mm:ss')).toEqual(null);
+  });
+
+  it('empty string input value', () => {
+    const pipe = new FtTimePipe();
+    expect(pipe.transform('', 'hh:mm:ss')).toEqual(null);
+  });
+
+  it('null string input value', () => {
+    const pipe = new FtTimePipe();
+    expect(pipe.transform(null, 'hh:mm:ss')).toEqual(null);
+  });
 });
