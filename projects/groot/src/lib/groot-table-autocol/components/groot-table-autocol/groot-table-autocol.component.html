@@ -19,13 +19,15 @@
       <ng-container *ngTemplateOutlet="autocolTableTitleRightArea"></ng-container>
     </ng-container>
 
-    <groot-button
-      label="common.selectColumns"
-      classes="btn-outline-primary"
-      icon="fa fa-list"
-      (click)="selectColumns()"
-      class="mb-2"
-    ></groot-button>
+    <ng-container *ngIf="showConfigurationButtons">
+      <groot-button
+        label="common.selectColumns"
+        classes="btn-outline-primary"
+        icon="fa fa-list"
+        (click)="selectColumns()"
+        class="mb-2"
+      ></groot-button>
+    </ng-container>
   </ng-template>
 
   <ng-template grootTableHeader>
