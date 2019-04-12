@@ -17,3 +17,7 @@
     color: color-yiq($value);
   }
 }
+
+.card-header {
+  padding: $box-header-padding-y $box-header-padding-x;
+}
