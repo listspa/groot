@@ -39,7 +39,7 @@
       <div class="buttons-list-left">
         <button type="button" class="btn btn-outline-primary btn-sm"
                 (click)="selectAll()"
-                [disabled]="isAllSelected()">
+                [disabled]="isAllSelected() || !hasLoadedEverything()">
           {{'common.selectAll' | translate}}
         </button>
 

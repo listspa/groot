@@ -214,4 +214,16 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
       this.onFilterTextChanged(null);
     }
   }
+
+  hasLoadedEverything(): boolean {
+    if (this._fetchDataIncrementally) {
+      if (this._totalNumItems !== undefined && this._totalNumItems !== null) {
+        return this.allItems.length >= this._totalNumItems;
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
+  }
 }
