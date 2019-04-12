@@ -29,17 +29,17 @@ describe('CollapsibleBoxComponent', () => {
   });
 
   it('should hide content when clicked', () => {
-    fixture.debugElement.nativeElement.querySelector('.box-icons').click();
+    fixture.debugElement.nativeElement.querySelector('.groot-collapsible-box-header').click();
     fixture.detectChanges();
 
     expect(component.open).toBe(false);
   });
 
   it('should reset content when clicked twice', () => {
-    fixture.debugElement.nativeElement.querySelector('.box-icons').click();
+    fixture.debugElement.nativeElement.querySelector('.groot-collapsible-box-header').click();
     fixture.detectChanges();
 
-    fixture.debugElement.nativeElement.querySelector('.box-icons').click();
+    fixture.debugElement.nativeElement.querySelector('.groot-collapsible-box-header').click();
     fixture.detectChanges();
 
     expect(component.open).toBe(true);
@@ -49,10 +49,10 @@ describe('CollapsibleBoxComponent', () => {
     let lastValue = null;
     component.changeDisplay.subscribe(val => lastValue = val);
 
-    fixture.debugElement.nativeElement.querySelector('.box-icons').click();
+    fixture.debugElement.nativeElement.querySelector('.groot-collapsible-box-header').click();
     expect(lastValue).toBe(false);
 
-    fixture.debugElement.nativeElement.querySelector('.box-icons').click();
+    fixture.debugElement.nativeElement.querySelector('.groot-collapsible-box-header').click();
     expect(lastValue).toBe(true);
   });
 });
