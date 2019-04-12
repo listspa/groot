@@ -58,6 +58,7 @@
 
         <div class="drag-drop-indicator"
              (mousedown)="onStartResizingColumn($event, column)"
+             *ngIf="allowResizingColumns"
         ></div>
       </th>
       <th class="table-accordion-col" *ngIf="accordionColumns.length > 0">&nbsp;</th>

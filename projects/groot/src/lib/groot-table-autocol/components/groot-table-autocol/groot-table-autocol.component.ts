@@ -72,6 +72,7 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
   @ContentChildren(GrootTableAutocolTemplateForColumnDirective) columnsTemplates: QueryList<GrootTableAutocolTemplateForColumnDirective>;
   @Input() @ContentChild(GrootTableTitleAutocolRightAreaDirective, {read: TemplateRef}) autocolTableTitleRightArea: TemplateRef<any>;
   @Input() showConfigurationButtons = true;
+  @Input() allowResizingColumns = true;
 
   // Column selector
   @Input() availableColumns: TableColumns;
