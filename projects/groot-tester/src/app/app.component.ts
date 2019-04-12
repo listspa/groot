@@ -15,11 +15,11 @@ export class AppComponent {
         {label: 'Buttons', url: '/demo/buttons', icon: 'fa fa-hand-pointer-o'},
         {label: 'Tabs', url: '/demo/tabs', icon: 'fa fa-th-large'},
         {label: 'Boxes (accordions)', url: '/demo/boxes', icon: 'fa fa-chevron-circle-down'},
+        {label: 'Cards', url: '/demo/cards', icon: 'fa fa-pencil-square'},
         {label: 'Colors and typography', url: '/demo/colors', icon: 'fa fa-paint-brush'},
         {label: 'Loading indicator', url: '/demo/loading', icon: 'fa fa-refresh'},
         {label: 'Toasts', url: '/demo/toasts', icon: 'fa fa-bell'},
         {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-restore'},
-        {label: 'Cards', url: '/demo/cards', icon: 'fa fa-pencil-square'},
         {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window-maximize'},
         {label: 'Tables', url: '/demo/tables', icon: 'fa fa-table'},
         {label: 'Table with column selector', url: '/demo/tables-autocol', icon: 'fa fa-table'},
@@ -74,13 +74,13 @@ export class AppComponent {
             {label: 'Buttons', url: '/demo/buttons', icon: 'fa fa-hand-pointer-o'},
             {label: 'Tabs', url: '/demo/tabs', icon: 'fa fa-th-large'},
             {label: 'Boxes (accordions)', url: '/demo/boxes', icon: 'fa fa-chevron-circle-down'},
+            {label: 'Cards', url: '/demo/cards', icon: 'fa fa-pencil-square'},
             {label: 'Colors and typography', url: '/demo/colors', icon: 'fa fa-paint-brush'}
           ],
           [
             {label: 'Loading indicator', url: '/demo/loading', icon: 'fa fa-refresh'},
             {label: 'Toasts', url: '/demo/toasts', icon: 'fa fa-bell'},
             {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-restore'},
-            {label: 'Cards', url: '/demo/cards', icon: 'fa fa-pencil-square'},
             {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window-maximize'},
           ],
           [

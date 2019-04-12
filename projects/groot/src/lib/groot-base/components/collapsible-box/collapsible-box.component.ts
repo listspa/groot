@@ -9,6 +9,7 @@ import {dropDownOnCreateAnimation, emptyEnterAnimation} from '../../utils/animat
 export class CollapsibleBoxComponent {
   @Input() label: string;
   @Input() open = true;
+  @Input() headerClasses: string | string[] | null = null;
   @Output() changeDisplay = new EventEmitter<boolean>();
 
   public toggle(): void {

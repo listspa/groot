@@ -1,34 +1,12 @@
-.groot-collapsible-box {
+groot-collapsible-box {
   display: block;
-  padding: 0;
-  margin-bottom: 1rem;
+}
 
-  .box-title {
-    font-family: $headings-font-family;
-    font-size: 1.5em;
-    display: block;
-    width: 100%;
-    background-color: $light-primary;
-    color: color-yiq($light-primary);
-    border-radius: $border-radius $border-radius 0 0;
-    padding: 0.3rem 1rem;
-    margin-bottom: 0;
-    cursor: pointer;
+.card-header.groot-collapsible-box-header {
+  display: flex;
+  justify-content: space-between;
 
-    .box-icons {
-      display: inline-block;
-    }
-
-    &.box-collapsed {
-      border-radius: $border-radius;
-    }
-  }
-
-  .content {
-    padding: 0.5rem 1rem;
-    border: 1px solid $box-border-color;
-    border-top-width: 0;
-    border-radius: 0 0 $border-radius $border-radius;
-    background-color: $box-bg-color;
+  &.box-collapsed {
+    border-radius: $border-radius;
   }
 }

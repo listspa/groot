@@ -1,17 +1,19 @@
-<div class="groot-collapsible-box" [@emptyEnter]>
-  <div class="box-title clearfix"
+<div [@emptyEnter]
+     class="card">
+  <div class="card-header groot-collapsible-box-header"
+       [ngClass]="headerClasses"
        [class.box-collapsed]="!open"
        (click)="toggle()"
        title="{{(open ? 'common.collapse' : 'common.expand') | translate}}">
-    {{label | translate}}
+    <h4>{{label | translate}}</h4>
 
-    <div class="box-icons float-right">
-      <i class="fa fa-chevron-up" *ngIf="open"></i>
-      <i class="fa fa-chevron-down" *ngIf="!open"></i>
-    </div>
+    <i class="fa fa-chevron-up" *ngIf="open"></i>
+    <i class="fa fa-chevron-down" *ngIf="!open"></i>
   </div>
 
-  <div [@dropDown] *ngIf="open" class="content">
+  <div *ngIf="open"
+       [@dropDown]
+       class="card-body">
     <ng-content></ng-content>
   </div>
 </div>
