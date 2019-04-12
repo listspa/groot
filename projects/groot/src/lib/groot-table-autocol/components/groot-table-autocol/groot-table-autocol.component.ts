@@ -30,7 +30,11 @@ import {
 import {ElementResizingHandler} from '../../../groot-base/utils/element-resizing-handler';
 import {GrootTableComponent, LoadingFailed} from '../../../groot-base/components/tables/groot-table/groot-table.component';
 import {PopoverFilterService} from './popover-filter.service';
-import {GrootTableAutocolActionsDirective, GrootTableAutocolTemplateForColumnDirective} from './groot-table-autocol.directive';
+import {
+  GrootTableAutocolActionsDirective,
+  GrootTableAutocolTemplateForColumnDirective,
+  GrootTableTitleAutocolRightAreaDirective
+} from './groot-table-autocol.directive';
 
 export interface ColumnAndWidth {
   column: TableColumn;
@@ -66,6 +70,7 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
   @Input() searchResultsData: PaginatedResponse<T> | LoadingFailed;
   @Input() @ContentChild(GrootTableAutocolActionsDirective, {read: TemplateRef}) actionsTemplate: TemplateRef<any>;
   @ContentChildren(GrootTableAutocolTemplateForColumnDirective) columnsTemplates: QueryList<GrootTableAutocolTemplateForColumnDirective>;
+  @Input() @ContentChild(GrootTableTitleAutocolRightAreaDirective, {read: TemplateRef}) autocolTableTitleRightArea: TemplateRef<any>;
 
   // Column selector
   @Input() availableColumns: TableColumns;

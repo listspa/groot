@@ -15,6 +15,10 @@
   #grootTable
 >
   <ng-template grootTableTitleRightArea>
+    <ng-container *ngIf="autocolTableTitleRightArea">
+      <ng-container *ngTemplateOutlet="autocolTableTitleRightArea"></ng-container>
+    </ng-container>
+
     <groot-button
       label="common.selectColumns"
       classes="btn-outline-primary"

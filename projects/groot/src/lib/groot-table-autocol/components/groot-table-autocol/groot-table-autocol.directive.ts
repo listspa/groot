@@ -13,3 +13,9 @@ export class GrootTableAutocolTemplateForColumnDirective {
   constructor(public template: TemplateRef<any>) {
   }
 }
+
+@Directive({selector: '[grootTableAutocolTitleRightArea]'})
+export class GrootTableTitleAutocolRightAreaDirective {
+  constructor(public template: TemplateRef<any>) {
+  }
+}

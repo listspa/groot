@@ -21,6 +21,10 @@
   (columnResized)="onColumnResized($event)"
   (searchPopoverNeedsData)="searchPopoverNeedsData($event)"
 >
+  <ng-template grootTableAutocolTitleRightArea>
+    <groot-button label="common.insert" [disabled]="true"></groot-button>
+  </ng-template>
+
   <ng-template grootTableAutocolActions let-row>
     <groot-actions-button-entry label="Details" (actionTriggered)="showDetails(row)"></groot-actions-button-entry>
   </ng-template>
@@ -66,6 +70,11 @@
   The component supports optionally an "action" button in each row; to use it simply add a template with the
   directive <code>grootTableAutocolActions</code> in it. See also the <a href="#/demo/misc-small-components">
   documentation page for the action button component</a> for more examples.
+</p>
+
+<p>
+  To pass additional buttons on the header line (such as the "insert" button above), you need to use the
+  directive <code>grootTableAutocolTitleRightArea</code>.
 </p>
 
 <p>

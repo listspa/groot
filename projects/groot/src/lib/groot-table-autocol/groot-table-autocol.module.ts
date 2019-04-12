@@ -10,7 +10,8 @@ import {FormsModule} from '@angular/forms';
 import {PopoverFilterComponent} from './components/groot-table-autocol/popover-filter/popover-filter.component';
 import {
   GrootTableAutocolActionsDirective,
-  GrootTableAutocolTemplateForColumnDirective
+  GrootTableAutocolTemplateForColumnDirective,
+  GrootTableTitleAutocolRightAreaDirective
 } from './components/groot-table-autocol/groot-table-autocol.directive';
 
 @NgModule({
@@ -21,6 +22,7 @@ import {
     PopoverFilterComponent,
     GrootTableAutocolActionsDirective,
     GrootTableAutocolTemplateForColumnDirective,
+    GrootTableTitleAutocolRightAreaDirective,
   ],
   imports: [
     CommonModule,
@@ -36,6 +38,7 @@ import {
     ColumnsSelectorListComponent,
     GrootTableAutocolActionsDirective,
     GrootTableAutocolTemplateForColumnDirective,
+    GrootTableTitleAutocolRightAreaDirective,
   ],
   entryComponents: [
     ColumnsSelectorComponent,
