@@ -120,5 +120,12 @@ table.table-bordered tr.accordion-row {
 // Action button
 
 .table-actions-col {
-  width: 4.6rem;
+  width: 4rem;
+  min-width: 4rem;
+}
+
+.table-actions-cells {
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
 }

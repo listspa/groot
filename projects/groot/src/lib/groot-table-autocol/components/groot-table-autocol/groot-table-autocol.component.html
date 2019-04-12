@@ -75,7 +75,7 @@
           [class.accordion-expanded]="row.$accordionVisible"
           (click)="row.$accordionVisible = !row.$accordionVisible">
         <!-- Actions button -->
-        <td *ngIf="actionsTemplate">
+        <td *ngIf="actionsTemplate" class="table-actions-cells">
           <groot-actions-button
             [insideTable]="true"
             [popoverTemplate]="actionsTemplate"
