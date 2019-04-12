@@ -230,4 +230,8 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
         operator: FilterOperator.IN
       }));
   }
+
+  reloadTable(resetPageNumber = false) {
+    this.grootTable.reloadTable(resetPageNumber);
+  }
 }
