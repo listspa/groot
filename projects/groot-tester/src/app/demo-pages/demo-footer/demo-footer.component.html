@@ -11,7 +11,9 @@
 <p>
   By default the footer will use the <code>footer-sticky</code> class, which will anchor
   it to the bottom. You can pass whatever classes you need to it, though, via the
-  <code>classes</code> property.
+  <code>classes</code> property. Note that if you use the footer, you need to add to your main
+  <code>container-fluid</code> (the one that will contain the <code>router-outlet</code>)
+  the class <code>container-with-sticky-footer</code> to avoid it sliding "under" the footer.
 </p>
 
 <h2>Example</h2>

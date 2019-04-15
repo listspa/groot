@@ -67,6 +67,11 @@ with <code>Pagination</code> objects.`
         type: ReleaseChangeType.BUG_FIX,
         html: `Filters ftDate and ftTime now work even with null or empty values.`
       },
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed issues with the footer covering part of the page via the new class <code>container-with-sticky-footer</code>.
+See the <a href="#/demo/footer">footer documentation</a> for details.`
+      }
     ]
   },
   {

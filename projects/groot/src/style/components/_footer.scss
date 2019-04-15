@@ -41,3 +41,7 @@ groot-footer footer {
     }
   }
 }
+
+.container-with-sticky-footer {
+  padding-bottom: $footer-height;
+}
