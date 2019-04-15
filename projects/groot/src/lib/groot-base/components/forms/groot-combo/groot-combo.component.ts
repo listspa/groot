@@ -151,9 +151,9 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
 
   selectAll() {
     if (this.bindValue) {
-      this.writeValue((this.items as any[]).map(item => item[this.bindValue]));
+      this.writeValue((this.allItems as any[]).map(item => item[this.bindValue]));
     } else {
-      this.writeValue([...this.items]);
+      this.writeValue([...this.allItems]);
     }
   }
 
