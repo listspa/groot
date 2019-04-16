@@ -20,7 +20,6 @@ import {SelectedColumns, TableColumn, TableColumns} from '../../model/table-colu
 import {dropDownOnCreateAnimation} from '../../../groot-base/utils/animations-utils';
 import {
   ComboDataRequest,
-  FilterOperator,
   FilterOption,
   FilterPaginationOptions,
   NbpuSchemaFieldType,
@@ -28,7 +27,10 @@ import {
   PaginationOptions
 } from '../../../groot-base/utils/pagination.model';
 import {ElementResizingHandler} from '../../../groot-base/utils/element-resizing-handler';
-import {GrootTableComponent, LoadingFailed} from '../../../groot-base/components/tables/groot-table/groot-table.component';
+import {
+  GrootTableComponent,
+  LoadingFailed
+} from '../../../groot-base/components/tables/groot-table/groot-table.component';
 import {PopoverFilterService} from './popover-filter.service';
 import {
   GrootTableAutocolActionsDirective,
@@ -84,7 +86,7 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
 
   // Filter popover
   @ViewChild('grootTable') grootTable: GrootTableComponent<T>;
-  filterPopoverValues: { [key: string]: string[] } = {};
+  popoverFilters: { [key: string]: FilterOption } = {};
 
   constructor(private bsModalService: BsModalService,
               private popoverFilterService: PopoverFilterService) {
@@ -200,9 +202,9 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
     const dataRequestSubject = new Subject<ComboDataRequest>();
     this.popoverFilterService.showPopover(
       column, event, domainSubject,
-      this.filterPopoverValues[column.key], dataRequestSubject)
-      .subscribe(selectedValues => {
-        this.filterPopoverValues[column.key] = selectedValues;
+      this.popoverFilters[column.key], dataRequestSubject)
+      .subscribe(filterOption => {
+        this.popoverFilters[column.key] = filterOption;
         this.grootTable.reloadTable(true);
       });
 
@@ -222,15 +224,11 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
 
   private getFilters(): FilterOption[] {
     return this.selectedColumns
-      .filter(c => this.filterPopoverValues[c.key] && this.filterPopoverValues[c.key].length)
-      .map(c => ({
-        column: c.columnName,
-        type: c.columnType || NbpuSchemaFieldType.STRING,
-        value: this.filterPopoverValues[c.key],
-        operator: FilterOperator.IN
-      }));
+      .map(c => this.popoverFilters[c.key])
+      .filter(f => f);
   }
 
+  // noinspection JSUnusedGlobalSymbols
   reloadTable(resetPageNumber = false) {
     this.grootTable.reloadTable(resetPageNumber);
   }

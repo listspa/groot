@@ -46,7 +46,7 @@
         <!-- Filters -->
         <div *ngIf="column.showFilters"
              class="groot-table-header-filter-icon"
-             [class.active]="filterPopoverValues[column.key] && filterPopoverValues[column.key].length"
+             [class.active]="popoverFilters[column.key]"
              (click)="showFilterPopover(column, $event)"
              [attr.title]="'common.filter' | translate">
           <i class="fa fa-filter"></i>

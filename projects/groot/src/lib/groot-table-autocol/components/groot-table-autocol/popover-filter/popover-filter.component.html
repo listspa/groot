@@ -21,13 +21,16 @@
         [items]="comparisonOperators"
         name="operator"
         [required]="true"
-        [bindLabel]="label"
-        [bindValue]="value"
+        bindLabel="label"
+        bindValue="value"
+        [(ngModel)]="operator"
       ></groot-combo>
 
       <groot-input
         type="number"
         [required]="true"
+        name="numericValue"
+        [(ngModel)]="numericValue"
       ></groot-input>
     </div>
   </ng-template>

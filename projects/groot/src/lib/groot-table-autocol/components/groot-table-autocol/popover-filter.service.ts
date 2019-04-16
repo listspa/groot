@@ -1,10 +1,17 @@
-import {ApplicationRef, ComponentFactoryResolver, ComponentRef, EmbeddedViewRef, Injectable, Injector} from '@angular/core';
+import {
+  ApplicationRef,
+  ComponentFactoryResolver,
+  ComponentRef,
+  EmbeddedViewRef,
+  Injectable,
+  Injector
+} from '@angular/core';
 import {TableColumn} from '../../model/table-columns.model';
 import {PopoverFilterComponent} from './popover-filter/popover-filter.component';
 import {fromEvent, Observable, Subject} from 'rxjs';
 import {finalize, skip, takeUntil} from 'rxjs/operators';
 import {merge} from 'rxjs/internal/observable/merge';
-import {ComboDataRequest, PaginatedResponse} from '../../../groot-base/utils/pagination.model';
+import {ComboDataRequest, FilterOption, PaginatedResponse} from '../../../groot-base/utils/pagination.model';
 
 // Notes: this service is very much bound to the PopoverFilterComponent.
 // However, there's a lot that could be made generic. Eventually we should split it in two;
@@ -21,13 +28,13 @@ export class PopoverFilterService {
   showPopover(column: TableColumn,
               event: MouseEvent,
               domainSubject: Observable<PaginatedResponse<string>>,
-              currentValues: string[] | null,
+              currentFilter: FilterOption | null,
               dataRequest: Subject<ComboDataRequest>)
-    : Observable<string[] | null> {
-    const resultSubject = new Subject<string[]>();
+    : Observable<FilterOption | null> {
+    const resultSubject = new Subject<FilterOption>();
 
     const {componentRef, domElem} = this.createComponent();
-    this.fillInputs(componentRef, column, resultSubject, currentValues, domainSubject, dataRequest);
+    this.fillInputs(componentRef, column, resultSubject, currentFilter, domainSubject, dataRequest);
 
     this.setupPositioning(domElem, event, resultSubject);
     this.closeComponentOnClickOutside(domElem, componentRef, resultSubject);
@@ -58,13 +65,13 @@ export class PopoverFilterService {
   private fillInputs(componentRef: ComponentRef<PopoverFilterComponent>,
                      column: TableColumn,
                      resultSubject,
-                     currentValues: string[] | null,
+                     currentFilter: FilterOption | null,
                      domainSubject: Observable<PaginatedResponse<string>>,
                      dataRequest: Subject<ComboDataRequest>) {
     const popoverFilterComponent = componentRef.instance;
     popoverFilterComponent.column = column;
     popoverFilterComponent.results = resultSubject;
-    popoverFilterComponent.selectedValues = currentValues ? [...currentValues] : [];
+    popoverFilterComponent.currentFilter = currentFilter;
     popoverFilterComponent.domain$ = domainSubject;
     popoverFilterComponent.dataRequest = dataRequest;
   }

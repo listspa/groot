@@ -5,6 +5,8 @@ import {
   ComboDataRequest,
   DomainElement,
   FilterOperator,
+  FilterOption,
+  NbpuSchemaFieldType,
   PaginatedResponse
 } from '../../../../groot-base/utils/pagination.model';
 
@@ -17,10 +19,10 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
 
   readonly COMBO_SIZE = 100;
   @Input() column: TableColumn;
-  @Input() results: Subject<string[] | null>;
-  @Input() selectedValues: string[] = [];
+  @Input() results: Subject<FilterOption>;
   @Input() domain$: Observable<PaginatedResponse<string>>;
-  @Input() dataRequest: Subject<ComboDataRequest>;
+  @Input() dataRequest: Subject<ComboDataRequest | null>;
+  @Input() currentFilter: FilterOption;
   domainPage: PaginatedResponse<string>;
   loadingError = false;
   comparisonOperators: DomainElement[] = [{
@@ -39,6 +41,11 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
     value: FilterOperator.GE,
     label: '>='
   }];
+  selectedValues: string[];
+  operator: FilterOperator;
+  numericValue: number;
+  private getSelectedValue: () => any;
+  private hasSelectedValue: () => boolean;
   private domainSubscription: Subscription;
 
   clear() {
@@ -51,7 +58,17 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
   }
 
   apply() {
-    this.results.next(this.selectedValues);
+    if (!this.hasSelectedValue()) {
+      this.results.next(null);
+    } else {
+      const filter: FilterOption = {
+        column: this.column.columnName,
+        type: this.column.columnType || NbpuSchemaFieldType.STRING,
+        operator: this.operator,
+        value: this.getSelectedValue()
+      };
+      this.results.next(filter);
+    }
     this.close();
   }
 
@@ -59,6 +76,40 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
     this.domainSubscription = this.domain$.subscribe(
       d => this.domainPage = d,
       () => this.loadingError = true);
+
+    this.initOperatorAndValue();
+  }
+
+  private initOperatorAndValue() {
+    switch (this.column.columnType || NbpuSchemaFieldType.STRING) {
+      case NbpuSchemaFieldType.INT32:
+      case NbpuSchemaFieldType.INT64:
+      case NbpuSchemaFieldType.DOUBLE:
+        this.operator = this.currentFilter ? this.currentFilter.operator : FilterOperator.EQUALS;
+        this.numericValue = this.currentFilter ? this.currentFilter.value : 0;
+        this.getSelectedValue = () => this.numericValue;
+        this.hasSelectedValue = () => Boolean(this.operator);
+        break;
+
+      case NbpuSchemaFieldType.STRING:
+      case NbpuSchemaFieldType.CLOB:
+      case NbpuSchemaFieldType.ENUM:
+      case NbpuSchemaFieldType.UUID:
+        this.operator = FilterOperator.IN;
+        this.selectedValues = this.currentFilter ? this.currentFilter.value : [];
+        this.getSelectedValue = () => this.selectedValues;
+        this.hasSelectedValue = () => this.selectedValues.length > 0;
+        break;
+
+      // TODO
+      // case NbpuSchemaFieldType.DATE:
+      // case NbpuSchemaFieldType.TIME:
+      // case NbpuSchemaFieldType.TIMESTAMP:
+      // case NbpuSchemaFieldType.BOOLEAN:
+
+      case NbpuSchemaFieldType.BLOB:
+        break;
+    }
   }
 
   ngOnDestroy(): void {
