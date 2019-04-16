@@ -48,7 +48,9 @@ groot-nav-bar {
       .dropdown-menu {
         position: absolute;
         border: 1px solid $gray-800;
-        border-radius: 2px;
+        border-radius: $border-radius;
+        padding-left: 1px;
+        padding-right: 1px;
 
         .dropdown-item {
           color: $gray-800;
@@ -64,8 +66,8 @@ groot-nav-bar {
           }
 
           &.active {
-            background-color: $light-primary;
-            color: color-yiq($primary);
+            background-color: $lighter-primary;
+            color: color-yiq($lighter-primary);
           }
         }
       }
@@ -210,7 +212,7 @@ groot-nav-bar {
 
     .menu-element {
       border: 1px solid $gray-250;
-      border-radius: 2px;
+      border-radius: $border-radius;
       line-height: 1.5rem;
       padding: 1rem;
       color: $gray-250;
