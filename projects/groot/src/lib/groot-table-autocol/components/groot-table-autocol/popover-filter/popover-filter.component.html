@@ -1,22 +1,58 @@
 <div class="popover-content popover-body">
-  <ng-container *ngIf="!loadingError; else loadingErrorTemplate">
-    <groot-combo
-      name="filter-column"
-      placeholder="common.filter"
-      [showAsListBox]="true"
-      [checkboxes]="true"
-      [fetchDataIncrementally]="true"
-      (requestData)="comboDataRequest($event)"
-      [itemsPage]="domainPage"
-      [(ngModel)]="selectedValues"
-      [maxItemsAtATime]="COMBO_SIZE"
-    ></groot-combo>
+  <ng-container [ngSwitch]="column.columnType">
+    <ng-container *ngSwitchCase="'INT32'">
+      <ng-template [ngTemplateOutlet]="numberTpl"></ng-template>
+    </ng-container>
+    <ng-container *ngSwitchCase="'INT64'">
+      <ng-template [ngTemplateOutlet]="numberTpl"></ng-template>
+    </ng-container>
+    <ng-container *ngSwitchCase="'DOUBLE'">
+      <ng-template [ngTemplateOutlet]="numberTpl"></ng-template>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      <ng-template [ngTemplateOutlet]="stringsTpl"></ng-template>
+    </ng-container>
   </ng-container>
-  <ng-template #loadingErrorTemplate>
-    <div class="loading-indicator">
-      <i class="fa fa-exclamation-triangle text-danger"></i>
-      {{'common.cannotLoadFilters' | translate}}
+
+  <!-- Numbers -->
+  <ng-template #numberTpl>
+    <div class="d-flex justify-content-around">
+      <groot-combo
+        [items]="comparisonOperators"
+        name="operator"
+        [required]="true"
+        [bindLabel]="label"
+        [bindValue]="value"
+      ></groot-combo>
+
+      <groot-input
+        type="number"
+        [required]="true"
+      ></groot-input>
     </div>
+  </ng-template>
+
+  <!-- Strings -->
+  <ng-template #stringsTpl>
+    <ng-container *ngIf="!loadingError; else loadingErrorTemplate">
+      <groot-combo
+        name="filter-column"
+        placeholder="common.filter"
+        [showAsListBox]="true"
+        [checkboxes]="true"
+        [fetchDataIncrementally]="true"
+        (requestData)="comboDataRequest($event)"
+        [itemsPage]="domainPage"
+        [(ngModel)]="selectedValues"
+        [maxItemsAtATime]="COMBO_SIZE"
+      ></groot-combo>
+    </ng-container>
+    <ng-template #loadingErrorTemplate>
+      <div class="loading-indicator">
+        <i class="fa fa-exclamation-triangle text-danger"></i>
+        {{'common.cannotLoadFilters' | translate}}
+      </div>
+    </ng-template>
   </ng-template>
 
   <!-- Buttons -->

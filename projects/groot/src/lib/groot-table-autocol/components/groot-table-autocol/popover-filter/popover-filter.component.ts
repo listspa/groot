@@ -1,7 +1,12 @@
 import {Component, HostBinding, Input, OnDestroy, OnInit} from '@angular/core';
 import {TableColumn} from '../../../model/table-columns.model';
 import {Observable, Subject, Subscription} from 'rxjs';
-import {ComboDataRequest, PaginatedResponse} from '../../../../groot-base/utils/pagination.model';
+import {
+  ComboDataRequest,
+  DomainElement,
+  FilterOperator,
+  PaginatedResponse
+} from '../../../../groot-base/utils/pagination.model';
 
 @Component({
   selector: 'groot-popover-filter',
@@ -18,6 +23,22 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
   @Input() dataRequest: Subject<ComboDataRequest>;
   domainPage: PaginatedResponse<string>;
   loadingError = false;
+  comparisonOperators: DomainElement[] = [{
+    value: FilterOperator.EQUALS,
+    label: '='
+  }, {
+    value: FilterOperator.LE,
+    label: '<='
+  }, {
+    value: FilterOperator.LT,
+    label: '<'
+  }, {
+    value: FilterOperator.GT,
+    label: '>'
+  }, {
+    value: FilterOperator.GE,
+    label: '>='
+  }];
   private domainSubscription: Subscription;
 
   clear() {
