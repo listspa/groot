@@ -30,7 +30,8 @@
              [virtualScroll]="fetchDataIncrementally"
              (scroll)="onScroll($event)"
              [loading]="loading"
-             (open)="onOpen()">
+             (open)="onOpen()"
+             [clearable]="clearable">
 
 
     <!-- For checkboxes: header with buttons select all / unselect all -->

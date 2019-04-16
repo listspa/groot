@@ -36,6 +36,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() labelTemplate: TemplateRef<any> | null;
   @Input() multiLabelTemplate: TemplateRef<any> | null;
   @Input() maxItemsAtATime = 100;
+  @Input() clearable = true;
 
   @Input() set checkboxes(value: boolean) {
     this._checkboxes = value;

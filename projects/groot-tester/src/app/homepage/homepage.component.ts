@@ -65,6 +65,11 @@ New component <code>groot-display-value</code> with the value part only. See its
 with <code>Pagination</code> objects.`
       },
       {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `The <code>groot-combo</code> has a flag <code>clearable</code> which can be used
+to disable the "clear" icon.`
+      },
+      {
         type: ReleaseChangeType.BUG_FIX,
         html: `Filters ftDate and ftTime now work even with null or empty values.`
       },
