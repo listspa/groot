@@ -9,6 +9,7 @@ export * from './lib/groot-base/components/actions-button/actions-button-entry/a
 export * from './lib/groot-base/components/confirm-modal/confirm-modal.component';
 export * from './lib/groot-base/components/collapsible-box/collapsible-box.component';
 export * from './lib/groot-base/components/display-label-value/display-label-value.component';
+export * from './lib/groot-base/components/display-value/display-value.component';
 export * from './lib/groot-base/components/download-button/download-button.component';
 export * from './lib/groot-base/components/footer/footer.component';
 export * from './lib/groot-base/components/forms/groot-button/groot-button.component';

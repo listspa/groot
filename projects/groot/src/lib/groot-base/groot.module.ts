@@ -41,12 +41,16 @@ import {
   GrootTableTitleRightAreaDirective
 } from './components/tables/groot-table/groot-table.directive';
 import {GrootAccordionIndicatorComponent} from './components/tables/groot-accordion-indicator/groot-accordion-indicator.component';
-import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './components/forms/groot-input/groot-input.directive';
+import {
+  GrootInputIconLeftDirective,
+  GrootInputIconRightDirective
+} from './components/forms/groot-input/groot-input.directive';
 import './polyfills/polyfill-element-closest';
 import {YesNoCheckComponent} from './components/yes-no-check/yes-no-check.component';
 import {ActionsButtonComponent} from './components/actions-button/actions-button.component';
 import {ActionsButtonEntryComponent} from './components/actions-button/actions-button-entry/actions-button-entry.component';
 import {DisplayLabelValueComponent} from './components/display-label-value/display-label-value.component';
+import {DisplayValueComponent} from './components/display-value/display-value.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +91,7 @@ import {DisplayLabelValueComponent} from './components/display-label-value/displ
     ActionsButtonComponent,
     ActionsButtonEntryComponent,
     DisplayLabelValueComponent,
+    DisplayValueComponent,
   ],
   imports: [
     CommonModule,
@@ -138,6 +143,7 @@ import {DisplayLabelValueComponent} from './components/display-label-value/displ
     ActionsButtonComponent,
     ActionsButtonEntryComponent,
     DisplayLabelValueComponent,
+    DisplayValueComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

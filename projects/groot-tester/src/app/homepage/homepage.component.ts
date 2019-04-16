@@ -47,7 +47,8 @@ shows a menu when clicked. See its <a href="#/demo/misc-small-components">docume
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `New component <code>groot-display-label-value</code> to display a pair label and value.
-See its <a href="#/demo/misc-small-components">documentation page</a>.`
+New component <code>groot-display-value</code> with the value part only. See its 
+<a href="#/demo/misc-small-components">documentation page</a>.`
       },
       {
         type: ReleaseChangeType.NEW_FEATURE,
