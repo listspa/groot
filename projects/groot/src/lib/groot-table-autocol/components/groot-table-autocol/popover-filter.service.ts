@@ -8,8 +8,8 @@ import {
 } from '@angular/core';
 import {TableColumn} from '../../model/table-columns.model';
 import {PopoverFilterComponent} from './popover-filter/popover-filter.component';
-import {fromEvent, Observable, Subject} from 'rxjs';
-import {finalize, skip, takeUntil} from 'rxjs/operators';
+import {concat, fromEvent, Observable, of, Subject} from 'rxjs';
+import {finalize, skip, takeUntil, tap} from 'rxjs/operators';
 import {merge} from 'rxjs/internal/observable/merge';
 import {ComboDataRequest, FilterOption, PaginatedResponse} from '../../../groot-base/utils/pagination.model';
 
@@ -40,7 +40,7 @@ export class PopoverFilterService {
     this.closeComponentOnClickOutside(domElem, componentRef, resultSubject);
 
     return resultSubject.pipe(
-      finalize(() => this.closeComponent(componentRef)));
+      finalize(() => this.closeComponent(componentRef, resultSubject)));
   }
 
   // See https://hackernoon.com/angular-pro-tip-how-to-dynamically-create-components-in-body-ba200cc289e6
@@ -115,24 +115,31 @@ export class PopoverFilterService {
 
   private closeComponentOnClickOutside(domElem: HTMLElement,
                                        componentRef: ComponentRef<any>,
-                                       cancelObservable: Observable<any>) {
+                                       resultSubject: Subject<FilterOption>) {
+    // When the cancelObservable completes without emitting at least one value,
+    // takeUntil is not triggered. So we concatenate it with a dummy observable
+    // that will emit *at least* one value.
+    const cancelObsWithAtLeastOneValue = concat(resultSubject, of(true));
+
     // Close when the body receives a click (skipping the current one)
     fromEvent(window, 'click')
       .pipe(
-        takeUntil(cancelObservable),
+        takeUntil(cancelObsWithAtLeastOneValue),
         skip(1),
+        tap(e => console.log('click outside: %o', e)),
       )
-      .subscribe(() => this.closeComponent(componentRef));
+      .subscribe(() => this.closeComponent(componentRef, resultSubject));
 
     // ...but avoid bubbling up click events from a click on the popover
     fromEvent(domElem, 'click')
-      .pipe(takeUntil(cancelObservable))
+      .pipe(takeUntil(resultSubject))
       .subscribe(e => e.stopPropagation());
 
   }
 
-  private closeComponent(componentRef: ComponentRef<any>) {
+  private closeComponent(componentRef: ComponentRef<any>, resultSubject: Subject<FilterOption>) {
     this.appRef.detachView(componentRef.hostView);
     componentRef.destroy();
+    resultSubject.complete();
   }
 }
