@@ -60,7 +60,12 @@ groot-nav-bar {
 
           &:hover {
             background-color: $primary;
-            color: $white;
+            color: color-yiq($primary);
+          }
+
+          &.active {
+            background-color: $light-primary;
+            color: color-yiq($primary);
           }
         }
       }

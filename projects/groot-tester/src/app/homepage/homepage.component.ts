@@ -74,6 +74,10 @@ to disable the "clear" icon.`
         html: `The <code>groot-navbar</code> supports titles and separators.`
       },
       {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `The <code>groot-navbar</code> highlights the currently selected item.`
+      },
+      {
         type: ReleaseChangeType.BUG_FIX,
         html: `Filters ftDate and ftTime now work even with null or empty values.`
       },

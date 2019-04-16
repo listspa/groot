@@ -13,7 +13,8 @@
           {{item.label | translate}}
         </a>
         <div *ngIf="item.children" dropdown class="dropdown">
-          <a class="nav-link dropdown-toggle" dropdownToggle [class.active]="router.url.indexOf(item.url)===0"
+          <a class="nav-link dropdown-toggle" dropdownToggle
+             [class.active]="router.url.indexOf(item.url) === 0"
              href (click)="false" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
             <i *ngIf="item.icon" class="{{item.icon}}"></i>
             {{item.label | translate}}
@@ -22,7 +23,8 @@
             <ng-container *ngFor="let child of item.children">
               <a class="dropdown-item"
                  [routerLink]="child.url"
-                 *ngIf="!child.isTitle && !child.isSeparator">
+                 *ngIf="!child.isTitle && !child.isSeparator"
+                 [class.active]="router.url.indexOf(child.url) === 0">
                 <i *ngIf="child.icon" class="{{child.icon}}"></i>
                 {{child.label | translate}}
               </a>
