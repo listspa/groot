@@ -98,6 +98,7 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
       case NbpuSchemaFieldType.ENUM:
       case NbpuSchemaFieldType.UUID:
       case NbpuSchemaFieldType.TIME:
+      case NbpuSchemaFieldType.BOOLEAN:
         this.operator = FilterOperator.IN;
         this.selectedValues = this.currentFilter ? this.currentFilter.value : [];
         this.getSelectedValue = () => this.selectedValues;
@@ -111,9 +112,6 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
         this.getSelectedValue = () => this.dateValue ? isoDate(this.dateValue) : null;
         this.hasSelectedValue = () => Boolean(this.operator) && this.dateValue !== null;
         break;
-
-      // TODO
-      // case NbpuSchemaFieldType.BOOLEAN:
 
       case NbpuSchemaFieldType.BLOB:
         break;
