@@ -86,9 +86,9 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
       case NbpuSchemaFieldType.INT64:
       case NbpuSchemaFieldType.DOUBLE:
         this.operator = this.currentFilter ? this.currentFilter.operator : FilterOperator.EQUALS;
-        this.numericValue = this.currentFilter ? this.currentFilter.value : 0;
+        this.numericValue = this.currentFilter ? this.currentFilter.value : null;
         this.getSelectedValue = () => this.numericValue;
-        this.hasSelectedValue = () => Boolean(this.operator);
+        this.hasSelectedValue = () => Boolean(this.operator) && this.numericValue !== null;
         break;
 
       case NbpuSchemaFieldType.STRING:

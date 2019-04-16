@@ -16,7 +16,7 @@
 
   <!-- Numbers -->
   <ng-template #numberTpl>
-    <div class="d-flex justify-content-around">
+    <div class="d-flex justify-content-between">
       <groot-combo
         [items]="comparisonOperators"
         name="operator"
@@ -24,12 +24,14 @@
         bindLabel="label"
         bindValue="value"
         [(ngModel)]="operator"
+        [clearable]="false"
       ></groot-combo>
 
       <groot-input
         type="number"
         [required]="true"
         name="numericValue"
+        [placeholder]="column.label | translate"
         [(ngModel)]="numericValue"
       ></groot-input>
     </div>
