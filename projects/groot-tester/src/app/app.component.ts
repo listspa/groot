@@ -31,6 +31,19 @@ export class AppComponent {
         {label: 'Other utilities', url: '/demo/other-utilities'},
         {label: 'Capabilities', url: '/demo/capabilities'},
       ]
+    },
+    {
+      label: 'Sample with sections',
+      children: [
+        {label: 'Section 1', isTitle: true},
+        {label: 'Item 1.1', url: '/url'},
+        {label: 'Item 1.2', url: '/url'},
+        {isSeparator: true},
+        {label: 'Section 2', isTitle: true},
+        {label: 'Item 2.1', url: '/url'},
+        {label: 'Item 2.2', url: '/url'},
+        {label: 'Item 2.3', url: '/url'},
+      ]
     }
   ];
   readonly menu: Menu[][] = [

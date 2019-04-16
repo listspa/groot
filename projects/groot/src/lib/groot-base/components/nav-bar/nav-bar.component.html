@@ -19,10 +19,21 @@
             {{item.label | translate}}
           </a>
           <div class="dropdown-menu" *dropdownMenu>
-            <a class="dropdown-item" *ngFor="let child of item.children" [routerLink]="child.url">
-              <i *ngIf="child.icon" class="{{child.icon}}"></i>
-              {{child.label | translate}}
-            </a>
+            <ng-container *ngFor="let child of item.children">
+              <a class="dropdown-item"
+                 [routerLink]="child.url"
+                 *ngIf="!child.isTitle && !child.isSeparator">
+                <i *ngIf="child.icon" class="{{child.icon}}"></i>
+                {{child.label | translate}}
+              </a>
+
+              <hr *ngIf="child.isSeparator">
+
+              <h5 *ngIf="child.isTitle">
+                <i *ngIf="child.icon" class="{{child.icon}}"></i>
+                {{child.label | translate}}
+              </h5>
+            </ng-container>
           </div>
         </div>
       </li>
@@ -76,8 +87,8 @@
                       <span>{{menu.label | translate}}</span>
 
                       <span class="menu-element-dir-indicator" *ngIf="!menu.url">
-                    <i class="fa fa-navicon"></i>
-                  </span>
+                        <i class="fa fa-navicon"></i>
+                      </span>
                     </div>
                   </div>
                 </div>

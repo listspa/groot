@@ -1,8 +1,10 @@
 export interface AbstractNavBarItem {
-  label: string;
+  label?: string;
   icon?: string;
   url?: string;
   requiredCapability?: string | string[];
+  isTitle?: boolean;
+  isSeparator?: boolean;
 }
 
 export interface Menu extends AbstractNavBarItem {

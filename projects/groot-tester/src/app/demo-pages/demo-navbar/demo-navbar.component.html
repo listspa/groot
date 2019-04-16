@@ -15,10 +15,12 @@
 
 <p>
   Each item of the <code>simpleNavBarItems</code> array must have a label and should have either an <code>url</code>, or a set of
-  <code>children</code> (again a <code>SimpleNavBarItem[]</code>; submenus are not supported at this time).
-  Each item might optionally have an icon.
+  <code>children</code> (again a <code>SimpleNavBarItem[]</code>; submenus are not supported at this time).<br>
+  Each item might optionally have an icon.<br>
   An element with children should have a <code>url</code> anyway, which should be a prefix of the <code>url</code> of the children.
-  The navbar relies on this to keep the parent highlighted when one of the children is selected.
+  The navbar relies on this to keep the parent highlighted when one of the children is selected.<br>
+  You can also create items with the flags <code>isTitle</code> to create titles, or <code>isSeparator</code> to
+  insert a separator.
 </p>
 
 <p>
