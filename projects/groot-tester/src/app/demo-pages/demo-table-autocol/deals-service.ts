@@ -2,6 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {LoadingService} from '../../../../../groot/src/lib/groot-base/services/loading.service';
 import {
+  FilterOperator,
   FilterOption,
   FilterPaginationOptions,
   PaginatedResponse,
@@ -71,8 +72,33 @@ export class DealsService {
   }
 
   private filterMatches(filter: FilterOption, rec: Deal) {
-    const value = String(rec[filter.column]);
-    return (filter.value as string[]).some(s => value === s);
+    const value = rec[filter.column];
+
+    switch (filter.operator) {
+      case FilterOperator.EQUALS:
+        return value === filter.value;
+
+      case FilterOperator.NOT_EQUALS:
+        return value !== filter.value;
+
+      case FilterOperator.LT:
+        return value < filter.value;
+
+      case FilterOperator.LE:
+        return value <= filter.value;
+
+      case FilterOperator.GT:
+        return value > filter.value;
+
+      case FilterOperator.GE:
+        return value >= filter.value;
+
+      case FilterOperator.IN:
+        return (filter.value as any[]).some(s => value === s);
+
+      // etc etc
+    }
+    return false;
   }
 
   getFilterDomain(request: SearchColumnValuesRequest): Observable<PaginatedResponse<string>> {
