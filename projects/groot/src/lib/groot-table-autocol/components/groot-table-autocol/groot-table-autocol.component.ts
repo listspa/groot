@@ -62,7 +62,7 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
   @Input() tableClassName: string | string[] = '';
   @Input() tHeadClassName: string | string[] = 'thead-primary';
   @Input() trClassName: string | string[] = 'text-nowrap';
-  @Input() hideTableIfEmpty = true;
+  @Input() hideTableIfEmpty = false;
   @Output() search = new EventEmitter<FilterPaginationOptions>();
   @Input() searchResultsData: PaginatedResponse<T> | LoadingFailed;
   @Input() @ContentChild(GrootTableAutocolActionsDirective, {read: TemplateRef}) actionsTemplate: TemplateRef<any>;
