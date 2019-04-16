@@ -123,10 +123,11 @@
   </ng-template>
 
   <ng-template #defaultFieldTemplate let-value="value" let-column="column">
-    <groot-display-label-value
+    <groot-display-value
       [value]="value"
       [dataType]="column.columnType"
-    ></groot-display-label-value>
+      [align]="true"
+    ></groot-display-value>
   </ng-template>
 </groot-table>
 
