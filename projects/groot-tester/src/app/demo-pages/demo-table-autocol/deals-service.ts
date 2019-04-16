@@ -32,6 +32,7 @@ export interface Deal {
   msgTypeWeb: string;
   des: string;
   reason: string;
+  amount: number;
 }
 
 @Injectable({

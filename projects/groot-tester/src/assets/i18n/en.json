@@ -20,5 +20,6 @@
   "deals.msgTypeWeb": "Message Type",
   "deals.des": "Description",
   "deals.reason": "Reason",
-  "deals.assetClass": "Asset class"
+  "deals.assetClass": "Asset class",
+  "deals.amount": "Amount"
 }
