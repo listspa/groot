@@ -2,6 +2,8 @@
 // it respect bootstrap's and GRooT's variables
 
 .ng-select {
+  @include font-size($input-font-size);
+
   &.ng-select-opened {
     > .ng-select-container {
       background: $input-bg;
