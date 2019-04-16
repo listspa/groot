@@ -9,6 +9,12 @@
     <ng-container *ngSwitchCase="'DOUBLE'">
       <ng-template [ngTemplateOutlet]="numberTpl"></ng-template>
     </ng-container>
+    <ng-container *ngSwitchCase="'DATE'">
+      <ng-template [ngTemplateOutlet]="dateTpl"></ng-template>
+    </ng-container>
+    <ng-container *ngSwitchCase="'TIMESTAMP'">
+      <ng-template [ngTemplateOutlet]="dateTpl"></ng-template>
+    </ng-container>
     <ng-container *ngSwitchDefault>
       <ng-template [ngTemplateOutlet]="stringsTpl"></ng-template>
     </ng-container>
@@ -34,6 +40,28 @@
         [placeholder]="column.label | translate"
         [(ngModel)]="numericValue"
       ></groot-input>
+    </div>
+  </ng-template>
+
+  <!-- Dates -->
+  <ng-template #dateTpl>
+    <div class="d-flex justify-content-between">
+      <groot-combo
+        [items]="comparisonOperators"
+        name="operator"
+        [required]="true"
+        bindLabel="label"
+        bindValue="value"
+        [(ngModel)]="operator"
+        [clearable]="false"
+      ></groot-combo>
+
+      <groot-date-picker
+        [required]="true"
+        name="dateValue"
+        [placeholder]="column.label | translate"
+        [(ngModel)]="dateValue"
+      ></groot-date-picker>
     </div>
   </ng-template>
 

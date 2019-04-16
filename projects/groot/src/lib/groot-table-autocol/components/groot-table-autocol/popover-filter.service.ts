@@ -9,7 +9,7 @@ import {
 import {TableColumn} from '../../model/table-columns.model';
 import {PopoverFilterComponent} from './popover-filter/popover-filter.component';
 import {concat, fromEvent, Observable, of, Subject} from 'rxjs';
-import {finalize, skip, takeUntil, tap} from 'rxjs/operators';
+import {filter, finalize, skip, takeUntil} from 'rxjs/operators';
 import {merge} from 'rxjs/internal/observable/merge';
 import {ComboDataRequest, FilterOption, PaginatedResponse} from '../../../groot-base/utils/pagination.model';
 
@@ -126,7 +126,10 @@ export class PopoverFilterService {
       .pipe(
         takeUntil(cancelObsWithAtLeastOneValue),
         skip(1),
-        tap(e => console.log('click outside: %o', e)),
+        filter(e => {
+          // Avoid closing when clicking the date picker's calendar
+          return !(e.target as any).closest('.bs-datepicker-body');
+        })
       )
       .subscribe(() => this.closeComponent(componentRef, resultSubject));
 

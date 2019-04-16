@@ -105,7 +105,7 @@ export class DemoTableAutocolComponent implements OnInit {
         columnName: 'packageIdFe',
         fieldName: 'packageIdFe',
         widthPx: 350,
-        showFilters: true
+        showFilters: false
       },
       {
         key: 'uti',
@@ -119,7 +119,8 @@ export class DemoTableAutocolComponent implements OnInit {
         label: 'deals.tradeDate',
         columnName: 'tradeDate',
         fieldName: 'tradeDate',
-        columnType: NbpuSchemaFieldType.DATE
+        columnType: NbpuSchemaFieldType.DATE,
+        showFilters: true
       },
       {
         key: 'ndgCode',
@@ -140,7 +141,8 @@ export class DemoTableAutocolComponent implements OnInit {
         label: 'deals.arrivalTime',
         columnName: 'arrivalTime',
         fieldName: 'arrivalTime',
-        columnType: NbpuSchemaFieldType.TIMESTAMP
+        columnType: NbpuSchemaFieldType.TIMESTAMP,
+        showFilters: true
       },
       {
         key: 'sendTime',

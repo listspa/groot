@@ -9,6 +9,7 @@ import {
   NbpuSchemaFieldType,
   PaginatedResponse
 } from '../../../../groot-base/utils/pagination.model';
+import {isoDate} from '../../../../groot-base/utils/date-utils';
 
 @Component({
   selector: 'groot-popover-filter',
@@ -44,6 +45,7 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
   selectedValues: string[];
   operator: FilterOperator;
   numericValue: number;
+  dateValue: Date;
   private getSelectedValue: () => any;
   private hasSelectedValue: () => boolean;
   private domainSubscription: Subscription;
@@ -102,9 +104,15 @@ export class PopoverFilterComponent implements OnInit, OnDestroy {
         this.hasSelectedValue = () => this.selectedValues.length > 0;
         break;
 
+      case NbpuSchemaFieldType.DATE:
+      case NbpuSchemaFieldType.TIMESTAMP:
+        this.operator = this.currentFilter ? this.currentFilter.operator : FilterOperator.EQUALS;
+        this.dateValue = this.currentFilter ? new Date(this.currentFilter.value) : null;
+        this.getSelectedValue = () => this.dateValue ? isoDate(this.dateValue) : null;
+        this.hasSelectedValue = () => Boolean(this.operator) && this.dateValue !== null;
+        break;
+
       // TODO
-      // case NbpuSchemaFieldType.DATE:
-      // case NbpuSchemaFieldType.TIMESTAMP:
       // case NbpuSchemaFieldType.BOOLEAN:
 
       case NbpuSchemaFieldType.BLOB:
