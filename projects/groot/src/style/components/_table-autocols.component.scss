@@ -56,6 +56,14 @@ groot-table-autocol {
   background-color: $primary;
   padding: $table-cell-padding;
   opacity: 0.9;
+
+  .groot-table-header-filter-icon {
+    display: none;
+  }
+
+  .groot-table-header-after-filters {
+    margin-left: 0;
+  }
 }
 
 
