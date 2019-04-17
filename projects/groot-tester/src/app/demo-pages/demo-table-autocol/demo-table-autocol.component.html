@@ -35,7 +35,7 @@
     </div>
   </ng-template>
 
-  <ng-template #assetClassTemplate let-row="row">
+  <ng-template grootTableAutocolTemplateForColumn="assetClass" let-row="row">
     <span style="font-style: italic;">
       {{row.mFamily}}-{{row.mGroup}}-{{row.mType}}
     </span>
@@ -64,6 +64,12 @@
   Note that the component lives in a separate angular module, to help with tree shaking (saving space
   in your app by excluding items you do not use). To use this component, therefore, you need to import the module
   <code>GrootTableAutocolModule</code>.
+</p>
+
+<p>
+  There is a base class that can be used to implement a storage of the selected columns, their order and sizes,
+  called `TableAutocolConfigServiceBase`. It requires in input an implementation of a `TableAutocolConfigSaver`.
+  Groot provides a `LocalStorageTableAutocolConfigSaver`, which uses the browser's persistent local storage.
 </p>
 
 <p>

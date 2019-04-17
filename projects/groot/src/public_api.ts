@@ -74,3 +74,6 @@ export * from './lib/groot-table-autocol/components/groot-table-autocol/columns-
 export * from './lib/groot-table-autocol/components/groot-table-autocol/popover-filter/popover-filter.component';
 export * from './lib/groot-table-autocol/model/popover-filter.model';
 export * from './lib/groot-table-autocol/model/table-columns.model';
+export * from './lib/groot-table-autocol/services/local-storage-table-autocol-config-saver';
+export * from './lib/groot-table-autocol/services/table-autocol-config-saver';
+export * from './lib/groot-table-autocol/services/table-autocol-config-service-base';
