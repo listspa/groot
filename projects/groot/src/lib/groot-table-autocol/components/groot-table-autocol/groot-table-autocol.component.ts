@@ -27,10 +27,7 @@ import {
   PaginationOptions
 } from '../../../groot-base/utils/pagination.model';
 import {ElementResizingHandler} from '../../../groot-base/utils/element-resizing-handler';
-import {
-  GrootTableComponent,
-  LoadingFailed
-} from '../../../groot-base/components/tables/groot-table/groot-table.component';
+import {GrootTableComponent, LoadingFailed} from '../../../groot-base/components/tables/groot-table/groot-table.component';
 import {PopoverFilterService} from './popover-filter.service';
 import {
   GrootTableAutocolActionsDirective,
@@ -231,5 +228,11 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
   // noinspection JSUnusedGlobalSymbols
   reloadTable(resetPageNumber = false) {
     this.grootTable.reloadTable(resetPageNumber);
+  }
+
+  toggleAccordion(row: any) {
+    if (this.accordionColumns.length > 0) {
+      row.$accordionVisible = !row.$accordionVisible;
+    }
   }
 }

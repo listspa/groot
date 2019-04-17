@@ -73,7 +73,7 @@
       <tr [ngClass]="trClassName"
           [class.table-row-selectable]="accordionColumns.length > 0"
           [class.accordion-expanded]="row.$accordionVisible"
-          (click)="row.$accordionVisible = !row.$accordionVisible">
+          (click)="toggleAccordion(row)">
         <!-- Actions button -->
         <td *ngIf="actionsTemplate" class="table-actions-cells">
           <groot-actions-button
