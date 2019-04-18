@@ -146,6 +146,7 @@ import { GrootDatePipe } from './pipes/groot-date/groot-date.pipe';
     ActionsButtonEntryComponent,
     DisplayLabelValueComponent,
     DisplayValueComponent,
+    GrootDatePipe,
   ],
   entryComponents: [
     LoadingIndicatorComponent,
