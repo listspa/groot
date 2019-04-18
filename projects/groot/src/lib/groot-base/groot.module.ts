@@ -51,6 +51,7 @@ import {ActionsButtonComponent} from './components/actions-button/actions-button
 import {ActionsButtonEntryComponent} from './components/actions-button/actions-button-entry/actions-button-entry.component';
 import {DisplayLabelValueComponent} from './components/display-label-value/display-label-value.component';
 import {DisplayValueComponent} from './components/display-value/display-value.component';
+import { GrootDatePipe } from './pipes/groot-date/groot-date.pipe';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import {DisplayValueComponent} from './components/display-value/display-value.co
     ActionsButtonEntryComponent,
     DisplayLabelValueComponent,
     DisplayValueComponent,
+    GrootDatePipe,
   ],
   imports: [
     CommonModule,
