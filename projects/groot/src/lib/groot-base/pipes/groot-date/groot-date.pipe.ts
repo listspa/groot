@@ -2,7 +2,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 import {formatDate} from '@angular/common';
 
 /**
- * Can format a date expressed in a given format (default: dd-MMM-yy
+ * Convert a string in a date, according to the givent format (default: dd-MMM-yy).
  */
 @Pipe({
   name: 'grootDate'
@@ -12,7 +12,7 @@ export class GrootDatePipe implements PipeTransform {
 
 
   transform(dateObj: any,
-            inputDateFormat: string = 'dd-MMM-yy',
+            inputDateFormat: 'yyyy-MM-dd' | 'dd-MMM-yy' | 'dd-MMM-yyyy' = 'yyyy-MM-dd',
             outputDateFormat: string = 'dd/MM/yyyy',
             timezone: string = 'it'): any {
     if (!dateObj) {
@@ -35,6 +35,15 @@ export class GrootDatePipe implements PipeTransform {
   private parseInputDateFormat(dateStr: string, inputDateFormat: string) {
     let transformedDateString = "";
     switch (inputDateFormat) {
+      case 'yyyy-MM-dd': {
+        let re = /-/gi;
+        dateStr = dateStr.replace(re, '');
+        const year = dateStr.substr(0, 4);
+        const month = dateStr.substr(4, 2);
+        const day = dateStr.substr(6, 2);
+        transformedDateString = year.concat(month, day);
+        break;
+      }
       case 'dd-MMM-yy': {
         let re = /-/gi;
         dateStr = dateStr.replace(re, '');

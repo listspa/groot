@@ -11,9 +11,9 @@ describe('GrootDatePipe', () => {
     expect(pipe).toBeTruthy();
   });
 
-  it('can print a string with default date format', () => {
+  it('can print a string with default date format (yyyy-MM-dd)', () => {
     const pipe = new GrootDatePipe();
-    expect(pipe.transform('19-JAN-18')).toEqual('19/01/2018');
+    expect(pipe.transform('2018-05-12')).toEqual('12/05/2018');
   });
 
   it('can print a string with date format dd-MMM-yy', () => {
