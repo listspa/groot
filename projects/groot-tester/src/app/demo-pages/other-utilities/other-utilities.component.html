@@ -32,6 +32,20 @@
 <p>To format FastTrack's date and times (<code>SKLDate</code> and <code>SKLTime</code>), we have two pipes,
   called <code>ftDate</code> and <code>ftTime</code> to allow for simple formatting.</p>
 
+<h2>Groot Date</h2>
+
+<p>To format any string containing a date in a specific format, we have <code>Groot Date</code> pipe.
+You can specify both input and output formats. For now, the pipe accept the following formats:</p>
+<ul>
+  <li>yyyy-MM-dd <em>*default*</em></li>
+  <li>dd-MMM-yy</li>
+  <li>dd-MMM-yyyy</li>
+</ul>
+<p>
+For the output format, you can use any standard <code>Date pipe</code> format.
+As a last parameter, you can specify the <code>locale</code> (default: IT).
+</p>
+
 <h2>Uploading files</h2>
 
 <p>
