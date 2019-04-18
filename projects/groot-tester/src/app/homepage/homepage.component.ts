@@ -78,6 +78,10 @@ to disable the "clear" icon.`
         html: `The <code>groot-navbar</code> highlights the currently selected item.`
       },
       {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added pipe <code>grootDate</code>. It allows to transform a string in a Date specifying both input and output patterns.`
+      },
+      {
         type: ReleaseChangeType.BUG_FIX,
         html: `Filters ftDate and ftTime now work even with null or empty values.`
       },
