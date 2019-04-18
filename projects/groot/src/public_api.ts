@@ -42,6 +42,7 @@ export * from './lib/groot-base/directives/needsCapability.directive';
 export * from './lib/groot-base/pipes/ft-date/ft-date.pipe';
 export * from './lib/groot-base/pipes/ft-time/ft-time.pipe';
 export * from './lib/groot-base/pipes/fileSize/fileSize.pipe';
+export * from './lib/groot-base/pipes/groot-date/groot-date.pipe';
 export * from './lib/groot-base/services/capability.service';
 export * from './lib/groot-base/services/confirm-modal.service';
 export * from './lib/groot-base/services/console-logging.service';
