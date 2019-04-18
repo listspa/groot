@@ -230,6 +230,12 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
     this.grootTable.reloadTable(resetPageNumber);
   }
 
+  // noinspection JSUnusedGlobalSymbols
+  resetFilters() {
+    this.popoverFilters = {};
+    this.reloadTable(true);
+  }
+
   toggleAccordion(row: any) {
     if (this.accordionColumns.length > 0) {
       row.$accordionVisible = !row.$accordionVisible;
