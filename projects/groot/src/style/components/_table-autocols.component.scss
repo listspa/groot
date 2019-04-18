@@ -33,7 +33,7 @@ groot-table-autocol {
     color: $table-header-inactive-color;
 
     &.active {
-      color: $table-header-active-color;
+      color: $table-filters-applied-color;
     }
   }
 
