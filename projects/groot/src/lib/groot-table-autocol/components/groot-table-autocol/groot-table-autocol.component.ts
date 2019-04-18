@@ -233,6 +233,7 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
   // noinspection JSUnusedGlobalSymbols
   resetFilters() {
     this.popoverFilters = {};
+    this.reloadTable(true);
   }
 
   toggleAccordion(row: any) {
