@@ -5,7 +5,7 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.13.0', released: false, changes: [
+    version: '0.13.0', released: true, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `You need to run <code>npm install @angular/cdk</code> once. Do not worry, it will not be included 
