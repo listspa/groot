@@ -35,8 +35,16 @@
 
 
     <!-- For checkboxes: header with buttons select all / unselect all -->
-    <ng-template *ngIf="checkboxes"
-                 ng-header-tmp>
+    <ng-template *ngIf="checkboxes || headerTemplate" ng-header-tmp>
+      <ng-container *ngIf="headerTemplate">
+        <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+      </ng-container>
+      <ng-container *ngIf="!headerTemplate && checkboxes">
+        <ng-container *ngTemplateOutlet="checkboxSelectAllTpl"></ng-container>
+      </ng-container>
+    </ng-template>
+
+    <ng-template #checkboxSelectAllTpl>
       <div class="buttons-list-left">
         <button type="button" class="btn btn-outline-primary btn-sm"
                 (click)="selectAll()"

@@ -35,6 +35,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() itemTemplate: TemplateRef<any> | null;
   @Input() labelTemplate: TemplateRef<any> | null;
   @Input() multiLabelTemplate: TemplateRef<any> | null;
+  @Input() headerTemplate: TemplateRef<any> | null;
   @Input() maxItemsAtATime = 100;
   @Input() clearable = true;
 

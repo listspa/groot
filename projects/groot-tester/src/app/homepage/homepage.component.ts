@@ -82,6 +82,10 @@ to disable the "clear" icon.`
         html: `Added pipe <code>grootDate</code>. It allows to transform a string in a Date specifying both input and output patterns.`
       },
       {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `The <code>groot-combo</code> allows the header template to be customized.`
+      },
+      {
         type: ReleaseChangeType.BUG_FIX,
         html: `Filters ftDate and ftTime now work even with null or empty values.`
       },
@@ -89,11 +93,7 @@ to disable the "clear" icon.`
         type: ReleaseChangeType.BUG_FIX,
         html: `Fixed issues with the footer covering part of the page via the new class <code>container-with-sticky-footer</code>.
 See the <a href="#/demo/footer">footer documentation</a> for details.`
-      },
-      {
-        type: ReleaseChangeType.BUG_FIX,
-        html: `Fixed a bug in handling table filters for values of type DOUBLE.`
-      },
+      }
     ]
   },
   {
