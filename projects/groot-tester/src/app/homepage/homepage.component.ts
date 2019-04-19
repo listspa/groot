@@ -89,7 +89,11 @@ to disable the "clear" icon.`
         type: ReleaseChangeType.BUG_FIX,
         html: `Fixed issues with the footer covering part of the page via the new class <code>container-with-sticky-footer</code>.
 See the <a href="#/demo/footer">footer documentation</a> for details.`
-      }
+      },
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed a bug in handling table filters for values of type DOUBLE.`
+      },
     ]
   },
   {
