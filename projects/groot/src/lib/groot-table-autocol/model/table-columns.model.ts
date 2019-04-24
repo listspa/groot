@@ -29,3 +29,18 @@ export interface SelectedColumns {
   selected: TableColumns;
   accordion: TableColumns;
 }
+
+export interface SimpleColumn {
+  label: string;
+  fieldName: string;
+}
+
+/**
+ * Converts a list of TableColumn to a list of SimpleColumn
+ */
+export function toSimpleColumns(columns: TableColumns): SimpleColumn[] {
+  return columns.map(c => ({
+    label: c.label,
+    fieldName: c.fieldName
+  }));
+}
