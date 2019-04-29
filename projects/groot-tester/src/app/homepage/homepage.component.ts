@@ -86,6 +86,10 @@ to disable the "clear" icon.`
         html: `The <code>groot-combo</code> allows the header template to be customized.`
       },
       {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `The <code>dateUtils</code> exposes a new method, <code>sprintfYYYYMMDD</code>. It allows to print a date in a string following the format YYYYMMDD with an (optional) separator.`
+      },
+      {
         type: ReleaseChangeType.BUG_FIX,
         html: `Filters ftDate and ftTime now work even with null or empty values.`
       },
