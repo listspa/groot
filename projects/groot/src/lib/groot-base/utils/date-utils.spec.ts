@@ -1,4 +1,4 @@
-import {isoDate, isoDateNullable, parseDate} from './date-utils';
+import {isoDate, isoDateNullable, parseDate, sprintfYYYYMMDD} from './date-utils';
 
 describe('isoDate', () => {
   it('can print a date which does not require padding', () => {
@@ -27,5 +27,11 @@ describe('stringToDate', () => {
 
   it('returns the date when given a date', () => {
     expect(parseDate(new Date(2018, 0, 2))).toEqual(new Date(2018, 0, 2));
+  });
+});
+
+describe('sprintf', () => {
+  it('can parse a date with standard separator (no separator)', () => {
+    expect(sprintfYYYYMMDD(new Date(2020, 11, 31))).toEqual('20201231');
   });
 });
