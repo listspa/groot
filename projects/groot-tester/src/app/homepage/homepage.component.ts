@@ -5,6 +5,22 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.13.2', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Handled specially selection of exactly one value for combo checkboxes`
+      },
+    ]
+  },
+  {
+    version: '0.13.1', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `The <code>dateUtils</code> exposes a new method, <code>sprintfYYYYMMDD</code>. It allows to print a date in a string following the format YYYYMMDD with an (optional) separator.`
+      },
+    ]
+  },
+  {
     version: '0.13.0', released: true, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
@@ -84,10 +100,6 @@ to disable the "clear" icon.`
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `The <code>groot-combo</code> allows the header template to be customized.`
-      },
-      {
-        type: ReleaseChangeType.NEW_FEATURE,
-        html: `The <code>dateUtils</code> exposes a new method, <code>sprintfYYYYMMDD</code>. It allows to print a date in a string following the format YYYYMMDD with an (optional) separator.`
       },
       {
         type: ReleaseChangeType.BUG_FIX,

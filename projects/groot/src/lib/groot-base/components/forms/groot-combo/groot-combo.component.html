@@ -130,27 +130,36 @@
       </ng-container>
       <ng-container *ngIf="!multiLabelTemplate && checkboxes && !showAsListBox">
         <ng-container
-          *ngTemplateOutlet="checkboxSelectedTpl; context: {items: items}">
+          *ngTemplateOutlet="checkboxSelectedTpl; context: {items: items, clear: clear}">
         </ng-container>
       </ng-container>
     </ng-template>
 
 
     <!-- Selected items row template -->
-    <ng-template #checkboxSelectedTpl let-items="items">
+    <ng-template #checkboxSelectedTpl let-items="items" let-clear="clear">
       <div class="ng-value">
         <span class="ng-value-label"
-              *ngIf="isAllSelected()">
+              *ngIf="isAllSelected() && items.length != 1">
           {{'common.allValuesSelected' | translate}}
         </span>
         <span class="ng-value-label"
               *ngIf="!isAllSelected() && items.length > 1">
           {{'common.numValuesSelected' | translate:{numSelected: items.length} }}
         </span>
-        <span class="ng-value-label"
-              *ngIf="!isAllSelected() && items.length == 1">
-          {{'common.oneValueSelected' | translate}}
-        </span>
+
+        <!-- Special case for one value selected -->
+        <ng-container *ngIf="items.length == 1">
+          <ng-container *ngIf="labelTemplate">
+            <ng-container
+              *ngTemplateOutlet="labelTemplate; context: {item: items[0], clear: clear, label: bindLabel ? items[0][bindLabel] : items[0]}">
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="!labelTemplate">
+            <span class="ng-value-icon left" (click)="clear(items[0])" aria-hidden="true">×</span>
+            <span class="ng-value-label">{{bindLabel ? items[0][bindLabel] : items[0]}}</span>
+          </ng-container>
+        </ng-container>
       </div>
     </ng-template>
   </ng-select>

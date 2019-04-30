@@ -729,9 +729,18 @@
         [items]="currencies"
         [(ngModel)]="form.currency"
         [itemTemplate]="templateCurrItem4"
+        [labelTemplate]="templateCurrLabel4"
         [checkboxes]="true">
         <ng-template #templateCurrItem4 let-item="item">
           <span class="ng-option-label">
+            <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
+            {{item}}
+          </span>
+        </ng-template>
+
+        <ng-template #templateCurrLabel4 let-item="item" let-clear="clear">
+          <span class="ng-value-icon left" (click)="clear(item)">×</span>
+          <span class="ng-value-label">
             <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
             {{item}}
           </span>
@@ -747,6 +756,14 @@
   [(ngModel)]="form.currency"
   [itemTemplate]="templateCurrItem4"
   [checkboxes]="true">
+      
+  &lt;ng-template #templateCurrItem4 let-item="item">
+    &lt;span class="ng-option-label">
+      &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+      {{item}}
+    &lt;/span>
+  &lt;/ng-template>
+      
   &lt;ng-template #templateCurrItem4 let-item="item">
     &lt;span class="ng-option-label">
       &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
