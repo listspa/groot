@@ -7,9 +7,15 @@ const RELEASE_NOTES: Release[] = [
   {
     version: '0.13.3', released: true, changes: [
       {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Implemented new route guard <code>GrootMayRouteWithCapabilityGuard</code> to require a capability before
+allowing access to a given route`
+      },
+      {
         type: ReleaseChangeType.BUG_FIX,
         html: `The navbar simple items did not support correctly the capabilities`
-      }, {
+      },
+      {
         type: ReleaseChangeType.BUG_FIX,
         html: `Made the directive <code>grootNeedsCapability</code> capable of overriding a display class on the element`
       },

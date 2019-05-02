@@ -41,3 +41,25 @@
     <div class="alert alert-danger" grootNeedsCapability="no-capability">I am hidden</div>
   </div>
 </div>
+
+<h2>Validating access to a route</h2>
+
+<p>
+  To authorize only the users who have a certain capability to acces a given route, configure your route like this:
+</p>
+
+<pre><code>
+&#123;
+  component: MyComponent,
+  path: 'myUrl',
+  data: &#123;
+    pageTitle: &#123;title: 'myPageTitle'},
+    requiredCapability: WebCapability.SEE_DATA_QUALITY
+  },
+  canActivate: [GrootMayRouteWithCapabilityGuard]
+},
+</code></pre>
+
+<p>
+  The route data <code>requiredCapability</code> can be a string or an array of strings, like the directive's input.
+</p>

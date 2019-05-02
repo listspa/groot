@@ -61,6 +61,7 @@ export * from './lib/groot-base/utils/element-resizing-handler';
 export * from './lib/groot-base/utils/generic-table-component-base';
 export * from './lib/groot-base/utils/geometry.model';
 export * from './lib/groot-base/utils/groot-translations';
+export * from './lib/groot-base/utils/may-route-with-capability.guard';
 export * from './lib/groot-base/utils/missing-translation-logger';
 export * from './lib/groot-base/utils/pagination.model';
 export * from './lib/groot-base/utils/pagination-utils';
