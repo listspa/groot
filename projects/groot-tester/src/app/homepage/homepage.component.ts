@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.13.5', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed a regression with <code>ft-time</code>`
+      },
+    ]
+  },
+  {
     version: '0.13.4', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,

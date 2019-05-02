@@ -12,6 +12,12 @@ describe('FtTimePipe', () => {
     expect(pipe.transform('4553001')).toEqual('04:55');
   });
 
+  it('can print a number with default time format', () => {
+    const pipe = new FtTimePipe();
+    expect(pipe.transform(12131401)).toEqual('12:13');
+    expect(pipe.transform(4553001)).toEqual('04:55');
+  });
+
   it('respects the given time format', () => {
     const pipe = new FtTimePipe();
     expect(pipe.transform('12131401', 'hh:mm:ss')).toEqual('12:13:14');

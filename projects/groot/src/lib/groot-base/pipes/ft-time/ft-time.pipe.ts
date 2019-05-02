@@ -9,10 +9,10 @@ import {leftPad} from '../../utils/string-utils';
   name: 'ftTime'
 })
 export class FtTimePipe implements PipeTransform {
-  transform(time: string,
+  transform(time: string | number,
             timeFormat: string = 'HH:mm',
             timezone: string = 'it'): any {
-    if (time && time.trim() !== '') {
+    if (time && time.toString().trim() !== '') {
       const normalizedTime = leftPad(time, 8, '0');
       const hh = parseInt(normalizedTime.substr(0, 2), 10);
       const mm = parseInt(normalizedTime.substr(2, 2), 10);
