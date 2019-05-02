@@ -18,7 +18,8 @@ export class NeedsCapabilityDirective {
     const capabilities = NeedsCapabilityDirective.makeArrayOfCapabilitiesNames(capabilityName);
     const hasCapability = this.hasAtLeastOneOfCapabilities(capabilities);
     if (!hasCapability) {
-      this.renderer.setStyle(this.el.nativeElement, 'display', 'none', RendererStyleFlags2.Important);
+      // tslint:disable-next-line:no-bitwise
+      this.renderer.setStyle(this.el.nativeElement, 'display', 'none', RendererStyleFlags2.Important | RendererStyleFlags2.DashCase);
     }
   }
 
