@@ -7,7 +7,8 @@
     </a>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" *ngFor="let item of _simpleNavBarItems"
-          routerLinkActive="active">
+          routerLinkActive="active"
+          [grootNeedsCapability]="item.requiredCapability">
         <a *ngIf="!item.children" class="nav-link" [routerLink]="item.url">
           <i *ngIf="item.icon" class="{{item.icon}}"></i>
           {{item.label | translate}}
@@ -24,7 +25,8 @@
               <a class="dropdown-item"
                  [routerLink]="child.url"
                  *ngIf="!child.isTitle && !child.isSeparator"
-                 [class.active]="router.url.indexOf(child.url) === 0">
+                 [class.active]="router.url.indexOf(child.url) === 0"
+                 [grootNeedsCapability]="child.requiredCapability">
                 <i *ngIf="child.icon" class="{{child.icon}}"></i>
                 {{child.label | translate}}
               </a>

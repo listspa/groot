@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.13.3', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `The navbar simple items did not support correctly the capabilities`
+      },
+    ]
+  },
+  {
     version: '0.13.2', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,

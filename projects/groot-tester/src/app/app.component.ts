@@ -44,6 +44,7 @@ export class AppComponent {
         {label: 'Colors and typography', url: '/demo/colors', icon: 'fa fa-paint-brush'},
         {label: 'Other utilities', url: '/demo/other-utilities'},
         {label: 'Capabilities', url: '/demo/capabilities'},
+        {label: 'DUMMY HIDDEN', url: '/docs/translations-guide', requiredCapability: 'no-capability'},
       ]
     },
     {
@@ -58,7 +59,8 @@ export class AppComponent {
         {label: 'Item 2.2', url: '/url'},
         {label: 'Item 2.3', url: '/url'},
       ]
-    }
+    },
+    {label: 'DUMMY HIDDEN', url: '/docs/translations-guide', requiredCapability: 'no-capability'},
   ];
   readonly menu: Menu[][] = [
     [
