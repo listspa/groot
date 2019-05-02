@@ -9,6 +9,9 @@ const RELEASE_NOTES: Release[] = [
       {
         type: ReleaseChangeType.BUG_FIX,
         html: `The navbar simple items did not support correctly the capabilities`
+      }, {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Made the directive <code>grootNeedsCapability</code> capable of overriding a display class on the element`
       },
     ]
   },

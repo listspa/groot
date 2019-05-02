@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Input, Renderer2} from '@angular/core';
+import {Directive, ElementRef, Input, Renderer2, RendererStyleFlags2} from '@angular/core';
 import {GrootCapabilityService} from '../services/capability.service';
 
 /**
@@ -18,7 +18,7 @@ export class NeedsCapabilityDirective {
     const capabilities = NeedsCapabilityDirective.makeArrayOfCapabilitiesNames(capabilityName);
     const hasCapability = this.hasAtLeastOneOfCapabilities(capabilities);
     if (!hasCapability) {
-      this.renderer.addClass(this.el.nativeElement, 'd-none');
+      this.renderer.setStyle(this.el.nativeElement, 'display', 'none', RendererStyleFlags2.Important);
     }
   }
 
