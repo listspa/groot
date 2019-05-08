@@ -67,7 +67,7 @@ export class GrootTableComponent<T> implements OnInit {
     return this.sorting;
   }
 
-  reloadTable(resetPageNumber = false) {
+  reloadTable(resetPageNumber = false, resetSortField = false) {
     if (!this.sorting) {
       // Before our ngOnInit
       return;
@@ -75,6 +75,11 @@ export class GrootTableComponent<T> implements OnInit {
 
     if (resetPageNumber) {
       this._currentPageNum = 0;
+    }
+
+    if (resetSortField) {
+      this.defaultSortColumn = null;
+      this.sorting.column = this.defaultSortColumn;
     }
 
     this.search.emit({

@@ -226,8 +226,8 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
   }
 
   // noinspection JSUnusedGlobalSymbols
-  reloadTable(resetPageNumber = false) {
-    this.grootTable.reloadTable(resetPageNumber);
+  reloadTable(resetPageNumber = false, resetSortField = false) {
+    this.grootTable.reloadTable(resetPageNumber, resetSortField);
   }
 
   // noinspection JSUnusedGlobalSymbols
