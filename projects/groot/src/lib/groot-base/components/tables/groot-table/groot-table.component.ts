@@ -78,8 +78,8 @@ export class GrootTableComponent<T> implements OnInit {
     }
 
     if (resetSortField) {
-      this.defaultSortColumn = null;
       this.sorting.column = this.defaultSortColumn;
+      this.sorting.reverse = this.defaultSortReverseFlag;
     }
 
     this.search.emit({

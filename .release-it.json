@@ -6,8 +6,7 @@
   "use": "pkg.version",
   "git": {
     "requireUpstream": false,
-    "tagName": "v${version}",
-    "requireCleanWorkingDir": false
+    "tagName": "v${version}"
   },
   "npm": {
     "publish": false
