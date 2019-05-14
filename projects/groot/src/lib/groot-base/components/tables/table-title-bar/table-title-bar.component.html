@@ -4,6 +4,7 @@
       {{label | translate}}
       <small *ngIf="pageInfo && pageInfo.totalItems > 0"
              class="text-muted">{{'common.paginationRowsInfo' | translate:pageInfo}}</small>
+      <small *ngIf="showRefreshIcon" class="refresh text-muted" (click)="refreshTable()"><i class="fa fa-refresh" [ngClass]="{'fa-spin': loading}"></i></small>
     </h2>
   </div>
   <div class="col-sm buttons-list-right">
