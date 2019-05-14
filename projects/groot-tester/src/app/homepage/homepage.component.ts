@@ -5,6 +5,16 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.13.6', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `<code>groot-table-autocol</code> and simple <code>groot-table</code> have a new attribute,
+<code>showRefreshIcon</code>. If <code>true</code>, a new refresh icon appears after row counting; clicking on it
+reloads the table. Default value is <code>false</code>.`
+      },
+    ]
+  },
+  {
     version: '0.13.5', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
