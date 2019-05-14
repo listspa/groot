@@ -4,6 +4,8 @@
   [downloadExcelUrl]="downloadExcelUrl"
   [downloadExcelUrlProvider]="downloadExcelUrlProvider"
   [downloadExcelArgsProvider]="downloadExcelArgs"
+  [showRefreshIcon]="showRefreshIcon"
+  (refresh)="reloadTable()"
   *ngIf="!hideTitleBar"
 >
   <ng-container *ngTemplateOutlet="tableTitleRightArea"></ng-container>
