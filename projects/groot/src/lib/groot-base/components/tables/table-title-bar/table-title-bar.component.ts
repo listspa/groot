@@ -23,8 +23,8 @@ export class TableTitleBarComponent {
   loading: Boolean = false;
 
   @Input() set searchResults(data: PaginatedResponse<any>) {
+    this.loading = false;
     if (data) {
-      this.loading = false;
       this.pageInfo = {
         startRowIdx: data.pageNum * data.pageLen + 1,
         endRowIdx: Math.min((data.pageNum + 1) * data.pageLen, data.totalNumRecords),
