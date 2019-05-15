@@ -5,7 +5,7 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.13.8', released: true, changes: [
+    version: '0.13.9', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
         html: 'Fixed size of comparison operator in the autocol filters\' popup on IE'
@@ -13,7 +13,7 @@ const RELEASE_NOTES: Release[] = [
     ]
   },
   {
-    version: '0.13.7', released: true, changes: [
+    version: '0.13.8', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
         html: 'Fixed hand cursor for refresh icon in tables.'
@@ -21,7 +21,7 @@ const RELEASE_NOTES: Release[] = [
     ]
   },
   {
-    version: '0.13.6', released: true, changes: [
+    version: '0.13.7', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `<code>groot-table-autocol</code> and simple <code>groot-table</code> have a new attribute,
