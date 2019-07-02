@@ -1,4 +1,4 @@
-image: gitlab.list-group.com:5000/isp-bu/libs/docker-img-maven-node:java8-node10-chrome
+image: artifactory.list-group.com/isp/libs/docker-img-maven-node/java8-node10-chrome
 
 cache:
   key: isp-bu-groot-cache
