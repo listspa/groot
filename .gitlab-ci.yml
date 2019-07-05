@@ -1,8 +1,3 @@
-cache:
-  key: isp-bu-groot-cache
-  paths:
-  - node_modules/
-
 stages:
   - angular
   - docker
@@ -13,27 +8,31 @@ variables:
   DOCKER_IMAGE_NAME: "artifactory.list-group.com/isp/groot"
   OPENSHIFT_PROJECT: "isp-groot"
 
-#test-angular:
-#  image: artifactory.list-group.com/isp/libs/docker-img-maven-node/java8-node10-chrome
-#  stage: angular
-#  script:
-#  - npm install
-##  - ./node_modules/.bin/ng test --watch=false --code-coverage=true --browsers=ChromeHeadlessNoSandbox
-##  - npm run package
-#  - npm run build-demo-app
-#  artifacts:
-#    paths:
-#      - dist/groot-tester
-#
-#build-docker-image:
-#  image: docker:18
-#  stage: docker
-#  script:
-#    - echo $ARTIFACTORY_DEPLOY_PASSWORD | docker login -u $ARTIFACTORY_DEPLOY_USERNAME --password-stdin  artifactory.list-group.com
-#    - docker build --pull --build-arg http_proxy=$http_proxy --build-arg https_proxy=$https_proxy -t $DOCKER_IMAGE_NAME:${CI_COMMIT_TAG:-latest} .
-#    - docker push $DOCKER_IMAGE_NAME:${CI_COMMIT_TAG:-latest}
-##  only:
-##    - master
+test-angular:
+  image: artifactory.list-group.com/isp/libs/docker-img-maven-node/java8-node10-chrome
+  stage: angular
+  script:
+  - npm install
+#  - ./node_modules/.bin/ng test --watch=false --code-coverage=true --browsers=ChromeHeadlessNoSandbox
+#  - npm run package
+  - npm run build-demo-app
+  artifacts:
+    paths:
+      - dist/groot-tester
+  cache:
+    key: isp-bu-groot-cache
+    paths:
+      - node_modules/
+
+build-docker-image:
+  image: docker:18
+  stage: docker
+  script:
+    - echo $ARTIFACTORY_DEPLOY_PASSWORD | docker login -u $ARTIFACTORY_DEPLOY_USERNAME --password-stdin  artifactory.list-group.com
+    - docker build --pull --build-arg http_proxy=$http_proxy --build-arg https_proxy=$https_proxy -t $DOCKER_IMAGE_NAME:${CI_COMMIT_TAG:-latest} .
+    - docker push $DOCKER_IMAGE_NAME:${CI_COMMIT_TAG:-latest}
+#  only:
+#    - master
 
 deploy-on-openshift:
   image: openshift/origin-cli
@@ -42,4 +41,3 @@ deploy-on-openshift:
     - oc login $OPENSHIFT_URL -u $OPENSHIFT_LOGIN -p $OPENSHIFT_PASSWORD --insecure-skip-tls-verify
     - oc project $OPENSHIFT_PROJECT
     - oc import-image $DOCKER_IMAGE_NAME
-
