@@ -40,4 +40,4 @@ deploy-on-openshift:
   script:
     - oc login $OPENSHIFT_URL -u $OPENSHIFT_LOGIN -p $OPENSHIFT_PASSWORD --insecure-skip-tls-verify
     - oc project $OPENSHIFT_PROJECT
-    - oc import-image $DOCKER_IMAGE_NAME
+    - oc import-image $OPENSHIFT_PROJECT/$OPENSHIF_IMAGE --from=$DOCKER_IMAGE_NAME

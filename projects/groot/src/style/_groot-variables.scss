@@ -59,8 +59,8 @@ $colors: (
   "light": $light
 );
 
-$primary: $green !default;
-$secondary: $blue !default; // In Bootstrap it's gray by default
+$primary: $blue !default;
+$secondary: $green !default; // In Bootstrap it's gray by default
 $success: $brilliant-green !default;
 $info: $light-blue !default;
 $warning: $orange !default;
