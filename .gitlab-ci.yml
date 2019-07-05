@@ -5,15 +5,15 @@ cache:
 
 variables:
   NPM_CONFIG_REGISTRY: "https://artifactory.list-group.com/artifactory/api/npm/npm/"
-  DOCKER_IMAGE_NAME: "artifactory.list-group.com/isp/test/groot"
+  DOCKER_IMAGE_NAME: "artifactory.list-group.com/isp/groot"
 
 test-angular:
   image: artifactory.list-group.com/isp/libs/docker-img-maven-node/java8-node10-chrome
   stage: test
   script:
   - npm install
-#  - ./node_modules/.bin/ng test --watch=false --code-coverage=true --browsers=ChromeHeadlessNoSandbox
-#  - npm run package
+  - ./node_modules/.bin/ng test --watch=false --code-coverage=true --browsers=ChromeHeadlessNoSandbox
+  - npm run package
   - npm run build-demo-app
   artifacts:
     paths:
