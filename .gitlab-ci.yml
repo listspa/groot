@@ -39,7 +39,7 @@ deploy-on-openshift:
   image: openshift/origin-cli
   stage: openshift
   script:
-    - oc login $OPENSHIFT_URL -u $OPENSHIFT_LOGIN -p $OPENSHIFT_PASSWORD
+    - oc login $OPENSHIFT_URL -u $OPENSHIFT_LOGIN -p $OPENSHIFT_PASSWORD --insecure-skip-tls-verify
     - oc project $OPENSHIFT_PROJECT
     - oc import-image $DOCKER_IMAGE_NAME
 
