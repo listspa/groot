@@ -44,3 +44,4 @@ deploy-on-openshift:
     - oc import-image $OPENSHIFT_PROJECT/$OPENSHIFT_APP --from=$DOCKER_IMAGE_NAME
   only:
     - master
+  allow_failure: true
