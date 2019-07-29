@@ -2,7 +2,7 @@ import {LoggingService} from './logging.service';
 import {Injectable} from '@angular/core';
 
 /**
- * Implementation of LogginsService that logs to the standard console.
+ * Implementation of LoggingService that logs to the standard console.
  */
 @Injectable({
   providedIn: 'root'
