@@ -1,3 +1,94 @@
+<h1>Plugins and lazy loading</h1>
+
 <p>
-  docs-arch-plugins works!
+  When writing a large application, Angular supports a useful feature:
+  <a href="https://angular.io/guide/lazy-loading-ngmodules">lazy loading</a>. This can help
+  lessen the burden on the browser, because until the first navigation to a path occurs,
+  the whole module will not be loaded.
+</p>
+
+<p>
+  In Groot we have implemented a small wrapper around this feature, for a few reasons:
+</p>
+
+<ul>
+  <li>simplify routing registration;</li>
+  <li>allow a simple way to setup the nav bar;</li>
+  <li>simplify translations loading.</li>
+</ul>
+
+<h2>Show me the code</h2>
+
+<p>
+  To start, define your module normally, with your components etc. Just remember that
+  the routing path will be <i>relative</i> to your module, i.e. define your routes like
+  this:
+</p>
+
+<pre><code>const routes: Route[] = [
+  &#123;component: DocsArchPluginsComponent, path: 'plugins'}
+];
+
+@NgModule(&#123;
+  declarations: [
+    DocsArchPluginsComponent
+  ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes)
+  ]
+})
+export class DocsArchModule &#123;
+}
+</code></pre>
+
+<p>
+  Since we will register the module under the path <code>demo-arch</code>, the complete
+  router url for our <code>DocsArchPluginsComponent</code> will be <code>demo-arch/plugins</code>.
+  It is not only possible but also recommended, as usual, that you use a "main" module
+  and a "routing" module.
+</p>
+
+<p>
+  Next, we need to implement the <code>GrootPlugin</code> class:
+</p>
+
+<pre><code>export class DocsArchGrootPlugin extends DynamicallyLoadedGrootPlugin &#123;
+  constructor() &#123;
+    super('Demo Arch', 'docs-arch', 'DocsArchModule');
+  }
+
+  protected importModule() &#123;
+    return import('./docs-arch.module');
+  }
+
+  getRootMenuEntries(): Menu[] | null &#123;
+    // Configure as needed
+    return null;
+  }
+}
+</code></pre>
+
+<p>
+  Note that do <i>not</i> want to reference any file of the module in the plugin class,
+  since that would prevent the lazy loading from working and the code of our module
+  would be embedded in the main bundle (js file).
+</p>
+
+<p>
+  Finally, in our main application module we want to register the plugin and initialize
+  the whole infrastructure. This is quite simple: in the <code>providers</code> section
+  of your main module simply add:
+</p>
+
+<pre><code>
+  &#123;provide: GROOT_PLUGIN, useClass: DocsArchGrootPlugin, multi: true},
+  INIT_GROOT_ARCH_PROVIDER
+</code></pre>
+
+<p>
+  Afterwards, the routing will be correctly configured: at the first click on a link that
+  refers a page in the module, Angular will load the bundle and then activate the page.
+  You can test it with this page: simply check the network monitor and you will see that
+  the browser will load a new file when navigating to this page.
 </p>

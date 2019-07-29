@@ -47,6 +47,13 @@ export class AppComponent {
         {label: 'DUMMY HIDDEN', url: '/docs/translations-guide', requiredCapability: 'no-capability'},
       ]
     },
+    {label: 'DUMMY HIDDEN', url: '/docs/translations-guide', requiredCapability: 'no-capability'},
+    {
+      label: 'Large applications',
+      children: [
+        {label: 'Plugins and lazy loading', url: '/docs-arch/plugins'}
+      ]
+    },
     {
       label: 'Sample with sections',
       children: [
@@ -58,13 +65,6 @@ export class AppComponent {
         {label: 'Item 2.1', url: '/url'},
         {label: 'Item 2.2', url: '/url'},
         {label: 'Item 2.3', url: '/url'},
-      ]
-    },
-    {label: 'DUMMY HIDDEN', url: '/docs/translations-guide', requiredCapability: 'no-capability'},
-    {
-      label: 'Lazily loaded',
-      children: [
-        {label: 'Plugins', url: '/docs-arch/plugins'}
       ]
     }
   ];
