@@ -1,6 +1,9 @@
 import {Menu} from '../../groot-base/components/nav-bar/nav-bar.model';
 import {Route} from '@angular/router';
 import {InjectionToken} from '@angular/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient} from '@angular/common/http';
+import {Observable, of} from 'rxjs';
 
 /**
  * Base class for pluggable applications: you need to return the entries
@@ -16,6 +19,10 @@ export abstract class GrootPlugin {
   abstract getRootMenuEntries(): Menu[] | null;
 
   abstract getRouterConfig(): Route[];
+
+  getTranslations(http: HttpClient, lang: string): Observable<any> {
+    return of({});
+  }
 }
 
 
@@ -54,6 +61,13 @@ export abstract class DynamicallyLoadedGrootPlugin extends GrootPlugin {
   }
 
   protected abstract importModule();
+
+  protected loadTranslationsFromFile(http: HttpClient,
+                                     lang: string,
+                                     filePrefix: string)
+    : Observable<object> {
+    return new TranslateHttpLoader(http, filePrefix, '.json').getTranslation(lang);
+  }
 }
 
 /**

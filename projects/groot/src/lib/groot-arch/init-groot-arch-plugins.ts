@@ -1,6 +1,8 @@
 import {GrootPluginManagerService} from './services/groot-plugin-manager.service';
 import {APP_INITIALIZER, Injector, Provider} from '@angular/core';
 import {GROOT_PLUGIN, GrootPlugin} from './interfaces/groot-plugin';
+import {TranslateService} from '@ngx-translate/core';
+import {HttpClient} from '@angular/common/http';
 
 
 /**
@@ -12,6 +14,10 @@ export function initGrootArchPlugins(injector: Injector) {
     const pluginsManager = injector.get(GrootPluginManagerService);
     const plugins: GrootPlugin[] = injector.get(GROOT_PLUGIN) as any;
     pluginsManager.registerPlugins(plugins);
+
+    const translateService = injector.get(TranslateService);
+    const http = injector.get(HttpClient);
+    pluginsManager.initTranslationsLoader(translateService, http);
   };
 }
 

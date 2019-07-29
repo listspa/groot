@@ -1,7 +1,12 @@
+// tslint:disable:no-console
+
 import {Injectable, Injector} from '@angular/core';
 import {Router} from '@angular/router';
 import {GrootPlugin} from '../interfaces/groot-plugin';
 import {Menu} from '../../groot-base/components/nav-bar/nav-bar.model';
+import {TranslateService} from '@ngx-translate/core';
+import {HttpClient} from '@angular/common/http';
+import {filter, map, tap} from 'rxjs/operators';
 
 /**
  * Core of the plugins system. Keeps registration of all the plugins
@@ -13,6 +18,7 @@ import {Menu} from '../../groot-base/components/nav-bar/nav-bar.model';
 export class GrootPluginManagerService {
   private plugins: GrootPlugin[] = [];
   private _router: Router;
+  private languagesLoaded = new Set<string>();
 
   constructor(private injector: Injector) {
   }
@@ -29,7 +35,6 @@ export class GrootPluginManagerService {
   }
 
   private registerPlugin(plugin: GrootPlugin) {
-    // tslint:disable-next-line:no-console
     console.info('Registering arch plugin "%s"', plugin.name);
     this.plugins.push(plugin);
 
@@ -42,5 +47,24 @@ export class GrootPluginManagerService {
       .filter(v => v && v.length)
       .forEach(pluginItems => items = items.concat(pluginItems));
     return items;
+  }
+
+  initTranslationsLoader(translateService: TranslateService, http: HttpClient) {
+    translateService.onLangChange
+      .pipe(
+        map(event => event.lang),
+        filter(lang => !this.languagesLoaded.has(lang)),
+        tap(lang => this.languagesLoaded.add(lang))
+      )
+      .subscribe(lang => this.loadAllTranslations(translateService, http, lang));
+  }
+
+  private loadAllTranslations(translateService: TranslateService, http: HttpClient, lang: string) {
+    console.info('Loading plugins translations for language %s', lang);
+
+    this.plugins.map(plugin => plugin.getTranslations(http, lang))
+      .forEach(translationObs => translationObs.subscribe(
+        pluginTransl => translateService.setTranslation(lang, pluginTransl, true)
+      ));
   }
 }
