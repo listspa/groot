@@ -61,6 +61,12 @@ export class AppComponent {
       ]
     },
     {label: 'DUMMY HIDDEN', url: '/docs/translations-guide', requiredCapability: 'no-capability'},
+    {
+      label: 'Lazily loaded',
+      children: [
+        {label: 'Lazily loaded page', url: '/demo-arch/page'}
+      ]
+    }
   ];
   readonly menu: Menu[][] = [
     [

@@ -60,6 +60,9 @@ import {GrootTranslateHttpLoader} from '../../../groot/src/lib/groot-base/utils/
 import {GrootTableAutocolModule} from '../../../groot/src/lib/groot-table-autocol/groot-table-autocol.module';
 import {DemoTableAutocolComponent} from './demo-pages/demo-table-autocol/demo-table-autocol.component';
 import {DemoSmallComponentsComponent} from './demo-pages/demo-small-components/demo-small-components.component';
+import {INIT_GROOT_ARCH_PROVIDER} from '../../../groot/src/lib/groot-arch/init-groot-arch-plugins';
+import {GROOT_PLUGIN} from '../../../groot/src/lib/groot-arch/interfaces/groot-plugin';
+import {DemoArchGrootPlugin} from './demo-arch/demo-arch.groot-plugin';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -130,7 +133,11 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     {provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker},
     {provide: GrootCapabilityService, useClass: DemoCapabilityService},
-    {provide: DEFAULT_LANGUAGE, useValue: 'en'}
+    {provide: DEFAULT_LANGUAGE, useValue: 'en'},
+
+    // Registers a groot plugin and initializes the architecture
+    {provide: GROOT_PLUGIN, useClass: DemoArchGrootPlugin, multi: true},
+    INIT_GROOT_ARCH_PROVIDER
   ],
   bootstrap: [AppComponent]
 })
