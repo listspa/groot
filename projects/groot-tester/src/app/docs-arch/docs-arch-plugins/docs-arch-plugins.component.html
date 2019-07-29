@@ -92,3 +92,25 @@ export class DocsArchModule &#123;
   You can test it with this page: simply check the network monitor and you will see that
   the browser will load a new file when navigating to this page.
 </p>
+
+<h2>Translations</h2>
+
+<p>
+  If you are loading the translations from the db, you will probably load all of them
+  at once, so there is nothing more you need to do. However, if you are loading them
+  from json files, you probably will have written a specific set of files for your plugin
+  that you need loaded. To do so, override the method <code>getTranslations</code> in your
+  plugin class, for example as follows:
+</p>
+
+<pre><code>  getTranslations(http: HttpClient, lang: string): Observable&lt;any&gt;&#123;
+    return super.loadTranslationsFromFile(http, lang, 'assets/i18n/docs-arch.');
+  }
+</code></pre>
+
+<p>
+  This function will automatically be called as necessary by the plugin architecture. In this
+  example, it will load labels from the json file <code>assets/i18n/docs-arch.LANG.json</code>.
+  As an example, here's a label translated:
+  <span class="text-brand">{{'docs-arch-sample' | translate}}</span>
+</p>
