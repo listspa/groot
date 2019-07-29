@@ -62,7 +62,7 @@ import {DemoTableAutocolComponent} from './demo-pages/demo-table-autocol/demo-ta
 import {DemoSmallComponentsComponent} from './demo-pages/demo-small-components/demo-small-components.component';
 import {INIT_GROOT_ARCH_PROVIDER} from '../../../groot/src/lib/groot-arch/init-groot-arch-plugins';
 import {GROOT_PLUGIN} from '../../../groot/src/lib/groot-arch/interfaces/groot-plugin';
-import {DemoArchGrootPlugin} from './demo-arch/demo-arch.groot-plugin';
+import {DocsArchGrootPlugin} from './docs-arch/docs-arch.groot-plugin';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -135,8 +135,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     {provide: GrootCapabilityService, useClass: DemoCapabilityService},
     {provide: DEFAULT_LANGUAGE, useValue: 'en'},
 
-    // Registers a groot plugin and initializes the architecture
-    {provide: GROOT_PLUGIN, useClass: DemoArchGrootPlugin, multi: true},
+    // Registers the groot plugin and initializes the architecture
+    {provide: GROOT_PLUGIN, useClass: DocsArchGrootPlugin, multi: true},
     INIT_GROOT_ARCH_PROVIDER
   ],
   bootstrap: [AppComponent]

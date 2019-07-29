@@ -42,7 +42,12 @@ export abstract class DynamicallyLoadedGrootPlugin extends GrootPlugin {
         return this.importModule()
           .then(m => {
             console.info('Successfully loaded module %s: %o', this.name, m);
-            return m[this.moduleClassName];
+            const moduleClass = m[this.moduleClassName];
+
+            if (!moduleClass) {
+              throw new Error(`Cannot find module class ${this.moduleClassName}`);
+            }
+            return moduleClass;
           });
       }
     }];

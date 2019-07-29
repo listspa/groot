@@ -64,7 +64,7 @@ export class AppComponent {
     {
       label: 'Lazily loaded',
       children: [
-        {label: 'Lazily loaded page', url: '/demo-arch/page'}
+        {label: 'Plugins', url: '/docs-arch/plugins'}
       ]
     }
   ];
