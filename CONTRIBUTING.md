@@ -16,6 +16,16 @@ Note that, whenever you add a file, component, service, pipe etc that needs to b
 in the "public API" of the library you need to add it to the `public_api.ts` file
 as well. Otherwise it will not be available to the library's clients.
 
+# Configuring npm repo credentials
+
+Before publishing a release, you need (once) to configure the npm repo credentials. In a terminal run:
+
+```
+npm login --registry=https://artifactory.list-group.com/artifactory/api/npm/npm-local/
+```
+
+Use your jira credentials. 
+
 # Making a release
 
 First, update the release notes in `homepage.component.ts`. Afterwards, simply run `npm run release`
