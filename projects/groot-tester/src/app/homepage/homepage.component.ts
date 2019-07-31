@@ -8,6 +8,14 @@ const RELEASE_NOTES: Release[] = [
     version: '0.15.0', released: true, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `Changed namespace and deployment url: we now use artifactory.list-group.com and have changed the package
+namespace from <code>listspa</code> to <code>listgroup</code>. This means that you have to uninstall the old package and
+install the new one. Furthermore, in your main scss file you have to replace the path of the main groot css. Finally,
+you have to change your <code>npmrc</code>: see the <a href="/docs/getting-started">getting started</a> page for
+details.`
+      },
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
         html: `Modified <code>TableAutocolConfigServiceBase</code> to use observables rather than immediate
 calls. You now need to call the <code>init</code> method explicitly and to subscribe to the observables
 returned by the <code>save</code> methods.`
