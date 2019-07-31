@@ -13,7 +13,8 @@ test-angular:
   image: artifactory.list-group.com/isp/libs/docker-img-maven-node/java8-node10-chrome
   stage: angular
   script:
-  - npm install
+  - npm cache --force clean
+  - npm ci
   - ./node_modules/.bin/ng test --watch=false --code-coverage=true --browsers=ChromeHeadlessNoSandbox
   - npm run package
   - npm run build-demo-app
