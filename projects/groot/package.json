@@ -15,5 +15,8 @@
     "filesize": "^4.0.0",
     "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^3.2.0 || ^5.1.0"
+  },
+  "publishConfig": {
+    "registry": "https://artifactory.list-group.com/artifactory/api/npm/npm/"
   }
 }
