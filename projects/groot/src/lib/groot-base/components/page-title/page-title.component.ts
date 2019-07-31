@@ -23,7 +23,7 @@ export class PageTitleComponent implements OnInit {
         filter(event => event instanceof NavigationEnd),
         map(() => this.activatedRoute),
         map(route => route.firstChild),
-        filter(route => route),
+        filter(route => !!route),
         switchMap(route => route.data),
       )
       .subscribe(data => {
