@@ -22,26 +22,32 @@
   with this content:
 </p>
 
-<pre><code>@listspa:registry=http://192.168.232.41:4873
-//192.168.232.41:4873/:_authToken="vWULAixCByFhf15uM00ctA=="</code></pre>
+<pre><code>@listgroup:registry=http://artifactory.list-group.com</code></pre>
 
 <p>
   <i>Note:</i> Windows doesn't let you create a file whose name starts with a dot, but if you save the file as <code>.npmrc.</code>
   (with a trailing dot) it will rename it automatically to <code>.npmrc</code>. Weird, but useful.
 </p>
 
+<p>
+  <i>Note:</i> this is not actually necessary if the npmrc in your home directory contains, as it should:
+</p>
+
+<pre><code>registry=https://artifactory.list-group.com/artifactory/api/npm/npm/</code></pre>
+
+<p>However, it doesn't hurt.</p>
+
 <h2>Adding GRooT to your project</h2>
 
 <p>You can now install the Groot library and the required dependencies:</p>
 
-<pre><code>npm install @listspa/groot @ngx-translate/core @ng-select/ng-select bootstrap filesize font-awesome ngx-bootstrap @ngx-translate/http-loader @angular/cdk</code></pre>
+<pre><code>npm install @listgroup/groot @ngx-translate/core @ng-select/ng-select bootstrap filesize font-awesome ngx-bootstrap @ngx-translate/http-loader @angular/cdk</code></pre>
 
 <h2>Setting up css</h2>
 
 <p>The Angular CLI will have created a <code>style.scss</code> file. In it you need to add, at the beginning:</p>
 
-<pre><code>$groot-assets-base-dir: '~@listspa/groot/assets';
-@import "~@listspa/groot/style/groot";</code></pre>
+<pre><code>@import "~@listgroup/groot/style/groot";</code></pre>
 
 <p>This will add all the GRooT style rules. Please refer to <a routerLink="/docs/groot-style">the specific stylesheet
   page</a> to find
