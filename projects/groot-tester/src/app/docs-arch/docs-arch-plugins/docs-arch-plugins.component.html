@@ -66,6 +66,11 @@ export class DocsArchModule &#123;
     // Configure as needed
     return null;
   }
+
+  getSimpleNavBarItems(): SimpleNavBarItem[] | null &#123;
+  // Configure as needed
+    return null;
+  }
 }
 </code></pre>
 
@@ -73,6 +78,11 @@ export class DocsArchModule &#123;
   Note that do <i>not</i> want to reference any file of the module in the plugin class,
   since that would prevent the lazy loading from working and the code of our module
   would be embedded in the main bundle (js file).
+</p>
+
+<p>
+  You generally will implement only one of the two "menu" methods, depending on how
+  you want to implement your app's menu.
 </p>
 
 <p>

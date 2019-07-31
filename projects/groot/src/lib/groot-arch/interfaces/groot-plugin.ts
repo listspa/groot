@@ -1,4 +1,4 @@
-import {Menu} from '../../groot-base/components/nav-bar/nav-bar.model';
+import {Menu, SimpleNavBarItem} from '../../groot-base/components/nav-bar/nav-bar.model';
 import {Route} from '@angular/router';
 import {InjectionToken} from '@angular/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -16,7 +16,13 @@ export abstract class GrootPlugin {
     this.name = name;
   }
 
-  abstract getRootMenuEntries(): Menu[] | null;
+  getRootMenuEntries(): Menu[] | null {
+    return null;
+  }
+
+  getSimpleNavBarItems(): SimpleNavBarItem[] | null {
+    return null;
+  }
 
   abstract getRouterConfig(): Route[];
 

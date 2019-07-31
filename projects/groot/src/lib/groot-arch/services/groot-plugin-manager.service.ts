@@ -3,7 +3,7 @@
 import {Injectable, Injector} from '@angular/core';
 import {Router} from '@angular/router';
 import {GrootPlugin} from '../interfaces/groot-plugin';
-import {Menu} from '../../groot-base/components/nav-bar/nav-bar.model';
+import {Menu, SimpleNavBarItem} from '../../groot-base/components/nav-bar/nav-bar.model';
 import {TranslateService} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
 import {filter, map, tap} from 'rxjs/operators';
@@ -44,6 +44,14 @@ export class GrootPluginManagerService {
   getMenuItems(): Menu[] {
     let items: Menu[] = [];
     this.plugins.map(plugin => plugin.getRootMenuEntries())
+      .filter(v => v && v.length)
+      .forEach(pluginItems => items = items.concat(pluginItems));
+    return items;
+  }
+
+  getSimpleNavBarItems(): SimpleNavBarItem[] {
+    let items: SimpleNavBarItem[] = [];
+    this.plugins.map(plugin => plugin.getSimpleNavBarItems())
       .filter(v => v && v.length)
       .forEach(pluginItems => items = items.concat(pluginItems));
     return items;
