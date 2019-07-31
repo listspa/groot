@@ -79,3 +79,6 @@ export * from './lib/groot-table-autocol/model/table-columns.model';
 export * from './lib/groot-table-autocol/services/local-storage-table-autocol-config-saver';
 export * from './lib/groot-table-autocol/services/table-autocol-config-saver';
 export * from './lib/groot-table-autocol/services/table-autocol-config-service-base';
+export * from './lib/groot-arch/init-groot-arch-plugins';
+export * from './lib/groot-arch/interfaces/groot-plugin';
+export * from './lib/groot-arch/services/groot-plugin-manager.service';
