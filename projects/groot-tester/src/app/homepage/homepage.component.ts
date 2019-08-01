@@ -24,6 +24,10 @@ main app module`
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: 'Supported explicitly angular 8'
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: 'New interface <code>SortPagination</code>'
       }
     ]
   },

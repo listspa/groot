@@ -57,9 +57,12 @@ export interface Pagination {
   pageLen: number;
 }
 
-export interface PaginationOptions extends Pagination {
+export interface SortPagination {
   sortField: string;
   sortReversed: boolean;
+}
+
+export interface PaginationOptions extends Pagination, SortPagination {
 }
 
 export enum NbpuSchemaFieldType {
