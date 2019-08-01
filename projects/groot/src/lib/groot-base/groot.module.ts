@@ -12,7 +12,6 @@ import {LoadingService} from './services/loading.service';
 import {BsDatepickerModule, BsDropdownModule, PopoverModule, TabsModule} from 'ngx-bootstrap';
 import {NotificationToastListComponent} from './components/notification-toast-list/notification-toast-list.component';
 import {NotificationToastService} from './services/notification-toast.service';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';
 import {DownloadButtonComponent} from './components/download-button/download-button.component';
 import {TableTitleBarComponent} from './components/tables/table-title-bar/table-title-bar.component';
@@ -41,17 +40,14 @@ import {
   GrootTableTitleRightAreaDirective
 } from './components/tables/groot-table/groot-table.directive';
 import {GrootAccordionIndicatorComponent} from './components/tables/groot-accordion-indicator/groot-accordion-indicator.component';
-import {
-  GrootInputIconLeftDirective,
-  GrootInputIconRightDirective
-} from './components/forms/groot-input/groot-input.directive';
+import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './components/forms/groot-input/groot-input.directive';
 import './polyfills/polyfill-element-closest';
 import {YesNoCheckComponent} from './components/yes-no-check/yes-no-check.component';
 import {ActionsButtonComponent} from './components/actions-button/actions-button.component';
 import {ActionsButtonEntryComponent} from './components/actions-button/actions-button-entry/actions-button-entry.component';
 import {DisplayLabelValueComponent} from './components/display-label-value/display-label-value.component';
 import {DisplayValueComponent} from './components/display-value/display-value.component';
-import { GrootDatePipe } from './pipes/groot-date/groot-date.pipe';
+import {GrootDatePipe} from './pipes/groot-date/groot-date.pipe';
 
 @NgModule({
   declarations: [
@@ -99,7 +95,6 @@ import { GrootDatePipe } from './pipes/groot-date/groot-date.pipe';
     CommonModule,
     TranslateModule,
     TabsModule,
-    BrowserAnimationsModule,
     RouterModule,
     FormsModule,
     NgSelectModule,

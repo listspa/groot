@@ -17,6 +17,11 @@ Note also that before making your first release, you need to login on artifactor
 <code>CONTRIBUTING.md</code> file.`
       },
       {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `You need to add <code>BrowserAnimationsModule</code> to the list of imports of your
+main app module`
+      },
+      {
         type: ReleaseChangeType.NEW_FEATURE,
         html: 'Supported explicitly angular 8'
       }

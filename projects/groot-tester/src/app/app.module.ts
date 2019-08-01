@@ -63,6 +63,7 @@ import {DemoSmallComponentsComponent} from './demo-pages/demo-small-components/d
 import {INIT_GROOT_ARCH_PROVIDER} from '../../../groot/src/lib/groot-arch/init-groot-arch-plugins';
 import {GROOT_PLUGIN} from '../../../groot/src/lib/groot-arch/interfaces/groot-plugin';
 import {DocsArchGrootPlugin} from './docs-arch/docs-arch.groot-plugin';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -108,6 +109,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     NgSelectModule,
