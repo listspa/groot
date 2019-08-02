@@ -1,3 +1,5 @@
+import {Observable} from 'rxjs';
+
 export interface ColumnWidths {
   [key: string]: number;
 }
@@ -9,11 +11,11 @@ export interface ColumnWidths {
  * @see LocalStorageTableAutocolConfigSaver
  */
 export interface TableAutocolConfigSaver {
-  saveColumnKeys(saveKey: string, colKeys: string[]): void;
+  saveColumnKeys(saveKey: string, colKeys: string[]): Observable<void>;
 
-  loadColumnKeysOrDefault(saveKey: string, defaultColKeys: string[]): string[];
+  loadColumnKeysOrDefault(saveKey: string, defaultColKeys: string[]): Observable<string[]>;
 
-  saveColumnWidths(saveKey: string, colWidths: ColumnWidths): void;
+  saveColumnWidths(saveKey: string, colWidths: ColumnWidths): Observable<void>;
 
-  loadColumnWidths(saveKey: string): ColumnWidths;
+  loadColumnWidths(saveKey: string): Observable<ColumnWidths>;
 }

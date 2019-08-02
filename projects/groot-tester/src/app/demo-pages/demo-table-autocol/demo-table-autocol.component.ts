@@ -23,9 +23,12 @@ export class DemoTableAutocolComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.availableColumns = this.demoTableAutocolConfigService.getAvailableColumns();
-    this.selectedColumns = this.demoTableAutocolConfigService.getSelectedColumns();
-    this.accordionColumns = this.demoTableAutocolConfigService.getAccordionColumns();
+    this.demoTableAutocolConfigService.init()
+      .subscribe(() => {
+        this.availableColumns = this.demoTableAutocolConfigService.getAvailableColumns();
+        this.selectedColumns = this.demoTableAutocolConfigService.getSelectedColumns();
+        this.accordionColumns = this.demoTableAutocolConfigService.getAccordionColumns();
+      });
   }
 
   doSearch(request: FilterPaginationOptions) {
@@ -44,12 +47,22 @@ export class DemoTableAutocolComponent implements OnInit {
     console.log('Should save new set of columns: %o', selection);
     this.selectedColumns = selection.selected;
     this.accordionColumns = selection.accordion;
-    this.demoTableAutocolConfigService.saveSelectedColumns(this.selectedColumns, this.accordionColumns);
+    this.demoTableAutocolConfigService.saveSelectedColumns(this.selectedColumns, this.accordionColumns)
+      .subscribe(
+        () => ({}),
+        err => console.error('Cannot save columns: %o', err),
+        () => console.log('Saved columns')
+      );
   }
 
   onColumnResized(columnAndWidth: ColumnAndWidth) {
     console.log('Should set width %o for column %o', columnAndWidth.newPixelsWidth, columnAndWidth.column);
-    this.demoTableAutocolConfigService.setAndSaveColumnWidth(columnAndWidth);
+    this.demoTableAutocolConfigService.setAndSaveColumnWidth(columnAndWidth)
+      .subscribe(
+        () => ({}),
+        err => console.error('Cannot save column widths: %o', err),
+        () => console.log('Saved columns widths'),
+      );
   }
 
   searchPopoverNeedsData(request: PopoverDataRequest) {

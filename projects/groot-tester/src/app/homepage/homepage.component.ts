@@ -5,6 +5,16 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.15.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `Modified <code>TableAutocolConfigServiceBase</code> to use observables rather than immediate
+calls. You now need to call the <code>init</code> method explicitly and to subscribe to the observables
+returned by the <code>save</code> methods.`
+      }
+    ]
+  },
+  {
     version: '0.13.9', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
