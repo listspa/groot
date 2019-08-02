@@ -16,7 +16,7 @@ test-angular:
   - npm install
   - ./node_modules/.bin/ng test --watch=false --code-coverage=true --browsers=ChromeHeadlessNoSandbox
   - npm run package
-  - npm run build-demo-app
+  - npm run deploy-demo-doc
   artifacts:
     paths:
       - dist/groot-tester
@@ -34,6 +34,7 @@ build-docker-image:
     - docker push $DOCKER_IMAGE_NAME:${CI_COMMIT_TAG:-latest}
   only:
     - master
+
 
 deploy-on-openshift:
   image: openshift/origin-cli
