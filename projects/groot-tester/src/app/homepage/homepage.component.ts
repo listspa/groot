@@ -28,6 +28,10 @@ main app module`
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: 'New interface <code>SortPagination</code>'
+      },
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `It is now possible to use Groot in a lazy-loaded child module`
       }
     ]
   },
