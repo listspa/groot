@@ -18,11 +18,10 @@
 
 <p>
   Since our library is not public, we only publish it to a private npm repo (i.e. not on the internet).
-  To access it create, alongside the <code>package.json</code> file, a new <code>.npmrc</code> file
-  with this content:
+  In your home directory you should create a file named <code>.npmrc</code> with this content:
 </p>
 
-<pre><code>@listgroup:registry=https://artifactory.list-group.com/artifactory/api/npm/npm/</code></pre>
+<pre><code>registry=https://artifactory.list-group.com/artifactory/api/npm/npm/</code></pre>
 
 <p>
   <i>Note:</i> Windows doesn't let you create a file whose name starts with a dot, but if you save the file as <code>.npmrc.</code>

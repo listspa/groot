@@ -5,17 +5,7 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.14.0', released: false, changes: [
-      {
-        type: ReleaseChangeType.BREAKING_CHANGE,
-        html: `Changed namespace and deployment url: we now use artifactory.list-group.com and have changed the package
-namespace from <code>listspa</code> to <code>listgroup</code>. This means that you have to uninstall the old package and
-install the new one. Furthermore, in your main scss file you have to replace the path of the main groot css. Finally,
-you have to change your <code>npmrc</code>: see the <a href="/docs/getting-started">getting started</a> page for
-details.<br>
-Note also that before making your first release, you need to login on artifactory. See the instructions in the 
-<code>CONTRIBUTING.md</code> file.`
-      },
+    version: '0.16.0', released: false, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `You need to add <code>BrowserAnimationsModule</code> to the list of imports of your
@@ -32,6 +22,28 @@ main app module`
       {
         type: ReleaseChangeType.BUG_FIX,
         html: `It is now possible to use Groot in a lazy-loaded child module`
+      }
+    ]
+  },
+  {
+    version: '0.15.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `Changed namespace and deployment url: we now use artifactory.list-group.com and have changed the package
+namespace from <code>listspa</code> to <code>listgroup</code>. This means that you have to uninstall the old package and
+install the new one. Furthermore, in your main scss file you have to replace the path of the main groot css. You also
+have to change all the imports everywhere: run a replace <code>@listspa/groot</code> to <code>@listgroup/groot</code>.
+<br> 
+Finally, you have to change your <code>npmrc</code>: see the <a href="/docs/getting-started">getting started</a> page for
+details.<br>
+Note also that before making your first release, you need to login on artifactory. See the instructions in the 
+<code>CONTRIBUTING.md</code> file.`
+      },
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `Modified <code>TableAutocolConfigServiceBase</code> to use observables rather than immediate
+calls. You now need to call the <code>init</code> method explicitly and to subscribe to the observables
+returned by the <code>save</code> methods.`
       }
     ]
   },

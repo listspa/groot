@@ -71,6 +71,8 @@
   There is a base class that can be used to implement a storage of the selected columns, their order and sizes,
   called `TableAutocolConfigServiceBase`. It requires in input an implementation of a `TableAutocolConfigSaver`.
   Groot provides a `LocalStorageTableAutocolConfigSaver`, which uses the browser's persistent local storage.
+  Note that you have to call its <code>init</code> method explicitly in your component's <code>onInit</code>
+  method and get the available columns by subscribing to the resulting observable.
 </p>
 
 <p>
