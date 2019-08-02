@@ -10,8 +10,10 @@ const RELEASE_NOTES: Release[] = [
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `Changed namespace and deployment url: we now use artifactory.list-group.com and have changed the package
 namespace from <code>listspa</code> to <code>listgroup</code>. This means that you have to uninstall the old package and
-install the new one. Furthermore, in your main scss file you have to replace the path of the main groot css. Finally,
-you have to change your <code>npmrc</code>: see the <a href="/docs/getting-started">getting started</a> page for
+install the new one. Furthermore, in your main scss file you have to replace the path of the main groot css. You also
+have to change all the imports everywhere: run a replace <code>@listspa/groot</code> to <code>@listgroup/groot</code>.
+<br> 
+Finally, you have to change your <code>npmrc</code>: see the <a href="/docs/getting-started">getting started</a> page for
 details.<br>
 Note also that before making your first release, you need to login on artifactory. See the instructions in the 
 <code>CONTRIBUTING.md</code> file.`
