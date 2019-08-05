@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.15.1', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Both <code>groot-table</code> and <code>groot-table-autocol</code> support optionally an input for
+the last update timestamp, that will be shown near the refresh icon.`
+      }
+    ]
+  },
+  {
     version: '0.15.0', released: true, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,

@@ -59,7 +59,8 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
   @Input() tableClassName: string | string[] = '';
   @Input() tHeadClassName: string | string[] = 'thead-primary';
   @Input() trClassName: string | string[] = 'text-nowrap';
-  @Input() showRefreshIcon: boolean = false;
+  @Input() showRefreshIcon = false;
+  @Input() lastRefreshTimestamp: Date | string = null;
   @Input() hideTableIfEmpty = false;
   @Output() search = new EventEmitter<FilterPaginationOptions>();
   @Input() searchResultsData: PaginatedResponse<T> | LoadingFailed;
