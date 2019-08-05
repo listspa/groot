@@ -56,6 +56,7 @@ const GROOT_EN_TRANSLATIONS = {
   'combo.clearAll': 'Clear all',
   'combo.loading': 'Loading...',
   'combo.typeToSearch': 'Type to search',
+  'table.lastRefreshTimestamp': 'Last update: ',
 };
 const GROOT_IT_TRANSLATIONS = {
   'common.searchResults': 'Risultati',
@@ -110,6 +111,7 @@ const GROOT_IT_TRANSLATIONS = {
   'combo.clearAll': 'Rimuovi tutti',
   'combo.loading': 'Caricamento...',
   'combo.typeToSearch': 'Scrivi per ricercare',
+  'table.lastRefreshTimestamp': 'Ultimo aggiornamento: ',
 };
 export const TRANSLATIONS_BY_LANG = {
   en: GROOT_EN_TRANSLATIONS,
