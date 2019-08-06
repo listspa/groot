@@ -39,6 +39,7 @@ export * from './lib/groot-base/components/tables/table-title-bar/table-title-ba
 export * from './lib/groot-base/components/yes-no-check/yes-no-check.component';
 export * from './lib/groot-base/directives/loading.directive';
 export * from './lib/groot-base/directives/needsCapability.directive';
+export * from './lib/groot-base/interceptors/no-cache.interceptor';
 export * from './lib/groot-base/pipes/ft-date/ft-date.pipe';
 export * from './lib/groot-base/pipes/ft-time/ft-time.pipe';
 export * from './lib/groot-base/pipes/fileSize/fileSize.pipe';
