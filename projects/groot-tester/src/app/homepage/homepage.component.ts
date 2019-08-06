@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.16.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `Added <code>NoCacheInterceptor</code> to fix problem with IE and ajax requests in GET. 
+Add it to your application module like this: <code>{provide: HTTP_INTERCEPTORS, useClass: NoCacheInterceptor, multi: true}</code>.`
+      }
+    ]
+  },
+  {
     version: '0.15.2', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
