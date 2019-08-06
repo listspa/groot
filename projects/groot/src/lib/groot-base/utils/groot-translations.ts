@@ -50,11 +50,13 @@ const GROOT_EN_TRANSLATIONS = {
   'common.insert': 'Insert',
   'common.add': 'Add',
   'common.reset': 'Reset',
+  'common.search': 'Search',
   'combo.noItems': 'No items found',
   'combo.addItem': 'Add item',
   'combo.clearAll': 'Clear all',
   'combo.loading': 'Loading...',
   'combo.typeToSearch': 'Type to search',
+  'table.lastRefreshTimestamp': 'Last update: ',
 };
 const GROOT_IT_TRANSLATIONS = {
   'common.searchResults': 'Risultati',
@@ -103,11 +105,13 @@ const GROOT_IT_TRANSLATIONS = {
   'common.insert': 'Inserisci',
   'common.add': 'Aggiungi',
   'common.reset': 'Reset',
+  'common.search': 'Cerca',
   'combo.noItems': 'Nessun elemento trovato',
   'combo.addItem': 'Aggiungi elemento',
   'combo.clearAll': 'Rimuovi tutti',
   'combo.loading': 'Caricamento...',
   'combo.typeToSearch': 'Scrivi per ricercare',
+  'table.lastRefreshTimestamp': 'Ultimo aggiornamento: ',
 };
 export const TRANSLATIONS_BY_LANG = {
   en: GROOT_EN_TRANSLATIONS,

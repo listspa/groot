@@ -78,8 +78,9 @@
 
 <pre><code>
 providers: [
-   &#123;provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker},
-   &#123;provide: GrootCapabilityService, useClass: NoCheckCapabilityService}
+  &#123;provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker},
+  &#123;provide: HTTP_INTERCEPTORS, useClass: NoCacheInterceptor, multi: true},
+  &#123;provide: GrootCapabilityService, useClass: NoCheckCapabilityService},
 ],
 </code></pre>
 

@@ -14,6 +14,7 @@ import {DemoTableAutocolConfigService} from './demo-table-autocol-config-service
 })
 export class DemoTableAutocolComponent implements OnInit {
   searchResultsData: PaginatedResponse<Deal> | LoadingFailed;
+  lastRefreshTimestamp: Date;
   availableColumns: TableColumns;
   selectedColumns: TableColumns;
   accordionColumns: TableColumns;
@@ -36,6 +37,7 @@ export class DemoTableAutocolComponent implements OnInit {
     this.dealsService.searchDeals(request)
       .subscribe(
         response => {
+          this.lastRefreshTimestamp = new Date();
           this.searchResultsData = response;
           console.log('Found deals: %o', response);
         },

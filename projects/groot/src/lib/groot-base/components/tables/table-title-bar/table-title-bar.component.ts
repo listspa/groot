@@ -13,7 +13,8 @@ interface PageInfo {
 })
 export class TableTitleBarComponent {
   @Input() label = 'common.searchResults';
-  @Input() showRefreshIcon: boolean = false;
+  @Input() showRefreshIcon = false;
+  @Input() lastRefreshTimestamp: Date | string;
   @Input() downloadExcelLabel = 'common.downloadExcel';
   @Input() downloadExcelUrl: string = null;
   @Input() downloadExcelUrlProvider: () => string = null;

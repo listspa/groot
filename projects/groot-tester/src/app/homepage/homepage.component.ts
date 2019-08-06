@@ -5,7 +5,7 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.16.0', released: false, changes: [
+    version: '0.17.0', released: false, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `You need to add <code>BrowserAnimationsModule</code> to the list of imports of your
@@ -22,6 +22,40 @@ main app module`
       {
         type: ReleaseChangeType.BUG_FIX,
         html: `It is now possible to use Groot in a lazy-loaded child module`
+      }
+    ]
+  },
+  {
+    version: '0.16.1', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed <code>NoCacheInterceptor</code>: it was missing in the public api`
+      }
+    ]
+  },
+  {
+    version: '0.16.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `Added <code>NoCacheInterceptor</code> to fix problem with IE and ajax requests in GET. 
+Add it to your application module like this: <code>{provide: HTTP_INTERCEPTORS, useClass: NoCacheInterceptor, multi: true}</code>.`
+      }
+    ]
+  },
+  {
+    version: '0.15.2', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed translation for the last update timestamp.`
+      }
+    ]
+  },
+  {
+    version: '0.15.1', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Both <code>groot-table</code> and <code>groot-table-autocol</code> support optionally an input for
+the last update timestamp, that will be shown near the refresh icon.`
       }
     ]
   },
