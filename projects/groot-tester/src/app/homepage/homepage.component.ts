@@ -26,6 +26,10 @@ main app module`
       {
         type: ReleaseChangeType.BUG_FIX,
         html: `Fixed a variable name in scss to avoid clashes with ag-grid`
+      },
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Made <code>groot-page-title</code> work with sub-modules routes`
       }
     ]
   },

@@ -22,7 +22,13 @@ export class PageTitleComponent implements OnInit {
       .pipe(
         filter(event => event instanceof NavigationEnd),
         map(() => this.activatedRoute),
-        map(route => route.firstChild),
+        map(route => {
+          let r = route;
+          while (r.children && r.children.length) {
+            r = r.children[r.children.length - 1];
+          }
+          return r;
+        }),
         filter(route => !!route),
         switchMap(route => route.data),
       )
