@@ -22,6 +22,10 @@ main app module`
       {
         type: ReleaseChangeType.BUG_FIX,
         html: `It is now possible to use Groot in a lazy-loaded child module`
+      },
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed a variable name in scss to avoid clashes with ag-grid`
       }
     ]
   },

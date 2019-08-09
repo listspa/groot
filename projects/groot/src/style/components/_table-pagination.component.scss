@@ -1,12 +1,12 @@
 $paginator-margin: 0.5rem;
 $paginator-size: 1.8rem;
-$icon-size: 3rem;
+$paginator-icon-size: 3rem;
 $active-page-number-color: color-yiq($primary);
 
 groot-table-pagination {
   nav {
     color: $primary;
-    line-height: $icon-size;
+    line-height: $paginator-icon-size;
     margin-bottom: 1rem;
   }
 
@@ -25,7 +25,7 @@ groot-table-pagination {
   }
 
   i.fa {
-    font-size: $icon-size;
+    font-size: $paginator-icon-size;
     position: relative;
     top: 0.5rem;
   }
