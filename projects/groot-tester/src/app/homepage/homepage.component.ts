@@ -28,6 +28,10 @@ main app module`
         html: `Changed download button style to use excel's color, rather than the brand`
       },
       {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Slight improvement in padding of table headers`
+      },
+      {
         type: ReleaseChangeType.BUG_FIX,
         html: `It is now possible to use Groot in a lazy-loaded child module`
       },
