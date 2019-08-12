@@ -12,6 +12,10 @@ const RELEASE_NOTES: Release[] = [
 main app module`
       },
       {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `You need to run <code>npm install file-saver</code>`
+      },
+      {
         type: ReleaseChangeType.NEW_FEATURE,
         html: 'Supported explicitly angular 8'
       },
