@@ -19,6 +19,8 @@ export class TableTitleBarComponent {
   @Input() downloadExcelUrl: string = null;
   @Input() downloadExcelUrlProvider: () => string = null;
   @Input() downloadExcelArgsProvider: () => object = null;
+  @Input() downloadExcelIsAjax = false;
+  @Input() downloadExcelFileName = 'download.xlsx';
   @Output() refresh = new EventEmitter<void>();
   pageInfo: PageInfo | null = null;
   loading: Boolean = false;

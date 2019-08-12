@@ -22,6 +22,8 @@ export class GrootTableComponent<T> implements OnInit {
   @Input() downloadExcelUrl: string | null;
   @Input() downloadExcelUrlProvider: () => string | null;
   @Input() downloadExcelArgs: () => any | null;
+  @Input() downloadExcelIsAjax = false;
+  @Input() downloadExcelFileName = 'download.xlsx';
   @Input() defaultSortColumn: string;
   @Input() defaultSortReverseFlag = false;
   @Input() pageSize = 15;
