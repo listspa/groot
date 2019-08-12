@@ -37,6 +37,7 @@ $teal: #00BCBE !default;
 $cyan: #00A0FD !default;
 $light: $gray-200 !default;
 $list-blue: #002D69;
+$excel-green:#307345;
 
 $colors: (
   "blue": $blue,
@@ -65,6 +66,7 @@ $success: $brilliant-green !default;
 $info: $light-blue !default;
 $warning: $orange !default;
 $danger: $red !default;
+$download: $excel-green !default;
 
 $desaturated-primary: desaturate(lighten($primary, 23), 20) !default;
 $light-primary: desaturate(lighten($primary, 10), 20) !default;
@@ -78,6 +80,7 @@ $theme-colors: (
   'brand': $brand,
   'promotion': $promotion,
   'deselected': $deselected,
+  'download': $download,
 );
 
 

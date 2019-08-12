@@ -3,10 +3,6 @@
   font-weight: $btn-font-weight;
 }
 
-.btn-download {
-  @extend .btn-outline-brand;
-}
-
 .btn:hover:not([disabled]) {
   @include standard-hover-style;
 }

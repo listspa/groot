@@ -24,6 +24,10 @@ main app module`
         html: 'Added some common translations: <code>common.list, common.view</code>'
       },
       {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Changed download button style to use excel's color, rather than the brand`
+      },
+      {
         type: ReleaseChangeType.BUG_FIX,
         html: `It is now possible to use Groot in a lazy-loaded child module`
       },
