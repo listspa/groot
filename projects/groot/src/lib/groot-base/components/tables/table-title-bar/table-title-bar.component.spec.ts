@@ -3,6 +3,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {TableTitleBarComponent} from './table-title-bar.component';
 import {DownloadButtonComponent} from '../../download-button/download-button.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('TableTitleBarComponent', () => {
   const searchResults = {
@@ -17,7 +18,7 @@ describe('TableTitleBarComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TableTitleBarComponent, DownloadButtonComponent],
-      imports: [TranslateModule.forRoot()]
+      imports: [TranslateModule.forRoot(), HttpClientTestingModule]
     }).compileComponents();
   }));
 
