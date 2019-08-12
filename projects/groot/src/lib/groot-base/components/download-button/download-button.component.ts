@@ -1,11 +1,14 @@
 import {Component, ElementRef, Input, Renderer2} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import * as FileSaver from 'file-saver';
+import {NotificationToastService} from '../../services/notification-toast.service';
 
 @Component({
   selector: 'groot-download-button',
   templateUrl: './download-button.component.html'
 })
 export class DownloadButtonComponent {
-  @Input() label: string = 'common.downloadExcel';
+  @Input() label = 'common.downloadExcel';
   @Input() icon: string[] = ['fa', 'fa-file-excel-o'];
   @Input() labelArgs: any = {};
   @Input() url: string;
@@ -14,9 +17,13 @@ export class DownloadButtonComponent {
   @Input() argsProvider: () => object;
   @Input() method: 'GET' | 'POST' = 'POST';
   @Input() disabled = false;
+  @Input() ajax = false;
+  @Input() downloadFileName = 'download.xlsx';
 
   constructor(private elementRef: ElementRef,
-              private renderer: Renderer2) {
+              private renderer: Renderer2,
+              private http: HttpClient,
+              private notificationToastService: NotificationToastService) {
   }
 
   onClick(): void {
@@ -24,6 +31,14 @@ export class DownloadButtonComponent {
       return;
     }
 
+    if (!this.ajax) {
+      this.handleDownloadWithIFrameAndAutoSubmittingForm();
+    } else {
+      this.handleAjaxDownload();
+    }
+  }
+
+  private handleDownloadWithIFrameAndAutoSubmittingForm() {
     const form = this.createForm();
     this.addArgs(form);
     this.submitForm(form);
@@ -47,16 +62,16 @@ export class DownloadButtonComponent {
       const value = args[key];
       if (value instanceof Array) {
         value.forEach(v => {
-          let input = this.makeInput(key);
+          const input = this.makeInput(key);
           input.value = JSON.stringify(v);
           form.appendChild(input);
         });
       } else if (value instanceof Object) {
-        let input = this.makeInput(key);
+        const input = this.makeInput(key);
         input.value = JSON.stringify(value);
         form.appendChild(input);
       } else {
-        let input = this.makeInput(key);
+        const input = this.makeInput(key);
         input.value = value;
         form.appendChild(input);
       }
@@ -64,7 +79,7 @@ export class DownloadButtonComponent {
   }
 
   private makeInput(key) {
-    let input = this.renderer.createElement('input');
+    const input = this.renderer.createElement('input');
     input.type = 'hidden';
     input.name = key;
     return input;
@@ -74,6 +89,21 @@ export class DownloadButtonComponent {
     this.renderer.appendChild(this.elementRef.nativeElement, form);
     form.submit();
     this.renderer.removeChild(this.elementRef.nativeElement, form);
+  }
+
+  private handleAjaxDownload() {
+    this.getDownloadObservable()
+      .subscribe(data => {
+        FileSaver.saveAs(data, this.downloadFileName);
+      }, response => this.notificationToastService.showGenericCannotDownloadNotification(response));
+  }
+
+  private getDownloadObservable() {
+    if (this.method === 'POST') {
+      return this.http.post<Blob>(this.getUrl(), this.getArgs(), {responseType: 'blob' as 'json'});
+    } else {
+      return this.http.get<Blob>(this.getUrl(), {params: this.getArgs() as any, responseType: 'blob' as 'json'});
+    }
   }
 
   private getUrl(): string {

@@ -155,4 +155,15 @@ export class NotificationToastService {
       additionalDetails
     });
   }
+
+  public showGenericCannotDownloadNotification(response: any = null) {
+    const additionalDetails = response ? response.data ? response.data.message : null : null;
+    this.addToast({
+      title: 'common.dynamicGui.cannotDownload.title',
+      icon: 'fa fa-frown-o',
+      label: 'common.dynamicGui.cannotDownload.details',
+      style: ToastStyle.DANGER,
+      additionalDetails
+    });
+  }
 }
