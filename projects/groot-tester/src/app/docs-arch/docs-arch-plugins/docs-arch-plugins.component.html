@@ -8,21 +8,20 @@
 </p>
 
 <p>
-  In Groot we have implemented a small wrapper around this feature, for a few reasons:
+  In Groot we have implemented a small extension of this feature, to simplify:
 </p>
 
 <ul>
-  <li>simplify routing registration;</li>
-  <li>allow a simple way to setup the nav bar;</li>
-  <li>simplify translations loading.</li>
+  <li>translations loading;</li>
+  <li>centralizing setup of the nav bar.</li>
 </ul>
 
 <h2>Show me the code</h2>
 
 <p>
-  To start, define your module normally, with your components etc. Just remember that
-  the routing path will be <i>relative</i> to your module, i.e. define your routes like
-  this:
+  To start, look at the <a href="https://angular.io/guide/lazy-loading-ngmodules" target="_blank">angular guide for
+  lazy loading</a>. Then you can define your module normally, with your components etc. Just remember that the routing
+  path will be <i>relative</i> to your module, i.e. define your routes like this:
 </p>
 
 <pre><code>const routes: Route[] = [
@@ -50,35 +49,28 @@ export class DocsArchModule &#123;
 </p>
 
 <p>
-  Next, we need to implement the <code>GrootPlugin</code> class:
+  In your main app routing module, configure lazy loading normally:
 </p>
 
-<pre><code>export class DocsArchGrootPlugin extends DynamicallyLoadedGrootPlugin &#123;
-  constructor() &#123;
-    super('Demo Arch', 'docs-arch', 'DocsArchModule');
-  }
-
-  protected importModule() &#123;
-    return import('./docs-arch.module');
-  }
-
-  getRootMenuEntries(): Menu[] | null &#123;
-    // Configure as needed
-    return null;
-  }
-
-  getSimpleNavBarItems(): SimpleNavBarItem[] | null &#123;
-  // Configure as needed
-    return null;
-  }
-}
+<pre><code>
+&#123;
+  path: 'docs-arch',
+  loadChildren: './docs-arch/docs-arch-wrapper.module#DocsArchWrapperModule'
+},
 </code></pre>
 
 <p>
-  Note that do <i>not</i> want to reference any file of the module in the plugin class,
-  since that would prevent the lazy loading from working and the code of our module
-  would be embedded in the main bundle (js file).
+  Next, we need to implement the <code>GrootPlugin</code> class:
 </p>
+
+<pre><code>export class DocsArchGrootPlugin extends GrootPlugin &#123;
+  constructor() &#123;
+    super('Demo Arch');
+  }
+
+  // Other overrides
+}
+</code></pre>
 
 <p>
   You generally will implement only one of the two "menu" methods, depending on how
@@ -113,7 +105,7 @@ export class DocsArchModule &#123;
   plugin class, for example as follows:
 </p>
 
-<pre><code>  getTranslations(http: HttpClient, lang: string): Observable&lt;any&gt;&#123;
+<pre><code>getTranslations(http: HttpClient, lang: string): Observable&lt;any&gt;&#123;
     return super.loadTranslationsFromFile(http, lang, 'assets/i18n/docs-arch.');
   }
 </code></pre>

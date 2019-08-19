@@ -58,7 +58,12 @@ const routes: Routes = [
   {component: DemoPageTitleComponent, path: 'demo/page-title', data: {pageTitle: {title: 'Page Title Demo', subTitle: 'Page sub title'}}},
   {component: DemoCardsComponent, path: 'demo/cards'},
   {component: DemoSmallComponentsComponent, path: 'demo/misc-small-components'},
-  {path: '', pathMatch: 'full', redirectTo: 'home'}
+  {path: '', pathMatch: 'full', redirectTo: 'home'},
+
+  {
+    path: 'docs-arch',
+    loadChildren: './docs-arch/docs-arch-wrapper.module#DocsArchWrapperModule'
+  },
 ];
 
 @NgModule({

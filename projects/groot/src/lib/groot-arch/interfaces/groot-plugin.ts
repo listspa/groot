@@ -1,5 +1,4 @@
 import {Menu, SimpleNavBarItem} from '../../groot-base/components/nav-bar/nav-bar.model';
-import {Route} from '@angular/router';
 import {InjectionToken} from '@angular/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
@@ -24,49 +23,9 @@ export abstract class GrootPlugin {
     return null;
   }
 
-  abstract getRouterConfig(): Route[];
-
   getTranslations(http: HttpClient, lang: string): Observable<any> {
     return of({});
   }
-}
-
-
-/**
- * Base class for pluggable applications that want to load their module
- * dynamically. You need to implement the function `importModule` to load
- * the module; you will generally write something like
- * `import('./my-angular.module')`. It's expected that the routes will be
- * exported by the lazily loaded angular module.
- */
-export abstract class DynamicallyLoadedGrootPlugin extends GrootPlugin {
-  constructor(name: string,
-              private readonly routerUrl: string,
-              private readonly moduleClassName: string) {
-    super(name);
-  }
-
-  // tslint:disable:no-console
-  getRouterConfig(): Route[] {
-    return [{
-      path: this.routerUrl,
-      loadChildren: () => {
-        console.info('Loading dynamically module %s...', this.name);
-        return this.importModule()
-          .then(m => {
-            console.info('Successfully loaded module %s: %o', this.name, m);
-            const moduleClass = m[this.moduleClassName];
-
-            if (!moduleClass) {
-              throw new Error(`Cannot find module class ${this.moduleClassName}`);
-            }
-            return moduleClass;
-          });
-      }
-    }];
-  }
-
-  protected abstract importModule();
 
   protected loadTranslationsFromFile(http: HttpClient,
                                      lang: string,

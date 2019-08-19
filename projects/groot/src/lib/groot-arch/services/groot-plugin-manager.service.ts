@@ -37,8 +37,6 @@ export class GrootPluginManagerService {
   private registerPlugin(plugin: GrootPlugin) {
     console.info('Registering arch plugin "%s"', plugin.name);
     this.plugins.push(plugin);
-
-    this.router.config = this.router.config.concat(plugin.getRouterConfig());
   }
 
   getMenuItems(): Menu[] {
@@ -74,5 +72,9 @@ export class GrootPluginManagerService {
       .forEach(translationObs => translationObs.subscribe(
         pluginTransl => translateService.setTranslation(lang, pluginTransl, true)
       ));
+  }
+
+  getPlugins(): GrootPlugin[] {
+    return [...this.plugins];
   }
 }
