@@ -36,6 +36,11 @@ main app module`
         html: `Slight improvement in padding of table headers`
       },
       {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `<code>groot-display-value</code> and <code>groot-display-label-value</code>
+take as parameter the locale plus the formats for dates, hours and doubles digits`
+      },
+      {
         type: ReleaseChangeType.BUG_FIX,
         html: `It is now possible to use Groot in a lazy-loaded child module`
       },

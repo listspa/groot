@@ -12,4 +12,8 @@ export class DisplayLabelValueComponent {
   @Input() dataType: NbpuSchemaFieldType = NbpuSchemaFieldType.STRING;
   @Input() value: any[] | any;
   @Input() align = false;
+  @Input() doubleFormat = '0.2';
+  @Input() dateFormat = 'dd/MM/yyyy';
+  @Input() hoursFormat = 'HH:mm';
+  @Input() locale = 'en';
 }

@@ -10,6 +10,10 @@ export class DisplayValueComponent {
   @Input() translateValue = false;
   @Input() dataType: NbpuSchemaFieldType = NbpuSchemaFieldType.STRING;
   @Input() align = false;
+  @Input() doubleFormat = '0.2';
+  @Input() dateFormat = 'dd/MM/yyyy';
+  @Input() hoursFormat = 'HH:mm';
+  @Input() locale = 'en';
   NbpuSchemaFieldType = NbpuSchemaFieldType;
 
   private _value: any[] | any;

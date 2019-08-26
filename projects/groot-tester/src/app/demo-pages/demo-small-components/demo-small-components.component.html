@@ -105,7 +105,7 @@
     ></groot-display-label-value>
   </div>
   <div class="col-md-7">
-    <pre><code>&lt;groot-display-label-value 
+    <pre><code>&lt;groot-display-label-value
   label="number"
   [value]="93128"
   [dataType]="NbpuSchemaFieldType.INT32"
@@ -123,10 +123,30 @@
     ></groot-display-label-value>
   </div>
   <div class="col-md-7">
-    <pre><code>&lt;groot-display-label-value 
+    <pre><code>&lt;groot-display-label-value
   label="number"
   [value]="32312.4115"
   [dataType]="NbpuSchemaFieldType.DOUBLE"
+>&lt;/groot-display-label-value></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Double customizing number of decimals</div>
+  </div>
+  <div class="col-md-3">
+    <groot-display-label-value label="number"
+                               [value]="32312.4115"
+                               [dataType]="NbpuSchemaFieldType.DOUBLE"
+                               doubleFormat="0.4"
+    ></groot-display-label-value>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-display-label-value
+  label="number"
+  [value]="32312.4115"
+  [dataType]="NbpuSchemaFieldType.DOUBLE"
+  doubleFormat="0.4"
 >&lt;/groot-display-label-value></code></pre>
   </div>
 </div>
@@ -141,10 +161,30 @@
     ></groot-display-label-value>
   </div>
   <div class="col-md-7">
-    <pre><code>&lt;groot-display-label-value 
+    <pre><code>&lt;groot-display-label-value
   label="date"
   [value]="now"
   [dataType]="NbpuSchemaFieldType.DATE"
+>&lt;/groot-display-label-value></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Dates customizing format</div>
+  </div>
+  <div class="col-md-3">
+    <groot-display-label-value label="date"
+                               [value]="now"
+                               [dataType]="NbpuSchemaFieldType.DATE"
+                               dateFormat="dd.MMM.yyyy"
+    ></groot-display-label-value>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-display-label-value
+  label="date"
+  [value]="now"
+  [dataType]="NbpuSchemaFieldType.DATE"
+  dateFormat="dd.MMM.yyyy"
 >&lt;/groot-display-label-value></code></pre>
   </div>
 </div>
@@ -159,7 +199,7 @@
     ></groot-display-label-value>
   </div>
   <div class="col-md-7">
-    <pre><code>&lt;groot-display-label-value 
+    <pre><code>&lt;groot-display-label-value
   label="hour"
   [value]="now"
   [dataType]="NbpuSchemaFieldType.TIME"
@@ -177,7 +217,7 @@
     ></groot-display-label-value>
   </div>
   <div class="col-md-7">
-    <pre><code>&lt;groot-display-label-value 
+    <pre><code>&lt;groot-display-label-value
   label="timestamp"
   [value]="now"
   [dataType]="NbpuSchemaFieldType.TIMESTAMP"
@@ -195,7 +235,7 @@
     ></groot-display-label-value>
   </div>
   <div class="col-md-7">
-    <pre><code>&lt;groot-display-label-value 
+    <pre><code>&lt;groot-display-label-value
   label="boolean"
   [value]="true"
   [dataType]="NbpuSchemaFieldType.BOOLEAN"
@@ -213,7 +253,7 @@
     ></groot-display-label-value>
   </div>
   <div class="col-md-7">
-    <pre><code>&lt;groot-display-label-value 
+    <pre><code>&lt;groot-display-label-value
   label="boolean"
   [value]="false"
   [dataType]="NbpuSchemaFieldType.BOOLEAN"
@@ -230,7 +270,7 @@
     ></groot-display-label-value>
   </div>
   <div class="col-md-7">
-    <pre><code>&lt;groot-display-label-value 
+    <pre><code>&lt;groot-display-label-value
   label="multiple strings"
   [value]="['first', 'second', 'third']"
 >&lt;/groot-display-label-value></code></pre>

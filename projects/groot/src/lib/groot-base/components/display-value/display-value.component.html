@@ -1,26 +1,26 @@
 <ng-container *ngIf="value !== null && value !== undefined; else dash">
   <ng-container [ngSwitch]="dataType">
     <ng-container *ngSwitchCase="NbpuSchemaFieldType.DATE">
-      {{value| date: 'dd/MM/yyyy'}}
+      {{value| date: dateFormat:null:locale}}
     </ng-container>
     <ng-container *ngSwitchCase="NbpuSchemaFieldType.TIMESTAMP">
-      {{value | date:'dd/MM/yyyy'}}
-      <small>{{value | date:'HH:mm'}}</small>
+      {{value | date:dateFormat:null:locale}}
+      <small>{{value | date:hoursFormat:null:locale}}</small>
     </ng-container>
     <ng-container *ngSwitchCase="NbpuSchemaFieldType.TIME">
-      {{value| date: 'HH:mm'}}
+      {{value| date: hoursFormat:null:locale}}
     </ng-container>
     <div *ngSwitchCase="NbpuSchemaFieldType.DOUBLE"
          [class.text-right]="align">
-      {{value | number: '0.2'}}
+      {{value | number: doubleFormat:locale}}
     </div>
     <div *ngSwitchCase="NbpuSchemaFieldType.INT32"
          [class.text-right]="align">
-      {{value | number: '0.0'}}
+      {{value | number: '0.0':locale}}
     </div>
     <div *ngSwitchCase="NbpuSchemaFieldType.INT64"
          [class.text-right]="align">
-      {{value | number: '0.0'}}
+      {{value | number: '0.0':locale}}
     </div>
     <div *ngSwitchCase="NbpuSchemaFieldType.BOOLEAN"
          [class.text-center]="align">
