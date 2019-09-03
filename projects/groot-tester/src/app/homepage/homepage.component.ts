@@ -51,6 +51,11 @@ take as parameter the locale plus the formats for dates, hours and doubles digit
       {
         type: ReleaseChangeType.BUG_FIX,
         html: `Made <code>groot-page-title</code> work with sub-modules routes`
+      },
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Added <code>container=body</code> to the popover of the <code>groot-action-buttons</code> to fix 
+problems with embedding inside an \`agGrid\``
       }
     ]
   },
