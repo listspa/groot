@@ -5,7 +5,7 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.17.0', released: false, changes: [
+    version: '0.17.0', released: true, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `You need to add <code>BrowserAnimationsModule</code> to the list of imports of your
