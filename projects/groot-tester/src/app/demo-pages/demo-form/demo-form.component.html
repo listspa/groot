@@ -30,7 +30,7 @@
   </div>
   <div class="col-md-7">
     <pre><code>&lt;groot-input
-  placeholder="Name placeholder
+  placeholder="Name placeholder"
   label="Name 0"
   name="name 0"
   [required]="true"
@@ -756,14 +756,14 @@
   [(ngModel)]="form.currency"
   [itemTemplate]="templateCurrItem4"
   [checkboxes]="true">
-      
+
   &lt;ng-template #templateCurrItem4 let-item="item">
     &lt;span class="ng-option-label">
       &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
     &lt;/span>
   &lt;/ng-template>
-      
+
   &lt;ng-template #templateCurrItem4 let-item="item">
     &lt;span class="ng-option-label">
       &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
