@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.17.1', released: false, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Introduced a css class <code>flex-grow-2</code> analogue to the bootstrap <code>flex-grow-0</code>
+and <code>flex-grow-1</code>`
+      },
+    ]
+  },
+  {
     version: '0.17.0', released: true, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
