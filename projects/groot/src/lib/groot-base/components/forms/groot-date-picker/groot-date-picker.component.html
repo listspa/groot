@@ -19,15 +19,37 @@
          triggers=""
          (ngModelChange)="writeValue($event)"
          [class.is-invalid]="input.invalid && !input.pristine"
-         [disabled]="disabled">
+         [disabled]="disabled"
+         *ngIf="!formControl">
+  <input type="text"
+         autocomplete="off"
+         class="form-control"
+         [placeholder]="(placeholder || label) | translate"
+         [id]="name"
+         [name]="name"
+         bsDatepicker
+         #datePickerDirective="bsDatepicker"
+         [placement]="placement"
+         triggers=""
+         [class.is-invalid]="formControl.invalid && !formControl.pristine"
+         [formControl]="formControl"
+         *ngIf="formControl">
+
   <div class="input-group-append">
     <span class="input-group-text">
       <i class="fa fa-calendar"></i>
     </span>
   </div>
-  <div class="invalid-feedback" *ngIf="input.invalid && !input.pristine">
-    {{'common.required' | translate}}
-  </div>
+  <ng-container *ngIf="input">
+    <div class="invalid-feedback" *ngIf="input.invalid && !input.pristine">
+      {{'common.required' | translate}}
+    </div>
+  </ng-container>
+  <ng-container *ngIf="formControl">
+    <div class="invalid-feedback" *ngIf="formControl.invalid && !formControl.pristine">
+      {{'common.required' | translate}}
+    </div>
+  </ng-container>
 </div>
 <small class="form-text text-muted" *ngIf="helpText">
   {{helpText | translate}}

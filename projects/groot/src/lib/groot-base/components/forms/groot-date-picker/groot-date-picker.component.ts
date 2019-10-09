@@ -1,5 +1,5 @@
 import {Component, ElementRef, forwardRef, HostListener, Input, ViewChild} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {BsDatepickerDirective} from 'ngx-bootstrap';
 
 @Component({
@@ -20,6 +20,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
   @Input() required = false;
   @Input() disabled = false;
   @Input() helpText: string = null;
+  @Input() formControl: FormControl = null;
   placement = 'bottom';
   selectedDate: Date;
   @ViewChild('datePickerDirective') private datePickerDirective: BsDatepickerDirective;

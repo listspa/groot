@@ -241,6 +241,7 @@ export class DemoFormComponent implements OnInit {
   inputFormControl = new FormControl('foo');
   checkBoxFormControl = new FormControl(true);
   radioFormControl = new FormControl('valueA');
+  dateFormControl = new FormControl();
 
   onModelChange(field: string, value: any) {
     console.log('field %o changed: %o', field, value);
@@ -285,5 +286,8 @@ export class DemoFormComponent implements OnInit {
 
     this.radioFormControl.valueChanges
       .subscribe(value => console.log('Radio changed: ', value));
+
+    this.dateFormControl.valueChanges
+      .subscribe(value => console.log('Date changed: ', value));
   }
 }
