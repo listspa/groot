@@ -1,12 +1,19 @@
 <div class="custom-control custom-checkbox">
   <input type="checkbox"
-         #checkbox="ngModel"
          class="custom-control-input"
          [id]="name"
          [name]="name"
          [ngModel]="checked"
          [checked]="checked"
          (ngModelChange)="writeValue($event)"
-         [disabled]="disabled">
+         [disabled]="disabled"
+         *ngIf="!formControl">
+  <input type="checkbox"
+         class="custom-control-input"
+         [id]="name"
+         [name]="name"
+         [checked]="checked"
+         [formControl]="formControl"
+         *ngIf="formControl">
   <label class="custom-control-label" [for]="name">{{label | translate}}</label>
 </div>

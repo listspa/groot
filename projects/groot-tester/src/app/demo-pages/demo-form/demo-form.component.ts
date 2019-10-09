@@ -239,6 +239,7 @@ export class DemoFormComponent implements OnInit {
   currenciesFiltered: string[];
   currenciesPage: PaginatedResponse<string>;
   inputFormControl = new FormControl('foo');
+  checkBoxFormControl = new FormControl(true);
 
   onModelChange(field: string, value: any) {
     console.log('field %o changed: %o', field, value);
@@ -277,5 +278,8 @@ export class DemoFormComponent implements OnInit {
     this.inputFormControl.valueChanges
       .pipe(debounceTime(200))
       .subscribe(value => console.log('Input changed: ', value));
+
+    this.checkBoxFormControl.valueChanges
+      .subscribe(value => console.log('Checkbox changed: ', value));
   }
 }
