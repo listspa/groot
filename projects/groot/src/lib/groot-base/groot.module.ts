@@ -18,7 +18,7 @@ import {TableTitleBarComponent} from './components/tables/table-title-bar/table-
 import {FileSizePipe} from './pipes/fileSize/fileSize.pipe';
 import {RouterModule} from '@angular/router';
 import {GrootInputComponent} from './components/forms/groot-input/groot-input.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {GrootCheckboxComponent} from './components/forms/groot-checkbox/groot-checkbox.component';
 import {GrootRadioComponent} from './components/forms/groot-radio/groot-radio.component';
 import {GrootTextAreaComponent} from './components/forms/groot-textarea/groot-textarea.component';
@@ -97,6 +97,7 @@ import {GrootDatePipe} from './pipes/groot-date/groot-date.pipe';
     TabsModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
     NgSelectModule,
     BsDatepickerModule,
     BsDropdownModule,
