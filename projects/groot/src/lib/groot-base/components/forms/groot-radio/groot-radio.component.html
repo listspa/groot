@@ -7,6 +7,14 @@
          [ngModel]="selectedValue"
          class="custom-control-input"
          (ngModelChange)="writeValue($event)"
-         [disabled]="disabled">
+         [disabled]="disabled"
+         *ngIf="!formControl">
+  <input type="radio"
+         [id]="idRadio"
+         [name]="name"
+         [value]="value"
+         class="custom-control-input"
+         [formControl]="formControl"
+         *ngIf="formControl">
   <label class="custom-control-label" for="{{idRadio}}">{{label | translate}}</label>
 </div>

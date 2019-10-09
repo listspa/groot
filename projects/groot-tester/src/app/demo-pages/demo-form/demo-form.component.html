@@ -284,6 +284,56 @@
 &lt;/groot-radio></code></pre>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Radio via reactive form control</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-radio
+        name="groot-radio"
+        idRadio="gRadioA"
+        value="valueA"
+        label="Value A"
+        [formControl]="radioFormControl"
+      ></groot-radio>
+
+      <groot-radio
+        name="groot-radio"
+        idRadio="gRadioB"
+        value="valueB"
+        label="Value B"
+        [formControl]="radioFormControl"
+      ></groot-radio>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-radio
+  name="groot-radio"
+  idRadio="gRadio1"
+  value="first-radio"
+  label="This is selected"
+  (ngModelChange)="onModelChange('radio', $event)">
+&lt;/groot-radio>
+
+&lt;groot-radio
+  name="groot-radio"
+  idRadio="gRadio2"
+  value="second-radio"
+  label="This is a radio"
+  [(ngModel)]="form.selectedRadio">
+  (ngModelChange)="onModelChange('radio', $event)">
+&lt;/groot-radio>
+
+&lt;groot-radio
+  name="groot-radio"
+  idRadio="gRadio3"
+  value="third-radio"
+  label="This is disabled"
+  [disabled]="true">
+&lt;/groot-radio></code></pre>
+  </div>
+</div>
 
 <h2>Textarea</h2>
 
