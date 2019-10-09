@@ -25,7 +25,6 @@ import {GrootTextAreaComponent} from './components/forms/groot-textarea/groot-te
 import {NgSelectModule} from '@ng-select/ng-select';
 import {GrootComboComponent} from './components/forms/groot-combo/groot-combo.component';
 import {GrootDatePickerComponent} from './components/forms/groot-date-picker/groot-date-picker.component';
-import {GrootComboCheckboxComponent} from './components/forms/groot-combo-checkbox/groot-combo-checkbox.component';
 import {GrootToggleButtonComponent} from './components/forms/groot-toggle-button/groot-toggle-button.component';
 import {NeedsCapabilityDirective} from './directives/needsCapability.directive';
 import {GrootTableComponent} from './components/tables/groot-table/groot-table.component';
@@ -69,7 +68,6 @@ import {GrootDatePipe} from './pipes/groot-date/groot-date.pipe';
     GrootTextAreaComponent,
     GrootComboComponent,
     GrootDatePickerComponent,
-    GrootComboCheckboxComponent,
     GrootToggleButtonComponent,
     NeedsCapabilityDirective,
     GrootTableComponent,
@@ -122,7 +120,6 @@ import {GrootDatePipe} from './pipes/groot-date/groot-date.pipe';
     GrootTextAreaComponent,
     GrootComboComponent,
     GrootDatePickerComponent,
-    GrootComboCheckboxComponent,
     GrootToggleButtonComponent,
     NeedsCapabilityDirective,
     GrootTableComponent,
