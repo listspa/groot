@@ -134,6 +134,32 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Form control (reactive forms)</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-input
+        placeholder="Reactive input"
+        label="Reactive input"
+        name="reactiveInput"
+        [required]="true"
+        [formControl]="inputFormControl"
+      ></groot-input>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-input
+  placeholder="Reactive input"
+  label="Reactive input"
+  name="reactiveInput"
+  [required]="true"
+  [formControl]="inputFormControl"
+>&lt;/groot-input></code></pre>
+  </div>
+</div>
+
 <h2>Checkboxes</h2>
 
 <div class="row">

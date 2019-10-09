@@ -1,12 +1,14 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ComboDataRequest, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
 import {endIndex, startIndex} from '../../../../../groot/src/lib/groot-base/utils/pagination-utils';
+import {FormControl} from '@angular/forms';
+import {debounceTime} from 'rxjs/operators';
 
 @Component({
   selector: 'app-demo-form',
   templateUrl: './demo-form.component.html'
 })
-export class DemoFormComponent {
+export class DemoFormComponent implements OnInit {
   form = {
     name: '',
     lastName: '',
@@ -236,6 +238,7 @@ export class DemoFormComponent {
   public manyCurrenciesObjects = this.manyCurrencies.map((curr, idx) => ({id: idx, currency: curr}));
   currenciesFiltered: string[];
   currenciesPage: PaginatedResponse<string>;
+  inputFormControl = new FormControl('foo');
 
   onModelChange(field: string, value: any) {
     console.log('field %o changed: %o', field, value);
@@ -268,5 +271,11 @@ export class DemoFormComponent {
   // tslint:disable-next-line:member-ordering
   private static currencyMatches(text, event: ComboDataRequest) {
     return text.indexOf(event.filterText || '') !== -1;
+  }
+
+  ngOnInit(): void {
+    this.inputFormControl.valueChanges
+      .pipe(debounceTime(200))
+      .subscribe(value => console.log('Input changed: ', value));
   }
 }
