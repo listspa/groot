@@ -3,6 +3,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {ComboDataRequest, PaginatedResponse} from '../../../utils/pagination.model';
+import {AddTagFn} from "@ng-select/ng-select/ng-select/ng-select.component";
 
 @Component({
   selector: 'groot-combo',
@@ -22,6 +23,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() placeholder: string | null;
   @Input() notFoundText = 'combo.noItems';
   @Input() addTagText = 'combo.addItem';
+  @Input() addTag: boolean | AddTagFn;
   @Input() clearAllText = 'combo.clearAll';
   @Input() loadingText = 'combo.loading';
   @Input() typeToSearchText = 'combo.typeToSearch';
@@ -38,6 +40,8 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() headerTemplate: TemplateRef<any> | null;
   @Input() maxItemsAtATime = 100;
   @Input() clearable = true;
+
+  x: boolean;
 
   @Input() set checkboxes(value: boolean) {
     this._checkboxes = value;
