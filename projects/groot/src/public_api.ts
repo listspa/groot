@@ -15,7 +15,6 @@ export * from './lib/groot-base/components/footer/footer.component';
 export * from './lib/groot-base/components/forms/groot-button/groot-button.component';
 export * from './lib/groot-base/components/forms/groot-checkbox/groot-checkbox.component';
 export * from './lib/groot-base/components/forms/groot-combo/groot-combo.component';
-export * from './lib/groot-base/components/forms/groot-combo-checkbox/groot-combo-checkbox.component';
 export * from './lib/groot-base/components/forms/groot-date-picker/groot-date-picker.component';
 export * from './lib/groot-base/components/forms/groot-date-picker/groot-date-picker-config';
 export * from './lib/groot-base/components/forms/groot-file-input/groot-file-input.component';

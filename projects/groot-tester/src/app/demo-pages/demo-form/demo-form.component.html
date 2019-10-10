@@ -134,6 +134,32 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Form control (reactive forms)</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-input
+        placeholder="Reactive input"
+        label="Reactive input"
+        name="reactiveInput"
+        [required]="true"
+        [formControl]="inputFormControl"
+      ></groot-input>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-input
+  placeholder="Reactive input"
+  label="Reactive input"
+  name="reactiveInput"
+  [required]="true"
+  [formControl]="inputFormControl"
+>&lt;/groot-input></code></pre>
+  </div>
+</div>
+
 <h2>Checkboxes</h2>
 
 <div class="row">
@@ -160,6 +186,12 @@
         label="This is disabled"
         [disabled]="true">
       </groot-checkbox>
+
+      <groot-checkbox
+        name="customCheck3"
+        label="Reactive form control"
+        [formControl]="checkBoxFormControl">
+      </groot-checkbox>
     </form>
   </div>
   <div class="col-md-7">
@@ -180,6 +212,12 @@
   name="customCheck2"
   label="This is disabled"
   [disabled]="true">
+&lt;/groot-checkbox>
+
+&lt;groot-checkbox
+  name="customCheck3"
+  label="Reactive form control"
+  [formControl]="checkBoxFormControl">
 &lt;/groot-checkbox></code></pre>
   </div>
 </div>
@@ -246,6 +284,56 @@
 &lt;/groot-radio></code></pre>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Radio via reactive form control</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-radio
+        name="groot-radio"
+        idRadio="gRadioA"
+        value="valueA"
+        label="Value A"
+        [formControl]="radioFormControl"
+      ></groot-radio>
+
+      <groot-radio
+        name="groot-radio"
+        idRadio="gRadioB"
+        value="valueB"
+        label="Value B"
+        [formControl]="radioFormControl"
+      ></groot-radio>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-radio
+  name="groot-radio"
+  idRadio="gRadio1"
+  value="first-radio"
+  label="This is selected"
+  (ngModelChange)="onModelChange('radio', $event)">
+&lt;/groot-radio>
+
+&lt;groot-radio
+  name="groot-radio"
+  idRadio="gRadio2"
+  value="second-radio"
+  label="This is a radio"
+  [(ngModel)]="form.selectedRadio">
+  (ngModelChange)="onModelChange('radio', $event)">
+&lt;/groot-radio>
+
+&lt;groot-radio
+  name="groot-radio"
+  idRadio="gRadio3"
+  value="third-radio"
+  label="This is disabled"
+  [disabled]="true">
+&lt;/groot-radio></code></pre>
+  </div>
+</div>
 
 <h2>Textarea</h2>
 
@@ -274,8 +362,31 @@
 >&lt;/groot-textarea></code></pre>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Sample reactive textarea</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-textarea
+        label="Name"
+        name="name"
+        [formControl]="inputFormControl"
+      ></groot-textarea>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-textarea
+  label="Name"
+  name="name"
+  [formControl]="inputFormControl"
+>&lt;/groot-textarea></code></pre>
+  </div>
+</div>
 
 <h2>Combo boxes</h2>
+
+<p>Note: combo boxes do not (yet) support reactive form controls.</p>
 
 <div class="row">
   <div class="col-md-2">
@@ -894,6 +1005,31 @@
 >&lt;/groot-date-picker></code></pre>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Reactive form control</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-date-picker
+        label="Date"
+        name="date"
+        [required]="true"
+        [formControl]="dateFormControl"
+        helpText="select a date please"
+      ></groot-date-picker>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-date-picker
+  label="Date"
+  name="date"
+  [required]="true"
+  [formControl]="dateFormControl"
+  helpText="select a date please"
+>&lt;/groot-date-picker></code></pre>
+  </div>
+</div>
 
 <h2>Toggle button</h2>
 
@@ -970,6 +1106,8 @@
 </div>
 
 <h2>File upload</h2>
+
+<p>Note: file uploads do not (yet) support reactive form controls.</p>
 
 <div class="row">
   <div class="col-md-2">

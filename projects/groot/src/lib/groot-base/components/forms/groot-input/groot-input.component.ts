@@ -1,5 +1,5 @@
 import {Component, ContentChild, EventEmitter, forwardRef, Input, Output, TemplateRef} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './groot-input.directive';
 
 @Component({
@@ -25,9 +25,11 @@ export class GrootInputComponent implements ControlValueAccessor {
   @Input() @ContentChild(GrootInputIconLeftDirective, {read: TemplateRef}) templateLeft: TemplateRef<any> = null;
   @Input() iconRight: string | string[] | null = null;
   @Input() @ContentChild(GrootInputIconRightDirective, {read: TemplateRef}) templateRight: TemplateRef<any> = null;
+  @Input() formControl: FormControl = null;
   @Output() enter: EventEmitter<string> = new EventEmitter();
   text: string;
   private textSent: string;
+  input: NgModel;
 
   onChange = (text: string) => null;
   onTouched = () => null;

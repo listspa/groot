@@ -15,10 +15,30 @@
   [class.is-invalid]="input.invalid && !input.pristine"
   [disabled]="disabled"
   rows="{{rows}}"
+  *ngIf="!formControl"
 ></textarea>
-<div class="invalid-feedback" *ngIf="input.invalid && !input.pristine">
-  {{'common.required' | translate}}
-</div>
+<textarea
+  autocomplete="off"
+  class="form-control"
+  [placeholder]="(placeholder || label) | translate"
+  [required]="required"
+  [id]="name"
+  [name]="name"
+  [class.is-invalid]="formControl.invalid && !formControl.pristine"
+  rows="{{rows}}"
+  [formControl]="formControl"
+  *ngIf="formControl"
+></textarea>
+<ng-container *ngIf="input">
+  <div class="invalid-feedback" *ngIf="input.invalid && !input.pristine">
+    {{'common.required' | translate}}
+  </div>
+</ng-container>
+<ng-container *ngIf="formControl">
+  <div class="invalid-feedback" *ngIf="formControl.invalid && !formControl.pristine">
+    {{'common.required' | translate}}
+  </div>
+</ng-container>
 <small class="form-text text-muted" *ngIf="helpText">
   {{helpText | translate}}
 </small>

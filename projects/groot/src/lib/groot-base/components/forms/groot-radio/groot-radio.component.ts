@@ -1,5 +1,5 @@
 import {Component, forwardRef, Input} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
   selector: 'groot-radio',
@@ -18,6 +18,7 @@ export class GrootRadioComponent implements ControlValueAccessor {
   @Input() public label: string;
   @Input() public value: string;
   @Input() public disabled = false;
+  @Input() formControl: FormControl = null;
   selectedValue: string;
 
   onChange = (text: string) => null;

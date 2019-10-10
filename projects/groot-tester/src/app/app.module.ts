@@ -19,7 +19,7 @@ import {registerLocaleData} from '@angular/common';
 import localeIt from '@angular/common/locales/it';
 import {MissingTranslationHandler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {NgSelectModule} from '@ng-select/ng-select';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DemoButtonsComponent} from './demo-pages/demo-buttons/demo-buttons.component';
 import {DemoTabsComponent} from './demo-pages/demo-tabs/demo-tabs.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -112,6 +112,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     NgSelectModule,
     TranslateModule.forRoot({
       loader: {provide: TranslateLoader, useFactory: HttpLoaderFactory, deps: [HttpClient]},
