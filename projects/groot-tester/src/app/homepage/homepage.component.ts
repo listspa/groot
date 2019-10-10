@@ -5,7 +5,7 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.18.1-alpha1', released: true, changes: [
+    version: '0.18.1', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `the <code>groot-combo</code> has the new tag <code>addTag</code> inherited from <code>ng-select</code>`
