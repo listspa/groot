@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.18.2', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `the <code>groot-combo</code> required the import of <code>ng-select</code>`
+      },
+    ]
+  },
+  {
     version: '0.18.1', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
