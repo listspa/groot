@@ -3,7 +3,8 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {ComboDataRequest, PaginatedResponse} from '../../../utils/pagination.model';
-import {AddTagFn} from "@ng-select/ng-select/ng-select/ng-select.component";
+
+export declare type AddTagFn = ((term: string) => any | Promise<any>);
 
 @Component({
   selector: 'groot-combo',
