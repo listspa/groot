@@ -39,7 +39,10 @@ import {
   GrootTableTitleRightAreaDirective
 } from './components/tables/groot-table/groot-table.directive';
 import {GrootAccordionIndicatorComponent} from './components/tables/groot-accordion-indicator/groot-accordion-indicator.component';
-import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './components/forms/groot-input/groot-input.directive';
+import {
+  GrootInputIconLeftDirective,
+  GrootInputIconRightDirective
+} from './components/forms/groot-input/groot-input.directive';
 import './polyfills/polyfill-element-closest';
 import {YesNoCheckComponent} from './components/yes-no-check/yes-no-check.component';
 import {ActionsButtonComponent} from './components/actions-button/actions-button.component';
@@ -47,6 +50,7 @@ import {ActionsButtonEntryComponent} from './components/actions-button/actions-b
 import {DisplayLabelValueComponent} from './components/display-label-value/display-label-value.component';
 import {DisplayValueComponent} from './components/display-value/display-value.component';
 import {GrootDatePipe} from './pipes/groot-date/groot-date.pipe';
+import {GrootProvideParentForm} from './directives/provide-parent-form.directive';
 
 @NgModule({
   declarations: [
@@ -88,6 +92,7 @@ import {GrootDatePipe} from './pipes/groot-date/groot-date.pipe';
     DisplayLabelValueComponent,
     DisplayValueComponent,
     GrootDatePipe,
+    GrootProvideParentForm,
   ],
   imports: [
     CommonModule,
@@ -140,6 +145,7 @@ import {GrootDatePipe} from './pipes/groot-date/groot-date.pipe';
     DisplayLabelValueComponent,
     DisplayValueComponent,
     GrootDatePipe,
+    GrootProvideParentForm,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

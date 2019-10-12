@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.18.3', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Introduced a new directive <code>[groot-provide-parent-form]</code> that allows
+child components to register in the parent form component, thus allowing validation`
+      },
+    ]
+  },
+  {
     version: '0.18.2', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
