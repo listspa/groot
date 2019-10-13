@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.18.5', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Accidentally swapped the icon and the text "last" of the paginator in the previous version. Fixed.`
+      },
+    ]
+  },
+  {
     version: '0.18.4', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,

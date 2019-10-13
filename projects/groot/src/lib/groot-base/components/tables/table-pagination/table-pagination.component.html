@@ -9,8 +9,8 @@
     <div class="float-right paginator-first-last paginator-last">
       <a [class.disabled]="_pageNum + 1 >= _numPages"
          (click)="goDirectlyToPage(_numPages - 1)">
-        <i class="fa fa-angle-double-right"></i>
         <span class="paginator-first-last-text">{{'common.lastPage' | translate}}</span>
+        <i class="fa fa-angle-double-right"></i>
       </a>
     </div>
 
