@@ -1,16 +1,16 @@
 <nav>
   <div class="clearfix paginator">
-    <div class="float-left paginator-first-last">
+    <div class="float-left paginator-first-last paginator-first">
       <a [class.disabled]="_pageNum == 0" (click)="goDirectlyToPage(0)">
         <i class="fa fa-angle-double-left"></i>
-        {{'common.firstPage' | translate}}
+        <span class="paginator-first-last-text">{{'common.firstPage' | translate}}</span>
       </a>
     </div>
-    <div class="float-right paginator-first-last">
+    <div class="float-right paginator-first-last paginator-last">
       <a [class.disabled]="_pageNum + 1 >= _numPages"
          (click)="goDirectlyToPage(_numPages - 1)">
-        {{'common.lastPage' | translate}}
         <i class="fa fa-angle-double-right"></i>
+        <span class="paginator-first-last-text">{{'common.lastPage' | translate}}</span>
       </a>
     </div>
 

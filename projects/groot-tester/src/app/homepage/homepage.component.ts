@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.18.4', released: false, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `The table paginator has some more css classes to allow simpler customization of
+"First" and "Last" text`
+      },
+    ]
+  },
+  {
     version: '0.18.3', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
