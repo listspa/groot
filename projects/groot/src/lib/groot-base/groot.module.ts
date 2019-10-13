@@ -51,6 +51,7 @@ import {DisplayLabelValueComponent} from './components/display-label-value/displ
 import {DisplayValueComponent} from './components/display-value/display-value.component';
 import {GrootDatePipe} from './pipes/groot-date/groot-date.pipe';
 import {GrootProvideParentForm} from './directives/provide-parent-form.directive';
+import {InfoIconComponent} from './components/info-icon/info-icon.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import {GrootProvideParentForm} from './directives/provide-parent-form.directive
     DisplayValueComponent,
     GrootDatePipe,
     GrootProvideParentForm,
+    InfoIconComponent,
   ],
   imports: [
     CommonModule,

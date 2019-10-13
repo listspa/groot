@@ -8,6 +8,11 @@ const RELEASE_NOTES: Release[] = [
     version: '0.18.4', released: false, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
+        html: `New component <code>groot-info-icon</code> to display an "i" icon with a 
+customizable popover template`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
         html: `The table paginator has some more css classes to allow simpler customization of
 "First" and "Last" text`
       },
