@@ -1,4 +1,13 @@
-<label *ngIf="label" [class.horizontalAlign]="!horizontalLabel">{{label | translate}}</label>
+<label *ngIf="label" [class.horizontalAlign]="!horizontalLabel">
+  {{label | translate}}
+
+  <i class="fa fa-info-circle mr-2"
+     *ngIf="infoPopoverTemplate"
+     [popover]="infoPopoverTemplate"
+     container="body"
+     triggers="mouseenter:mouseleave"
+  ></i>
+</label>
 <div class="toggle"
      [class.inactive]="!value"
      [class.active]="value"

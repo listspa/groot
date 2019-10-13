@@ -11,6 +11,11 @@ const RELEASE_NOTES: Release[] = [
         html: `The table paginator has some more css classes to allow simpler customization of
 "First" and "Last" text`
       },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `<code>groot-toggle-button</code> can optionally show an "info" icon with a 
+customizable template popover`
+      },
     ]
   },
   {

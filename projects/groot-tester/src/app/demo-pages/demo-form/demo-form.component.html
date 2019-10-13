@@ -1104,6 +1104,41 @@
 >&lt;/groot-toggle-button></code></pre>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Toggle button with info icon</div>
+  </div>
+  <div class="col-md-3">
+    <form>
+      <groot-toggle-button
+        label="Toggle me 4"
+        name="toggler 4"
+        [horizontalLabel]="true"
+        [(ngModel)]="form.toggler"
+        (ngModelChange)="onModelChange('toggle', $event)"
+        [infoPopoverTemplate]="infoPopoverTemplate"
+      ></groot-toggle-button>
+    </form>
+
+    <ng-template #infoPopoverTemplate>
+      Information about the popover here!
+    </ng-template>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-toggle-button
+  label="Toggle me 4"
+  name="toggler 4"
+  [horizontalLabel]="true"
+  [(ngModel)]="form.toggler"
+  (ngModelChange)="onModelChange('toggle', $event)"
+  [infoPopoverTemplate]="infoPopoverTemplate"
+>&lt;/groot-toggle-button>
+
+&lt;ng-template #infoPopoverTemplate>
+  Information about the popover here!
+&lt;/ng-template></code></pre>
+  </div>
+</div>
 
 <h2>File upload</h2>
 

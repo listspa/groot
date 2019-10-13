@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {Component, forwardRef, Input, TemplateRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
@@ -16,6 +16,7 @@ export class GrootToggleButtonComponent implements ControlValueAccessor {
   @Input() label: string;
   @Input() disabled = false;
   @Input() horizontalLabel = true;
+  @Input() infoPopoverTemplate: TemplateRef<any>;
   value: boolean;
 
   onChange = (checked: boolean) => null;
