@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.18.6', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed <code>groot-action-button</code> on IE11`
+      }
+    ]
+  },
+  {
     version: '0.18.5', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
