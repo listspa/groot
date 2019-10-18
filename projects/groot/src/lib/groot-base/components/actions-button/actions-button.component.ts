@@ -1,4 +1,4 @@
-import {Component, Input, TemplateRef} from '@angular/core';
+import {Component, HostBinding, Input, TemplateRef} from '@angular/core';
 
 @Component({
   selector: 'groot-actions-button',
@@ -12,6 +12,6 @@ export class ActionsButtonComponent {
   @Input() insideTable = false;
   @Input() hamburger = false;
 
-  hover: boolean;
-  open: boolean;
+  @HostBinding('class.groot-actions-button-hover') hover: boolean;
+  @HostBinding('class.groot-actions-button-open') open: boolean;
 }
