@@ -12,13 +12,18 @@
      (mouseenter)="hover = true"
      (mouseleave)="hover = false"
      [attr.title]="'common.actions' | translate">
-  <i class="fa fa-stack-2x"
-     [class.fa-circle-thin]="!hover && !open"
-     [class.fa-circle]="hover || open"
-  ></i>
-  <i class="fa fa-ellipsis-v fa-stack-1x"
-     [class.text-white]="hover || open"
-  ></i>
+  <ng-container *ngIf="!hamburger">
+    <i class="fa fa-stack-2x"
+       [class.fa-circle-thin]="!hover && !open"
+       [class.fa-circle]="hover || open"
+    ></i>
+    <i class="fa fa-ellipsis-v fa-stack-1x"
+       [class.text-white]="hover || open"
+    ></i>
+  </ng-container>
+  <ng-container *ngIf="hamburger">
+    <i class="fa fa-2x fa-bars"></i>
+  </ng-container>
 </div>
 
 <ng-template #defaultTemplate>

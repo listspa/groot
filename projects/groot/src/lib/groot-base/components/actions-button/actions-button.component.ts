@@ -10,6 +10,7 @@ export class ActionsButtonComponent {
   @Input() popoverTemplate: TemplateRef<any>;
   @Input() popoverContext: any;
   @Input() insideTable = false;
+  @Input() hamburger = false;
 
   hover: boolean;
   open: boolean;

@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.18.7', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Allow <code>groot-action-button</code> to use the "hamburger" icon`
+      }
+    ]
+  },
+  {
     version: '0.18.6', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
