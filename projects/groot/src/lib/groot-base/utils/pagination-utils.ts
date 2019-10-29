@@ -1,4 +1,5 @@
 import {FilterOperator, FilterOption, NbpuSchemaFieldType, Pagination} from './pagination.model';
+import {isoDate} from './date-utils';
 
 /**
  * Retrieves the start index of a pagination object, zero-based, inclusive.
@@ -32,4 +33,32 @@ export function filterIn(column: string,
                          type: NbpuSchemaFieldType = NbpuSchemaFieldType.STRING)
   : FilterOption {
   return {column, type, operator: FilterOperator.IN, value};
+}
+
+/**
+ * Creates a very common type of filter: column like string
+ */
+export function filterLike(column: string,
+                           value: string)
+  : FilterOption {
+  return {
+    column: `UPPER(${column})`,
+    type: NbpuSchemaFieldType.STRING,
+    operator: FilterOperator.LIKE,
+    value: `%${(value || '').toUpperCase()}%`
+  };
+}
+
+/**
+ * Creates a very common type of filter: TRUNC(date) equals value
+ */
+export function filterTimestamp(column: string,
+                                value: Date)
+  : FilterOption {
+  return {
+    column: `TRUNC(${column})`,
+    type: NbpuSchemaFieldType.DATE,
+    operator: FilterOperator.EQUALS,
+    value: isoDate(value)
+  };
 }

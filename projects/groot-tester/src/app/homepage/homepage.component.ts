@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.18.10', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New helper functions <code>filterLike</code> and <code>filterTimestamp</code>`
+      }
+    ]
+  },
+  {
     version: '0.18.9', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
