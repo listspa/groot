@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `It is necessary to run <code>npm install --save mdn-polyfills</code> and to add, 
+in <code>polyfills.ts</code>, a line <code>import 'mdn-polyfills/MouseEvent';</code>.`
+      }
+    ]
+  },
+  {
     version: '0.18.10', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
