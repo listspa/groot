@@ -242,6 +242,7 @@ export class DemoFormComponent implements OnInit {
   checkBoxFormControl = new FormControl(true);
   radioFormControl = new FormControl('valueA');
   dateFormControl = new FormControl();
+  format: string;
 
   onModelChange(field: string, value: any) {
     console.log('field %o changed: %o', field, value);
@@ -277,6 +278,7 @@ export class DemoFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.format = 'dd/MM/yyyy';
     this.inputFormControl.valueChanges
       .pipe(debounceTime(200))
       .subscribe(value => console.log('Input changed: ', value));

@@ -5,10 +5,18 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.1', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New attribute <code>format</code> in <code>groot-date-picker</code>`
+      }
+    ]
+  },
+  {
     version: '0.19.0', released: true, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
-        html: `It is necessary to run <code>npm install --save mdn-polyfills</code> and to add, 
+        html: `It is necessary to run <code>npm install --save mdn-polyfills</code> and to add,
 in <code>polyfills.ts</code>, a line <code>import 'mdn-polyfills/MouseEvent';</code>.`
       }
     ]
@@ -65,7 +73,7 @@ in <code>polyfills.ts</code>, a line <code>import 'mdn-polyfills/MouseEvent';</c
     version: '0.18.4', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
-        html: `New component <code>groot-info-icon</code> to display an "i" icon with a 
+        html: `New component <code>groot-info-icon</code> to display an "i" icon with a
 customizable popover template`
       },
       {
@@ -75,7 +83,7 @@ customizable popover template`
       },
       {
         type: ReleaseChangeType.NEW_FEATURE,
-        html: `<code>groot-toggle-button</code> can optionally show an "info" icon with a 
+        html: `<code>groot-toggle-button</code> can optionally show an "info" icon with a
 customizable template popover`
       },
     ]
@@ -177,7 +185,7 @@ take as parameter the locale plus the formats for dates, hours and doubles digit
       },
       {
         type: ReleaseChangeType.BUG_FIX,
-        html: `Added <code>container=body</code> to the popover of the <code>groot-action-buttons</code> to fix 
+        html: `Added <code>container=body</code> to the popover of the <code>groot-action-buttons</code> to fix
 problems with embedding inside an \`agGrid\``
       }
     ]
@@ -194,7 +202,7 @@ problems with embedding inside an \`agGrid\``
     version: '0.16.0', released: true, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
-        html: `Added <code>NoCacheInterceptor</code> to fix problem with IE and ajax requests in GET. 
+        html: `Added <code>NoCacheInterceptor</code> to fix problem with IE and ajax requests in GET.
 Add it to your application module like this: <code>{provide: HTTP_INTERCEPTORS, useClass: NoCacheInterceptor, multi: true}</code>.`
       }
     ]
@@ -224,10 +232,10 @@ the last update timestamp, that will be shown near the refresh icon.`
 namespace from <code>listspa</code> to <code>listgroup</code>. This means that you have to uninstall the old package and
 install the new one. Furthermore, in your main scss file you have to replace the path of the main groot css. You also
 have to change all the imports everywhere: run a replace <code>@listspa/groot</code> to <code>@listgroup/groot</code>.
-<br> 
+<br>
 Finally, you have to change your <code>npmrc</code>: see the <a href="/docs/getting-started">getting started</a> page for
 details.<br>
-Note also that before making your first release, you need to login on artifactory. See the instructions in the 
+Note also that before making your first release, you need to login on artifactory. See the instructions in the
 <code>CONTRIBUTING.md</code> file.`
       },
       {
@@ -317,7 +325,7 @@ allowing access to a given route`
     version: '0.13.0', released: true, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
-        html: `You need to run <code>npm install @angular/cdk</code> once. Do not worry, it will not be included 
+        html: `You need to run <code>npm install @angular/cdk</code> once. Do not worry, it will not be included
 in your application unless you start using it.`
       },
       {
@@ -356,12 +364,12 @@ shows a menu when clicked. See its <a href="#/demo/misc-small-components">docume
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `New component <code>groot-display-label-value</code> to display a pair label and value.
-New component <code>groot-display-value</code> with the value part only. See its 
+New component <code>groot-display-value</code> with the value part only. See its
 <a href="#/demo/misc-small-components">documentation page</a>.`
       },
       {
         type: ReleaseChangeType.NEW_FEATURE,
-        html: `New css classes to improve the accordion look & feel. See the 
+        html: `New css classes to improve the accordion look & feel. See the
 <a href="#/demo/tables">tables documentation page</a> for the example.`
       },
       {
@@ -370,7 +378,7 @@ New component <code>groot-display-value</code> with the value part only. See its
       },
       {
         type: ReleaseChangeType.NEW_FEATURE,
-        html: `New functions <code>startIndex</code> and <code>endIndex</code> to work 
+        html: `New functions <code>startIndex</code> and <code>endIndex</code> to work
 with <code>Pagination</code> objects.`
       },
       {
@@ -510,9 +518,9 @@ a "new" button or a search box.`
       },
       {
         type: ReleaseChangeType.NEW_FEATURE,
-        html: `Created directives <code>grootTableHeader</code>, <code>grootTableBody</code> 
+        html: `Created directives <code>grootTableHeader</code>, <code>grootTableBody</code>
 and <code>grootTableTitleRightArea</code> to simply pass the table header, body template and additional header buttons
-to the <code>groot-table</code>, avoiding passing the input explicitly. See the updated example in the 
+to the <code>groot-table</code>, avoiding passing the input explicitly. See the updated example in the
 <a href="#/demo/tables">tables documentation page.</a>`
       },
       {
@@ -587,12 +595,12 @@ for the details`
       },
       {
         type: ReleaseChangeType.NEW_FEATURE,
-        html: `We now store and reload the last selected language at the startup. See the 
+        html: `We now store and reload the last selected language at the startup. See the
 <a href="#/docs/translations-guide">translations guide page</a> for details.`
       },
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
-        html: `In your app component, ask for injection of <code>translationsLanguageService: 
+        html: `In your app component, ask for injection of <code>translationsLanguageService:
 TranslationsLanguageService</code> rather than <code>TranslateService</code> and <code>BsLocaleService</code>`
       }
     ]
@@ -670,7 +678,7 @@ TranslationsLanguageService</code> rather than <code>TranslateService</code> and
     version: '0.7.0', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
-        html: `Introduced new component <code>groot-button</code>. See <a href="#/demo/buttons">the buttons page</a> 
+        html: `Introduced new component <code>groot-button</code>. See <a href="#/demo/buttons">the buttons page</a>
 for a sample and the documentation.`
       },
       {
@@ -709,7 +717,7 @@ for a sample and the documentation.`
       },
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
-        html: `You need to add five labels to your translations: 
+        html: `You need to add five labels to your translations:
               <table class="table table-sm">
                 <thead class="thead-light">
                   <tr>

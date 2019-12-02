@@ -20,6 +20,7 @@
          (ngModelChange)="writeValue($event)"
          [class.is-invalid]="input.invalid && !input.pristine"
          [disabled]="disabled"
+         value="{{selectedDate | date: format}}"
          *ngIf="!formControl">
   <input type="text"
          autocomplete="off"
@@ -33,6 +34,7 @@
          triggers=""
          [class.is-invalid]="formControl.invalid && !formControl.pristine"
          [formControl]="formControl"
+         [value]="formControl.value | date: format"
          *ngIf="formControl">
 
   <div class="input-group-append">
