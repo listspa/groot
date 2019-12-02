@@ -5,6 +5,18 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.2', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Open one groot-date-picker at the time`
+      },
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Manage invalid date in groot-date-picker with formatting`
+      }
+    ]
+  },
+  {
     version: '0.19.1', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,

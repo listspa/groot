@@ -32,7 +32,6 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
 
   @HostListener('click', ['$event'])
   onClick(event: Event) {
-    event.stopImmediatePropagation();
     this.onToggle();
   }
 
