@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ComboDataRequest, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
 import {endIndex, startIndex} from '../../../../../groot/src/lib/groot-base/utils/pagination-utils';
-import {FormControl} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import {debounceTime} from 'rxjs/operators';
 
 @Component({
@@ -238,7 +238,7 @@ export class DemoFormComponent implements OnInit {
   public manyCurrenciesObjects = this.manyCurrencies.map((curr, idx) => ({id: idx, currency: curr}));
   currenciesFiltered: string[];
   currenciesPage: PaginatedResponse<string>;
-  inputFormControl = new FormControl('foo');
+  inputFormControl = new FormControl('foo', Validators.required);
   checkBoxFormControl = new FormControl(true);
   radioFormControl = new FormControl('valueA');
   dateFormControl = new FormControl();

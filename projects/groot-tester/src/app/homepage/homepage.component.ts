@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.3', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Add custom error message to groot-input`
+      }
+    ]
+  },
+  {
     version: '0.19.2', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,

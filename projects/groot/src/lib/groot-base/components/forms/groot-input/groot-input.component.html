@@ -48,12 +48,12 @@
   </div>
   <ng-container *ngIf="input">
     <div class="invalid-feedback" *ngIf="input.invalid && !input.pristine">
-      {{'common.required' | translate}}
+      {{errorMessage | translate}}
     </div>
   </ng-container>
   <ng-container *ngIf="formControl">
     <div class="invalid-feedback" *ngIf="formControl.invalid && !formControl.pristine">
-      {{'common.required' | translate}}
+      {{errorMessage | translate}}
     </div>
   </ng-container>
 </div>
