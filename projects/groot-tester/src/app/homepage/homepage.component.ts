@@ -5,10 +5,18 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.4', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Add min and max to <code>groot-date-picker</code>`
+      }
+    ]
+  },
+  {
     version: '0.19.3', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
-        html: `Add custom error message to groot-input`
+        html: `Add custom error message to <code>groot-input</code>`
       }
     ]
   },
@@ -16,11 +24,11 @@ const RELEASE_NOTES: Release[] = [
     version: '0.19.2', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
-        html: `Open one groot-date-picker at the time`
+        html: `Open one <code>groot-date-picker</code> at the time`
       },
       {
         type: ReleaseChangeType.BUG_FIX,
-        html: `Manage invalid date in groot-date-picker with formatting`
+        html: `Manage invalid date in <code>groot-date-picker</code> with formatting`
       }
     ]
   },

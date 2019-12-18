@@ -243,6 +243,7 @@ export class DemoFormComponent implements OnInit {
   radioFormControl = new FormControl('valueA');
   dateFormControl = new FormControl();
   format: string;
+  minDate: any;
 
   onModelChange(field: string, value: any) {
     console.log('field %o changed: %o', field, value);
@@ -278,6 +279,7 @@ export class DemoFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.minDate = new Date();
     this.format = 'dd/MM/yyyy';
     this.inputFormControl.valueChanges
       .pipe(debounceTime(200))

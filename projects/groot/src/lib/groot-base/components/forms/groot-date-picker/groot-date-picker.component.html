@@ -11,6 +11,8 @@
          [required]="required"
          [id]="name"
          [name]="name"
+         [minDate]="minDate"
+         [maxDate]="maxDate"
          bsDatepicker
          #datePickerDirective="bsDatepicker"
          #input=ngModel
@@ -28,6 +30,8 @@
          [placeholder]="(placeholder || label) | translate"
          [id]="name"
          [name]="name"
+         [minDate]="minDate"
+         [maxDate]="maxDate"
          bsDatepicker
          #datePickerDirective="bsDatepicker"
          [placement]="placement"
