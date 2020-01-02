@@ -1,6 +1,6 @@
 {
   "name": "groot",
-  "version": "0.19.5",
+  "version": "0.19.4",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
