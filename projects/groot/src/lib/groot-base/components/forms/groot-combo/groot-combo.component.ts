@@ -262,7 +262,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
           }
         });
       } else {
-        this.allItems = [].concat(...this._allItemsBackup);
+        this.allItems = [...this._allItemsBackup];
       }
     }
   }
