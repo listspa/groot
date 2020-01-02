@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.5', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Add toggleShowOnlySelected to <code>groot-combo</code>`
+      }
+    ]
+  },
+  {
     version: '0.19.4', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
