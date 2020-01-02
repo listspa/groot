@@ -111,6 +111,11 @@ export interface ComboDataRequest extends Pagination {
   filterText?: string | null;
 }
 
+export interface ComboDataRequestWithSelected extends ComboDataRequest {
+  showOnlySelected: boolean;
+  selected?: any[] | null;
+}
+
 export interface SearchColumnValuesRequest extends ComboDataRequest {
   columnName: string;
   filters: FilterOption[];

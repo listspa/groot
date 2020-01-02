@@ -2,7 +2,7 @@ import {Component, EventEmitter, forwardRef, Input, OnInit, Output, TemplateRef}
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
-import {ComboDataRequest, PaginatedResponse} from '../../../utils/pagination.model';
+import {ComboDataRequestWithSelected, PaginatedResponse} from '../../../utils/pagination.model';
 
 export declare type AddTagFn = ((term: string) => any | Promise<any>);
 
@@ -18,7 +18,7 @@ export declare type AddTagFn = ((term: string) => any | Promise<any>);
   ]
 })
 export class GrootComboComponent implements ControlValueAccessor, OnInit {
-  @Output() requestData = new EventEmitter<ComboDataRequest>();
+  @Output() requestData = new EventEmitter<ComboDataRequestWithSelected>();
 
   @Input() label: string;
   @Input() placeholder: string | null;
@@ -41,8 +41,11 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() headerTemplate: TemplateRef<any> | null;
   @Input() maxItemsAtATime = 100;
   @Input() clearable = true;
+  @Input() toggleShowOnlySelected = false;
+  @Input() toggleShowOnlySelectedText = 'combo.showOnlySelected';
 
   x: boolean;
+  showOnlySelected = false;
 
   @Input() set checkboxes(value: boolean) {
     this._checkboxes = value;
@@ -81,6 +84,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
    */
   @Input() set items(value: string[] | any[]) {
     this.allItems = value;
+    this._allItemsBackup = value;
     this.loading = false;
   }
 
@@ -109,12 +113,16 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   private _fetchDataIncrementally = false;
   private _pages: string[][] = [];
   private _totalNumItems: number | null = null;
+  private _allItemsBackup: string[] | any[] = [];
 
   onChange = (selectedValue: any | any[]) => null;
   onTouched = () => null;
 
   writeValue(selectedValue: any | any[]): void {
     this.selectedValue = selectedValue;
+    if(this.showOnlySelected){
+      this.filterSelected();
+    }
     this.onChange(this.selectedValue);
   }
 
@@ -181,13 +189,17 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
 
   private onFilterTextChanged(searchTerm: string | null): void {
     // Reset current values
-    this.allItems = [];
-    this._pages = [];
-    this._totalNumItems = null;
+    this.resetItems();
 
     // Search
     this._lastTypeaheadValue = searchTerm;
     this.doRequestData(0);
+  }
+
+  private resetItems() {
+    this.allItems = [];
+    this._pages = [];
+    this._totalNumItems = null;
   }
 
   onScroll({end}) {
@@ -206,10 +218,12 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   }
 
   private doRequestData(pageToLoad: number) {
-    const request: ComboDataRequest = {
+    const request: ComboDataRequestWithSelected = {
       filterText: this._lastTypeaheadValue,
       pageNum: pageToLoad,
-      pageLen: this._fetchDataIncrementally ? this.maxItemsAtATime : 999999
+      pageLen: this._fetchDataIncrementally ? this.maxItemsAtATime : 999999,
+      showOnlySelected: this.showOnlySelected,
+      selected: this.showOnlySelected ? this.selectedValue : null
     };
     this.loading = true;
     this.requestData.emit(request);
@@ -231,6 +245,25 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
       }
     } else {
       return true;
+    }
+  }
+
+  filterSelected() {
+    if (this.typeahead) {
+      this.resetItems();
+      this.doRequestData(0);
+    } else {
+      if (this.showOnlySelected) {
+        this.allItems = this._allItemsBackup.filter(value => {
+          if (this.bindValue) {
+            return this.selectedValue && this.selectedValue.indexOf(value[this.bindValue]) > -1;
+          } else {
+            return this.selectedValue && this.selectedValue.indexOf(value) > -1;
+          }
+        });
+      } else {
+        this.allItems = [].concat(...this._allItemsBackup);
+      }
     }
   }
 }
