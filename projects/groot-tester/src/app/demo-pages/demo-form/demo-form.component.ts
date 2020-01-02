@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ComboDataRequest, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
+import {
+  ComboDataRequest,
+  ComboDataRequestWithSelected,
+  PaginatedResponse
+} from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
 import {endIndex, startIndex} from '../../../../../groot/src/lib/groot-base/utils/pagination-utils';
 import {FormControl, Validators} from '@angular/forms';
 import {debounceTime} from 'rxjs/operators';
@@ -260,6 +264,17 @@ export class DemoFormComponent implements OnInit {
     }, 400);
   }
 
+  loadCurrenciesFilteredWithSelected(event: ComboDataRequestWithSelected) {
+    console.log('asked for filtered set of currencies: %o', event);
+
+    // Filter in javascript, with a timeout to show the "loading" indicator.
+    // In real code you would filter on the server
+    setTimeout(() => {
+      this.currenciesFiltered = this.manyCurrencies
+        .filter(text => DemoFormComponent.currencyMatchesWithSelected(text, event));
+    }, 400);
+  }
+
   loadCurrenciesPage(event: ComboDataRequest) {
     console.log('asked for page of currencies: %o', event);
     const filteredCurrencies = this.manyCurrencies
@@ -276,6 +291,11 @@ export class DemoFormComponent implements OnInit {
   // tslint:disable-next-line:member-ordering
   private static currencyMatches(text, event: ComboDataRequest) {
     return text.indexOf(event.filterText || '') !== -1;
+  }
+
+  // tslint:disable-next-line:member-ordering
+  private static currencyMatchesWithSelected(text, event: ComboDataRequestWithSelected) {
+    return (!event.showOnlySelected || (event.selected && event.selected.indexOf(text) !== -1)) && text.indexOf(event.filterText || '') !== -1;
   }
 
   ngOnInit(): void {

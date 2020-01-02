@@ -36,13 +36,23 @@
 
 
     <!-- For checkboxes: header with buttons select all / unselect all -->
-    <ng-template *ngIf="checkboxes || headerTemplate" ng-header-tmp>
-      <ng-container *ngIf="headerTemplate">
-        <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+    <ng-template *ngIf="checkboxes || headerTemplate || toggleShowOnlySelected"
+                 ng-header-tmp
+                 let-searchTerm="searchTerm">
+
+      <ng-container *ngIf="toggleShowOnlySelected">
+        <ng-container *ngTemplateOutlet="toogleShowOnlySelectedTemplate"></ng-container>
       </ng-container>
-      <ng-container *ngIf="!headerTemplate && checkboxes">
+      <ng-container *ngIf="!toggleShowOnlySelected && headerTemplate">
+        <ng-container *ngTemplateOutlet="headerTemplate; context: {searchTerm: searchTerm}"></ng-container>
+      </ng-container>
+      <ng-container *ngIf="!toggleShowOnlySelected && !headerTemplate && checkboxes">
         <ng-container *ngTemplateOutlet="checkboxSelectAllTpl"></ng-container>
       </ng-container>
+    </ng-template>
+
+    <ng-template #toogleShowOnlySelectedTemplate>
+      <groot-toggle-button [label]="toggleShowOnlySelectedText" [(ngModel)]="showOnlySelected" (ngModelChange)="filterSelected()"></groot-toggle-button>
     </ng-template>
 
     <ng-template #checkboxSelectAllTpl>

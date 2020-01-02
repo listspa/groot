@@ -976,6 +976,90 @@
         err => request.domainSubject.error(err));
 </code></pre>
 
+<h3>Show only selected elements</h3>
+
+<p>When the list of items is large so that you have to scroll the dropdown, it can be useful
+  to filter the list to see only those elements already selected. To do so <code>groot-combo</code> supports a property
+<code>[toggleShowOnlySelected]="true"</code> that adds a toggle in the dropdown header (moreover the headers already
+  defined).</p>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Show only selected toggle with local storage</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Currencies listbox"
+        name="checkBoxMultiple"
+        [items]="manyCurrencies"
+        [required]="true"
+        [(ngModel)]="form.selectedCurrencies"
+        (ngModelChange)="onModelChange('listbox checkbox currencies', $event)"
+        [showAsListBox]="true"
+        [checkboxes]="true"
+        [multiple]="true"
+        [toggleShowOnlySelected]="true"
+      ></groot-combo>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-combo
+        label="Currencies listbox"
+        name="checkBoxMultiple"
+        [items]="manyCurrencies"
+        [required]="true"
+        [(ngModel)]="form.selectedCurrencies"
+        (ngModelChange)="onModelChange('listbox checkbox currencies', $event)"
+        [showAsListBox]="true"
+        [checkboxes]="true"
+        [multiple]="true"
+        [toggleShowOnlySelected]="true"
+>&lt;/groot-combo></code></pre>
+  </div>
+</div>
+
+<p>This also works with <code>[filterServerSide]="true"</code>. In such a case two additional properties are sent to server: a boolean
+  <code>showOnlySelected</code> that indicates the value of the toggle and an array <code>selected</code> with the list of all selected elements</p>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Show only selected toggle with server side load</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Filtered currencies"
+        [filterServerSide]="true"
+        (requestData)="loadCurrenciesFilteredWithSelected($event)"
+        [items]="currenciesFiltered"
+        [multiple]="true"
+        [toggleShowOnlySelected]="true"
+      ></groot-combo>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code ngNonBindable>&lt;groot-combo
+        label="Filtered currencies"
+        [filterServerSide]="true"
+        (requestData)="loadCurrenciesFiltered($event)"
+        [items]="currenciesFiltered"
+        [multiple]="true"
+        [toggleShowOnlySelected]="true"
+>&lt;/groot-combo></code></pre>
+
+    <p>server request example:</p>
+    <pre><code ngNonBindable>
+      filterText: 'ae',
+      pageNum: 0,
+      pageLen: 999999,
+      showOnlySelected: true,
+      selected: ['ALL', 'AMD', 'AOA']AA
+</code></pre>
+  </div>
+</div>
+
+
 <h2>Date picker</h2>
 
 <p>The <code>ngModel</code> maps to a standard JavaScript <code>Date</code> object.</p>
