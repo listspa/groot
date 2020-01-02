@@ -120,7 +120,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
 
   writeValue(selectedValue: any | any[]): void {
     this.selectedValue = selectedValue;
-    if(this.showOnlySelected){
+    if (this.showOnlySelected) {
       this.filterSelected();
     }
     this.onChange(this.selectedValue);
