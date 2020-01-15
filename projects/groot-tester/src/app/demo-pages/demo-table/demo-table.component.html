@@ -31,6 +31,7 @@
   [pageSize]="3"
   (search)="doSearch($event)"
   [searchResultsData]="searchResultsData"
+  [headerLabel]="headerLabel"
 >
   &lt;ng-template grootTableTitleRightArea>
     &lt;groot-input
@@ -41,7 +42,7 @@
 
     &lt;groot-button label="New" icon="fa fa-plus" classes="btn-outline-primary">&lt;/groot-button>
   &lt;/ng-template>
-  
+
   &lt;ng-template grootTableHeader>
     &lt;tr>
       &lt;th>
@@ -70,6 +71,7 @@
 
 <pre><code>export class DemoTableComponent &#123;
   searchResultsData: PaginatedResponse&lt;Person> = null;
+  headerLabel = 'common.searchResults';
 
   constructor(private peopleService: PeopleService) &#123;
   }
@@ -133,6 +135,7 @@
   [pageSize]="3"
   (search)="doSearch($event)"
   [searchResultsData]="searchResultsData"
+  [headerLabel]="headerLabel"
 >
   <ng-template grootTableTitleRightArea>
     <groot-input

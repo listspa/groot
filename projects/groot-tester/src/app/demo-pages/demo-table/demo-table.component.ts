@@ -16,6 +16,7 @@ export class DemoTableComponent {
     records: []
   };
   failedData: LoadingFailed = {loadingFailed: true};
+  headerLabel = 'common.searchResults';
 
   constructor(private peopleService: PeopleService) {
   }

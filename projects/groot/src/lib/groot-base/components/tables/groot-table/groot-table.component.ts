@@ -15,8 +15,10 @@ export function isLoadingFailed<T>(t: PaginatedResponse<T> | LoadingFailed): t i
   templateUrl: './groot-table.component.html'
 })
 export class GrootTableComponent<T> implements OnInit {
+  @Input() headerLabel = 'common.searchResults';
   @Input() hideTitleBar = false;
   @Input() showRefreshIcon = false;
+  @Input() showPageInfo = true;
   @Input() lastRefreshTimestamp: Date | string = null;
   @Input() downloadExcelLabel = 'common.downloadExcel';
   @Input() downloadExcelUrl: string | null;

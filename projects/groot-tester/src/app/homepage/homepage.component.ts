@@ -5,6 +5,18 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.6', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Add headerLabel to <code>groot-table</code> to modify the title`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Add showPageInfo to <code>groot-table</code> to (not) display the number of rows shown`
+      }
+    ]
+  },
+  {
     version: '0.19.5', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,

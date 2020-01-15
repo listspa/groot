@@ -14,6 +14,7 @@ interface PageInfo {
 export class TableTitleBarComponent {
   @Input() label = 'common.searchResults';
   @Input() showRefreshIcon = false;
+  @Input() showPageInfo = true;
   @Input() lastRefreshTimestamp: Date | string;
   @Input() downloadExcelLabel = 'common.downloadExcel';
   @Input() downloadExcelUrl: string = null;

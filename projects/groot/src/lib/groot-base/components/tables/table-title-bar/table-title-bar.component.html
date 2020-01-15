@@ -2,7 +2,7 @@
   <div class="col-sm">
     <h2 [class.align-to-download-button]="(downloadExcelUrl || downloadExcelUrlProvider) && pageInfo">
       {{label | translate}}
-      <small *ngIf="pageInfo && pageInfo.totalItems > 0"
+      <small *ngIf="showPageInfo && pageInfo && pageInfo.totalItems > 0"
              class="pagination-info text-muted">{{'common.paginationRowsInfo' | translate:pageInfo}}</small>
 
       <!-- refresh icon -->
