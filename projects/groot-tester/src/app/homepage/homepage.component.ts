@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.7', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added new scss variables to customize the color of the combo's arrow: <code>$ng-select-arrow</code>`
+      },
+    ]
+  },
+  {
     version: '0.19.6', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
