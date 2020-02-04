@@ -13,14 +13,18 @@
         box-shadow: none;
       }
 
-      .ng-arrow {
+      .ng-arrow-wrapper {
+        &:hover {
+          .ng-arrow {
+            border-color: transparent transparent $ng-select-arrow-hover;
+          }
+        }
+      }
+
+        .ng-arrow {
         top: -2px;
         border-color: transparent transparent $ng-select-arrow;
         border-width: 0 5px 5px;
-
-        &:hover {
-          border-color: transparent transparent $ng-select-arrow-hover;
-        }
       }
     }
 
@@ -192,7 +196,7 @@
 
     &:hover {
       .ng-arrow {
-        border-top-color: #666;
+        border-top-color: $ng-select-arrow-hover;
       }
     }
 
@@ -200,7 +204,6 @@
       border-color: $ng-select-arrow transparent transparent;
       border-style: solid;
       border-width: 5px 5px 2.5px;
-
     }
   }
 }
