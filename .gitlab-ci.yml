@@ -6,7 +6,7 @@ stages:
 variables:
   NPM_CONFIG_REGISTRY: "https://artifactory.list-group.com/artifactory/api/npm/npm/"
   DOCKER_IMAGE_NAME: "artifactory.list-group.com/isp/groot"
-  OPENSHIFT_PROJECT: "isp-groot"
+  OPENSHIFT_PROJECT: "lib-groot"
   OPENSHIFT_APP: "groot"
 
 test-angular:
