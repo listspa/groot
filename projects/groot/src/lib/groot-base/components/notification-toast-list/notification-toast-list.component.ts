@@ -27,8 +27,13 @@ export function mayShowLeaveAnimation(fromState, toState) {
         style({transform: 'scale(1)', opacity: 1, height: '*'}),
         animate('1s cubic-bezier(.8, -0.6, 0.2, 1.5)',
           style({
-            transform: 'scale(0.5)', opacity: 0,
-            height: '0px', margin: '0px'
+            transform: 'scale(0.5)',
+            opacity: 0,
+            height: '0px',
+            marginTop: 0,
+            marginBottom: 0,
+            marginLeft: 0,
+            marginRight: 0,
           }))
       ])
     ])

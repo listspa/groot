@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.9', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed toasts leaving animation with Firefox`
+      },
+    ]
+  },
+  {
     version: '0.19.8', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
