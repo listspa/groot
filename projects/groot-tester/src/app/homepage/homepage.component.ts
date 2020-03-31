@@ -5,6 +5,19 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.10', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `The <code>groot-combo</code> can automatically translate the labels of the items
+if it received <code>[translateItemText]=true</code>`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added some more common translations`
+      },
+    ]
+  },
+  {
     version: '0.19.9', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
