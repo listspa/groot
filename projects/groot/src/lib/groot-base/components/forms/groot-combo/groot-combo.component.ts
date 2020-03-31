@@ -43,6 +43,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() clearable = true;
   @Input() toggleShowOnlySelected = false;
   @Input() toggleShowOnlySelectedText = 'combo.showOnlySelected';
+  @Input() translateItemText = false;
 
   x: boolean;
   showOnlySelected = false;

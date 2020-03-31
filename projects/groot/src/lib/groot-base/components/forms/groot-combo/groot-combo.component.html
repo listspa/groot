@@ -52,7 +52,8 @@
     </ng-template>
 
     <ng-template #toogleShowOnlySelectedTemplate>
-      <groot-toggle-button [label]="toggleShowOnlySelectedText" [(ngModel)]="showOnlySelected" (ngModelChange)="filterSelected()"></groot-toggle-button>
+      <groot-toggle-button [label]="toggleShowOnlySelectedText" [(ngModel)]="showOnlySelected"
+                           (ngModelChange)="filterSelected()"></groot-toggle-button>
     </ng-template>
 
     <ng-template #checkboxSelectAllTpl>
@@ -72,9 +73,8 @@
     </ng-template>
 
 
-    <!-- Custom item templates -->
-    <ng-template *ngIf="checkboxes || itemTemplate"
-                 ng-option-tmp
+    <!-- Item templates -->
+    <ng-template ng-option-tmp
                  let-item="item"
                  let-item$="item$"
                  let-index="index"
@@ -85,11 +85,16 @@
           *ngTemplateOutlet="checkboxItemTpl; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
         </ng-container>
       </ng-container>
-      <!-- Otherwise use our custom -->
-      <ng-container *ngIf="!checkboxes">
+      <!-- Otherwise use the custom received -->
+      <ng-container *ngIf="!checkboxes && itemTemplate">
         <ng-container
           *ngTemplateOutlet="itemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
         </ng-container>
+      </ng-container>
+      <!-- Fallback - the default groot combo template -->
+      <ng-container *ngIf="!checkboxes && !itemTemplate">
+        <ng-container *ngIf="translateItemText">{{(bindLabel ? item[bindLabel] : item) | translate}}</ng-container>
+        <ng-container *ngIf="!translateItemText">{{bindLabel ? item[bindLabel] : item}}</ng-container>
       </ng-container>
     </ng-template>
 
@@ -106,7 +111,8 @@
           ></ng-container>
 
           <ng-template #defaultItemTemplate>
-            {{bindLabel ? item[bindLabel] : item}}
+            <ng-container *ngIf="translateItemText">{{(bindLabel ? item[bindLabel] : item) | translate}}</ng-container>
+            <ng-container *ngIf="!translateItemText">{{bindLabel ? item[bindLabel] : item}}</ng-container>
           </ng-template>
         </label>
       </div>
@@ -114,8 +120,7 @@
 
 
     <!-- Custom label (selected object) template for SINGLE selection or listboxes -->
-    <ng-template *ngIf="labelTemplate || showAsListBox"
-                 ng-label-tmp
+    <ng-template ng-label-tmp
                  let-item="item"
                  let-clear="clear"
                  let-label="label">
@@ -126,6 +131,13 @@
       </ng-container>
 
       <!-- Empty template for list box -->
+      <ng-container *ngIf="showAsListBox"></ng-container>
+
+      <!-- Fallback - the default groot combo template -->
+      <ng-container *ngIf="!checkboxes && !itemTemplate">
+        <ng-container *ngIf="translateItemText">{{(bindLabel ? item[bindLabel] : item) | translate}}</ng-container>
+        <ng-container *ngIf="!translateItemText">{{bindLabel ? item[bindLabel] : item}}</ng-container>
+      </ng-container>
     </ng-template>
 
 
@@ -168,7 +180,10 @@
           </ng-container>
           <ng-container *ngIf="!labelTemplate">
             <span class="ng-value-icon left" (click)="clear(items[0])" aria-hidden="true">×</span>
-            <span class="ng-value-label">{{bindLabel ? items[0][bindLabel] : items[0]}}</span>
+            <span class="ng-value-label">
+              <ng-container *ngIf="translateItemText">{{(bindLabel ? items[0][bindLabel] : items[0]) | translate}}</ng-container>
+              <ng-container *ngIf="!translateItemText"> {{bindLabel ? items[0][bindLabel] : items[0]}}</ng-container>
+             </span>
           </ng-container>
         </ng-container>
       </div>
