@@ -13,4 +13,9 @@ groot-actions-button-entry {
   &:hover {
     color: $light-primary;
   }
+
+  &.disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
 }

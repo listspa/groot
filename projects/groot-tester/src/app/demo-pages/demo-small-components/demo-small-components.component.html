@@ -39,12 +39,14 @@
     <groot-actions-button popoverTitle="the title">
       <groot-actions-button-entry label="test" (actionTriggered)="onClickActionProva()"></groot-actions-button-entry>
       <groot-actions-button-entry label="dummy"></groot-actions-button-entry>
+      <groot-actions-button-entry label="off" [disabled]="true" (actionTriggered)="onClickActionProva()"></groot-actions-button-entry>
     </groot-actions-button>
   </div>
   <div class="col-md-7">
     <pre><code>&lt;groot-actions-button popoverTitle="the title">
   &lt;groot-actions-button-entry label="test" (click)="onClickActionProva()">&lt;/groot-actions-button-entry>
   &lt;groot-actions-button-entry label="dummy">&lt;/groot-actions-button-entry>
+  &lt;groot-actions-button-entry label="off" [disabled]="true">&lt;/groot-actions-button-entry>
 &lt;/groot-actions-button></code></pre>
   </div>
 </div>

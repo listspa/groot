@@ -1,4 +1,4 @@
-import {Component, EventEmitter, HostListener, Input, Output} from '@angular/core';
+import {Component, EventEmitter, HostBinding, HostListener, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'groot-actions-button-entry',
@@ -7,10 +7,15 @@ import {Component, EventEmitter, HostListener, Input, Output} from '@angular/cor
 export class ActionsButtonEntryComponent {
   @Input() label: string;
   @Input() icon: string | string[] | null = null;
+  @HostBinding('class.disabled') @Input() disabled: boolean = false;
   @Output() actionTriggered = new EventEmitter<void>();
 
   @HostListener('click', ['$event'])
   onClick(event: MouseEvent) {
+    if (this.disabled) {
+      return;
+    }
+
     this.actionTriggered.next();
 
     // When clicking an action, we want to close the popover (example use case: we open a modal
