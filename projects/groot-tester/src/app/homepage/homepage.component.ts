@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.12', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Bug fix in <code>groot-combo</code> when <code>bindLabel</code> refers to a sub-path
+of the object rather than a field`
+      }
+    ]
+  },
+  {
     version: '0.19.11', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,

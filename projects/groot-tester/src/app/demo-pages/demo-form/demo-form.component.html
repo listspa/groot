@@ -448,7 +448,7 @@
 
 <div class="row">
   <div class="col-md-2">
-    <div class="form-field-explanation">Combo box with object values</div>
+    <div class="form-field-explanation">Combo box with object values and nested labels</div>
   </div>
   <div class="col-md-3">
     <form novalidate>
@@ -457,7 +457,7 @@
         name="album"
         [items]="albums"
         [(ngModel)]="form.selectedAlbumId"
-        bindLabel="name"
+        bindLabel="author.titleAndAuthor"
         bindValue="id"
       ></groot-combo>
     </form>
@@ -468,7 +468,7 @@
   name="album"
   [items]="albums"
   [(ngModel)]="form.selectedAlbumId"
-  bindLabel="name"
+  bindLabel="author.titleAndAuthor"
   bindValue="id"
 >&lt;/groot-combo></code></pre>
   </div>
@@ -670,7 +670,9 @@
 </div>
 <div class="row">
   <div class="col-md-2">
-    <div class="form-field-explanation">Combo box automatically translating labels - multiple selection with checkboxes</div>
+    <div class="form-field-explanation">Combo box automatically translating labels - multiple selection with
+      checkboxes
+    </div>
   </div>
   <div class="col-md-3">
     <form novalidate>
@@ -1039,7 +1041,7 @@
 
 <p>When the list of items is large so that you have to scroll the dropdown, it can be useful
   to filter the list to see only those elements already selected. To do so <code>groot-combo</code> supports a property
-<code>[toggleShowOnlySelected]="true"</code> that adds a toggle in the dropdown header (moreover the headers already
+  <code>[toggleShowOnlySelected]="true"</code> that adds a toggle in the dropdown header (moreover the headers already
   defined).</p>
 
 <div class="row">
@@ -1078,8 +1080,10 @@
   </div>
 </div>
 
-<p>This also works with <code>[filterServerSide]="true"</code>. In such a case two additional properties are sent to server: a boolean
-  <code>showOnlySelected</code> that indicates the value of the toggle and an array <code>selected</code> with the list of all selected elements</p>
+<p>This also works with <code>[filterServerSide]="true"</code>. In such a case two additional properties are sent to
+  server: a boolean
+  <code>showOnlySelected</code> that indicates the value of the toggle and an array <code>selected</code> with the list
+  of all selected elements</p>
 
 <div class="row">
   <div class="col-md-2">

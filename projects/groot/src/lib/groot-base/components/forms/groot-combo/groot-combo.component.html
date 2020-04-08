@@ -32,7 +32,8 @@
              (scroll)="onScroll($event)"
              [loading]="loading"
              (open)="onOpen()"
-             [clearable]="clearable">
+             [clearable]="clearable"
+             #ngSelectComponent>
 
 
     <!-- For checkboxes: header with buttons select all / unselect all -->
@@ -93,8 +94,8 @@
       </ng-container>
       <!-- Fallback - the default groot combo template -->
       <ng-container *ngIf="!checkboxes && !itemTemplate">
-        <ng-container *ngIf="translateItemText">{{(bindLabel ? item[bindLabel] : item) | translate}}</ng-container>
-        <ng-container *ngIf="!translateItemText">{{bindLabel ? item[bindLabel] : item}}</ng-container>
+        <ng-container *ngIf="translateItemText">{{item$.label | translate}}</ng-container>
+        <ng-container *ngIf="!translateItemText">{{item$.label}}</ng-container>
       </ng-container>
     </ng-template>
 
@@ -109,10 +110,9 @@
           <ng-container
             *ngTemplateOutlet="itemTemplate || defaultItemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}"
           ></ng-container>
-
           <ng-template #defaultItemTemplate>
-            <ng-container *ngIf="translateItemText">{{(bindLabel ? item[bindLabel] : item) | translate}}</ng-container>
-            <ng-container *ngIf="!translateItemText">{{bindLabel ? item[bindLabel] : item}}</ng-container>
+            <ng-container *ngIf="translateItemText">{{item$.label | translate}}</ng-container>
+            <ng-container *ngIf="!translateItemText">{{item$.label}}</ng-container>
           </ng-template>
         </label>
       </div>
@@ -135,8 +135,8 @@
 
       <!-- Fallback - the default groot combo template -->
       <ng-container *ngIf="!checkboxes && !itemTemplate">
-        <ng-container *ngIf="translateItemText">{{(bindLabel ? item[bindLabel] : item) | translate}}</ng-container>
-        <ng-container *ngIf="!translateItemText">{{bindLabel ? item[bindLabel] : item}}</ng-container>
+        <ng-container *ngIf="translateItemText">{{label | translate}}</ng-container>
+        <ng-container *ngIf="!translateItemText">{{label}}</ng-container>
       </ng-container>
     </ng-template>
 
@@ -175,14 +175,14 @@
         <ng-container *ngIf="items.length == 1">
           <ng-container *ngIf="labelTemplate">
             <ng-container
-              *ngTemplateOutlet="labelTemplate; context: {item: items[0], clear: clear, label: bindLabel ? items[0][bindLabel] : items[0]}">
+              *ngTemplateOutlet="labelTemplate; context: {item: items[0], clear: clear, label: ngSelectComponent.selectedItems[0].label}">
             </ng-container>
           </ng-container>
           <ng-container *ngIf="!labelTemplate">
             <span class="ng-value-icon left" (click)="clear(items[0])" aria-hidden="true">×</span>
             <span class="ng-value-label">
-              <ng-container *ngIf="translateItemText">{{(bindLabel ? items[0][bindLabel] : items[0]) | translate}}</ng-container>
-              <ng-container *ngIf="!translateItemText"> {{bindLabel ? items[0][bindLabel] : items[0]}}</ng-container>
+              <ng-container *ngIf="translateItemText">{{ngSelectComponent.selectedItems[0].label | translate}}</ng-container>
+              <ng-container *ngIf="!translateItemText">{{ngSelectComponent.selectedItems[0].label}}</ng-container>
              </span>
           </ng-container>
         </ng-container>

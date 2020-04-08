@@ -32,15 +32,18 @@ export class DemoFormComponent implements OnInit {
   public albums = [
     {
       id: 1,
-      name: 'Dark side of the moon'
+      name: 'Dark side of the moon',
+      author: {titleAndAuthor: 'Pink Floyd - Dark side of the moon'},
     },
     {
       id: 2,
-      name: 'Who\'s next'
+      name: 'Who\'s next',
+      author: {titleAndAuthor: 'The Who - Who\'s next'},
     },
     {
       id: 3,
-      name: 'Tommy'
+      name: 'Tommy',
+      author: {titleAndAuthor: 'The Who - Tommy'},
     }
   ];
   public manyCurrencies = [
