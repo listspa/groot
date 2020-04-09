@@ -17,7 +17,8 @@ export class DemoCompleteFormComponent {
     customCheck0: true,
     customCheck1: false,
     date: new Date(),
-    toggler: false
+    toggler: false,
+    description: '',
   };
   public currencies = ['EUR', 'USD', 'JPY', 'CNY', 'RUB'];
 

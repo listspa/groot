@@ -24,6 +24,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
   @Input() format = 'dd/MM/yyyy';
   @Input() minDate: Date | null;
   @Input() maxDate: Date | null;
+  @Input() hidePlaceholder = false;
   placement = 'bottom';
   selectedDate: Date;
   @ViewChild('datePickerDirective') private datePickerDirective: BsDatepickerDirective;

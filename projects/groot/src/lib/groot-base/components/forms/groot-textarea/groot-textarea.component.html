@@ -5,7 +5,7 @@
 <textarea
   autocomplete="off"
   class="form-control"
-  [placeholder]="(placeholder || label) | translate"
+  [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
   [required]="required"
   [id]="name"
   [name]="name"
@@ -20,7 +20,7 @@
 <textarea
   autocomplete="off"
   class="form-control"
-  [placeholder]="(placeholder || label) | translate"
+  [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
   [required]="required"
   [id]="name"
   [name]="name"

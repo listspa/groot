@@ -27,6 +27,7 @@ export class GrootInputComponent implements ControlValueAccessor {
   @Input() @ContentChild(GrootInputIconRightDirective, {read: TemplateRef}) templateRight: TemplateRef<any> = null;
   @Input() formControl: FormControl = null;
   @Input() errorMessage = 'common.required';
+  @Input() hidePlaceholder = false;
   @Output() enter: EventEmitter<string> = new EventEmitter();
   text: string;
   private textSent: string;

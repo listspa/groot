@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.13', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Introduced property <code>[hidePlaceholder]="true"</code> to remove the placeholder
+from the various input components`
+      }
+    ]
+  },
+  {
     version: '0.19.12', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
