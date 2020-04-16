@@ -1,6 +1,10 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {BsModalRef} from 'ngx-bootstrap';
 import {Subject} from 'rxjs';
+
+export type ClassesType = string | string[] | Set<string> | {
+  [klass: string]: any;
+};
 
 @Component({
   selector: 'groot-confirm-modal',
@@ -14,6 +18,12 @@ export class ConfirmModalComponent {
   yesLabel: string;
   noLabel: string;
   resultSubject: Subject<boolean>;
+
+  headerClasses: ClassesType = 'bg-primary';
+  bodyClasses: ClassesType;
+  footerClasses: ClassesType = 'buttons-list-bottom-right';
+  footerCancelClasses: ClassesType = 'btn-outline-danger';
+  footerConfirmClasses: ClassesType = 'btn-outline-success';
 
   constructor(private modalRef: BsModalRef) {
   }

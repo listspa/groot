@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BsModalService} from 'ngx-bootstrap';
 import {Observable, Subject} from 'rxjs';
-import {ConfirmModalComponent} from '../components/confirm-modal/confirm-modal.component';
+import {ClassesType, ConfirmModalComponent} from '../components/confirm-modal/confirm-modal.component';
 
 export interface ConfirmationModalParams {
   text: string;
@@ -10,6 +10,12 @@ export interface ConfirmationModalParams {
   titleArguments?: object | null;
   yesLabel?: string;
   noLabel?: string;
+
+  headerClasses?: ClassesType;
+  bodyClasses?: ClassesType;
+  footerClasses?: ClassesType;
+  footerCancelClasses?: ClassesType ;
+  footerConfirmClasses?: ClassesType ;
 }
 
 @Injectable({
@@ -27,6 +33,11 @@ export class ConfirmModalService {
       titleArguments: null,
       yesLabel: 'common.confirm',
       noLabel: 'common.cancel',
+      headerClasses: 'bg-primary',
+      bodyClasses: '',
+      footerClasses: 'buttons-list-bottom-right',
+      footerCancelClasses: 'btn-outline-danger',
+      footerConfirmClasses: 'btn-outline-success',
       ...params
     };
 

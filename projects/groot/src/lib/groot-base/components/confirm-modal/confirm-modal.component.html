@@ -1,24 +1,27 @@
-<div class="modal-header bg-primary">
+<div class="modal-header"
+     [ngClass]="headerClasses">
   <h4 class="modal-title pull-left">{{title | translate:titleArguments}}</h4>
   <button type="button" class="close pull-right" aria-label="Close" (click)="onCancel()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body">
+<div class="modal-body"
+     [ngClass]="bodyClasses">
   {{text | translate:textArguments}}
 </div>
-<div class="modal-footer buttons-list-bottom-right">
+<div class="modal-footer"
+     [ngClass]="footerClasses">
   <groot-button
-    classes="btn-outline-danger"
-    [label]="noLabel"
-    icon="fa fa-times"
-    (click)="onCancel()"
+          [classes]="footerCancelClasses"
+          [label]="noLabel"
+          icon="fa fa-times"
+          (click)="onCancel()"
   ></groot-button>
 
   <groot-button
-    classes="btn-outline-success"
-    [label]="yesLabel"
-    icon="fa fa-check"
-    (click)="onConfirm()"
+          [classes]="footerConfirmClasses"
+          [label]="yesLabel"
+          icon="fa fa-check"
+          (click)="onConfirm()"
   ></groot-button>
 </div>
