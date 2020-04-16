@@ -1,10 +1,7 @@
 import {Component} from '@angular/core';
 import {BsModalRef} from 'ngx-bootstrap';
 import {Subject} from 'rxjs';
-
-export type ClassesType = string | string[] | Set<string> | {
-  [klass: string]: any;
-};
+import {ClassesType} from '../../../model/confirm-modal.model';
 
 @Component({
   selector: 'groot-confirm-modal',
