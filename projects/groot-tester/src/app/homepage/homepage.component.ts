@@ -5,6 +5,21 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.14', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Introduced properties to customize <code>ConfirmModalComponent</code>:
+            <ul>
+                <li><code>headerClasses</code></li>
+                <li><code>bodyClasses</code></li>
+                <li><code>footerClasses</code></li>
+                <li><code>footerCancelClasses</code></li>
+                <li><code>footerConfirmClasses</code></li>
+            </ul>`
+      }
+    ]
+  },
+  {
     version: '0.19.13', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
