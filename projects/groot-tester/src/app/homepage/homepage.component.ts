@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.15', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `In <code>_actions-button</code> if button is disabled, do not change color on hover.`
+      }
+    ]
+  },
+  {
     version: '0.19.14', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
