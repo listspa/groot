@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
@@ -13,6 +13,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
   ]
 })
 export class UploadFileComponent implements ControlValueAccessor {
+  @Output() clear = new EventEmitter<void>();
   @Input() label: string;
   @Input() name: string;
   @Input() required = false;
@@ -20,7 +21,7 @@ export class UploadFileComponent implements ControlValueAccessor {
   @Input() buttonText = 'common.browse';
   @Input() icon = 'fa fa-upload';
   @Input() multiple = false;
-  @Input() initialText: string = null;
+  @Input() showClear = true;
   touched = false;
   invalid = false;
   files: File | File[];
@@ -62,16 +63,17 @@ export class UploadFileComponent implements ControlValueAccessor {
 
   private clearFiles() {
     this.files = this.multiple ? [] : null;
-    this.text = this.touched ? '' : (this.initialText || '');
-    this.filled = Boolean(this.text)
+    this.text = '';
+    this.filled = false;
     this.invalid = true;
   }
 
   clearClicked(event: MouseEvent) {
+    event.stopPropagation();
     this.touched = true;
     this.clearFiles();
     this.onChange(this.files);
-    event.stopPropagation();
+    this.clear.next();
   }
 
   registerOnChange(fn: (text: File | File[]) => void): void {

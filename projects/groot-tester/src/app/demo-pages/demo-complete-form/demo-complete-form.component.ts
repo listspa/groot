@@ -19,7 +19,7 @@ export class DemoCompleteFormComponent {
     date: new Date(),
     toggler: false,
     description: '',
-    file: null,
+    file: new File([], 'prova.txt'),
   };
   public currencies = ['EUR', 'USD', 'JPY', 'CNY', 'RUB'];
 
