@@ -19,6 +19,7 @@ export class DemoCompleteFormComponent {
     date: new Date(),
     toggler: false,
     description: '',
+    file: null,
   };
   public currencies = ['EUR', 'USD', 'JPY', 'CNY', 'RUB'];
 
