@@ -20,11 +20,13 @@ export class UploadFileComponent implements ControlValueAccessor {
   @Input() buttonText = 'common.browse';
   @Input() icon = 'fa fa-upload';
   @Input() multiple = false;
+  @Input() initialText: string = null;
   touched = false;
   invalid = false;
   files: File | File[];
   text = '';
   filesNgModel: any;
+  filled = false;
   onChange = (files: File | File[]) => null;
   onTouched = () => null;
 
@@ -45,17 +47,31 @@ export class UploadFileComponent implements ControlValueAccessor {
         for (let i = 0; i < files.length; ++i) {
           this.files.push(files.item(i));
         }
+        this.filled = this.files.length > 0;
         this.text = this.files.map(f => f.name).join(', ');
       } else {
         this.files = files.item(0);
+        this.filled = true;
         this.text = this.files.name;
       }
       this.invalid = false;
     } else {
-      this.files = this.multiple ? [] : null;
-      this.text = '';
-      this.invalid = true;
+      this.clearFiles();
     }
+  }
+
+  private clearFiles() {
+    this.files = this.multiple ? [] : null;
+    this.text = this.touched ? '' : (this.initialText || '');
+    this.filled = Boolean(this.text)
+    this.invalid = true;
+  }
+
+  clearClicked(event: MouseEvent) {
+    this.touched = true;
+    this.clearFiles();
+    this.onChange(this.files);
+    event.stopPropagation();
   }
 
   registerOnChange(fn: (text: File | File[]) => void): void {

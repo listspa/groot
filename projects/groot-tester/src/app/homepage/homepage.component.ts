@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.19.16', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Support for initial text, clear button and fixed background color of
+<code>groot-file-input</code>`
+      }
+    ]
+  },
+  {
     version: '0.19.15', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,

@@ -19,6 +19,10 @@
              [ngModel]="filesNgModel"
              #input="ngModel">
     </span>
+
+    <span class="btn btn-file btn-clear" *ngIf="filled" (click)="clearClicked($event)">
+      <i class="fa fa-times"></i>
+    </span>
   </div>
   <div class="invalid-feedback" *ngIf="required && !input.pristine && invalid">
     {{'common.required' | translate}}

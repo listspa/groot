@@ -36,5 +36,14 @@
         [(ngModel)]="form.description">
       </groot-textarea>
     </div>
+
+    <div class="col" style="background-color: #eee">
+      <groot-file-input
+        label="A File"
+        name="aFile"
+        [(ngModel)]="form.file"
+        initialText="file esistente"
+        ></groot-file-input>
+    </div>
   </div>
 </form>
