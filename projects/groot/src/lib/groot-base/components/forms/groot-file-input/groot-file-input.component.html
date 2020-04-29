@@ -17,7 +17,8 @@
              [attr.multiple]="multiple"
              (change)="fileEvent($event)"
              [ngModel]="filesNgModel"
-             #input="ngModel">
+             #input="ngModel"
+             [class.clear-hidden]="!(filled && showClear)">
     </span>
 
     <span class="btn btn-file btn-clear" *ngIf="filled && showClear" (click)="clearClicked($event)">
