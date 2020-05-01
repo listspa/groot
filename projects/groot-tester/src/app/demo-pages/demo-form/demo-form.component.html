@@ -160,6 +160,30 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Disabled input box</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-input
+        placeholder="Name placeholder"
+        label="Name disabled"
+        name="name disabled"
+        [disabled]="true"
+      ></groot-input>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-input
+  placeholder="Name placeholder"
+  label="Name disabled"
+  name="name disabled"
+  [disabled]="true"
+>&lt;/groot-input></code></pre>
+  </div>
+</div>
+
 <h2>Checkboxes</h2>
 
 <div class="row">
@@ -1346,6 +1370,27 @@
   [required]="true"
   [(ngModel)]="form.files"
   (ngModelChange)="onModelChange('files input', $event)"
+>&lt;/groot-file-input></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Disabled file input</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-file-input
+        label="File"
+        name="File 3"
+        [disabled]="true"
+      ></groot-file-input>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-file-input
+  label="File"
+  name="File 3"
+  [disabled]="true"
 >&lt;/groot-file-input></code></pre>
   </div>
 </div>

@@ -17,6 +17,10 @@ groot-file-input {
       border-color: $form-feedback-invalid-color;
     }
 
+    &.disabled {
+      background-color: $input-disabled-bg;
+    }
+
     .file-input-text {
       flex-grow: 1;
       display: flex;
@@ -34,7 +38,6 @@ groot-file-input {
     .btn-file {
       flex: 0 0 auto;
       overflow: hidden;
-      cursor: pointer;
       border: none;
       border-left: $input-border-width solid $input-border-color;
       border-radius: 0 $input-border-radius $input-border-radius 0;
@@ -73,6 +76,10 @@ groot-file-input {
 
       &.clear-hidden {
         width: 100%;
+      }
+
+      &:disabled {
+        cursor: default;
       }
     }
   }
