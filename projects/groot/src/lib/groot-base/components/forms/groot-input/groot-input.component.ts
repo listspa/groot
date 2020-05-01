@@ -1,4 +1,4 @@
-import {Component, ContentChild, EventEmitter, forwardRef, Input, Output, TemplateRef} from '@angular/core';
+import {ChangeDetectorRef, Component, ContentChild, EventEmitter, forwardRef, Input, Output, TemplateRef} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './groot-input.directive';
 
@@ -36,8 +36,16 @@ export class GrootInputComponent implements ControlValueAccessor {
   onChange = (text: string) => null;
   onTouched = () => null;
 
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  }
+
   writeValue(text: string): void {
     this.text = text;
+    this.changeDetectorRef.detectChanges();
+  }
+
+  writeValueFromGui(text: string) {
+    this.writeValue(text);
     this.onChange(this.text);
   }
 

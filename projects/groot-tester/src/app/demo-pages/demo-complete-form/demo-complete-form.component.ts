@@ -1,12 +1,14 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-demo-complete-form',
-  templateUrl: './demo-complete-form.component.html'
+  templateUrl: './demo-complete-form.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DemoCompleteFormComponent {
+export class DemoCompleteFormComponent implements OnInit {
   public form = {
-    name: '',
+    name: 'axa',
     lastName: '',
     currency: null,
     selectedCurrencies: [],
@@ -17,7 +19,7 @@ export class DemoCompleteFormComponent {
     customCheck0: true,
     customCheck1: false,
     date: new Date(),
-    toggler: false,
+    toggler: true,
     description: '',
     file: new File([], 'prova.txt'),
   };
@@ -26,4 +28,9 @@ export class DemoCompleteFormComponent {
   constructor() {
   }
 
+  @ViewChild("ngForm") ngForm: NgForm;
+
+  ngOnInit(): void {
+    console.log(this.ngForm)
+  }
 }
