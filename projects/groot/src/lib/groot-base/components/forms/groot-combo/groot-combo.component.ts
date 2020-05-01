@@ -1,4 +1,4 @@
-import {Component, EventEmitter, forwardRef, Input, OnInit, Output, TemplateRef} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, forwardRef, Input, OnInit, Output, TemplateRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
@@ -120,11 +120,19 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   onChange = (selectedValue: any | any[]) => null;
   onTouched = () => null;
 
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  }
+
   writeValue(selectedValue: any | any[]): void {
     this.selectedValue = selectedValue;
     if (this.showOnlySelected) {
       this.filterSelected();
     }
+    this.changeDetectorRef.detectChanges();
+  }
+
+  writeValueFromGui(selectedValue: any | any[]) {
+    this.writeValue(selectedValue);
     this.onChange(this.selectedValue);
   }
 

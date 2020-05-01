@@ -161,15 +161,34 @@
       </groot-textarea>
     </div>
 
-    <!--    <div class="col-sm-2">-->
-    <!--      <groot-combo-->
-    <!--        label="Currency"-->
-    <!--        name="currency"-->
-    <!--        [items]="currencies"-->
-    <!--        [required]="true"-->
-    <!--        [(ngModel)]="form.currency">-->
-    <!--      </groot-combo>-->
-    <!--    </div>-->
+    <div class="col-sm-3">
+      <h2>Groot-combo</h2>
+
+      <groot-combo
+        label="Currency"
+        name="currency"
+        [items]="currencies"
+        [required]="true"
+        [(ngModel)]="form.currency"
+        groot-provide-parent-form>
+      </groot-combo>
+
+      <div *ngIf="ngForm.controls['currency']">
+        <b>currency touched:</b> {{ngForm.controls['currency'].touched}} <br>
+        <b>currency pristine:</b> {{ngForm.controls['currency'].pristine}} <br>
+        <b>currency dirty:</b> {{ngForm.controls['currency'].dirty}} <br>
+        <b>currency valid:</b> {{ngForm.controls['currency'].valid}} <br>
+      </div>
+
+      <groot-combo
+        label="Currency 2"
+        name="currency 2"
+        [items]="currencies"
+        [required]="true"
+        [(ngModel)]="form.currency"
+        groot-provide-parent-form>
+      </groot-combo>
+    </div>
 
     <!--    <div class="col" style="background-color: #eee">-->
     <!--      <groot-file-input-->

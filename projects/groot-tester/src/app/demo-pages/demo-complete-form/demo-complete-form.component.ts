@@ -13,9 +13,6 @@ export class DemoCompleteFormComponent implements OnInit {
     toggler: true,
     todayIs: 'good',
     currency: null,
-    selectedCurrencies: [],
-    selectedManyCurrencies: [],
-    selectedManyCurrenciesById: [],
     description: '',
     file: new File([], 'prova.txt'),
   };
