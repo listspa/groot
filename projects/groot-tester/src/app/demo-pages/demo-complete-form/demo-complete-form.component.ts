@@ -8,18 +8,14 @@ import {NgForm} from '@angular/forms';
 })
 export class DemoCompleteFormComponent implements OnInit {
   public form = {
+    date: new Date(),
     name: 'axa',
-    lastName: '',
+    toggler: true,
+    todayIs: 'good',
     currency: null,
     selectedCurrencies: [],
     selectedManyCurrencies: [],
     selectedManyCurrenciesById: [],
-    selectedAlbumId: null,
-    selectedRadio: 'first-radio',
-    customCheck0: true,
-    customCheck1: false,
-    date: new Date(),
-    toggler: true,
     description: '',
     file: new File([], 'prova.txt'),
   };

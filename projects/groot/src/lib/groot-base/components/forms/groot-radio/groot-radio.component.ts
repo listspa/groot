@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {ChangeDetectorRef, Component, forwardRef, Input} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
@@ -24,7 +24,7 @@ export class GrootRadioComponent implements ControlValueAccessor {
   onChange = (text: string) => null;
   onTouched = () => null;
 
-  constructor() {
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
   }
 
   registerOnChange(fn: (text: string) => null): void {
@@ -44,7 +44,11 @@ export class GrootRadioComponent implements ControlValueAccessor {
       return;
     }
     this.selectedValue = value;
-    this.onChange(value);
+    this.changeDetectorRef.detectChanges();
   }
 
+  writeValueFromGui(value: string): void {
+    this.writeValue(value);
+    this.onChange(value);
+  }
 }

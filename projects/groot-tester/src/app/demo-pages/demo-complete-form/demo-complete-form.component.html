@@ -2,7 +2,7 @@
   <h1>Input tests</h1>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-3">
       <h2>Date picker</h2>
 
       <groot-date-picker
@@ -27,7 +27,7 @@
       ></groot-date-picker>
     </div>
 
-    <div class="col">
+    <div class="col-sm-3">
       <h2>Groot-input</h2>
 
       <groot-input
@@ -53,7 +53,7 @@
         groot-provide-parent-form>
       </groot-input>
     </div>
-    <div class="col">
+    <div class="col-sm-3">
       <h2>Groot-toggle-button</h2>
 
       <groot-toggle-button
@@ -76,7 +76,7 @@
       </groot-toggle-button>
     </div>
 
-    <div class="col">
+    <div class="col-sm-3">
       <h2>Groot-checkbox</h2>
 
       <groot-checkbox
@@ -97,6 +97,41 @@
         name="check me 2"
         [(ngModel)]="form.toggler">
       </groot-checkbox>
+    </div>
+
+    <div class="col-sm-3">
+      <h2>Groot-radio</h2>
+
+      <groot-radio
+        idRadio="todayIsGood"
+        label="Today is good"
+        name="todayIs"
+        value="good"
+        [(ngModel)]="form.todayIs">
+      </groot-radio>
+
+      <groot-radio
+        idRadio="todayIsBad"
+        label="Today is bad"
+        name="todayIs"
+        value="bad"
+        [(ngModel)]="form.todayIs">
+      </groot-radio>
+
+      <div *ngIf="ngForm.controls['todayIs']">
+        <b>todayIs touched:</b> {{ngForm.controls['todayIs'].touched}} <br>
+        <b>todayIs pristine:</b> {{ngForm.controls['todayIs'].pristine}} <br>
+        <b>todayIs dirty:</b> {{ngForm.controls['todayIs'].dirty}} <br>
+        <b>todayIs valid:</b> {{ngForm.controls['todayIs'].valid}} <br>
+      </div>
+
+      <groot-radio
+        idRadio="todayIsGood2"
+        label="Today is good 2"
+        name="todayIs"
+        value="good"
+        [(ngModel)]="form.todayIs">
+      </groot-radio>
     </div>
 
     <!--    <div class="col-sm-2">-->
@@ -144,7 +179,7 @@
   <h1>Reference: standard HTML inputs</h1>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-3">
       <h2>Input</h2>
       <input name="standardTextbox" [(ngModel)]="form.name">
       <div *ngIf="ngForm.controls['standardTextbox']">
@@ -155,7 +190,7 @@
       </div>
     </div>
 
-    <div class="col">
+    <div class="col-sm-3">
       <h2>Checkbox</h2>
       <input type="checkbox" name="standardCheckbox" [(ngModel)]="form.toggler">Prova
       <div *ngIf="ngForm.controls['standardCheckbox']">
@@ -165,6 +200,17 @@
         <b>standardCheckbox valid:</b> {{ngForm.controls['standardCheckbox'].valid}} <br>
       </div>
     </div>
+
+    <div class="col-sm-3">
+      <h2>Radio</h2>
+      <input type="radio" name="standardRadio" value="good" [(ngModel)]="form.todayIs">Good <br>
+      <input type="radio" name="standardRadio" value="bad" [(ngModel)]="form.todayIs">Bad <br>
+      <div *ngIf="ngForm.controls['standardRadio']">
+        <b>standardRadio touched:</b> {{ngForm.controls['standardRadio'].touched}} <br>
+        <b>standardRadio pristine:</b> {{ngForm.controls['standardRadio'].pristine}} <br>
+        <b>standardRadio dirty:</b> {{ngForm.controls['standardRadio'].dirty}} <br>
+        <b>standardRadio valid:</b> {{ngForm.controls['standardRadio'].valid}} <br>
+      </div>
+    </div>
   </div>
 </form>
-
