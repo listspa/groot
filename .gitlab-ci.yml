@@ -17,7 +17,6 @@ test-angular:
   - npm ci
   - ./node_modules/.bin/ng test --watch=false --code-coverage=true --browsers=ChromeHeadlessNoSandbox
   - npm run package
-  - npm run deploy-demo-doc
   - if [ "$CI_COMMIT_REF_NAME" == "$CI_DEFAULT_BRANCH" ]; then npm run sonar || true; fi
   artifacts:
     paths:
