@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {ChangeDetectorRef, Component, forwardRef, Input} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 
 @Component({
@@ -25,11 +25,19 @@ export class GrootTextAreaComponent implements ControlValueAccessor {
   text: string;
   input: NgModel;
 
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  }
+
   onChange = (text: string) => null;
   onTouched = () => null;
 
   writeValue(text: string): void {
     this.text = text;
+    this.changeDetectorRef.detectChanges();
+  }
+
+  writeValueFromGui(text: string) {
+    this.writeValue(text);
     this.onChange(this.text);
   }
 

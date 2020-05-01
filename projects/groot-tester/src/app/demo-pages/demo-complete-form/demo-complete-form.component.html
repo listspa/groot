@@ -134,6 +134,33 @@
       </groot-radio>
     </div>
 
+    <div class="col-sm-3">
+      <h2>Groot-input</h2>
+
+      <groot-textarea
+        label="Description"
+        name="description"
+        [required]="true"
+        [(ngModel)]="form.description"
+        groot-provide-parent-form>
+      </groot-textarea>
+
+      <div *ngIf="ngForm.controls['description']">
+        <b>description touched:</b> {{ngForm.controls['description'].touched}} <br>
+        <b>description pristine:</b> {{ngForm.controls['description'].pristine}} <br>
+        <b>description dirty:</b> {{ngForm.controls['description'].dirty}} <br>
+        <b>description valid:</b> {{ngForm.controls['description'].valid}} <br>
+      </div>
+
+      <groot-textarea
+        label="Description 2"
+        name="description 2"
+        [required]="true"
+        [(ngModel)]="form.description"
+        groot-provide-parent-form>
+      </groot-textarea>
+    </div>
+
     <!--    <div class="col-sm-2">-->
     <!--      <groot-combo-->
     <!--        label="Currency"-->
@@ -142,13 +169,6 @@
     <!--        [required]="true"-->
     <!--        [(ngModel)]="form.currency">-->
     <!--      </groot-combo>-->
-    <!--    </div>-->
-    <!--    <div class="col-sm-2">-->
-    <!--      <groot-textarea-->
-    <!--        label="Description"-->
-    <!--        name="description"-->
-    <!--        [(ngModel)]="form.description">-->
-    <!--      </groot-textarea>-->
     <!--    </div>-->
 
     <!--    <div class="col" style="background-color: #eee">-->
