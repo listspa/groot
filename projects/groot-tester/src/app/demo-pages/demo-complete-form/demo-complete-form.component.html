@@ -1,10 +1,23 @@
 <form novalidate #ngForm="ngForm">
+  <h1>Input tests</h1>
+
   <div class="row">
     <div class="col-sm-2">
       <h2>Date picker</h2>
 
       <groot-date-picker
-        label="Data"></groot-date-picker>
+        label="Data"
+        name="date"
+        [(ngModel)]="form.date"
+        groot-provide-parent-form
+      ></groot-date-picker>
+
+      <div *ngIf="ngForm.controls['date']">
+        <b>date touched:</b> {{ngForm.controls['date'].touched}} <br>
+        <b>date pristine:</b> {{ngForm.controls['date'].pristine}} <br>
+        <b>date dirty:</b> {{ngForm.controls['date'].dirty}} <br>
+        <b>date valid:</b> {{ngForm.controls['date'].valid}} <br>
+      </div>
 
       <groot-date-picker
         label="Data 2"
@@ -13,6 +26,7 @@
         groot-provide-parent-form
       ></groot-date-picker>
     </div>
+
     <div class="col-sm-2">
       <h2>Groot-input</h2>
 
@@ -21,7 +35,7 @@
         name="name 0"
         [required]="true"
         [(ngModel)]="form.name"
-      groot-provide-parent-form>
+        groot-provide-parent-form>
       </groot-input>
 
       <div *ngIf="ngForm.controls['name 0']">
@@ -39,15 +53,15 @@
         groot-provide-parent-form>
       </groot-input>
     </div>
-<!--    <div class="col-sm-1">-->
-<!--      <groot-toggle-button-->
-<!--        label="Toggle me 3"-->
-<!--        name="toggler 3"-->
-<!--        [horizontalLabel]="true"-->
-<!--        [(ngModel)]="form.toggler">-->
-<!--      </groot-toggle-button>-->
-<!--    </div>-->
-<div class="col-sm-1">
+    <!--    <div class="col-sm-1">-->
+    <!--      <groot-toggle-button-->
+    <!--        label="Toggle me 3"-->
+    <!--        name="toggler 3"-->
+    <!--        [horizontalLabel]="true"-->
+    <!--        [(ngModel)]="form.toggler">-->
+    <!--      </groot-toggle-button>-->
+    <!--    </div>-->
+    <div class="col-sm-1">
       <groot-checkbox
         label="Check me"
         name="check me"
@@ -56,31 +70,35 @@
     </div>
 
     <!--    <div class="col-sm-2">-->
-<!--      <groot-combo-->
-<!--        label="Currency"-->
-<!--        name="currency"-->
-<!--        [items]="currencies"-->
-<!--        [required]="true"-->
-<!--        [(ngModel)]="form.currency">-->
-<!--      </groot-combo>-->
-<!--    </div>-->
-<!--    <div class="col-sm-2">-->
-<!--      <groot-textarea-->
-<!--        label="Description"-->
-<!--        name="description"-->
-<!--        [(ngModel)]="form.description">-->
-<!--      </groot-textarea>-->
-<!--    </div>-->
+    <!--      <groot-combo-->
+    <!--        label="Currency"-->
+    <!--        name="currency"-->
+    <!--        [items]="currencies"-->
+    <!--        [required]="true"-->
+    <!--        [(ngModel)]="form.currency">-->
+    <!--      </groot-combo>-->
+    <!--    </div>-->
+    <!--    <div class="col-sm-2">-->
+    <!--      <groot-textarea-->
+    <!--        label="Description"-->
+    <!--        name="description"-->
+    <!--        [(ngModel)]="form.description">-->
+    <!--      </groot-textarea>-->
+    <!--    </div>-->
 
-<!--    <div class="col" style="background-color: #eee">-->
-<!--      <groot-file-input-->
-<!--        label="A File"-->
-<!--        name="aFile"-->
-<!--        [(ngModel)]="form.file"-->
-<!--        [showClear]="false"-->
-<!--        ></groot-file-input>-->
-<!--    </div>-->
+    <!--    <div class="col" style="background-color: #eee">-->
+    <!--      <groot-file-input-->
+    <!--        label="A File"-->
+    <!--        name="aFile"-->
+    <!--        [(ngModel)]="form.file"-->
+    <!--        [showClear]="false"-->
+    <!--        ></groot-file-input>-->
+    <!--    </div>-->
   </div>
+
+  <hr>
+
+  <h1>Form flags</h1>
 
   <div>
     <b>pristine:</b> {{ngForm.form.pristine | json}}<br>

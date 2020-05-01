@@ -1,4 +1,4 @@
-import {Component, ElementRef, forwardRef, HostListener, Input, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {BsDatepickerDirective} from 'ngx-bootstrap';
 
@@ -30,7 +30,8 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
   @ViewChild('datePickerDirective') private datePickerDirective: BsDatepickerDirective;
   input: NgModel;
 
-  constructor(private _element: ElementRef) {
+  constructor(private _element: ElementRef,
+              private changeDetectorRef: ChangeDetectorRef) {
   }
 
   @HostListener('click', ['$event'])
@@ -43,6 +44,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
     // Wait for the nex javascript execution cycle, in this way the component read the updated input value.
     setTimeout(() => {
       this.datePickerDirective.toggle();
+      this.onTouched();
     }, 0);
   }
 
@@ -84,6 +86,11 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
 
   writeValue(selectedDate: Date): void {
     this.selectedDate = selectedDate;
+    this.changeDetectorRef.detectChanges();
+  }
+
+  writeValueFromGui(selectedDate: Date) {
+    this.writeValue(selectedDate);
     this.onChange(this.selectedDate);
   }
 
