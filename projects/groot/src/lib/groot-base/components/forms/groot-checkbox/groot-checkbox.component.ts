@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import {ChangeDetectorRef, Component, forwardRef, Input} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
@@ -22,7 +22,7 @@ export class GrootCheckboxComponent implements ControlValueAccessor {
   onChange = (checked: boolean) => null;
   onTouched = () => null;
 
-  constructor() {
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
   }
 
   registerOnChange(fn: (checked: boolean) => null): void {
@@ -39,7 +39,11 @@ export class GrootCheckboxComponent implements ControlValueAccessor {
 
   writeValue(checked: boolean): void {
     this.checked = checked;
-    this.onChange(checked);
+    this.changeDetectorRef.detectChanges();
   }
 
+  writeValueFromGui(checked: boolean): void {
+    this.writeValue(checked);
+    this.onChange(checked);
+  }
 }

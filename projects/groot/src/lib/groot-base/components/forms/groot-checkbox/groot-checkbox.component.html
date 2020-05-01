@@ -5,7 +5,8 @@
          [name]="name"
          [ngModel]="checked"
          [checked]="checked"
-         (ngModelChange)="writeValue($event)"
+         (ngModelChange)="writeValueFromGui($event)"
+         (blur)="onTouched()"
          [disabled]="disabled"
          *ngIf="!formControl">
   <input type="checkbox"

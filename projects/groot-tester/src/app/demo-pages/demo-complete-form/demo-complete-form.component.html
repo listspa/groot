@@ -2,7 +2,7 @@
   <h1>Input tests</h1>
 
   <div class="row">
-    <div class="col-sm-2">
+    <div class="col">
       <h2>Date picker</h2>
 
       <groot-date-picker
@@ -27,7 +27,7 @@
       ></groot-date-picker>
     </div>
 
-    <div class="col-sm-2">
+    <div class="col">
       <h2>Groot-input</h2>
 
       <groot-input
@@ -61,12 +61,27 @@
     <!--        [(ngModel)]="form.toggler">-->
     <!--      </groot-toggle-button>-->
     <!--    </div>-->
-    <div class="col-sm-1">
+    <div class="col">
+      <h2>Groot-checkbox</h2>
+
       <groot-checkbox
         label="Check me"
         name="check me"
         [(ngModel)]="form.toggler">
       </groot-checkbox>
+
+      <groot-checkbox
+        label="Check me 2"
+        name="check me 2"
+        [(ngModel)]="form.toggler">
+      </groot-checkbox>
+
+      <div *ngIf="ngForm.controls['check me']">
+        <b>check me touched:</b> {{ngForm.controls['check me'].touched}} <br>
+        <b>check me pristine:</b> {{ngForm.controls['check me'].pristine}} <br>
+        <b>check me dirty:</b> {{ngForm.controls['check me'].dirty}} <br>
+        <b>check me valid:</b> {{ngForm.controls['check me'].valid}} <br>
+      </div>
     </div>
 
     <!--    <div class="col-sm-2">-->
@@ -118,10 +133,21 @@
       <h2>Input</h2>
       <input name="standardTextbox" [(ngModel)]="form.name">
       <div *ngIf="ngForm.controls['standardTextbox']">
-        <b>name 0 touched:</b> {{ngForm.controls['standardTextbox'].touched}} <br>
-        <b>name 0 pristine:</b> {{ngForm.controls['standardTextbox'].pristine}} <br>
-        <b>name 0 dirty:</b> {{ngForm.controls['standardTextbox'].dirty}} <br>
-        <b>name 0 valid:</b> {{ngForm.controls['standardTextbox'].valid}} <br>
+        <b>standardTextbox touched:</b> {{ngForm.controls['standardTextbox'].touched}} <br>
+        <b>standardTextbox pristine:</b> {{ngForm.controls['standardTextbox'].pristine}} <br>
+        <b>standardTextbox dirty:</b> {{ngForm.controls['standardTextbox'].dirty}} <br>
+        <b>standardTextbox valid:</b> {{ngForm.controls['standardTextbox'].valid}} <br>
+      </div>
+    </div>
+
+    <div class="col">
+      <h2>Checkbox</h2>
+      <input type="checkbox" name="standardCheckbox" [(ngModel)]="form.toggler">Prova
+      <div *ngIf="ngForm.controls['standardCheckbox']">
+        <b>standardCheckbox touched:</b> {{ngForm.controls['standardCheckbox'].touched}} <br>
+        <b>standardCheckbox pristine:</b> {{ngForm.controls['standardCheckbox'].pristine}} <br>
+        <b>standardCheckbox dirty:</b> {{ngForm.controls['standardCheckbox'].dirty}} <br>
+        <b>standardCheckbox valid:</b> {{ngForm.controls['standardCheckbox'].valid}} <br>
       </div>
     </div>
   </div>
