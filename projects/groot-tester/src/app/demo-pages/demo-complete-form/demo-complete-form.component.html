@@ -53,14 +53,29 @@
         groot-provide-parent-form>
       </groot-input>
     </div>
-    <!--    <div class="col-sm-1">-->
-    <!--      <groot-toggle-button-->
-    <!--        label="Toggle me 3"-->
-    <!--        name="toggler 3"-->
-    <!--        [horizontalLabel]="true"-->
-    <!--        [(ngModel)]="form.toggler">-->
-    <!--      </groot-toggle-button>-->
-    <!--    </div>-->
+    <div class="col">
+      <h2>Groot-toggle-button</h2>
+
+      <groot-toggle-button
+        label="toggle me"
+        name="toggle me"
+        [(ngModel)]="form.toggler">
+      </groot-toggle-button>
+
+      <div *ngIf="ngForm.controls['toggle me']">
+        <b>toggle me touched:</b> {{ngForm.controls['toggle me'].touched}} <br>
+        <b>toggle me pristine:</b> {{ngForm.controls['toggle me'].pristine}} <br>
+        <b>toggle me dirty:</b> {{ngForm.controls['toggle me'].dirty}} <br>
+        <b>toggle me valid:</b> {{ngForm.controls['toggle me'].valid}} <br>
+      </div>
+
+      <groot-toggle-button
+        label="toggle me 2"
+        name="toggle me 2"
+        [(ngModel)]="form.toggler">
+      </groot-toggle-button>
+    </div>
+
     <div class="col">
       <h2>Groot-checkbox</h2>
 
@@ -70,18 +85,18 @@
         [(ngModel)]="form.toggler">
       </groot-checkbox>
 
-      <groot-checkbox
-        label="Check me 2"
-        name="check me 2"
-        [(ngModel)]="form.toggler">
-      </groot-checkbox>
-
       <div *ngIf="ngForm.controls['check me']">
         <b>check me touched:</b> {{ngForm.controls['check me'].touched}} <br>
         <b>check me pristine:</b> {{ngForm.controls['check me'].pristine}} <br>
         <b>check me dirty:</b> {{ngForm.controls['check me'].dirty}} <br>
         <b>check me valid:</b> {{ngForm.controls['check me'].valid}} <br>
       </div>
+
+      <groot-checkbox
+        label="Check me 2"
+        name="check me 2"
+        [(ngModel)]="form.toggler">
+      </groot-checkbox>
     </div>
 
     <!--    <div class="col-sm-2">-->
