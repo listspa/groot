@@ -5,6 +5,29 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.20.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `Renamed file input component class to <code>GrootFileInputComponent</code>. <i>Note:</i> only the
+typescript class changed; the component selector's didn't, so it's more than likely you have nothing to do.`
+      },
+      {
+        type: ReleaseChangeType.BREAKING_CHANGE,
+        html: `Fixed flags <code>dirty</code>, <code>pristine</code> and <code>touched</code> for the various
+input components. This fix has a <b>big breaking change:</b> <code>(ngModelChange)</code> is not emitted any
+more at the form creation, since the inputs aren't (incorrectly) changed.
+<br>
+It's possible you were relying on this mechanism, so <i>be careful!</i>
+`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `<code>groot-file-input</code> now supports placeholders and handles correctly the disabled
+and required flags.`
+      }
+    ]
+  },
+  {
     version: '0.19.18', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
