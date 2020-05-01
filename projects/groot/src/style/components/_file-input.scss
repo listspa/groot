@@ -33,6 +33,10 @@ groot-file-input {
         white-space: nowrap;
         text-overflow: ellipsis;
       }
+
+      .placeholder {
+        color: $input-placeholder-color;
+      }
     }
 
     .btn-file {

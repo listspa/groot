@@ -1355,6 +1355,7 @@
       <groot-file-input
         label="Files"
         name="Files"
+        [hidePlaceholder]="true"
         [multiple]="true"
         [required]="true"
         [(ngModel)]="form.files"
@@ -1366,6 +1367,7 @@
     <pre><code>&lt;groot-file-input
   label="Files"
   name="Files"
+  [hidePlaceholder]="true"
   [multiple]="true"
   [required]="true"
   [(ngModel)]="form.files"
@@ -1382,6 +1384,7 @@
       <groot-file-input
         label="File"
         name="File 3"
+        placeholder="disabled"
         [disabled]="true"
       ></groot-file-input>
     </form>
@@ -1390,6 +1393,7 @@
     <pre><code>&lt;groot-file-input
   label="File"
   name="File 3"
+  placeholder="disabled"
   [disabled]="true"
 >&lt;/groot-file-input></code></pre>
   </div>

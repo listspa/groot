@@ -15,6 +15,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 export class GrootFileInputComponent implements ControlValueAccessor {
   @Output() clear = new EventEmitter<void>();
   @Input() label: string;
+  @Input() placeholder: string | null;
   @Input() name: string;
   @Input() required = false;
   @Input() disabled = false;
@@ -22,6 +23,7 @@ export class GrootFileInputComponent implements ControlValueAccessor {
   @Input() icon = 'fa fa-upload';
   @Input() multiple = false;
   @Input() showClear = true;
+  @Input() hidePlaceholder = false;
   touched = false;
   invalid = false;
   files: File | File[];
