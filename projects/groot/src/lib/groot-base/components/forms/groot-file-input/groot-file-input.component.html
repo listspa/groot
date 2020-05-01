@@ -3,7 +3,8 @@
   <span *ngIf="required">*</span>
 </label>
 <div class="input-group">
-  <div class="file-input-name">
+  <div class="file-input-name"
+       [class.is-invalid]="required && !input.pristine && invalid">
     <span class="file-input-text">
       <span>{{text}}</span>
     </span>
@@ -14,6 +15,7 @@
              [name]="name"
              type="file"
              [required]="required"
+             [disabled]="disabled"
              [attr.multiple]="multiple"
              (change)="fileEvent($event)"
              [ngModel]="filesNgModel"

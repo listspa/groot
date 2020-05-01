@@ -13,6 +13,10 @@ groot-file-input {
     vertical-align: middle;
     justify-content: space-between;
 
+    &.is-invalid {
+      border-color: $form-feedback-invalid-color;
+    }
+
     .file-input-text {
       flex-grow: 1;
       display: flex;
