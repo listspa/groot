@@ -7,12 +7,12 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => UploadFileComponent),
+      useExisting: forwardRef(() => GrootFileInputComponent),
       multi: true
     }
   ]
 })
-export class UploadFileComponent implements ControlValueAccessor {
+export class GrootFileInputComponent implements ControlValueAccessor {
   @Output() clear = new EventEmitter<void>();
   @Input() label: string;
   @Input() name: string;

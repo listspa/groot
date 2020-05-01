@@ -29,15 +29,11 @@ import {GrootToggleButtonComponent} from './components/forms/groot-toggle-button
 import {NeedsCapabilityDirective} from './directives/needsCapability.directive';
 import {GrootTableComponent} from './components/tables/groot-table/groot-table.component';
 import {PageTitleComponent} from './components/page-title/page-title.component';
-import {UploadFileComponent} from './components/forms/groot-file-input/groot-file-input.component';
+import {GrootFileInputComponent} from './components/forms/groot-file-input/groot-file-input.component';
 import {GrootButtonComponent} from './components/forms/groot-button/groot-button.component';
 import {ConfirmModalComponent} from './components/confirm-modal/confirm-modal.component';
 import {FooterComponent} from './components/footer/footer.component';
-import {
-  GrootTableBodyDirective,
-  GrootTableHeaderDirective,
-  GrootTableTitleRightAreaDirective
-} from './components/tables/groot-table/groot-table.directive';
+import {GrootTableBodyDirective, GrootTableHeaderDirective, GrootTableTitleRightAreaDirective} from './components/tables/groot-table/groot-table.directive';
 import {GrootAccordionIndicatorComponent} from './components/tables/groot-accordion-indicator/groot-accordion-indicator.component';
 import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './components/forms/groot-input/groot-input.directive';
 import './polyfills/polyfill-element-closest';
@@ -74,7 +70,7 @@ import {InfoIconComponent} from './components/info-icon/info-icon.component';
     NeedsCapabilityDirective,
     GrootTableComponent,
     PageTitleComponent,
-    UploadFileComponent,
+    GrootFileInputComponent,
     GrootButtonComponent,
     ConfirmModalComponent,
     FooterComponent,
@@ -128,7 +124,7 @@ import {InfoIconComponent} from './components/info-icon/info-icon.component';
     NeedsCapabilityDirective,
     GrootTableComponent,
     PageTitleComponent,
-    UploadFileComponent,
+    GrootFileInputComponent,
     GrootButtonComponent,
     ConfirmModalComponent,
     FooterComponent,
