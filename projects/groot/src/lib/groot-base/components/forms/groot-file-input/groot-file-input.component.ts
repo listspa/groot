@@ -1,4 +1,4 @@
-import {Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
@@ -33,31 +33,52 @@ export class GrootFileInputComponent implements ControlValueAccessor {
   onChange = (files: File | File[]) => null;
   onTouched = () => null;
 
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  }
+
   fileEvent($event) {
     this.touched = true;
     this.writeValue($event.target.files);
-  }
-
-  writeValue(files: FileList): void {
-    this.mapFileListToFileOrArrayOfFiles(files);
     this.onChange(this.files);
   }
 
-  private mapFileListToFileOrArrayOfFiles(files: FileList) {
-    if (files && files.length > 0) {
+  writeValue(files: FileList | File | File[]): void {
+    this.mapFileListToFileOrArrayOfFiles(GrootFileInputComponent.normalizeFileList(files));
+    this.changeDetectorRef.detectChanges();
+  }
+
+  private static normalizeFileList(files: FileList | File | File[]): File | File[] {
+    if (files instanceof FileList) {
+      // Handle `FileList` by transforming it into an Array<File> for simplicity
+      const filesArray = [];
+      for (let i = 0; i < files.length; ++i) {
+        filesArray.push(files.item(i));
+      }
+      return filesArray;
+    } else {
+      return files;
+    }
+  }
+
+  private mapFileListToFileOrArrayOfFiles(files: File | File[]) {
+    if (Array.isArray(files) && files.length > 0) {
       if (this.multiple) {
         this.files = [];
         for (let i = 0; i < files.length; ++i) {
-          this.files.push(files.item(i));
+          this.files.push(files[i]);
         }
         this.filled = this.files.length > 0;
         this.text = this.files.map(f => f.name).join(', ');
       } else {
-        this.files = files.item(0);
+        this.files = files[0];
         this.filled = true;
         this.text = this.files.name;
       }
       this.invalid = false;
+    } else if (files instanceof File) {
+      this.files = files;
+      this.filled = true;
+      this.text = this.files.name;
     } else {
       this.clearFiles();
     }

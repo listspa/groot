@@ -21,6 +21,7 @@
              [attr.multiple]="multiple"
              (change)="fileEvent($event)"
              [ngModel]="filesNgModel"
+             (blur)="onTouched()"
              #input="ngModel"
              [class.clear-hidden]="!(filled && showClear)">
     </span>

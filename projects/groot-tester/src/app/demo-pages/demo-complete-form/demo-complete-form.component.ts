@@ -14,7 +14,8 @@ export class DemoCompleteFormComponent implements OnInit {
     todayIs: 'good',
     currency: null,
     description: '',
-    file: new File([], 'prova.txt'),
+    file: null,
+    files: [],
   };
   public currencies = ['EUR', 'USD', 'JPY', 'CNY', 'RUB'];
 

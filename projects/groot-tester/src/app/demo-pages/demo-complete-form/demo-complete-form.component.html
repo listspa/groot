@@ -2,7 +2,7 @@
   <h1>Input tests</h1>
 
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <h2>Date picker</h2>
 
       <groot-date-picker
@@ -27,7 +27,7 @@
       ></groot-date-picker>
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <h2>Groot-input</h2>
 
       <groot-input
@@ -53,7 +53,7 @@
         groot-provide-parent-form>
       </groot-input>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <h2>Groot-toggle-button</h2>
 
       <groot-toggle-button
@@ -76,7 +76,7 @@
       </groot-toggle-button>
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <h2>Groot-checkbox</h2>
 
       <groot-checkbox
@@ -99,7 +99,7 @@
       </groot-checkbox>
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <h2>Groot-radio</h2>
 
       <groot-radio
@@ -134,7 +134,7 @@
       </groot-radio>
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <h2>Groot-input</h2>
 
       <groot-textarea
@@ -161,7 +161,7 @@
       </groot-textarea>
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <h2>Groot-combo</h2>
 
       <groot-combo
@@ -190,14 +190,57 @@
       </groot-combo>
     </div>
 
-    <!--    <div class="col" style="background-color: #eee">-->
-    <!--      <groot-file-input-->
-    <!--        label="A File"-->
-    <!--        name="aFile"-->
-    <!--        [(ngModel)]="form.file"-->
-    <!--        [showClear]="false"-->
-    <!--        ></groot-file-input>-->
-    <!--    </div>-->
+    <div class="col-sm-4">
+      <h2>Groot-file-input</h2>
+
+      <groot-file-input
+        label="File"
+        name="file"
+        [(ngModel)]="form.file"
+        groot-provide-parent-form>
+      </groot-file-input>
+
+      <div *ngIf="ngForm.controls['file']">
+        <b>file touched:</b> {{ngForm.controls['file'].touched}} <br>
+        <b>file pristine:</b> {{ngForm.controls['file'].pristine}} <br>
+        <b>file dirty:</b> {{ngForm.controls['file'].dirty}} <br>
+        <b>file valid:</b> {{ngForm.controls['file'].valid}} <br>
+      </div>
+
+      <groot-file-input
+        label="File 2"
+        name="file 2"
+        [(ngModel)]="form.file"
+        groot-provide-parent-form>
+      </groot-file-input>
+    </div>
+
+    <div class="col-sm-4">
+      <h2>Groot-file-input (multiple)</h2>
+
+      <groot-file-input
+        label="Files"
+        name="files"
+        [multiple]="true"
+        [(ngModel)]="form.files"
+        groot-provide-parent-form>
+      </groot-file-input>
+
+      <div *ngIf="ngForm.controls['files']">
+        <b>files touched:</b> {{ngForm.controls['files'].touched}} <br>
+        <b>files pristine:</b> {{ngForm.controls['files'].pristine}} <br>
+        <b>files dirty:</b> {{ngForm.controls['files'].dirty}} <br>
+        <b>files valid:</b> {{ngForm.controls['files'].valid}} <br>
+      </div>
+
+      <groot-file-input
+        label="Files 2"
+        name="files 2"
+        [multiple]="true"
+        [(ngModel)]="form.files"
+        groot-provide-parent-form>
+      </groot-file-input>
+    </div>
   </div>
 
   <hr>
@@ -218,7 +261,7 @@
   <h1>Reference: standard HTML inputs</h1>
 
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <h2>Input</h2>
       <input name="standardTextbox" [(ngModel)]="form.name">
       <div *ngIf="ngForm.controls['standardTextbox']">
@@ -229,7 +272,7 @@
       </div>
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <h2>Checkbox</h2>
       <input type="checkbox" name="standardCheckbox" [(ngModel)]="form.toggler">Prova
       <div *ngIf="ngForm.controls['standardCheckbox']">
@@ -240,7 +283,7 @@
       </div>
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <h2>Radio</h2>
       <input type="radio" name="standardRadio" value="good" [(ngModel)]="form.todayIs">Good <br>
       <input type="radio" name="standardRadio" value="bad" [(ngModel)]="form.todayIs">Bad <br>
