@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input, TemplateRef} from '@angular/core';
+import {ChangeDetectorRef, Component, forwardRef, Input, TemplateRef} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
@@ -22,9 +22,12 @@ export class GrootToggleButtonComponent implements ControlValueAccessor {
   onChange = (checked: boolean) => null;
   onTouched = () => null;
 
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  }
+
   writeValue(checked: boolean): void {
     this.value = checked;
-    this.onChange(checked);
+    this.changeDetectorRef.detectChanges();
   }
 
   registerOnChange(fn: (checked: boolean) => null): void {
@@ -44,5 +47,7 @@ export class GrootToggleButtonComponent implements ControlValueAccessor {
       return;
     }
     this.writeValue(!this.value);
+    this.onChange(this.value);
+    this.onTouched();
   }
 }
