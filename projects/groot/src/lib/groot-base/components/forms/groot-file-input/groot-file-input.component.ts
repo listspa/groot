@@ -1,5 +1,5 @@
-import {ChangeDetectorRef, Component, EventEmitter, forwardRef, Input, Output} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ChangeDetectorRef, Component, EventEmitter, forwardRef, Input, Output, ViewChild} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 
 @Component({
   selector: 'groot-file-input',
@@ -32,6 +32,8 @@ export class GrootFileInputComponent implements ControlValueAccessor {
   filled = false;
   onChange = (files: File | File[]) => null;
   onTouched = () => null;
+
+  @ViewChild('input') inputNgModel: NgModel;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
   }
@@ -79,6 +81,7 @@ export class GrootFileInputComponent implements ControlValueAccessor {
       this.files = files;
       this.filled = true;
       this.text = this.files.name;
+      this.invalid = false;
     } else {
       this.clearFiles();
     }
