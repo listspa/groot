@@ -472,6 +472,51 @@
 
 <div class="row">
   <div class="col-md-2">
+    <div class="form-field-explanation">Combo box with multiple selection and disabled elements</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+              label="Currency"
+              name="currenciesAndDisabled"
+              [items]="currenciesAndDisabled"
+              [required]="true"
+              bindLabel="name"
+              [(ngModel)]="form.selectedManyCurrenciesAndDisabled"
+              [multiple]="true"
+              (ngModelChange)="onModelChange('combo multiple ' +
+               'currencies and disabled', $event)"
+      ></groot-combo>
+    </form>
+  </div>
+  <div class="col-md-4 pr-0">
+    <pre><code>&lt;groot-combo
+  label="Currency"
+  name="currenciesAndDisabled"
+  [items]="currenciesAndDisabled"
+  [required]="true"
+  bindLabel="name"
+  [(ngModel)]="form.selectedManyCurrenciesAndDisabled"
+  [multiple]="true"
+  (ngModelChange)="onModelChange('combo multiple ' +
+      currencies and disabled', $event)"
+>&lt;/groot-combo>
+    </code></pre>
+  </div>
+  <div class="col-md-3 p-0">
+    <pre>
+   public currenciesAndDisabled = [
+      &#123;name: 'EUR'&#125;,
+      &#123;name: 'USD'&#125;,
+      &#123;name: 'JPY', disabled: true&#125;,
+      &#123;name: 'CNY', disabled: true&#125;,
+      &#123;name: 'RUB'&#125;];
+    </pre>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
     <div class="form-field-explanation">Combo box with object values and nested labels</div>
   </div>
   <div class="col-md-3">

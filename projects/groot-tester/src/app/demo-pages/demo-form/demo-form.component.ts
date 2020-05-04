@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ComboDataRequest, ComboDataRequestWithSelected, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
+import {
+  ComboDataRequest,
+  ComboDataRequestWithSelected,
+  PaginatedResponse
+} from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
 import {endIndex, startIndex} from '../../../../../groot/src/lib/groot-base/utils/pagination-utils';
 import {FormControl, Validators} from '@angular/forms';
 import {debounceTime} from 'rxjs/operators';
@@ -15,6 +19,7 @@ export class DemoFormComponent implements OnInit {
     currency: null,
     selectedCurrencies: [],
     selectedManyCurrencies: [],
+    selectedManyCurrenciesAndDisabled: [],
     selectedManyCurrenciesById: [],
     selectedAlbumId: null,
     selectedRadio: 'first-radio',
@@ -29,6 +34,12 @@ export class DemoFormComponent implements OnInit {
   };
 
   public currencies = ['EUR', 'USD', 'JPY', 'CNY', 'RUB'];
+  public currenciesAndDisabled = [
+    {name: 'EUR'},
+    {name: 'USD'},
+    {name: 'JPY', disabled: true},
+    {name: 'CNY', disabled: true},
+    {name: 'RUB'}];
   public albums = [
     {
       id: 1,
