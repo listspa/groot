@@ -5,6 +5,18 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.20.2', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Added default custom search function in <code>groot-combo</code> to handle search with translate labels`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added possibility to use custom search function in <code>groot-combo</code>`
+      }
+    ]
+  },
+  {
     version: '0.20.1', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
