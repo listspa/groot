@@ -1,8 +1,18 @@
-import {ChangeDetectorRef, Component, EventEmitter, forwardRef, Input, OnInit, Output, TemplateRef} from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  forwardRef,
+  Input,
+  OnInit,
+  Output,
+  TemplateRef
+} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {ComboDataRequestWithSelected, PaginatedResponse} from '../../../utils/pagination.model';
+import {TranslateService} from '@ngx-translate/core';
 
 export declare type AddTagFn = ((term: string) => any | Promise<any>);
 
@@ -45,6 +55,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() toggleShowOnlySelectedText = 'combo.showOnlySelected';
   @Input() translateItemText = false;
   @Input() hidePlaceholder = false;
+  @Input() searchFn: (term: string, item: string | any) => boolean = null;
 
   x: boolean;
   showOnlySelected = false;
@@ -120,7 +131,8 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   onChange = (selectedValue: any | any[]) => null;
   onTouched = () => null;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              private translateService: TranslateService) {
   }
 
   writeValue(selectedValue: any | any[]): void {
@@ -195,6 +207,22 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
         distinctUntilChanged(),
       ).subscribe(searchTerm => this.onFilterTextChanged(searchTerm));
     }
+    if (!this.searchFn && this.translateItemText) {
+      this.createDefaultTranslateSearchFn();
+    }
+  }
+
+  private createDefaultTranslateSearchFn() {
+    this.searchFn = ((term, item) => {
+      let word: string;
+      if (typeof item === 'string') {
+        word = item;
+      } else {
+        word = item[this.bindLabel] || '';
+      }
+      word = this.translateService.instant(word);
+      return word.toLowerCase().indexOf(term.toLowerCase()) > -1;
+    });
   }
 
   private onFilterTextChanged(searchTerm: string | null): void {
