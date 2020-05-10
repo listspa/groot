@@ -33,10 +33,10 @@ export class GrootDatePipe implements PipeTransform {
   }
 
   private parseInputDateFormat(dateStr: string, inputDateFormat: string) {
-    let transformedDateString = "";
+    let transformedDateString = '';
     switch (inputDateFormat) {
       case 'yyyy-MM-dd': {
-        let re = /-/gi;
+        const re = /-/gi;
         dateStr = dateStr.replace(re, '');
         const year = dateStr.substr(0, 4);
         const month = dateStr.substr(4, 2);
@@ -45,18 +45,18 @@ export class GrootDatePipe implements PipeTransform {
         break;
       }
       case 'dd-MMM-yy': {
-        let re = /-/gi;
+        const re = /-/gi;
         dateStr = dateStr.replace(re, '');
         const day = dateStr.substr(0, 2);
         const idx = this._monthsArray.indexOf(dateStr.substr(2, 3)) + 1;
-        let month = idx < 10 ? '0' + idx : idx.toString();
+        const month = idx < 10 ? '0' + idx : idx.toString();
         let year = dateStr.substr(5, 2);
-        year = parseInt(year, 10) <= 30 ? "20".concat(year) : "19".concat(year);
+        year = parseInt(year, 10) <= 30 ? '20'.concat(year) : '19'.concat(year);
         transformedDateString = year.concat(month, day);
         break;
       }
       case 'dd-MMM-yyyy': {
-        let re = /-/gi;
+        const re = /-/gi;
         dateStr = dateStr.replace(re, '');
         const day = dateStr.substr(0, 2);
         const idx = this._monthsArray.indexOf(dateStr.substr(2, 3)) + 1;
