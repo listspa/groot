@@ -51,7 +51,7 @@ export class GrootDatePipe implements PipeTransform {
         const idx = this._monthsArray.indexOf(dateStr.substr(2, 3)) + 1;
         let month = idx < 10 ? '0' + idx : idx.toString();
         let year = dateStr.substr(5, 2);
-        year = parseInt(year) <= 30 ? "20".concat(year) : "19".concat(year);
+        year = parseInt(year, 10) <= 30 ? "20".concat(year) : "19".concat(year);
         transformedDateString = year.concat(month, day);
         break;
       }
