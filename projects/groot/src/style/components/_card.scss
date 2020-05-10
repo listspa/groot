@@ -1,6 +1,7 @@
 .card-header {
   background-color: $light-primary;
   color: color-yiq($light-primary);
+  padding: $box-header-padding-y $box-header-padding-x;
 
   h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
@@ -16,10 +17,6 @@
     background-color: $value;
     color: color-yiq($value);
   }
-}
-
-.card-header {
-  padding: $box-header-padding-y $box-header-padding-x;
 }
 
 .card-body {
