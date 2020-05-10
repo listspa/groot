@@ -23,7 +23,8 @@ export function slideLeft(fromState, toState) {
   animations: [dropDownOnCreateAnimation,
     trigger('slide', [
       transition(slideRight, [
-        animate('0s', style({transform: 'translateX(100%)'})), // move first the old menu in position to give the illusion nothing has changed
+        // move first the old menu in position to give the illusion nothing has changed
+        animate('0s', style({transform: 'translateX(100%)'})),
         animate('0.15s ease-in-out', style({transform: 'translateX(0%)'}))
       ]),
       transition(slideLeft, [
@@ -35,7 +36,10 @@ export function slideLeft(fromState, toState) {
 })
 export class NavBarComponent {
   public menuCollapsed = true;
-  public slide = 'r0'; // r[0-9]+ it will trigger right animation | l[0-9]+ it will trigger left animation. The first letter indicate which transition trigger.
+
+  // r[0-9]+ it will trigger right animation | l[0-9]+ it will trigger left animation. The first letter indicate which transition trigger.
+  public slide = 'r0';
+
   public rootMenu: ConcreteMenu = {
     label: 'menu',
     icon: null,
@@ -43,7 +47,9 @@ export class NavBarComponent {
   };
   public _simpleNavBarItems: SimpleNavBarItem[];
   public currentMenu: ConcreteMenu;
-  public oldMenu: ConcreteMenu; // To allow the animation, the previous menu screen must be rendered at the right (or left) of the current menu.
+
+  // To allow the animation, the previous menu screen must be rendered at the right (or left) of the current menu.
+  public oldMenu: ConcreteMenu;
   public breadcrumbs: ConcreteMenu[] = [];
   @Input() public showAlwaysBreadcrumbs = true;
 
