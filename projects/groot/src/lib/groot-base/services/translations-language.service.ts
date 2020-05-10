@@ -1,4 +1,4 @@
-import {Injectable, InjectionToken, Injector} from '@angular/core';
+import {Injectable, InjectionToken, Injector, Type} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {BsLocaleService} from 'ngx-bootstrap';
 import {LanguageSaver, LocalStorageLanguageSaver} from './language-saver';
@@ -24,7 +24,7 @@ export class TranslationsLanguageService {
   constructor(private translate: TranslateService,
               private localeService: BsLocaleService,
               injector: Injector) {
-    this.languageSaver = injector.get(LanguageSaver, new LocalStorageLanguageSaver());
+    this.languageSaver = injector.get(LanguageSaver as Type<LanguageSaver>, new LocalStorageLanguageSaver());
     const defaultLanguage = injector.get(DEFAULT_LANGUAGE, 'it');
     this.currLang = this.languageSaver.getSavedLanguage(defaultLanguage);
     this.setLang(this.currLang);
