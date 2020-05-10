@@ -18,7 +18,7 @@ export class UploadFileService {
 
     const request = new HttpRequest('POST', url, formData, {
       headers: new HttpHeaders({'enctype': 'multipart/form-data'}),
-      reportProgress: true
+      reportProgress: true,
     });
 
     return this.http.request(request);
@@ -28,7 +28,7 @@ export class UploadFileService {
     const formData: FormData = new FormData();
     formData.append(fileParam, fileToUpload, fileToUpload.name);
     Object.keys(otherParams || {}).forEach(k => {
-      formData.append(k, otherParams[k])
+      formData.append(k, otherParams[k]);
     });
     return formData;
   }
