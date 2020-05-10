@@ -35,7 +35,7 @@ export function slideLeft(fromState, toState) {
 })
 export class NavBarComponent {
   public menuCollapsed = true;
-  public slide: string = 'r0'; // r[0-9]+ it will trigger right animation | l[0-9]+ it will trigger left animation. The first letter indicate which transition trigger.
+  public slide = 'r0'; // r[0-9]+ it will trigger right animation | l[0-9]+ it will trigger left animation. The first letter indicate which transition trigger.
   public rootMenu: ConcreteMenu = {
     label: 'menu',
     icon: null,

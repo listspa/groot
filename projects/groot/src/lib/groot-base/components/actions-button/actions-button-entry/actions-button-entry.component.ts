@@ -7,7 +7,7 @@ import {Component, EventEmitter, HostBinding, HostListener, Input, Output} from 
 export class ActionsButtonEntryComponent {
   @Input() label: string;
   @Input() icon: string | string[] | null = null;
-  @HostBinding('class.disabled') @Input() disabled: boolean = false;
+  @HostBinding('class.disabled') @Input() disabled = false;
   @Output() actionTriggered = new EventEmitter<void>();
 
   @HostListener('click', ['$event'])
