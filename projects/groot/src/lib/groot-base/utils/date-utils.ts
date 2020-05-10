@@ -4,7 +4,7 @@ import {leftPad} from './string-utils';
  * Given a date, returns a string with its ISO representation.
  */
 export function isoDate(date: Date): string {
-  return sprintfInternal(date, "-");
+  return sprintfInternal(date, '-');
 }
 
 /**
@@ -37,7 +37,7 @@ export function parseDate(date: string | Date): Date {
  * Given a date and an (optional) separator, returns a string with its representation in YYYYMMDD format.
  * Given null or undefined, returns null.
  */
-export function sprintfYYYYMMDD(date: Date | null | undefined, separator: string = ""): string | null {
+export function sprintfYYYYMMDD(date: Date | null | undefined, separator: string = ''): string | null {
   if (date) {
     return sprintfInternal(date, separator);
   } else {
@@ -45,7 +45,7 @@ export function sprintfYYYYMMDD(date: Date | null | undefined, separator: string
   }
 }
 
-function sprintfInternal(date: Date | null | undefined, separator: string = ""): string {
+function sprintfInternal(date: Date | null | undefined, separator: string = ''): string {
   const yy = date.getFullYear();
   const mm = date.getMonth() + 1;
   const dd = date.getDate();
