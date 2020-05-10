@@ -36,6 +36,7 @@ export * from './lib/groot-base/components/tables/table-header/table-header.comp
 export * from './lib/groot-base/components/tables/table-pagination/table-pagination.component';
 export * from './lib/groot-base/components/tables/table-title-bar/table-title-bar.component';
 export * from './lib/groot-base/components/yes-no-check/yes-no-check.component';
+export * from './lib/groot-base/directives/groot-tab-order.directive';
 export * from './lib/groot-base/directives/loading.directive';
 export * from './lib/groot-base/directives/needsCapability.directive';
 export * from './lib/groot-base/directives/provide-parent-form.directive';

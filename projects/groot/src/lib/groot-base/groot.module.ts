@@ -45,6 +45,7 @@ import {DisplayValueComponent} from './components/display-value/display-value.co
 import {GrootDatePipe} from './pipes/groot-date/groot-date.pipe';
 import {GrootProvideParentForm} from './directives/provide-parent-form.directive';
 import {InfoIconComponent} from './components/info-icon/info-icon.component';
+import {GrootTabOrderDirective} from './directives/groot-tab-order.directive';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import {InfoIconComponent} from './components/info-icon/info-icon.component';
     GrootDatePipe,
     GrootProvideParentForm,
     InfoIconComponent,
+    GrootTabOrderDirective,
   ],
   imports: [
     CommonModule,
@@ -141,6 +143,7 @@ import {InfoIconComponent} from './components/info-icon/info-icon.component';
     DisplayValueComponent,
     GrootDatePipe,
     GrootProvideParentForm,
+    GrootTabOrderDirective,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

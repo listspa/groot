@@ -1,20 +1,42 @@
 <h1>Tabs look & feel</h1>
 
 <p>We use the <a href="https://valor-software.com/ngx-bootstrap/#/tabs" target="_blank">standard component from
-  Ngx-Bootstrap</a>. We have only customized the look & feel.</p>
+  Ngx-Bootstrap</a>. We have customized the look & feel.</p>
+
+<p>We also have implemented a directive <code>grootTabOrder</code> that you can use to force the order of the tabs.
+This is necessary to work around a bug in ngx-bootstrap when tabs have an <code>*ngIf</code> directive (or similar)
+and are added dynamically. Here's an example</p>
 
 <tabset class="tabs-bordered">
-  <tab heading="Hello">
+  <tab heading="Hello" [grootTabOrder]="0">
     <h2>A Title</h2>
     Tab content
   </tab>
-  <tab heading="World">
+  <tab heading="World" [grootTabOrder]="2">
     Grooooooooooooooot
   </tab>
-  <tab heading="Cruel">
+  <tab heading="Cruel" [grootTabOrder]="1">
     Tab 3
   </tab>
-  <tab heading="I am not enabled" [disabled]="true">
+  <tab heading="I am not enabled" [disabled]="true" [grootTabOrder]="3">
     Tab 4
   </tab>
 </tabset>
+
+<pre class="mt-4"><code>
+&lt;tabset class="tabs-bordered">
+  &lt;tab heading="Hello" [grootTabOrder]="0">
+    &lt;h2>A Title&lt;/h2>
+    Tab content
+  &lt;/tab>
+  &lt;tab heading="World" [grootTabOrder]="2">
+    Grooooooooooooooot
+  &lt;/tab>
+  &lt;tab heading="Cruel" [grootTabOrder]="1">
+    Tab 3
+  &lt;/tab>
+  &lt;tab heading="I am not enabled" [disabled]="true" [grootTabOrder]="3">
+    Tab 4
+  &lt;/tab>
+&lt;/tabset>
+</code></pre>
