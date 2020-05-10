@@ -41,18 +41,18 @@ export abstract class GenericTableComponentBase<T> implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     // Form changed, so reset to first page and reload
     this._currentPageNum = 0;
-    this.reload();
+    this.reloadTable();
   }
 
   onPageChanged(newPageNum: number): void {
     this._currentPageNum = newPageNum;
-    this.reload();
+    this.reloadTable();
   }
 
   @Input()
   set sorting(sorting: Sorting) {
     this._sorting = sorting;
-    this.reload();
+    this.reloadTable();
   }
 
   get sorting() {
