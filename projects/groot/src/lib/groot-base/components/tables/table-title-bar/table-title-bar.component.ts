@@ -24,7 +24,7 @@ export class TableTitleBarComponent {
   @Input() downloadExcelFileName = 'download.xlsx';
   @Output() refresh = new EventEmitter<void>();
   pageInfo: PageInfo | null = null;
-  loading: Boolean = false;
+  loading = false;
 
   @Input() set searchResults(data: PaginatedResponse<any>) {
     this.loading = false;
