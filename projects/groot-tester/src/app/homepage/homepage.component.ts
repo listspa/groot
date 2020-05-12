@@ -5,7 +5,16 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.20.1', released: true, changes: [
+    version: '0.20.4', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed a memory leak: the toasts' click observable is now completed when
+the toast is removed`
+      }
+    ]
+  },
+  {
+    version: '0.20.3', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
         html: `New directive <code>grootTabOrder</code> to fix order of tabs, even when <code>*ngIf</code> is used`

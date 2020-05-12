@@ -54,6 +54,9 @@ export class NotificationToastListComponent implements OnInit {
         if (idx !== -1) {
           this.displayedToast.splice(idx, 1);
         }
+        if (oldToast.clickCallback) {
+          oldToast.clickCallback.complete();
+        }
       });
   }
 
