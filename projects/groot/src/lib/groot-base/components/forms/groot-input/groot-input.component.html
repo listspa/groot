@@ -24,7 +24,7 @@
          (ngModelChange)="writeValueFromGui($event)"
          (blur)="onTouched()"
          (keyup.enter)="onEnterPressed()"
-         [class.is-invalid]="input.invalid && !input.pristine"
+         [class.is-invalid]="input.invalid && input.touched"
          [disabled]="disabled"
          *ngIf="!formControl">
   <input [type]="type"
@@ -36,7 +36,7 @@
          [name]="name"
          (keyup.enter)="onEnterPressed()"
          [formControl]="formControl"
-         [class.is-invalid]="formControl.invalid && !formControl.pristine"
+         [class.is-invalid]="formControl.invalid && formControl.touched"
          *ngIf="formControl">
   <div class="input-group-append" *ngIf="templateRight || iconRight">
     <span class="input-group-text">
@@ -48,12 +48,12 @@
     </ng-template>
   </div>
   <ng-container *ngIf="input">
-    <div class="invalid-feedback" *ngIf="input.invalid && !input.pristine">
+    <div class="invalid-feedback" *ngIf="input.invalid && input.touched">
       {{errorMessage | translate}}
     </div>
   </ng-container>
   <ng-container *ngIf="formControl">
-    <div class="invalid-feedback" *ngIf="formControl.invalid && !formControl.pristine">
+    <div class="invalid-feedback" *ngIf="formControl.invalid && formControl.touched">
       {{errorMessage | translate}}
     </div>
   </ng-container>

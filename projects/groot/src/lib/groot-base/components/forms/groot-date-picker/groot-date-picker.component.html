@@ -21,9 +21,9 @@
          triggers=""
          (ngModelChange)="writeValueFromGui($event)"
          (blur)="onTouched()"
-         [class.is-invalid]="input.invalid && !input.pristine"
+         [class.is-invalid]="input.invalid && input.touched"
          [disabled]="disabled"
-         value="{{!(input.invalid && !input.pristine) ? (selectedDate | date: format) : selectedDate}}"
+         value="{{!(input.invalid && input.touched) ? (selectedDate | date: format) : selectedDate}}"
          *ngIf="!formControl">
   <input type="text"
          autocomplete="off"
@@ -37,9 +37,9 @@
          #datePickerDirective="bsDatepicker"
          [placement]="placement"
          triggers=""
-         [class.is-invalid]="formControl.invalid && !formControl.pristine"
+         [class.is-invalid]="formControl.invalid && formControl.touched"
          [formControl]="formControl"
-         [value]="!(formControl.invalid && !formControl.pristine) ? (formControl.value | date: format) : formControl.value"
+         [value]="!(formControl.invalid && formControl.touched) ? (formControl.value | date: format) : formControl.value"
          *ngIf="formControl">
 
   <div class="input-group-append">
@@ -48,12 +48,12 @@
     </span>
   </div>
   <ng-container *ngIf="input">
-    <div class="invalid-feedback" *ngIf="input.invalid && !input.pristine">
+    <div class="invalid-feedback" *ngIf="input.invalid && input.touched">
       {{'common.required' | translate}}
     </div>
   </ng-container>
   <ng-container *ngIf="formControl">
-    <div class="invalid-feedback" *ngIf="formControl.invalid && !formControl.pristine">
+    <div class="invalid-feedback" *ngIf="formControl.invalid && formControl.touched">
       {{'common.required' | translate}}
     </div>
   </ng-container>

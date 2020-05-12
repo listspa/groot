@@ -18,7 +18,7 @@
              [ngModel]="selectedValue"
              (ngModelChange)="writeValueFromGui($event)"
              (blur)="onTouched()"
-             [class.is-invalid]="input.invalid && !input.pristine"
+             [class.is-invalid]="input.invalid && input.touched"
              [disabled]="disabled"
              [bindLabel]="bindLabel"
              [bindValue]="bindValue"
@@ -192,7 +192,7 @@
     </ng-template>
   </ng-select>
 
-  <div class="invalid-feedback" *ngIf="input.invalid && !input.pristine">
+  <div class="invalid-feedback" *ngIf="input.invalid && input.touched">
     {{'common.required' | translate}}
   </div>
   <small class="form-text text-muted" *ngIf="helpText">
