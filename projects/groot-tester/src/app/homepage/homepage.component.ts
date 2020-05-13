@@ -5,10 +5,18 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.20.6', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `It's now possible to reset a radio by assigning null to the model field`
+      }
+    ]
+  },
+  {
     version: '0.20.5', released: true, changes: [
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
-        html: `In all goot inputs, validation is done on <code>touched</code>. 
+        html: `In all goot inputs, validation is done on <code>touched</code>.
 Previous validation logic may no longer work.`
       }
     ]

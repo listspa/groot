@@ -40,9 +40,6 @@ export class GrootRadioComponent implements ControlValueAccessor {
   }
 
   writeValue(value: string): void {
-    if (!value) {
-      return;
-    }
     this.selectedValue = value;
     this.changeDetectorRef.detectChanges();
   }
