@@ -5,11 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '0.21.0', released: false, changes: [
+    version: '0.20.7', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
         html: `Uniformed the background color of disabled combo to other disabled components`
-      }
+      },
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed margin-bottom of <code>groot-file-input</code>`
+      },
     ]
   },
   {
