@@ -15,30 +15,34 @@ export interface ConfirmationModalParams {
   headerClasses?: ClassesType;
   bodyClasses?: ClassesType;
   footerClasses?: ClassesType;
-  footerCancelClasses?: ClassesType ;
-  footerConfirmClasses?: ClassesType ;
+  footerCancelClasses?: ClassesType;
+  footerConfirmClasses?: ClassesType;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfirmModalService {
+  static readonly DEFAULT_PARAMS = {
+    textArguments: null,
+    title: 'common.pleaseConfirm',
+    titleArguments: null,
+    yesLabel: 'common.confirm',
+    noLabel: 'common.cancel',
+    headerClasses: 'bg-primary',
+    bodyClasses: '',
+    footerClasses: 'buttons-list-bottom-right',
+    footerCancelClasses: 'btn-outline-danger',
+    footerConfirmClasses: 'btn-outline-success',
+  };
+
   constructor(private bsModalService: BsModalService) {
   }
 
   showConfirmation(params: ConfirmationModalParams)
     : Observable<boolean> {
     const actualParams = {
-      textArguments: null,
-      title: 'common.pleaseConfirm',
-      titleArguments: null,
-      yesLabel: 'common.confirm',
-      noLabel: 'common.cancel',
-      headerClasses: 'bg-primary',
-      bodyClasses: '',
-      footerClasses: 'buttons-list-bottom-right',
-      footerCancelClasses: 'btn-outline-danger',
-      footerConfirmClasses: 'btn-outline-success',
+      ...ConfirmModalService.DEFAULT_PARAMS,
       ...params
     };
 
