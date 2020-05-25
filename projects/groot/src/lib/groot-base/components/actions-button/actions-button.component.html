@@ -7,18 +7,18 @@
      [placement]="placement"
      [popoverTitle]="popoverTitle"
      containerClass="groot-actions-button-popover popover-dark"
-     (onShown)="open = true"
-     (onHidden)="open = false"
+     (onShown)="shown()"
+     (onHidden)="hidden()"
      (mouseenter)="hover = true"
      (mouseleave)="hover = false"
      [attr.title]="'common.actions' | translate">
   <ng-container *ngIf="!hamburger">
     <i class="fa fa-stack-2x"
-       [class.fa-circle-thin]="!hover && !open"
-       [class.fa-circle]="hover || open"
+       [class.fa-circle-thin]="!hover && !isOpen"
+       [class.fa-circle]="hover || isOpen"
     ></i>
     <i class="fa fa-ellipsis-v fa-stack-1x"
-       [class.text-white]="hover || open"
+       [class.text-white]="hover || isOpen"
     ></i>
   </ng-container>
   <ng-container *ngIf="hamburger">

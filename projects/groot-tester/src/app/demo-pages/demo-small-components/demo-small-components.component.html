@@ -39,7 +39,8 @@
     <groot-actions-button popoverTitle="the title">
       <groot-actions-button-entry label="test" (actionTriggered)="onClickActionProva()"></groot-actions-button-entry>
       <groot-actions-button-entry label="dummy"></groot-actions-button-entry>
-      <groot-actions-button-entry label="off" [disabled]="true" (actionTriggered)="onClickActionProva()"></groot-actions-button-entry>
+      <groot-actions-button-entry label="off" [disabled]="true"
+                                  (actionTriggered)="onClickActionProva()"></groot-actions-button-entry>
     </groot-actions-button>
   </div>
   <div class="col-md-7">
@@ -55,7 +56,8 @@
     <div class="form-field-explanation">Action buttons without title and with template</div>
   </div>
   <div class="col-md-3">
-    <groot-actions-button [popoverTemplate]="actionsTpl"></groot-actions-button>
+    <groot-actions-button [popoverTemplate]="actionsTpl"
+                          (open)="onActionToggle($event)"></groot-actions-button>
 
     <ng-template #actionsTpl>
       <h2>Actions:</h2>

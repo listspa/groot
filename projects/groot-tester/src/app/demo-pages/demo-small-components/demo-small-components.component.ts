@@ -12,4 +12,8 @@ export class DemoSmallComponentsComponent {
   onClickActionProva() {
     alert('test test');
   }
+
+  onActionToggle(opened: boolean) {
+    console.log('toggled action buttons: open = ', opened);
+  }
 }

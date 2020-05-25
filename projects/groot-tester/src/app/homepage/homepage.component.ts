@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.20.8', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added an event to <code>groot-actions-button</code> when it's toggled`
+      },
+    ]
+  },
+  {
     version: '0.20.7', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
