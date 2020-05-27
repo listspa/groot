@@ -5,6 +5,18 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.21.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `In combo with multiple choices, there was no "clear selection" icon`
+      },
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `In combo used as listbox, the placeholder was underneath the selected items and not hidden`
+      },
+    ]
+  },
+  {
     version: '0.20.8', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
