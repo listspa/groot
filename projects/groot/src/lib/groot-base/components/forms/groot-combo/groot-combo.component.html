@@ -144,7 +144,7 @@
 
 
     <!-- Custom template for MULTIPLE selections (replaces the label template) -->
-    <ng-template *ngIf="checkboxes || multiLabelTemplate"
+    <ng-template *ngIf="multiple || checkboxes || multiLabelTemplate"
                  ng-multi-label-tmp
                  let-items="items"
                  let-clear="clear">
@@ -157,6 +157,12 @@
         <ng-container
           *ngTemplateOutlet="checkboxSelectedTpl; context: {items: items, clear: clear}">
         </ng-container>
+      </ng-container>
+      <ng-container *ngIf="!multiLabelTemplate && (!checkboxes || showAsListBox)">
+        <div class="ng-value" *ngFor="let item of items; let index = index">
+          <ng-container
+            *ngTemplateOutlet="labelTemplateWithClearCross; context: {item: item, clear: clear, index: index}"></ng-container>
+        </div>
       </ng-container>
     </ng-template>
 
@@ -175,20 +181,26 @@
 
         <!-- Special case for one value selected -->
         <ng-container *ngIf="items.length == 1">
-          <ng-container *ngIf="labelTemplate">
-            <ng-container
-              *ngTemplateOutlet="labelTemplate; context: {item: items[0], clear: clear, label: ngSelectComponent.selectedItems[0].label}">
-            </ng-container>
-          </ng-container>
-          <ng-container *ngIf="!labelTemplate">
-            <span class="ng-value-icon left" (click)="clear(items[0])" aria-hidden="true">×</span>
-            <span class="ng-value-label">
-              <ng-container *ngIf="translateItemText">{{ngSelectComponent.selectedItems[0].label | translate}}</ng-container>
-              <ng-container *ngIf="!translateItemText">{{ngSelectComponent.selectedItems[0].label}}</ng-container>
-             </span>
-          </ng-container>
+          <ng-container
+            *ngTemplateOutlet="labelTemplateWithClearCross; context: {item: items[0], clear: clear, index: 0}"></ng-container>
         </ng-container>
       </div>
+    </ng-template>
+
+    <ng-template #labelTemplateWithClearCross let-item="item" let-clear="clear" let-index="index">
+      <ng-container *ngIf="labelTemplate">
+        <ng-container
+          *ngTemplateOutlet="labelTemplate; context: {item: item, clear: clear, label: ngSelectComponent.selectedItems[index].label}">
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="!labelTemplate">
+        <span class="ng-value-icon left" (click)="clear(item)" aria-hidden="true">×</span>
+        <span class="ng-value-label">
+          <ng-container
+            *ngIf="translateItemText">{{ngSelectComponent.selectedItems[index].label | translate}}</ng-container>
+          <ng-container *ngIf="!translateItemText">{{ngSelectComponent.selectedItems[index].label}}</ng-container>
+        </span>
+      </ng-container>
     </ng-template>
   </ng-select>
 
