@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.21.1-alpha-0', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Handled FormControl in groot combo.`
+      }
+    ]
+  },
+  {
     version: '0.21.0', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
