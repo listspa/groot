@@ -1,213 +1,310 @@
 <label [for]="name" *ngIf="label">
-  {{label | translate}}
-  <span *ngIf="required">*</span>
+    {{label | translate}}
+    <span *ngIf="required">*</span>
 </label>
 <div class="mb-2">
-  <ng-select [items]="allItems"
-             [placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
-             [notFoundText]="notFoundText | translate"
-             [addTagText]="addTagText | translate"
-             [addTag]="addTag"
-             [clearAllText]="clearAllText | translate"
-             [loadingText]="loadingText | translate"
-             [typeToSearchText]="typeToSearchText | translate"
-             [required]="required"
-             [labelForId]="name"
-             [name]="name"
-             #input="ngModel"
-             [ngModel]="selectedValue"
-             (ngModelChange)="writeValueFromGui($event)"
-             (blur)="onTouched()"
-             [class.is-invalid]="input.invalid && input.touched"
-             [disabled]="disabled"
-             [bindLabel]="bindLabel"
-             [bindValue]="bindValue"
-             [multiple]="multiple"
-             [closeOnSelect]="!multiple"
-             [isOpen]="open"
-             [class.groot-combo-checkbox]="checkboxes"
-             [class.groot-combo-listbox]="showAsListBox"
-             [dropdownPosition]="showAsListBox ? 'bottom' : 'auto'"
-             [typeahead]="typeahead"
-             [virtualScroll]="fetchDataIncrementally"
-             (scroll)="onScroll($event)"
-             [loading]="loading"
-             (open)="onOpen()"
-             [clearable]="clearable"
-             [searchFn]="searchFn"
-             #ngSelectComponent>
+    <ng-container *ngIf="!formControl">
+        <ng-select [items]="allItems"
+                   [placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
+                   [notFoundText]="notFoundText | translate"
+                   [addTagText]="addTagText | translate"
+                   [addTag]="addTag"
+                   [clearAllText]="clearAllText | translate"
+                   [loadingText]="loadingText | translate"
+                   [typeToSearchText]="typeToSearchText | translate"
+                   [required]="required"
+                   [labelForId]="name"
+                   [name]="name"
+                   #input="ngModel"
+                   [ngModel]="selectedValue"
+                   (ngModelChange)="writeValueFromGui($event)"
+                   (blur)="onTouched()"
+                   [class.is-invalid]="input.invalid && input.touched"
+                   [disabled]="disabled"
+                   [bindLabel]="bindLabel"
+                   [bindValue]="bindValue"
+                   [multiple]="multiple"
+                   [closeOnSelect]="!multiple"
+                   [isOpen]="open"
+                   [class.groot-combo-checkbox]="checkboxes"
+                   [class.groot-combo-listbox]="showAsListBox"
+                   [dropdownPosition]="showAsListBox ? 'bottom' : 'auto'"
+                   [typeahead]="typeahead"
+                   [virtualScroll]="fetchDataIncrementally"
+                   (scroll)="onScroll($event)"
+                   [loading]="loading"
+                   (open)="onOpen()"
+                   [clearable]="clearable"
+                   [searchFn]="searchFn">
 
+            <ng-template *ngIf="checkboxes || headerTemplate || toggleShowOnlySelected"
+                         ng-header-tmp
+                         let-searchTerm="searchTerm">
+                <ng-container *ngTemplateOutlet="headerTmp; context: {searchTerm: searchTerm}"></ng-container>
+            </ng-template>
 
+            <ng-template ng-option-tmp
+                         let-item="item"
+                         let-item$="item$"
+                         let-index="index"
+                         let-searchTerm="searchTerm">
+                <ng-container
+                        *ngTemplateOutlet="optionTmp; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}"></ng-container>
+            </ng-template>
+
+            <ng-template ng-label-tmp
+                         let-item="item"
+                         let-clear="clear"
+                         let-label="label">
+                <ng-container
+                        *ngTemplateOutlet="labelTmp; context: {item: item, clear: clear, label: label}"></ng-container>
+            </ng-template>
+
+            <ng-template ng-multi-label-tmp
+                         *ngIf="multiple || checkboxes || multiLabelTemplate"
+                         let-items="items"
+                         let-clear="clear">
+                <ng-container
+                        *ngTemplateOutlet="multiLabelTmp; context: {items: items, clear: clear}"></ng-container>
+            </ng-template>
+
+        </ng-select>
+        <div class="invalid-feedback" *ngIf="input.invalid && input.touched">
+            {{'common.required' | translate}}
+        </div>
+    </ng-container>
+    <ng-container *ngIf="formControl">
+        <ng-select [items]="allItems"
+                   [placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
+                   [notFoundText]="notFoundText | translate"
+                   [addTagText]="addTagText | translate"
+                   [addTag]="addTag"
+                   [clearAllText]="clearAllText | translate"
+                   [loadingText]="loadingText | translate"
+                   [typeToSearchText]="typeToSearchText | translate"
+                   [required]="required"
+                   [labelForId]="name"
+                   [formControl]="formControl"
+                   (blur)="onTouched()"
+                   [class.is-invalid]="formControl.invalid && formControl.touched"
+                   [disabled]="disabled"
+                   [bindLabel]="bindLabel"
+                   [bindValue]="bindValue"
+                   [multiple]="multiple"
+                   [closeOnSelect]="!multiple"
+                   [isOpen]="open"
+                   [class.groot-combo-checkbox]="checkboxes"
+                   [class.groot-combo-listbox]="showAsListBox"
+                   [dropdownPosition]="showAsListBox ? 'bottom' : 'auto'"
+                   [typeahead]="typeahead"
+                   [virtualScroll]="fetchDataIncrementally"
+                   (scroll)="onScroll($event)"
+                   [loading]="loading"
+                   (open)="onOpen()"
+                   [clearable]="clearable"
+                   [searchFn]="searchFn">
+
+            <ng-template *ngIf="checkboxes || headerTemplate || toggleShowOnlySelected"
+                         ng-header-tmp
+                         let-searchTerm="searchTerm">
+                <ng-container *ngTemplateOutlet="headerTmp; context: {searchTerm: searchTerm}"></ng-container>
+            </ng-template>
+
+            <ng-template ng-option-tmp
+                         let-item="item"
+                         let-item$="item$"
+                         let-index="index"
+                         let-searchTerm="searchTerm">
+                <ng-container
+                        *ngTemplateOutlet="optionTmp; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}"></ng-container>
+            </ng-template>
+
+            <ng-template ng-label-tmp
+                         let-item="item"
+                         let-clear="clear"
+                         let-label="label">
+                <ng-container
+                        *ngTemplateOutlet="labelTmp; context: {item: item, clear: clear, label: label}"></ng-container>
+            </ng-template>
+
+            <ng-template ng-multi-label-tmp
+                         *ngIf="multiple || checkboxes || multiLabelTemplate"
+                         let-items="items"
+                         let-clear="clear">
+                <ng-container
+                        *ngTemplateOutlet="multiLabelTmp; context: {items: items, clear: clear}"></ng-container>
+            </ng-template>
+
+        </ng-select>
+        <div class="invalid-feedback" *ngIf="formControl.invalid && formControl.touched">
+            {{'common.required' | translate}}
+        </div>
+    </ng-container>
     <!-- For checkboxes: header with buttons select all / unselect all -->
-    <ng-template *ngIf="checkboxes || headerTemplate || toggleShowOnlySelected"
-                 ng-header-tmp
+    <ng-template #headerTmp
                  let-searchTerm="searchTerm">
 
-      <ng-container *ngIf="toggleShowOnlySelected">
-        <ng-container *ngTemplateOutlet="toogleShowOnlySelectedTemplate"></ng-container>
-      </ng-container>
-      <ng-container *ngIf="!toggleShowOnlySelected && headerTemplate">
-        <ng-container *ngTemplateOutlet="headerTemplate; context: {searchTerm: searchTerm}"></ng-container>
-      </ng-container>
-      <ng-container *ngIf="!toggleShowOnlySelected && !headerTemplate && checkboxes">
-        <ng-container *ngTemplateOutlet="checkboxSelectAllTpl"></ng-container>
-      </ng-container>
+        <ng-container *ngIf="toggleShowOnlySelected">
+            <ng-container *ngTemplateOutlet="toogleShowOnlySelectedTemplate"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="!toggleShowOnlySelected && headerTemplate">
+            <ng-container *ngTemplateOutlet="headerTemplate; context: {searchTerm: searchTerm}"></ng-container>
+        </ng-container>
+        <ng-container *ngIf="!toggleShowOnlySelected && !headerTemplate && checkboxes">
+            <ng-container *ngTemplateOutlet="checkboxSelectAllTpl"></ng-container>
+        </ng-container>
     </ng-template>
 
     <ng-template #toogleShowOnlySelectedTemplate>
-      <groot-toggle-button [label]="toggleShowOnlySelectedText" [(ngModel)]="showOnlySelected"
-                           (ngModelChange)="filterSelected()"></groot-toggle-button>
+        <groot-toggle-button [label]="toggleShowOnlySelectedText" [(ngModel)]="showOnlySelected"
+                             (ngModelChange)="filterSelected()"></groot-toggle-button>
     </ng-template>
 
     <ng-template #checkboxSelectAllTpl>
-      <div class="buttons-list-left">
-        <button type="button" class="btn btn-outline-primary btn-sm"
-                (click)="selectAll()"
-                [disabled]="isAllSelected() || !hasLoadedEverything()">
-          {{'common.selectAll' | translate}}
-        </button>
+        <div class="buttons-list-left">
+            <button type="button" class="btn btn-outline-primary btn-sm"
+                    (click)="selectAll()"
+                    [disabled]="isAllSelected() || !hasLoadedEverything()">
+                {{'common.selectAll' | translate}}
+            </button>
 
-        <button type="button" class="btn btn-outline-primary btn-sm"
-                (click)="unselectAll()"
-                [disabled]="isNoneSelected()">
-          {{'common.unselectAll' | translate}}
-        </button>
-      </div>
+            <button type="button" class="btn btn-outline-primary btn-sm"
+                    (click)="unselectAll()"
+                    [disabled]="isNoneSelected()">
+                {{'common.unselectAll' | translate}}
+            </button>
+        </div>
     </ng-template>
 
 
     <!-- Item templates -->
-    <ng-template ng-option-tmp
+    <ng-template #optionTmp
                  let-item="item"
                  let-item$="item$"
                  let-index="index"
                  let-searchTerm="searchTerm">
-      <!-- With checkboxes use our template (which optionally embeds the item template, if present) -->
-      <ng-container *ngIf="checkboxes">
-        <ng-container
-          *ngTemplateOutlet="checkboxItemTpl; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
+        <!-- With checkboxes use our template (which optionally embeds the item template, if present) -->
+        <ng-container *ngIf="checkboxes">
+            <ng-container
+                    *ngTemplateOutlet="checkboxItemTpl; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
+            </ng-container>
         </ng-container>
-      </ng-container>
-      <!-- Otherwise use the custom received -->
-      <ng-container *ngIf="!checkboxes && itemTemplate">
-        <ng-container
-          *ngTemplateOutlet="itemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
+        <!-- Otherwise use the custom received -->
+        <ng-container *ngIf="!checkboxes && itemTemplate">
+            <ng-container
+                    *ngTemplateOutlet="itemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}">
+            </ng-container>
         </ng-container>
-      </ng-container>
-      <!-- Fallback - the default groot combo template -->
-      <ng-container *ngIf="!checkboxes && !itemTemplate">
-        <ng-container *ngIf="translateItemText">{{item$.label | translate}}</ng-container>
-        <ng-container *ngIf="!translateItemText">{{item$.label}}</ng-container>
-      </ng-container>
+        <!-- Fallback - the default groot combo template -->
+        <ng-container *ngIf="!checkboxes && !itemTemplate">
+            <ng-container *ngIf="translateItemText">{{item$.label | translate}}</ng-container>
+            <ng-container *ngIf="!translateItemText">{{item$.label}}</ng-container>
+        </ng-container>
     </ng-template>
 
     <!-- Single item template: checkboxes -->
-    <ng-template #checkboxItemTpl let-item="item" let-item$="item$" let-index="index" let-searchTerm="searchTerm">
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox"
-               id="item-{{index}}"
-               class="custom-control-input"
-               [ngModel]="item$.selected">
-        <label class="custom-control-label">
-          <ng-container
-            *ngTemplateOutlet="itemTemplate || defaultItemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}"
-          ></ng-container>
-          <ng-template #defaultItemTemplate>
-            <ng-container *ngIf="translateItemText">{{item$.label | translate}}</ng-container>
-            <ng-container *ngIf="!translateItemText">{{item$.label}}</ng-container>
-          </ng-template>
-        </label>
-      </div>
+    <ng-template #checkboxItemTpl let-item="item" let-item$="item$" let-index="index"
+                 let-searchTerm="searchTerm">
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox"
+                   id="item-{{index}}"
+                   class="custom-control-input"
+                   [ngModel]="item$.selected">
+            <label class="custom-control-label">
+                <ng-container
+                        *ngTemplateOutlet="itemTemplate || defaultItemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}"
+                ></ng-container>
+                <ng-template #defaultItemTemplate>
+                    <ng-container *ngIf="translateItemText">{{item$.label | translate}}</ng-container>
+                    <ng-container *ngIf="!translateItemText">{{item$.label}}</ng-container>
+                </ng-template>
+            </label>
+        </div>
     </ng-template>
 
 
     <!-- Custom label (selected object) template for SINGLE selection or listboxes -->
-    <ng-template ng-label-tmp
+    <ng-template #labelTmp
                  let-item="item"
                  let-clear="clear"
                  let-label="label">
-      <ng-container *ngIf="labelTemplate">
-        <ng-container
-          *ngTemplateOutlet="labelTemplate; context: {item: item, clear: clear, label: label}">
+        <ng-container *ngIf="labelTemplate">
+            <ng-container
+                    *ngTemplateOutlet="labelTemplate; context: {item: item, clear: clear, label: label}">
+            </ng-container>
         </ng-container>
-      </ng-container>
 
-      <!-- Empty template for list box -->
-      <ng-container *ngIf="showAsListBox"></ng-container>
+        <!-- Empty template for list box -->
+        <ng-container *ngIf="showAsListBox"></ng-container>
 
-      <!-- Fallback - the default groot combo template -->
-      <ng-container *ngIf="!checkboxes && !itemTemplate">
-        <ng-container *ngIf="translateItemText">{{label | translate}}</ng-container>
-        <ng-container *ngIf="!translateItemText">{{label}}</ng-container>
-      </ng-container>
+        <!-- Fallback - the default groot combo template -->
+        <ng-container *ngIf="!checkboxes && !itemTemplate">
+            <ng-container *ngIf="translateItemText">{{label | translate}}</ng-container>
+            <ng-container *ngIf="!translateItemText">{{label}}</ng-container>
+        </ng-container>
     </ng-template>
 
 
     <!-- Custom template for MULTIPLE selections (replaces the label template) -->
-    <ng-template *ngIf="multiple || checkboxes || multiLabelTemplate"
-                 ng-multi-label-tmp
+    <ng-template #multiLabelTmp
                  let-items="items"
                  let-clear="clear">
-      <ng-container *ngIf="multiLabelTemplate">
-        <ng-container
-          *ngTemplateOutlet="multiLabelTemplate; context: {items: items, clear: clear}">
+        <ng-container *ngIf="multiLabelTemplate">
+            <ng-container
+                    *ngTemplateOutlet="multiLabelTemplate; context: {items: items, clear: clear}">
+            </ng-container>
         </ng-container>
-      </ng-container>
-      <ng-container *ngIf="!multiLabelTemplate && checkboxes && !showAsListBox">
-        <ng-container
-          *ngTemplateOutlet="checkboxSelectedTpl; context: {items: items, clear: clear}">
+        <ng-container *ngIf="!multiLabelTemplate && checkboxes && !showAsListBox">
+            <ng-container
+                    *ngTemplateOutlet="checkboxSelectedTpl; context: {items: items, clear: clear}">
+            </ng-container>
         </ng-container>
-      </ng-container>
-      <ng-container *ngIf="!multiLabelTemplate && (!checkboxes || showAsListBox)">
-        <div class="ng-value" *ngFor="let item of items; let index = index">
-          <ng-container
-            *ngTemplateOutlet="labelTemplateWithClearCross; context: {item: item, clear: clear, index: index}"></ng-container>
-        </div>
-      </ng-container>
+        <ng-container *ngIf="!multiLabelTemplate && (!checkboxes || showAsListBox)">
+            <div class="ng-value" *ngFor="let item of items; let index = index">
+                <ng-container
+                        *ngTemplateOutlet="labelTemplateWithClearCross; context: {item: item, clear: clear, index: index}"></ng-container>
+            </div>
+        </ng-container>
     </ng-template>
 
 
     <!-- Selected items row template -->
     <ng-template #checkboxSelectedTpl let-items="items" let-clear="clear">
-      <div class="ng-value">
+        <div class="ng-value">
         <span class="ng-value-label"
               *ngIf="isAllSelected() && items.length != 1">
           {{'common.allValuesSelected' | translate}}
         </span>
-        <span class="ng-value-label"
-              *ngIf="!isAllSelected() && items.length > 1">
+            <span class="ng-value-label"
+                  *ngIf="!isAllSelected() && items.length > 1">
           {{'common.numValuesSelected' | translate:{numSelected: items.length} }}
         </span>
 
-        <!-- Special case for one value selected -->
-        <ng-container *ngIf="items.length == 1">
-          <ng-container
-            *ngTemplateOutlet="labelTemplateWithClearCross; context: {item: items[0], clear: clear, index: 0}"></ng-container>
-        </ng-container>
-      </div>
+            <!-- Special case for one value selected -->
+            <ng-container *ngIf="items.length == 1">
+                <ng-container
+                        *ngTemplateOutlet="labelTemplateWithClearCross; context: {item: items[0], clear: clear, index: 0}"></ng-container>
+            </ng-container>
+        </div>
     </ng-template>
 
     <ng-template #labelTemplateWithClearCross let-item="item" let-clear="clear" let-index="index">
-      <ng-container *ngIf="labelTemplate">
-        <ng-container
-          *ngTemplateOutlet="labelTemplate; context: {item: item, clear: clear, label: ngSelectComponent.selectedItems[index].label}">
+        <ng-container *ngIf="labelTemplate">
+            <ng-container
+                    *ngTemplateOutlet="labelTemplate; context: {item: item, clear: clear, label: ngCombo.selectedItems[index].label}">
+            </ng-container>
         </ng-container>
-      </ng-container>
-      <ng-container *ngIf="!labelTemplate">
-        <span class="ng-value-icon left" (click)="clear(item)" aria-hidden="true">×</span>
-        <span class="ng-value-label">
+        <ng-container *ngIf="!labelTemplate">
+            <span class="ng-value-icon left" (click)="clear(item)" aria-hidden="true">×</span>
+            <span class="ng-value-label">
           <ng-container
-            *ngIf="translateItemText">{{ngSelectComponent.selectedItems[index].label | translate}}</ng-container>
-          <ng-container *ngIf="!translateItemText">{{ngSelectComponent.selectedItems[index].label}}</ng-container>
+                  *ngIf="translateItemText">{{ngCombo.selectedItems[index].label | translate}}</ng-container>
+          <ng-container *ngIf="!translateItemText">{{ngCombo.selectedItems[index].label}}</ng-container>
         </span>
-      </ng-container>
+        </ng-container>
     </ng-template>
-  </ng-select>
 
-  <div class="invalid-feedback" *ngIf="input.invalid && input.touched">
-    {{'common.required' | translate}}
-  </div>
-  <small class="form-text text-muted" *ngIf="helpText">
-    {{helpText | translate}}
-  </small>
+    <small class="form-text text-muted" *ngIf="helpText">
+        {{helpText | translate}}
+    </small>
 </div>

@@ -6,13 +6,14 @@ import {
   Input,
   OnInit,
   Output,
-  TemplateRef
+  TemplateRef, ViewChild
 } from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {ComboDataRequestWithSelected, PaginatedResponse} from '../../../utils/pagination.model';
 import {TranslateService} from '@ngx-translate/core';
+import {NgSelectComponent} from '@ng-select/ng-select';
 
 export declare type AddTagFn = ((term: string) => any | Promise<any>);
 
@@ -56,6 +57,9 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() translateItemText = false;
   @Input() hidePlaceholder = false;
   @Input() searchFn: (term: string, item: string | any) => boolean = null;
+  @Input() formControl: FormControl;
+
+  @ViewChild(NgSelectComponent) ngCombo: NgSelectComponent;
 
   x: boolean;
   showOnlySelected = false;
