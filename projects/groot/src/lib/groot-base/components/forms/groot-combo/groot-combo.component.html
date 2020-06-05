@@ -297,9 +297,10 @@
         <ng-container *ngIf="!labelTemplate">
             <span class="ng-value-icon left" (click)="clear(item)" aria-hidden="true">×</span>
             <span class="ng-value-label">
-          <ng-container
-                  *ngIf="translateItemText">{{ngCombo.selectedItems[index].label | translate}}</ng-container>
-          <ng-container *ngIf="!translateItemText">{{ngCombo.selectedItems[index].label}}</ng-container>
+                <ng-container *ngIf="ngCombo">
+                    <ng-container *ngIf="translateItemText">{{ngCombo.selectedItems[index].label | translate}}</ng-container>
+                    <ng-container *ngIf="!translateItemText">{{ngCombo.selectedItems[index].label}}</ng-container>
+                </ng-container>
         </span>
         </ng-container>
     </ng-template>
