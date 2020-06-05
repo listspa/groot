@@ -17,5 +17,9 @@
          class="custom-control-input"
          [formControl]="formControl"
          *ngIf="formControl">
-  <label class="custom-control-label" for="{{idRadio}}">{{label | translate}}</label>
+  <label class="custom-control-label"
+         [class.is-invalid]="formControl.invalid && formControl.touched"
+         for="{{idRadio}}">
+      {{label | translate}}
+  </label>
 </div>
