@@ -5,6 +5,18 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.21.2', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added error/missing indicator for <code>groot-radio</code> when it is used with <code>FormControl</code>`
+      },
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Added check to prevent possible null/undefined errors in <code>groot-combo</code>.`
+      }
+    ]
+  },
+  {
     version: '0.21.1', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
