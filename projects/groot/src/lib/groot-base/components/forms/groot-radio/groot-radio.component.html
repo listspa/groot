@@ -18,7 +18,7 @@
          [formControl]="formControl"
          *ngIf="formControl">
   <label class="custom-control-label"
-         [class.is-invalid]="formControl.invalid && formControl.touched"
+         [class.is-invalid]="formControl && formControl.invalid && formControl.touched"
          for="{{idRadio}}">
       {{label | translate}}
   </label>
