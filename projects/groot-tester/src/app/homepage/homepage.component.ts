@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.21.4', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Avoid angular warnings about "disabled" when using combo and form controls`
+      },
+    ],
+  },
+  {
     version: '0.21.3', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
