@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.21.5', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added class <code>bs-datepicker-today</code> for "today" in datepicker.
+No styling was added in Groot, but it's now possible to customize it in your own css.`
+      },
+    ],
+  },
+  {
     version: '0.21.4', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
