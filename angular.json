@@ -63,7 +63,8 @@
               "projects/groot-tester/src/styles.scss"
             ],
             "statsJson": true,
-            "scripts": []
+            "scripts": [],
+            "aot": true
           },
           "configurations": {
             "production": {
