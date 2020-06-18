@@ -1,6 +1,6 @@
 {
   "name": "@listgroup/groot",
-  "version": "0.22.1",
+  "version": "1.0.0-ng9-alpha.0",
   "repository": {
     "type": "git",
     "url": "https://gitlab.list-group.com/isp-bu/libs/isp.groot"
