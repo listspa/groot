@@ -18,6 +18,22 @@ const RELEASE_NOTES: Release[] = [
         type: ReleaseChangeType.NEW_FEATURE,
         html: `Added component <a href="#/demo/buttons"><code>groot-split-button</code></a>`
       },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New utilities function <code>deepCopy</code> and <code>deepCompare</code>`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New utilities function <code>deepCopy</code> and <code>deepCompare</code>`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New utility function <code>unsubscribeSafe</code>`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `New utilities functions <code>validateForm</code> and <code>unTouchForm</code>`
+      },
     ],
   },
   {
