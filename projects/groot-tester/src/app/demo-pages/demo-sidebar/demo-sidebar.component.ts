@@ -15,7 +15,7 @@ export class DemoSidebarComponent {
       children: [],
     },
     {
-      label: 'Palette',
+      label: 'Library Comp',
       icon: 'fa fa-flash',
       children: [
         {

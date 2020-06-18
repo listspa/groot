@@ -30,6 +30,8 @@ groot-darwin-side-bar {
       line-height: 1.2em;
       padding-top: 0.4em;
       word-break: break-word;
+      word-wrap: break-word;
+      max-width: 5rem;
     }
 
     &:hover {
