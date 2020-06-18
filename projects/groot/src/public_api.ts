@@ -28,7 +28,8 @@ export * from './lib/groot-base/components/forms/groot-radio/groot-radio.compone
 export * from './lib/groot-base/components/forms/groot-textarea/groot-textarea.component';
 export * from './lib/groot-base/components/forms/groot-toggle-button/groot-toggle-button.component';
 export * from './lib/groot-base/components/groot-button/groot-button.component';
-export * from './lib/groot-base/components/groot-split-button/groot-split-button.component.js';
+export * from './lib/groot-base/components/groot-split-button/groot-split-button.component';
+export * from './lib/groot-base/components/info-icon/info-icon.component';
 export * from './lib/groot-base/components/loading-indicator/loading-indicator.component';
 export * from './lib/groot-base/components/nav-bar/nav-bar.component';
 export * from './lib/groot-base/components/nav-bar/nav-bar.model';

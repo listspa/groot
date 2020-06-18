@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.22.1', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed typo in <code>public_api.ts</code> that caused build to fail`
+      },
+    ]
+  },
+  {
     version: '0.22.0', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
