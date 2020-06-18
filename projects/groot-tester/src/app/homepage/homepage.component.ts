@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.22.0', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added component <a href="#/demo/page-title"><code>groot-darwin-page-title</code></a>`
+      },
+    ],
+  },
+  {
     version: '0.21.5', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,

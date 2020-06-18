@@ -1,0 +1,38 @@
+groot-darwin-page-title {
+  display: block;
+
+  .h1 {
+    font-size: 1.4rem;
+    font-weight: $font-weight-bold;
+  }
+
+  .h4 {
+    font-size: 1.1rem;
+    font-weight: $font-weight-bold;
+  }
+
+  & .is-dashboard {
+    padding: 1.875rem 3.125rem 1.875rem 1.875rem;
+
+    & .title {
+      margin: 0;
+    }
+  }
+
+  & .other-content {
+    padding: 1.875rem 0;
+
+    &.reduced-height {
+      padding: 1rem 0;
+    }
+
+    & .title {
+      margin: 0;
+    }
+
+    & .subtitle {
+      margin: 0;
+      padding-top: 0.625rem;
+    }
+  }
+}

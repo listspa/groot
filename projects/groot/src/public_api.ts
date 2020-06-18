@@ -8,6 +8,7 @@ export * from './lib/groot-base/components/actions-button/actions-button.compone
 export * from './lib/groot-base/components/actions-button/actions-button-entry/actions-button-entry.component';
 export * from './lib/groot-base/components/confirm-modal/confirm-modal.component';
 export * from './lib/groot-base/components/collapsible-box/collapsible-box.component';
+export * from './lib/groot-base/components/darwin-page-title/groot-darwin-page-title.component';
 export * from './lib/groot-base/components/display-label-value/display-label-value.component';
 export * from './lib/groot-base/components/display-value/display-value.component';
 export * from './lib/groot-base/components/download-button/download-button.component';
@@ -23,7 +24,6 @@ export * from './lib/groot-base/components/forms/groot-input/groot-input.directi
 export * from './lib/groot-base/components/forms/groot-radio/groot-radio.component';
 export * from './lib/groot-base/components/forms/groot-textarea/groot-textarea.component';
 export * from './lib/groot-base/components/forms/groot-toggle-button/groot-toggle-button.component';
-export * from './lib/groot-base/components/tables/groot-table/groot-table.component';
 export * from './lib/groot-base/components/loading-indicator/loading-indicator.component';
 export * from './lib/groot-base/components/nav-bar/nav-bar.component';
 export * from './lib/groot-base/components/nav-bar/nav-bar.model';
