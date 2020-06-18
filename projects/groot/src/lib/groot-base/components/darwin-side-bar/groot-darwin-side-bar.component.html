@@ -1,0 +1,50 @@
+<ng-container *ngIf="menu">
+  <div class="menu-tabs">
+    <ng-container *ngFor="let tab of menu">
+
+      <ng-container *ngIf="tab">
+        <div class="menu-tab"
+             [class.selected]="tab == currentFirstLevel"
+             [class.open]="tab.open"
+             (click)="clickOnFirstLevel(tab)">
+          <i class="{{tab.icon}}"></i>
+          <span class="title">{{tab.label | translate}}</span>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!tab">
+        <div class="menu-tab-empty"></div>
+      </ng-container>
+
+    </ng-container>
+  </div>
+
+  <div class="menu-items"
+       [class.open]="currentFirstLevel && currentFirstLevel.open">
+    <ng-container *ngIf="currentFirstLevel && currentFirstLevel.open">
+      <div *ngFor="let secondLevel of currentFirstLevel.children"
+           class="menu-accordion">
+        <div class="accordion-title"
+             [class.clickable]="!secondLevel.forcedOpen"
+             (click)="clickOnSecondLevel(secondLevel)">
+          <span class="title">{{secondLevel.label | translate}}</span>
+
+          <ng-container *ngIf="!secondLevel.forcedOpen">
+            <i class="fa fa-angle-down" *ngIf="!secondLevel.open"></i>
+            <i class="fa fa-angle-up" *ngIf="secondLevel.open"></i>
+          </ng-container>
+        </div>
+
+        <div class="accordion-items"
+             *ngIf="secondLevel.open"
+             [@dropDown]>
+          <div *ngFor="let thirdLevel of secondLevel.children"
+               class="menu-entry"
+               [class.selected]="thirdLevel.selected"
+               (click)="clickOnThirdLevel(thirdLevel)">
+            {{thirdLevel.label | translate}}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>

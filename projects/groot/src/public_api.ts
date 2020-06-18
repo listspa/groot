@@ -11,6 +11,7 @@ export * from './lib/groot-base/components/collapsible-box/collapsible-box.compo
 export * from './lib/groot-base/components/darwin-breadcrumbs/groot-darwin-breadcrumbs.component';
 export * from './lib/groot-base/components/darwin-breadcrumbs/darwin-breadcrumb-goback/groot-darwin-breadcrumbs-go-back.component';
 export * from './lib/groot-base/components/darwin-breadcrumbs/darwin-breadcrumb-separator/groot-darwin-breadcrumb-separator.component';
+export * from './lib/groot-base/components/darwin-side-bar/groot-darwin-side-bar.component';
 export * from './lib/groot-base/components/darwin-page-title/groot-darwin-page-title.component';
 export * from './lib/groot-base/components/display-label-value/display-label-value.component';
 export * from './lib/groot-base/components/display-value/display-value.component';
@@ -45,6 +46,7 @@ export * from './lib/groot-base/directives/loading.directive';
 export * from './lib/groot-base/directives/needsCapability.directive';
 export * from './lib/groot-base/directives/provide-parent-form.directive';
 export * from './lib/groot-base/interceptors/no-cache.interceptor';
+export * from './lib/groot-base/model/darwin-sidebar.model';
 export * from './lib/groot-base/pipes/ft-date/ft-date.pipe';
 export * from './lib/groot-base/pipes/ft-time/ft-time.pipe';
 export * from './lib/groot-base/pipes/fileSize/fileSize.pipe';

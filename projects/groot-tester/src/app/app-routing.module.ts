@@ -28,6 +28,7 @@ import {DemoFooterComponent} from './demo-pages/demo-footer/demo-footer.componen
 import {DemoCardsComponent} from './demo-pages/demo-cards/demo-cards.component';
 import {DemoTableAutocolComponent} from './demo-pages/demo-table-autocol/demo-table-autocol.component';
 import {DemoSmallComponentsComponent} from './demo-pages/demo-small-components/demo-small-components.component';
+import {DemoSidebarComponent} from './demo-pages/demo-sidebar/demo-sidebar.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
@@ -58,6 +59,7 @@ const routes: Routes = [
   {component: DemoPageTitleComponent, path: 'demo/page-title', data: {pageTitle: {title: 'Page Title Demo', subTitle: 'Page sub title'}}},
   {component: DemoCardsComponent, path: 'demo/cards'},
   {component: DemoSmallComponentsComponent, path: 'demo/misc-small-components'},
+  {component: DemoSidebarComponent, path: 'demo/sidebar'},
   {path: '', pathMatch: 'full', redirectTo: 'home'},
 
   {

@@ -8,6 +8,10 @@ const RELEASE_NOTES: Release[] = [
     version: '0.22.0', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added component <a href="#/demo/sidebar"><code>groot-darwin-side-bar</code></a>`
+      },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
         html: `Added component <a href="#/demo/page-title"><code>groot-darwin-page-title</code></a>`
       },
       {

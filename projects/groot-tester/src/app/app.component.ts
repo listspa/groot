@@ -30,6 +30,7 @@ export class AppComponent {
         {isSeparator: true},
         {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window-maximize'},
         {label: 'Nav bar', url: '/demo/nav-bar', icon: 'fa fa-bars'},
+        {label: 'Side bar', url: '/demo/sidebar', icon: 'fa fa-bars'},
         {label: 'Page title', url: '/demo/page-title', icon: 'fa fa-th-list'},
         {isSeparator: true},
         {label: 'Tabs', url: '/demo/tabs', icon: 'fa fa-th-large'},
@@ -114,6 +115,7 @@ export class AppComponent {
           [
             {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window-maximize'},
             {label: 'Nav bar', url: '/demo/nav-bar', icon: 'fa fa-bars'},
+            {label: 'Sidebar', url: '/demo/sidebar', icon: 'fa fa-bars'},
             {label: 'Page title', url: '/demo/page-title', icon: 'fa fa-th-list'}
           ],
           [

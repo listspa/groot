@@ -3,18 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {GrootModule} from '../../../groot/src/lib/groot-base/groot.module';
-import {
-  BsDatepickerConfig,
-  BsDatepickerModule,
-  BsDropdownModule,
-  defineLocale,
-  itLocale,
-  ModalModule,
-  PopoverModule,
-  TabsModule,
-  TimepickerModule,
-  TooltipModule
-} from 'ngx-bootstrap';
+import {BsDatepickerConfig, BsDatepickerModule, BsDropdownModule, defineLocale, itLocale, ModalModule, PopoverModule, TabsModule, TimepickerModule, TooltipModule} from 'ngx-bootstrap';
 import {registerLocaleData} from '@angular/common';
 import localeIt from '@angular/common/locales/it';
 import {MissingTranslationHandler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -64,6 +53,7 @@ import {INIT_GROOT_ARCH_PROVIDER} from '../../../groot/src/lib/groot-arch/init-g
 import {GROOT_PLUGIN} from '../../../groot/src/lib/groot-arch/interfaces/groot-plugin';
 import {DocsArchGrootPlugin} from './docs-arch/docs-arch.groot-plugin';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {DemoSidebarComponent} from './demo-pages/demo-sidebar/demo-sidebar.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -105,7 +95,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DemoFooterComponent,
     DemoCardsComponent,
     DemoTableAutocolComponent,
-    DemoSmallComponentsComponent
+    DemoSmallComponentsComponent,
+    DemoSidebarComponent,
   ],
   imports: [
     BrowserModule,

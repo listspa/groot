@@ -51,6 +51,7 @@ import {GrootDarwinBreadcrumbsComponent} from './components/darwin-breadcrumbs/g
 import {GrootDarwinBreadcrumbsGoBackComponent} from './components/darwin-breadcrumbs/darwin-breadcrumb-goback/groot-darwin-breadcrumbs-go-back.component';
 import {GrootDarwinBreadcrumbSeparatorComponent} from './components/darwin-breadcrumbs/darwin-breadcrumb-separator/groot-darwin-breadcrumb-separator.component';
 import {GrootSplitButtonComponent} from './components/groot-split-button/groot-split-button.component';
+import {GrootDarwinSideBarComponent} from './components/darwin-side-bar/groot-darwin-side-bar.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import {GrootSplitButtonComponent} from './components/groot-split-button/groot-s
     GrootDarwinBreadcrumbsGoBackComponent,
     GrootDarwinBreadcrumbSeparatorComponent,
     GrootSplitButtonComponent,
+    GrootDarwinSideBarComponent,
   ],
   imports: [
     CommonModule,
@@ -159,6 +161,7 @@ import {GrootSplitButtonComponent} from './components/groot-split-button/groot-s
     GrootDarwinBreadcrumbsGoBackComponent,
     GrootDarwinBreadcrumbSeparatorComponent,
     GrootSplitButtonComponent,
+    GrootDarwinSideBarComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

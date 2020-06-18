@@ -1,0 +1,106 @@
+groot-darwin-side-bar {
+  display: flex;
+  height: 100%;
+
+  .menu-tabs {
+    background-color: $gray-darwin-bg;
+    width: 5rem;
+    border-right: 1px solid $gray-darwin-border;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .menu-tab {
+    height: 5rem;
+    cursor: pointer;
+    text-align: center;
+    padding: 0.8em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $gray-darwin-bg;
+    font-size: 0.9em;
+
+    i {
+      font-size: 1.6rem;
+    }
+
+    .title {
+      line-height: 1.2em;
+      padding-top: 0.4em;
+      word-break: break-word;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+
+    &.selected {
+      color: $primary;
+      background-color: $white;
+      border-top: 1px solid $gray-darwin-border;
+      border-bottom: 1px solid $gray-darwin-border;
+
+      .title {
+        font-weight: bold;
+      }
+    }
+
+    &.open {
+      border-right: 1px solid $white;
+      margin-right: -1px;
+      padding-right: 1px;
+    }
+  }
+
+  .menu-tab-empty {
+    flex-grow: 1;
+  }
+
+  .menu-items {
+    width: 0;
+    border-right: none;
+    transition: width .15s ease-in-out;
+
+    &.open {
+      padding: 1rem;
+      width: 20rem;
+      border-right: 2px solid $gray-darwin-border;
+    }
+  }
+
+  .menu-accordion {
+    padding-bottom: 1rem;
+  }
+
+  .accordion-title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    padding-bottom: 0.4rem;
+
+    &.clickable {
+      cursor: pointer;
+    }
+
+    .title {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  .accordion-items {
+    margin-left: 0.6rem;
+
+    .menu-entry {
+      padding: 0.4rem;
+      cursor: pointer;
+
+      &:hover, &.selected {
+        background-color: $light-primary;
+        color: $white;
+      }
+    }
+  }
+}
