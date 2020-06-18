@@ -50,6 +50,7 @@ import {GrootDarwinPageTitleComponent} from './components/darwin-page-title/groo
 import {GrootDarwinBreadcrumbsComponent} from './components/darwin-breadcrumbs/groot-darwin-breadcrumbs.component';
 import {GrootDarwinBreadcrumbsGoBackComponent} from './components/darwin-breadcrumbs/darwin-breadcrumb-goback/groot-darwin-breadcrumbs-go-back.component';
 import {GrootDarwinBreadcrumbSeparatorComponent} from './components/darwin-breadcrumbs/darwin-breadcrumb-separator/groot-darwin-breadcrumb-separator.component';
+import {GrootSplitButtonComponent} from './components/groot-split-button/groot-split-button.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import {GrootDarwinBreadcrumbSeparatorComponent} from './components/darwin-bread
     GrootDarwinBreadcrumbsComponent,
     GrootDarwinBreadcrumbsGoBackComponent,
     GrootDarwinBreadcrumbSeparatorComponent,
+    GrootSplitButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -156,6 +158,7 @@ import {GrootDarwinBreadcrumbSeparatorComponent} from './components/darwin-bread
     GrootDarwinBreadcrumbsComponent,
     GrootDarwinBreadcrumbsGoBackComponent,
     GrootDarwinBreadcrumbSeparatorComponent,
+    GrootSplitButtonComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

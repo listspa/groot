@@ -1,0 +1,14 @@
+<div class="btn-group" dropdown>
+  <button dropdownToggle
+          type="button"
+          class="btn dropdown-toggle"
+          [ngClass]="classes"
+          [disabled]="disabled">
+    <i *ngIf="icon" [ngClass]="icon"></i>
+    {{label | translate}}
+    <span class="caret"></span>
+  </button>
+  <ul *dropdownMenu class="dropdown-menu">
+    <ng-content></ng-content>
+  </ul>
+</div>

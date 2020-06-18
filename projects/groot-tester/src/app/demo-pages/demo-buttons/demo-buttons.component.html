@@ -94,3 +94,22 @@
 </div>
 
 <hr>
+
+<h2>Split-buttons</h2>
+
+<p>
+  Sometimes it's useful to present a button that hides a menu of actions. To do so, we have created the component
+  <code>groot-split-button</code>:
+</p>
+
+<groot-split-button classes="btn-outline-primary" label="Actions">
+  <li><span class="dropdown-item">{{'Insert' | translate}}</span></li>
+  <li><span class="dropdown-item">{{'Delete' | translate}}</span></li>
+</groot-split-button>
+
+<p>Code sample:</p>
+
+<pre><code>&lt;groot-split-button classes="btn-outline-primary" label="Actions">
+  &lt;li>&lt;span class="dropdown-item">{{'Insert' | translate}}&lt;/span>&lt;/li>
+  &lt;li>&lt;span class="dropdown-item">{{'Delete' | translate}}&lt;/span>&lt;/li>
+&lt;/groot-split-button></code></pre>
