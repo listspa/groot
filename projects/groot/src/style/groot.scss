@@ -48,6 +48,6 @@ $fa-font-path: '~font-awesome/fonts' !default;
 @import "components/table-title-bar.component";
 @import "components/toggle-button.component";
 @import "components/info-icon.component";
-@import "components/groot-darwin-page-title.component";
-@import "components/groot-darwin-breadcrums.component";
+@import "src/style/components/darwin-page-title.component";
+@import "src/style/components/darwin-breadcrums.component";
 @import "components/split-button.component";
