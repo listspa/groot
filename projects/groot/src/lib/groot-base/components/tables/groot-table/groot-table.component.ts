@@ -34,9 +34,9 @@ export class GrootTableComponent<T> implements OnInit {
   @Input() striped = true;
   @Input() selectable = false;
   @Input() hideTableIfEmpty = true;
-  @Input() @ContentChild(GrootTableHeaderDirective, {read: TemplateRef}) headerTemplate: TemplateRef<any>;
-  @Input() @ContentChild(GrootTableBodyDirective, {read: TemplateRef}) bodyTemplate: TemplateRef<any>;
-  @Input() @ContentChild(GrootTableTitleRightAreaDirective, {read: TemplateRef}) tableTitleRightArea: TemplateRef<any>;
+  @ContentChild(GrootTableHeaderDirective, {read: TemplateRef}) headerTemplate: TemplateRef<any>;
+  @ContentChild(GrootTableBodyDirective, {read: TemplateRef}) bodyTemplate: TemplateRef<any>;
+  @ContentChild(GrootTableTitleRightAreaDirective, {read: TemplateRef}) tableTitleRightArea: TemplateRef<any>;
   @Output() search = new EventEmitter<PaginationOptions>();
   public searchResults: PaginatedResponse<T> = null;
   public sorting: Sorting;

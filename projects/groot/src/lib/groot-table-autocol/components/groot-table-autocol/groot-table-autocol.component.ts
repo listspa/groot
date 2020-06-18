@@ -42,9 +42,9 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
   @Input() hideTableIfEmpty = false;
   @Output() search = new EventEmitter<FilterPaginationOptions>();
   @Input() searchResultsData: PaginatedResponse<T> | LoadingFailed;
-  @Input() @ContentChild(GrootTableAutocolActionsDirective, {read: TemplateRef}) actionsTemplate: TemplateRef<any>;
+  @ContentChild(GrootTableAutocolActionsDirective, {read: TemplateRef}) actionsTemplate: TemplateRef<any>;
   @ContentChildren(GrootTableAutocolTemplateForColumnDirective) columnsTemplates: QueryList<GrootTableAutocolTemplateForColumnDirective>;
-  @Input() @ContentChild(GrootTableTitleAutocolRightAreaDirective, {read: TemplateRef}) autocolTableTitleRightArea: TemplateRef<any>;
+  @ContentChild(GrootTableTitleAutocolRightAreaDirective, {read: TemplateRef}) autocolTableTitleRightArea: TemplateRef<any>;
   @Input() allowChoosingColumns = true;
   @Input() allowResizingColumns = true;
   @Input() allowReorderColumns = true;

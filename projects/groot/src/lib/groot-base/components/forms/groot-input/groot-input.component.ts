@@ -22,9 +22,9 @@ export class GrootInputComponent implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() helpText: string = null;
   @Input() iconLeft: string | string[] | null = null;
-  @Input() @ContentChild(GrootInputIconLeftDirective, {read: TemplateRef}) templateLeft: TemplateRef<any> = null;
+  @ContentChild(GrootInputIconLeftDirective, {read: TemplateRef}) templateLeft: TemplateRef<any> = null;
   @Input() iconRight: string | string[] | null = null;
-  @Input() @ContentChild(GrootInputIconRightDirective, {read: TemplateRef}) templateRight: TemplateRef<any> = null;
+  @ContentChild(GrootInputIconRightDirective, {read: TemplateRef}) templateRight: TemplateRef<any> = null;
   @Input() formControl: FormControl = null;
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
