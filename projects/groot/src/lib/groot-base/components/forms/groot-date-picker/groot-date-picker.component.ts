@@ -55,12 +55,12 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
       !this._element ||
       !this._element.nativeElement ||
       !this._element.nativeElement.childNodes ||
-      !this._element.nativeElement.childNodes[1]
-    ) {
+      !this._element.nativeElement.childNodes[2] ||
+      !this._element.nativeElement.childNodes[2].getBoundingClientRect) {
       return position;
     }
 
-    const rect: ClientRect | DOMRect = this._element.nativeElement.childNodes[1].getBoundingClientRect();
+    const rect: ClientRect | DOMRect = this._element.nativeElement.childNodes[2].getBoundingClientRect();
 
     const height = 315;
     const width = 308;
