@@ -1,5 +1,5 @@
 import {Directive, Input, OnChanges} from '@angular/core';
-import {TabDirective} from 'ngx-bootstrap';
+import {TabDirective} from 'ngx-bootstrap/tabs';
 
 /**
  * ngx-bootstraps' tabs do not respect order when using *ngIf on some of them.

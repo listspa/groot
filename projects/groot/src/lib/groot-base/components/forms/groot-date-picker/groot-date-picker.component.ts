@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
-import {BsDatepickerDirective} from 'ngx-bootstrap';
+import {BsDatepickerDirective} from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'groot-date-picker',

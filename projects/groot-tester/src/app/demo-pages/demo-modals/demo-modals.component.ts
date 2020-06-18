@@ -1,5 +1,5 @@
 import {Component, TemplateRef} from '@angular/core';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {ConfirmModalService} from '../../../../../groot/src/lib/groot-base/services/confirm-modal.service';
 
 @Component({

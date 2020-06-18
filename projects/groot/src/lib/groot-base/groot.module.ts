@@ -9,7 +9,10 @@ import {CollapsibleBoxComponent} from './components/collapsible-box/collapsible-
 import {LoadingDirective} from './directives/loading.directive';
 import {LoadingIndicatorComponent} from './components/loading-indicator/loading-indicator.component';
 import {LoadingService} from './services/loading.service';
-import {BsDatepickerModule, BsDropdownModule, PopoverModule, TabsModule} from 'ngx-bootstrap';
+import {TabsModule} from 'ngx-bootstrap/tabs';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import {PopoverModule} from 'ngx-bootstrap/popover';
 import {NotificationToastListComponent} from './components/notification-toast-list/notification-toast-list.component';
 import {NotificationToastService} from './services/notification-toast.service';
 import {NavBarComponent} from './components/nav-bar/nav-bar.component';

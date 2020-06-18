@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {GrootModule} from '../../../groot/src/lib/groot-base/groot.module';
-import {BsDatepickerConfig, BsDatepickerModule, BsDropdownModule, defineLocale, itLocale, ModalModule, PopoverModule, TabsModule, TimepickerModule, TooltipModule} from 'ngx-bootstrap';
 import {registerLocaleData} from '@angular/common';
 import localeIt from '@angular/common/locales/it';
 import {MissingTranslationHandler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -54,6 +53,14 @@ import {GROOT_PLUGIN} from '../../../groot/src/lib/groot-arch/interfaces/groot-p
 import {DocsArchGrootPlugin} from './docs-arch/docs-arch.groot-plugin';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DemoSidebarComponent} from './demo-pages/demo-sidebar/demo-sidebar.component';
+import {defineLocale, itLocale} from 'ngx-bootstrap/chronos';
+import {BsDatepickerConfig, BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import {TimepickerModule} from 'ngx-bootstrap/timepicker';
+import {TabsModule} from 'ngx-bootstrap/tabs';
+import {ModalModule} from 'ngx-bootstrap/modal';
+import {TooltipModule} from 'ngx-bootstrap/tooltip';
+import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import {PopoverModule} from 'ngx-bootstrap/popover';
 
 // Enable italian locale
 registerLocaleData(localeIt);

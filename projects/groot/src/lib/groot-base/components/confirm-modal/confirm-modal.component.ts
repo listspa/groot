@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {BsModalRef} from 'ngx-bootstrap';
+import {BsModalRef} from 'ngx-bootstrap/modal';
 import {Subject} from 'rxjs';
 import {ClassesType} from '../../../model/confirm-modal.model';
 

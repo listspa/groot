@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
-import {BsModalRef} from 'ngx-bootstrap';
+import {BsModalRef} from 'ngx-bootstrap/modal';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {SelectedColumns, TableColumns} from '../../../model/table-columns.model';
 

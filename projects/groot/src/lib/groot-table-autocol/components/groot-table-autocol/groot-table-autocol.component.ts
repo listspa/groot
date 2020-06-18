@@ -1,39 +1,15 @@
-import {
-  AfterContentInit,
-  Component,
-  ContentChild,
-  ContentChildren,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  Output,
-  QueryList,
-  TemplateRef,
-  ViewChild
-} from '@angular/core';
-import {BsModalService} from 'ngx-bootstrap';
+import {AfterContentInit, Component, ContentChild, ContentChildren, ElementRef, EventEmitter, Input, OnDestroy, Output, QueryList, TemplateRef, ViewChild} from '@angular/core';
+import {BsModalService} from 'ngx-bootstrap/modal';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {ReplaySubject, Subject, Subscription} from 'rxjs';
 import {ColumnsSelectorComponent} from './columns-selector/columns-selector.component';
 import {SelectedColumns, TableColumn, TableColumns} from '../../model/table-columns.model';
 import {dropDownOnCreateAnimation} from '../../../groot-base/utils/animations-utils';
-import {
-  ComboDataRequest,
-  FilterOption,
-  FilterPaginationOptions,
-  NbpuSchemaFieldType,
-  PaginatedResponse,
-  PaginationOptions
-} from '../../../groot-base/utils/pagination.model';
+import {ComboDataRequest, FilterOption, FilterPaginationOptions, NbpuSchemaFieldType, PaginatedResponse, PaginationOptions} from '../../../groot-base/utils/pagination.model';
 import {ElementResizingHandler} from '../../../groot-base/utils/element-resizing-handler';
 import {GrootTableComponent, LoadingFailed} from '../../../groot-base/components/tables/groot-table/groot-table.component';
 import {PopoverFilterService} from './popover-filter.service';
-import {
-  GrootTableAutocolActionsDirective,
-  GrootTableAutocolTemplateForColumnDirective,
-  GrootTableTitleAutocolRightAreaDirective
-} from './groot-table-autocol.directive';
+import {GrootTableAutocolActionsDirective, GrootTableAutocolTemplateForColumnDirective, GrootTableTitleAutocolRightAreaDirective} from './groot-table-autocol.directive';
 import {PopoverDataRequest} from '../../model/popover-filter.model';
 
 export interface ColumnAndWidth {
