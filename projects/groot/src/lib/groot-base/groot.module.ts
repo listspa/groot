@@ -47,6 +47,9 @@ import {GrootProvideParentForm} from './directives/provide-parent-form.directive
 import {InfoIconComponent} from './components/info-icon/info-icon.component';
 import {GrootTabOrderDirective} from './directives/groot-tab-order.directive';
 import {GrootDarwinPageTitleComponent} from './components/darwin-page-title/groot-darwin-page-title.component';
+import {GrootDarwinBreadcrumbsComponent} from './components/darwin-breadcrumbs/groot-darwin-breadcrumbs.component';
+import {GrootDarwinBreadcrumbsGoBackComponent} from './components/darwin-breadcrumbs/darwin-breadcrumb-goback/groot-darwin-breadcrumbs-go-back.component';
+import {GrootDarwinBreadcrumbSeparatorComponent} from './components/darwin-breadcrumbs/darwin-breadcrumb-separator/groot-darwin-breadcrumb-separator.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +95,9 @@ import {GrootDarwinPageTitleComponent} from './components/darwin-page-title/groo
     InfoIconComponent,
     GrootTabOrderDirective,
     GrootDarwinPageTitleComponent,
+    GrootDarwinBreadcrumbsComponent,
+    GrootDarwinBreadcrumbsGoBackComponent,
+    GrootDarwinBreadcrumbSeparatorComponent,
   ],
   imports: [
     CommonModule,
@@ -147,6 +153,9 @@ import {GrootDarwinPageTitleComponent} from './components/darwin-page-title/groo
     GrootProvideParentForm,
     GrootTabOrderDirective,
     GrootDarwinPageTitleComponent,
+    GrootDarwinBreadcrumbsComponent,
+    GrootDarwinBreadcrumbsGoBackComponent,
+    GrootDarwinBreadcrumbSeparatorComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

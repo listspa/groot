@@ -10,6 +10,10 @@ const RELEASE_NOTES: Release[] = [
         type: ReleaseChangeType.NEW_FEATURE,
         html: `Added component <a href="#/demo/page-title"><code>groot-darwin-page-title</code></a>`
       },
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added component <a href="#/demo/misc-small-components"><code>groot-darwin-breadcrumbs</code></a>`
+      },
     ],
   },
   {

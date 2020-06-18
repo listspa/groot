@@ -291,3 +291,32 @@
     <pre><code>&lt;groot-display-label-value label="empty">&lt;/groot-display-label-value></code></pre>
   </div>
 </div>
+
+<h2>Breadcrumbs</h2>
+
+<p>
+  To show breadcrumbs in the top-left corner of the page, we have some components that follow Darwin (XDCE) style.
+  Sample:
+</p>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Go back link</div>
+  </div>
+  <div class="col-md-3">
+    <groot-darwin-breadcrumbs>
+      <groot-darwin-breadcrumb-go-back
+        [action]="['/']"
+        label="home"
+      ></groot-darwin-breadcrumb-go-back>
+    </groot-darwin-breadcrumbs>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-darwin-breadcrumbs>
+  &lt;groot-darwin-breadcrumb-go-back
+    [action]="['/']"
+    label="home"
+  >&lt;/groot-darwin-breadcrumb-go-back>
+&lt;/groot-darwin-breadcrumbs></code></pre>
+  </div>
+</div>

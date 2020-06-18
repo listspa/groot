@@ -8,6 +8,9 @@ export * from './lib/groot-base/components/actions-button/actions-button.compone
 export * from './lib/groot-base/components/actions-button/actions-button-entry/actions-button-entry.component';
 export * from './lib/groot-base/components/confirm-modal/confirm-modal.component';
 export * from './lib/groot-base/components/collapsible-box/collapsible-box.component';
+export * from './lib/groot-base/components/darwin-breadcrumbs/groot-darwin-breadcrumbs.component';
+export * from './lib/groot-base/components/darwin-breadcrumbs/darwin-breadcrumb-goback/groot-darwin-breadcrumbs-go-back.component';
+export * from './lib/groot-base/components/darwin-breadcrumbs/darwin-breadcrumb-separator/groot-darwin-breadcrumb-separator.component';
 export * from './lib/groot-base/components/darwin-page-title/groot-darwin-page-title.component';
 export * from './lib/groot-base/components/display-label-value/display-label-value.component';
 export * from './lib/groot-base/components/display-value/display-value.component';
