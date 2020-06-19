@@ -14,6 +14,14 @@ const RELEASE_NOTES: Release[] = [
     ]
   },
   {
+    version: '0.22.2', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added option for icon in <code>groot-darwin-page-title</code>`
+      },
+    ]
+  },
+  {
     version: '0.22.1', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
