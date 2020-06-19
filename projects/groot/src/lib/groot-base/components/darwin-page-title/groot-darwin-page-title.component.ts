@@ -5,6 +5,7 @@ import {Component, Input} from '@angular/core';
   templateUrl: './groot-darwin-page-title.component.html',
 })
 export class GrootDarwinPageTitleComponent {
+  @Input() icon: string | string[];
   @Input() title: string;
   @Input() titleTranslationObj: any;
   @Input() subtitle: string;
