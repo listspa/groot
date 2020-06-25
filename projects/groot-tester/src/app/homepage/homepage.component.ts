@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '1.0.0', released: true, changes: [{
+      type: ReleaseChangeType.BREAKING_CHANGE,
+      html: `Angular 10 is now required. TODO
+      <br>
+      Nota cambiare import scss <code>@import "~@listgroup/groot/src/style/groot";</code>`
+    }
+    ]
+  },
+  {
     version: '0.22.1', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
