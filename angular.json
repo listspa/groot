@@ -125,23 +125,6 @@
             "browserTarget": "groot-tester:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/groot-tester/src/test.ts",
-            "polyfills": "projects/groot-tester/src/polyfills.ts",
-            "tsConfig": "projects/groot-tester/tsconfig.spec.json",
-            "karmaConfig": "projects/groot-tester/karma.conf.js",
-            "assets": [
-              "projects/groot-tester/src/favicon.ico",
-              "projects/groot-tester/src/assets"
-            ],
-            "styles": [
-              "projects/groot-tester/src/styles.scss"
-            ],
-            "scripts": []
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
