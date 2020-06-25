@@ -172,7 +172,7 @@ import {GrootDarwinSideBarComponent} from './components/darwin-side-bar/groot-da
   ]
 })
 export class GrootModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<GrootModule> {
     return {
       ngModule: GrootModule,
       providers: [
