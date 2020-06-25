@@ -9,9 +9,8 @@ import {
   SearchColumnValuesRequest
 } from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
 import {Observable, of} from 'rxjs';
-import {finalize, map} from 'rxjs/operators';
+import {finalize, map, tap} from 'rxjs/operators';
 import {BASE_URL} from '../../constants';
-import {tap} from 'rxjs/internal/operators/tap';
 import {compareBy} from '../../../../../groot/src/lib/groot-base/utils/compare-by';
 
 export interface Deal {

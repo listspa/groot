@@ -1,16 +1,8 @@
-import {
-  ApplicationRef,
-  ComponentFactoryResolver,
-  ComponentRef,
-  EmbeddedViewRef,
-  Injectable,
-  Injector
-} from '@angular/core';
+import {ApplicationRef, ComponentFactoryResolver, ComponentRef, EmbeddedViewRef, Injectable, Injector} from '@angular/core';
 import {TableColumn} from '../../model/table-columns.model';
 import {PopoverFilterComponent} from './popover-filter/popover-filter.component';
-import {concat, fromEvent, Observable, of, Subject} from 'rxjs';
+import {concat, fromEvent, merge, Observable, of, Subject} from 'rxjs';
 import {filter, finalize, skip, takeUntil} from 'rxjs/operators';
-import {merge} from 'rxjs/internal/observable/merge';
 import {ComboDataRequest, FilterOption, PaginatedResponse} from '../../../groot-base/utils/pagination.model';
 
 // Notes: this service is very much bound to the PopoverFilterComponent.
