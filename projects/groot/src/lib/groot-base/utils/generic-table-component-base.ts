@@ -1,4 +1,4 @@
-import {Input, OnChanges, SimpleChanges} from '@angular/core';
+import {Directive, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {PaginatedResponse, PaginationOptions, Sorting} from './pagination.model';
 
 /**
@@ -31,6 +31,7 @@ import {PaginatedResponse, PaginationOptions, Sorting} from './pagination.model'
  *   ></groot-table-pagination>
  * </div>
  */
+@Directive()
 export abstract class GenericTableComponentBase<T> implements OnChanges {
   public pageSize = 15;
   // noinspection JSUnusedGlobalSymbols
