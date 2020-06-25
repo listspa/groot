@@ -1,13 +1,13 @@
 {
   "name": "@listgroup/groot",
-  "version": "1.0.0-ng9-alpha.1",
+  "version": "1.0.0-ng10-alpha.2",
   "repository": {
     "type": "git",
     "url": "https://gitlab.list-group.com/isp-bu/libs/isp.groot"
   },
   "peerDependencies": {
-    "@angular/cdk": "^9.0.0",
-    "@angular/core": "^9.0.0",
+    "@angular/cdk": "^10.0.0",
+    "@angular/core": "^10.0.0",
     "@ng-select/ng-select": "^4.0.0",
     "@ngx-translate/http-loader": "^5.0.0",
     "@ngx-translate/core": "^12.0.0",
@@ -17,6 +17,9 @@
     "font-awesome": "^4.7.0",
     "mdn-polyfills": "^5.19.0",
     "ngx-bootstrap": "^5.6.1"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
   },
   "publishConfig": {
     "registry": "https://artifactory.list-group.com/artifactory/api/npm/npm-local/"
