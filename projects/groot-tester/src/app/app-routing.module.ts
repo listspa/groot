@@ -64,7 +64,7 @@ const routes: Routes = [
 
   {
     path: 'docs-arch',
-    loadChildren: './docs-arch/docs-arch-wrapper.module#DocsArchWrapperModule'
+    loadChildren: () => import('./docs-arch/docs-arch-wrapper.module').then(m => m.DocsArchWrapperModule),
   },
 ];
 
