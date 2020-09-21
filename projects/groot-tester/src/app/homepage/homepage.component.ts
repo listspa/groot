@@ -14,6 +14,14 @@ const RELEASE_NOTES: Release[] = [
     ]
   },
   {
+    version: '0.22.3', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Added option dropDownPosition to <code>groot-combo</code>`
+      },
+    ]
+  },
+  {
     version: '0.22.2', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
