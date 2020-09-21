@@ -14,6 +14,7 @@ import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {ComboDataRequestWithSelected, PaginatedResponse} from '../../../utils/pagination.model';
 import {TranslateService} from '@ngx-translate/core';
 import {NgSelectComponent} from '@ng-select/ng-select';
+import {DropdownPosition} from '@ng-select/ng-select/ng-select/ng-select.component';
 
 export declare type AddTagFn = ((term: string) => any | Promise<any>);
 
@@ -58,6 +59,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() hidePlaceholder = false;
   @Input() searchFn: (term: string, item: string | any) => boolean = null;
   @Input() formControl: FormControl;
+  @Input() dropDownPosition: DropdownPosition = 'auto';
 
   @ViewChild(NgSelectComponent) ngCombo: NgSelectComponent;
 
