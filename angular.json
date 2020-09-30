@@ -140,5 +140,8 @@
       }
     }
   },
-  "defaultProject": "groot"
+  "defaultProject": "groot",
+  "cli": {
+    "analytics": false
+  }
 }
