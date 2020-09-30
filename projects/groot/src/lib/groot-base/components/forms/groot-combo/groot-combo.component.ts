@@ -13,8 +13,7 @@ import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {ComboDataRequest, ComboDataRequestWithSelected, PaginatedResponse} from '../../../utils/pagination.model';
 import {TranslateService} from '@ngx-translate/core';
-import {NgSelectComponent} from '@ng-select/ng-select';
-import {DropdownPosition} from '@ng-select/ng-select/ng-select/ng-select.component';
+import {DropdownPosition, NgSelectComponent} from '@ng-select/ng-select';
 
 export declare type AddTagFn = ((term: string) => any | Promise<any>);
 
