@@ -14,6 +14,14 @@ const RELEASE_NOTES: Release[] = [
     ]
   },
   {
+    version: '0.22.4', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fixed a bug in <code>groot-combo</code> with <code>fetchDataIncrementally=true</code> that caused the structure <code>ComboDataRequestWithSelected</code> to be emitted even when <code>toggleShowOnlySelected=false</code> and <code>ComboDataRequest</code> should be emitted instead`
+      },
+    ]
+  },
+  {
     version: '0.22.3', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,

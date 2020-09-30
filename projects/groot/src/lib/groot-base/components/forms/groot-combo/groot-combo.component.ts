@@ -11,7 +11,7 @@ import {
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
-import {ComboDataRequestWithSelected, PaginatedResponse} from '../../../utils/pagination.model';
+import {ComboDataRequest, ComboDataRequestWithSelected, PaginatedResponse} from '../../../utils/pagination.model';
 import {TranslateService} from '@ngx-translate/core';
 import {NgSelectComponent} from '@ng-select/ng-select';
 import {DropdownPosition} from '@ng-select/ng-select/ng-select/ng-select.component';
@@ -30,7 +30,7 @@ export declare type AddTagFn = ((term: string) => any | Promise<any>);
   ]
 })
 export class GrootComboComponent implements ControlValueAccessor, OnInit {
-  @Output() requestData = new EventEmitter<ComboDataRequestWithSelected>();
+  @Output() requestData = new EventEmitter<ComboDataRequestWithSelected | ComboDataRequest>();
 
   @Input() label: string;
   @Input() placeholder: string | null;
@@ -262,13 +262,22 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   }
 
   private doRequestData(pageToLoad: number) {
-    const request: ComboDataRequestWithSelected = {
-      filterText: this._lastTypeaheadValue,
-      pageNum: pageToLoad,
-      pageLen: this._fetchDataIncrementally ? this.maxItemsAtATime : 999999,
-      showOnlySelected: this.showOnlySelected,
-      selected: this.showOnlySelected ? this.selectedValue : null
-    };
+    let request: ComboDataRequestWithSelected | ComboDataRequest;
+    if(this.toggleShowOnlySelected) {
+      request = {
+        filterText: this._lastTypeaheadValue,
+        pageNum: pageToLoad,
+        pageLen: this._fetchDataIncrementally ? this.maxItemsAtATime : 999999,
+        showOnlySelected: this.showOnlySelected,
+        selected: this.showOnlySelected ? this.selectedValue : null
+      };
+    } else {
+      request = {
+        filterText: this._lastTypeaheadValue,
+        pageNum: pageToLoad,
+        pageLen: this._fetchDataIncrementally ? this.maxItemsAtATime : 999999,
+      };
+    }
     this.loading = true;
     this.requestData.emit(request);
     this._pages[pageToLoad] = [];
