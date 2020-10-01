@@ -26,6 +26,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
   @Input() maxDate: Date | null;
   @Input() daysDisabled: number[] | null;
   @Input() datesDisabled: Date[] | null;
+  @Input() datesEnabled: Date[] | null;
   @Input() hidePlaceholder = false;
   placement = 'bottom';
   selectedDate: Date;
