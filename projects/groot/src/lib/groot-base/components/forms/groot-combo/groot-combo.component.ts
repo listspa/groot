@@ -60,6 +60,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() searchFn: (term: string, item: string | any) => boolean = null;
   @Input() formControl: FormControl;
   @Input() dropDownPosition: DropdownPosition = 'auto';
+  @Input() errorMessage = 'common.required';
 
   @ViewChild(NgSelectComponent) ngCombo: NgSelectComponent;
 
