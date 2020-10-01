@@ -14,6 +14,14 @@ const RELEASE_NOTES: Release[] = [
     ]
   },
   {
+    version: '0.22.5', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Add support to <code>groot-date-picker</code> for disabling specific days of the week (via <code>daysDisabled</code> attribute) or specific calendar days (via <code>datesDisabled</code> attribute)`
+      },
+    ]
+  },
+  {
     version: '0.22.4', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
