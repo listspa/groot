@@ -14,6 +14,14 @@ const RELEASE_NOTES: Release[] = [
     ]
   },
   {
+    version: '0.22.6', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Add support to <code>groot-combo</code> to specify a custom error message when field is invalid`
+      },
+    ]
+  },
+  {
     version: '0.22.5', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
