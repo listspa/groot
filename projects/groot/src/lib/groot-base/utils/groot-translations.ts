@@ -1,6 +1,6 @@
 import {TranslateLoader} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {forkJoin, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 const GROOT_EN_TRANSLATIONS = {
@@ -151,19 +151,31 @@ function getBuiltInTranslations(lang: string): object {
  * translations to the result.
  */
 export class GrootTranslateHttpLoader implements TranslateLoader {
+
+  private _translationFiles: {prefix: string, suffix: string}[] = [];
+
   constructor(private http: HttpClient,
               public prefix = '/assets/i18n/',
               public suffix = '.json') {
+    this._translationFiles.push({prefix, suffix});
+  }
+
+  public withAdditionalTranslation(prefix: string = '/assets/i18n/', suffix: string = '.json'): GrootTranslateHttpLoader {
+    this._translationFiles.push({prefix, suffix});
+    return this;
   }
 
   /**
    * Gets the translations from the server, plus the one in Groot.
    */
   public getTranslation(lang: string): Observable<object> {
-    return this.http.get(`${this.prefix}${lang}${this.suffix}`)
-      .pipe(map(tr => {
+    let observables: Observable<object>[] = [];
+    this._translationFiles.forEach(value => observables.push(this.http.get(`${value.prefix}${lang}${value.suffix}`)))
+    return forkJoin<object>(observables).pipe(map(forkResult => {
         const grootBuiltinTranslations = getBuiltInTranslations(lang);
-        return {...grootBuiltinTranslations, ...tr};
+        let ret: object = {...grootBuiltinTranslations};
+        forkResult.forEach(tr => ret = {...ret, ...tr});
+        return ret;
       }));
   }
 }
