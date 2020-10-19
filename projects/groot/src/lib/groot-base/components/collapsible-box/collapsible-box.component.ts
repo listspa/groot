@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {dropDownOnCreateAnimation, emptyEnterAnimation} from '../../utils/animations-utils';
+import {ClassesType} from '../../../model/classes-type.model';
 
 @Component({
   selector: 'groot-collapsible-box',
@@ -9,8 +10,8 @@ import {dropDownOnCreateAnimation, emptyEnterAnimation} from '../../utils/animat
 export class CollapsibleBoxComponent {
   @Input() label: string;
   @Input() open = true;
-  @Input() headerClasses: string | string[] | null = null;
-  @Input() bodyClasses: string | string[] | null = 'card-body-box-bg';
+  @Input() headerClasses: ClassesType = null;
+  @Input() bodyClasses: ClassesType = 'card-body-box-bg';
   @Output() changeDisplay = new EventEmitter<boolean>();
 
   public toggle(): void {

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {BsModalService} from 'ngx-bootstrap/modal';
 import {Observable, Subject} from 'rxjs';
 import {ConfirmModalComponent} from '../components/confirm-modal/confirm-modal.component';
-import {ClassesType} from '../../model/confirm-modal.model';
+import {ClassesType} from '../../model/classes-type.model';
 
 export interface ConfirmationModalParams {
   text: string;
