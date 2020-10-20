@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '0.22.7', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Add support for multiple translation files in <code>GrootTranslateHttpLoader</code>`
+      },
+    ]
+  },
+  {
     version: '0.22.6', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
