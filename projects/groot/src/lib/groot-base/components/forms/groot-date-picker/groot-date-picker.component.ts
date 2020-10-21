@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
-import {BsDatepickerDirective} from 'ngx-bootstrap';
+import {BsDatepickerDirective} from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'groot-date-picker',
@@ -26,6 +26,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
   @Input() maxDate: Date | null;
   @Input() daysDisabled: number[] | null;
   @Input() datesDisabled: Date[] | null;
+  @Input() datesEnabled: Date[] | null;
   @Input() hidePlaceholder = false;
   placement = 'bottom';
   selectedDate: Date;
@@ -57,12 +58,12 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
       !this._element ||
       !this._element.nativeElement ||
       !this._element.nativeElement.childNodes ||
-      !this._element.nativeElement.childNodes[1]
-    ) {
+      !this._element.nativeElement.childNodes[2] ||
+      !this._element.nativeElement.childNodes[2].getBoundingClientRect) {
       return position;
     }
 
-    const rect: ClientRect | DOMRect = this._element.nativeElement.childNodes[1].getBoundingClientRect();
+    const rect: ClientRect | DOMRect = this._element.nativeElement.childNodes[2].getBoundingClientRect();
 
     const height = 315;
     const width = 308;

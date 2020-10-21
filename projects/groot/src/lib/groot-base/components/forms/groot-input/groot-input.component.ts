@@ -22,9 +22,9 @@ export class GrootInputComponent implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() helpText: string = null;
   @Input() iconLeft: string | string[] | null = null;
-  @Input() @ContentChild(GrootInputIconLeftDirective, {read: TemplateRef}) templateLeft: TemplateRef<any> = null;
+  @Input() templateLeft: TemplateRef<any> = null;
   @Input() iconRight: string | string[] | null = null;
-  @Input() @ContentChild(GrootInputIconRightDirective, {read: TemplateRef}) templateRight: TemplateRef<any> = null;
+  @Input() templateRight: TemplateRef<any> = null;
   @Input() formControl: FormControl = null;
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
@@ -35,6 +35,16 @@ export class GrootInputComponent implements ControlValueAccessor {
   input: NgModel;
   onChange = (text: string) => null;
   onTouched = () => null;
+
+  @ContentChild(GrootInputIconLeftDirective, {read: TemplateRef})
+  set templateLeftTpl(value: TemplateRef<any>) {
+    this.templateLeft = value;
+  }
+
+  @ContentChild(GrootInputIconRightDirective, {read: TemplateRef})
+  set templateRightTpl(value: TemplateRef<any>) {
+    this.templateRight = value;
+  }
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
   }

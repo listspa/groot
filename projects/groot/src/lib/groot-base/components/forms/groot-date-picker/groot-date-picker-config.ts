@@ -1,5 +1,4 @@
-import {BsDatepickerConfig} from 'ngx-bootstrap';
-import {BsDatepickerInlineConfig} from 'ngx-bootstrap/datepicker';
+import {BsDatepickerConfig, BsDatepickerInlineConfig} from 'ngx-bootstrap/datepicker';
 
 export function grootConfigBsDatePicker(): BsDatepickerConfig {
   const conf = new BsDatepickerConfig();

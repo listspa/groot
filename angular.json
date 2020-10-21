@@ -14,6 +14,11 @@
           "options": {
             "tsConfig": "projects/groot/tsconfig.lib.json",
             "project": "projects/groot/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/groot/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
@@ -39,11 +44,15 @@
       }
     },
     "groot-tester": {
-      "root": "projects/groot-tester/",
+      "root": "projects/groot-tester",
       "sourceRoot": "projects/groot-tester/src",
       "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "prefix": "app",
-      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -55,6 +64,7 @@
             "main": "projects/groot-tester/src/main.ts",
             "polyfills": "projects/groot-tester/src/polyfills.ts",
             "tsConfig": "projects/groot-tester/tsconfig.app.json",
+            "aot": true,
             "assets": [
               "projects/groot-tester/src/favicon.ico",
               "projects/groot-tester/src/assets"
@@ -62,7 +72,6 @@
             "styles": [
               "projects/groot-tester/src/styles.scss"
             ],
-            "statsJson": true,
             "scripts": []
           },
           "configurations": {
@@ -87,6 +96,11 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -96,7 +110,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "groot-tester:build",
-            "port": 4206
+            "port": 4206,
+            "aot": true
           },
           "configurations": {
             "production": {

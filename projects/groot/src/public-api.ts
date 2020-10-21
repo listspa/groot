@@ -94,4 +94,4 @@ export * from './lib/groot-table-autocol/services/table-autocol-config-service-b
 export * from './lib/groot-arch/init-groot-arch-plugins';
 export * from './lib/groot-arch/interfaces/groot-plugin';
 export * from './lib/groot-arch/services/groot-plugin-manager.service';
-export * from './lib/model/confirm-modal.model';
+export * from './lib/model/classes-type.model';

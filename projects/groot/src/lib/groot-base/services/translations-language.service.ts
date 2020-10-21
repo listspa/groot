@@ -1,6 +1,6 @@
 import {Injectable, InjectionToken, Injector, Type} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import {BsLocaleService} from 'ngx-bootstrap';
+import {BsLocaleService} from 'ngx-bootstrap/datepicker';
 import {LanguageSaver, LocalStorageLanguageSaver} from './language-saver';
 
 /**

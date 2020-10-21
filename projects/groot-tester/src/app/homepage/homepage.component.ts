@@ -5,6 +5,23 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '1.0.0', released: true, changes: [{
+      type: ReleaseChangeType.BREAKING_CHANGE,
+      html: `Angular 10 is now required. This requires in turn updates to the various dependencies:
+<ul>
+    <li>"@ng-select/ng-select": "^5.0.8"</li>
+    <li>"@ngx-translate/core": "^13.0.0"</li>
+    <li>"@ngx-translate/http-loader": "^6.0.0"</li>
+    <li>"ngx-bootstrap": "^6.1.0"</li>
+</ul>`
+    }, {
+      type: ReleaseChangeType.BREAKING_CHANGE,
+      html: `In your CSS files you will need to change Groot import to
+<code>@import "~@listgroup/groot/src/style/groot";</code>`
+    }
+    ]
+  },
+  {
     version: '0.22.7', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
