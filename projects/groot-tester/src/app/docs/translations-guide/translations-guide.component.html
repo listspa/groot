@@ -42,6 +42,17 @@ export function HttpLoaderFactory(http: HttpClient) &#123;
   Groot translations will be automatically applied as well.
 </p>
 
+
+<p>
+  You can also load multiple json files by using:
+</p>
+
+<pre><code>export function HttpLoaderFactory(http: HttpClient) &#123;
+  return new GrootTranslateHttpLoader(http, `$&#123;BASE_URL}/assets/i18n/`, '/translations.json')
+    .withAdditionalTranslation(`$&#123;BASE_URL}/assets/liqman/i18n/`, '/translations.json');
+}</code></pre>
+
+
 <h2>Setting the current language</h2>
 
 <p>
