@@ -1,15 +1,39 @@
-import {AfterContentInit, Component, ContentChild, ContentChildren, ElementRef, EventEmitter, Input, OnDestroy, Output, QueryList, TemplateRef, ViewChild} from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  ContentChildren,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  Output,
+  QueryList,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
 import {BsModalService} from 'ngx-bootstrap/modal';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {ReplaySubject, Subject, Subscription} from 'rxjs';
 import {ColumnsSelectorComponent} from './columns-selector/columns-selector.component';
 import {SelectedColumns, TableColumn, TableColumns} from '../../model/table-columns.model';
 import {dropDownOnCreateAnimation} from '../../../groot-base/utils/animations-utils';
-import {ComboDataRequest, FilterOption, FilterPaginationOptions, NbpuSchemaFieldType, PaginatedResponse, PaginationOptions} from '../../../groot-base/utils/pagination.model';
+import {
+  ComboDataRequest,
+  FilterOption,
+  FilterPaginationOptions,
+  NbpuSchemaFieldType,
+  PaginatedResponse,
+  PaginationOptions
+} from '../../../groot-base/utils/pagination.model';
 import {ElementResizingHandler} from '../../../groot-base/utils/element-resizing-handler';
 import {GrootTableComponent, LoadingFailed} from '../../../groot-base/components/tables/groot-table/groot-table.component';
 import {PopoverFilterService} from './popover-filter.service';
-import {GrootTableAutocolActionsDirective, GrootTableAutocolTemplateForColumnDirective, GrootTableTitleAutocolRightAreaDirective} from './groot-table-autocol.directive';
+import {
+  GrootTableAutocolActionsDirective,
+  GrootTableAutocolTemplateForColumnDirective,
+  GrootTableTitleAutocolRightAreaDirective
+} from './groot-table-autocol.directive';
 import {PopoverDataRequest} from '../../model/popover-filter.model';
 
 export interface ColumnAndWidth {
@@ -42,9 +66,9 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
   @Input() hideTableIfEmpty = false;
   @Output() search = new EventEmitter<FilterPaginationOptions>();
   @Input() searchResultsData: PaginatedResponse<T> | LoadingFailed;
-  @ContentChild(GrootTableAutocolActionsDirective, {read: TemplateRef}) actionsTemplate: TemplateRef<any>;
+  @Input() actionsTemplate: TemplateRef<any>;
   @ContentChildren(GrootTableAutocolTemplateForColumnDirective) columnsTemplates: QueryList<GrootTableAutocolTemplateForColumnDirective>;
-  @ContentChild(GrootTableTitleAutocolRightAreaDirective, {read: TemplateRef}) autocolTableTitleRightArea: TemplateRef<any>;
+  @Input() autocolTableTitleRightArea: TemplateRef<any>;
   @Input() allowChoosingColumns = true;
   @Input() allowResizingColumns = true;
   @Input() allowReorderColumns = true;
@@ -64,6 +88,16 @@ export class GrootTableAutocolComponent<T> implements AfterContentInit, OnDestro
   // Filter popover
   @ViewChild('grootTable') grootTable: GrootTableComponent<T>;
   popoverFilters: { [key: string]: FilterOption } = {};
+
+  @ContentChild(GrootTableAutocolActionsDirective, {read: TemplateRef})
+  set actionsTemplateTpl(value: TemplateRef<any>) {
+    this.actionsTemplate = value;
+  }
+
+  @ContentChild(GrootTableTitleAutocolRightAreaDirective, {read: TemplateRef})
+  set autocolTableTitleRightAreaTpl(value: TemplateRef<any>) {
+    this.autocolTableTitleRightArea = value;
+  }
 
   constructor(private bsModalService: BsModalService,
               private popoverFilterService: PopoverFilterService) {

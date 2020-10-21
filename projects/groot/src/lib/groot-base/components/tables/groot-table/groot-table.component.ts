@@ -34,15 +34,30 @@ export class GrootTableComponent<T> implements OnInit {
   @Input() striped = true;
   @Input() selectable = false;
   @Input() hideTableIfEmpty = true;
-  @ContentChild(GrootTableHeaderDirective, {read: TemplateRef}) headerTemplate: TemplateRef<any>;
-  @ContentChild(GrootTableBodyDirective, {read: TemplateRef}) bodyTemplate: TemplateRef<any>;
-  @ContentChild(GrootTableTitleRightAreaDirective, {read: TemplateRef}) tableTitleRightArea: TemplateRef<any>;
+  @Input() headerTemplate: TemplateRef<any>;
+  @Input() bodyTemplate: TemplateRef<any>;
+  @Input() tableTitleRightArea: TemplateRef<any>;
   @Output() search = new EventEmitter<PaginationOptions>();
   public searchResults: PaginatedResponse<T> = null;
   public sorting: Sorting;
   private _currentPageNum = 0;
   public setSortingCbk = this.setSorting.bind(this);
   public failed = false;
+
+  @ContentChild(GrootTableHeaderDirective, {read: TemplateRef})
+  set headerTemplateTpl(value: TemplateRef<any>) {
+    this.headerTemplate = value;
+  }
+
+  @ContentChild(GrootTableBodyDirective, {read: TemplateRef})
+  set bodyTemplateTpl(value: TemplateRef<any>) {
+    this.bodyTemplate = value;
+  }
+
+  @ContentChild(GrootTableTitleRightAreaDirective, {read: TemplateRef})
+  set tableTitleRightAreaTpl(value: TemplateRef<any>) {
+    this.tableTitleRightArea = value;
+  }
 
   ngOnInit(): void {
     this.sorting = {column: this.defaultSortColumn, reverse: this.defaultSortReverseFlag};
