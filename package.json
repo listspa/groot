@@ -9,7 +9,7 @@
     "lint": "ng lint groot --format json --force > tslint.out.json",
     "sonar": "npm run lint && sonar-scanner",
     "e2e": "ng e2e",
-    "build_lib": "ng build groot",
+    "build_lib": "ng build groot --prod",
     "npm_pack": "cd dist/groot && npm pack",
     "package": "npm run build_lib && npm run npm_pack",
     "release": "npm run build_lib && release-it --disable-metrics && npm run package && node scripts/publish.js",
