@@ -34,6 +34,7 @@ export class GrootFileInputComponent implements ControlValueAccessor {
   onTouched = () => null;
 
   @ViewChild('input') inputNgModel: NgModel;
+  @ViewChild('fileInput') fileInput;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
   }
@@ -95,6 +96,7 @@ export class GrootFileInputComponent implements ControlValueAccessor {
   }
 
   clearClicked(event: MouseEvent) {
+    this.fileInput.nativeElement.value = '';
     event.stopPropagation();
     this.touched = true;
     this.clearFiles();
