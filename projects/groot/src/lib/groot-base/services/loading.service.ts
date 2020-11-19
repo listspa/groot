@@ -43,4 +43,21 @@ export class LoadingService {
       throw new Error('Expected to have 0 or more outgoing loading calls, but we have a negative number!');
     }
   }
+
+  /**
+   * Pauses one outgoing loading indicator. The result is a callback that resumes it.
+   */
+  public pauseLoadingCall(): DoneLoading {
+    --this.callsOutgoing;
+    if (this.callsOutgoing === 0) {
+      this.loadingStatusChanged.emit(false);
+    }
+
+    return () => {
+      ++this.callsOutgoing;
+      if (this.callsOutgoing >= 1) {
+        this.loadingStatusChanged.emit(true);
+      }
+    };
+  }
 }

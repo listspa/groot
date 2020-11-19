@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '1.0.3', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Added method <code>LoadingService::pauseLoadingCall</code>`
+    }]
+  },
+  {
     version: '1.0.2', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `Fixed a bug File Upload component that prevented to upload the same file after clearing the selection.`
