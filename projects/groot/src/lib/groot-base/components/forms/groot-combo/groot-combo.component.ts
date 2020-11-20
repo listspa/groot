@@ -198,10 +198,12 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
     } else {
       this.writeValue([...this.allItems]);
     }
+    this.onChange(this.selectedValue);
   }
 
   unselectAll() {
     this.writeValue([]);
+    this.onChange(this.selectedValue);
   }
 
   // Incremental loading
