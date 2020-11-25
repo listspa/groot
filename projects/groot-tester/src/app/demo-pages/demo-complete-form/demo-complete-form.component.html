@@ -31,7 +31,7 @@
       <h2>Groot-input</h2>
 
       <groot-input
-        label="Name 0"
+        label="Name 0 - ngModel"
         name="name 0"
         [required]="true"
         [(ngModel)]="form.name"
@@ -46,10 +46,28 @@
       </div>
 
       <groot-input
-        label="Name 1"
+        label="Name 1 - ngModel - max length 4"
         name="name 1"
         [required]="true"
         [(ngModel)]="form.name"
+        [maxLength]="4"
+        groot-provide-parent-form>
+      </groot-input>
+
+      <groot-input
+        label="Name 2 - form control"
+        name="name 2"
+        [required]="true"
+        [formControl]="name2"
+        groot-provide-parent-form>
+      </groot-input>
+
+      <groot-input
+        label="Name 3 - form control - max length 4"
+        name="name 3"
+        [required]="true"
+        [formControl]="name3"
+        [maxLength]="4"
         groot-provide-parent-form>
       </groot-input>
     </div>
@@ -138,7 +156,7 @@
       <h2>Groot-input</h2>
 
       <groot-textarea
-        label="Description"
+        label="Description - ngModel"
         name="description"
         [required]="true"
         [(ngModel)]="form.description"
@@ -153,10 +171,28 @@
       </div>
 
       <groot-textarea
-        label="Description 2"
+        label="Description 2 - ngModel - maxLength 4"
         name="description 2"
         [required]="true"
         [(ngModel)]="form.description"
+        [maxLength]="4"
+        groot-provide-parent-form>
+      </groot-textarea>
+
+      <groot-textarea
+        label="Description 3 - formControl"
+        name="description 3"
+        [required]="true"
+        [formControl]="description3"
+        groot-provide-parent-form>
+      </groot-textarea>
+
+      <groot-textarea
+        label="Description 4 - formControl - maxLength 4"
+        name="description 4"
+        [required]="true"
+        [formControl]="description4"
+        [maxLength]="4"
         groot-provide-parent-form>
       </groot-textarea>
     </div>

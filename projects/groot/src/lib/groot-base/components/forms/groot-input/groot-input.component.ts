@@ -28,6 +28,7 @@ export class GrootInputComponent implements ControlValueAccessor {
   @Input() formControl: FormControl = null;
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
+  @Input() maxLength: number  = undefined;
   @Output() enter: EventEmitter<string> = new EventEmitter();
   text: string;
   private textSent: string;

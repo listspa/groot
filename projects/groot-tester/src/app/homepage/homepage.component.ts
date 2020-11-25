@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '1.0.5', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Added <code>[maxLength]</code> for <code>groot-input</code> and <code>groot-textarea</code>`
+    }]
+  },
+  {
     version: '1.0.4', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `Fixed bug: when pressing "SELECT ALL" or "UNSELECT ALL" inside a groot-combo with checkboxes active, the value of the model is not updated accordingly`

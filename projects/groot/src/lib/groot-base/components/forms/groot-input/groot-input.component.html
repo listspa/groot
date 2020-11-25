@@ -26,6 +26,7 @@
          (keyup.enter)="onEnterPressed()"
          [class.is-invalid]="input.invalid && input.touched"
          [disabled]="disabled"
+         [attr.maxLength]="maxLength"
          *ngIf="!formControl">
   <input [type]="type"
          autocomplete="off"
@@ -36,6 +37,7 @@
          [name]="name"
          (keyup.enter)="onEnterPressed()"
          [formControl]="formControl"
+         [attr.maxLength]="maxLength"
          [class.is-invalid]="formControl.invalid && formControl.touched"
          *ngIf="formControl">
   <div class="input-group-append" *ngIf="templateRight || iconRight">

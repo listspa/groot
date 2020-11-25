@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {FormControl, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-demo-complete-form',
@@ -22,9 +22,14 @@ export class DemoCompleteFormComponent implements OnInit {
   constructor() {
   }
 
-  @ViewChild("ngForm") ngForm: NgForm;
+  @ViewChild('ngForm') ngForm: NgForm;
+
+  name2 = new FormControl('');
+  name3 = new FormControl('');
+  description3 = new FormControl('');
+  description4 = new FormControl('');
 
   ngOnInit(): void {
-    console.log(this.ngForm)
+    console.log(this.ngForm);
   }
 }

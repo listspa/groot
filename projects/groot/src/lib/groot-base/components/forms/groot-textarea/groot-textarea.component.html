@@ -17,6 +17,7 @@
   [disabled]="disabled"
   rows="{{rows}}"
   *ngIf="!formControl"
+  [attr.maxLength]="maxLength"
 ></textarea>
 <textarea
   autocomplete="off"
@@ -28,6 +29,7 @@
   [class.is-invalid]="formControl.invalid && formControl.touched"
   rows="{{rows}}"
   [formControl]="formControl"
+  [attr.maxLength]="maxLength"
   *ngIf="formControl"
 ></textarea>
 <ng-container *ngIf="input">

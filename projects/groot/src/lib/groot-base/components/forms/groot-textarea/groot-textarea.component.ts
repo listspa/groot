@@ -22,6 +22,7 @@ export class GrootTextAreaComponent implements ControlValueAccessor {
   @Input() rows = 5;
   @Input() formControl: FormControl = null;
   @Input() hidePlaceholder = false;
+  @Input() maxLength: number  = undefined;
   text: string;
   input: NgModel;
 
