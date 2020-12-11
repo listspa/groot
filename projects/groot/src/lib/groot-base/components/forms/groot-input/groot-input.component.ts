@@ -15,6 +15,7 @@ import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './groot
 })
 export class GrootInputComponent implements ControlValueAccessor {
   @Input() type: 'text' | 'password' | 'color' | 'email' | 'number' | 'search' = 'text';
+  @Input() step: number = 1;
   @Input() label: string;
   @Input() placeholder: string | null;
   @Input() name: string;

@@ -13,6 +13,7 @@
     </ng-template>
   </div>
   <input [type]="type"
+         [step]="step"
          autocomplete="off"
          class="form-control"
          [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"

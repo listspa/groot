@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '1.0.6', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Added <code>[step]</code> attribute for <code>groot-input</code>, to use in combination with <code>[type]="number"</code>`
+    }]
+  },
+  {
     version: '1.0.5', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Added <code>[maxLength]</code> for <code>groot-input</code> and <code>groot-textarea</code>`
