@@ -31,6 +31,7 @@ export class DemoFormComponent implements OnInit {
     files: null,
     label: null,
     labels: [],
+    time: null
   };
 
   public currencies = ['EUR', 'USD', 'JPY', 'CNY', 'RUB'];
@@ -258,6 +259,7 @@ export class DemoFormComponent implements OnInit {
   checkBoxFormControl = new FormControl(true);
   radioFormControl = new FormControl('valueA');
   dateFormControl = new FormControl();
+  timeFormControl = new FormControl();
   format: string;
   minDate: any;
   labels = ['common.yes', 'common.no', 'common.pleaseConfirm'];
