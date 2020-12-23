@@ -5,7 +5,7 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '1.2.1', released: true, changes: [{
+    version: '1.2.2', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Added new component <code>groot-time-picker</code>`
     }]
