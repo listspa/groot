@@ -31,7 +31,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
   placement = 'bottom';
   selectedDate: Date;
   @ViewChild('datePickerDirective') private datePickerDirective: BsDatepickerDirective;
-  input: NgModel;
+  @ViewChild('input') input: NgModel;
 
   constructor(private _element: ElementRef,
               private changeDetectorRef: ChangeDetectorRef) {
