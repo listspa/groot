@@ -15,6 +15,7 @@
     [step]="step"
     #input=ngModel
     [ngModel]="selectedTime"
+    triggers=""
     (ngModelChange)="writeValueFromGui($event)"
     (blur)="onTouched()"
     [class.is-invalid]="input.invalid && input.touched"
