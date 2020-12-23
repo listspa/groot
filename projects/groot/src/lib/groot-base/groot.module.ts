@@ -55,6 +55,7 @@ import {GrootDarwinBreadcrumbsGoBackComponent} from './components/darwin-breadcr
 import {GrootDarwinBreadcrumbSeparatorComponent} from './components/darwin-breadcrumbs/darwin-breadcrumb-separator/groot-darwin-breadcrumb-separator.component';
 import {GrootSplitButtonComponent} from './components/groot-split-button/groot-split-button.component';
 import {GrootDarwinSideBarComponent} from './components/darwin-side-bar/groot-darwin-side-bar.component';
+import { GrootTimePickerComponent } from './components/forms/groot-time-picker/groot-time-picker.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import {GrootDarwinSideBarComponent} from './components/darwin-side-bar/groot-da
     GrootDarwinBreadcrumbSeparatorComponent,
     GrootSplitButtonComponent,
     GrootDarwinSideBarComponent,
+    GrootTimePickerComponent,
   ],
   imports: [
     CommonModule,
@@ -137,6 +139,7 @@ import {GrootDarwinSideBarComponent} from './components/darwin-side-bar/groot-da
     GrootTextAreaComponent,
     GrootComboComponent,
     GrootDatePickerComponent,
+    GrootTimePickerComponent,
     GrootToggleButtonComponent,
     NeedsCapabilityDirective,
     GrootTableComponent,

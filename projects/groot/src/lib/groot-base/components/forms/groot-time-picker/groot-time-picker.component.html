@@ -1,0 +1,61 @@
+<label for="{{name}}" *ngIf="label">
+  {{label | translate}}
+  <span *ngIf="required">*</span>
+</label>
+<div class="input-group">
+  <input
+    class="form-control"
+    type="time"
+    [name]="name"
+    [id]="name"
+    [required]="required"
+    [disabled]="disabled"
+    [min]="minTime"
+    [max]="maxTime"
+    [step]="step"
+    #input=ngModel
+    [ngModel]="selectedTime"
+    (ngModelChange)="writeValueFromGui($event)"
+    (blur)="onTouched()"
+    [class.is-invalid]="input.invalid && input.touched"
+    [disabled]="disabled"
+    value="{{selectedTime}}"
+    *ngIf="!formControl"
+  >
+  <input
+    class="form-control"
+    type="time"
+    [name]="name"
+    [id]="name"
+    [required]="required"
+    [disabled]="disabled"
+    [min]="minTime"
+    [max]="maxTime"
+    [step]="step"
+
+    [class.is-invalid]="formControl.invalid && formControl.touched"
+    [disabled]="disabled"
+    [formControl]="formControl"
+    [value]="formControl.value"
+    *ngIf="formControl"
+  >
+  <div class="input-group-append">
+    <span class="input-group-text">
+      <i class="fa fa-clock-o"></i>
+    </span>
+  </div>
+  <ng-container *ngIf="input">
+    <div class="invalid-feedback" *ngIf="input.invalid && input.touched">
+      {{'common.required' | translate}}
+    </div>
+  </ng-container>
+  <ng-container *ngIf="formControl">
+    <div class="invalid-feedback" *ngIf="formControl.invalid && formControl.touched">
+      {{'common.required' | translate}}
+    </div>
+  </ng-container>
+
+</div>
+<small class="form-text text-muted" *ngIf="helpText">
+  {{helpText | translate}}
+</small>
