@@ -25,7 +25,7 @@ test-angular:
 
 
 build-docker-image:
-  image: docker:18
+  image: artifactory.list-group.com/docker:18
   stage: docker
   script:
     - echo $ARTIFACTORY_DEPLOY_PASSWORD | docker login -u $ARTIFACTORY_DEPLOY_USERNAME --password-stdin  artifactory.list-group.com
@@ -36,7 +36,7 @@ build-docker-image:
 
 
 deploy-on-openshift:
-  image: openshift/origin-cli
+  image: artifactory.list-group.com/openshift/origin-cli
   stage: openshift
   script:
     - oc login $OPENSHIFT_URL -u $OPENSHIFT_LOGIN -p $OPENSHIFT_PASSWORD --insecure-skip-tls-verify
