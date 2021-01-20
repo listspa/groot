@@ -90,8 +90,9 @@ export function HttpLoaderFactory(http: HttpClient) &#123;
   To correctly support the italian language, you need to add in your <code>AppModule</code> file this at the beginning:
 </p>
 
-<pre><code>import localeIt from '@angular/common/locales/it';
-import &#123;itLocale} from 'ngx-bootstrap';
+<pre><code>import &#123;registerLocaleData} from '@angular/common';
+import &#123;itLocale} from 'ngx-bootstrap/locale';
+import &#123;defineLocale} from 'ngx-bootstrap/chronos';
 
 // Enable italian locale
 registerLocaleData(localeIt);
