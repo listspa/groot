@@ -6,6 +6,7 @@ import {animate, style, transition, trigger} from '@angular/animations';
 
 interface ConcreteMenu extends Menu {
   selected?: boolean;
+  children?: ConcreteMenu[][];
 }
 
 export function slideRight(fromState, toState) {
