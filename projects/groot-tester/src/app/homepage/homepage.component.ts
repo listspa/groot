@@ -5,6 +5,16 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '2.0.0', released: true, changes: [{
+      type: ReleaseChangeType.BREAKING_CHANGE,
+      html: `Updated to Angular 11.1.0. This requires in turn updates to the third parties dependencies:
+<ul>
+    <li>"@ng-select/ng-select": "^5.1.0"</li>
+    <li>"ngx-bootstrap": "^6.2.0"</li>
+</ul>`
+    }]
+  },
+  {
     version: '1.2.3', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Fixed a warning about import of <code>filesize</code> in client applications`
