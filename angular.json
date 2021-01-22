@@ -4,13 +4,13 @@
   "newProjectRoot": "projects",
   "projects": {
     "groot": {
+      "projectType": "library",
       "root": "projects/groot",
       "sourceRoot": "projects/groot/src",
-      "projectType": "library",
       "prefix": "groot",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/groot/tsconfig.lib.json",
             "project": "projects/groot/ng-package.json"
@@ -44,14 +44,14 @@
       }
     },
     "groot-tester": {
-      "root": "projects/groot-tester",
-      "sourceRoot": "projects/groot-tester/src",
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
+      "root": "projects/groot-tester",
+      "sourceRoot": "projects/groot-tester/src",
       "prefix": "app",
       "architect": {
         "build": {
@@ -85,7 +85,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -110,8 +109,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "groot-tester:build",
-            "port": 4206,
-            "aot": true
+            "port": 4206
           },
           "configurations": {
             "production": {
@@ -123,6 +121,23 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "groot-tester:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/groot-tester/src/test.ts",
+            "polyfills": "projects/groot-tester/src/polyfills.ts",
+            "tsConfig": "projects/groot-tester/tsconfig.spec.json",
+            "karmaConfig": "projects/groot-tester/karma.conf.js",
+            "assets": [
+              "projects/groot-tester/src/favicon.ico",
+              "projects/groot-tester/src/assets"
+            ],
+            "styles": [
+              "projects/groot-tester/src/styles.scss"
+            ],
+            "scripts": []
           }
         },
         "lint": {
