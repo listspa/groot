@@ -57,6 +57,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "file-saver"
+            ],
             "baseHref": "/groot-doc/",
             "deployUrl": "/groot-doc/",
             "outputPath": "dist/groot-tester",
