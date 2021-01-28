@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '2.0.1', released: true, changes: [{
+      type: ReleaseChangeType.BREAKING_CHANGE,
+      html: `Fixed some release issues`
+    }]
+  },
+  {
     version: '2.0.0', released: true, changes: [{
       type: ReleaseChangeType.BREAKING_CHANGE,
       html: `Updated to Angular 11.1.0. This requires in turn updates to the third parties dependencies:
