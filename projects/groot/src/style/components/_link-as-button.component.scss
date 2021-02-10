@@ -1,0 +1,27 @@
+.link-as-button {
+  color: $primary;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &:hover, &:active {
+    color: $primary;
+    text-decoration: none;
+  }
+
+  &.disabled {
+    opacity: $btn-disabled-opacity;
+    cursor: not-allowed;
+  }
+}
+
+.link-as-button-container {
+  display: flex;
+  align-items: center;
+
+  .link-as-button + .link-as-button {
+    margin-left: $spacing-between-actions / 2;
+    padding-left: $spacing-between-actions / 2;
+    border-left: 1px solid $gray-darwin-contrast-default-bg;
+  }
+}
