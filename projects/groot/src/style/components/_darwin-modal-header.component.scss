@@ -1,0 +1,19 @@
+.groot-darwin-modal {
+  .modal-header {
+    border-bottom: 0;
+
+    .modal-title {
+      width: 100%;
+      text-align: center;
+    }
+
+    .close {
+      color: $primary;
+      opacity: 1;
+    }
+  }
+
+  .modal-footer {
+    border-top: 0;
+  }
+}

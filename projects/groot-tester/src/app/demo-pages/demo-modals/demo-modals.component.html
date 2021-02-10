@@ -5,10 +5,17 @@
   modals</a>. We have only customized a bit the look&amp;feel. Here's a quick demo:
 </p>
 
-<button class="btn btn-primary"
-        (click)="openPopup(template)">
-  Open modal
-</button>
+<div class="buttons-list-left">
+  <button class="btn btn-primary"
+          (click)="openPopup(template,'', 'bg-primary')">
+    Open modal (bg primary)
+  </button>
+
+  <button class="btn btn-primary"
+          (click)="openPopup(template, 'groot-darwin-modal', '')">
+    Open modal (darwin-style)
+  </button>
+</div>
 
 <p class="mt-2">
   You can take a look <a
@@ -17,7 +24,7 @@
 </p>
 
 <ng-template #template>
-  <div class="modal-header bg-primary">
+  <div class="modal-header" [ngClass]="modalHeaderClass">
     <h4 class="modal-title pull-left">Modal</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true">&times;</span>

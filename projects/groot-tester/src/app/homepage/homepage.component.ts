@@ -8,6 +8,9 @@ const RELEASE_NOTES: Release[] = [
     version: '3.1.0', released: false, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Added component <a href="#/demo/misc-small-components"><code>link-as-button</code></a>`
+    }, {
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Added class <a href="#/demo/modals"><code>groot-darwin-modal</code></a> for modals with a "lighter" look`
     }]
   },
   {
