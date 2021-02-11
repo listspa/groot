@@ -7,12 +7,12 @@
 
 <div class="buttons-list-left">
   <button class="btn btn-primary"
-          (click)="openPopup(template,'', 'bg-primary')">
+          (click)="openPopup(modalTemplate,'')">
     Open modal (bg primary)
   </button>
 
   <button class="btn btn-primary"
-          (click)="openPopup(template, 'groot-darwin-modal', '')">
+          (click)="openPopup(darwinModal, 'groot-darwin-modal')">
     Open modal (darwin-style)
   </button>
 </div>
@@ -23,8 +23,8 @@
   target="_blank">the source for this page</a> to see the code.
 </p>
 
-<ng-template #template>
-  <div class="modal-header" [ngClass]="modalHeaderClass">
+<ng-template #modalTemplate>
+  <div class="modal-header bg-primary">
     <h4 class="modal-title pull-left">Modal</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true">&times;</span>
@@ -37,6 +37,27 @@
     <button type="button" class="btn btn-primary">Save changes</button>
     <button type="button" class="btn btn-secondary">Close</button>
   </div>
+</ng-template>
+
+<ng-template #darwinModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is a modal.
+  </div>
+  <div class="modal-footer justify-content-between">
+      <div class="buttons-list-left">
+        <groot-button label="Cancel" classes="btn-outline-primary"></groot-button>
+      </div>
+
+      <div class="buttons-list-right">
+        <groot-button label="Save changes"></groot-button>
+      </div>
+    </div>
 </ng-template>
 
 <h2>Confirmation</h2>
