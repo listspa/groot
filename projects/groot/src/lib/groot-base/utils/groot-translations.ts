@@ -13,6 +13,7 @@ const GROOT_EN_TRANSLATIONS = {
   'common.downloadExcel': 'Download Excel',
   'common.selectAll': 'Select all',
   'common.unselectAll': 'Unselect all',
+  'common.clearSelection': 'Clear selection',
   'common.allValuesSelected': 'All values selected',
   'common.oneValueSelected': 'One value selected',
   'common.numValuesSelected': '{{numSelected}} values selected',
@@ -41,6 +42,10 @@ const GROOT_EN_TRANSLATIONS = {
   'common.columnsAvailable': 'Available',
   'common.columnsSelected': 'Selected',
   'common.columnsAccordion': 'Additional details',
+  'common.selectColumns.help': 'Drag the columns to select them',
+  'common.selectColumns.available': 'Available columns',
+  'common.selectColumns.empty': 'No more available column',
+  'common.selectColumns.selected': 'Selected columns',
   'common.dragHere': 'Drag here',
   'common.filter': 'Filter',
   'common.apply': 'Apply',
@@ -80,6 +85,7 @@ const GROOT_IT_TRANSLATIONS = {
   'common.downloadExcel': 'Scarica Excel',
   'common.selectAll': 'Seleziona tutti',
   'common.unselectAll': 'Deseleziona tutti',
+  'common.clearSelection': 'Deseleziona tutti',
   'common.allValuesSelected': 'Tutti i valori',
   'common.oneValueSelected': 'Un valore selezionato',
   'common.numValuesSelected': '{{numSelected}} valori selezionati',
@@ -108,6 +114,10 @@ const GROOT_IT_TRANSLATIONS = {
   'common.columnsAvailable': 'Disponibili',
   'common.columnsSelected': 'Selezionate',
   'common.columnsAccordion': 'Dettagli aggiuntivi',
+  'common.selectColumns.help': 'Trascina le colonne per nasconderle o aggiungerle alla tabella',
+  'common.selectColumns.available': 'Colonne disponibili',
+  'common.selectColumns.empty': 'Nessuna colonna disponibile',
+  'common.selectColumns.selected': 'Colonne selezionate',
   'common.dragHere': 'Trascina qua',
   'common.filter': 'Filtra',
   'common.apply': 'Applica',
@@ -169,7 +179,7 @@ export class GrootTranslateHttpLoader implements TranslateLoader {
    * Gets the translations from the server, plus the one in Groot.
    */
   public getTranslation(lang: string): Observable<object> {
-    const observables = this._translationFiles.map(value => this.http.get(`${value.prefix}${lang}${value.suffix}`))
+    const observables = this._translationFiles.map(value => this.http.get(`${value.prefix}${lang}${value.suffix}`));
     return forkJoin<object>(observables).pipe(map(forkResult => {
         const grootBuiltinTranslations = getBuiltInTranslations(lang);
         let ret: object = {...grootBuiltinTranslations};
