@@ -27,6 +27,7 @@ export * from './lib/groot-base/components/forms/groot-input/groot-input.compone
 export * from './lib/groot-base/components/forms/groot-input/groot-input.directive';
 export * from './lib/groot-base/components/forms/groot-radio/groot-radio.component';
 export * from './lib/groot-base/components/forms/groot-textarea/groot-textarea.component';
+export * from './lib/groot-base/components/forms/groot-time-picker/groot-time-picker.component';
 export * from './lib/groot-base/components/forms/groot-toggle-button/groot-toggle-button.component';
 export * from './lib/groot-base/components/groot-button/groot-button.component';
 export * from './lib/groot-base/components/groot-split-button/groot-split-button.component';

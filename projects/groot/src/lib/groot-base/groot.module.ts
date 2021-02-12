@@ -171,6 +171,7 @@ import {GrootBaseSearchFormComponent} from './components/base-search-form/base-s
     GrootSplitButtonComponent,
     GrootDarwinSideBarComponent,
     GrootBaseSearchFormComponent,
+    GrootTimePickerComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

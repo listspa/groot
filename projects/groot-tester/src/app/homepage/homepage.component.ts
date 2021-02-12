@@ -14,6 +14,9 @@ const RELEASE_NOTES: Release[] = [
     }, {
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Added class <a href="#/demo/base-search-form"><code>groot-base-search-form</code></a> for search forms in "Darwin" style`
+    }, {
+      type: ReleaseChangeType.BUG_FIX,
+      html: `Added missing exports of <code>groot-time-picker</code> in the angular module and public api file`
     }]
   },
   {
