@@ -10,7 +10,7 @@ import {TranslationsLanguageService} from '../../../groot/src/lib/groot-base/ser
 export class AppComponent {
   readonly navBarItems: SimpleNavBarItem[] = [
     {
-      'label': 'Documentation', 'url': '/docs', icon: 'fa fa-star-o', children: [
+      label: 'Documentation', url: '/docs', icon: 'fa fa-star-o', children: [
         {label: 'Getting started', url: '/docs/getting-started', icon: 'fa fa-star-o'},
         {label: 'Calling the server', url: '/docs/calling-the-server', icon: 'fa fa-server'},
         {label: 'Translations', url: '/docs/translations-guide', icon: 'fa fa-plane'},
@@ -22,7 +22,7 @@ export class AppComponent {
       ]
     },
     {
-      'label': 'Components', icon: 'fa fa-flash', url: '/demo', children: [
+      label: 'Components', icon: 'fa fa-flash', url: '/demo', children: [
         {label: 'Forms', url: '/demo/forms', icon: 'fa fa-pencil-square-o'},
         {label: 'Buttons', url: '/demo/buttons', icon: 'fa fa-hand-pointer-o'},
         {label: 'Tables', url: '/demo/tables', icon: 'fa fa-table'},
@@ -40,6 +40,7 @@ export class AppComponent {
         {label: 'Toasts', url: '/demo/toasts', icon: 'fa fa-bell'},
         {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-restore'},
         {label: 'Tooltips', url: '/demo/tooltips', icon: 'fa fa-square'},
+        {label: 'Search forms', url: '/demo/base-search-form', icon: 'fa fa-search'},
         {label: 'Misc small components', url: '/demo/misc-small-components', icon: 'fa fa-ellipsis-h'},
         {isSeparator: true},
         {label: 'Colors and typography', url: '/demo/colors', icon: 'fa fa-paint-brush'},
@@ -126,6 +127,7 @@ export class AppComponent {
             {label: 'Toasts', url: '/demo/toasts', icon: 'fa fa-bell'},
             {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-restore'},
             {label: 'Tooltips', url: '/demo/tooltips', icon: 'fa fa-square'},
+            {label: 'Search forms', url: '/demo/base-search-form', icon: 'fa fa-search'},
             {label: 'Misc small components', url: '/demo/misc-small-components', icon: 'fa fa-ellipsis-h'},
           ],
           [

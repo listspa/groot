@@ -61,6 +61,7 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import {PopoverModule} from 'ngx-bootstrap/popover';
+import {DemoBaseSearchFormComponent} from './demo-pages/demo-base-search-form/demo-base-search-form.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -104,6 +105,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DemoTableAutocolComponent,
     DemoSmallComponentsComponent,
     DemoSidebarComponent,
+    DemoBaseSearchFormComponent,
   ],
   imports: [
     BrowserModule,

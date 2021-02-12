@@ -1,0 +1,55 @@
+<form class="filters" [@emptyEnter]>
+  <div class="top-row">
+    <div>
+      <ng-container *ngIf="!filtersShowing || showLeftHeaderIfOpen">
+        <span *ngIf="filtersActive" class="link-as-button" (click)="resetAndSearch()">
+          {{'common.search.reset' | translate}}
+        </span>
+        <span *ngIf=" !filtersActive">
+          {{'common.search.noFilters' | translate}}
+        </span>
+      </ng-container>
+
+      <ng-container *ngIf="filtersShowing">
+        <!-- todo: template for additional header items -->
+      </ng-container>
+    </div>
+    <div class="flex-grow-1"></div>
+    <div class="hide-filters">
+      <span class="link-as-button"
+            (click)="toggleFiltersShowing()">
+        {{(filtersShowing ? 'common.hideFilters' : 'common.showFilters') | translate}}
+        <i class="fa fa-chevron-up" *ngIf="filtersShowing"></i>
+        <i class="fa fa-chevron-down" *ngIf="!filtersShowing"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="filters-area" *ngIf="filtersShowing" [@dropDown]>
+    <ng-content select="[primaryFilters]"></ng-content>
+    <ng-content select="[moreFilters]" *ngIf="moreFiltersShowing"></ng-content>
+
+    <div class="buttons-list-left" *ngIf="hasMoreFilters">
+      <div class="hide-filters">
+        <span class="link-as-button"
+              (click)="toggleMoreFiltersShowing()">
+          {{(moreFiltersShowing ? 'common.hideMoreFilters' : 'common.showMoreFilters') | translate}}
+          <i class="fa fa-chevron-up" *ngIf="moreFiltersShowing"></i>
+          <i class="fa fa-chevron-down" *ngIf="!moreFiltersShowing"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="buttons-list-right">
+      <groot-button
+        label="common.apply"
+        (click)="searchClicked()"
+      ></groot-button>
+      <groot-button
+        classes="btn-outline-primary"
+        label="common.reset"
+        (click)="resetClicked()"
+      ></groot-button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,39 @@
+<h1>Search form</h1>
+
+<p>
+  We have a nice looking component, called <code>groot-base-search-form</code>, for designing simple and compact
+  "search forms", generally placed on top a table. Here's an example:
+</p>
+
+<groot-base-search-form
+  [filtersActive]="anyFilter"
+  (search)="search()"
+  (reset)="reset()">
+  <div primaryFilters>
+    <div class="row">
+      <div class="col-sm-8 col-md-6 col-xl-3">
+        <groot-input
+          label="Name"
+          [(ngModel)]="name"
+        ></groot-input>
+      </div>
+
+      <div class="col-sm-8 col-md-6 col-xl-3">
+        <groot-date-picker
+          label="Reference date"
+          [(ngModel)]="referenceDate"
+        ></groot-date-picker>
+      </div>
+
+      <div class="col-sm-8 col-md-6 col-xl-3">
+        <groot-combo
+          label="Currencies"
+          [items]="availableCurrencies"
+          [(ngModel)]="selectedCurrencies"
+          [multiple]="true"
+        ></groot-combo>
+      </div>
+    </div>
+  </div>
+</groot-base-search-form>
+

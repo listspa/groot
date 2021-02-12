@@ -1,0 +1,40 @@
+groot-base-search-form, .groot-base-search-form {
+  .filters {
+    display: block;
+    margin-bottom: 1.2rem;
+    border: 1px solid $gray-darwin-border;
+    padding: 1.25rem;
+    font-size: 0.925rem;
+  }
+
+  .top-row {
+    display: flex;
+  }
+
+  .filters-area {
+    padding-top: 1rem;
+  }
+
+  .labels {
+    display: flex;
+  }
+
+  .filters-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .range-filter {
+    .range-filter-filters {
+      display: flex;
+
+      > * + * {
+        margin-left: 1rem;
+      }
+
+      .operator-combo {
+        width: 9rem;
+      }
+    }
+  }
+}

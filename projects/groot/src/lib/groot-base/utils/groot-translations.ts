@@ -68,12 +68,16 @@ const GROOT_EN_TRANSLATIONS = {
   'common.quickSearch': 'Quick search',
   'common.showFilters': 'Show filters',
   'common.hideFilters': 'Hide filters',
+  'common.showMoreFilters': 'Show additional filters',
+  'common.hideMoreFilters': 'Hide additional filters',
   'combo.noItems': 'No items found',
   'combo.addItem': 'Add item',
   'combo.clearAll': 'Clear all',
   'combo.loading': 'Loading...',
   'combo.typeToSearch': 'Type to search',
   'table.lastRefreshTimestamp': 'Last update: ',
+  'common.search.reset': 'Reset filters',
+  'common.search.noFilters': 'No filter applied',
 };
 const GROOT_IT_TRANSLATIONS = {
   'common.searchResults': 'Risultati',
@@ -140,12 +144,16 @@ const GROOT_IT_TRANSLATIONS = {
   'common.quickSearch': 'Ricerca veloce',
   'common.showFilters': 'Mostra filtri',
   'common.hideFilters': 'Nascondi filtri',
+  'common.showMoreFilters': 'Mostra filtri aggiuntivi',
+  'common.hideMoreFilters': 'Nascondi filtri aggiuntivi',
   'combo.noItems': 'Nessun elemento trovato',
   'combo.addItem': 'Aggiungi elemento',
   'combo.clearAll': 'Rimuovi tutti',
   'combo.loading': 'Caricamento...',
   'combo.typeToSearch': 'Scrivi per ricercare',
   'table.lastRefreshTimestamp': 'Ultimo aggiornamento: ',
+  'common.search.reset': 'Rimuovi filtri',
+  'common.search.noFilters': 'Nessun filtro applicato',
 };
 export const TRANSLATIONS_BY_LANG = {
   en: GROOT_EN_TRANSLATIONS,

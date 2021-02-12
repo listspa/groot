@@ -11,6 +11,9 @@ const RELEASE_NOTES: Release[] = [
     }, {
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Added class <a href="#/demo/modals"><code>groot-darwin-modal</code></a> for modals with a "lighter" look`
+    }, {
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Added class <a href="#/demo/base-search-form"><code>groot-base-search-form</code></a> for search forms in "Darwin" style`
     }]
   },
   {
