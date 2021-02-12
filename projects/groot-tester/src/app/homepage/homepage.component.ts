@@ -5,7 +5,7 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '3.1.0', released: false, changes: [{
+    version: '2.1.0', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Added component <a href="#/demo/misc-small-components"><code>link-as-button</code></a>`
     }, {
