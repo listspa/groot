@@ -22,6 +22,7 @@ export * from './lib/groot-base/components/forms/groot-checkbox/groot-checkbox.c
 export * from './lib/groot-base/components/forms/groot-combo/groot-combo.component';
 export * from './lib/groot-base/components/forms/groot-date-picker/groot-date-picker.component';
 export * from './lib/groot-base/components/forms/groot-date-picker/groot-date-picker-config';
+export * from './lib/groot-base/components/forms/groot-date-time-picker/groot-date-time-picker.component';
 export * from './lib/groot-base/components/forms/groot-file-input/groot-file-input.component';
 export * from './lib/groot-base/components/forms/groot-input/groot-input.component';
 export * from './lib/groot-base/components/forms/groot-input/groot-input.directive';

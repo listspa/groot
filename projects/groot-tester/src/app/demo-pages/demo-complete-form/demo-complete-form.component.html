@@ -1,7 +1,56 @@
+<h1>Input tests</h1>
+
 <form novalidate #ngForm="ngForm">
-  <h1>Input tests</h1>
+  <groot-button label="Validate!" (click)="validateForm()"></groot-button>
 
   <div class="row">
+    <div class="col-sm-4">
+      <h2>Date / time picker with form control</h2>
+
+      <groot-date-time-picker
+        label="Data e Ora"
+        name="dateTime"
+        [formControl]="dateTime"
+        groot-provide-parent-form
+      ></groot-date-time-picker>
+
+      <div *ngIf="dateTime">
+        <b>dateTime touched:</b> {{dateTime.touched}} <br>
+        <b>dateTime pristine:</b> {{dateTime.pristine}} <br>
+        <b>dateTime dirty:</b> {{dateTime.dirty}} <br>
+        <b>dateTime valid:</b> {{dateTime.valid}} <br>
+      </div>
+
+      <groot-button label="common.reset" (click)="resetDateTime()"></groot-button>
+    </div>
+
+    <div class="col-sm-4">
+      <h2>Date / time picker with ngModel</h2>
+
+      <groot-date-time-picker
+        label="Data Ora"
+        name="dateTime"
+        [(ngModel)]="form.dateTime"
+        (ngModelChange)="dateTimeChanged($event)"
+        groot-provide-parent-form
+        [required]="true"
+      ></groot-date-time-picker>
+
+      <div *ngIf="ngForm.controls['dateTime']">
+        <b>date touched:</b> {{ngForm.controls['dateTime'].touched}} <br>
+        <b>date pristine:</b> {{ngForm.controls['dateTime'].pristine}} <br>
+        <b>date dirty:</b> {{ngForm.controls['dateTime'].dirty}} <br>
+        <b>date valid:</b> {{ngForm.controls['dateTime'].valid}} <br>
+      </div>
+
+      <groot-date-time-picker
+        label="Data Ora 2"
+        name="dateTime 2"
+        [(ngModel)]="form.dateTime"
+        groot-provide-parent-form
+      ></groot-date-time-picker>
+    </div>
+
     <div class="col-sm-4">
       <h2>Date picker</h2>
 

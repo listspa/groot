@@ -57,6 +57,7 @@ import {GrootSplitButtonComponent} from './components/groot-split-button/groot-s
 import {GrootDarwinSideBarComponent} from './components/darwin-side-bar/groot-darwin-side-bar.component';
 import {GrootTimePickerComponent} from './components/forms/groot-time-picker/groot-time-picker.component';
 import {GrootBaseSearchFormComponent} from './components/base-search-form/base-search-form.component';
+import {GrootDateTimePickerComponent} from './components/forms/groot-date-time-picker/groot-date-time-picker.component';
 
 @NgModule({
   declarations: [
@@ -109,6 +110,7 @@ import {GrootBaseSearchFormComponent} from './components/base-search-form/base-s
     GrootDarwinSideBarComponent,
     GrootTimePickerComponent,
     GrootBaseSearchFormComponent,
+    GrootDateTimePickerComponent,
   ],
   imports: [
     CommonModule,
@@ -172,6 +174,7 @@ import {GrootBaseSearchFormComponent} from './components/base-search-form/base-s
     GrootDarwinSideBarComponent,
     GrootBaseSearchFormComponent,
     GrootTimePickerComponent,
+    GrootDateTimePickerComponent,
   ],
   entryComponents: [
     LoadingIndicatorComponent,

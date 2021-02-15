@@ -1,0 +1,61 @@
+<label for="{{name}}" *ngIf="label">
+  {{label | translate}}
+  <span *ngIf="required">*</span>
+</label>
+
+<div class="d-flex">
+  <div class="input-group mr-2">
+    <input type="text"
+           autocomplete="off"
+           class="form-control"
+           [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
+           [required]="required"
+           [id]="name"
+           [name]="name"
+           [minDate]="minDate"
+           [maxDate]="maxDate"
+           [daysDisabled]="daysDisabled"
+           [datesDisabled]="datesDisabled"
+           [datesEnabled]="datesEnabled"
+           bsDatepicker
+           #datePickerDirective="bsDatepicker"
+           #inputDate=ngModel
+           [ngModel]="selectedDate"
+           (ngModelChange)="writeDateFromGui($event)"
+           (blur)="onTouched()"
+           [class.is-invalid]="!valid"
+           [disabled]="disabled"
+           value="{{!(inputDate.invalid && inputDate.touched) ? (selectedDate | date: format) : selectedDate}}">
+
+    <div class="input-group-append">
+      <span class="input-group-text">
+        <i class="fa fa-calendar"></i>
+      </span>
+    </div>
+
+    <div class="invalid-feedback" *ngIf="!valid">
+      {{'common.required' | translate}}
+    </div>
+  </div>
+
+  <div class="input-group">
+    <input
+      class="form-control"
+      type="time"
+      [name]="name"
+      [id]="name"
+      [required]="required"
+      [disabled]="disabled"
+      [min]="minTime"
+      [max]="maxTime"
+      [step]="step"
+      [class.is-invalid]="!valid"
+      [(ngModel)]="timePart"
+      (ngModelChange)="writeTimeFromGui($event)"
+    >
+  </div>
+</div>
+
+<small class="form-text text-muted" *ngIf="helpText">
+  {{helpText | translate}}
+</small>
