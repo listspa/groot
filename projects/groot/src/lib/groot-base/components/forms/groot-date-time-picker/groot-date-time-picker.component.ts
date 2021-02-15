@@ -1,12 +1,11 @@
-import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, forwardRef, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {BsDatepickerDirective} from 'ngx-bootstrap/datepicker';
 import {isoDate} from '../../../utils/date-utils';
 import {leftPad} from '../../../utils/string-utils';
 import {Subscription} from 'rxjs';
 import {unsubscribeSafe} from '../../../utils/subscription-utils';
-
-type Placement = 'bottom' | 'top' | 'left' | 'right';
+import {calculateDatePickerPosition, Placement} from '../groot-date-picker/groot-date-picker-placement.utils';
 
 @Component({
   selector: 'groot-date-time-picker',
@@ -39,6 +38,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   @Input() datesEnabled: Date[] | null;
   @Input() hidePlaceholder = false;
   @ViewChild('datePickerDirective') private datePickerDirective: BsDatepickerDirective;
+  @ViewChild('datePickerElement') private datePickerElement: ElementRef;
   @ViewChild('inputDate') input: NgModel;
 
   selectedDate: Date;
@@ -47,9 +47,9 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   private subValue: Subscription;
   private subStatus: Subscription;
   valid = false;
+  placement: Placement;
 
-  constructor(private element: ElementRef,
-              private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
     // Compute offset from UTC to local zone. We need it to invoke the new Date/toIsoDate methods correctly
     const minutesTz = new Date().getTimezoneOffset();
     const hh = Math.abs(minutesTz / 60);
@@ -58,9 +58,13 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
     this.tzOffset = sign + leftPad(hh, 2, '0') + ':' + leftPad(mm, 2, '0');
   }
 
-  @HostListener('click', ['$event'])
-  onClick(event: Event): void {
-    this.onTouched();
+  clickOnDate(event: Event): void {
+    this.placement = calculateDatePickerPosition(this.datePickerElement);
+    // Wait for the nex javascript execution cycle, in this way the component read the updated input value.
+    setTimeout(() => {
+      this.datePickerDirective.toggle();
+      this.onTouched();
+    }, 0);
   }
 
   ngOnInit(): void {

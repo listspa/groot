@@ -1,8 +1,7 @@
 import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {BsDatepickerDirective} from 'ngx-bootstrap/datepicker';
-
-type Placement = 'bottom' | 'top' | 'left' | 'right';
+import {calculateDatePickerPosition, Placement} from './groot-date-picker-placement.utils';
 
 @Component({
   selector: 'groot-date-picker',
@@ -45,45 +44,12 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
   }
 
   private onToggle() {
-    this.placement = this.calculatePosition();
+    this.placement = calculateDatePickerPosition(this._element);
     // Wait for the nex javascript execution cycle, in this way the component read the updated input value.
     setTimeout(() => {
       this.datePickerDirective.toggle();
       this.onTouched();
     }, 0);
-  }
-
-  private calculatePosition(): Placement {
-    let position: Placement = 'bottom';
-
-    if (
-      !this._element ||
-      !this._element.nativeElement ||
-      !this._element.nativeElement.childNodes ||
-      !this._element.nativeElement.childNodes[2] ||
-      !this._element.nativeElement.childNodes[2].getBoundingClientRect) {
-      return position;
-    }
-
-    const rect: ClientRect | DOMRect = this._element.nativeElement.childNodes[2].getBoundingClientRect();
-
-    const height = 315;
-    const width = 308;
-
-    const topDistance = rect.height + rect.top;
-    const bottomDistance = (window.innerHeight - rect.top) - rect.height;
-    const leftDistance = rect.width + rect.left;
-    const rightDistance = (window.innerWidth - rect.left) - rect.width;
-
-    if (topDistance > height && height > bottomDistance) {
-      position = 'top';
-    }
-
-    if (rightDistance > width && width > leftDistance) {
-      position = 'right';
-    }
-
-    return position;
   }
 
   onChange = (selectedDate: Date) => null;

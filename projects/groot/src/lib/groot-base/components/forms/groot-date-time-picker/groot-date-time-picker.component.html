@@ -4,7 +4,7 @@
 </label>
 
 <div class="d-flex">
-  <div class="input-group mr-2">
+  <div class="input-group mr-2" (click)="clickOnDate($event)" #datePickerElement>
     <input type="text"
            autocomplete="off"
            class="form-control"
@@ -20,7 +20,9 @@
            bsDatepicker
            #datePickerDirective="bsDatepicker"
            #inputDate=ngModel
+           [placement]="placement"
            [ngModel]="selectedDate"
+           triggers=""
            (ngModelChange)="writeDateFromGui($event)"
            (blur)="onTouched()"
            [class.is-invalid]="!valid"
@@ -52,7 +54,7 @@
       [class.is-invalid]="!valid"
       [(ngModel)]="timePart"
       (ngModelChange)="writeTimeFromGui($event)"
-    >
+      (blur)="onTouched()">
   </div>
 </div>
 
