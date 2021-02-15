@@ -1338,6 +1338,64 @@
   </div>
 </div>
 
+<h2>Date and Time picker</h2>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Date/Time Picker with ngModel</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-date-time-picker
+        label="Date and time"
+        name="dateTime"
+        [required]="true"
+        [(ngModel)]="form.dateTime"
+        helpText="select a date and time please"
+      ></groot-date-time-picker>
+    </form>
+  </div>
+  <pre>{{form.time}}</pre>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-date-time-picker
+  label="Date and time"
+  name="dateTime"
+  [required]="true"
+  [(ngModel)]="form.dateTime"
+  helpText="select a date and time please"
+>&lt;/groot-date-time-picker></code></pre>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Date/Time Picker with formControl</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-date-time-picker
+        label="Date and Time"
+        name="dateTime"
+        [required]="true"
+        [formControl]="dateTimeFormControl"
+        helpText="select a date and a time please"
+      ></groot-date-time-picker>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-date-time-picker
+  label="Date and Time"
+  name="dateTime"
+  [required]="true"
+  [formControl]="dateTimeFormControl"
+  helpText="select a date and a time please"
+>&lt;/groot-date-time-picker></code></pre>
+  </div>
+</div>
+
+
+
+
 
 <h2>Toggle button</h2>
 
