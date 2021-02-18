@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, ElementRef, forwardRef, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {BsDatepickerDirective} from 'ngx-bootstrap/datepicker';
 import {isoDate} from '../../../utils/date-utils';
@@ -47,6 +47,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   private subValue: Subscription;
   private subStatus: Subscription;
   valid = false;
+  touched = false;
   placement: Placement;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
@@ -58,7 +59,13 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
     this.tzOffset = sign + leftPad(hh, 2, '0') + ':' + leftPad(mm, 2, '0');
   }
 
-  clickOnDate(event: Event): void {
+  @HostListener('click', ['$event'])
+  touch(event: Event): void {
+    this.touched = true;
+    this.computeValidity();
+  }
+
+  clickOnDate(): void {
     this.placement = calculateDatePickerPosition(this.datePickerElement);
     // Wait for the nex javascript execution cycle, in this way the component read the updated input value.
     setTimeout(() => {
@@ -89,7 +96,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   }
 
   private setValidFromFormControl(status: string): void {
-    this.valid = status === 'VALID';
+    this.valid = status === 'VALID' || !this.touched;
   }
 
   onChange = (selectedDate: Date) => null;
@@ -118,7 +125,9 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
 
   private computeValidity(): void {
     if (!this.externalFormControl) {
-      this.valid = this.required ? Boolean(this.selectedDate) : true;
+      this.valid = this.required && this.touched ? Boolean(this.selectedDate) : true;
+    } else {
+      this.setValidFromFormControl(this.externalFormControl.status);
     }
   }
 
@@ -132,6 +141,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
       // No need to change the time part
     }
 
+    this.touched = true;
     this.computeValidity();
 
     this.onChange(this.selectedDate);
@@ -141,6 +151,10 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
     if (this.selectedDate) {
       const dateStr = isoDate(this.selectedDate) + 'T' + (timePart || '00:00:00') + this.tzOffset;
       this.selectedDate = new Date(dateStr);
+
+      this.touched = true;
+      this.computeValidity();
+
       this.onChange(this.selectedDate);
     }
   }

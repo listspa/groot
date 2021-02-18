@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ComboDataRequest, ComboDataRequestWithSelected, PaginatedResponse} from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
+import {
+  ComboDataRequest,
+  ComboDataRequestWithSelected,
+  PaginatedResponse
+} from '../../../../../groot/src/lib/groot-base/utils/pagination.model';
 import {endIndex, startIndex} from '../../../../../groot/src/lib/groot-base/utils/pagination-utils';
 import {FormControl, Validators} from '@angular/forms';
 import {debounceTime} from 'rxjs/operators';
@@ -257,7 +261,7 @@ export class DemoFormComponent implements OnInit {
   radioFormControl = new FormControl('valueA');
   dateFormControl = new FormControl();
   timeFormControl = new FormControl();
-  dateTimeFormControl = new FormControl();
+  dateTimeFormControl = new FormControl(null, [Validators.required]);
   format: string;
   minDate: any;
   labels = ['common.yes', 'common.no', 'common.pleaseConfirm'];
