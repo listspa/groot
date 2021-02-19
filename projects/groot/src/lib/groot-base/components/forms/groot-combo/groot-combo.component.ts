@@ -1,13 +1,4 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  forwardRef,
-  Input,
-  OnInit,
-  Output,
-  TemplateRef, ViewChild
-} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, forwardRef, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
@@ -60,6 +51,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() formControl: FormControl;
   @Input() dropDownPosition: DropdownPosition = 'auto';
   @Input() errorMessage = 'common.required';
+  @Input() maxMultipleItemsDisplayed: number = undefined;
 
   @ViewChild(NgSelectComponent) ngCombo: NgSelectComponent;
 
@@ -172,6 +164,16 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
 
   get checkboxes(): boolean {
     return this._checkboxes;
+  }
+
+  get actualMaxMultipleItemsDisplayed(): number {
+    if (this.maxMultipleItemsDisplayed) {
+      return this.maxMultipleItemsDisplayed;
+    } else if (this._checkboxes) {
+      return 1;
+    } else {
+      return this.allItems.length;
+    }
   }
 
   get fetchDataIncrementally(): boolean {

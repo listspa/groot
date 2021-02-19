@@ -491,6 +491,37 @@
 >&lt;/groot-combo></code></pre>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Combo box with multiple and max displayed values</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Currency"
+        name="currencyMultipleMax2"
+        [items]="currencies"
+        [required]="true"
+        [(ngModel)]="form.selectedCurrencies"
+        [multiple]="true"
+        [maxMultipleItemsDisplayed]="2"
+        (ngModelChange)="onModelChange('combo multiple currencies', $event)"
+      ></groot-combo>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-combo
+  label="Currency"
+  name="currencyMultipleMax2"
+  [items]="currencies"
+  [required]="true"
+  [(ngModel)]="form.selectedCurrencies"
+  [multiple]="true"
+  [maxMultipleItemsDisplayed]="2"
+  (ngModelChange)="onModelChange('combo multiple currencies', $event)"
+>&lt;/groot-combo></code></pre>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-2">
@@ -633,6 +664,35 @@
   [required]="true"
   [(ngModel)]="form.selectedManyCurrencies"
   [checkboxes]="true"
+>&lt;/groot-combo></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Combo box with checkboxes displaying up to 3 items</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Currency"
+        name="manyCurrencyMax3"
+        [items]="manyCurrencies"
+        [required]="true"
+        [(ngModel)]="form.selectedManyCurrencies"
+        [checkboxes]="true"
+        [maxMultipleItemsDisplayed]="3"
+      ></groot-combo>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-combo
+  label="Currency"
+  name="manyCurrencyMax3"
+  [items]="manyCurrencies"
+  [required]="true"
+  [(ngModel)]="form.selectedManyCurrencies"
+  [checkboxes]="true"
+  [maxMultipleItemsDisplayed]="3"
 >&lt;/groot-combo></code></pre>
   </div>
 </div>

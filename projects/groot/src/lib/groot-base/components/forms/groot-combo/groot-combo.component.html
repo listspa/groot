@@ -259,32 +259,43 @@
             </ng-container>
         </ng-container>
         <ng-container *ngIf="!multiLabelTemplate && (!checkboxes || showAsListBox)">
+          <ng-container *ngIf="items.length <= actualMaxMultipleItemsDisplayed">
             <div class="ng-value" *ngFor="let item of items; let index = index">
-                <ng-container
-                        *ngTemplateOutlet="labelTemplateWithClearCross; context: {item: item, clear: clear, index: index}"></ng-container>
+              <ng-container
+                *ngTemplateOutlet="labelTemplateWithClearCross; context: {item: item, clear: clear, index: index}"></ng-container>
             </div>
+          </ng-container>
+          <div class="ng-value" *ngIf="items.length > actualMaxMultipleItemsDisplayed">
+            <span class="ng-value-label">
+              {{'common.numValuesSelected' | translate:{numSelected: items.length} }}
+            </span>
+          </div>
         </ng-container>
     </ng-template>
 
 
     <!-- Selected items row template -->
     <ng-template #checkboxSelectedTpl let-items="items" let-clear="clear">
-        <div class="ng-value">
+      <!-- Special case for not too many values selected -->
+      <ng-container *ngIf="items.length <= actualMaxMultipleItemsDisplayed; else checkboxSelectedTplElse">
+        <div class="ng-value" *ngFor="let item of items; let index = index">
+          <ng-container
+            *ngTemplateOutlet="labelTemplateWithClearCross; context: {item: item, clear: clear, index: index}"></ng-container>
+        </div>
+      </ng-container>
+
+      <ng-template #checkboxSelectedTplElse>
+      <div class="ng-value">
         <span class="ng-value-label"
               *ngIf="isAllSelected() && items.length != 1">
           {{'common.allValuesSelected' | translate}}
         </span>
-            <span class="ng-value-label"
-                  *ngIf="!isAllSelected() && items.length > 1">
+        <span class="ng-value-label"
+              *ngIf="!isAllSelected() && items.length > actualMaxMultipleItemsDisplayed">
           {{'common.numValuesSelected' | translate:{numSelected: items.length} }}
         </span>
-
-            <!-- Special case for one value selected -->
-            <ng-container *ngIf="items.length == 1">
-                <ng-container
-                        *ngTemplateOutlet="labelTemplateWithClearCross; context: {item: items[0], clear: clear, index: 0}"></ng-container>
-            </ng-container>
-        </div>
+      </div>
+      </ng-template>
     </ng-template>
 
     <ng-template #labelTemplateWithClearCross let-item="item" let-clear="clear" let-index="index">
