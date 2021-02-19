@@ -7,7 +7,12 @@ const RELEASE_NOTES: Release[] = [
   {
     version: '2.1.3', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
-      html: `Added <code>maxMultipleItemsDisplayed</code> to <code>groot-combo</code>`
+      html: `Added <code>maxMultipleItemsDisplayed</code> to <code>groot-combo</code>, for showing a maximum of selected
+values as individual items rather than showing "n values selected"`
+    }, {
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Added <code>showSelectButtons</code> to <code>groot-combo</code>, for showing the "select all" buttons even
+for a standard combo without the checkboxes`
     }]
   },
   {

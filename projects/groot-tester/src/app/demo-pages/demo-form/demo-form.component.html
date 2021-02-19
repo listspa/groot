@@ -522,6 +522,35 @@
 >&lt;/groot-combo></code></pre>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Combo box with select all buttons</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Currency"
+        name="currencyMultipleButtons"
+        [items]="currencies"
+        [required]="true"
+        [(ngModel)]="form.selectedCurrencies"
+        [multiple]="true"
+        [showSelectButtons]="true"
+      ></groot-combo>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-combo
+  label="Currency"
+  name="currencyMultipleButtons"
+  [items]="currencies"
+  [required]="true"
+  [(ngModel)]="form.selectedCurrencies"
+  [multiple]="true"
+  [showSelectButtons]="true"
+>&lt;/groot-combo></code></pre>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-2">

@@ -52,6 +52,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() dropDownPosition: DropdownPosition = 'auto';
   @Input() errorMessage = 'common.required';
   @Input() maxMultipleItemsDisplayed: number = undefined;
+  @Input() showSelectButtons = false;
 
   @ViewChild(NgSelectComponent) ngCombo: NgSelectComponent;
 

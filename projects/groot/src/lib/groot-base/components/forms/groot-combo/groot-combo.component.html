@@ -37,7 +37,7 @@
                    [clearable]="clearable"
                    [searchFn]="searchFn">
 
-            <ng-template *ngIf="checkboxes || headerTemplate || toggleShowOnlySelected"
+            <ng-template *ngIf="checkboxes || showSelectButtons || headerTemplate || toggleShowOnlySelected"
                          ng-header-tmp
                          let-searchTerm="searchTerm">
                 <ng-container *ngTemplateOutlet="headerTmp; context: {searchTerm: searchTerm}"></ng-container>
@@ -103,7 +103,7 @@
                    [clearable]="clearable"
                    [searchFn]="searchFn">
 
-            <ng-template *ngIf="checkboxes || headerTemplate || toggleShowOnlySelected"
+            <ng-template *ngIf="checkboxes || showSelectButtons || headerTemplate || toggleShowOnlySelected"
                          ng-header-tmp
                          let-searchTerm="searchTerm">
                 <ng-container *ngTemplateOutlet="headerTmp; context: {searchTerm: searchTerm}"></ng-container>
@@ -149,7 +149,7 @@
         <ng-container *ngIf="!toggleShowOnlySelected && headerTemplate">
             <ng-container *ngTemplateOutlet="headerTemplate; context: {searchTerm: searchTerm}"></ng-container>
         </ng-container>
-        <ng-container *ngIf="!toggleShowOnlySelected && !headerTemplate && checkboxes">
+        <ng-container *ngIf="!toggleShowOnlySelected && !headerTemplate && (checkboxes || showSelectButtons)">
             <ng-container *ngTemplateOutlet="checkboxSelectAllTpl"></ng-container>
         </ng-container>
     </ng-template>
