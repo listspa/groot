@@ -35,7 +35,9 @@
                    [loading]="loading"
                    (open)="onOpen()"
                    [clearable]="clearable"
-                   [searchFn]="searchFn">
+                   [searchFn]="searchFn"
+                   [groupBy]="groupBy"
+                   [groupValue]="groupValue">
 
             <ng-template *ngIf="checkboxes || showSelectButtons || headerTemplate || toggleShowOnlySelected"
                          ng-header-tmp
@@ -101,7 +103,9 @@
                    [loading]="loading"
                    (open)="onOpen()"
                    [clearable]="clearable"
-                   [searchFn]="searchFn">
+                   [searchFn]="searchFn"
+                   [groupBy]="groupBy"
+                   [groupValue]="groupValue">
 
             <ng-template *ngIf="checkboxes || showSelectButtons || headerTemplate || toggleShowOnlySelected"
                          ng-header-tmp

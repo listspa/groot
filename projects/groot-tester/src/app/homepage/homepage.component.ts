@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '2.1.4', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Added <code>groupBy</code> to <code>groot-combo</code>`
+    }]
+  },
+  {
     version: '2.1.3', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Added <code>maxMultipleItemsDisplayed</code> to <code>groot-combo</code>, for showing a maximum of selected

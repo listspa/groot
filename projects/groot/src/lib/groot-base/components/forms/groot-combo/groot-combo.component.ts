@@ -5,6 +5,7 @@ import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {ComboDataRequest, ComboDataRequestWithSelected, PaginatedResponse} from '../../../utils/pagination.model';
 import {TranslateService} from '@ngx-translate/core';
 import {DropdownPosition, NgSelectComponent} from '@ng-select/ng-select';
+import {GroupValueFn} from '@ng-select/ng-select/lib/ng-select.component';
 
 export declare type AddTagFn = ((term: string) => any | Promise<any>);
 
@@ -53,6 +54,8 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() errorMessage = 'common.required';
   @Input() maxMultipleItemsDisplayed: number = undefined;
   @Input() showSelectButtons = false;
+  @Input() groupBy: string | null = null;
+  @Input() groupValue: GroupValueFn | null = null;
 
   @ViewChild(NgSelectComponent) ngCombo: NgSelectComponent;
 

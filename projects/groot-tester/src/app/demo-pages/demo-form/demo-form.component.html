@@ -624,6 +624,43 @@
 >&lt;/groot-combo></code></pre>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Combo box with object values and grouping</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-combo
+        label="Album"
+        name="album"
+        [items]="countries"
+        [(ngModel)]="form.selectedCountry"
+        bindLabel="name"
+        groupBy="area"
+      ></groot-combo>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <pre><code>&lt;groot-combo
+  label="Album"
+  name="album"
+  [items]="countries"
+  [(ngModel)]="form.selectedCountry"
+  bindLabel="name"
+  groupBy="area"
+>&lt;/groot-combo></code></pre>
+  </div>
+  <div class="col-md-3 p-0">
+    <pre>countries = [
+  &#123;area: 'Europe', name: 'Italy'},
+  &#123;area: 'Europe', name: 'France'},
+  &#123;area: 'Europe', name: 'Germany'},
+  &#123;area: 'Asia', name: 'China'},
+  &#123;area: 'Asia', name: 'Japan'},
+  &#123;area: 'Asia', name: 'India'},
+];</pre>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-2">
