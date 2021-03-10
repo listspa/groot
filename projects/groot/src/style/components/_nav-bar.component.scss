@@ -66,8 +66,8 @@ groot-nav-bar {
           }
 
           &.active {
-            background-color: $lighter-primary;
-            color: color-yiq($lighter-primary);
+            background-color: $navbar-dropdown-active-bg;
+            color: color-yiq($navbar-dropdown-active-bg);
           }
         }
       }
