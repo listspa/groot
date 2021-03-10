@@ -79,7 +79,7 @@
   // Your modules
 ],</code></pre>
 
-<p>In your `providers` section of your app module, add this:</p>
+<p>In your <code>providers</code> section of your app module, add this:</p>
 
 <pre><code>
 providers: [
@@ -95,6 +95,11 @@ providers: [
 export function HttpLoaderFactory(http: HttpClient) &#123;
   return new GrootTranslateHttpLoader(http);
 }</code></pre>
+
+<h2>Supporting IE11</h2>
+
+<p>To support Internet Explorer, open the file <code>.broiwserslistrc</code> and remove the <code>NOT</code> from the
+  <code>IE 11</code> line</p>
 
 <h2>Further steps</h2>
 
