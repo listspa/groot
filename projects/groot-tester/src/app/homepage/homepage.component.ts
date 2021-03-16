@@ -8,6 +8,9 @@ const RELEASE_NOTES: Release[] = [
     version: '2.1.5', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Added scss variable <code>$navbar-dropdown-active-color</code> for customizing navbar hover color`
+    }, {
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Added <code>date-holidays-utils</code> service.`
     }]
   },
   {

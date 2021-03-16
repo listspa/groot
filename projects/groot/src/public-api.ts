@@ -70,6 +70,7 @@ export * from './lib/groot-base/utils/browser-utils';
 export * from './lib/groot-base/utils/compare-by';
 export * from './lib/groot-base/utils/copy-utils';
 export * from './lib/groot-base/utils/date-utils';
+export * from './lib/groot-base/utils/date-holidays-utils';
 export * from './lib/groot-base/utils/element-resizing-handler';
 export * from './lib/groot-base/utils/generic-table-component-base';
 export * from './lib/groot-base/utils/geometry.model';
