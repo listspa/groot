@@ -4,6 +4,7 @@ import {GrootInputCurrencyComponent} from './components/groot-input-currency/gro
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgxCurrencyModule} from 'ngx-currency';
 import {TranslateModule} from '@ngx-translate/core';
+import {GrootModule} from '../groot-base/groot.module';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import {TranslateModule} from '@ngx-translate/core';
     NgxCurrencyModule,
     TranslateModule,
     FormsModule,
+    GrootModule,
     ReactiveFormsModule,
   ],
   exports: [
