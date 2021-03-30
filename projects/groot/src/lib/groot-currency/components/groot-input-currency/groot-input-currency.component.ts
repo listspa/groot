@@ -75,7 +75,7 @@ export class GrootInputCurrencyComponent implements ControlValueAccessor, OnInit
   @Input() inputMode: CurrencyMaskInputMode;
 
   @Input() currencyOptions: Partial<CurrencyMaskConfig> = {};
-  options: Partial<CurrencyMaskConfig> = {...this.defaultConfig};
+  options: CurrencyMaskConfig = {...this.defaultConfig};
   onChange = (value: number) => null;
   onTouched = () => null;
 
@@ -113,10 +113,10 @@ export class GrootInputCurrencyComponent implements ControlValueAccessor, OnInit
   }
 
   private updateConfig() {
+    const defaultConfig = (this.defaultConfig || {});
+    const eventConfig = (this.eventConfig || {});
+    const currencyOptions = (this.currencyOptions || {});
     this.options = {
-      ...(this.defaultConfig || {}),
-      ...(this.eventConfig || {}),
-      ...(this.currencyOptions || {}),
       align: this.align,
       allowNegative: this.allowNegative,
       allowZero: this.allowZero,
@@ -130,6 +130,15 @@ export class GrootInputCurrencyComponent implements ControlValueAccessor, OnInit
       max: this.max,
       inputMode: this.inputMode
     };
+    this.overrideOptionIfEmpty(currencyOptions);
+    this.overrideOptionIfEmpty(eventConfig);
+    this.overrideOptionIfEmpty(defaultConfig);
+  }
+
+  private overrideOptionIfEmpty(options: Partial<CurrencyMaskConfig>) {
+    Object.keys(this.options)
+      .filter(o => this.options[o] == null)
+      .forEach(o => this.options[o] = options[o]);
   }
 
   ngOnDestroy(): void {
