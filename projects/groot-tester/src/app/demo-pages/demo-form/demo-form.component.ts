@@ -3,6 +3,7 @@ import {ComboDataRequest, ComboDataRequestWithSelected, PaginatedResponse} from 
 import {endIndex, startIndex} from '../../../../../groot/src/lib/groot-base/utils/pagination-utils';
 import {FormControl, Validators} from '@angular/forms';
 import {debounceTime} from 'rxjs/operators';
+import {CurrencyMaskInputMode} from 'ngx-currency';
 
 @Component({
   selector: 'app-demo-form',
@@ -30,6 +31,7 @@ export class DemoFormComponent implements OnInit {
     time: null,
     dateTime: new Date(),
     selectedCountry: null,
+    amount: null
   };
 
   public currencies = ['EUR', 'USD', 'JPY', 'CNY', 'RUB'];
@@ -270,6 +272,8 @@ export class DemoFormComponent implements OnInit {
     {area: 'Asia', name: 'Japan'},
     {area: 'Asia', name: 'India'},
   ];
+
+  currencyInputMode = CurrencyMaskInputMode;
 
   onModelChange(field: string, value: any) {
     console.log('field %o changed: %o', field, value);

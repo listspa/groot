@@ -62,6 +62,7 @@ import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import {PopoverModule} from 'ngx-bootstrap/popover';
 import {DemoBaseSearchFormComponent} from './demo-pages/demo-base-search-form/demo-base-search-form.component';
+import {GrootCurrencyModule} from '../../../groot/src/lib/groot-currency/groot-currency.module';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -132,6 +133,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PopoverModule.forRoot(),
     AppRoutingModule,
     GrootTableAutocolModule,
+    GrootCurrencyModule,
   ],
   providers: [
     {provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker},

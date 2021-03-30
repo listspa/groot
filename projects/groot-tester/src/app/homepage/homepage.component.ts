@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.0.0', released: false, changes:[{
+      type: ReleaseChangeType.BREAKING_CHANGE,
+      html: `In order to compile you need to install the module: <code>"ngx-currency": "^2.5.2"</code>`
+    }, {
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Added new component <code>groot-input-currency</code> and service <code>GrootInputCurrencyService</code> in order to change default options`
+    }]
+  },
+  {
     version: '2.1.5', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Added scss variable <code>$navbar-dropdown-active-color</code> for customizing navbar hover color`
