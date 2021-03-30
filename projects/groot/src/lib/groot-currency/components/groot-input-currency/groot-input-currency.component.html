@@ -1,0 +1,48 @@
+<label for="{{name}}" *ngIf="label">
+    {{label | translate}}
+    <span *ngIf="required">*</span>
+</label>
+<div class="input-group mb-2">
+    <input currencyMask
+           autocomplete="off"
+           [options]="options"
+           class="form-control"
+           [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
+           [required]="required"
+           [id]="name"
+           [name]="name"
+           #input="ngModel"
+           [ngModel]="value"
+           (ngModelChange)="writeValueFromGui($event)"
+           (blur)="onTouched()"
+           (keyup.enter)="onEnterPressed()"
+           [class.is-invalid]="input.invalid && input.touched"
+           [disabled]="disabled"
+    />
+            <input currencyMask
+               autocomplete="off"
+               [options]="currencyOptions"
+               class="form-control"
+               [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
+               [required]="required"
+               [id]="name"
+               [name]="name"
+               (keyup.enter)="onEnterPressed()"
+               [formControl]="formControl"
+               [class.is-invalid]="formControl.invalid && formControl.touched"
+               *ngIf="formControl">
+
+    <ng-container *ngIf="input">
+        <div class="invalid-feedback" *ngIf="input.invalid && input.touched">
+            {{errorMessage | translate}}
+        </div>
+    </ng-container>
+      <ng-container *ngIf="formControl">
+            <div class="invalid-feedback" *ngIf="formControl.invalid && formControl.touched">
+                {{errorMessage | translate}}
+            </div>
+        </ng-container>
+</div>
+<small class="form-text text-muted" *ngIf="helpText">
+    {{helpText | translate}}
+</small>

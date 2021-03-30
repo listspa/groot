@@ -17,7 +17,8 @@
     "filesize": "^6.1.0",
     "font-awesome": "^4.7.0",
     "mdn-polyfills": "^5.19.0",
-    "ngx-bootstrap": "^6.2.0"
+    "ngx-bootstrap": "^6.2.0",
+    "ngx-currency": "^2.5.2"
   },
   "dependencies": {
     "tslib": "^2.0.0"
