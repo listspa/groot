@@ -8,12 +8,15 @@ const RELEASE_NOTES: Release[] = [
     version: '3.0.0', released: false, changes: [{
       type: ReleaseChangeType.BREAKING_CHANGE,
       html: `In order to compile you need to install the module: <code>"ngx-currency": "^2.5.2"</code>`
-    },  {
+    }, {
       type: ReleaseChangeType.BREAKING_CHANGE,
       html: `It is necessary to update ng-select from version 5 to <code>"@ng-select/ng-select": "^6.1.0",</code>`
     }, {
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Added new component <code>groot-input-currency</code> and service <code>GrootInputCurrencyService</code> in order to change default options`
+    }, {
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Updated List logo`
     },]
   },
   {
