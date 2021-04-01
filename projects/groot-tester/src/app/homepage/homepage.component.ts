@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.0.1', released: true, changes: [{
+      type: ReleaseChangeType.BUG_FIX,
+      html: `Added <code>forRoot</code> to <code>GrootCurrencyModule</code> to properly export <code>GrootInputCurrencyService</code>`
+    }]
+  },
+  {
     version: '3.0.0', released: true, changes: [{
       type: ReleaseChangeType.BREAKING_CHANGE,
       html: `In order to compile you need to install the module: <code>"ngx-currency": "^2.5.2"</code>`
