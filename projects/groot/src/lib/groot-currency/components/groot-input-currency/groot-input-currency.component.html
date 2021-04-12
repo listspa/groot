@@ -18,10 +18,11 @@
            (keyup.enter)="onEnterPressed()"
            [class.is-invalid]="input.invalid && input.touched"
            [disabled]="disabled"
+           *ngIf="!formControl"
     />
             <input currencyMask
                autocomplete="off"
-               [options]="currencyOptions"
+               [options]="options"
                class="form-control"
                [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
                [required]="required"
