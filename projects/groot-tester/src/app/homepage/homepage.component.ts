@@ -8,6 +8,9 @@ const RELEASE_NOTES: Release[] = [
     version: '3.0.3', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `Fix: combo with incremental loading flashes "n values selected" when opening`
+    }, {
+      type: ReleaseChangeType.BUG_FIX,
+      html: `Fix: missing translation "Show only selected" for combo`
     }]
   },
   {
