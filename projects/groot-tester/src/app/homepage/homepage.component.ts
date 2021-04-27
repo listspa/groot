@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.0.3', released: true, changes: [{
+      type: ReleaseChangeType.BUG_FIX,
+      html: `Fix: combo with incremental loading flashes "n values selected" when opening`
+    }]
+  },
+  {
     version: '3.0.2', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `Fixed Form Control in <code>groot-input-currency</code> component`

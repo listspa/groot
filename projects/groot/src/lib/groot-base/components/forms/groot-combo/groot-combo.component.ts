@@ -176,7 +176,8 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
     } else if (this._checkboxes) {
       return 1;
     } else {
-      return this.allItems.length;
+      const numSelected = Array.isArray(this.selectedValue) ? this.selectedValue.length : 1;
+      return Math.max(this.allItems.length, numSelected);
     }
   }
 
