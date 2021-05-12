@@ -22,6 +22,7 @@ export declare type AddTagFn = ((term: string) => any | Promise<any>);
 })
 export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Output() requestData = new EventEmitter<ComboDataRequestWithSelected | ComboDataRequest>();
+  @Output() cleared = new EventEmitter<void>();
 
   @Input() label: string;
   @Input() placeholder: string | null;
@@ -327,5 +328,10 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
         this.allItems = [...this._allItemsBackup];
       }
     }
+  }
+
+  onCleared(): void {
+    this.onTouched();
+    this.cleared.next();
   }
 }

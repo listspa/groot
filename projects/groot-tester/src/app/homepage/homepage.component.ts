@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.0.4', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Added event <code>cleared</code> to <code>groot-combo</code>`
+    }]
+  },
+  {
     version: '3.0.3', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `Fix: combo with incremental loading flashes "n values selected" when opening`
