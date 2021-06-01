@@ -109,3 +109,59 @@
   url($groot-assets-base-dir + '/fonts/RobotoCondensed-BoldItalic.woff2') format('woff2'),
   url($groot-assets-base-dir + '/fonts/RobotoCondensed-BoldItalic.woff') format('woff');
 }
+
+// Open Sans
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'),
+  url($groot-assets-base-dir + '/fonts/OpenSans-Regular.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/OpenSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('Open Sans-Italic'),
+  url($groot-assets-base-dir + '/fonts/OpenSans-Italic.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/OpenSans-Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('Open Sans-Light'),
+  url($groot-assets-base-dir + '/fonts/OpenSans-Light.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/OpenSans-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: 300;
+  src: local('Open Sans Light Italic'), local('Open Sans-LightItalic'),
+  url($groot-assets-base-dir + '/fonts/OpenSans-LightItalic.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/OpenSans-LightItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('Open Sans-Bold'),
+  url($groot-assets-base-dir + '/fonts/OpenSans-Bold.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/OpenSans-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: italic;
+  font-weight: 700;
+  src: local('Open Sans Bold Italic'), local('Open Sans-BoldItalic'),
+  url($groot-assets-base-dir + '/fonts/OpenSans-BoldItalic.woff2') format('woff2'),
+  url($groot-assets-base-dir + '/fonts/OpenSans-BoldItalic.woff') format('woff');
+}
