@@ -15,7 +15,8 @@ export interface DarwinSideBarItem {
 }
 
 export interface DarwinSideBarFirstLevelItem extends DarwinSideBarItem {
-  icon: string;
+  icon?: string | string[];
+  image?: string | string[];
   children: DarwinSideBarSecondLevel[];
   open?: boolean;   // Do not set directly
 }

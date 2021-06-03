@@ -8,7 +8,8 @@
              [class.selected]="tab == currentFirstLevel"
              [class.open]="tab.open"
              (click)="clickOnFirstLevel(tab)">
-          <i class="{{tab.icon}}"></i>
+          <i *ngIf="tab.icon" class="{{tab.icon}}"></i>
+          <img *ngIf="tab.image" [src]="tab.image">
           <span class="title">{{tab.label | translate}}</span>
         </div>
       </ng-container>

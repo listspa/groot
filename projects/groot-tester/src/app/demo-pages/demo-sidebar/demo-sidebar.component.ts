@@ -58,6 +58,27 @@ export class DemoSidebarComponent {
           ]
         },
       ]
+    },
+    {
+      label: 'About',
+      image: 'list-logo.png',
+      children: [
+        {
+          label: 'About LIST',
+          forcedOpen: true,
+          children: [
+            {
+              label: 'Our products'
+            },
+            {
+              label: 'Our team'
+            },
+            {
+              label: 'Our history'
+            },
+          ]
+        }
+      ],
     }
-  ]
+  ];
 }
