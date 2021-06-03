@@ -10,6 +10,7 @@ export interface DarwinSideBarItem {
   disabled?: boolean;
   hidden?: boolean;
   requiredCapabilities?: string | string[];
+  additionalClasses?: string | string[] | null;
 }
 
 export interface DarwinSideBarFirstLevelItem extends DarwinSideBarItem {

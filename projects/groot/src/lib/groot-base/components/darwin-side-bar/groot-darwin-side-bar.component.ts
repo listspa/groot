@@ -1,6 +1,13 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ActivationEnd, Router} from '@angular/router';
-import {DarwinSideBarFirstLevel, DarwinSideBarFirstLevelItem, DarwinSideBarItem, DarwinSideBarMenu, DarwinSideBarSecondLevel, DarwinSideBarThirdLevel} from '../../model/darwin-sidebar.model';
+import {
+  DarwinSideBarFirstLevel,
+  DarwinSideBarFirstLevelItem,
+  DarwinSideBarItem,
+  DarwinSideBarMenu,
+  DarwinSideBarSecondLevel,
+  DarwinSideBarThirdLevel
+} from '../../model/darwin-sidebar.model';
 import {filter} from 'rxjs/operators';
 import {Subscription} from 'rxjs';
 import {dropDownOnCreateAnimation} from '../../utils/animations-utils';
@@ -28,18 +35,18 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
     this.closeEverything();
   }
 
-  ngOnInit() {
+  ngOnInit(): void{
     this.routerSubscription = this.subscribeToRoutingEvents();
     this.highlightCurrentItem();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.routerSubscription) {
       this.routerSubscription.unsubscribe();
     }
   }
 
-  private closeEverything() {
+  private closeEverything(): void {
     this._menu
       .filter(firstLevel => firstLevel)
       .forEach(firstLevel => {
@@ -53,7 +60,7 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
       });
   }
 
-  clickOnFirstLevel(firstLevel: DarwinSideBarFirstLevel) {
+  clickOnFirstLevel(firstLevel: DarwinSideBarFirstLevel): void {
     this.closeOtherFirstLevelItems(firstLevel);
     firstLevel.open = !firstLevel.open && firstLevel.children && firstLevel.children.length > 0;
     this.currentFirstLevel = firstLevel;
@@ -61,13 +68,13 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
     this.navigate(firstLevel);
   }
 
-  private closeOtherFirstLevelItems(firstLevel: DarwinSideBarFirstLevelItem | null) {
+  private closeOtherFirstLevelItems(firstLevel: DarwinSideBarFirstLevelItem | null): void {
     this._menu
       .filter(item => item && item !== firstLevel)
       .forEach(item => item.open = false);
   }
 
-  clickOnSecondLevel(secondLevel: DarwinSideBarSecondLevel) {
+  clickOnSecondLevel(secondLevel: DarwinSideBarSecondLevel): void {
     if (!secondLevel.forcedOpen) {
       secondLevel.open = !secondLevel.open;
     }
@@ -75,11 +82,11 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
     this.navigate(secondLevel);
   }
 
-  clickOnThirdLevel(thirdLevel: DarwinSideBarThirdLevel) {
+  clickOnThirdLevel(thirdLevel: DarwinSideBarThirdLevel): void {
     this.navigate(thirdLevel);
   }
 
-  private navigate(item: DarwinSideBarItem) {
+  private navigate(item: DarwinSideBarItem): void {
     if (!item.routingTarget) {
       return;
     }
@@ -94,7 +101,7 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
       .subscribe(() => this.highlightCurrentItem());
   }
 
-  private highlightCurrentItem() {
+  private highlightCurrentItem(): void {
     if (!this._menu) {
       return;
     }
@@ -159,7 +166,7 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  private deSelectThirdLevels() {
+  private deSelectThirdLevels(): void {
     this._menu
       .filter(firstLevel => firstLevel)
       .forEach(firstLevel => {

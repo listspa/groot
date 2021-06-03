@@ -4,6 +4,7 @@
 
       <ng-container *ngIf="tab">
         <div class="menu-tab"
+             [ngClass]="tab.additionalClasses"
              [class.selected]="tab == currentFirstLevel"
              [class.open]="tab.open"
              (click)="clickOnFirstLevel(tab)">
@@ -24,6 +25,7 @@
       <div *ngFor="let secondLevel of currentFirstLevel.children"
            class="menu-accordion">
         <div class="accordion-title"
+             [ngClass]="secondLevel.additionalClasses"
              [class.clickable]="!secondLevel.forcedOpen"
              (click)="clickOnSecondLevel(secondLevel)">
           <span class="title">{{secondLevel.label | translate}}</span>
@@ -39,6 +41,7 @@
              [@dropDown]>
           <div *ngFor="let thirdLevel of secondLevel.children"
                class="menu-entry"
+               [ngClass]="thirdLevel.additionalClasses"
                [class.selected]="thirdLevel.selected"
                (click)="clickOnThirdLevel(thirdLevel)">
             {{thirdLevel.label | translate}}
