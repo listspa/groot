@@ -18,7 +18,7 @@ import {dropDownOnCreateAnimation} from '../../utils/animations-utils';
   animations: [dropDownOnCreateAnimation],
 })
 export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
-  private _menu: DarwinSideBarMenu;
+  private _menu: DarwinSideBarMenu | null = null;
   private routerSubscription: Subscription;
   currentFirstLevel: DarwinSideBarFirstLevel | null;
 
@@ -35,7 +35,7 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
     this.closeEverything();
   }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.routerSubscription = this.subscribeToRoutingEvents();
     this.highlightCurrentItem();
   }
@@ -47,6 +47,10 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
   }
 
   private closeEverything(): void {
+    if (!this._menu) {
+      return;
+    }
+
     this._menu
       .filter(firstLevel => firstLevel)
       .forEach(firstLevel => {
@@ -69,6 +73,10 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
   }
 
   private closeOtherFirstLevelItems(firstLevel: DarwinSideBarFirstLevelItem | null): void {
+    if (!this._menu) {
+      return;
+    }
+
     this._menu
       .filter(item => item && item !== firstLevel)
       .forEach(item => item.open = false);
@@ -170,6 +178,10 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
   }
 
   private deSelectThirdLevels(): void {
+    if (!this._menu) {
+      return;
+    }
+
     this._menu
       .filter(firstLevel => firstLevel)
       .forEach(firstLevel => {
