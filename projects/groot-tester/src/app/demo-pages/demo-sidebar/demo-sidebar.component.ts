@@ -82,4 +82,10 @@ export class DemoSidebarComponent {
       ],
     }
   ];
+
+  addEntryAbout(): void {
+    this.sidebarMenu[2].children[0].children.push({
+      label: 'Added item'
+    });
+  }
 }

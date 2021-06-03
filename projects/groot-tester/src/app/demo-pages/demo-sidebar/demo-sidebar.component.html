@@ -14,7 +14,15 @@
 
 <div class="root-component-area">
   <groot-darwin-side-bar [menu]="sidebarMenu"></groot-darwin-side-bar>
+
   <div class="p-3">
-    Here goes your page
+    <p>
+      Here goes your page
+    </p>
+
+    <groot-button
+      label="Add an entry in the 'About' menu"
+      (click)="addEntryAbout()"
+    ></groot-button>
   </div>
 </div>
