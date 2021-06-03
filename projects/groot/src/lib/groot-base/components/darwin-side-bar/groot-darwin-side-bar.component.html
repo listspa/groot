@@ -44,6 +44,7 @@
                class="menu-entry"
                [ngClass]="thirdLevel.additionalClasses"
                [class.selected]="thirdLevel.selected"
+               [class.disabled]="thirdLevel.disabled"
                (click)="clickOnThirdLevel(thirdLevel)">
             {{thirdLevel.label | translate}}
           </div>

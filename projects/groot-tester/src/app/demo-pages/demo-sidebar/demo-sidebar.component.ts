@@ -71,7 +71,8 @@ export class DemoSidebarComponent {
               label: 'Our products'
             },
             {
-              label: 'Our team'
+              label: 'Our team',
+              disabled: true
             },
             {
               label: 'Our history'

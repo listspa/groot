@@ -108,6 +108,12 @@ groot-darwin-side-bar {
         background-color: $light-primary;
         color: $white;
       }
+
+      &.disabled {
+        background-color: $gray-darwin-bg !important;
+        color: $black !important;
+        cursor: not-allowed;
+      }
     }
   }
 }

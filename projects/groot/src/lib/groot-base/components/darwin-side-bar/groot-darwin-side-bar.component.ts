@@ -83,6 +83,9 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
   }
 
   clickOnThirdLevel(thirdLevel: DarwinSideBarThirdLevel): void {
+    if (thirdLevel.disabled) {
+      return;
+    }
     this.navigate(thirdLevel);
   }
 
