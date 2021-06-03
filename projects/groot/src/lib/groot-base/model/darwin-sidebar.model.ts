@@ -11,6 +11,7 @@ export interface DarwinSideBarItem {
   hidden?: boolean;
   requiredCapabilities?: string | string[];
   additionalClasses?: string | string[] | null;
+  tags?: { [key: string]: string[] };   // For search purposes. Key is the language (en, it, ...).
 }
 
 export interface DarwinSideBarFirstLevelItem extends DarwinSideBarItem {
