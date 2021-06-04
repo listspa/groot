@@ -6,6 +6,12 @@ import {Release, ReleaseChangeType} from './release.model';
 const RELEASE_NOTES: Release[] = [
   {
     version: '3.1.2', released: true, changes: [{
+      type: ReleaseChangeType.BUG_FIX,
+      html: `<code>groot-darwin-side-bar</code> does not scroll vertically`
+    }]
+  },
+  {
+    version: '3.1.2', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Allow force refresh when clicking an entry in <code>groot-darwin-side-bar</code>`
     }, {
