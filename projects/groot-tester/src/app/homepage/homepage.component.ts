@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.1.2', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Allow force refresh when clicking an entry in <code>groot-darwin-side-bar</code>`
+    }, {
+      type: ReleaseChangeType.BUG_FIX,
+      html: `Avoid NPE when <code>groot-darwin-side-bar</code> receives a null menu`
+    }]
+  },
+  {
     version: '3.1.1', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Added support for images, css classes and disabled items in the darwin sidebar`
