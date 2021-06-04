@@ -12,6 +12,7 @@ export interface DarwinSideBarItem {
   requiredCapabilities?: string | string[];
   additionalClasses?: string | string[] | null;
   tags?: { [key: string]: string[] };   // For search purposes. Key is the language (en, it, ...).
+  forceReloadStates?: boolean;
 }
 
 export interface DarwinSideBarFirstLevelItem extends DarwinSideBarItem {

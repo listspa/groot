@@ -22,6 +22,11 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
   private routerSubscription: Subscription;
   currentFirstLevel: DarwinSideBarFirstLevel | null;
 
+  /**
+   * If true, a second click on the current menu entry will reload it.
+   */
+  @Input() forceReloadStates = false;
+
   constructor(private router: Router) {
   }
 
@@ -103,7 +108,16 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
     }
 
     const target = Array.isArray(item.routingTarget) ? item.routingTarget : [item.routingTarget];
-    this.router.navigate(target, item.routingNavigationExtras);
+
+    if (this.forceReloadStates || item.forceReloadStates) {
+      // Force a reload of navigation
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate(target, item.routingNavigationExtras);
+      });
+    } else {
+      // Standard navigation
+      this.router.navigate(target, item.routingNavigationExtras);
+    }
   }
 
   private subscribeToRoutingEvents(): Subscription {
