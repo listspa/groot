@@ -5,7 +5,13 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '3.1.2', released: true, changes: [{
+    version: '3.1.4', released: true, changes: [{
+      type: ReleaseChangeType.BUG_FIX,
+      html: `<code>groot-darwin-side-bar</code> component now uses capabilities if set in first, second or third level of <code>darwin-sidebar</code> objects`
+    }]
+  },
+  {
+    version: '3.1.3', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `<code>groot-darwin-side-bar</code> does not scroll vertically`
     }]

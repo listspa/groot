@@ -4,12 +4,13 @@
 
       <ng-container *ngIf="tab">
         <div class="menu-tab"
+             [grootNeedsCapability]="tab.requiredCapabilities"
              [ngClass]="tab.additionalClasses"
              [class.selected]="tab == currentFirstLevel"
              [class.open]="tab.open"
              (click)="clickOnFirstLevel(tab)">
           <i *ngIf="tab.icon" class="{{tab.icon}}"></i>
-          <img *ngIf="tab.image" [src]="tab.image">
+          <img *ngIf="tab.image" [src]="tab.image" alt="Menu image">
           <span class="title">{{tab.label | translate}}</span>
         </div>
       </ng-container>
@@ -24,6 +25,7 @@
        [class.open]="currentFirstLevel && currentFirstLevel.open">
     <ng-container *ngIf="currentFirstLevel && currentFirstLevel.open">
       <div *ngFor="let secondLevel of currentFirstLevel.children"
+           [grootNeedsCapability]="secondLevel.requiredCapabilities"
            class="menu-accordion">
         <div class="accordion-title"
              [ngClass]="secondLevel.additionalClasses"
@@ -41,6 +43,7 @@
              *ngIf="secondLevel.open"
              [@dropDown]>
           <div *ngFor="let thirdLevel of secondLevel.children"
+               [grootNeedsCapability]="thirdLevel.requiredCapabilities"
                class="menu-entry"
                [ngClass]="thirdLevel.additionalClasses"
                [class.selected]="thirdLevel.selected"
