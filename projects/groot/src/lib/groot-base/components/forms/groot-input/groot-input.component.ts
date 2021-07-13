@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, ContentChild, EventEmitter, forwardRef, Input, Output, TemplateRef} from '@angular/core';
+import {ChangeDetectorRef, Component, ContentChild, EventEmitter, forwardRef, Input, Output, TemplateRef, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './groot-input.directive';
 
@@ -31,6 +31,7 @@ export class GrootInputComponent implements ControlValueAccessor {
   @Input() hidePlaceholder = false;
   @Input() maxLength: number  = undefined;
   @Output() enter: EventEmitter<string> = new EventEmitter();
+  @ViewChild(HTMLInputElement) private htmlInput: HTMLInputElement;
   text: string;
   private textSent: string;
 
@@ -78,5 +79,13 @@ export class GrootInputComponent implements ControlValueAccessor {
       this.textSent = this.text;
       this.enter.emit(this.text);
     }
+  }
+
+  public select(): void{
+    this.htmlInput.select();
+  }
+
+  public focus(): void{
+    this.htmlInput.focus();
   }
 }
