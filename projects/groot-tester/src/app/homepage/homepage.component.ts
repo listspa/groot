@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.1.5', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `<code>groot-input</code> component now supports select() and focus() like the HTMLInputElement`
+    }]
+  },
+  {
     version: '3.1.4', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `<code>groot-darwin-side-bar</code> component now uses capabilities if set in first, second or third level of <code>darwin-sidebar</code> objects`
