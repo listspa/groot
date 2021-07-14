@@ -12,7 +12,8 @@
       <i [ngClass]="iconLeft"></i>
     </ng-template>
   </div>
-  <input [type]="type"
+  <input #htmlInput
+         [type]="type"
          [step]="step"
          autocomplete="off"
          class="form-control"
@@ -29,7 +30,8 @@
          [disabled]="disabled"
          [attr.maxLength]="maxLength"
          *ngIf="!formControl">
-  <input [type]="type"
+  <input #htmlInput
+         [type]="type"
          autocomplete="off"
          class="form-control"
          [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
