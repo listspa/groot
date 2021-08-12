@@ -33,6 +33,11 @@ export class DemoSidebarComponent {
               label: 'Tables',
               routingTarget: '/demo/tables'
             },
+            {
+              label: 'Tables (disabled)',
+              routingTarget: '/demo/tables',
+              disabled: true,
+            },
           ]
         },
         {
@@ -40,7 +45,7 @@ export class DemoSidebarComponent {
           forcedOpen: true,
           children: [
             {
-              label: 'Nav baar',
+              label: 'Nav bar',
               routingTarget: '/demo/nav-bar'
             },
             {

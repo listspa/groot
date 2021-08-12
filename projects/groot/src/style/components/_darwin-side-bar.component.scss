@@ -102,12 +102,15 @@ groot-darwin-side-bar {
     margin-left: 0.6rem;
 
     .menu-entry {
+      display: block;
       padding: 0.4rem;
       cursor: pointer;
+      color: $black;
 
       &:hover, &.selected {
         background-color: $light-primary;
         color: $white;
+        text-decoration: none;
       }
 
       &.disabled {

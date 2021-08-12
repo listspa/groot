@@ -42,15 +42,41 @@
         <div class="accordion-items"
              *ngIf="secondLevel.open"
              [@dropDown]>
-          <div *ngFor="let thirdLevel of secondLevel.children"
-               [grootNeedsCapability]="thirdLevel.requiredCapabilities"
-               class="menu-entry"
-               [ngClass]="thirdLevel.additionalClasses"
-               [class.selected]="thirdLevel.selected"
-               [class.disabled]="thirdLevel.disabled"
-               (click)="clickOnThirdLevel(thirdLevel)">
-            {{thirdLevel.label | translate}}
-          </div>
+          <ng-container *ngFor="let thirdLevel of secondLevel.children">
+            <ng-container *ngIf="forceReloadStates || thirdLevel.forceReloadStates">
+              <!-- If we cannot create a hyperlink -->
+              <div
+                [grootNeedsCapability]="thirdLevel.requiredCapabilities"
+                class="menu-entry"
+                [ngClass]="thirdLevel.additionalClasses"
+                [class.selected]="thirdLevel.selected"
+                [class.disabled]="thirdLevel.disabled"
+                (click)="clickOnThirdLevel(thirdLevel)">
+                {{thirdLevel.label | translate}}
+              </div>
+            </ng-container>
+            <ng-container *ngIf="!(forceReloadStates || thirdLevel.forceReloadStates)">
+              <!-- If possible, create an hyperlink using the router link directive -->
+              <a
+                [grootNeedsCapability]="thirdLevel.requiredCapabilities"
+                class="menu-entry"
+                [ngClass]="thirdLevel.additionalClasses"
+                [class.selected]="thirdLevel.selected"
+                [class.disabled]="thirdLevel.disabled"
+                [routerLink]="thirdLevel.disabled ? null : thirdLevel.routingTarget"
+                [queryParams]="thirdLevel.routingNavigationExtras?.queryParams"
+                [fragment]="thirdLevel.routingNavigationExtras?.fragment"
+                [queryParamsHandling]="thirdLevel.routingNavigationExtras?.queryParamsHandling"
+                [preserveFragment]="thirdLevel.routingNavigationExtras?.preserveFragment"
+                [relativeTo]="thirdLevel.routingNavigationExtras?.relativeTo"
+                [skipLocationChange]="thirdLevel.routingNavigationExtras?.skipLocationChange"
+                [replaceUrl]="thirdLevel.routingNavigationExtras?.replaceUrl"
+                [state]="thirdLevel.routingNavigationExtras?.state"
+                (click)="clickOnThirdLevel(thirdLevel)">
+                {{thirdLevel.label | translate}}
+              </a>
+            </ng-container>
+          </ng-container>
         </div>
       </div>
     </ng-container>
