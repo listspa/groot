@@ -2,6 +2,9 @@
   <div class="is-dashboard">
     <div *ngIf="title" class="title d-flex justify-content-start w-100 h1">
       <i [ngClass]="icon" *ngIf="icon"></i>
+      <ng-container *ngIf="icons && icons.length">
+        <i *ngFor="let ico of icons" [ngClass]="ico"></i>
+      </ng-container>
       {{title | translate: titleTranslationObj}}
     </div>
   </div>
@@ -11,6 +14,9 @@
        [class.reduced-height]="reducedHeight">
     <div *ngIf="title" class="title d-flex justify-content-center w-100 h1">
       <i [ngClass]="icon" *ngIf="icon"></i>
+      <ng-container *ngIf="icons && icons.length">
+        <i *ngFor="let ico of icons" [ngClass]="ico"></i>
+      </ng-container>
       {{title | translate: titleTranslationObj}}
     </div>
     <div *ngIf="subtitle"

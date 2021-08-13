@@ -6,6 +6,7 @@ import {Component, Input} from '@angular/core';
 })
 export class GrootDarwinPageTitleComponent {
   @Input() icon: string | string[];
+  @Input() icons: Array<string | string[]>;
   @Input() title: string;
   @Input() titleTranslationObj: any;
   @Input() subtitle: string;
