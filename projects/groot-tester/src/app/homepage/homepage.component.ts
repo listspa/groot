@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.2.1', released: true, changes: [{
+      type: ReleaseChangeType.BUG_FIX,
+      html: `disabled items in combo should not have "hand" cursor`
+    }]
+  },
+  {
     version: '3.2.0', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `<code>groot-darwin-side-bar</code> uses, when possible, standard html links. This enables ctrl+click and middle-click to open in new tab.`

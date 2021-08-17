@@ -296,6 +296,7 @@
 
       &.ng-option-disabled {
         color: $gray-400;
+        cursor: default;
       }
 
       &.ng-option-child {
