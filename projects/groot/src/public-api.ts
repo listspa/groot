@@ -13,6 +13,7 @@ export * from './lib/groot-base/components/darwin-breadcrumbs/groot-darwin-bread
 export * from './lib/groot-base/components/darwin-breadcrumbs/darwin-breadcrumb-goback/groot-darwin-breadcrumbs-go-back.component';
 export * from './lib/groot-base/components/darwin-breadcrumbs/darwin-breadcrumb-separator/groot-darwin-breadcrumb-separator.component';
 export * from './lib/groot-base/components/darwin-side-bar/groot-darwin-side-bar.component';
+export * from './lib/groot-base/components/darwin-side-bar/groot-darwin-side-bar-third-level/groot-darwin-side-bar-third-level.component';
 export * from './lib/groot-base/components/darwin-page-title/groot-darwin-page-title.component';
 export * from './lib/groot-base/components/display-label-value/display-label-value.component';
 export * from './lib/groot-base/components/display-value/display-value.component';

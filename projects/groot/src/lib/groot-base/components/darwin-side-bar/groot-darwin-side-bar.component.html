@@ -24,6 +24,7 @@
   <div class="menu-items"
        [class.open]="currentFirstLevel && currentFirstLevel.open">
     <ng-container *ngIf="currentFirstLevel && currentFirstLevel.open">
+
       <ng-container *ngIf="!currentFirstLevel.isSearchButton">
         <!-- Standard tab with first level menu item -->
         <div *ngFor="let secondLevel of currentFirstLevel.children"
@@ -44,46 +45,75 @@
           <div class="accordion-items"
                *ngIf="secondLevel.open"
                [@dropDown]>
-            <ng-container *ngFor="let thirdLevel of secondLevel.children">
-              <ng-container *ngIf="forceReloadStates || thirdLevel.forceReloadStates">
-                <!-- If we cannot create a hyperlink -->
-                <div
-                  [grootNeedsCapability]="thirdLevel.requiredCapabilities"
-                  class="menu-entry"
-                  [ngClass]="thirdLevel.additionalClasses"
-                  [class.selected]="thirdLevel.selected"
-                  [class.disabled]="thirdLevel.disabled"
-                  (click)="clickOnThirdLevel(thirdLevel)">
-                {{thirdLevel.label | translate}}
-              </div>
-            </ng-container>
-            <ng-container *ngIf="!(forceReloadStates || thirdLevel.forceReloadStates)">
-              <!-- If possible, create an hyperlink using the router link directive -->
-              <a
-                [grootNeedsCapability]="thirdLevel.requiredCapabilities"
-                class="menu-entry"
-                [ngClass]="thirdLevel.additionalClasses"
-                [class.selected]="thirdLevel.selected"
-                [class.disabled]="thirdLevel.disabled"
-                [routerLink]="thirdLevel.disabled ? null : thirdLevel.routingTarget"
-                [queryParams]="thirdLevel.routingNavigationExtras?.queryParams"
-                [fragment]="thirdLevel.routingNavigationExtras?.fragment"
-                [queryParamsHandling]="thirdLevel.routingNavigationExtras?.queryParamsHandling"
-                [preserveFragment]="thirdLevel.routingNavigationExtras?.preserveFragment"
-                [relativeTo]="thirdLevel.routingNavigationExtras?.relativeTo"
-                [skipLocationChange]="thirdLevel.routingNavigationExtras?.skipLocationChange"
-                [replaceUrl]="thirdLevel.routingNavigationExtras?.replaceUrl"
-                [state]="thirdLevel.routingNavigationExtras?.state"
-                (click)="clickOnThirdLevel(thirdLevel)">
-                {{thirdLevel.label | translate}}
-              </a>
-            </ng-container>
-            </ng-container>
+            <groot-darwin-side-bar-third-level
+              *ngFor="let thirdLevel of secondLevel.children"
+              [forceReloadStates]="forceReloadStates"
+              [thirdLevel]="thirdLevel"
+              (actionTriggered)="clickOnThirdLevel($event)">
+            </groot-darwin-side-bar-third-level>
           </div>
         </div>
       </ng-container>
+
       <ng-container *ngIf="currentFirstLevel.isSearchButton">
-        Search tab!
+        <!-- Search tab -->
+
+        <!-- TODO: quick search -->
+        <input [formControl]="searchTextFormControl">
+
+        <ng-container *ngFor="let firstLevel of searchResults">
+          <div
+            *ngIf="firstLevel && !firstLevel.isSearchButton"
+            [grootNeedsCapability]="firstLevel.requiredCapabilities"
+            class="menu-accordion"
+            (click)="openSearchResult1st(firstLevel)">
+            <div class="accordion-title">
+              <span class="title">
+                {{firstLevel.label | translate}}
+              </span>
+
+              <ng-container *ngIf="firstLevel.children && firstLevel.children.length">
+                <i class="fa fa-angle-down" *ngIf="!firstLevel.open"></i>
+                <i class="fa fa-angle-up" *ngIf="firstLevel.open"></i>
+              </ng-container>
+            </div>
+
+            <div class="accordion-items accordion-items-search" *ngIf="firstLevel.open" [@dropDown]>
+              <div
+                *ngFor="let secondLevel of firstLevel.children"
+                [grootNeedsCapability]="secondLevel.requiredCapabilities"
+                class="menu-accordion"
+                (click)="openSearchResult2nd(secondLevel, $event)">
+
+                <div class="accordion-title">
+                  <span class="title">{{secondLevel.label | translate}}</span>
+                  <ng-container *ngIf="secondLevel.children && secondLevel.children.length">
+                    <i class="fa fa-angle-down" *ngIf="!secondLevel.open"></i>
+                    <i class="fa fa-angle-up" *ngIf="secondLevel.open"></i>
+                  </ng-container>
+                </div>
+
+                <div class="accordion-items"
+                     *ngIf="secondLevel.open"
+                     [@dropDown]>
+                  <groot-darwin-side-bar-third-level
+                    *ngFor="let thirdLevel of secondLevel.children"
+                    [forceReloadStates]="forceReloadStates"
+                    [thirdLevel]="thirdLevel"
+                    (actionTriggered)="clickOnThirdLevel($event)">
+                  </groot-darwin-side-bar-third-level>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <div *ngIf="!lastSearchText" class="search-alert">
+          {{'common.menu.search.pleaseEnterSearchText' | translate}}
+        </div>
+        <div *ngIf="lastSearchText && !searchResults.length" class="search-alert">
+          {{'common.menu.search.noResults' | translate}}
+        </div>
       </ng-container>
     </ng-container>
   </div>

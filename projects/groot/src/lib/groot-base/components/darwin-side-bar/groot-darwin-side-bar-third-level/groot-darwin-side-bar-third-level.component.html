@@ -1,0 +1,32 @@
+<ng-container *ngIf="forceReloadStates || thirdLevel.forceReloadStates">
+  <!-- If we cannot create a hyperlink -->
+  <div
+    [grootNeedsCapability]="thirdLevel.requiredCapabilities"
+    class="menu-entry"
+    [ngClass]="thirdLevel.additionalClasses"
+    [class.selected]="thirdLevel.selected"
+    [class.disabled]="thirdLevel.disabled"
+    (click)="actionTriggered.next(thirdLevel)">
+    {{thirdLevel.label | translate}}
+  </div>
+</ng-container>
+<ng-container *ngIf="!(forceReloadStates || thirdLevel.forceReloadStates)">
+  <!-- If possible, create an hyperlink using the router link directive -->
+  <a
+    [grootNeedsCapability]="thirdLevel.requiredCapabilities"
+    class="menu-entry"
+    [ngClass]="thirdLevel.additionalClasses"
+    [class.selected]="thirdLevel.selected"
+    [class.disabled]="thirdLevel.disabled"
+    [routerLink]="thirdLevel.disabled ? null : thirdLevel.routingTarget"
+    [queryParams]="thirdLevel.routingNavigationExtras?.queryParams"
+    [fragment]="thirdLevel.routingNavigationExtras?.fragment"
+    [queryParamsHandling]="thirdLevel.routingNavigationExtras?.queryParamsHandling"
+    [preserveFragment]="thirdLevel.routingNavigationExtras?.preserveFragment"
+    [relativeTo]="thirdLevel.routingNavigationExtras?.relativeTo"
+    [skipLocationChange]="thirdLevel.routingNavigationExtras?.skipLocationChange"
+    [replaceUrl]="thirdLevel.routingNavigationExtras?.replaceUrl"
+    [state]="thirdLevel.routingNavigationExtras?.state">
+    {{thirdLevel.label | translate}}
+  </a>
+</ng-container>

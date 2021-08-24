@@ -26,11 +26,6 @@ groot-darwin-side-bar {
       font-size: 1.6rem;
     }
 
-    img {
-      height: 1.6rem;
-      width: 1.6rem;
-    }
-
     .title {
       line-height: 1.2em;
       padding-top: 0.4em;
@@ -82,6 +77,10 @@ groot-darwin-side-bar {
     padding-bottom: 1rem;
   }
 
+  .accordion-items-search .menu-accordion {
+    padding-bottom: 0.2rem;
+  }
+
   .accordion-title {
     width: 100%;
     display: flex;
@@ -101,6 +100,10 @@ groot-darwin-side-bar {
   .accordion-items {
     margin-left: 0.6rem;
 
+    &.accordion-items-search {
+      margin-left: 1.5rem;
+    }
+
     .menu-entry {
       display: block;
       padding: 0.4rem;
@@ -119,5 +122,16 @@ groot-darwin-side-bar {
         cursor: not-allowed;
       }
     }
+  }
+
+  img {
+    height: 1.6rem;
+    width: 1.6rem;
+  }
+
+  .search-alert {
+    padding: 0.5rem;
+    font-style: italic;
+    color: $label-fg-color;
   }
 }
