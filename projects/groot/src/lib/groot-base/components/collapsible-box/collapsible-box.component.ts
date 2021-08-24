@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {dropDownOnCreateAnimation, emptyEnterAnimation} from '../../utils/animations-utils';
-import {ClassesType} from '../../../model/classes-type.model';
+import {ClassesType} from '../../model/classes-type.model';
 
 @Component({
   selector: 'groot-collapsible-box',

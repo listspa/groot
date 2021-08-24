@@ -50,6 +50,7 @@ export * from './lib/groot-base/directives/loading.directive';
 export * from './lib/groot-base/directives/needsCapability.directive';
 export * from './lib/groot-base/directives/provide-parent-form.directive';
 export * from './lib/groot-base/interceptors/no-cache.interceptor';
+export * from './lib/groot-base/model/classes-type.model';
 export * from './lib/groot-base/model/darwin-sidebar.model';
 export * from './lib/groot-base/pipes/ft-date/ft-date.pipe';
 export * from './lib/groot-base/pipes/ft-time/ft-time.pipe';
@@ -101,4 +102,3 @@ export * from './lib/groot-table-autocol/services/table-autocol-config-service-b
 export * from './lib/groot-arch/init-groot-arch-plugins';
 export * from './lib/groot-arch/interfaces/groot-plugin';
 export * from './lib/groot-arch/services/groot-plugin-manager.service';
-export * from './lib/model/classes-type.model';

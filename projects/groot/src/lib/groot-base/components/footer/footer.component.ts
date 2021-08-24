@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {TranslationsLanguageService} from '../../services/translations-language.service';
-import {ClassesType} from '../../../model/classes-type.model';
+import {ClassesType} from '../../model/classes-type.model';
 
 @Component({
   selector: 'groot-footer',

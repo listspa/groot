@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ClassesType} from '../../../model/classes-type.model';
+import {ClassesType} from '../../model/classes-type.model';
 
 @Component({
   selector: 'groot-split-button',
