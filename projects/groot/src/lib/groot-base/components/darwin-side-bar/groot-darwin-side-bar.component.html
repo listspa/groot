@@ -24,34 +24,36 @@
   <div class="menu-items"
        [class.open]="currentFirstLevel && currentFirstLevel.open">
     <ng-container *ngIf="currentFirstLevel && currentFirstLevel.open">
-      <div *ngFor="let secondLevel of currentFirstLevel.children"
-           [grootNeedsCapability]="secondLevel.requiredCapabilities"
-           class="menu-accordion">
-        <div class="accordion-title"
-             [ngClass]="secondLevel.additionalClasses"
-             [class.clickable]="!secondLevel.forcedOpen"
-             (click)="clickOnSecondLevel(secondLevel)">
-          <span class="title">{{secondLevel.label | translate}}</span>
+      <ng-container *ngIf="!currentFirstLevel.isSearchButton">
+        <!-- Standard tab with first level menu item -->
+        <div *ngFor="let secondLevel of currentFirstLevel.children"
+             [grootNeedsCapability]="secondLevel.requiredCapabilities"
+             class="menu-accordion">
+          <div class="accordion-title"
+               [ngClass]="secondLevel.additionalClasses"
+               [class.clickable]="!secondLevel.forcedOpen"
+               (click)="clickOnSecondLevel(secondLevel)">
+            <span class="title">{{secondLevel.label | translate}}</span>
 
-          <ng-container *ngIf="!secondLevel.forcedOpen">
-            <i class="fa fa-angle-down" *ngIf="!secondLevel.open"></i>
-            <i class="fa fa-angle-up" *ngIf="secondLevel.open"></i>
-          </ng-container>
-        </div>
+            <ng-container *ngIf="!secondLevel.forcedOpen">
+              <i class="fa fa-angle-down" *ngIf="!secondLevel.open"></i>
+              <i class="fa fa-angle-up" *ngIf="secondLevel.open"></i>
+            </ng-container>
+          </div>
 
-        <div class="accordion-items"
-             *ngIf="secondLevel.open"
-             [@dropDown]>
-          <ng-container *ngFor="let thirdLevel of secondLevel.children">
-            <ng-container *ngIf="forceReloadStates || thirdLevel.forceReloadStates">
-              <!-- If we cannot create a hyperlink -->
-              <div
-                [grootNeedsCapability]="thirdLevel.requiredCapabilities"
-                class="menu-entry"
-                [ngClass]="thirdLevel.additionalClasses"
-                [class.selected]="thirdLevel.selected"
-                [class.disabled]="thirdLevel.disabled"
-                (click)="clickOnThirdLevel(thirdLevel)">
+          <div class="accordion-items"
+               *ngIf="secondLevel.open"
+               [@dropDown]>
+            <ng-container *ngFor="let thirdLevel of secondLevel.children">
+              <ng-container *ngIf="forceReloadStates || thirdLevel.forceReloadStates">
+                <!-- If we cannot create a hyperlink -->
+                <div
+                  [grootNeedsCapability]="thirdLevel.requiredCapabilities"
+                  class="menu-entry"
+                  [ngClass]="thirdLevel.additionalClasses"
+                  [class.selected]="thirdLevel.selected"
+                  [class.disabled]="thirdLevel.disabled"
+                  (click)="clickOnThirdLevel(thirdLevel)">
                 {{thirdLevel.label | translate}}
               </div>
             </ng-container>
@@ -76,9 +78,13 @@
                 {{thirdLevel.label | translate}}
               </a>
             </ng-container>
-          </ng-container>
+            </ng-container>
+          </div>
         </div>
-      </div>
+      </ng-container>
+      <ng-container *ngIf="currentFirstLevel.isSearchButton">
+        Search tab!
+      </ng-container>
     </ng-container>
   </div>
 </ng-container>

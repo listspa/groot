@@ -1,13 +1,6 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ActivationEnd, Router} from '@angular/router';
-import {
-  DarwinSideBarFirstLevel,
-  DarwinSideBarFirstLevelItem,
-  DarwinSideBarItem,
-  DarwinSideBarMenu,
-  DarwinSideBarSecondLevel,
-  DarwinSideBarThirdLevel
-} from '../../model/darwin-sidebar.model';
+import {DarwinSideBarFirstLevel, DarwinSideBarFirstLevelItem, DarwinSideBarItem, DarwinSideBarMenu, DarwinSideBarSecondLevel, DarwinSideBarThirdLevel} from '../../model/darwin-sidebar.model';
 import {filter} from 'rxjs/operators';
 import {Subscription} from 'rxjs';
 import {dropDownOnCreateAnimation} from '../../utils/animations-utils';
@@ -18,6 +11,7 @@ import {dropDownOnCreateAnimation} from '../../utils/animations-utils';
   animations: [dropDownOnCreateAnimation],
 })
 export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
+  // tslint:disable-next-line:variable-name
   private _menu: DarwinSideBarMenu | null = null;
   private routerSubscription: Subscription;
   currentFirstLevel: DarwinSideBarFirstLevel | null;
@@ -71,10 +65,14 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
 
   clickOnFirstLevel(firstLevel: DarwinSideBarFirstLevel): void {
     this.closeOtherFirstLevelItems(firstLevel);
-    firstLevel.open = !firstLevel.open && firstLevel.children && firstLevel.children.length > 0;
     this.currentFirstLevel = firstLevel;
+    if (!firstLevel.isSearchButton) {
+      firstLevel.open = !firstLevel.open && firstLevel.children && firstLevel.children.length > 0;
 
-    this.navigate(firstLevel);
+      this.navigate(firstLevel);
+    } else {
+      firstLevel.open = !firstLevel.open;
+    }
   }
 
   private closeOtherFirstLevelItems(firstLevel: DarwinSideBarFirstLevelItem | null): void {
@@ -133,6 +131,10 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
 
     this.deSelectThirdLevels();
 
+    if (this.currentFirstLevel.isSearchButton) {
+      return; // Do not change the current item
+    }
+
     this._menu
       .filter(item => item)
       .forEach(firstLevel => {
@@ -152,6 +154,10 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
   }
 
   private isFirstLevelActive(firstLevel: DarwinSideBarFirstLevel): boolean {
+    if (firstLevel.isSearchButton) {
+      return firstLevel.open;
+    }
+
     if (this.isItemActive(firstLevel)) {
       return true;
     }
