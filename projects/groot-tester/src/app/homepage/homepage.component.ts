@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.2.2', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `New component <a href="#/demo/forms"><code>groot-quick-search</code></a>.`
+    }]
+  },
+  {
     version: '3.2.1', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `disabled items in combo should not have "hand" cursor`

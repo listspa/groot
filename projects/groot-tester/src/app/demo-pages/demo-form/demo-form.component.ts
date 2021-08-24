@@ -31,7 +31,8 @@ export class DemoFormComponent implements OnInit {
     time: null,
     dateTime: new Date(),
     selectedCountry: null,
-    amount: null
+    amount: null,
+    search: null,
   };
 
   public currencies = ['EUR', 'USD', 'JPY', 'CNY', 'RUB'];
@@ -261,6 +262,7 @@ export class DemoFormComponent implements OnInit {
   dateFormControl = new FormControl();
   timeFormControl = new FormControl();
   dateTimeFormControl = new FormControl(null, [Validators.required]);
+  quickSearchFormControl = new FormControl(null);
   format: string;
   minDate: any;
   labels = ['common.yes', 'common.no', 'common.pleaseConfirm'];

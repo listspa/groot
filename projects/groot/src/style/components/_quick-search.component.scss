@@ -1,0 +1,45 @@
+groot-quick-search {
+  margin-left: 2px;
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    min-width: 11rem;
+  }
+
+  .input-group {
+    position: relative;
+  }
+
+  .form-control {
+    border-radius: $input-height-sm !important;
+  }
+
+  // IE
+  ::-ms-clear {
+    display: none;
+  }
+
+
+  // Icons
+
+  i {
+    position: absolute;
+    right: 0.8em;
+    top: 0.4em;
+    z-index: 4;
+  }
+
+  i.fa-times {
+    display: none;
+  }
+
+  .filled {
+    i.fa-search {
+      display: none;
+    }
+
+    i.fa-times {
+      display: block;
+      cursor: pointer;
+    }
+  }
+}

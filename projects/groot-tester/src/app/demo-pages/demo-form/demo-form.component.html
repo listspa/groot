@@ -1812,6 +1812,47 @@
     </div>
 </div>
 
+<h2>Quick search box</h2>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Quick search (ngModel)</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-quick-search label="Search"
+                            name="search"
+                            [(ngModel)]="form.search"
+      ></groot-quick-search>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-quick-search label="Search"
+  name="search"
+  [(ngModel)]="form.search"
+>&lt;/groot-quick-search></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Quick search (formControl)</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-quick-search label="Search"
+                          name="search"
+                          [formControl]="quickSearchFormControl"
+      ></groot-quick-search>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-quick-search label="Search"
+  name="search"
+  [formControl]="quickSearchFormControl"
+>&lt;/groot-quick-search></code></pre>
+  </div>
+</div>
+
 <h2>Selected values</h2>
 
 <div class="alert alert-info">
