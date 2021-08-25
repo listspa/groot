@@ -15,7 +15,8 @@
     "release": "npm run build_lib && release-it --disable-metrics && npm run package && node scripts/publish.js",
     "build-demo-app": "ng build groot-tester --prod"
   },
-  "private": true,
+  "license": "Apache-2.0",
+  "private": false,
   "dependencies": {
     "@angular/animations": "~11.1.0",
     "@angular/cdk": "^11.1.0",
