@@ -79,6 +79,7 @@ const GROOT_EN_TRANSLATIONS = {
   'table.lastRefreshTimestamp': 'Last update: ',
   'common.search.reset': 'Reset filters',
   'common.search.noFilters': 'No filter applied',
+  'common.menu.search.placeholder': 'Search in menu',
   'common.menu.search.pleaseEnterSearchText': 'Please enter some search criteria',
   'common.menu.search.noResults': 'No menu item matches your criteria',
 };
@@ -158,6 +159,7 @@ const GROOT_IT_TRANSLATIONS = {
   'table.lastRefreshTimestamp': 'Ultimo aggiornamento: ',
   'common.search.reset': 'Rimuovi filtri',
   'common.search.noFilters': 'Nessun filtro applicato',
+  'common.menu.search.placeholder': 'Cerca nel menu',
   'common.menu.search.pleaseEnterSearchText': 'Inserisci del testo per cercare',
   'common.menu.search.noResults': 'Nessuna voce di menu corrisponde al testo inserito',
 };
