@@ -10,11 +10,11 @@
 
 <pre><code>"port": 4221,</code></pre>
 
-<h2>Moncalieri deploys: <code>portal</code> vs <code>script</code></h2>
+<h2>Split deploys: <code>portal</code> vs <code>script</code></h2>
 
 <p>
-  ISP applications, on Moncalieri, tend to have a couple of paths: something like <code>scriptEinv0</code>
-  for the WebLogic part, and <code>portalEinv0</code> for the apache files. To handle this, we need to modify
+  On some customers we have a couple of paths: something like <code>scriptApp0</code>
+  for the backend (weblogic) part, and <code>portalapp0</code> for the apache files. To handle this, we need to modify
   the <code>angular.json</code> file by adding these lines in the <code>architect</code> section, under the
   <code>build</code> and <code>options</code> sections:
 </p>
@@ -23,8 +23,8 @@
   "build": &#123;
     "builder": "@angular-devkit/build-angular:browser",
     "options": &#123;
-      "baseHref": "/scriptEinv0/einv-frontend/",
-      "deployUrl": "/portalEinv0/einv-frontend/",</code></pre>
+      "baseHref": "/scriptApp0/app-frontend/",
+      "deployUrl": "/portalApp0/app-frontend/",</code></pre>
 
 <h2>Define base URL</h2>
 
