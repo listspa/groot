@@ -68,9 +68,8 @@
           <div
             *ngIf="firstLevel && !firstLevel.isSearchButton"
             [grootNeedsCapability]="firstLevel.requiredCapabilities"
-            class="menu-accordion search-tab"
-            (click)="openSearchResult1st(firstLevel)">
-            <div class="accordion-title">
+            class="menu-accordion search-tab">
+            <div class="accordion-title clickable" (click)="openSearchResult1st(firstLevel)">
               <span class="title">
                 {{firstLevel.label | translate}}
               </span>
@@ -85,10 +84,9 @@
               <div
                 *ngFor="let secondLevel of firstLevel.children"
                 [grootNeedsCapability]="secondLevel.requiredCapabilities"
-                class="menu-accordion"
-                (click)="openSearchResult2nd(secondLevel, $event)">
+                class="menu-accordion">
 
-                <div class="accordion-title">
+                <div class="accordion-title clickable" (click)="openSearchResult2nd(secondLevel)">
                   <span class="title">{{secondLevel.label | translate}}</span>
                   <ng-container *ngIf="secondLevel.children && secondLevel.children.length">
                     <i class="fa fa-angle-down" *ngIf="!secondLevel.open"></i>

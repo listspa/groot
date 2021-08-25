@@ -238,9 +238,8 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
     firstLevel.open = !firstLevel.open;
   }
 
-  openSearchResult2nd(secondLevel: DarwinSideBarSecondLevel, event: MouseEvent): void {
+  openSearchResult2nd(secondLevel: DarwinSideBarSecondLevel): void {
     secondLevel.open = !secondLevel.open;
-    event.stopPropagation();
   }
 
   applySearch(): void {
