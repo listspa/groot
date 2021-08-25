@@ -140,11 +140,13 @@ groot-darwin-side-bar {
     margin-bottom: 1.5rem;
   }
 
-  .search-tab .menu-entry {
-    padding: 0.3rem 0.4rem;
-  }
+  .search-tab {
+    .menu-entry {
+      padding: 0.3rem 0.4rem;
+    }
 
-  .accordion-title {
-    padding-bottom: 0.3rem;
+    .accordion-title {
+      padding-bottom: 0.3rem;
+    }
   }
 }
