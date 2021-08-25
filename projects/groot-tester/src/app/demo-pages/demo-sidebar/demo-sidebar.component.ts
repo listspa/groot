@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {DarwinSideBarFirstLevelItem, DarwinSideBarMenu} from '../../../../../groot/src/lib/groot-base/model/darwin-sidebar.model';
+import {DarwinSideBarMenu} from '../../../../../groot/src/lib/groot-base/model/darwin-sidebar.model';
 
 @Component({
   selector: 'app-demo-sidebar',
@@ -96,7 +96,7 @@ export class DemoSidebarComponent {
   ];
 
   addEntryAbout(): void {
-    const menu = this.sidebarMenu[2] as DarwinSideBarFirstLevelItem;
+    const menu = this.sidebarMenu[2];
     menu.children[0].children.push({
       label: 'Added item'
     });
