@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, ElementRef, EventEmitter, forwardRef, Input, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, forwardRef, Input, Output, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 
 @Component({
@@ -12,7 +12,7 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@an
     }
   ]
 })
-export class GrootQuickSearchComponent implements ControlValueAccessor {
+export class GrootQuickSearchComponent implements ControlValueAccessor, AfterViewInit {
   @Input() label: string;
   @Input() placeholder: string | null;
   @Input() name: string;
@@ -21,6 +21,7 @@ export class GrootQuickSearchComponent implements ControlValueAccessor {
   @Input() formControl: FormControl = null;
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
+  @Input() autofocus = false;
   @Output() enter: EventEmitter<string> = new EventEmitter();
   @Output() reset: EventEmitter<void> = new EventEmitter();
   @ViewChild('htmlInput') private htmlInput: ElementRef;
@@ -32,6 +33,12 @@ export class GrootQuickSearchComponent implements ControlValueAccessor {
   onTouched = () => null;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
+  }
+
+  ngAfterViewInit(): void {
+    if (this.autofocus) {
+      this.focus();
+    }
   }
 
   writeValue(text: string): void {
