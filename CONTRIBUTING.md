@@ -58,3 +58,16 @@ If we used the specific `component.scss` file, that css would be built at groot'
 time. But that would mean that the variable's value would be groot's default, not the
 one to use at runtime.
 Therefore, place component's css files in `style/components/_myComponent.scss`.
+
+# Doing a release
+
+Currently, only developers at LIST can create releases.
+
+Create an account on NPM.JS and contact Andrea Bergia <a.bergia@list-group.com> for being added 
+to the listgroup organization on NPM.
+
+Next, you have to do an `npm login` using your account in the terminal.
+
+Finally, simply run `npm run release`. If you are a member of LIST, you will need to _temporarily_
+remove the row `@listgroup:registry=https://artifactory.list-group.com/artifactory/api/npm/npm/`
+from your file `~/.npmrc` and restore it after publication.
