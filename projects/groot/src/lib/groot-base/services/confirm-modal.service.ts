@@ -3,6 +3,8 @@ import {BsModalService} from 'ngx-bootstrap/modal';
 import {Observable, Subject} from 'rxjs';
 import {ConfirmModalComponent} from '../components/confirm-modal/confirm-modal.component';
 import {ClassesType} from '../model/classes-type.model';
+import {filter, map} from 'rxjs/operators';
+import {ConfirmModalNotesComponent} from '../components/confirm-modal-notes/confirm-modal-notes.component';
 
 export interface ConfirmationModalParams {
   text: string;
@@ -19,11 +21,16 @@ export interface ConfirmationModalParams {
   footerConfirmClasses?: ClassesType;
 }
 
+export interface ConfirmationModalNotesParams extends ConfirmationModalParams {
+  notesLabel: string;
+  notesRequired: boolean;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class ConfirmModalService {
-  static readonly DEFAULT_PARAMS = {
+  static readonly DEFAULT_PARAMS: Partial<ConfirmationModalParams> = {
     textArguments: null,
     title: 'common.pleaseConfirm',
     titleArguments: null,
@@ -35,6 +42,13 @@ export class ConfirmModalService {
     footerCancelClasses: 'btn-outline-danger',
     footerConfirmClasses: 'btn-outline-success',
   };
+
+  static readonly DEFAULT_PARAMS_NOTES: Partial<ConfirmationModalNotesParams> = {
+    ...ConfirmModalService.DEFAULT_PARAMS,
+    notesLabel: 'common.notes',
+    notesRequired: true,
+  };
+
 
   constructor(private bsModalService: BsModalService) {
   }
@@ -53,6 +67,43 @@ export class ConfirmModalService {
         resultSubject
       }
     });
+    return resultSubject;
+  }
+
+
+  confirmYesNoBoolean(params: ConfirmationModalParams): Observable<boolean> {
+    const actualParams = {
+      ...ConfirmModalService.DEFAULT_PARAMS,
+      ...params
+    };
+
+    return this.showConfirmation(actualParams);
+  }
+
+  confirmYesNo(params: ConfirmationModalParams): Observable<void> {
+    return this.confirmYesNoBoolean(params)
+      .pipe(
+        filter(v => Boolean(v)),
+        map(() => {
+          // Discard boolean
+        })
+      );
+  }
+
+  confirmYesNoNotes(params: ConfirmationModalParams): Observable<string> {
+    const actualParams = {
+      ...ConfirmModalService.DEFAULT_PARAMS_NOTES,
+      ...params
+    };
+
+    const resultSubject = new Subject<string>();
+    this.bsModalService.show(ConfirmModalNotesComponent, {
+      initialState: {
+        ...actualParams,
+        resultSubject
+      },
+    });
+
     return resultSubject;
   }
 }

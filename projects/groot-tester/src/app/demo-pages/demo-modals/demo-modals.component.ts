@@ -9,17 +9,23 @@ import {ConfirmModalService} from '../../../../../groot/src/lib/groot-base/servi
 export class DemoModalsComponent {
   modalRef: BsModalRef;
   confirmResult: null | boolean = null;
+  confirmNotes: null | string = null;
 
   constructor(private modalService: BsModalService,
               private confirmModalService: ConfirmModalService) {
   }
 
-  openPopup(template: TemplateRef<any>, modalClass: string) {
+  openPopup(template: TemplateRef<any>, modalClass: string): void {
     this.modalRef = this.modalService.show(template, {class: modalClass});
   }
 
-  showConfirmationModal() {
+  showConfirmationModal(): void {
     this.confirmModalService.showConfirmation({text: 'demoConfirmMessage'})
       .subscribe(value => this.confirmResult = value);
+  }
+
+  showConfirmationModalNotes(): void {
+    this.confirmModalService.confirmYesNoNotes({text: 'demoConfirmMessage'})
+      .subscribe(value => this.confirmNotes = value);
   }
 }

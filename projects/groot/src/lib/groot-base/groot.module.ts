@@ -60,6 +60,7 @@ import {GrootBaseSearchFormComponent} from './components/base-search-form/base-s
 import {GrootDateTimePickerComponent} from './components/forms/groot-date-time-picker/groot-date-time-picker.component';
 import {GrootQuickSearchComponent} from './components/forms/groot-quick-search/groot-quick-search.component';
 import {GrootDarwinSideBarThirdLevelComponent} from './components/darwin-side-bar/groot-darwin-side-bar-third-level/groot-darwin-side-bar-third-level.component';
+import {ConfirmModalNotesComponent} from './components/confirm-modal-notes/confirm-modal-notes.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import {GrootDarwinSideBarThirdLevelComponent} from './components/darwin-side-ba
     GrootFileInputComponent,
     GrootButtonComponent,
     ConfirmModalComponent,
+    ConfirmModalNotesComponent,
     FooterComponent,
     GrootTableHeaderDirective,
     GrootTableBodyDirective,
@@ -155,6 +157,7 @@ import {GrootDarwinSideBarThirdLevelComponent} from './components/darwin-side-ba
     GrootFileInputComponent,
     GrootButtonComponent,
     ConfirmModalComponent,
+    ConfirmModalNotesComponent,
     FooterComponent,
     GrootTableHeaderDirective,
     GrootTableBodyDirective,
@@ -184,6 +187,7 @@ import {GrootDarwinSideBarThirdLevelComponent} from './components/darwin-side-ba
   entryComponents: [
     LoadingIndicatorComponent,
     ConfirmModalComponent,
+    ConfirmModalNotesComponent,
   ]
 })
 export class GrootModule {

@@ -1,0 +1,37 @@
+<div class="modal-header"
+     [ngClass]="headerClasses">
+  <h4 class="modal-title pull-left">{{title | translate:titleArguments}}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="onCancel()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body"
+     [ngClass]="bodyClasses">
+  <div class="mb-3">
+    {{text | translate:textArguments}}
+  </div>
+
+  <groot-textarea
+    [(ngModel)]="notesText"
+    [label]="notesLabel"
+    [required]="notesRequired"
+    [rows]="3"
+  ></groot-textarea>
+</div>
+<div class="modal-footer"
+     [ngClass]="footerClasses">
+  <groot-button
+    [classes]="footerCancelClasses"
+    [label]="noLabel"
+    icon="fa fa-times"
+    (click)="onCancel()"
+  ></groot-button>
+
+  <groot-button
+    [classes]="footerConfirmClasses"
+    [label]="yesLabel"
+    icon="fa fa-check"
+    (click)="onConfirm()"
+    [disabled]="!notesText"
+  ></groot-button>
+</div>
