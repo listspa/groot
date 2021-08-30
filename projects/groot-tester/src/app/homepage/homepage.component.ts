@@ -5,6 +5,18 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.2.5', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Added new modal "confirm with notes". Added some methods in <code>ConfirmModalService</code>.`
+    }]
+  },
+  {
+    version: '3.2.4', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Groot is now Open Source on GitHub.com!`
+    }]
+  },
+  {
     version: '3.2.3', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `Clicking a search result in sidebar menu should not close parent item`
