@@ -14,10 +14,10 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/for
 })
 export class GrootCheckboxComponent implements ControlValueAccessor {
   @Input() public name: string;
-  @Input() public label: string;
+  @Input() public label: string | null = null;
   @Input() public disabled = false;
   @Input() public checked = false;
-  @Input() formControl: FormControl = null;
+  @Input() formControl: FormControl | null = null;
 
   onChange = (checked: boolean) => null;
   onTouched = () => null;

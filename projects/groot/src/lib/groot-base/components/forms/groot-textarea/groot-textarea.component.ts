@@ -13,8 +13,8 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@an
   ]
 })
 export class GrootTextAreaComponent implements ControlValueAccessor {
-  @Input() label: string;
-  @Input() placeholder: string | null;
+  @Input() label: string | null = null;
+  @Input() placeholder: string | null = null;
   @Input() name: string;
   @Input() required = false;
   @Input() disabled = false;
@@ -22,7 +22,7 @@ export class GrootTextAreaComponent implements ControlValueAccessor {
   @Input() rows = 5;
   @Input() formControl: FormControl = null;
   @Input() hidePlaceholder = false;
-  @Input() maxLength: number  = undefined;
+  @Input() maxLength: number | undefined = undefined;
   text: string;
   input: NgModel;
 

@@ -13,12 +13,12 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@an
   ]
 })
 export class GrootQuickSearchComponent implements ControlValueAccessor, AfterViewInit {
-  @Input() label: string;
-  @Input() placeholder: string | null;
+  @Input() label: string | null = null;
+  @Input() placeholder: string | null = null;
   @Input() name: string;
   @Input() required = false;
   @Input() disabled = false;
-  @Input() formControl: FormControl = null;
+  @Input() formControl: FormControl | null = null;
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
   @Input() autofocus = false;

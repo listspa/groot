@@ -15,19 +15,19 @@ import {calculateDatePickerPosition, Placement} from './groot-date-picker-placem
   ]
 })
 export class GrootDatePickerComponent implements ControlValueAccessor {
-  @Input() label: string;
-  @Input() placeholder: string | null;
+  @Input() label: string | null = null;
+  @Input() placeholder: string | null = null;
   @Input() name: string;
   @Input() required = false;
   @Input() disabled = false;
-  @Input() helpText: string = null;
-  @Input() formControl: FormControl = null;
+  @Input() helpText: string | null = null;
+  @Input() formControl: FormControl | null = null;
   @Input() format = 'dd/MM/yyyy';
-  @Input() minDate: Date | null;
-  @Input() maxDate: Date | null;
-  @Input() daysDisabled: number[] | null;
-  @Input() datesDisabled: Date[] | null;
-  @Input() datesEnabled: Date[] | null;
+  @Input() minDate: Date | null = null;
+  @Input() maxDate: Date | null = null;
+  @Input() daysDisabled: number[] | null = null;
+  @Input() datesDisabled: Date[] | null = null;
+  @Input() datesEnabled: Date[] | null = null;
   @Input() hidePlaceholder = false;
   placement: Placement = 'bottom';
   selectedDate: Date;

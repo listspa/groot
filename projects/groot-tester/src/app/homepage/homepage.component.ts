@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.2.6', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Explicitly annotated many nullable <code>@Input</code> properties as <code>| null</code>`
+    }]
+  },
+  {
     version: '3.2.5', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Added new modal "confirm with notes". Added some methods in <code>ConfirmModalService</code>.`

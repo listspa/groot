@@ -1,15 +1,4 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  ContentChild,
-  ElementRef,
-  EventEmitter,
-  forwardRef,
-  Input,
-  Output,
-  TemplateRef,
-  ViewChild
-} from '@angular/core';
+import {ChangeDetectorRef, Component, ContentChild, ElementRef, EventEmitter, forwardRef, Input, Output, TemplateRef, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './groot-input.directive';
 
@@ -26,21 +15,21 @@ import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './groot
 })
 export class GrootInputComponent implements ControlValueAccessor {
   @Input() type: 'text' | 'password' | 'color' | 'email' | 'number' | 'search' = 'text';
-  @Input() step: number = 1;
-  @Input() label: string;
-  @Input() placeholder: string | null;
+  @Input() step = 1;
+  @Input() label: string | null = null;
+  @Input() placeholder: string | null = null;
   @Input() name: string;
   @Input() required = false;
   @Input() disabled = false;
-  @Input() helpText: string = null;
+  @Input() helpText: string | null = null;
   @Input() iconLeft: string | string[] | null = null;
-  @Input() templateLeft: TemplateRef<any> = null;
+  @Input() templateLeft: TemplateRef<any> | null = null;
   @Input() iconRight: string | string[] | null = null;
-  @Input() templateRight: TemplateRef<any> = null;
-  @Input() formControl: FormControl = null;
+  @Input() templateRight: TemplateRef<any> | null = null;
+  @Input() formControl: FormControl | null = null;
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
-  @Input() maxLength: number  = undefined;
+  @Input() maxLength: number | undefined = undefined;
   @Output() enter: EventEmitter<string> = new EventEmitter();
   @ViewChild('htmlInput') private htmlInput: ElementRef;
   text: string;

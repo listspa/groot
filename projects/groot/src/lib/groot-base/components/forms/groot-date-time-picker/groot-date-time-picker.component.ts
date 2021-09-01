@@ -19,23 +19,23 @@ import {calculateDatePickerPosition, Placement} from '../groot-date-picker/groot
   ]
 })
 export class GrootDateTimePickerComponent implements ControlValueAccessor, OnInit, OnDestroy {
-  @Input() label: string;
-  @Input() placeholder: string | null;
+  @Input() label: string | null = null;
+  @Input() placeholder: string | null = null;
   @Input() name: string;
   @Input() required = false;
   @Input() disabled = false;
-  @Input() helpText: string = null;
+  @Input() helpText: string | null = null;
   // tslint:disable-next-line:no-input-rename
   @Input('formControl') externalFormControl: FormControl = null;
   @Input() format = 'dd/MM/yyyy';
-  @Input() minDate: Date | null;
-  @Input() maxDate: Date | null;
-  @Input() minTime: string | null;
-  @Input() maxTime: string | null;
-  @Input() step: number | null = 1;
-  @Input() daysDisabled: number[] | null;
-  @Input() datesDisabled: Date[] | null;
-  @Input() datesEnabled: Date[] | null;
+  @Input() minDate: Date | null = null;
+  @Input() maxDate: Date | null = null;
+  @Input() minTime: string | null = null;
+  @Input() maxTime: string | null = null;
+  @Input() step: number | null | undefined = 1;
+  @Input() daysDisabled: number[] | null = null;
+  @Input() datesDisabled: Date[] | null = null;
+  @Input() datesEnabled: Date[] | null = null;
   @Input() hidePlaceholder = false;
   @ViewChild('datePickerDirective') private datePickerDirective: BsDatepickerDirective;
   @ViewChild('datePickerElement') private datePickerElement: ElementRef;

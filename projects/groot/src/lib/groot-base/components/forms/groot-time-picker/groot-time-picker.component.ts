@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, forwardRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, forwardRef, Input, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 
 @Component({
@@ -17,7 +17,7 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@an
 export class GrootTimePickerComponent implements ControlValueAccessor {
 
   @Input() formControl: FormControl = null;
-  @Input() label: string;
+  @Input() label: string | null = null;
   @Input() name: string;
   @Input() required = false;
   @Input() disabled = false;
@@ -25,7 +25,7 @@ export class GrootTimePickerComponent implements ControlValueAccessor {
   @Input() minTime: string | null;
   @Input() maxTime: string | null;
   @Input() step: number | null;
-  selectedTime: string;
+  selectedTime: string | null = null;
   @ViewChild('input') input: NgModel;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) { }

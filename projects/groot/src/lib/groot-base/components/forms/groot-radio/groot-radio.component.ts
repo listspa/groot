@@ -16,7 +16,7 @@ export class GrootRadioComponent implements ControlValueAccessor {
   @Input() public name: string;
   @Input() public idRadio: string;
   @Input() public label: string;
-  @Input() public value: any;
+  @Input() public value: any | null = null;
   @Input() public disabled = false;
   @Input() formControl: FormControl = null;
   selectedValue: string;
