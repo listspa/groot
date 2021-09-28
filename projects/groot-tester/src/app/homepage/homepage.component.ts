@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.2.7', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Simplified a bit css of <code>groot-darwin-page-title</code> and made a reusable css class`
+    }]
+  },
+  {
     version: '3.2.6', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Explicitly annotated many nullable <code>@Input</code> properties as <code>| null</code>`

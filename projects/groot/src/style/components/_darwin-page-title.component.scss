@@ -1,4 +1,4 @@
-groot-darwin-page-title {
+groot-darwin-page-title, .groot-darwin-page-title {
   display: block;
 
   .h1 {
@@ -15,28 +15,31 @@ groot-darwin-page-title {
     margin-right: 0.4rem;
   }
 
-  & .is-dashboard {
+  .is-dashboard {
     padding: 1.875rem 3.125rem 1.875rem 1.875rem;
 
-    & .title {
+    .title {
       margin: 0;
     }
   }
 
-  & .other-content {
+  .other-content {
     padding: 1.875rem 0;
 
     &.reduced-height {
       padding: 1rem 0;
     }
 
-    & .title {
+    .title {
       margin: 0;
     }
 
-    & .subtitle {
+    .subtitle {
       margin: 0;
       padding-top: 0.625rem;
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
   }
 }
