@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.2.8', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Support external URL in <code>groot-darwin-side-bar</code>`
+    }]
+  },
+  {
     version: '3.2.7', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Simplified a bit css of <code>groot-darwin-page-title</code> and made a reusable css class`

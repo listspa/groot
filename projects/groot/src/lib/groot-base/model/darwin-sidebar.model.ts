@@ -7,6 +7,8 @@ export interface DarwinSideBarItem {
   label: string;
   routingTarget?: any[] | any;
   routingNavigationExtras?: NavigationExtras;
+  externalUrl?: string;
+  externalUrlInPopup?: boolean;
   disabled?: boolean;
   hidden?: boolean;
   requiredCapabilities?: string | string[];

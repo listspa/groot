@@ -73,14 +73,17 @@ export class DemoSidebarComponent {
           forcedOpen: true,
           children: [
             {
-              label: 'Our products'
+              label: 'Our products',
+              externalUrl: 'http://list-group.com',
             },
             {
               label: 'Our team',
-              disabled: true
+              disabled: true,
             },
             {
-              label: 'Our history'
+              label: 'Our history',
+              externalUrl: 'https://www.list-group.com/about-list/',
+              externalUrlInPopup: true,
             },
           ]
         }

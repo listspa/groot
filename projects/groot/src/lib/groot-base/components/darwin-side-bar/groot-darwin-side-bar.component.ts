@@ -1,6 +1,13 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ActivationEnd, Router} from '@angular/router';
-import {DarwinSideBarFirstLevel, DarwinSideBarFirstLevelItem, DarwinSideBarItem, DarwinSideBarMenu, DarwinSideBarSecondLevel, DarwinSideBarThirdLevel} from '../../model/darwin-sidebar.model';
+import {
+  DarwinSideBarFirstLevel,
+  DarwinSideBarFirstLevelItem,
+  DarwinSideBarItem,
+  DarwinSideBarMenu,
+  DarwinSideBarSecondLevel,
+  DarwinSideBarThirdLevel
+} from '../../model/darwin-sidebar.model';
 import {debounceTime, distinctUntilChanged, filter} from 'rxjs/operators';
 import {Subscription} from 'rxjs';
 import {dropDownOnCreateAnimation} from '../../utils/animations-utils';
@@ -113,6 +120,22 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
   }
 
   private navigate(item: DarwinSideBarItem): void {
+    if (item.externalUrl) {
+      this.openExternalUrl(item);
+    } else {
+      this.navigateWithRouter(item);
+    }
+  }
+
+  private openExternalUrl(item: DarwinSideBarItem): void {
+    if (item.externalUrlInPopup) {
+      window.open(item.externalUrl, '_blank', 'menubar=0,toolbar=0,location=0,status=0,dependent=1,resizable,scrollbars=yes');
+    } else {
+      window.open(item.externalUrl);
+    }
+  }
+
+  private navigateWithRouter(item: DarwinSideBarItem): void {
     if (!item.routingTarget) {
       return;
     }

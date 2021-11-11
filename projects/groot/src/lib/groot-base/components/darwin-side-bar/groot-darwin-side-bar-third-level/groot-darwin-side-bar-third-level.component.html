@@ -1,4 +1,4 @@
-<ng-container *ngIf="forceReloadStates || thirdLevel.forceReloadStates">
+<ng-container *ngIf="forceReloadStates || thirdLevel.forceReloadStates || thirdLevel.externalUrl">
   <!-- If we cannot create a hyperlink -->
   <div
     [grootNeedsCapability]="thirdLevel.requiredCapabilities"
@@ -10,7 +10,7 @@
     {{thirdLevel.label | translate}}
   </div>
 </ng-container>
-<ng-container *ngIf="!(forceReloadStates || thirdLevel.forceReloadStates)">
+<ng-container *ngIf="!(forceReloadStates || thirdLevel.forceReloadStates || thirdLevel.externalUrl)">
   <!-- If possible, create an hyperlink using the router link directive -->
   <a
     [grootNeedsCapability]="thirdLevel.requiredCapabilities"
