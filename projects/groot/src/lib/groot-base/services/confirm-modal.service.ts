@@ -90,7 +90,7 @@ export class ConfirmModalService {
       );
   }
 
-  confirmYesNoNotes(params: ConfirmationModalParams): Observable<string> {
+  confirmYesNoNotes(params: ConfirmationModalNotesParams): Observable<string> {
     const actualParams = {
       ...ConfirmModalService.DEFAULT_PARAMS_NOTES,
       ...params
