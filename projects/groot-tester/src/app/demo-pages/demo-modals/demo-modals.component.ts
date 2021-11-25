@@ -24,8 +24,11 @@ export class DemoModalsComponent {
       .subscribe(value => this.confirmResult = value);
   }
 
-  showConfirmationModalNotes(): void {
-    this.confirmModalService.confirmYesNoNotes({text: 'demoConfirmMessage', notesLabel: 'common.notes', notesRequired: false})
+  showConfirmationModalNotes(required: boolean): void {
+    this.confirmModalService.confirmYesNoNotes({
+      text: 'demoConfirmMessage',
+      notesRequired: required,
+    })
       .subscribe(value => this.confirmNotes = value);
   }
 }

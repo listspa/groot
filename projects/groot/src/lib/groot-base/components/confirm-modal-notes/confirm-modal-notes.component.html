@@ -32,6 +32,6 @@
     [label]="yesLabel"
     icon="fa fa-check"
     (click)="onConfirm()"
-    [disabled]="!notesText"
+    [disabled]="notesRequired && !notesText"
   ></groot-button>
 </div>

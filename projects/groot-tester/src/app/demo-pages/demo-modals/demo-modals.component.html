@@ -50,14 +50,14 @@
     This is a modal.
   </div>
   <div class="modal-footer justify-content-between">
-      <div class="buttons-list-left">
-        <groot-button label="Cancel" classes="btn-outline-primary"></groot-button>
-      </div>
-
-      <div class="buttons-list-right">
-        <groot-button label="Save changes"></groot-button>
-      </div>
+    <div class="buttons-list-left">
+      <groot-button label="Cancel" classes="btn-outline-primary"></groot-button>
     </div>
+
+    <div class="buttons-list-right">
+      <groot-button label="Save changes"></groot-button>
+    </div>
+  </div>
 </ng-template>
 
 <h2>Confirmation</h2>
@@ -75,10 +75,17 @@
   Selected confirmation value is: {{confirmResult | json}}.
 </div>
 
-<groot-button
-  label="test confirmation with notes"
-  (click)="showConfirmationModalNotes()"
-></groot-button>
+<div class="buttons-list-left">
+  <groot-button
+    label="test confirmation with notes not required"
+    (click)="showConfirmationModalNotes(false)"
+  ></groot-button>
+
+  <groot-button
+    label="test confirmation with notes required"
+    (click)="showConfirmationModalNotes(true)"
+  ></groot-button>
+</div>
 
 <div class="alert alert-info mt-2">
   Selected confirmation notes are: {{confirmNotes | json}}.
