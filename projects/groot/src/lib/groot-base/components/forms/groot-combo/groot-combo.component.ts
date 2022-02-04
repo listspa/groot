@@ -5,9 +5,9 @@ import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {ComboDataRequest, ComboDataRequestWithSelected, PaginatedResponse} from '../../../utils/pagination.model';
 import {TranslateService} from '@ngx-translate/core';
 import {DropdownPosition, NgSelectComponent} from '@ng-select/ng-select';
-import {GroupValueFn} from '@ng-select/ng-select/lib/ng-select.component';
 
 export declare type AddTagFn = ((term: string) => any | Promise<any>);
+export declare type GroupValueFn = (key: string | object, children: any[]) => string | object;
 
 @Component({
   selector: 'groot-combo',
@@ -273,7 +273,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
 
   private doRequestData(pageToLoad: number) {
     let request: ComboDataRequestWithSelected | ComboDataRequest;
-    if(this.toggleShowOnlySelected) {
+    if (this.toggleShowOnlySelected) {
       request = {
         filterText: this._lastTypeaheadValue,
         pageNum: pageToLoad,

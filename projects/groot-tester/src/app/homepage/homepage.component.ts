@@ -8,6 +8,9 @@ const RELEASE_NOTES: Release[] = [
     version: '3.2.11', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `Allow customization of popover's css class for <code>groot-actions-button</code>`
+    }, {
+      type: ReleaseChangeType.BUG_FIX,
+      html: `Fixed import path issue that caused a warning in applications`
     }]
   },
   {
