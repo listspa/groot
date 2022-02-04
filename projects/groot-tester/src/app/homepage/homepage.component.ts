@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.2.11', released: true, changes: [{
+      type: ReleaseChangeType.BUG_FIX,
+      html: `Allow customization of popover's css class for <code>groot-actions-button</code>`
+    }]
+  },
+  {
     version: '3.2.10', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `Notes not required did not work in <code>ConfirmModalNotesComponent</code>`

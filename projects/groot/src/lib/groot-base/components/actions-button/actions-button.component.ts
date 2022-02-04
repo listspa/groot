@@ -11,23 +11,29 @@ export class ActionsButtonComponent implements OnDestroy {
   @Input() popoverTitle: string | null;
   @Input() popoverTemplate: TemplateRef<any>;
   @Input() popoverContext: any;
+  @Input() additionalPopoverContainerClass: string | null = null;
   @Input() insideTable = false;
   @Input() hamburger = false;
 
   @HostBinding('class.groot-actions-button-hover') hover: boolean;
   @HostBinding('class.groot-actions-button-open') isOpen: boolean;
 
-  shown() {
+  shown(): void {
     this.isOpen = true;
     this.open.next(true);
   }
 
-  hidden() {
+  hidden(): void {
     this.isOpen = false;
     this.open.next(false);
   }
 
   ngOnDestroy(): void {
     this.open.complete();
+  }
+
+  get computedPopoverContainerClass(): string {
+    const base = 'groot-actions-button-popover popover-dark';
+    return this.additionalPopoverContainerClass ? `${base} ${this.additionalPopoverContainerClass}` : base;
   }
 }
