@@ -29,6 +29,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
   @Input() datesDisabled: Date[] | null = null;
   @Input() datesEnabled: Date[] | null = null;
   @Input() hidePlaceholder = false;
+  @Input() errorMessage = 'common.required';
   placement: Placement = 'bottom';
   selectedDate: Date;
   @ViewChild('datePickerDirective') private datePickerDirective: BsDatepickerDirective;

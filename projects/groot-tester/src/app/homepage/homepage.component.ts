@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.2.13', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Added a way to customize error message in <code>groot-date-picker</code> using <code>errorMessage</code>`
+    }]
+  },
+  {
     version: '3.2.12', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `Step should work for <code>groot-input</code> also when using <code>formControl</code>`
