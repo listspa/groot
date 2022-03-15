@@ -43,7 +43,6 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
 
   selectedDate: Date;
   timePart: string;
-  private tzOffset: string;
   private subValue: Subscription;
   private subStatus: Subscription;
   valid = false;
@@ -51,12 +50,15 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   placement: Placement;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
+  }
+
+  private getTzOffset(date: string): string {
     // Compute offset from UTC to local zone. We need it to invoke the new Date/toIsoDate methods correctly
-    const minutesTz = new Date().getTimezoneOffset();
+    const minutesTz = new Date(date).getTimezoneOffset();
     const hh = Math.abs(minutesTz / 60);
     const mm = Math.abs(minutesTz) % 60;
     const sign = hh > 0 ? '+' : '-';
-    this.tzOffset = sign + leftPad(hh, 2, '0') + ':' + leftPad(mm, 2, '0');
+    return sign + leftPad(hh, 2, '0') + ':' + leftPad(mm, 2, '0');
   }
 
   @HostListener('click', ['$event'])
@@ -136,8 +138,9 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
       this.selectedDate = null;
       this.timePart = null;
     } else {
-      const dateStr = isoDate(datePart) + 'T' + (this.timePart || '00:00:00') + this.tzOffset;
-      this.selectedDate = new Date(dateStr);
+      const dateOnly = isoDate(datePart);
+      const dateTimeStr = dateOnly + 'T' + (this.timePart || '00:00:00') + this.getTzOffset(dateOnly);
+      this.selectedDate = new Date(dateTimeStr);
       // No need to change the time part
     }
 
@@ -149,8 +152,9 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
 
   writeTimeFromGui(timePart: string): void {
     if (this.selectedDate) {
-      const dateStr = isoDate(this.selectedDate) + 'T' + (timePart || '00:00:00') + this.tzOffset;
-      this.selectedDate = new Date(dateStr);
+      const dateOnly = isoDate(this.selectedDate);
+      const dateTimeStr = dateOnly + 'T' + (timePart || '00:00:00') + this.getTzOffset(dateOnly);
+      this.selectedDate = new Date(dateTimeStr);
 
       this.touched = true;
       this.computeValidity();
