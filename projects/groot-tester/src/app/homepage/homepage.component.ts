@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '2.1.6', released: true, changes: [{
+      type: ReleaseChangeType.BUG_FIX,
+      html: `Fixed issue with timezones and date-time picker`
+    }]
+  },
+  {
     version: '2.1.5', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Added scss variable <code>$navbar-dropdown-active-color</code> for customizing navbar hover color`
