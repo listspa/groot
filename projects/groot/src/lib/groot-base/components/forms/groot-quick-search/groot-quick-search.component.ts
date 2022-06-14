@@ -82,6 +82,7 @@ export class GrootQuickSearchComponent implements ControlValueAccessor, AfterVie
     if (this.formControl) {
       this.formControl.setValue(null);
     }
+    this.textSent = null;
     this.writeValueFromGui(null);
     this.reset.next();
   }
