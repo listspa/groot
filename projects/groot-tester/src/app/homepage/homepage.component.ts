@@ -5,6 +5,18 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.3.0', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `All date components now retrieve the format from the configured <code>BsDatepickerConfig</code>`
+    }, {
+      type: ReleaseChangeType.BUG_FIX,
+      html: `<code>groot-date-time-picker</code> now can handle Mumbai time zone (UTC+05:30)`
+    }, {
+      type: ReleaseChangeType.BUG_FIX,
+      html: `All input components now have a <code>display: block</code> set`
+    }]
+  },
+  {
     version: '3.2.14', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `Fixed issue with timezones and date-time picker`
