@@ -18,7 +18,10 @@ export declare type GroupValueFn = (key: string | object, children: any[]) => st
       useExisting: forwardRef(() => GrootComboComponent),
       multi: true
     }
-  ]
+  ],
+  styles: [`:host {
+    display: block;
+  }`],
 })
 export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Output() requestData = new EventEmitter<ComboDataRequestWithSelected | ComboDataRequest>();

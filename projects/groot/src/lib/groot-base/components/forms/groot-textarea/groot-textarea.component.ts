@@ -10,7 +10,10 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@an
       useExisting: forwardRef(() => GrootTextAreaComponent),
       multi: true
     }
-  ]
+  ],
+  styles: [`:host {
+    display: block;
+  }`],
 })
 export class GrootTextAreaComponent implements ControlValueAccessor {
   @Input() label: string | null = null;

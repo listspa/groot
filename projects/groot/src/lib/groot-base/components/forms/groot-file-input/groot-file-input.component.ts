@@ -10,7 +10,10 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
       useExisting: forwardRef(() => GrootFileInputComponent),
       multi: true
     }
-  ]
+  ],
+  styles: [`:host {
+    display: block;
+  }`],
 })
 export class GrootFileInputComponent implements ControlValueAccessor {
   @Output() clear = new EventEmitter<void>();

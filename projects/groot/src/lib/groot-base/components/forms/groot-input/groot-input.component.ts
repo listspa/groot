@@ -11,7 +11,10 @@ import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './groot
       useExisting: forwardRef(() => GrootInputComponent),
       multi: true
     }
-  ]
+  ],
+  styles: [`:host {
+    display: block;
+  }`],
 })
 export class GrootInputComponent implements ControlValueAccessor {
   @Input() type: 'text' | 'password' | 'color' | 'email' | 'number' | 'search' = 'text';

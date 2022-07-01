@@ -13,7 +13,10 @@ import {normalizeNgBootstrapDateFormat} from './groot-date-picker-config';
       useExisting: forwardRef(() => GrootDatePickerComponent),
       multi: true
     }
-  ]
+  ],
+  styles: [`:host {
+    display: block;
+  }`],
 })
 export class GrootDatePickerComponent implements ControlValueAccessor {
   @Input() label: string | null = null;

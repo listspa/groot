@@ -17,7 +17,10 @@ import {normalizeNgBootstrapDateFormat} from '../groot-date-picker/groot-date-pi
       useExisting: forwardRef(() => GrootDateTimePickerComponent),
       multi: true
     }
-  ]
+  ],
+  styles: [`:host {
+    display: block;
+  }`],
 })
 export class GrootDateTimePickerComponent implements ControlValueAccessor, OnInit, OnDestroy {
   @Input() label: string | null = null;

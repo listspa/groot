@@ -10,7 +10,10 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@an
       useExisting: forwardRef(() => GrootQuickSearchComponent),
       multi: true
     }
-  ]
+  ],
+  styles: [`:host {
+    display: block;
+  }`],
 })
 export class GrootQuickSearchComponent implements ControlValueAccessor, AfterViewInit {
   @Input() label: string | null = null;

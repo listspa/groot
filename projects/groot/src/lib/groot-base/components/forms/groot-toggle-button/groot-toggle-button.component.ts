@@ -10,7 +10,10 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
       useExisting: forwardRef(() => GrootToggleButtonComponent),
       multi: true
     }
-  ]
+  ],
+  styles: [`:host {
+    display: block;
+  }`],
 })
 export class GrootToggleButtonComponent implements ControlValueAccessor {
   @Input() label: string | null = null;

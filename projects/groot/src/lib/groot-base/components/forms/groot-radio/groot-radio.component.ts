@@ -10,7 +10,10 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/for
       useExisting: forwardRef(() => GrootRadioComponent),
       multi: true
     }
-  ]
+  ],
+  styles: [`:host {
+    display: block;
+  }`],
 })
 export class GrootRadioComponent implements ControlValueAccessor {
   @Input() public name: string;
