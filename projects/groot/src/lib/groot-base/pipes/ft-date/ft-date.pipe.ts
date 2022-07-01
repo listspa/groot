@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Pipe, PipeTransform} from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 import {formatDate} from '@angular/common';
 import {BsDatepickerConfig} from 'ngx-bootstrap/datepicker';
 import {normalizeNgBootstrapDateFormat} from '../../components/forms/groot-date-picker/groot-date-picker-config';
@@ -12,8 +12,7 @@ import {normalizeNgBootstrapDateFormat} from '../../components/forms/groot-date-
 export class FtDatePipe implements PipeTransform {
   private defaultDateFormat: string;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef,
-              bsDatepickerConfig: BsDatepickerConfig) {
+  constructor(bsDatepickerConfig: BsDatepickerConfig) {
     this.defaultDateFormat = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
   }
 

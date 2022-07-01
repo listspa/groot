@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Pipe, PipeTransform} from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 import {formatDate} from '@angular/common';
 import {BsDatepickerConfig} from 'ngx-bootstrap/datepicker';
 import {normalizeNgBootstrapDateFormat} from '../../components/forms/groot-date-picker/groot-date-picker-config';
@@ -13,8 +13,7 @@ export class GrootDatePipe implements PipeTransform {
   private readonly _monthsArray = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
   private defaultDateFormat: string;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef,
-              bsDatepickerConfig: BsDatepickerConfig) {
+  constructor(bsDatepickerConfig: BsDatepickerConfig) {
     this.defaultDateFormat = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
   }
 
