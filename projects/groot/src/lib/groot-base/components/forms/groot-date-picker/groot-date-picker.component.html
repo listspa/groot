@@ -26,7 +26,7 @@
          (blur)="onTouched()"
          [class.is-invalid]="input.invalid && input.touched"
          [disabled]="disabled"
-         value="{{!(input.invalid && input.touched) ? (selectedDate | date: format) : selectedDate}}"
+         value="{{!(input.invalid && (input.touched || forcedFormat)) ? (selectedDate | date: format) : selectedDate}}"
          *ngIf="!formControl">
   <input type="text"
          autocomplete="off"

@@ -1354,12 +1354,13 @@
     <div class="col-md-3">
         <form novalidate>
             <groot-date-picker
-                    label="Date"
-                    name="date"
-                    [required]="true"
-                    [(ngModel)]="form.date"
-                    [format]="format"
-                    helpText="select a date please"
+              label="Date"
+              name="date"
+              [required]="true"
+              [(ngModel)]="form.date"
+              [format]="format"
+              [forcedFormat]="true"
+              helpText="select a date please"
             ></groot-date-picker>
         </form>
     </div>
@@ -1370,6 +1371,7 @@
   [required]="true"
   [(ngModel)]="form.date"
   [format]="format"
+  [forcedFormat]="true"
   helpText="select a date please"
 >&lt;/groot-date-picker></code></pre>
     </div>

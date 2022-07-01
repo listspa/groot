@@ -23,6 +23,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
   @Input() helpText: string | null = null;
   @Input() formControl: FormControl | null = null;
   @Input() format = 'dd/MM/yyyy';
+  @Input() forcedFormat = false;
   @Input() minDate: Date | null = null;
   @Input() maxDate: Date | null = null;
   @Input() daysDisabled: number[] | null = null;

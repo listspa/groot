@@ -28,6 +28,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   // tslint:disable-next-line:no-input-rename
   @Input('formControl') externalFormControl: FormControl = null;
   @Input() format = 'dd/MM/yyyy';
+  @Input() forcedFormat = false;
   @Input() minDate: Date | null = null;
   @Input() maxDate: Date | null = null;
   @Input() minTime: string | null = null;

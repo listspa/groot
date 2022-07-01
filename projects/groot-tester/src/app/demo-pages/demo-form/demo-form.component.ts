@@ -328,7 +328,7 @@ export class DemoFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.minDate = new Date();
-    this.format = 'dd/MM/yyyy';
+    this.format = 'yyyy-MM-dd';
     this.inputFormControl.valueChanges
       .pipe(debounceTime(200))
       .subscribe(value => console.log('Input changed: ', value));

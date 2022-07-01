@@ -27,7 +27,7 @@
            (blur)="onTouched()"
            [class.is-invalid]="!valid"
            [disabled]="disabled"
-           value="{{!(inputDate.invalid && inputDate.touched) ? (selectedDate | date: format) : selectedDate}}">
+           value="{{!(inputDate.invalid && (inputDate.touched || forcedFormat)) ? (selectedDate | date: format) : selectedDate}}">
 
     <div class="input-group-append">
       <span class="input-group-text">
