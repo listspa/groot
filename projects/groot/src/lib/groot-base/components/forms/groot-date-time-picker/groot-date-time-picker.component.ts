@@ -62,7 +62,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   private getTzOffset(date: string): string {
     // Compute offset from UTC to local zone. We need it to invoke the new Date/toIsoDate methods correctly
     const minutesTz = new Date(date).getTimezoneOffset();
-    const hh = Math.abs(minutesTz / 60);
+    const hh = Math.floor(Math.abs(minutesTz / 60));
     const mm = Math.abs(minutesTz) % 60;
     const sign = hh > 0 ? '+' : '-';
     return sign + leftPad(hh, 2, '0') + ':' + leftPad(mm, 2, '0');
