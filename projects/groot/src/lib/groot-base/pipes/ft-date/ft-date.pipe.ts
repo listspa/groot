@@ -1,5 +1,7 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import {ChangeDetectorRef, Pipe, PipeTransform} from '@angular/core';
 import {formatDate} from '@angular/common';
+import {BsDatepickerConfig} from 'ngx-bootstrap/datepicker';
+import {normalizeNgBootstrapDateFormat} from '../../components/forms/groot-date-picker/groot-date-picker-config';
 
 /**
  * Can format an SKLDate (yyyyMMdd).
@@ -8,8 +10,15 @@ import {formatDate} from '@angular/common';
   name: 'ftDate'
 })
 export class FtDatePipe implements PipeTransform {
+  private defaultDateFormat: string;
+
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              bsDatepickerConfig: BsDatepickerConfig) {
+    this.defaultDateFormat = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
+  }
+
   transform(dateObj: any,
-            dateFormat: string = 'dd/MM/yyyy',
+            dateFormat: string = this.defaultDateFormat,
             timezone: string = 'it'): any {
     if (!dateObj) {
       return null;

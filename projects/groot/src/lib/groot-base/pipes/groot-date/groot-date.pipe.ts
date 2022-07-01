@@ -1,5 +1,7 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import {ChangeDetectorRef, Pipe, PipeTransform} from '@angular/core';
 import {formatDate} from '@angular/common';
+import {BsDatepickerConfig} from 'ngx-bootstrap/datepicker';
+import {normalizeNgBootstrapDateFormat} from '../../components/forms/groot-date-picker/groot-date-picker-config';
 
 /**
  * Convert a string in a date, according to the givent format (default: dd-MMM-yy).
@@ -8,12 +10,17 @@ import {formatDate} from '@angular/common';
   name: 'grootDate'
 })
 export class GrootDatePipe implements PipeTransform {
-  private _monthsArray = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+  private readonly _monthsArray = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+  private defaultDateFormat: string;
 
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              bsDatepickerConfig: BsDatepickerConfig) {
+    this.defaultDateFormat = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
+  }
 
   transform(dateObj: any,
             inputDateFormat: 'yyyy-MM-dd' | 'dd-MMM-yy' | 'dd-MMM-yyyy' = 'yyyy-MM-dd',
-            outputDateFormat: string = 'dd/MM/yyyy',
+            outputDateFormat: string = this.defaultDateFormat,
             timezone: string = 'it'): any {
     if (!dateObj) {
       return null;
@@ -32,7 +39,7 @@ export class GrootDatePipe implements PipeTransform {
     return formatDate(jsDate, outputDateFormat, timezone);
   }
 
-  private parseInputDateFormat(dateStr: string, inputDateFormat: string) {
+  private parseInputDateFormat(dateStr: string, inputDateFormat: string): string {
     let transformedDateString = '';
     switch (inputDateFormat) {
       case 'yyyy-MM-dd': {

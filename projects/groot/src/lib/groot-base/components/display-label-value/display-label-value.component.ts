@@ -1,5 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {NbpuSchemaFieldType} from '../../utils/pagination.model';
+import {BsDatepickerConfig} from 'ngx-bootstrap/datepicker';
+import {normalizeNgBootstrapDateFormat} from '../forms/groot-date-picker/groot-date-picker-config';
 
 @Component({
   selector: 'groot-display-label-value',
@@ -13,7 +15,11 @@ export class DisplayLabelValueComponent {
   @Input() value: any[] | any;
   @Input() align = false;
   @Input() doubleFormat = '0.2';
-  @Input() dateFormat = 'dd/MM/yyyy';
+  @Input() dateFormat: string;
   @Input() hoursFormat = 'HH:mm';
   @Input() locale = 'en';
+
+  constructor(bsDatepickerConfig: BsDatepickerConfig) {
+    this.dateFormat = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
+  }
 }

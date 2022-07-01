@@ -12,7 +12,7 @@
 
       <small *ngIf="lastRefreshTimestamp" class="last-refresh-ts text-muted">
         {{'table.lastRefreshTimestamp' | translate}}
-        {{lastRefreshTimestamp | date: 'dd/MM/yyyy HH:mm'}}
+        {{lastRefreshTimestamp | date: (dateFormat + ' HH:mm')}}
       </small>
     </h2>
   </div>

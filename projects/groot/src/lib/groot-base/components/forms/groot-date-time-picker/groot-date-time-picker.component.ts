@@ -1,11 +1,12 @@
 import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
-import {BsDatepickerDirective} from 'ngx-bootstrap/datepicker';
+import {BsDatepickerConfig, BsDatepickerDirective} from 'ngx-bootstrap/datepicker';
 import {isoDate} from '../../../utils/date-utils';
 import {leftPad} from '../../../utils/string-utils';
 import {Subscription} from 'rxjs';
 import {unsubscribeSafe} from '../../../utils/subscription-utils';
 import {calculateDatePickerPosition, Placement} from '../groot-date-picker/groot-date-picker-placement.utils';
+import {normalizeNgBootstrapDateFormat} from '../groot-date-picker/groot-date-picker-config';
 
 @Component({
   selector: 'groot-date-time-picker',
@@ -27,7 +28,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   @Input() helpText: string | null = null;
   // tslint:disable-next-line:no-input-rename
   @Input('formControl') externalFormControl: FormControl = null;
-  @Input() format = 'dd/MM/yyyy';
+  @Input() format: string;
   @Input() forcedFormat = false;
   @Input() minDate: Date | null = null;
   @Input() maxDate: Date | null = null;
@@ -50,7 +51,9 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   touched = false;
   placement: Placement;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              bsDatepickerConfig: BsDatepickerConfig) {
+    this.format = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
   }
 
   private getTzOffset(date: string): string {

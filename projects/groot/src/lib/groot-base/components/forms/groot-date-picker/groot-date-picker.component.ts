@@ -1,7 +1,8 @@
 import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
-import {BsDatepickerDirective} from 'ngx-bootstrap/datepicker';
+import {BsDatepickerConfig, BsDatepickerDirective} from 'ngx-bootstrap/datepicker';
 import {calculateDatePickerPosition, Placement} from './groot-date-picker-placement.utils';
+import {normalizeNgBootstrapDateFormat} from './groot-date-picker-config';
 
 @Component({
   selector: 'groot-date-picker',
@@ -22,7 +23,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() helpText: string | null = null;
   @Input() formControl: FormControl | null = null;
-  @Input() format = 'dd/MM/yyyy';
+  @Input() format: string;
   @Input() forcedFormat = false;
   @Input() minDate: Date | null = null;
   @Input() maxDate: Date | null = null;
@@ -37,7 +38,9 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
   @ViewChild('input') input: NgModel;
 
   constructor(private _element: ElementRef,
-              private changeDetectorRef: ChangeDetectorRef) {
+              private changeDetectorRef: ChangeDetectorRef,
+              bsDatepickerConfig: BsDatepickerConfig) {
+    this.format = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
   }
 
   @HostListener('click', ['$event'])
