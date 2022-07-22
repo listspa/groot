@@ -24,15 +24,6 @@ Note that, whenever you add a file, component, service, pipe etc that needs to b
 in the "public API" of the library you need to add it to the `public_api.ts` file
 as well. Otherwise it will not be available to the library's clients.
 
-## Configuring npm repo credentials
-
-Before publishing a release, you need (once) to configure the npm repo credentials. 
-To publish to List's artifactory, in a terminal run:
-
-```
-npm login --registry=https://artifactory.list-group.com/artifactory/api/npm/npm-local/
-```
-
 ## Making a release
 
 First, update the release notes in `homepage.component.ts`. Afterwards, simply run `npm run release`
@@ -63,8 +54,8 @@ Therefore, place component's css files in `style/components/_myComponent.scss`.
 
 Currently, only developers at LIST can create releases.
 
-Create an account on NPM.JS and contact Andrea Bergia <a.bergia@list-group.com> for being added 
-to the listgroup organization on NPM.
+Create an account on NPM.JS and contact Paolo Inaudi <p.inaudi@list-group.com> to be added
+to the `listgroup` organization on NPM.
 
 Next, you have to do an `npm login` using your account in the terminal.
 
