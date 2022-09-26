@@ -32,7 +32,7 @@
          (click)="goDirectlyToPage(_pageNum + 2)">{{_pageNum + 3}}</a>
       <a class="page-ellipsis" *ngIf="_pageNum + 3 < _numPages"
          (click)="goDirectlyToPage(_pageNum + 3)">...</a>
-      <a class="paginator-next" [class.disabled]="_pageNum + 1 >= _numPages"
+      <a class="paginator-next" [class.disabled]="isNextDisabled()"
          (click)="goDirectlyToPage(_pageNum + 1)">
         <i class="fa fa-angle-right"></i>
       </a>

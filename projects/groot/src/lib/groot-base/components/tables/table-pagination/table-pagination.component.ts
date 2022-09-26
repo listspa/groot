@@ -50,8 +50,15 @@ export class TablePaginationComponent {
   }
 
   public goDirectlyToPage(n: number) {
-    if (n >= 0 && n < this._numPages) {
+    if (n >= 0 && (this._totalItems === -1 || n < this._numPages)) {
       this.pageNum = n;
     }
+  }
+  
+  public isNextDisabled(): boolean {
+	if (this._totalItems === -1) {
+		return false;
+	}
+	return this._pageNum + 1 >= this._numPages;
   }
 }
