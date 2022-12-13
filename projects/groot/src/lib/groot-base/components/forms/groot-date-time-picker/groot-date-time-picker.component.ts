@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
-import {BsDatepickerConfig, BsDatepickerDirective} from 'ngx-bootstrap/datepicker';
+import {BsDatepickerConfig, BsDatepickerDirective, DatepickerDateCustomClasses} from 'ngx-bootstrap/datepicker';
 import {isoDate} from '../../../utils/date-utils';
 import {leftPad} from '../../../utils/string-utils';
 import {Subscription} from 'rxjs';
@@ -41,6 +41,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   @Input() daysDisabled: number[] | null = null;
   @Input() datesDisabled: Date[] | null = null;
   @Input() datesEnabled: Date[] | null = null;
+  @Input() dateCustomClasses: DatepickerDateCustomClasses[] | null = null;
   @Input() hidePlaceholder = false;
   @ViewChild('datePickerDirective') private datePickerDirective: BsDatepickerDirective;
   @ViewChild('datePickerElement') private datePickerElement: ElementRef;

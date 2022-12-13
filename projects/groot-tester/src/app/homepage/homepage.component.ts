@@ -5,6 +5,18 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.3.2', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Expose property DatepickerDateCustomClasses in <code>groot-date-picker</code> and <code>groot-date-time-picker</code> components`
+    }]
+  },
+  {
+    version: '3.3.1', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Implemented list without count in all lists so that count query is fired on demand`
+    }]
+  },
+  {
     version: '3.3.0', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `All date components now retrieve the format from the configured <code>BsDatepickerConfig</code>`
