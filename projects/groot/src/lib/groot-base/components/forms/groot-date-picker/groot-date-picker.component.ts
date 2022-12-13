@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
-import {BsDatepickerConfig, BsDatepickerDirective} from 'ngx-bootstrap/datepicker';
+import {BsDatepickerConfig, BsDatepickerDirective, DatepickerDateCustomClasses} from 'ngx-bootstrap/datepicker';
 import {calculateDatePickerPosition, Placement} from './groot-date-picker-placement.utils';
 import {normalizeNgBootstrapDateFormat} from './groot-date-picker-config';
 
@@ -33,6 +33,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor {
   @Input() daysDisabled: number[] | null = null;
   @Input() datesDisabled: Date[] | null = null;
   @Input() datesEnabled: Date[] | null = null;
+  @Input() dateCustomClasses: DatepickerDateCustomClasses[] | null = null;
   @Input() hidePlaceholder = false;
   @Input() errorMessage = 'common.required';
   placement: Placement = 'bottom';

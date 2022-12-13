@@ -1390,6 +1390,7 @@
                     [format]="format"
                     [minDate]="minDate"
                     [daysDisabled]="[0,6]"
+                    [dateCustomClasses]="dateCustomClasses"
                     helpText="select a date please"
             ></groot-date-picker>
         </form>
@@ -1483,6 +1484,7 @@
                     label="Date and time"
                     name="dateTime"
                     [required]="true"
+                    [dateCustomClasses]="dateCustomClasses"
                     [(ngModel)]="form.dateTime"
                     helpText="select a date and time please"
             ></groot-date-time-picker>

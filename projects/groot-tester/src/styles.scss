@@ -14,3 +14,17 @@ pre code {
   display: flex;
   align-items: center;
 }
+
+.bs-datepicker-custom-yesterday {
+  color: blue;
+  background-color: #fa9600;
+}
+
+.bs-datepicker-custom-today {
+  color: red;
+  background-color: yellow;
+}
+
+.bs-datepicker-custom-date {
+  font-style: italic;
+}

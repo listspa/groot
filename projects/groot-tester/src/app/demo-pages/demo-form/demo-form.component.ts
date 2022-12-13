@@ -4,6 +4,7 @@ import {endIndex, startIndex} from '../../../../../groot/src/lib/groot-base/util
 import {FormControl, Validators} from '@angular/forms';
 import {debounceTime} from 'rxjs/operators';
 import {CurrencyMaskInputMode} from 'ngx-currency';
+import {DatepickerDateCustomClasses} from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-demo-form',
@@ -275,6 +276,8 @@ export class DemoFormComponent implements OnInit {
     {area: 'Asia', name: 'India'},
   ];
 
+  dateCustomClasses = new Array<DatepickerDateCustomClasses>();
+
   currencyInputMode = CurrencyMaskInputMode;
 
   onModelChange(field: string, value: any) {
@@ -341,5 +344,15 @@ export class DemoFormComponent implements OnInit {
 
     this.dateFormControl.valueChanges
       .subscribe(value => console.log('Date changed: ', value));
+
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    this.dateCustomClasses.push({
+      date: yesterday,
+      classes: ['bs-datepicker-custom-yesterday', 'bs-datepicker-custom-date']
+    }, {
+      date: new Date(),
+      classes: ['bs-datepicker-custom-today']
+    });
   }
 }
