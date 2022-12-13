@@ -8,6 +8,9 @@ const RELEASE_NOTES: Release[] = [
     version: '3.3.2', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Expose property DatepickerDateCustomClasses in <code>groot-date-picker</code> and <code>groot-date-time-picker</code> components`
+    }, {
+      type: ReleaseChangeType.BUG_FIX,
+      html: `Show ellipsis (...) after page number in case of list without count`
     }]
   },
   {
