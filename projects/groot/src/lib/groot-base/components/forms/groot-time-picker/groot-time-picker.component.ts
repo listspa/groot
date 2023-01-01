@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, forwardRef, Input, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, ViewChild} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 
 @Component({
@@ -27,6 +27,7 @@ export class GrootTimePickerComponent implements ControlValueAccessor {
   @Input() step: number | null;
   selectedTime: string | null = null;
   @ViewChild('input') input: NgModel;
+  @ViewChild('inputElement') inputElement: ElementRef;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) { }
 
@@ -54,5 +55,10 @@ export class GrootTimePickerComponent implements ControlValueAccessor {
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
-
+  @HostListener('click', ['$event'])
+  onClick(): void {
+    if (this.inputElement?.nativeElement?.showPicker) {
+      this.inputElement.nativeElement.showPicker();
+    }
+  }
 }
