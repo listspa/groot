@@ -19,6 +19,7 @@
          [dateCustomClasses]="dateCustomClasses"
          bsDatepicker
          #datePickerDirective="bsDatepicker"
+         #inputElement
          #input=ngModel
          [placement]="placement"
          [ngModel]="selectedDate"
@@ -27,7 +28,6 @@
          (blur)="onTouched()"
          [class.is-invalid]="input.invalid && input.touched"
          [disabled]="disabled"
-         value="{{!(input.invalid && (input.touched || forcedFormat)) ? (selectedDate | date: format) : selectedDate}}"
          *ngIf="!formControl">
   <input type="text"
          autocomplete="off"
@@ -40,11 +40,12 @@
          [dateCustomClasses]="dateCustomClasses"
          bsDatepicker
          #datePickerDirective="bsDatepicker"
+         #inputElement
+         #formControlDirective="ngForm"
          [placement]="placement"
          triggers=""
          [class.is-invalid]="formControl.invalid && formControl.touched"
          [formControl]="formControl"
-         [value]="!(formControl.invalid && formControl.touched) ? (formControl.value | date: format) : formControl.value"
          *ngIf="formControl">
 
   <div class="input-group-append">

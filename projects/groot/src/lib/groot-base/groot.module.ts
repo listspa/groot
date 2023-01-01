@@ -1,5 +1,5 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import {TablePaginationComponent} from './components/tables/table-pagination/table-pagination.component';
 import {FtTimePipe} from './pipes/ft-time/ft-time.pipe';
 import {FtDatePipe} from './pipes/ft-date/ft-date.pipe';
@@ -197,6 +197,7 @@ export class GrootModule {
       providers: [
         LoadingService,
         NotificationToastService,
+        DatePipe
       ]
     };
   }
