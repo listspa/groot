@@ -20,15 +20,15 @@
            [dateCustomClasses]="dateCustomClasses"
            bsDatepicker
            #datePickerDirective="bsDatepicker"
+           #datePickerInputElement
            #inputDate=ngModel
            [placement]="placement"
            [ngModel]="selectedDate"
            triggers=""
            (ngModelChange)="writeDateFromGui($event)"
            (blur)="onTouched()"
-           [class.is-invalid]="!valid"
-           [disabled]="disabled"
-           value="{{!(inputDate.invalid && (inputDate.touched || forcedFormat)) ? (selectedDate | date: format) : selectedDate}}">
+           [class.is-invalid]="inputDate.invalid && inputDate.touched"
+           [disabled]="disabled">
 
     <div class="input-group-append">
       <span class="input-group-text">

@@ -1,12 +1,30 @@
-import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
-import {BsDatepickerConfig, BsDatepickerDirective, DatepickerDateCustomClasses} from 'ngx-bootstrap/datepicker';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  forwardRef,
+  HostListener,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from '@angular/core';
+import {ControlValueAccessor, FormControl, FormControlDirective, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {
+  BsDatepickerConfig,
+  BsDatepickerDirective,
+  BsDatepickerInputDirective,
+  DatepickerDateCustomClasses
+} from 'ngx-bootstrap/datepicker';
 import {isoDate} from '../../../utils/date-utils';
 import {leftPad} from '../../../utils/string-utils';
 import {Subscription} from 'rxjs';
 import {unsubscribeSafe} from '../../../utils/subscription-utils';
 import {calculateDatePickerPosition, Placement} from '../groot-date-picker/groot-date-picker-placement.utils';
 import {normalizeNgBootstrapDateFormat} from '../groot-date-picker/groot-date-picker-config';
+import {DatePipe} from "@angular/common";
+import {getLocale, parseDate, utcAsLocal} from "ngx-bootstrap/chronos";
 
 @Component({
   selector: 'groot-date-time-picker',
@@ -22,7 +40,7 @@ import {normalizeNgBootstrapDateFormat} from '../groot-date-picker/groot-date-pi
     display: block;
   }`],
 })
-export class GrootDateTimePickerComponent implements ControlValueAccessor, OnInit, OnDestroy {
+export class GrootDateTimePickerComponent implements ControlValueAccessor, OnInit, OnDestroy, AfterViewInit {
   @Input() label: string | null = null;
   @Input() placeholder: string | null = null;
   @Input() name: string;
@@ -45,6 +63,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   @Input() hidePlaceholder = false;
   @ViewChild('datePickerDirective') private datePickerDirective: BsDatepickerDirective;
   @ViewChild('datePickerElement') private datePickerElement: ElementRef;
+  @ViewChild('datePickerInputElement') private datePickerInputElement: ElementRef;
   @ViewChild('inputDate') input: NgModel;
 
   selectedDate: Date;
@@ -56,7 +75,8 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   placement: Placement;
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
-              bsDatepickerConfig: BsDatepickerConfig) {
+              bsDatepickerConfig: BsDatepickerConfig,
+              private datePipe: DatePipe) {
     this.format = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
   }
 
@@ -99,6 +119,11 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   ngOnDestroy(): void {
     unsubscribeSafe(this.subValue);
     unsubscribeSafe(this.subStatus);
+  }
+
+  ngAfterViewInit(): void {
+    const bsDatepickerInputDirective: BsDatepickerInputDirective = this.input.valueAccessor as BsDatepickerInputDirective;
+    this.hackBsDatepicker(bsDatepickerInputDirective);
   }
 
   private setValueFromExternalFc(value: Date): void {
@@ -181,5 +206,47 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+  }
+
+  private hackBsDatepicker(bsDatepickerInputDirective: BsDatepickerInputDirective): void {
+    // this is needed because of a design error of this component:
+    // we used the angular date pipe instead of ngx boostrap date config, and they use different format tokens
+    bsDatepickerInputDirective._setInputValue = value => {
+      this.writeInput(value);
+    };
+    // this is needed because sometimes bsDatepicker is able to write to the input field before ngAfterViewInit
+    this.writeInput(this.selectedDate);
+
+    // this is needed to fix a bug in ngx bootstrap: code is copied from ngx boostrap
+    // except the strict parameter set to true, otherwise the date picker accepts 01/01/20aaa23
+    // and transforms it in 01/01/2020
+    bsDatepickerInputDirective.writeValue = value => {
+      const self = (bsDatepickerInputDirective as any);
+      if (!value) {
+        self._value = null;
+      } else {
+        /** @type {?} */
+          // tslint:disable-next-line:variable-name
+        const _localeKey = self._localeService.currentLocale;
+        /** @type {?} */
+          // tslint:disable-next-line:variable-name
+        const _locale = getLocale(_localeKey);
+        if (!_locale) {
+          throw new Error(`Locale "${_localeKey}" is not defined, please add it with "defineLocale(...)"`);
+        }
+        // here is the hack: the original version did not have strict: true
+        self._value = parseDate(value, self._picker._config.dateInputFormat, self._localeService.currentLocale, true);
+        if (self._picker._config.useUtc) {
+          self._value = utcAsLocal(self._value);
+        }
+      }
+      self._picker.bsValue = self._value;
+    };
+  }
+
+  private writeInput(value: Date): void {
+    if (value instanceof Date && !isNaN(value.getTime())) {
+      this.datePickerInputElement.nativeElement.value = this.datePipe.transform(value, this.format);
+    }
   }
 }
