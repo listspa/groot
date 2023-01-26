@@ -5,6 +5,15 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.3.4', released: true, changes: [{
+      type: ReleaseChangeType.BUG_FIX,
+      html: `Disable date popup when the input is disabled in groot-date-picker and groot-date-time-picker`
+    }, {
+      type: ReleaseChangeType.BUG_FIX,
+      html: `Fix display issues when groot-date-picker and groot-date-time-picker are reset to null`
+    }]
+  },
+  {
     version: '3.3.3', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Allow choosing time with popup in groot-time-picker`
