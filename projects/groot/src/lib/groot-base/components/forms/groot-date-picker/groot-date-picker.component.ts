@@ -69,6 +69,9 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
 
   @HostListener('click', ['$event'])
   onClick(): void {
+    if (this.disabled) {
+      return;
+    }
     this.onToggle();
   }
 
@@ -112,6 +115,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+    this.datePickerDirective.hide();
   }
 
   private hackBsDatepicker(bsDatepickerInputDirective: BsDatepickerInputDirective): void {

@@ -96,6 +96,9 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   }
 
   clickOnDate(): void {
+    if (this.disabled) {
+      return;
+    }
     this.placement = calculateDatePickerPosition(this.datePickerElement);
     // Wait for the nex javascript execution cycle, in this way the component read the updated input value.
     setTimeout(() => {
@@ -206,6 +209,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+    this.datePickerDirective.hide();
   }
 
   private hackBsDatepicker(bsDatepickerInputDirective: BsDatepickerInputDirective): void {
