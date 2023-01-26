@@ -157,6 +157,8 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
   private writeInput(value: Date): void {
     if (value instanceof Date && !isNaN(value.getTime())) {
       this.inputElement.nativeElement.value = this.datePipe.transform(value, this.format);
+    } else if (!value) {
+      this.inputElement.nativeElement.value = null;
     }
   }
 }
