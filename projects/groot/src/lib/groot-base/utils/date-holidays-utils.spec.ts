@@ -1,4 +1,4 @@
-import {getEaster, isSaturdayOrSunday, isTarget2Holiday} from "./date-holidays-utils";
+import {getEaster, getTarget2HolidaysForYear, isSaturdayOrSunday, isTarget2Holiday} from './date-holidays-utils';
 
 describe('Easter and week end', () => {
   it('can get the Easter date', () => {
@@ -14,7 +14,7 @@ describe('Easter and week end', () => {
   });
 });
 
-describe('Target2 Holidays', () => {
+describe('Is Target2 Holidays', () => {
   it('can detect a First of May', () => {
     expect(isTarget2Holiday(new Date(2021, 4, 1))).toBeTrue();
   });
@@ -35,4 +35,18 @@ describe('Target2 Holidays', () => {
     expect(isTarget2Holiday(new Date(2021, 3, 5))).toBeTrue();
   });
 
+});
+
+describe('Get Target2 Holidays', () => {
+  it('Can find Target2 Holidays', () => {
+    const taarget2Holidays = getTarget2HolidaysForYear(2021);
+    expect(
+      taarget2Holidays.find(date => date.getTime() === new Date(2021, 0, 1).getTime()) !== null
+      && taarget2Holidays.find(date => date.getTime() === new Date(2021, 3, 2).getTime()) !== null
+      && taarget2Holidays.find(date => date.getTime() === new Date(2021, 3, 5).getTime()) !== null
+      && taarget2Holidays.find(date => date.getTime() === new Date(2021, 4, 1).getTime()) !== null
+      && taarget2Holidays.find(date => date.getTime() === new Date(2021, 11, 25).getTime()) !== null
+      && taarget2Holidays.find(date => date.getTime() === new Date(2021, 11, 26).getTime()) !== null
+    ).toBeTrue();
+  });
 });
