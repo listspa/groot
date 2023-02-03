@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.3.5', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Add function to get the Target2 holidays af a given year`
+    }]
+  },
+  {
     version: '3.3.4', released: true, changes: [{
       type: ReleaseChangeType.BUG_FIX,
       html: `Disable date popup when the input is disabled in groot-date-picker and groot-date-time-picker`
@@ -230,7 +236,7 @@ const RELEASE_NOTES: Release[] = [
     }, {
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Updated List logo`
-    },]
+    }]
   },
   {
     version: '2.1.5', released: true, changes: [{
@@ -1784,7 +1790,7 @@ export class HomepageComponent {
 
   onlyBreakingChanges = false;
 
-  filterReleases() {
+  filterReleases(): void {
     if (this.onlyBreakingChanges) {
       this.releases = RELEASE_NOTES.map(release => ({
         ...release,
