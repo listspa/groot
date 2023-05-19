@@ -5,6 +5,12 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.3.6', released: true, changes: [{
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Add stopPropagation to groot-actions-button`
+    }]
+  },
+  {
     version: '3.3.5', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Add function to get the Target2 holidays af a given year`
