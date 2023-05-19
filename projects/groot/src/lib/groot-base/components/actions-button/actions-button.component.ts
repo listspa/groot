@@ -1,4 +1,4 @@
-import {Component, EventEmitter, HostBinding, Input, OnDestroy, Output, TemplateRef} from '@angular/core';
+import {Component, EventEmitter, HostBinding, HostListener, Input, OnDestroy, Output, TemplateRef} from '@angular/core';
 
 @Component({
   selector: 'groot-actions-button',
@@ -35,5 +35,18 @@ export class ActionsButtonComponent implements OnDestroy {
   get computedPopoverContainerClass(): string {
     const base = 'groot-actions-button-popover popover-dark';
     return this.additionalPopoverContainerClass ? `${base} ${this.additionalPopoverContainerClass}` : base;
+  }
+
+  @HostListener('click', ['$event'])
+  onClick(event: MouseEvent): void {
+    // When clicking an action, we want to close the popover (example use case: we open a modal
+    // window at the click. The popover needs to disappear, rather than be on top of the modal).
+    // To do this, we launch a new click event on the body. The popover is marked in
+    // `ActionsButtonComponent` as `outsideClick=true`, which means the popover will handle it
+    // and close itself. We also need to create a new event to start dispatching.
+    // See also https://stackoverflow.com/questions/11974262/how-to-clone-or-re-dispatch-dom-events
+    event.stopPropagation();
+    const newEvent = new MouseEvent(event.type, event);
+    window.document.body.dispatchEvent(newEvent);
   }
 }
