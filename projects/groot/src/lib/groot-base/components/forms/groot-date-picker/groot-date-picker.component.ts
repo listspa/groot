@@ -18,7 +18,7 @@ import {
 import {calculateDatePickerPosition, Placement} from './groot-date-picker-placement.utils';
 import {normalizeNgBootstrapDateFormat} from './groot-date-picker-config';
 import {DatePipe} from '@angular/common';
-import {getLocale, parseDate, utcAsLocal} from "ngx-bootstrap/chronos";
+import {getLocale, parseDate, utcAsLocal} from 'ngx-bootstrap/chronos';
 
 @Component({
   selector: 'groot-date-picker',
@@ -135,11 +135,9 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
       if (!value || !this.checkDate(value)) {
         self._value = null;
       } else {
-        /** @type {?} */
-          // tslint:disable-next-line:variable-name
+        // tslint:disable-next-line:variable-name
         const _localeKey = self._localeService.currentLocale;
-        /** @type {?} */
-          // tslint:disable-next-line:variable-name
+        // tslint:disable-next-line:variable-name
         const _locale = getLocale(_localeKey);
         if (!_locale) {
           throw new Error(`Locale "${_localeKey}" is not defined, please add it with "defineLocale(...)"`);
