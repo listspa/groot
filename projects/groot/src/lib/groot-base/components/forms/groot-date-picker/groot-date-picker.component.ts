@@ -132,7 +132,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
     // and transforms it in 01/01/2020
     bsDatepickerInputDirective.writeValue = value => {
       const self = (bsDatepickerInputDirective as any);
-      if (!value) {
+      if (!value || !this.checkDate(value)) {
         self._value = null;
       } else {
         /** @type {?} */
@@ -154,10 +154,14 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
     };
   }
 
+  private checkDate(value: any): boolean {
+    return value instanceof Date && !isNaN(value.getTime()) && !isNaN(Date.parse(value.toString()));
+  }
+
   private writeInput(value: Date): void {
-    if (value instanceof Date && !isNaN(value.getTime())) {
+    if (value && this.checkDate(value)) {
       this.inputElement.nativeElement.value = this.datePipe.transform(value, this.format);
-    } else if (!value) {
+    } else {
       this.inputElement.nativeElement.value = null;
     }
   }
