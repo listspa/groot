@@ -5,19 +5,27 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.4.1', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Allow to write a date in groot-date-picker and groot-date-time-picker components`
+      }
+    ]
+  },
+  {
     version: '3.4.0', released: true, changes: [
       {
-      type: ReleaseChangeType.NEW_FEATURE,
-      html: `base-search-form component now sees the form in ng-content`
-    },
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `base-search-form component now sees the form in ng-content`
+      },
       {
-      type: ReleaseChangeType.BUG_FIX,
-      html: `Manage groot-date-picker component valid state and make it visible also in parent component`
-    },
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Manage groot-date-picker component valid state and make it visible also in parent component`
+      },
       {
-      type: ReleaseChangeType.BUG_FIX,
-      html: `Manage groot-date-time-picker component valid state and make it visible also in parent component`
-    },
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Manage groot-date-time-picker component valid state and make it visible also in parent component`
+      }
     ]
   },
   {
