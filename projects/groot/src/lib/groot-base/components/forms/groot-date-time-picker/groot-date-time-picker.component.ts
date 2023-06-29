@@ -10,7 +10,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import {ControlValueAccessor, FormControl, FormControlDirective, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {
   BsDatepickerConfig,
   BsDatepickerDirective,
@@ -23,8 +23,8 @@ import {Subscription} from 'rxjs';
 import {unsubscribeSafe} from '../../../utils/subscription-utils';
 import {calculateDatePickerPosition, Placement} from '../groot-date-picker/groot-date-picker-placement.utils';
 import {normalizeNgBootstrapDateFormat} from '../groot-date-picker/groot-date-picker-config';
-import {DatePipe} from "@angular/common";
-import {getLocale, parseDate, utcAsLocal} from "ngx-bootstrap/chronos";
+import {DatePipe} from '@angular/common';
+import {getLocale, parseDate, utcAsLocal} from 'ngx-bootstrap/chronos';
 
 @Component({
   selector: 'groot-date-time-picker',
@@ -226,14 +226,12 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
     // and transforms it in 01/01/2020
     bsDatepickerInputDirective.writeValue = value => {
       const self = (bsDatepickerInputDirective as any);
-      if (!value) {
+      if (!value || !this.checkDate(value)) {
         self._value = null;
       } else {
-        /** @type {?} */
-          // tslint:disable-next-line:variable-name
+        // tslint:disable-next-line:variable-name
         const _localeKey = self._localeService.currentLocale;
-        /** @type {?} */
-          // tslint:disable-next-line:variable-name
+        // tslint:disable-next-line:variable-name
         const _locale = getLocale(_localeKey);
         if (!_locale) {
           throw new Error(`Locale "${_localeKey}" is not defined, please add it with "defineLocale(...)"`);
@@ -248,10 +246,14 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
     };
   }
 
+  private checkDate(value: any): boolean {
+    return value instanceof Date && !isNaN(value.getTime()) && !isNaN(Date.parse(value.toString()));
+  }
+
   private writeInput(value: Date): void {
-    if (value instanceof Date && !isNaN(value.getTime())) {
+    if (value && this.checkDate(value)) {
       this.datePickerInputElement.nativeElement.value = this.datePipe.transform(value, this.format);
-    } else if (!value) {
+    } else {
       this.datePickerInputElement.nativeElement.value = null;
     }
   }
