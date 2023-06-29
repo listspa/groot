@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {
+  BsLocaleService,
   BsDatepickerConfig,
   BsDatepickerDirective,
   BsDatepickerInputDirective,
@@ -76,6 +77,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
               bsDatepickerConfig: BsDatepickerConfig,
+              private bsLocaleService: BsLocaleService,
               private datePipe: DatePipe) {
     this.format = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
   }
@@ -247,7 +249,8 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   }
 
   private checkDate(value: any): boolean {
-    return value instanceof Date && !isNaN(value.getTime()) && !isNaN(Date.parse(value.toString()));
+    return (value instanceof Date && !isNaN(value.getTime()))
+      || !isNaN(Date.parse(parseDate(value, this.format, this.bsLocaleService.currentLocale).toString()));
   }
 
   private writeInput(value: Date): void {

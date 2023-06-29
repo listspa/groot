@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import {ControlValueAccessor, FormControl, FormControlDirective, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {
+  BsLocaleService,
   BsDatepickerConfig,
   BsDatepickerDirective,
   BsDatepickerInputDirective,
@@ -58,11 +59,13 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
   @ViewChild('formControlDirective') private formControlDirective: FormControlDirective;
   @ViewChild('input') input: NgModel;
   @ViewChild('inputElement') inputElement: ElementRef;
+  private bsDatepickerInputDirective: BsDatepickerInputDirective;
 
   // tslint:disable-next-line:variable-name
   constructor(private _element: ElementRef,
               private changeDetectorRef: ChangeDetectorRef,
               bsDatepickerConfig: BsDatepickerConfig,
+              private bsLocaleService: BsLocaleService,
               private datePipe: DatePipe) {
     this.format = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
   }
@@ -99,10 +102,10 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
   }
 
   ngAfterViewInit(): void {
-    const bsDatepickerInputDirective: BsDatepickerInputDirective = this.input ?
+    this.bsDatepickerInputDirective = this.input ?
       this.input.valueAccessor as BsDatepickerInputDirective :
       this.formControlDirective.valueAccessor as BsDatepickerInputDirective;
-    this.hackBsDatepicker(bsDatepickerInputDirective);
+    this.hackBsDatepicker(this.bsDatepickerInputDirective);
   }
 
   registerOnChange(fn: (selectedDate: Date) => void): void {
@@ -153,10 +156,12 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
   }
 
   private checkDate(value: any): boolean {
-    return value instanceof Date && !isNaN(value.getTime()) && !isNaN(Date.parse(value.toString()));
+    // would be better to add locale in the parseDate check, but it works
+    return (value instanceof Date && !isNaN(value.getTime()))
+      || !isNaN(Date.parse(parseDate(value, this.format, this.bsLocaleService.currentLocale).toString()));
   }
 
-  private writeInput(value: Date): void {
+  private writeInput(value: any): void {
     if (value && this.checkDate(value)) {
       this.inputElement.nativeElement.value = this.datePipe.transform(value, this.format);
     } else {
