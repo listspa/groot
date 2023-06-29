@@ -43,6 +43,7 @@
     <div class="buttons-list-right">
       <groot-button
         label="common.apply"
+        [disabled]="form?.invalid"
         (click)="searchClicked()"
       ></groot-button>
       <groot-button

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, ContentChild, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {dropDownOnCreateAnimation, emptyEnterAnimation} from '../../utils/animations-utils';
 import {unsubscribeSafe} from '../../utils/subscription-utils';
@@ -11,6 +11,7 @@ import {unsubscribeSafe} from '../../utils/subscription-utils';
 export class GrootBaseSearchFormComponent implements OnInit, OnDestroy {
   @Input() viewNameForSavingQueries: string = null;
 
+  // tslint:disable-next-line:no-output-native
   @Output() reset = new EventEmitter<void>();
   @Output() search = new EventEmitter<void>();
   @Output() saveQuery = new EventEmitter<void>();
@@ -24,6 +25,8 @@ export class GrootBaseSearchFormComponent implements OnInit, OnDestroy {
   @Input() hasMoreFilters = false;
 
   private loadQuerySub: Subscription;
+
+  @ContentChild('form') form;
 
   ngOnInit(): void {
     this.resetAndSearch();

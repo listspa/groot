@@ -9,24 +9,38 @@
   [filtersActive]="anyFilter"
   (search)="search()"
   (reset)="reset()">
-  <div primaryFilters>
+  <form #form="ngForm" primaryFilters>
     <div class="row">
       <div class="col-sm-8 col-md-6 col-xl-3">
         <groot-input
+          name="name"
           label="Name"
           [(ngModel)]="name"
+          [required]="true"
         ></groot-input>
       </div>
 
       <div class="col-sm-8 col-md-6 col-xl-3">
         <groot-date-picker
+          name="date"
           label="Reference date"
+          [required]="true"
           [(ngModel)]="referenceDate"
         ></groot-date-picker>
       </div>
 
       <div class="col-sm-8 col-md-6 col-xl-3">
+        <groot-date-time-picker
+          label="Date and time"
+          name="dateTime"
+          [(ngModel)]="dateTime"
+          helpText="select a date and time please"
+        ></groot-date-time-picker>
+      </div>
+
+      <div class="col-sm-8 col-md-6 col-xl-3">
         <groot-combo
+          name="currencies"
           label="Currencies"
           [items]="availableCurrencies"
           [(ngModel)]="selectedCurrencies"
@@ -34,6 +48,43 @@
         ></groot-combo>
       </div>
     </div>
-  </div>
+  </form>
 </groot-base-search-form>
+
+<div *ngIf="anyFilter" class="card">
+
+  <div class="card-header">
+    <h4>Filters Applied</h4>
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-8 col-md-6 col-xl-3">
+        <groot-display-label-value
+          [value]="nameApplied"
+          label="Name"
+        ></groot-display-label-value>
+      </div>
+      <div class="col-sm-8 col-md-6 col-xl-3">
+        <groot-display-label-value
+          [value]="referenceDateApplied"
+          label="Reference date"
+        ></groot-display-label-value>
+      </div>
+      <div class="col-sm-8 col-md-6 col-xl-3">
+        <groot-display-label-value
+          [value]="dateTimeApplied"
+          label="Date and time"
+        ></groot-display-label-value>
+      </div>
+      <div class="col-sm-8 col-md-6 col-xl-3">
+        <groot-display-label-value
+          [value]="selectedCurrenciesApplied"
+          label="Currencies"
+        ></groot-display-label-value>
+      </div>
+    </div>
+  </div>
+
+</div>
 
