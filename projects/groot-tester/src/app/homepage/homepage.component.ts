@@ -5,6 +5,22 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.4.0', released: true, changes: [
+      {
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `base-search-form component now sees the form in ng-content`
+    },
+      {
+      type: ReleaseChangeType.BUG_FIX,
+      html: `Manage groot-date-picker component valid state and make it visible also in parent component`
+    },
+      {
+      type: ReleaseChangeType.BUG_FIX,
+      html: `Manage groot-date-time-picker component valid state and make it visible also in parent component`
+    },
+    ]
+  },
+  {
     version: '3.3.6', released: true, changes: [{
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Add stopPropagation to groot-actions-button`
