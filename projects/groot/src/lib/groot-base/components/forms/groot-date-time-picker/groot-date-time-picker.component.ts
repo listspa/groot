@@ -73,8 +73,10 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
 
   // different formats needed: one for Angular pipe, one for NgBootstrap
   @Input('format') set format(format: string) {
-    this.inputFormat = normalizeNgBootstrapDateFormat(format);
-    this.bsDatepickerFormat = convertNgAngularPipeDateFormatToNgBootstrapFormat(format);
+    if (format) {
+      this.inputFormat = normalizeNgBootstrapDateFormat(format);
+      this.bsDatepickerFormat = convertNgAngularPipeDateFormatToNgBootstrapFormat(format);
+    }
   }
 
   selectedDate: Date;
