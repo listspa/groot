@@ -23,7 +23,10 @@ import {leftPad} from '../../../utils/string-utils';
 import {Subscription} from 'rxjs';
 import {unsubscribeSafe} from '../../../utils/subscription-utils';
 import {calculateDatePickerPosition, Placement} from '../groot-date-picker/groot-date-picker-placement.utils';
-import {normalizeNgBootstrapDateFormat} from '../groot-date-picker/groot-date-picker-config';
+import {
+  convertNgAngularPipeDateFormatToNgBootstrapFormat,
+  normalizeNgBootstrapDateFormat
+} from '../groot-date-picker/groot-date-picker-config';
 import {DatePipe} from '@angular/common';
 import {getLocale, parseDate, utcAsLocal} from 'ngx-bootstrap/chronos';
 
@@ -50,7 +53,6 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   @Input() helpText: string | null = null;
   // tslint:disable-next-line:no-input-rename
   @Input('formControl') externalFormControl: FormControl = null;
-  @Input() format: string;
   @Input() forcedFormat = false;
   @Input() minDate: Date | null = null;
   @Input() maxDate: Date | null = null;
@@ -66,6 +68,14 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   @ViewChild('datePickerElement') private datePickerElement: ElementRef;
   @ViewChild('datePickerInputElement') private datePickerInputElement: ElementRef;
   @ViewChild('inputDate') input: NgModel;
+  private inputFormat: string;
+  private bsDatepickerFormat: string;
+
+  // different formats needed: one for Angular pipe, one for NgBootstrap
+  @Input('format') set format(format: string) {
+    this.inputFormat = normalizeNgBootstrapDateFormat(format);
+    this.bsDatepickerFormat = convertNgAngularPipeDateFormatToNgBootstrapFormat(format);
+  }
 
   selectedDate: Date;
   timePart: string;
@@ -76,10 +86,11 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   placement: Placement;
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
-              bsDatepickerConfig: BsDatepickerConfig,
+              private bsDatepickerConfig: BsDatepickerConfig,
               private bsLocaleService: BsLocaleService,
               private datePipe: DatePipe) {
-    this.format = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
+    this.inputFormat = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
+    this.bsDatepickerFormat = convertNgAngularPipeDateFormatToNgBootstrapFormat(this.inputFormat);
   }
 
   private getTzOffset(date: string): string {
@@ -224,8 +235,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
     this.writeInput(this.selectedDate);
 
     // this is needed to fix a bug in ngx bootstrap: code is copied from ngx boostrap
-    // except the strict parameter set to true, otherwise the date picker accepts 01/01/20aaa23
-    // and transforms it in 01/01/2020
+    // except the first check that set the value to null if an invalid string|Date is given as input
     bsDatepickerInputDirective.writeValue = value => {
       const self = (bsDatepickerInputDirective as any);
       if (!value || !this.checkDate(value)) {
@@ -239,7 +249,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
           throw new Error(`Locale "${_localeKey}" is not defined, please add it with "defineLocale(...)"`);
         }
         // here is the hack: the original version did not have strict: true
-        self._value = parseDate(value, self._picker._config.dateInputFormat, self._localeService.currentLocale, true);
+        self._value = parseDate(value, this.bsDatepickerFormat, self._localeService.currentLocale);
         if (self._picker._config.useUtc) {
           self._value = utcAsLocal(self._value);
         }
@@ -250,12 +260,12 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
 
   private checkDate(value: any): boolean {
     return (value instanceof Date && !isNaN(value.getTime()))
-      || !isNaN(Date.parse(parseDate(value, this.format, this.bsLocaleService.currentLocale).toString()));
+      || !isNaN(Date.parse(parseDate(value, this.bsDatepickerFormat, this.bsLocaleService.currentLocale, true).toString()));
   }
 
   private writeInput(value: Date): void {
     if (value && this.checkDate(value)) {
-      this.datePickerInputElement.nativeElement.value = this.datePipe.transform(value, this.format);
+      this.datePickerInputElement.nativeElement.value = this.datePipe.transform(value, this.inputFormat);
     } else {
       this.datePickerInputElement.nativeElement.value = null;
     }

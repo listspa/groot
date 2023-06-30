@@ -26,3 +26,14 @@ export function normalizeNgBootstrapDateFormat(dateFormat: string): string {
     .replace('YYYY', 'yyyy')
     .replace('DD', 'dd');
 }
+
+/**
+ * NgBootstrap expects years and days to be written as "YYYY" and "DD", rather than "yyyy" and "dd"
+ * as the angular date pipe. This function takes in input the standard angular date pipe format and outputs the
+ * NgBootstrap format.
+ */
+export function convertNgAngularPipeDateFormatToNgBootstrapFormat(dateFormat: string): string {
+  return dateFormat
+    .replace('yyyy', 'YYYY')
+    .replace('dd', 'DD');
+}

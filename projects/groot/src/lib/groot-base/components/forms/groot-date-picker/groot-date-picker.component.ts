@@ -17,7 +17,7 @@ import {
   DatepickerDateCustomClasses
 } from 'ngx-bootstrap/datepicker';
 import {calculateDatePickerPosition, Placement} from './groot-date-picker-placement.utils';
-import {normalizeNgBootstrapDateFormat} from './groot-date-picker-config';
+import {convertNgAngularPipeDateFormatToNgBootstrapFormat, normalizeNgBootstrapDateFormat} from './groot-date-picker-config';
 import {DatePipe} from '@angular/common';
 import {getLocale, parseDate, utcAsLocal} from 'ngx-bootstrap/chronos';
 
@@ -43,7 +43,6 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
   @Input() disabled = false;
   @Input() helpText: string | null = null;
   @Input() formControl: FormControl | null = null;
-  @Input() format: string;
   @Input() forcedFormat = false;
   @Input() minDate: Date | null = null;
   @Input() maxDate: Date | null = null;
@@ -60,14 +59,23 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
   @ViewChild('input') input: NgModel;
   @ViewChild('inputElement') inputElement: ElementRef;
   private bsDatepickerInputDirective: BsDatepickerInputDirective;
+  private inputFormat: string;
+  private bsDatepickerFormat: string;
+
+  // different formats needed: one for Angular pipe, one for NgBootstrap
+  @Input('format') set format(format: string) {
+    this.inputFormat = normalizeNgBootstrapDateFormat(format);
+    this.bsDatepickerFormat = convertNgAngularPipeDateFormatToNgBootstrapFormat(format);
+  }
 
   // tslint:disable-next-line:variable-name
   constructor(private _element: ElementRef,
               private changeDetectorRef: ChangeDetectorRef,
-              bsDatepickerConfig: BsDatepickerConfig,
+              private bsDatepickerConfig: BsDatepickerConfig,
               private bsLocaleService: BsLocaleService,
               private datePipe: DatePipe) {
-    this.format = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
+    this.inputFormat = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);
+    this.bsDatepickerFormat = convertNgAngularPipeDateFormatToNgBootstrapFormat(this.inputFormat);
   }
 
   @HostListener('click', ['$event'])
@@ -131,8 +139,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
     this.writeInput(this.selectedDate);
 
     // this is needed to fix a bug in ngx bootstrap: code is copied from ngx boostrap
-    // except the strict parameter set to true, otherwise the date picker accepts 01/01/20aaa23
-    // and transforms it in 01/01/2020
+    // except the first check that set the value to null if an invalid string|Date is given as input
     bsDatepickerInputDirective.writeValue = value => {
       const self = (bsDatepickerInputDirective as any);
       if (!value || !this.checkDate(value)) {
@@ -145,8 +152,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
         if (!_locale) {
           throw new Error(`Locale "${_localeKey}" is not defined, please add it with "defineLocale(...)"`);
         }
-        // here is the hack: the original version did not have strict: true
-        self._value = parseDate(value, self._picker._config.dateInputFormat, self._localeService.currentLocale, true);
+        self._value = parseDate(value, this.bsDatepickerFormat, self._localeService.currentLocale);
         if (self._picker._config.useUtc) {
           self._value = utcAsLocal(self._value);
         }
@@ -156,14 +162,26 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
   }
 
   private checkDate(value: any): boolean {
-    // would be better to add locale in the parseDate check, but it works
     return (value instanceof Date && !isNaN(value.getTime()))
-      || !isNaN(Date.parse(parseDate(value, this.format, this.bsLocaleService.currentLocale).toString()));
+      || !isNaN(Date.parse(parseDate(value, this.bsDatepickerFormat, this.bsLocaleService.currentLocale, true).toString()));
   }
+
+  // private checkDate(value: any): boolean {
+  //   console.log(value);
+  //   console.log(this.bsLocaleService.currentLocale);
+  //   console.log(parseDate(value));
+  //   if (value instanceof Date) {
+  //     return !isNaN(value.getTime());
+  //   }
+  //   value = value.replaceAll(/[-/]/g, ' ');
+  //   console.log(value);
+  //   console.log(parseDate(value));
+  //   return !isNaN(Date.parse(parseDate(value).toString()));
+  // }
 
   private writeInput(value: any): void {
     if (value && this.checkDate(value)) {
-      this.inputElement.nativeElement.value = this.datePipe.transform(value, this.format);
+      this.inputElement.nativeElement.value = this.datePipe.transform(value, this.inputFormat);
     } else {
       this.inputElement.nativeElement.value = null;
     }
