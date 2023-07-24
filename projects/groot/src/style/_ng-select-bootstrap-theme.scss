@@ -21,10 +21,24 @@
         }
       }
 
-        .ng-arrow {
+      .ng-arrow {
         top: -2px;
         border-color: transparent transparent $ng-select-arrow;
         border-width: 0 5px 5px;
+      }
+    }
+
+    &.ng-select-top {
+      > .ng-select-container {
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+      }
+    }
+
+    &.ng-select-right {
+      > .ng-select-container {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
       }
     }
 
@@ -35,10 +49,10 @@
       }
     }
 
-    &.ng-select-top {
+    &.ng-select-left {
       > .ng-select-container {
-        border-top-right-radius: 0;
         border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
       }
     }
   }
@@ -46,9 +60,11 @@
   &.ng-select-focused {
     &:not(.ng-select-opened) > .ng-select-container {
       border-color: $input-focus-border-color;
+
       @if $enable-shadows {
         box-shadow: $input-box-shadow, $input-focus-box-shadow;
-      } @else {
+      }
+      @else {
         box-shadow: $input-focus-box-shadow;
       }
     }
@@ -69,7 +85,8 @@
 
     @if $enable-rounded {
       border-radius: $input-border-radius;
-    } @else {
+    }
+    @else {
       border-radius: 0;
     }
 
@@ -167,6 +184,10 @@
 
         .ng-input {
           padding: 0 0 3px 3px;
+
+          > input {
+            color: $black;
+          }
         }
 
         .ng-placeholder {
@@ -214,6 +235,41 @@
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
   left: 0;
 
+  &.ng-select-top {
+    bottom: 100%;
+    border-top-right-radius: $input-border-radius;
+    border-top-left-radius: $input-border-radius;
+    border-bottom-color: #e6e6e6;
+    margin-bottom: -1px;
+
+    .ng-dropdown-panel-items {
+      .ng-option {
+        &:first-child {
+          border-top-right-radius: $input-border-radius;
+          border-top-left-radius: $input-border-radius;
+        }
+      }
+    }
+  }
+
+  &.ng-select-right {
+    left: 100%;
+    top: 0;
+    border-top-right-radius: $input-border-radius;
+    border-bottom-right-radius: $input-border-radius;
+    border-bottom-left-radius: $input-border-radius;
+    border-bottom-color: #e6e6e6;
+    margin-bottom: -1px;
+
+    .ng-dropdown-panel-items {
+      .ng-option {
+        &:first-child {
+          border-top-right-radius: $input-border-radius;
+        }
+      }
+    }
+  }
+
   &.ng-select-bottom {
     top: 100%;
     border-bottom-right-radius: $input-border-radius;
@@ -231,17 +287,18 @@
     }
   }
 
-  &.ng-select-top {
-    bottom: 100%;
-    border-top-right-radius: $input-border-radius;
+  &.ng-select-left {
+    left: -100%;
+    top: 0;
     border-top-left-radius: $input-border-radius;
+    border-bottom-right-radius: $input-border-radius;
+    border-bottom-left-radius: $input-border-radius;
     border-bottom-color: #e6e6e6;
     margin-bottom: -1px;
 
     .ng-dropdown-panel-items {
       .ng-option {
         &:first-child {
-          border-top-right-radius: $input-border-radius;
           border-top-left-radius: $input-border-radius;
         }
       }
