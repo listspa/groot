@@ -38,7 +38,7 @@
     "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^10.3.0",
     "ngx-currency": "^3.0.0",
-    "rxjs": "~6.6.7",
+    "rxjs": "~7.8.1",
     "tslib": "^2.6.0",
     "zone.js": "~0.11.8"
   },
