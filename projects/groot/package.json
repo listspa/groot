@@ -13,12 +13,12 @@
     "@ng-select/ng-select": "^7.4.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "@ngx-translate/core": "^13.0.0",
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^4.6.2",
     "file-saver": "^2.0.5",
     "filesize": "^10.0.7",
     "font-awesome": "^4.7.0",
-    "mdn-polyfills": "^5.19.0",
-    "ngx-bootstrap": "^7.1.0",
+    "mdn-polyfills": "^5.20.0",
+    "ngx-bootstrap": "^7.1.2",
     "ngx-currency": "^2.5.3"
   },
   "dependencies": {
