@@ -7,9 +7,9 @@
   },
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@angular/cdk": "^14.2.7",
-    "@angular/common": "^14.3.0",
-    "@angular/core": "^14.3.0",
+    "@angular/cdk": "^15.2.9",
+    "@angular/common": "^15.2.9",
+    "@angular/core": "^15.2.9",
     "@ng-select/ng-select": "^9.1.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "@ngx-translate/core": "^14.0.0",
