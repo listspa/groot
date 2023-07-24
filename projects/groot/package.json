@@ -7,10 +7,10 @@
   },
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@angular/cdk": "~12.2.13",
-    "@angular/common": "~12.2.17",
-    "@angular/core": "~12.2.17",
-    "@ng-select/ng-select": "^7.4.0",
+    "@angular/cdk": "~13.3.9",
+    "@angular/common": "~13.4.0",
+    "@angular/core": "~13.4.0",
+    "@ng-select/ng-select": "^8.3.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "@ngx-translate/core": "^13.0.0",
     "bootstrap": "^4.6.2",
@@ -18,10 +18,10 @@
     "filesize": "^10.0.7",
     "font-awesome": "^4.7.0",
     "mdn-polyfills": "^5.20.0",
-    "ngx-bootstrap": "^7.1.2",
-    "ngx-currency": "^2.5.3"
+    "ngx-bootstrap": "^8.0.0",
+    "ngx-currency": "^3.0.0"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.6.0"
   }
 }
