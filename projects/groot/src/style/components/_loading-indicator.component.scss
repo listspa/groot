@@ -18,7 +18,7 @@ $loader-size: 80px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -(math.div($loader-size, 2)) 0 0 -(math.div($loader-size, 2));
+  margin: (-(math.div($loader-size, 2))) 0 0 (-(math.div($loader-size, 2)));
   width: $loader-size;
   height: $loader-size;
   z-index: $loader-z-index + 1;
