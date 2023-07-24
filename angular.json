@@ -49,7 +49,11 @@
               "file-saver"
             ],
             "baseHref": "/groot-doc/",
-            "deployUrl": "/groot-doc/",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./node_modules"
+              ]
+            },
             "outputPath": "dist/groot-tester",
             "index": "projects/groot-tester/src/index.html",
             "main": "projects/groot-tester/src/main.ts",
