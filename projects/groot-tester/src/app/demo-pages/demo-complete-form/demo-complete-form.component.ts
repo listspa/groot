@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
-import {FormControl, NgForm, Validators} from '@angular/forms';
+import {UntypedFormControl, NgForm, Validators} from '@angular/forms';
 import {validateForm} from 'projects/groot/src/lib/groot-base/utils/form-utils';
 import {NotificationToastService, ToastStyle} from '../../../../../groot/src/lib/groot-base/services/notification-toast.service';
 
@@ -27,11 +27,11 @@ export class DemoCompleteFormComponent implements OnInit {
 
   @ViewChild('ngForm') ngForm: NgForm;
 
-  name2 = new FormControl('');
-  name3 = new FormControl('');
-  description3 = new FormControl('');
-  description4 = new FormControl('');
-  dateTime = new FormControl(new Date(), [Validators.required]);
+  name2 = new UntypedFormControl('');
+  name3 = new UntypedFormControl('');
+  description3 = new UntypedFormControl('');
+  description4 = new UntypedFormControl('');
+  dateTime = new UntypedFormControl(new Date(), [Validators.required]);
 
   ngOnInit(): void {
     console.log(this.ngForm);

@@ -10,7 +10,7 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {
   BsLocaleService,
   BsDatepickerConfig,
@@ -52,7 +52,7 @@ export class GrootDateTimePickerComponent implements ControlValueAccessor, OnIni
   @Input() disabled = false;
   @Input() helpText: string | null = null;
   // tslint:disable-next-line:no-input-rename
-  @Input('formControl') externalFormControl: FormControl = null;
+  @Input('formControl') externalFormControl: UntypedFormControl = null;
   @Input() forcedFormat = false;
   @Input() minDate: Date | null = null;
   @Input() maxDate: Date | null = null;

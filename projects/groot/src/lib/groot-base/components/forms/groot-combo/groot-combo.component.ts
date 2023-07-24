@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, EventEmitter, forwardRef, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {ComboDataRequest, ComboDataRequestWithSelected, PaginatedResponse} from '../../../utils/pagination.model';
@@ -53,7 +53,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() translateItemText = false;
   @Input() hidePlaceholder = false;
   @Input() searchFn: (term: string, item: string | any) => boolean | null = null;
-  @Input() formControl: FormControl | null = null;
+  @Input() formControl: UntypedFormControl | null = null;
   @Input() dropDownPosition: DropdownPosition = 'auto';
   @Input() errorMessage = 'common.required';
   @Input() maxMultipleItemsDisplayed: number | undefined = undefined;

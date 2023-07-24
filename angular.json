@@ -126,7 +126,6 @@
       }
     }
   },
-  "defaultProject": "groot",
   "schematics": {
     "@schematics/angular:component": {
       "style": "scss"

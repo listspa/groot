@@ -1,5 +1,5 @@
 import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, forwardRef, Input, Output, ViewChild} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 
 @Component({
   selector: 'groot-quick-search',
@@ -21,7 +21,7 @@ export class GrootQuickSearchComponent implements ControlValueAccessor, AfterVie
   @Input() name: string;
   @Input() required = false;
   @Input() disabled = false;
-  @Input() formControl: FormControl | null = null;
+  @Input() formControl: UntypedFormControl | null = null;
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
   @Input() autofocus = false;

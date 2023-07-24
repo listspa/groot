@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, forwardRef, Input} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 
 @Component({
   selector: 'groot-textarea',
@@ -23,7 +23,7 @@ export class GrootTextAreaComponent implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() helpText: string = null;
   @Input() rows = 5;
-  @Input() formControl: FormControl = null;
+  @Input() formControl: UntypedFormControl = null;
   @Input() hidePlaceholder = false;
   @Input() maxLength: number | undefined = undefined;
   text: string;

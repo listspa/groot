@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, ContentChild, ElementRef, EventEmitter, forwardRef, Input, Output, TemplateRef, ViewChild} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './groot-input.directive';
 
 @Component({
@@ -29,7 +29,7 @@ export class GrootInputComponent implements ControlValueAccessor {
   @Input() templateLeft: TemplateRef<any> | null = null;
   @Input() iconRight: string | string[] | null = null;
   @Input() templateRight: TemplateRef<any> | null = null;
-  @Input() formControl: FormControl | null = null;
+  @Input() formControl: UntypedFormControl | null = null;
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
   @Input() maxLength: number | undefined = undefined;

@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, EventEmitter, forwardRef, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {CurrencyMaskConfig, CurrencyMaskInputMode} from 'ngx-currency';
 import {Subscription} from 'rxjs';
 import {unsubscribeSafe} from '../../../groot-base/utils/subscription-utils';
@@ -27,7 +27,7 @@ export class GrootInputCurrencyComponent implements ControlValueAccessor, OnInit
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
 
-  @Input() formControl: FormControl | null = null;
+  @Input() formControl: UntypedFormControl | null = null;
 
   @Output() enter: EventEmitter<number> = new EventEmitter();
   value: number;

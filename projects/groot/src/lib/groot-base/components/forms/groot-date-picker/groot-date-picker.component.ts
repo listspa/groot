@@ -8,7 +8,7 @@ import {
   Input,
   ViewChild
 } from '@angular/core';
-import {ControlValueAccessor, FormControl, FormControlDirective, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {ControlValueAccessor, UntypedFormControl, FormControlDirective, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 import {
   BsLocaleService,
   BsDatepickerConfig,
@@ -42,7 +42,7 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
   @Input() required = false;
   @Input() disabled = false;
   @Input() helpText: string | null = null;
-  @Input() formControl: FormControl | null = null;
+  @Input() formControl: UntypedFormControl | null = null;
   @Input() forcedFormat = false;
   @Input() minDate: Date | null = null;
   @Input() maxDate: Date | null = null;

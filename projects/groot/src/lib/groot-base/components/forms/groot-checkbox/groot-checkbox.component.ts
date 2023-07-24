@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, forwardRef, Input} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
   selector: 'groot-checkbox',
@@ -20,7 +20,7 @@ export class GrootCheckboxComponent implements ControlValueAccessor {
   @Input() public label: string | null = null;
   @Input() public disabled = false;
   @Input() public checked = false;
-  @Input() formControl: FormControl | null = null;
+  @Input() formControl: UntypedFormControl | null = null;
 
   onChange = (checked: boolean) => null;
   onTouched = () => null;

@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, ViewChild} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
 
 @Component({
   selector: 'groot-time-picker',
@@ -16,7 +16,7 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@an
 })
 export class GrootTimePickerComponent implements ControlValueAccessor {
 
-  @Input() formControl: FormControl = null;
+  @Input() formControl: UntypedFormControl = null;
   @Input() label: string | null = null;
   @Input() name: string;
   @Input() required = false;
