@@ -34,7 +34,7 @@
     "bootstrap": "^4.5.3",
     "core-js": "^3.16.4",
     "file-saver": "^2.0.5",
-    "filesize": "^6.4.0",
+    "filesize": "^10.0.7",
     "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^7.1.0",
     "ngx-currency": "^2.5.3",
