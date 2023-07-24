@@ -15,35 +15,31 @@ import {
 } from './components/groot-table-autocol/groot-table-autocol.directive';
 
 @NgModule({
-  declarations: [
-    GrootTableAutocolComponent,
-    ColumnsSelectorComponent,
-    ColumnsSelectorListComponent,
-    PopoverFilterComponent,
-    GrootTableAutocolActionsDirective,
-    GrootTableAutocolTemplateForColumnDirective,
-    GrootTableTitleAutocolRightAreaDirective,
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    TranslateModule,
-    GrootModule,
-    DragDropModule
-  ],
-  exports: [
-    DragDropModule,   // Re-export angular CDK module
-    GrootTableAutocolComponent,
-    ColumnsSelectorComponent,
-    ColumnsSelectorListComponent,
-    GrootTableAutocolActionsDirective,
-    GrootTableAutocolTemplateForColumnDirective,
-    GrootTableTitleAutocolRightAreaDirective,
-  ],
-  entryComponents: [
-    ColumnsSelectorComponent,
-    PopoverFilterComponent,
-  ]
+    declarations: [
+        GrootTableAutocolComponent,
+        ColumnsSelectorComponent,
+        ColumnsSelectorListComponent,
+        PopoverFilterComponent,
+        GrootTableAutocolActionsDirective,
+        GrootTableAutocolTemplateForColumnDirective,
+        GrootTableTitleAutocolRightAreaDirective,
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        TranslateModule,
+        GrootModule,
+        DragDropModule
+    ],
+    exports: [
+        DragDropModule,
+        GrootTableAutocolComponent,
+        ColumnsSelectorComponent,
+        ColumnsSelectorListComponent,
+        GrootTableAutocolActionsDirective,
+        GrootTableAutocolTemplateForColumnDirective,
+        GrootTableTitleAutocolRightAreaDirective,
+    ]
 })
 export class GrootTableAutocolModule {
 }
