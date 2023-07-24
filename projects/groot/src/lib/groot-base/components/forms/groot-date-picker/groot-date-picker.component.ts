@@ -168,19 +168,6 @@ export class GrootDatePickerComponent implements ControlValueAccessor, AfterView
       || !isNaN(Date.parse(parseDate(value, this.bsDatepickerFormat, this.bsLocaleService.currentLocale, true).toString()));
   }
 
-  // private checkDate(value: any): boolean {
-  //   console.log(value);
-  //   console.log(this.bsLocaleService.currentLocale);
-  //   console.log(parseDate(value));
-  //   if (value instanceof Date) {
-  //     return !isNaN(value.getTime());
-  //   }
-  //   value = value.replaceAll(/[-/]/g, ' ');
-  //   console.log(value);
-  //   console.log(parseDate(value));
-  //   return !isNaN(Date.parse(parseDate(value).toString()));
-  // }
-
   private writeInput(value: any): void {
     if (value && this.checkDate(value)) {
       this.inputElement.nativeElement.value = this.datePipe.transform(value, this.inputFormat);
