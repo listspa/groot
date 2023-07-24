@@ -42,7 +42,7 @@ export class GrootPluginManagerService {
   getMenuItems(): Menu[] {
     let items: Menu[] = [];
     this.plugins.map(plugin => plugin.getRootMenuEntries())
-      .filter(v => v && v.length)
+      .filter(v => v?.length)
       .forEach(pluginItems => items = items.concat(pluginItems));
     return items;
   }
@@ -50,7 +50,7 @@ export class GrootPluginManagerService {
   getSimpleNavBarItems(): SimpleNavBarItem[] {
     let items: SimpleNavBarItem[] = [];
     this.plugins.map(plugin => plugin.getSimpleNavBarItems())
-      .filter(v => v && v.length)
+      .filter(v => v?.length)
       .forEach(pluginItems => items = items.concat(pluginItems));
     return items;
   }

@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {waitForAsync, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {TablePaginationComponent} from './table-pagination.component';
 import {TranslateModule} from '@ngx-translate/core';
@@ -7,7 +7,7 @@ describe('ListPaginationComponent', () => {
   let component: TablePaginationComponent;
   let fixture: ComponentFixture<TablePaginationComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TablePaginationComponent],
       imports: [TranslateModule.forRoot()]

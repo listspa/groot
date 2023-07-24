@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {TableHeaderComponent} from './table-header.component';
 import {Sorting} from '../../../utils/pagination.model';
@@ -9,7 +9,7 @@ describe('SortColumnButtonComponent', () => {
   let sorting: Sorting;
   let buttonsArea: any;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TableHeaderComponent]
     }).compileComponents();
