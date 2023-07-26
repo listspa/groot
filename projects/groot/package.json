@@ -22,6 +22,6 @@
     "ngx-currency": "^3.0.0"
   },
   "dependencies": {
-    "tslib": "^2.6.0"
+    "tslib": "^2.6.1"
   }
 }

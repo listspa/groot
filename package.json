@@ -20,7 +20,7 @@
   "private": false,
   "dependencies": {
     "@angular/animations": "^15.2.9",
-    "@angular/cdk": "^14.2.7",
+    "@angular/cdk": "^15.2.9",
     "@angular/common": "^15.2.9",
     "@angular/compiler": "^15.2.9",
     "@angular/core": "^15.2.9",
@@ -39,7 +39,7 @@
     "ngx-bootstrap": "^10.3.0",
     "ngx-currency": "^3.0.0",
     "rxjs": "~7.8.1",
-    "tslib": "^2.6.0",
+    "tslib": "^2.6.1",
     "zone.js": "~0.11.8"
   },
   "devDependencies": {
