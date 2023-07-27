@@ -1,5 +1,3 @@
-@use "sass:math";
-
 .link-as-button {
   color: $primary;
   cursor: pointer;
@@ -22,8 +20,8 @@
   align-items: center;
 
   .link-as-button + .link-as-button {
-    margin-left: math.div($spacing-between-actions, 2);
-    padding-left: math.div($spacing-between-actions, 2);
+    margin-left: $spacing-between-actions * 0.5;
+    padding-left: $spacing-between-actions * 0.5;
     border-left: 1px solid $gray-darwin-contrast-default-bg;
   }
 }

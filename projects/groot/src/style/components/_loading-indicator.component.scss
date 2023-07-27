@@ -1,4 +1,3 @@
-@use "sass:math";
 $loader-z-index: 99999998;
 $loader-size: 80px;
 
@@ -18,7 +17,7 @@ $loader-size: 80px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: (-(math.div($loader-size, 2))) 0 0 (-(math.div($loader-size, 2)));
+  margin: (-($loader-size * 0.5)) 0 0 (-($loader-size * 0.5));
   width: $loader-size;
   height: $loader-size;
   z-index: $loader-z-index + 1;
