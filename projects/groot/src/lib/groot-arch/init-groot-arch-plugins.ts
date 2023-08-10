@@ -9,7 +9,7 @@ import {HttpClient} from '@angular/common/http';
  * Initializes the plugin system, by manually invoking setup
  * of all the provided plugins.
  */
-export function initGrootArchPlugins(injector: Injector) {
+export function initGrootArchPlugins(injector: Injector): () => void {
   return () => {
     const pluginsManager = injector.get(GrootPluginManagerService);
     const plugins: GrootPlugin[] = injector.get(GROOT_PLUGIN) as any;
