@@ -37,31 +37,33 @@ $teal: #00BCBE !default;
 $cyan: #00A0FD !default;
 $light: $gray-200 !default;
 $list-blue: #002D69;
-$excel-green:#307345;
+$excel-green: #307345;
 $gray-darwin-bg: #f2f2f2;
 $gray-darwin-bg-dark: #e4e4e4;
 $gray-darwin-border: #cbcbcb;
 $gray-darwin-contrast-default-bg: #bbb;
+$dark: $gray-800 !default;
 
 $colors: (
-  "blue": $blue,
-  "light-blue": $light-blue,
-  "lighter-blue": $lighter-blue,
-  "lightest-blue": $lightest-blue,
-  "indigo": $indigo,
-  "dark-purple": $dark-purple,
-  "purple": $purple,
-  "pink": $pink,
-  "red": $red,
-  "orange": $orange,
-  "yellow": $yellow,
-  "green": $green,
-  "dark-green": $dark-green,
-  "light-green": $light-green,
-  "lighter-green": $lighter-green,
-  "teal": $teal,
-  "cyan": $cyan,
-  "light": $light
+        'blue': $blue,
+        'light-blue': $light-blue,
+        'lighter-blue': $lighter-blue,
+        'lightest-blue': $lightest-blue,
+        'indigo': $indigo,
+        'dark-purple': $dark-purple,
+        'purple': $purple,
+        'pink': $pink,
+        'red': $red,
+        'orange': $orange,
+        'yellow': $yellow,
+        'green': $green,
+        'dark-green': $dark-green,
+        'light-green': $light-green,
+        'lighter-green': $lighter-green,
+        'teal': $teal,
+        'cyan': $cyan,
+        'light': $light,
+        'dark': $dark,
 );
 
 $primary: $blue !default;
@@ -81,10 +83,18 @@ $promotion: $purple !default;
 $deselected: $gray-100 !default;
 
 $theme-colors: (
-  'brand': $brand,
-  'promotion': $promotion,
-  'deselected': $deselected,
-  'download': $download,
+        'primary': $primary,
+        'secondary': $secondary,
+        'success': $success,
+        'info': $info,
+        'warning': $warning,
+        'danger': $danger,
+        'light': $light,
+        'dark': $dark,
+        'brand': $brand,
+        'promotion': $promotion,
+        'deselected': $deselected,
+        'download': $download,
 );
 
 
@@ -98,14 +108,15 @@ $theme-red: $red;
 $theme-orange: $orange;
 
 $theme-list: (
-  'primary': $primary,
-  'secondary': $secondary,
-  'success': $success,
-  'info': $info,
-  'warning': $warning,
-  'danger': $danger,
-  'brand': $brand,
-  'promotion': $promotion,
+        'primary': $primary,
+        'secondary': $secondary,
+        'success': $success,
+        'dark': $dark,
+        'info': $info,
+        'warning': $warning,
+        'danger': $danger,
+        'brand': $brand,
+        'promotion': $promotion,
 );
 
 // Fonts
@@ -113,7 +124,7 @@ $theme-list: (
 $font-family-sans-serif: Roboto, Arial !default;
 $font-weight-light: 400 !default;
 $font-weight-base: $font-weight-light !default;
-$headings-font-family: "Roboto Condensed", Arial !default;
+$headings-font-family: 'Roboto Condensed', Arial !default;
 
 // Borders
 
@@ -191,7 +202,7 @@ $navbar-brand-font-weight: bold !default;
 $navbar-simple-margin-left: 1.5rem !default;
 $navbar-simple-font-size: 1.3rem !default;
 $navbar-simple-color: rgba($white, 0.7) !default;
-$navbar-simple-font-family: "Roboto Condensed", Arial !default;
+$navbar-simple-font-family: 'Roboto Condensed', Arial !default;
 $navbar-form-margin-right: $navbar-simple-margin-left !default;
 $navbar-margin-bottom: 0.7rem !default;
 $navbar-dropdown-active-bg: $lighter-primary !default;
