@@ -1829,7 +1829,8 @@ Removed week numbers in the date picker.
 
 @Component({
   selector: 'app-homepage',
-  templateUrl: './homepage.component.html'
+  templateUrl: './homepage.component.html',
+  styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent {
   releases: Release[] = RELEASE_NOTES;
