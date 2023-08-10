@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $toggle-bar-width: 2.8rem;
 $toggle-bar-height: 1.1rem;
 $toggle-button-size: 1.5rem;
@@ -58,6 +60,6 @@ groot-toggle-button label {
     font-weight: bold;
     color: $label-fg-color;
     font-size: 0.9em;
-    margin-bottom: $input-height-inner * 0.5;
+    margin-bottom: math.div($input-height-inner, 2);
   }
 }
