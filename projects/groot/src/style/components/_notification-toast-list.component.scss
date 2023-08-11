@@ -36,7 +36,7 @@ $toast-border-radius: 10px;
 $value in $theme-colors {
   .toaster-style-#{$color} {
     background-color: $value;
-    color: color-yiq($value);
+    color: color-contrast($value);
   }
 }
 

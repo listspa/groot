@@ -62,12 +62,12 @@ groot-nav-bar {
 
           &:hover {
             background-color: $primary;
-            color: color-yiq($primary);
+            color: color-contrast($primary);
           }
 
           &.active {
             background-color: $navbar-dropdown-active-bg;
-            color: color-yiq($navbar-dropdown-active-bg);
+            color: color-contrast($navbar-dropdown-active-bg);
           }
         }
       }

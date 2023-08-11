@@ -1,6 +1,6 @@
 .card-header {
   background-color: $light-primary;
-  color: color-yiq($light-primary);
+  color: color-contrast($light-primary);
   padding: $box-header-padding-y $box-header-padding-x;
 
   h1, h2, h3, h4, h5, h6 {
@@ -15,7 +15,7 @@
 @each $color, $value in $theme-colors {
   .card-header.card-header-#{$color} {
     background-color: $value;
-    color: color-yiq($value);
+    color: color-contrast($value);
   }
 }
 

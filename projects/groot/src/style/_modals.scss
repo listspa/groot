@@ -1,10 +1,10 @@
 @each $color, $value in $theme-colors {
   .modal-header.bg-#{$color} {
     background-color: $value;
-    color: color-yiq($value);
+    color: color-contrast($value);
 
     .close {
-      color: color-yiq($value);
+      color: color-contrast($value);
     }
   }
 }

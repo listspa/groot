@@ -169,7 +169,7 @@
 
             &:hover {
               background-color: $primary;
-              color: color-yiq($primary);
+              color: color-contrast($primary);
             }
 
             &.left {
