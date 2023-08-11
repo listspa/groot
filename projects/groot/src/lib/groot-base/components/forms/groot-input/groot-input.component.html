@@ -3,15 +3,14 @@
   <span *ngIf="required">*</span>
 </label>
 <div class="input-group mb-2">
-  <div class="input-group-prepend" *ngIf="templateLeft || iconLeft">
-    <span class="input-group-text">
-      <ng-container *ngTemplateOutlet="templateLeft || templateIconLeft"></ng-container>
-    </span>
+  <span class="input-group-text" *ngIf="templateLeft || iconLeft">
+    <ng-container *ngTemplateOutlet="templateLeft || templateIconLeft"></ng-container>
+  </span>
 
-    <ng-template #templateIconLeft>
-      <i [ngClass]="iconLeft"></i>
-    </ng-template>
-  </div>
+  <ng-template #templateIconLeft>
+    <i [ngClass]="iconLeft"></i>
+  </ng-template>
+
   <input #htmlInput
          [type]="type"
          [step]="step"
@@ -44,7 +43,7 @@
          [attr.maxLength]="maxLength"
          [class.is-invalid]="formControl.invalid && formControl.touched"
          *ngIf="formControl">
-  <div class="input-group-append" *ngIf="templateRight || iconRight">
+  <div *ngIf="templateRight || iconRight">
     <span class="input-group-text">
       <ng-container *ngTemplateOutlet="templateRight || templateIconRight"></ng-container>
     </span>

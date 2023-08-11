@@ -30,11 +30,9 @@
            [class.is-invalid]="inputDate.invalid && inputDate.touched"
            [disabled]="disabled">
 
-    <div class="input-group-append">
-      <span class="input-group-text">
-        <i class="fa fa-calendar"></i>
-      </span>
-    </div>
+    <span class="input-group-text">
+      <i class="fa fa-calendar"></i>
+    </span>
 
     <div class="invalid-feedback" *ngIf="!valid">
       {{'common.required' | translate}}

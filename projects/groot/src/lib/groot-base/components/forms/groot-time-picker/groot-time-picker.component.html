@@ -42,11 +42,11 @@
     [value]="formControl.value"
     *ngIf="formControl"
   >
-  <div class="input-group-append">
-    <span class="input-group-text">
-      <i class="fa fa-clock-o"></i>
-    </span>
-  </div>
+
+  <span class="input-group-text">
+    <i class="fa fa-clock-o"></i>
+  </span>
+
   <ng-container *ngIf="input">
     <div class="invalid-feedback" *ngIf="input.invalid && input.touched">
       {{'common.required' | translate}}

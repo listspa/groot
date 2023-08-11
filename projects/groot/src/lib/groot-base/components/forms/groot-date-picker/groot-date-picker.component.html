@@ -48,11 +48,10 @@
          [formControl]="formControl"
          *ngIf="formControl">
 
-  <div class="input-group-append">
-    <span class="input-group-text">
-      <i class="fa fa-calendar"></i>
-    </span>
-  </div>
+  <span class="input-group-text">
+    <i class="fa fa-calendar"></i>
+  </span>
+
   <ng-container *ngIf="input">
     <div class="invalid-feedback" *ngIf="input.invalid && input.touched">
       {{errorMessage | translate}}

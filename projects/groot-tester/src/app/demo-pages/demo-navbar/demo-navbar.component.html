@@ -98,10 +98,8 @@ Use it by putting html into your <code>&lt;groot-nav-bar&gt;</code> with the <co
     &lt;input type="text"
            class="form-control"
            placeholder="Search...(doesn't work in demo)"&gt;
-    &lt;div class="input-group-append" *ngIf="iconRight"&gt;
-      &lt;span class="input-group-text"&gt;
+      &lt;span class="input-group-text" *ngIf="iconRight"&gt;
         &lt;i [ngClass]="iconRight"&gt;&lt;/i&gt;
       &lt;/span&gt;
-    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/groot-nav-bar&gt;</code></pre>
