@@ -43,7 +43,7 @@ describe('ListPaginationComponent', () => {
     expect(nextDisabled).toBeNull();
 
     // Navigate
-    const lastLink = fixture.debugElement.nativeElement.querySelector('.paginator-first-last.float-right a');
+    const lastLink = fixture.debugElement.nativeElement.querySelector('.paginator-first-last.float-end a');
     lastLink.click();
     expect(component._pageNum).toBe(2);
     expect(numPageChanges).toBe(1);
@@ -58,7 +58,7 @@ describe('ListPaginationComponent', () => {
     expect(component._pageNum).toBe(2);
     expect(numPageChanges).toBe(3);
 
-    const firstLink = fixture.debugElement.nativeElement.querySelector('.paginator-first-last.float-left a');
+    const firstLink = fixture.debugElement.nativeElement.querySelector('.paginator-first-last.float-start a');
     firstLink.click();
     expect(component._pageNum).toBe(0);
     expect(numPageChanges).toBe(4);

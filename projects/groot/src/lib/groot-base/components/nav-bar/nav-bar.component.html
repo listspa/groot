@@ -6,7 +6,7 @@
         <i *ngIf="rootMenu.icon" class="{{rootMenu.icon}}"></i>
         <span>{{rootMenu.label | translate}}</span>
       </a>
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav me-auto">
         <li class="nav-item" *ngFor="let item of _simpleNavBarItems"
             routerLinkActive="active"
             [grootNeedsCapability]="item.requiredCapability">
@@ -43,10 +43,10 @@
           </div>
         </li>
       </ul>
-      <form class="form-inline ml-auto">
+      <form class="form-inline ms-auto">
         <ng-content select="[right-widget]"></ng-content>
       </form>
-      <div class="ml-sm-2 text-right" *ngIf="rootMenu.children">
+      <div class="ms-sm-2 text-end" *ngIf="rootMenu.children">
         <button (click)="toggleMenu()"
                 aria-controls="navbarToggleExternalContent"
                 aria-expanded="false"

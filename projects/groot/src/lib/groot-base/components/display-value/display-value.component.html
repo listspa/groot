@@ -11,15 +11,15 @@
       {{value| date: hoursFormat:null:locale}}
     </ng-container>
     <div *ngSwitchCase="NbpuSchemaFieldType.DOUBLE"
-         [class.text-right]="align">
+         [class.text-end]="align">
       {{value | number: doubleFormat:locale}}
     </div>
     <div *ngSwitchCase="NbpuSchemaFieldType.INT32"
-         [class.text-right]="align">
+         [class.text-end]="align">
       {{value | number: '0.0':locale}}
     </div>
     <div *ngSwitchCase="NbpuSchemaFieldType.INT64"
-         [class.text-right]="align">
+         [class.text-end]="align">
       {{value | number: '0.0':locale}}
     </div>
     <div *ngSwitchCase="NbpuSchemaFieldType.BOOLEAN"
