@@ -147,6 +147,9 @@ groot-nav-bar {
 
   .form-inline {
     margin-right: $navbar-form-margin-right;
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
   }
 
   // Menu items
