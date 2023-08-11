@@ -43,8 +43,8 @@
          [attr.maxLength]="maxLength"
          [class.is-invalid]="formControl.invalid && formControl.touched"
          *ngIf="formControl">
-  <div *ngIf="templateRight || iconRight">
-    <span class="input-group-text">
+  <div class="input-group-text" *ngIf="templateRight || iconRight">
+    <span>
       <ng-container *ngTemplateOutlet="templateRight || templateIconRight"></ng-container>
     </span>
 
