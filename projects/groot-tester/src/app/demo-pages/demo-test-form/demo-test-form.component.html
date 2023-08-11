@@ -1,0 +1,42 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSub()">
+    <div class="row">
+        <groot-input class="col-6" formControlName="firstInput" label="first Input"></groot-input>
+        <groot-input class="col-6" formControlName="requiredInput" label="required Input"></groot-input>
+
+        <groot-combo class="col-6" formControlName="firstCombo" label="first Combo" [items]="comboValues"></groot-combo>
+        <groot-combo class="col-6" formControlName="requiredCombo" label="required Combo"
+                     [items]="comboValues"></groot-combo>
+
+        <groot-date-picker class="col-6" formControlName="firstDate" label="first Date"></groot-date-picker>
+        <groot-date-picker class="col-6" formControlName="requiredDate" label="required Date"></groot-date-picker>
+
+        <groot-date-time-picker class="col-6" formControlName="firstDateTime"
+                                label="first Date Time"></groot-date-time-picker>
+        <groot-date-time-picker class="col-6" formControlName="requiredDateTime"
+                                label="required Date Time"></groot-date-time-picker>
+        <div class="col-12">
+            <p>Radio button</p>
+            <groot-radio formControlName="firstRadio" idRadio="firstRadio1" value="1" label="radio 1"></groot-radio>
+            <groot-radio formControlName="firstRadio" idRadio="firstRadio2" value="2" label="radio 2"></groot-radio>
+            <groot-radio formControlName="firstRadio" idRadio="firstRadio3" value="3" label="radio 3"></groot-radio>
+        </div>
+
+        <groot-textarea class="col-6" formControlName="firstTextarea" label="first Textarea"></groot-textarea>
+        <groot-textarea class="col-6" formControlName="requiredTextarea" label="required Textarea"></groot-textarea>
+
+        <groot-time-picker class="col-6" formControlName="firstTime" label="first Time"></groot-time-picker>
+        <groot-time-picker class="col-6" formControlName="requiredTime" label="required Time"></groot-time-picker>
+
+        <groot-file-input class="col-6" formControlName="firstFile" label="first File"></groot-file-input>
+        <groot-file-input class="col-6" formControlName="requiredFile" label="required File"></groot-file-input>
+
+        <groot-input-currency class="col-6" formControlName="firstCurrency" label="first Currency"></groot-input-currency>
+        <groot-input-currency class="col-6" formControlName="requiredCurrency" label="required Currency"></groot-input-currency>
+
+    </div>
+
+    <button class="btn btn-primary" type="submit">SUB</button>
+</form>
+<em>
+    {{formGroup.valueChanges | async | json}}
+</em>
