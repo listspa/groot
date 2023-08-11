@@ -17,25 +17,25 @@
     color: $dark-popover-header-color;
   }
 
-  &.bs-popover-top .arrow {
+  &.bs-popover-top .popover-arrow {
     &::after {
       border-top-color: $dark-popover-border-color;
     }
   }
 
-  &.bs-popover-right .arrow {
+  &.bs-popover-right .popover-arrow {
     &::after {
       border-right-color: $dark-popover-border-color;
     }
   }
 
-  &.bs-popover-bottom .arrow {
+  &.bs-popover-bottom .popover-arrow {
     &::after {
       border-bottom-color: $dark-popover-border-color;
     }
   }
 
-  &.bs-popover-left .arrow {
+  &.bs-popover-left .popover-arrow {
     &::after {
       border-left-color: $dark-popover-border-color;
     }
