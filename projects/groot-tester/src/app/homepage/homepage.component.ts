@@ -1444,7 +1444,7 @@ TranslationsLanguageService</code> rather than <code>TranslateService</code> and
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `You need to add two labels to your translations:
 <table class="table table-sm">
-  <thead class="thead-light">
+  <thead class="table-light">
     <tr>
       <th>Label</th>
       <th>en</th>
@@ -1509,7 +1509,7 @@ for a sample and the documentation.`
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `You need to add two labels to your translations:
 <table class="table table-sm">
-  <thead class="thead-light">
+  <thead class="table-light">
     <tr>
       <th>Label</th>
       <th>en</th>
@@ -1539,7 +1539,7 @@ for a sample and the documentation.`
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `You need to add five labels to your translations:
               <table class="table table-sm">
-                <thead class="thead-light">
+                <thead class="table-light">
                   <tr>
                     <th>Label</th>
                     <th>en</th>
@@ -1607,7 +1607,7 @@ for a sample and the documentation.`
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `You need to add four labels to your translations: <table class="table table-sm">
-<thead class="thead-light">
+<thead class="table-light">
 <tr><th>Label</th><th>en</th><th>it</th></tr>
 </thead>
 <tr><td>common.dynamicGui.cannotLoad.title</td><td>Error</td><td>Errore</td></tr>
