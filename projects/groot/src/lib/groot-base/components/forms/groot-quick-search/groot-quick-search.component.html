@@ -16,7 +16,7 @@
          (ngModelChange)="writeValueFromGui($event)"
          (blur)="onTouched()"
          (keyup.enter)="onEnterPressed()"
-         [class.is-invalid]="input.invalid && input.touched"
+         [class.is-invalid]="control?.invalid && control?.touched"
          [disabled]="disabled">
   <i class="fa fa-search"></i>
   <i class="fa fa-times" (click)="resetQuickSearch()"></i>
