@@ -3,7 +3,7 @@
     background-color: $value;
     color: color-contrast($value);
 
-    .close {
+    .btn-close {
       color: color-contrast($value);
     }
   }
@@ -11,10 +11,6 @@
 
 .modal-header {
   padding: 0.5rem 1rem;
-
-  .close {
-    margin: -0.5rem -1rem -0.5rem;
-  }
 }
 
 .modal-title {
