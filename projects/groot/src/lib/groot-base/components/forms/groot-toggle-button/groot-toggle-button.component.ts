@@ -1,21 +1,15 @@
-import {ChangeDetectorRef, Component, forwardRef, Input, TemplateRef} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ChangeDetectorRef, Component, Input, Optional, Self, TemplateRef} from '@angular/core';
+import {NgControl} from '@angular/forms';
+import {GrootBaseInput} from '../groot-base-input';
 
 @Component({
   selector: 'groot-toggle-button',
   templateUrl: './groot-toggle-button.component.html',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => GrootToggleButtonComponent),
-      multi: true
-    }
-  ],
   styles: [`:host {
     display: block;
   }`],
 })
-export class GrootToggleButtonComponent implements ControlValueAccessor {
+export class GrootToggleButtonComponent extends GrootBaseInput {
   @Input() label: string | null = null;
   @Input() disabled = false;
   @Input() horizontalLabel = true;
@@ -25,7 +19,9 @@ export class GrootToggleButtonComponent implements ControlValueAccessor {
   onChange = (checked: boolean) => null;
   onTouched = () => null;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              @Self() @Optional() public control: NgControl) {
+    super(control);
   }
 
   writeValue(checked: boolean): void {
@@ -45,7 +41,7 @@ export class GrootToggleButtonComponent implements ControlValueAccessor {
     this.disabled = isDisabled;
   }
 
-  toggleStatus() {
+  toggleStatus(): void {
     if (this.disabled) {
       return;
     }

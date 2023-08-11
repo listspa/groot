@@ -1,10 +1,22 @@
-import {ChangeDetectorRef, Component, EventEmitter, forwardRef, Input, OnInit, Output, TemplateRef, ViewChild} from '@angular/core';
-import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Optional,
+  Output,
+  Self,
+  TemplateRef,
+  ViewChild
+} from '@angular/core';
+import {NgControl} from '@angular/forms';
 import {Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 import {ComboDataRequest, ComboDataRequestWithSelected, PaginatedResponse} from '../../../utils/pagination.model';
 import {TranslateService} from '@ngx-translate/core';
 import {DropdownPosition, NgSelectComponent} from '@ng-select/ng-select';
+import {GrootBaseInput} from '../groot-base-input';
 
 export declare type AddTagFn = ((term: string) => any | Promise<any>);
 export declare type GroupValueFn = (key: string | object, children: any[]) => string | object;
@@ -12,18 +24,11 @@ export declare type GroupValueFn = (key: string | object, children: any[]) => st
 @Component({
   selector: 'groot-combo',
   templateUrl: './groot-combo.component.html',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => GrootComboComponent),
-      multi: true
-    }
-  ],
   styles: [`:host {
     display: block;
   }`],
 })
-export class GrootComboComponent implements ControlValueAccessor, OnInit {
+export class GrootComboComponent extends GrootBaseInput implements OnInit {
   @Output() requestData = new EventEmitter<ComboDataRequestWithSelected | ComboDataRequest>();
   @Output() cleared = new EventEmitter<void>();
 
@@ -36,7 +41,6 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() loadingText = 'combo.loading';
   @Input() typeToSearchText = 'combo.typeToSearch';
   @Input() name: string;
-  @Input() required = false;
   @Input() disabled = false;
   @Input() helpText: string | null = null;
   @Input() multiple = false;
@@ -53,7 +57,6 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   @Input() translateItemText = false;
   @Input() hidePlaceholder = false;
   @Input() searchFn: (term: string, item: string | any) => boolean | null = null;
-  @Input() formControl: UntypedFormControl | null = null;
   @Input() dropDownPosition: DropdownPosition = 'auto';
   @Input() errorMessage = 'common.required';
   @Input() maxMultipleItemsDisplayed: number | undefined = undefined;
@@ -138,7 +141,9 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   onTouched = () => null;
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
-              private translateService: TranslateService) {
+              private translateService: TranslateService,
+              @Self() @Optional() public control: NgControl) {
+    super(control);
   }
 
   writeValue(selectedValue: any | any[]): void {
@@ -149,7 +154,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
     this.changeDetectorRef.detectChanges();
   }
 
-  writeValueFromGui(selectedValue: any | any[]) {
+  writeValueFromGui(selectedValue: any | any[]): void {
     this.writeValue(selectedValue);
     this.onChange(this.selectedValue);
   }
@@ -192,18 +197,18 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
 
   // Checkboxes
 
-  isAllSelected() {
+  isAllSelected(): boolean {
     return this.items &&
       this.selectedValue &&
       this.items.length === this.selectedValue.length;
   }
 
-  isNoneSelected() {
+  isNoneSelected(): boolean {
     return !this.selectedValue ||
       this.selectedValue.length === 0;
   }
 
-  selectAll() {
+  selectAll(): void {
     if (this.bindValue) {
       this.writeValue((this.allItems as any[]).map(item => item[this.bindValue]));
     } else {
@@ -212,7 +217,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
     this.onChange(this.selectedValue);
   }
 
-  unselectAll() {
+  unselectAll(): void {
     this.writeValue([]);
     this.onChange(this.selectedValue);
   }
@@ -220,6 +225,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
   // Incremental loading
 
   ngOnInit(): void {
+    super.ngOnInit();
     if (this.typeahead) {
       this.typeahead.pipe(
         debounceTime(300),
@@ -231,7 +237,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
     }
   }
 
-  private createDefaultTranslateSearchFn() {
+  private createDefaultTranslateSearchFn(): void {
     this.searchFn = ((term, item) => {
       let word: string;
       if (typeof item === 'string') {
@@ -253,13 +259,13 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
     this.doRequestData(0);
   }
 
-  private resetItems() {
+  private resetItems(): void {
     this.allItems = [];
     this._pages = [];
     this._totalNumItems = null;
   }
 
-  onScroll({end}) {
+  onScroll({end}): void {
     if (end > 0 && end < this.allItems.length) {
       return;
     }
@@ -274,7 +280,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
     this.doRequestData(pageToLoad);
   }
 
-  private doRequestData(pageToLoad: number) {
+  private doRequestData(pageToLoad: number): void {
     let request: ComboDataRequestWithSelected | ComboDataRequest;
     if (this.toggleShowOnlySelected) {
       request = {
@@ -296,7 +302,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
     this._pages[pageToLoad] = [];
   }
 
-  onOpen() {
+  onOpen(): void {
     if (this.typeahead) {
       this.onFilterTextChanged(null);
     }
@@ -314,7 +320,7 @@ export class GrootComboComponent implements ControlValueAccessor, OnInit {
     }
   }
 
-  filterSelected() {
+  filterSelected(): void {
     if (this.typeahead) {
       this.resetItems();
       this.doRequestData(0);

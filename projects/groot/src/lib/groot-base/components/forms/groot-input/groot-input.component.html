@@ -21,29 +21,13 @@
          [required]="required"
          [id]="name"
          [name]="name"
-         #input="ngModel"
          [ngModel]="text"
          (ngModelChange)="writeValueFromGui($event)"
          (blur)="onTouched()"
          (keyup.enter)="onEnterPressed()"
-         [class.is-invalid]="input.invalid && input.touched"
+         [class.is-invalid]="control?.invalid && control?.touched"
          [disabled]="disabled"
-         [attr.maxLength]="maxLength"
-         *ngIf="!formControl">
-  <input #htmlInput
-         [type]="type"
-         [step]="step"
-         autocomplete="off"
-         class="form-control"
-         [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
-         [required]="required"
-         [id]="name"
-         [name]="name"
-         (keyup.enter)="onEnterPressed()"
-         [formControl]="formControl"
-         [attr.maxLength]="maxLength"
-         [class.is-invalid]="formControl.invalid && formControl.touched"
-         *ngIf="formControl">
+         [attr.maxLength]="maxLength">
   <div class="input-group-append" *ngIf="templateRight || iconRight">
     <span class="input-group-text">
       <ng-container *ngTemplateOutlet="templateRight || templateIconRight"></ng-container>
@@ -53,13 +37,8 @@
       <i [ngClass]="iconRight"></i>
     </ng-template>
   </div>
-  <ng-container *ngIf="input">
-    <div class="invalid-feedback" *ngIf="input.invalid && input.touched">
-      {{errorMessage | translate}}
-    </div>
-  </ng-container>
-  <ng-container *ngIf="formControl">
-    <div class="invalid-feedback" *ngIf="formControl.invalid && formControl.touched">
+  <ng-container *ngIf="control">
+    <div class="invalid-feedback" *ngIf="control.invalid && control.touched">
       {{errorMessage | translate}}
     </div>
   </ng-container>

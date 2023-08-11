@@ -1,21 +1,15 @@
-import {ChangeDetectorRef, Component, forwardRef, Input} from '@angular/core';
-import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {ChangeDetectorRef, Component, Input, Optional, Self} from '@angular/core';
+import {NgModel, NgControl} from '@angular/forms';
+import {GrootBaseInput} from '../groot-base-input';
 
 @Component({
   selector: 'groot-textarea',
   templateUrl: './groot-textarea.component.html',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => GrootTextAreaComponent),
-      multi: true
-    }
-  ],
   styles: [`:host {
     display: block;
   }`],
 })
-export class GrootTextAreaComponent implements ControlValueAccessor {
+export class GrootTextAreaComponent extends GrootBaseInput {
   @Input() label: string | null = null;
   @Input() placeholder: string | null = null;
   @Input() name: string;
@@ -23,13 +17,14 @@ export class GrootTextAreaComponent implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() helpText: string = null;
   @Input() rows = 5;
-  @Input() formControl: UntypedFormControl = null;
   @Input() hidePlaceholder = false;
   @Input() maxLength: number | undefined = undefined;
   text: string;
   input: NgModel;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              @Self() @Optional() public control: NgControl) {
+    super(control);
   }
 
   onChange = (text: string) => null;
@@ -40,7 +35,7 @@ export class GrootTextAreaComponent implements ControlValueAccessor {
     this.changeDetectorRef.detectChanges();
   }
 
-  writeValueFromGui(text: string) {
+  writeValueFromGui(text: string): void {
     this.writeValue(text);
     this.onChange(this.text);
   }

@@ -20,46 +20,21 @@
          bsDatepicker
          #datePickerDirective="bsDatepicker"
          #inputElement
-         #input=ngModel
          [placement]="placement"
          [ngModel]="selectedDate"
          triggers=""
          (ngModelChange)="writeValueFromGui($event)"
          (blur)="onTouched()"
-         [class.is-invalid]="input.invalid && input.touched"
-         [disabled]="disabled"
-         *ngIf="!formControl">
-  <input type="text"
-         autocomplete="off"
-         class="form-control"
-         [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
-         [id]="name"
-         [name]="name"
-         [minDate]="minDate"
-         [maxDate]="maxDate"
-         [dateCustomClasses]="dateCustomClasses"
-         bsDatepicker
-         #datePickerDirective="bsDatepicker"
-         #inputElement
-         #formControlDirective="ngForm"
-         [placement]="placement"
-         triggers=""
-         [class.is-invalid]="formControl.invalid && formControl.touched"
-         [formControl]="formControl"
-         *ngIf="formControl">
+         [class.is-invalid]="control?.invalid && control?.touched"
+         [disabled]="disabled">
 
   <div class="input-group-append">
     <span class="input-group-text">
       <i class="fa fa-calendar"></i>
     </span>
   </div>
-  <ng-container *ngIf="input">
-    <div class="invalid-feedback" *ngIf="input.invalid && input.touched">
-      {{errorMessage | translate}}
-    </div>
-  </ng-container>
-  <ng-container *ngIf="formControl">
-    <div class="invalid-feedback" *ngIf="formControl.invalid && formControl.touched">
+  <ng-container *ngIf="control">
+    <div class="invalid-feedback" *ngIf="control.invalid && control.touched">
       {{errorMessage | translate}}
     </div>
   </ng-container>
