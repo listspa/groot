@@ -6,48 +6,52 @@
 </p>
 
 <table class="table">
-  <tr>
-    <th>Style</th>
-    <th>Main style enabled</th>
-    <th>Main style disabled</th>
-    <th>Outline style enabled</th>
-    <th>Outline style disabled</th>
-  </tr>
+  <thead class="border-top">
+    <tr>
+      <th>Style</th>
+      <th>Main style enabled</th>
+      <th>Main style disabled</th>
+      <th>Outline style enabled</th>
+      <th>Outline style disabled</th>
+    </tr>
+  </thead>
 
-  <tr *ngFor="let style of styles">
-    <th><code>{{style}}</code></th>
-    <td>
-      <groot-button
-        [classes]="'btn-' + style"
-        icon="fa fa-search"
-        label="Enabled"
-        (click)="clicked()"
-      ></groot-button>
-    </td>
-    <td>
-      <groot-button
-        [classes]="'btn-' + style"
-        [disabled]="true"
-        icon="fa fa-search"
-        label="Disabled"
-      ></groot-button>
-    </td>
-    <td>
-      <groot-button
-        [classes]="'btn-outline-' + style"
-        icon="fa fa-search"
-        label="Enabled"
-      ></groot-button>
-    </td>
-    <td>
-      <groot-button
-        [classes]="'btn-outline-' + style"
-        [disabled]="true"
-        icon="fa fa-search"
-        label="Disabled"
-      ></groot-button>
-    </td>
-  </tr>
+  <tbody>
+    <tr *ngFor="let style of styles">
+      <th><code>{{style}}</code></th>
+      <td>
+        <groot-button
+          [classes]="'btn-' + style"
+          icon="fa fa-search"
+          label="Enabled"
+          (click)="clicked()"
+        ></groot-button>
+      </td>
+      <td>
+        <groot-button
+          [classes]="'btn-' + style"
+          [disabled]="true"
+          icon="fa fa-search"
+          label="Disabled"
+        ></groot-button>
+      </td>
+      <td>
+        <groot-button
+          [classes]="'btn-outline-' + style"
+          icon="fa fa-search"
+          label="Enabled"
+        ></groot-button>
+      </td>
+      <td>
+        <groot-button
+          [classes]="'btn-outline-' + style"
+          [disabled]="true"
+          icon="fa fa-search"
+          label="Disabled"
+        ></groot-button>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 <p>Code sample:</p>
