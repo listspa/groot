@@ -57,10 +57,6 @@ table.table-bordered {
   }
 
   margin-bottom: $spacer;
-
-  .no-hover:hover {
-    --bs-table-bg-state: var(--bs-table-accent-bg);
-  }
 }
 
 .table-scrollbar {
@@ -92,9 +88,16 @@ table.table-bordered {
   }
 }
 
-.table-hover:hover {
-  cursor: pointer;
-  background-color: $table-hover-bg;
+.table-hover {
+
+  &:hover {
+    cursor: pointer;
+    background-color: $table-hover-bg;
+  }
+
+  .no-hover:hover {
+    --bs-table-bg-state: var(--bs-table-accent-bg);
+  }
 }
 
 // Accordions
