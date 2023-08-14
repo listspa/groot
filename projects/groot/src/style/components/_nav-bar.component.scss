@@ -21,6 +21,10 @@ groot-nav-bar {
     }
   }
 
+  a:hover {
+    text-decoration: none;
+  }
+
   // Toggle icon
   .nav-row {
     flex-grow: 1;
