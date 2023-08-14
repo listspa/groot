@@ -17,6 +17,10 @@
     color: $dark-popover-header-color;
   }
 
+  .popover-arrow {
+    --bs-popover-bg: $dark-popover-bg;
+  }
+
   &.bs-popover-top .popover-arrow {
     &::after {
       border-top-color: $dark-popover-border-color;
