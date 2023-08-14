@@ -20,6 +20,10 @@
       background-color: $gray-250;
       opacity: 0.5;
     }
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   .nav-item.disabled {
