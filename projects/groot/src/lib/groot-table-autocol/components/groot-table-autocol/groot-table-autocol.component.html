@@ -16,6 +16,7 @@
   (search)="onSearch($event)"
   [searchResultsData]="searchResultsData"
   [striped]="false"
+  [selectable]="true"
   #grootTable
 >
   <ng-template grootTableTitleRightArea>
@@ -75,7 +76,6 @@
     <ng-container *ngFor="let row of searchResults.records">
       <!-- Row -->
       <tr [ngClass]="trClassName"
-          [class.table-row-selectable]="accordionColumns.length > 0"
           [class.accordion-expanded]="row.$accordionVisible"
           (click)="toggleAccordion(row)">
         <!-- Actions button -->
@@ -108,7 +108,7 @@
           class="accordion-row"
           [@dropDown]>
         <td [attr.colspan]="selectedColumns.length + 1 + (actionsTemplate ? 1 : 0)"
-            class="accordion-container">
+            class="accordion-container no-hover">
           <div class="container-fluid accordion-content">
             <div class="row">
               <div class="col-sm-6 col-md-4 col-lg-3 mb-2"

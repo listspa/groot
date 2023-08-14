@@ -57,6 +57,10 @@ table.table-bordered {
   }
 
   margin-bottom: $spacer;
+
+  .no-hover:hover {
+    --bs-table-bg-state: var(--bs-table-accent-bg);
+  }
 }
 
 .table-scrollbar {
