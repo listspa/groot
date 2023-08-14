@@ -10,7 +10,7 @@ import {ClassesType} from '../../model/classes-type.model';
 export class CollapsibleBoxComponent {
   @Input() label: string;
   @Input() open = true;
-  @Input() headerClasses: ClassesType = null;
+  @Input() headerClasses: ClassesType = 'text-white';
   @Input() bodyClasses: ClassesType = 'card-body-box-bg';
   @Output() changeDisplay = new EventEmitter<boolean>();
 
