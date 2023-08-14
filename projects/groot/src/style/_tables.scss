@@ -88,7 +88,7 @@ table.table-bordered {
   }
 }
 
-.table-row-selectable:hover {
+.table-hover:hover {
   cursor: pointer;
   background-color: $table-hover-bg;
 }

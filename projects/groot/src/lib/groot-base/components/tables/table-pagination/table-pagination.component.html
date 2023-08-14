@@ -1,13 +1,15 @@
 <nav>
   <div class="container-fluid clearfix paginator">
-    <div class="float-start paginator-first-last paginator-first">
-      <a [class.disabled]="_pageNum == 0" (click)="goDirectlyToPage(0)">
+    <div class="float-start paginator-first-last">
+      <a class="paginator-first"
+        [class.disabled]="_pageNum == 0" (click)="goDirectlyToPage(0)">
         <i class="fa fa-angle-double-left"></i>
         <span class="paginator-first-last-text">{{'common.firstPage' | translate}}</span>
       </a>
     </div>
-    <div class="float-end paginator-first-last paginator-last">
-      <a [class.disabled]="_pageNum + 1 >= _numPages"
+    <div class="float-end paginator-first-last">
+      <a class="paginator-last"
+         [class.disabled]="_pageNum + 1 >= _numPages"
          (click)="goDirectlyToPage(_numPages - 1)">
         <span class="paginator-first-last-text">{{'common.lastPage' | translate}}</span>
         <i class="fa fa-angle-double-right"></i>
