@@ -1,7 +1,7 @@
 <div class="version-name" *ngIf="release.released">{{release.version}}</div>
 <div class="version-name font-italic" *ngIf="!release.released">(Next release)</div>
 <ul>
-  <li *ngFor="let change of release.changes">
+  <li class="ms-3" *ngFor="let change of release.changes">
     <ng-container *ngIf="change.type == ReleaseChangeType.BREAKING_CHANGE">
       <span class="change-type breaking-change"><i class="fa fa-exclamation-triangle"></i> Breaking change:</span>
     </ng-container>
