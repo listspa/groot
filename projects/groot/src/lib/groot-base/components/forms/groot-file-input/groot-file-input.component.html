@@ -8,7 +8,7 @@
        [class.disabled]="disabled">
     <span class="file-input-text">
       <span>{{text}}</span>
-      <span class="placeholder" *ngIf="!text && !hidePlaceholder">{{(placeholder || label) | translate}}</span>
+      <span class="text-black-50" *ngIf="!text && !hidePlaceholder">{{(placeholder || label) | translate}}</span>
     </span>
     <span class="btn btn-file">
       <i class="{{icon}}"></i>
