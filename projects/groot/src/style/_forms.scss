@@ -5,6 +5,12 @@ label {
   font-size: 0.9em;
 }
 
+// Vertical align checkbox to label
+.custom-control-input {
+  top: 0.15rem;
+  position: relative;
+}
+
 // Checkbox style
 
 .custom-control-label::before, .custom-control-label::after {
