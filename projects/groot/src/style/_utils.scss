@@ -3,10 +3,12 @@
   flex-grow: 2 !important;
 }
 
-a:link {
-  text-decoration: none;
-}
+a {
+  &:link {
+    text-decoration: none;
+  }
 
-a:hover {
-  text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
 }
