@@ -10,6 +10,14 @@ th {
 table.table-bordered {
   border: $table-border-width solid $table-border-color;
 
+  > :not(caption) > * {
+    border-width: $table-border-width;
+
+    > * {
+      border-width: $table-border-width;
+    }
+  }
+
   td {
     border: none;
   }
