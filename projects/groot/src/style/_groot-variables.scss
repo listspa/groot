@@ -97,6 +97,11 @@ $theme-colors: (
         'download': $download,
 );
 
+/* Contrast value
+(this is needed with changed from bs4 to bs5) new constrast ratio is used
+and css variables aren't supported in new bs sass constrast-value function.
+This was the quickest solution found. */
+$min-contrast-ratio: 2.5;
 
 // NGX customizations
 
