@@ -3,7 +3,8 @@
     background-color: $value;
     color: color-contrast($value);
 
-    .btn-close {
+    .close {
+      background-color: transparent;
       color: color-contrast($value);
     }
   }
@@ -11,6 +12,17 @@
 
 .modal-header {
   padding: 0.5rem 1rem;
+
+  .close {
+    border: 0;
+    margin: -0.5rem -1rem -0.5rem;
+    padding: 1rem 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 0 white;
+    opacity: 0.5;
+  }
 }
 
 .modal-title {
