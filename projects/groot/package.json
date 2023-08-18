@@ -13,7 +13,7 @@
     "@ng-select/ng-select": "^10.0.4",
     "@ngx-translate/http-loader": "^7.0.0",
     "@ngx-translate/core": "^14.0.0",
-    "bootstrap": "^4.6.2",
+    "bootstrap": "^5.3.1",
     "file-saver": "^2.0.5",
     "filesize": "^10.0.7",
     "font-awesome": "^4.7.0",
