@@ -6,7 +6,7 @@ $fa-font-path: '~font-awesome/fonts' !default;
 // Our variables
 @import 'groot-variables';
 
-// Bootstrap 4 and ngx-bootstrap
+// Bootstrap 5 and ngx-bootstrap
 @import "bootstrap/scss/bootstrap";
 @import "ngx-bootstrap/datepicker/bs-datepicker.scss";
 @import "ng-select-bootstrap-theme"; // Our file, not from the library
