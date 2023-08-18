@@ -13,47 +13,22 @@
     [min]="minTime"
     [max]="maxTime"
     [step]="step"
-    #input=ngModel
     #inputElement
     ngDefaultControl
     [ngModel]="selectedTime"
     triggers=""
     (ngModelChange)="writeValueFromGui($event)"
     (blur)="onTouched()"
-    [class.is-invalid]="input.invalid && input.touched"
-    [disabled]="disabled"
+    [class.is-invalid]="control?.invalid && control?.touched"
     value="{{selectedTime}}"
-    *ngIf="!formControl"
-  >
-  <input
-    class="form-control"
-    type="time"
-    [name]="name"
-    [id]="name"
-    [required]="required"
-    [disabled]="disabled"
-    [min]="minTime"
-    [max]="maxTime"
-    [step]="step"
-    #inputElement
-    [class.is-invalid]="formControl.invalid && formControl.touched"
-    [disabled]="disabled"
-    [formControl]="formControl"
-    [value]="formControl.value"
-    *ngIf="formControl"
   >
 
   <span class="input-group-text">
     <i class="fa fa-clock-o"></i>
   </span>
 
-  <ng-container *ngIf="input">
-    <div class="invalid-feedback" *ngIf="input.invalid && input.touched">
-      {{'common.required' | translate}}
-    </div>
-  </ng-container>
-  <ng-container *ngIf="formControl">
-    <div class="invalid-feedback" *ngIf="formControl.invalid && formControl.touched">
+  <ng-container *ngIf="control">
+    <div class="invalid-feedback" *ngIf="control.invalid && control.touched">
       {{'common.required' | translate}}
     </div>
   </ng-container>

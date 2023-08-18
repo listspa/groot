@@ -1,33 +1,28 @@
-import {ChangeDetectorRef, Component, forwardRef, Input} from '@angular/core';
-import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ChangeDetectorRef, Component, Input, Optional, Self} from '@angular/core';
+import {NgControl} from '@angular/forms';
+import {GrootBaseInput} from '../groot-base-input';
 
 @Component({
   selector: 'groot-radio',
   templateUrl: './groot-radio.component.html',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => GrootRadioComponent),
-      multi: true
-    }
-  ],
   styles: [`:host {
     display: block;
   }`],
 })
-export class GrootRadioComponent implements ControlValueAccessor {
+export class GrootRadioComponent extends GrootBaseInput {
   @Input() public name: string;
   @Input() public idRadio: string;
   @Input() public label: string;
   @Input() public value: any | null = null;
   @Input() public disabled = false;
-  @Input() formControl: UntypedFormControl = null;
   selectedValue: string;
 
   onChange = (text: string) => null;
   onTouched = () => null;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              @Self() @Optional() public control: NgControl) {
+    super(control);
   }
 
   registerOnChange(fn: (text: string) => null): void {

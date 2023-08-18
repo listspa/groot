@@ -7,14 +7,6 @@
          [checked]="checked"
          (ngModelChange)="writeValueFromGui($event)"
          (blur)="onTouched()"
-         [disabled]="disabled"
-         *ngIf="!formControl">
-  <input type="checkbox"
-         class="custom-control-input"
-         [id]="name"
-         [name]="name"
-         [checked]="checked"
-         [formControl]="formControl"
-         *ngIf="formControl">
+         [disabled]="disabled">
   <label class="custom-control-label" [for]="name">{{label | translate}}</label>
 </div>

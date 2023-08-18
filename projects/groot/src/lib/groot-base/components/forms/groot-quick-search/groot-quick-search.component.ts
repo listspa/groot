@@ -1,27 +1,30 @@
-import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, forwardRef, Input, Output, ViewChild} from '@angular/core';
-import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input, Optional,
+  Output,
+  Self,
+  ViewChild
+} from '@angular/core';
+import {ControlValueAccessor, NgModel, NgControl} from '@angular/forms';
+import {GrootBaseInput} from '../groot-base-input';
 
 @Component({
   selector: 'groot-quick-search',
   templateUrl: './groot-quick-search.component.html',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => GrootQuickSearchComponent),
-      multi: true
-    }
-  ],
   styles: [`:host {
     display: block;
   }`],
 })
-export class GrootQuickSearchComponent implements ControlValueAccessor, AfterViewInit {
+export class GrootQuickSearchComponent extends GrootBaseInput implements ControlValueAccessor, AfterViewInit {
   @Input() label: string | null = null;
   @Input() placeholder: string | null = null;
   @Input() name: string;
   @Input() required = false;
   @Input() disabled = false;
-  @Input() formControl: UntypedFormControl | null = null;
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
   @Input() autofocus = false;
@@ -35,7 +38,9 @@ export class GrootQuickSearchComponent implements ControlValueAccessor, AfterVie
   onChange = (text: string) => null;
   onTouched = () => null;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              @Self() @Optional() public control: NgControl) {
+    super(control);
   }
 
   ngAfterViewInit(): void {
@@ -82,9 +87,6 @@ export class GrootQuickSearchComponent implements ControlValueAccessor, AfterVie
   }
 
   resetQuickSearch(): void {
-    if (this.formControl) {
-      this.formControl.setValue(null);
-    }
     this.textSent = null;
     this.writeValueFromGui(null);
     this.reset.next();

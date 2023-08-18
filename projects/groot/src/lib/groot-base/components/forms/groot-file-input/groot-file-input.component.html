@@ -4,7 +4,7 @@
 </label>
 <div class="input-group mb-2">
   <div class="file-input-name"
-       [class.is-invalid]="required && input.touched && invalid"
+       [class.is-invalid]="required && control?.touched && invalid"
        [class.disabled]="disabled">
     <span class="file-input-text">
       <span>{{text}}</span>
@@ -23,7 +23,6 @@
              (change)="fileEvent($event)"
              [ngModel]="filesNgModel"
              (blur)="onTouched()"
-             #input="ngModel"
              [class.clear-hidden]="!(filled && showClear)">
     </span>
 
@@ -31,7 +30,7 @@
       <i class="fa fa-times"></i>
     </span>
   </div>
-  <div class="invalid-feedback" *ngIf="required && input.touched && invalid">
+  <div class="invalid-feedback" *ngIf="required && control?.touched && invalid">
     {{'common.required' | translate}}
   </div>
 </div>

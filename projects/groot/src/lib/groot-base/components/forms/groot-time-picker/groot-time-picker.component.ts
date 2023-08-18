@@ -1,22 +1,14 @@
-import {ChangeDetectorRef, Component, ElementRef, forwardRef, HostListener, Input, ViewChild} from '@angular/core';
-import {ControlValueAccessor, UntypedFormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {ChangeDetectorRef, Component, ElementRef, HostListener, Input, Optional, Self, ViewChild} from '@angular/core';
+import {NgControl} from '@angular/forms';
+import {GrootBaseInput} from '../groot-base-input';
 
 @Component({
   selector: 'groot-time-picker',
   templateUrl: './groot-time-picker.component.html',
   styleUrls: ['./groot-time-picker.component.css'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => GrootTimePickerComponent),
-      multi: true
-    }
-  ]
-
 })
-export class GrootTimePickerComponent implements ControlValueAccessor {
+export class GrootTimePickerComponent extends GrootBaseInput {
 
-  @Input() formControl: UntypedFormControl = null;
   @Input() label: string | null = null;
   @Input() name: string;
   @Input() required = false;
@@ -26,11 +18,12 @@ export class GrootTimePickerComponent implements ControlValueAccessor {
   @Input() maxTime: string | null;
   @Input() step: number | null;
   selectedTime: string | null = null;
-  @ViewChild('input') input: NgModel;
   @ViewChild('inputElement') inputElement: ElementRef;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) { }
-
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              @Self() @Optional() public control: NgControl) {
+    super(control);
+  }
   onChange = (selectedTime: string) => null;
   onTouched = () => null;
 
@@ -39,7 +32,7 @@ export class GrootTimePickerComponent implements ControlValueAccessor {
     this.changeDetectorRef.detectChanges();
   }
 
-  writeValueFromGui(selectedTime: string) {
+  writeValueFromGui(selectedTime: string): void {
     this.writeValue(selectedTime);
     this.onChange(this.selectedTime);
   }
