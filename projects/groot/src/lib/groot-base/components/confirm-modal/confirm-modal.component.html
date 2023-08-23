@@ -1,8 +1,7 @@
 <div class="modal-header"
      [ngClass]="headerClasses">
   <h4 class="modal-title pull-left">{{title | translate:titleArguments}}</h4>
-  <button type="button" class="close pull-right" aria-label="Close" (click)="onCancel()">
-    <span aria-hidden="true">&times;</span>
+  <button type="button" class="btn-close btn-close-light" aria-label="Close" (click)="onCancel()">
   </button>
 </div>
 <div class="modal-body"
