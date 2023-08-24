@@ -140,12 +140,12 @@
     <!-- Single item template: checkboxes -->
     <ng-template #checkboxItemTpl let-item="item" let-item$="item$" let-index="index"
                  let-searchTerm="searchTerm">
-        <div class="custom-control custom-checkbox">
+        <div class="form-check custom-checkbox">
             <input type="checkbox"
                    id="item-{{index}}"
-                   class="custom-control-input"
+                   class="form-check-input"
                    [ngModel]="item$.selected">
-            <label class="custom-control-label">
+            <label class="form-check-label">
                 <ng-container
                         *ngTemplateOutlet="itemTemplate || defaultItemTemplate; context: {item: item, item$: item$, index: index, searchTerm: searchTerm}"
                 ></ng-container>

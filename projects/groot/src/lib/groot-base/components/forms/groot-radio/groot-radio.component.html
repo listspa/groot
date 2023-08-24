@@ -1,14 +1,14 @@
-<div class="custom-control custom-radio">
+<div class="form-check custom-radio">
   <input type="radio"
          [id]="idRadio"
          [name]="name"
          [value]="value"
          [ngModel]="selectedValue"
-         class="custom-control-input"
+         class="form-check-input"
          (ngModelChange)="writeValueFromGui($event)"
          (blur)="onTouched()"
          [disabled]="disabled">
-  <label class="custom-control-label"
+  <label class="form-check-label"
          [class.is-invalid]="control && control.invalid && control.touched"
          for="{{idRadio}}">
       {{label | translate}}

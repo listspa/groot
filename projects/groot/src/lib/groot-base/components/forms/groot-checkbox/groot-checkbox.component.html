@@ -1,6 +1,6 @@
-<div class="custom-control custom-checkbox">
+<div class="form-check custom-checkbox">
   <input type="checkbox"
-         class="custom-control-input"
+         class="form-check-input"
          [id]="name"
          [name]="name"
          [ngModel]="checked"
@@ -8,5 +8,5 @@
          (ngModelChange)="writeValueFromGui($event)"
          (blur)="onTouched()"
          [disabled]="disabled">
-  <label class="custom-control-label" [for]="name">{{label | translate}}</label>
+  <label class="form-check-label" [for]="name">{{label | translate}}</label>
 </div>
