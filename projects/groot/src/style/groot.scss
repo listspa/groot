@@ -1,7 +1,10 @@
 // Fontawesome
 $groot-assets-base-dir: '../assets' !default;
-$fa-font-path: '~font-awesome/fonts' !default;
-@import "font-awesome/scss/font-awesome";
+$fa-font-path: '../webfonts' !default;
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/brands";
 
 // Our variables
 @import 'groot-variables';
