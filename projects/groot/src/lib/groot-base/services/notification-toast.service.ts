@@ -128,7 +128,7 @@ export class NotificationToastService {
   public showGenericSavedNotification() {
     this.addToast({
       title: 'common.dynamicGui.saved.title',
-      icon: 'fa fa-check',
+      icon: 'fa-solid fa-check',
       label: 'common.dynamicGui.saved.details',
       style: ToastStyle.SUCCESS
     });
@@ -138,7 +138,7 @@ export class NotificationToastService {
     const additionalDetails = response ? response.data ? response.data.message : null : null;
     this.addToast({
       title: 'common.dynamicGui.cannotSave.title',
-      icon: 'fa fa-frown-o',
+      icon: 'fa-regular fa-face-frown',
       label: 'common.dynamicGui.cannotSave.details',
       style: ToastStyle.DANGER,
       additionalDetails
@@ -149,7 +149,7 @@ export class NotificationToastService {
     const additionalDetails = response ? response.data ? response.data.message : null : null;
     this.addToast({
       title: 'common.dynamicGui.cannotLoad.title',
-      icon: 'fa fa-frown-o',
+      icon: 'fa-regular fa-face-frown',
       label: 'common.dynamicGui.cannotLoad.details',
       style: ToastStyle.DANGER,
       additionalDetails
@@ -160,7 +160,7 @@ export class NotificationToastService {
     const additionalDetails = response ? response.data ? response.data.message : null : null;
     this.addToast({
       title: 'common.dynamicGui.cannotDownload.title',
-      icon: 'fa fa-frown-o',
+      icon: 'fa-regular fa-face-frown',
       label: 'common.dynamicGui.cannotDownload.details',
       style: ToastStyle.DANGER,
       additionalDetails

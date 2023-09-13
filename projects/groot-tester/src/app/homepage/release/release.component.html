@@ -3,13 +3,13 @@
 <ul>
   <li class="ms-3" *ngFor="let change of release.changes">
     <ng-container *ngIf="change.type == ReleaseChangeType.BREAKING_CHANGE">
-      <span class="change-type breaking-change"><i class="fa fa-exclamation-triangle"></i> Breaking change:</span>
+      <span class="change-type breaking-change"><i class="fa-solid fa-triangle-exclamation"></i> Breaking change:</span>
     </ng-container>
     <ng-container *ngIf="change.type == ReleaseChangeType.BUG_FIX">
-      <span class="change-type bug-fix"><i class="fa fa-bug"></i> Bug fix:</span>
+      <span class="change-type bug-fix"><i class="fa-solid fa-bug"></i> Bug fix:</span>
     </ng-container>
     <ng-container *ngIf="change.type == ReleaseChangeType.NEW_FEATURE">
-      <span class="change-type new-feature"><i class="fa fa-star-o"></i> New feature:</span>
+      <span class="change-type new-feature"><i class="fa-regular fa-star"></i> New feature:</span>
     </ng-container>
 
     <span [innerHTML]="change.html"></span>

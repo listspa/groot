@@ -38,7 +38,7 @@ export class DemoToasterComponent {
       this.toastService.addToast({
         label: 'warning',
         style: ToastStyle.WARNING,
-        icon: 'fa fa-calendar'
+        icon: 'fa-regular fa-calendar-days'
       }).subscribe(() => console.log('warning clicked')), 3500);
 
     setTimeout(() =>

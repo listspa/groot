@@ -10,14 +10,14 @@ import {TranslationsLanguageService} from '../../../groot/src/lib/groot-base/ser
 export class AppComponent {
   readonly navBarItems: SimpleNavBarItem[] = [
     {
-      label: 'Documentation', url: '/docs', icon: 'fa fa-star-o', children: [
-        {label: 'Getting started', url: '/docs/getting-started', icon: 'fa fa-star-o'},
-        {label: 'Calling the server', url: '/docs/calling-the-server', icon: 'fa fa-server'},
-        {label: 'Translations', url: '/docs/translations-guide', icon: 'fa fa-plane'},
-        {label: 'Stylesheets and skins', url: '/docs/groot-style', icon: 'fa fa-paint-brush'},
-        {label: 'Icons', url: '/docs/icons', icon: 'fa fa-picture-o'},
-        {label: 'Internet explorer', url: '/docs/ie-support', icon: 'fa fa-internet-explorer'},
-        {label: 'Getting help', url: '/docs/getting-help', icon: 'fa fa-ambulance'},
+      label: 'Documentation', url: '/docs', icon: 'fa-regular fa-star', children: [
+        {label: 'Getting started', url: '/docs/getting-started', icon: 'fa-regular fa-star'},
+        {label: 'Calling the server', url: '/docs/calling-the-server', icon: 'fa-solid fa-server'},
+        {label: 'Translations', url: '/docs/translations-guide', icon: 'fa-solid fa-plane'},
+        {label: 'Stylesheets and skins', url: '/docs/groot-style', icon: 'fa-solid fa-paintbrush'},
+        {label: 'Icons', url: '/docs/icons', icon: 'fa-regular fa-image'},
+        {label: 'Internet explorer', url: '/docs/ie-support', icon: 'fa-brands fa-internet-explorer'},
+        {label: 'Getting help', url: '/docs/getting-help', icon: 'fa-solid fa-truck-medical'},
         {label: 'External references', url: '/docs/external-references', icon: 'fa fa-external-link'},
       ]
     },
@@ -25,8 +25,8 @@ export class AppComponent {
       label: 'Components', icon: 'fa fa-flash', url: '/demo', children: [
         {label: 'Forms', url: '/demo/forms', icon: 'fa fa-pencil-square-o'},
         {label: 'Buttons', url: '/demo/buttons', icon: 'fa fa-hand-pointer-o'},
-        {label: 'Tables', url: '/demo/tables', icon: 'fa fa-table'},
-        {label: 'Table with column selector', url: '/demo/tables-autocol', icon: 'fa fa-table'},
+        {label: 'Tables', url: '/demo/tables', icon: 'fa-solid fa-table'},
+        {label: 'Table with column selector', url: '/demo/tables-autocol', icon: 'fa-solid fa-table'},
         {isSeparator: true},
         {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window-maximize'},
         {label: 'Nav bar', url: '/demo/nav-bar', icon: 'fa fa-bars'},
@@ -34,16 +34,16 @@ export class AppComponent {
         {label: 'Page title', url: '/demo/page-title', icon: 'fa fa-th-list'},
         {isSeparator: true},
         {label: 'Tabs', url: '/demo/tabs', icon: 'fa fa-th-large'},
-        {label: 'Boxes (accordions)', url: '/demo/boxes', icon: 'fa fa-chevron-circle-down'},
+        {label: 'Boxes (accordions)', url: '/demo/boxes', icon: 'fa-solid fa-circle-chevron-down'},
         {label: 'Cards', url: '/demo/cards', icon: 'fa fa-pencil-square'},
         {label: 'Loading indicator', url: '/demo/loading', icon: 'fa fa-refresh'},
         {label: 'Toasts', url: '/demo/toasts', icon: 'fa fa-bell'},
         {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-restore'},
         {label: 'Tooltips', url: '/demo/tooltips', icon: 'fa fa-square'},
-        {label: 'Search forms', url: '/demo/base-search-form', icon: 'fa fa-search'},
+        {label: 'Search forms', url: '/demo/base-search-form', icon: 'fa-solid fa-magnifying-glass'},
         {label: 'Misc small components', url: '/demo/misc-small-components', icon: 'fa fa-ellipsis-h'},
         {isSeparator: true},
-        {label: 'Colors and typography', url: '/demo/colors', icon: 'fa fa-paint-brush'},
+        {label: 'Colors and typography', url: '/demo/colors', icon: 'fa-solid fa-paintbrush'},
         {label: 'Other utilities', url: '/demo/other-utilities'},
         {label: 'Capabilities', url: '/demo/capabilities'},
         {label: 'DUMMY HIDDEN', url: '/docs/translations-guide', requiredCapability: 'no-capability'},
@@ -72,7 +72,7 @@ export class AppComponent {
   ];
   readonly menu: Menu[][] = [
     [
-      {label: 'Home', icon: 'fa fa-home', url: '/home'}
+      {label: 'Home', icon: 'fa-solid fa-house', url: '/home'}
     ],
     [
       {
@@ -80,25 +80,25 @@ export class AppComponent {
         icon: 'fa fa-book',
         children: [
           [
-            {label: 'Getting started', url: '/docs/getting-started', icon: 'fa fa-star-o'},
-            {label: 'Calling the server', url: '/docs/calling-the-server', icon: 'fa fa-server'},
+            {label: 'Getting started', url: '/docs/getting-started', icon: 'fa-regular fa-star'},
+            {label: 'Calling the server', url: '/docs/calling-the-server', icon: 'fa-solid fa-server'},
             {
               label: 'Translations',
               url: '/docs/translations-guide',
-              icon: 'fa fa-plane',
+              icon: 'fa-solid fa-plane',
               requiredCapability: 'yes-capability'
             },
             {label: 'DUMMY HIDDEN', url: '/docs/translations-guide', requiredCapability: 'no-capability'},
           ],
           [
-            {label: 'Stylesheets and skins', url: '/docs/groot-style', icon: 'fa fa-paint-brush'},
-            {label: 'Icons', url: '/docs/icons', icon: 'fa fa-picture-o'},
+            {label: 'Stylesheets and skins', url: '/docs/groot-style', icon: 'fa-solid fa-paintbrush'},
+            {label: 'Icons', url: '/docs/icons', icon: 'fa-regular fa-image'},
           ],
           [
-            {label: 'Internet explorer', url: '/docs/ie-support', icon: 'fa fa-internet-explorer'},
+            {label: 'Internet explorer', url: '/docs/ie-support', icon: 'fa-brands fa-internet-explorer'},
           ],
           [
-            {label: 'Getting help', url: '/docs/getting-help', icon: 'fa fa-ambulance'},
+            {label: 'Getting help', url: '/docs/getting-help', icon: 'fa-solid fa-truck-medical'},
             {label: 'External references', url: '/docs/external-references', icon: 'fa fa-external-link'},
           ]
         ]
@@ -110,8 +110,8 @@ export class AppComponent {
           [
             {label: 'Forms', url: '/demo/forms', icon: 'fa fa-pencil-square-o'},
             {label: 'Buttons', url: '/demo/buttons', icon: 'fa fa-hand-pointer-o'},
-            {label: 'Tables', url: '/demo/tables', icon: 'fa fa-table'},
-            {label: 'Tables with columns selector', url: '/demo/tables-autocol', icon: 'fa fa-table'},
+            {label: 'Tables', url: '/demo/tables', icon: 'fa-solid fa-table'},
+            {label: 'Tables with columns selector', url: '/demo/tables-autocol', icon: 'fa-solid fa-table'},
           ],
           [
             {label: 'Footer', url: '/demo/footer', icon: 'fa fa-window-maximize'},
@@ -121,17 +121,17 @@ export class AppComponent {
           ],
           [
             {label: 'Tabs', url: '/demo/tabs', icon: 'fa fa-th-large'},
-            {label: 'Boxes (accordions)', url: '/demo/boxes', icon: 'fa fa-chevron-circle-down'},
+            {label: 'Boxes (accordions)', url: '/demo/boxes', icon: 'fa-solid fa-circle-chevron-down'},
             {label: 'Cards', url: '/demo/cards', icon: 'fa fa-pencil-square'},
             {label: 'Loading indicator', url: '/demo/loading', icon: 'fa fa-refresh'},
             {label: 'Toasts', url: '/demo/toasts', icon: 'fa fa-bell'},
             {label: 'Modals', url: '/demo/modals', icon: 'fa fa-window-restore'},
             {label: 'Tooltips', url: '/demo/tooltips', icon: 'fa fa-square'},
-            {label: 'Search forms', url: '/demo/base-search-form', icon: 'fa fa-search'},
+            {label: 'Search forms', url: '/demo/base-search-form', icon: 'fa-solid fa-magnifying-glass'},
             {label: 'Misc small components', url: '/demo/misc-small-components', icon: 'fa fa-ellipsis-h'},
           ],
           [
-            {label: 'Colors and typography', url: '/demo/colors', icon: 'fa fa-paint-brush'},
+            {label: 'Colors and typography', url: '/demo/colors', icon: 'fa-solid fa-paintbrush'},
             {label: 'Other utilities', url: '/demo/other-utilities'},
             {label: 'Capabilities', url: '/demo/capabilities'}
           ]

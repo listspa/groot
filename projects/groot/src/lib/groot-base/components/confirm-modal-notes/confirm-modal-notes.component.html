@@ -22,14 +22,14 @@
   <groot-button
     [classes]="footerCancelClasses"
     [label]="noLabel"
-    icon="fa fa-times"
+    icon="fa-solid fa-xmark"
     (click)="onCancel()"
   ></groot-button>
 
   <groot-button
     [classes]="footerConfirmClasses"
     [label]="yesLabel"
-    icon="fa fa-check"
+    icon="fa-solid fa-check"
     (click)="onConfirm()"
     [disabled]="notesRequired && !notesText"
   ></groot-button>
