@@ -23,7 +23,7 @@ export class DemoToasterComponent {
       this.toastService.addToast({
         label: 'common.search',
         title: 'title',
-        icon: ['fa', 'fa-info']
+        icon: ['fa-solid', 'fa-info']
       }).subscribe(() => console.log('info clicked')), 1000);
 
     setTimeout(() =>
