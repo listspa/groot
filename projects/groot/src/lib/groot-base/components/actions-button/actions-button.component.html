@@ -13,16 +13,16 @@
      (mouseleave)="hover = false"
      [attr.title]="'common.actions' | translate">
   <ng-container *ngIf="!hamburger">
-    <i class="fa fa-stack-2x"
+    <i class="fa-solid fa-stack-2x"
        [class.fa-circle-thin]="!hover && !isOpen"
        [class.fa-circle]="hover || isOpen"
     ></i>
-    <i class="fa fa-ellipsis-v fa-stack-1x"
+    <i class="fa-solid fa-ellipsis-vertical fa-stack-1x"
        [class.text-white]="hover || isOpen"
     ></i>
   </ng-container>
   <ng-container *ngIf="hamburger">
-    <i class="fa fa-2x fa-bars"></i>
+    <i class="fa-solid fa-2x fa-bars"></i>
   </ng-container>
 </div>
 

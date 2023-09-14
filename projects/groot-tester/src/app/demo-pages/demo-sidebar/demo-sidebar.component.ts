@@ -16,7 +16,7 @@ export class DemoSidebarComponent {
     },
     {
       label: 'Library Comp',
-      icon: 'fa-solid fa-bolt-lightning',
+      icon: 'fa-solid fa-bolt',
       children: [
         {
           label: 'Basic components',

@@ -16,7 +16,7 @@ export class GrootFileInputComponent extends GrootBaseInput {
   @Input() name: string;
   @Input() disabled = false;
   @Input() buttonText = 'common.browse';
-  @Input() icon = 'fa fa-upload';
+  @Input() icon = 'fa-solid fa-upload';
   @Input() multiple = false;
   @Input() showClear = true;
   @Input() hidePlaceholder = false;
