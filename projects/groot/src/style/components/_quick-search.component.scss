@@ -24,20 +24,20 @@ groot-quick-search {
   i {
     position: absolute;
     right: 0.8em;
-    top: 0.4em;
+    top: 0.5em;
     z-index: 4;
   }
 
-  i.fa-times {
+  i.fa-xmark {
     display: none;
   }
 
   .filled {
-    i.fa-search {
+    i.fa-magnifying-glass {
       display: none;
     }
 
-    i.fa-times {
+    i.fa-xmark {
       display: block;
       cursor: pointer;
     }
