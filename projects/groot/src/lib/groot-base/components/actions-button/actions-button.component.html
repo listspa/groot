@@ -13,9 +13,10 @@
      (mouseleave)="hover = false"
      [attr.title]="'common.actions' | translate">
   <ng-container *ngIf="!hamburger">
-    <i class="fa-solid fa-stack-2x"
-       [class.fa-circle-thin]="!hover && !isOpen"
-       [class.fa-circle]="hover || isOpen"
+    <i class="fa-stack-2x"
+       [class.fa-regular]="!hover && !isOpen"
+       [class.fa-solid]="hover || isOpen"
+       [class.fa-circle]="true"
     ></i>
     <i class="fa-solid fa-ellipsis-vertical fa-stack-1x"
        [class.text-white]="hover || isOpen"
