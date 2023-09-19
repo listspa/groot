@@ -36,7 +36,6 @@
     "core-js": "^3.31.1",
     "file-saver": "^2.0.5",
     "filesize": "^10.0.7",
-    "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^10.3.0",
     "ngx-currency": "^3.0.0",
     "rxjs": "~7.8.1",
