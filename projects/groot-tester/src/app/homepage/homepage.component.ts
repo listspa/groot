@@ -42,6 +42,9 @@ const RELEASE_NOTES: Release[] = [
     }, {
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Provided default and customizable styles to new bs5 <code>.btn-close</code> by following it with <code>.btn-close-*</code> classes with default bootstrap colors (primary, success, ...), or <code>.btn-close-darwin</code>, or by creating your custom style with the <code>create-btn-close($color, $value, $close-width)</code> mixin.`
+    }, {
+      type: ReleaseChangeType.BREAKING_CHANGE,
+      html: `Updated to Font Awesome 6.4 <code>@fortawesome/fontawesome-free</code>. This will give you more choice with free icons to use, you just have to update your icons after the install. It's also possible to update while still using version 4, making them coexist, more on this in the <a href="#/docs/icons" target="_blank">icons section</a>.`
     },
     ]
   },
