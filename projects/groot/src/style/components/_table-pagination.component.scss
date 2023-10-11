@@ -22,6 +22,10 @@ groot-table-pagination {
   .paginator-first-last {
     font-weight: bold;
     text-transform: uppercase;
+
+    .paginator-first-last-text {
+      vertical-align: 0.25rem;
+    }
   }
 
   i.fa-solid {
@@ -53,6 +57,7 @@ groot-table-pagination {
     @include page-indicator();
     border-radius: 1rem;
     border: 1px solid $primary;
+    vertical-align: 0.25rem;
 
     &.active {
       background-color: $primary;
