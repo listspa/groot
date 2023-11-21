@@ -1,2 +1,3 @@
 <i class="fa fa-angle-left"></i>
-<a [routerLink]="action">{{label | translate: labelArgs}}</a>
+<a *ngIf="action" [routerLink]="action">{{label | translate: labelArgs}}</a>
+<a *ngIf="!action" (click)="browsersGoBack()">{{label | translate: labelArgs}}</a>

@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'groot-darwin-breadcrumb-go-back',
@@ -7,5 +8,11 @@ import {Component, Input} from '@angular/core';
 export class GrootDarwinBreadcrumbsGoBackComponent {
   @Input() label: string;
   @Input() labelArgs: any;
-  @Input() action: any | any[];
+  @Input() action: any | any[] = null;
+
+  constructor(private location: Location) {}
+
+  browsersGoBack(): void {
+    this.location.back();
+  }
 }

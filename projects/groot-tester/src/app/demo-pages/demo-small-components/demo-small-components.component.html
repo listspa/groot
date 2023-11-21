@@ -329,6 +329,7 @@ Sometimes a whole button is a bit too "heavy". In that case, you can use a light
 
 <p>
   To show breadcrumbs in the top-left corner of the page, we have some components that follow Darwin (XDCE) style.
+  If no "action" field is set, the breadcrumb will use the browser's back button.
   Sample:
 </p>
 
@@ -349,6 +350,25 @@ Sometimes a whole button is a bit too "heavy". In that case, you can use a light
   &lt;groot-darwin-breadcrumb-go-back
     [action]="['/']"
     label="home"
+  >&lt;/groot-darwin-breadcrumb-go-back>
+&lt;/groot-darwin-breadcrumbs></code></pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Go back link without action</div>
+  </div>
+  <div class="col-md-3">
+    <groot-darwin-breadcrumbs>
+      <groot-darwin-breadcrumb-go-back
+        label="browser's back"
+      ></groot-darwin-breadcrumb-go-back>
+    </groot-darwin-breadcrumbs>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-darwin-breadcrumbs>
+  &lt;groot-darwin-breadcrumb-go-back
+    label="browser's back"
   >&lt;/groot-darwin-breadcrumb-go-back>
 &lt;/groot-darwin-breadcrumbs></code></pre>
   </div>
