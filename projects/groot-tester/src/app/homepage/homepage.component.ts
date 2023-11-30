@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '3.4.5', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Open the picker of groot-time-picker only by clicking the clock icon`
+      }
+    ]
+  },
+  {
     version: '3.4.4', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
