@@ -21,7 +21,6 @@
     (ngModelChange)="writeValueFromGui($event)"
     (blur)="onTouched()"
     [class.is-invalid]="input.invalid && input.touched"
-    [disabled]="disabled"
     value="{{selectedTime}}"
     *ngIf="!formControl"
   >
@@ -37,12 +36,11 @@
     [step]="step"
     #inputElement
     [class.is-invalid]="formControl.invalid && formControl.touched"
-    [disabled]="disabled"
     [formControl]="formControl"
     [value]="formControl.value"
     *ngIf="formControl"
   >
-  <div class="input-group-append">
+  <div class="input-group-append" (click)="onClick()">
     <span class="input-group-text">
       <i class="fa fa-clock-o"></i>
     </span>
