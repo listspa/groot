@@ -1422,8 +1422,8 @@
                     name="time"
                     [required]="true"
                     [(ngModel)]="form.time"
-                    min="09:00:00"
-                    max="22:12:00"
+                    [minTime]="'09:00:00'"
+                    [maxTime]="'22:12:00'"
                     [step]="2"
                     helpText="select a time please"
             ></groot-time-picker>
@@ -1435,8 +1435,8 @@
       name="time"
       [required]="true"
       [(ngModel)]="form.time"
-      min="09:00:00"
-      max="22:12:00"
+      [minTime]="'09:00:00'"
+      [maxTime]="'22:12:00'"
       [step]="2"
       helpText="select a time please"
     &gt;&lt;/groot-time-picker&gt;</code></pre>
