@@ -19,6 +19,7 @@ export class GrootTextAreaComponent extends GrootBaseInput {
   @Input() rows = 5;
   @Input() hidePlaceholder = false;
   @Input() maxLength: number | undefined = undefined;
+  @Input() horizontalLabel: boolean = false;
   text: string;
   input: NgModel;
 

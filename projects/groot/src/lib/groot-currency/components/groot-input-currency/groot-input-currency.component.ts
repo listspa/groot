@@ -1,14 +1,15 @@
 import {
-    ChangeDetectorRef,
-    Component,
-    EventEmitter,
-    Input,
-    OnChanges,
-    OnDestroy,
-    OnInit, Optional,
-    Output,
-    Self,
-    SimpleChanges
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Optional,
+  Output,
+  Self,
+  SimpleChanges
 } from '@angular/core';
 import {ControlValueAccessor, NgControl} from '@angular/forms';
 import {CurrencyMaskConfig, CurrencyMaskInputMode} from 'ngx-currency';
@@ -31,6 +32,7 @@ export class GrootInputCurrencyComponent extends GrootBaseInput implements Contr
   @Input() helpText: string | null = null;
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
+  @Input() horizontalLabel: boolean = false;
 
   @Output() enter: EventEmitter<number> = new EventEmitter();
   value: number;
@@ -75,7 +77,7 @@ export class GrootInputCurrencyComponent extends GrootBaseInput implements Contr
   constructor(private changeDetectorRef: ChangeDetectorRef,
               private grootInputCurrencyService: GrootInputCurrencyService,
               @Self() @Optional() public control: NgControl) {
-      super(control);
+    super(control);
   }
 
   ngOnInit(): void {

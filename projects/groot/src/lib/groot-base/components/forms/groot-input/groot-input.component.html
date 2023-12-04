@@ -1,47 +1,50 @@
-<label class="form-label" for="{{name}}" *ngIf="label">
-  {{label | translate}}
-  <span *ngIf="required">*</span>
-</label>
-<div class="input-group mb-2">
-  <span class="input-group-text" *ngIf="templateLeft || iconLeft">
-    <ng-container *ngTemplateOutlet="templateLeft || templateIconLeft"></ng-container>
-  </span>
-
-  <ng-template #templateIconLeft>
-    <i [ngClass]="iconLeft"></i>
-  </ng-template>
-
-  <input #htmlInput
-         [type]="type"
-         [step]="step"
-         autocomplete="off"
-         class="form-control"
-         [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
-         [required]="required"
-         [id]="name"
-         [name]="name"
-         [ngModel]="text"
-         (ngModelChange)="writeValueFromGui($event)"
-         (blur)="onTouched()"
-         (keyup.enter)="onEnterPressed()"
-         [class.is-invalid]="control?.invalid && control?.touched"
-         [disabled]="disabled"
-         [attr.maxLength]="maxLength">
-  <div class="input-group-text" *ngIf="templateRight || iconRight">
-    <span>
-      <ng-container *ngTemplateOutlet="templateRight || templateIconRight"></ng-container>
+<div [class.horizontal]="horizontalLabel">
+  <label class="form-label" for="{{name}}" *ngIf="label">
+    {{label | translate}}
+    <span *ngIf="required">*</span>
+  </label>
+  <div class="input-group mb-2">
+    <span class="input-group-text" *ngIf="templateLeft || iconLeft">
+      <ng-container *ngTemplateOutlet="templateLeft || templateIconLeft"></ng-container>
     </span>
 
-    <ng-template #templateIconRight>
-      <i [ngClass]="iconRight"></i>
+    <ng-template #templateIconLeft>
+      <i [ngClass]="iconLeft"></i>
     </ng-template>
-  </div>
-  <ng-container *ngIf="control">
-    <div class="invalid-feedback" *ngIf="control.invalid && control.touched">
-      {{errorMessage | translate}}
+
+    <input #htmlInput
+           [type]="type"
+           [step]="step"
+           autocomplete="off"
+           class="form-control"
+           [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
+           [required]="required"
+           [id]="name"
+           [name]="name"
+           [ngModel]="text"
+           (ngModelChange)="writeValueFromGui($event)"
+           (blur)="onTouched()"
+           (keyup.enter)="onEnterPressed()"
+           [class.is-invalid]="control?.invalid && control?.touched"
+           [disabled]="disabled"
+           [attr.maxLength]="maxLength">
+    <div class="input-group-text" *ngIf="templateRight || iconRight">
+      <span>
+        <ng-container *ngTemplateOutlet="templateRight || templateIconRight"></ng-container>
+      </span>
+
+      <ng-template #templateIconRight>
+        <i [ngClass]="iconRight"></i>
+      </ng-template>
     </div>
-  </ng-container>
+    <ng-container *ngIf="control">
+      <div class="invalid-feedback" *ngIf="control.invalid && control.touched">
+        {{errorMessage | translate}}
+      </div>
+    </ng-container>
+
+    <small class="form-text text-muted help-text" *ngIf="helpText">
+      {{helpText | translate}}
+    </small>
+  </div>
 </div>
-<small class="form-text text-muted" *ngIf="helpText">
-  {{helpText | translate}}
-</small>

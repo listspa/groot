@@ -1,36 +1,38 @@
-<label class="form-label" for="{{name}}" *ngIf="label">
-  {{label | translate}}
-  <span *ngIf="required">*</span>
-</label>
-<div class="input-group mb-2">
-  <div class="file-input-name"
-       [class.is-invalid]="required && control?.touched && invalid"
-       [class.disabled]="disabled">
-    <span class="file-input-text">
-      <span>{{text}}</span>
-      <span class="text-black-50" *ngIf="!text && !hidePlaceholder">{{(placeholder || label) | translate}}</span>
-    </span>
-    <span class="btn btn-file">
+<div [class.horizontal]="horizontalLabel">
+  <label class="form-label" for="{{name}}" *ngIf="label">
+    {{label | translate}}
+    <span *ngIf="required">*</span>
+  </label>
+  <div class="input-group mb-2">
+    <div class="file-input-name"
+         [class.is-invalid]="required && control?.touched && invalid"
+         [class.disabled]="disabled">
+      <span class="file-input-text">
+        <span>{{text}}</span>
+        <span class="text-black-50" *ngIf="!text && !hidePlaceholder">{{(placeholder || label) | translate}}</span>
+      </span>
+      <span class="btn btn-file">
       <i class="{{icon}}"></i>
-      {{buttonText | translate}}
-      <input [id]="name"
-             #fileInput
-             [name]="name"
-             type="file"
-             [required]="required"
-             [disabled]="disabled"
-             [attr.multiple]="multiple"
-             (change)="fileEvent($event)"
-             [ngModel]="filesNgModel"
-             (blur)="onTouched()"
-             [class.clear-hidden]="!(filled && showClear)">
-    </span>
+        {{buttonText | translate}}
+        <input [id]="name"
+               #fileInput
+               [name]="name"
+               type="file"
+               [required]="required"
+               [disabled]="disabled"
+               [attr.multiple]="multiple"
+               (change)="fileEvent($event)"
+               [ngModel]="filesNgModel"
+               (blur)="onTouched()"
+               [class.clear-hidden]="!(filled && showClear)">
+      </span>
 
-    <span class="btn btn-file btn-clear" *ngIf="filled && showClear" (click)="clearClicked($event)">
-      <i class="fa-solid fa-xmark"></i>
-    </span>
-  </div>
-  <div class="invalid-feedback" *ngIf="required && control?.touched && invalid">
-    {{'common.required' | translate}}
+      <span class="btn btn-file btn-clear" *ngIf="filled && showClear" (click)="clearClicked($event)">
+        <i class="fa-solid fa-xmark"></i>
+      </span>
+    </div>
+    <div class="invalid-feedback" *ngIf="required && control?.touched && invalid">
+      {{'common.required' | translate}}
+    </div>
   </div>
 </div>

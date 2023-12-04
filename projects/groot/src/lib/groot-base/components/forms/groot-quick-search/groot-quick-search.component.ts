@@ -28,6 +28,7 @@ export class GrootQuickSearchComponent extends GrootBaseInput implements Control
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
   @Input() autofocus = false;
+  @Input() horizontalLabel: boolean = false;
   @Output() enter: EventEmitter<string> = new EventEmitter();
   @Output() reset: EventEmitter<void> = new EventEmitter();
   @ViewChild('htmlInput') private htmlInput: ElementRef;

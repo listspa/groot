@@ -18,6 +18,7 @@ export class DisplayLabelValueComponent {
   @Input() dateFormat: string;
   @Input() hoursFormat = 'HH:mm';
   @Input() locale = 'en';
+  @Input() horizontalLabel: boolean = false;
 
   constructor(bsDatepickerConfig: BsDatepickerConfig) {
     this.dateFormat = normalizeNgBootstrapDateFormat(bsDatepickerConfig.dateInputFormat);

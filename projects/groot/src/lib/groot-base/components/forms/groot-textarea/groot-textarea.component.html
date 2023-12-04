@@ -1,27 +1,31 @@
-<label class="form-label" for="{{name}}" *ngIf="label">
-  {{label | translate}}
-  <span *ngIf="required">*</span>
-</label>
-<textarea
-  autocomplete="off"
-  class="form-control"
-  [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
-  [required]="required"
-  [id]="name"
-  [name]="name"
-  [ngModel]="text"
-  (ngModelChange)="writeValueFromGui($event)"
-  (blur)="onTouched()"
-  [class.is-invalid]="control?.invalid && control?.touched"
-  [disabled]="disabled"
-  rows="{{rows}}"
-  [attr.maxLength]="maxLength"
-></textarea>
-<ng-container *ngIf="control">
-  <div class="invalid-feedback" *ngIf="control.invalid && control.touched">
-    {{'common.required' | translate}}
+<div [class.horizontal]="horizontalLabel">
+  <label class="form-label" for="{{name}}" *ngIf="label">
+    {{label | translate}}
+    <span *ngIf="required">*</span>
+  </label>
+  <div class="input-group">
+    <textarea
+      autocomplete="off"
+      class="form-control"
+      [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
+      [required]="required"
+      [id]="name"
+      [name]="name"
+      [ngModel]="text"
+      (ngModelChange)="writeValueFromGui($event)"
+      (blur)="onTouched()"
+      [class.is-invalid]="control?.invalid && control?.touched"
+      [disabled]="disabled"
+      rows="{{rows}}"
+      [attr.maxLength]="maxLength"
+    ></textarea>
+    <ng-container *ngIf="control">
+      <div class="invalid-feedback" *ngIf="control.invalid && control.touched">
+        {{'common.required' | translate}}
+      </div>
+    </ng-container>
+    <small class="form-text text-muted help-text" *ngIf="helpText">
+      {{helpText | translate}}
+    </small>
   </div>
-</ng-container>
-<small class="form-text text-muted" *ngIf="helpText">
-  {{helpText | translate}}
-</small>
+</div>

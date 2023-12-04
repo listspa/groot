@@ -20,6 +20,7 @@ export class GrootFileInputComponent extends GrootBaseInput {
   @Input() multiple = false;
   @Input() showClear = true;
   @Input() hidePlaceholder = false;
+  @Input() horizontalLabel: boolean = false;
   touched = false;
   invalid = false;
   files: File | File[];

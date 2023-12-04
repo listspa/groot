@@ -1,43 +1,46 @@
-<label class="form-label" for="{{name}}" *ngIf="label">
-  {{label | translate}}
-  <span *ngIf="required">*</span>
-</label>
+<div [class.horizontal]="horizontalLabel">
+  <label class="form-label" for="{{name}}" *ngIf="label">
+    {{label | translate}}
+    <span *ngIf="required">*</span>
+  </label>
 
-<div class="input-group">
-  <input type="text"
-         autocomplete="off"
-         class="form-control"
-         [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
-         [required]="required"
-         [id]="name"
-         [name]="name"
-         [minDate]="minDate"
-         [maxDate]="maxDate"
-         [daysDisabled]="daysDisabled"
-         [datesDisabled]="datesDisabled"
-         [datesEnabled]="datesEnabled"
-         [dateCustomClasses]="dateCustomClasses"
-         bsDatepicker
-         #datePickerDirective="bsDatepicker"
-         #inputElement
-         [placement]="placement"
-         [ngModel]="selectedDate"
-         triggers=""
-         (ngModelChange)="writeValueFromGui($event)"
-         (blur)="onTouched()"
-         [class.is-invalid]="control?.invalid && control?.touched"
-         [disabled]="disabled">
+  <div class="input-group">
+    <input type="text"
+           autocomplete="off"
+           class="form-control"
+           [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
+           [required]="required"
+           [id]="name"
+           [name]="name"
+           [minDate]="minDate"
+           [maxDate]="maxDate"
+           [daysDisabled]="daysDisabled"
+           [datesDisabled]="datesDisabled"
+           [datesEnabled]="datesEnabled"
+           [dateCustomClasses]="dateCustomClasses"
+           bsDatepicker
+           #datePickerDirective="bsDatepicker"
+           #inputElement
+           [placement]="placement"
+           [ngModel]="selectedDate"
+           triggers=""
+           (ngModelChange)="writeValueFromGui($event)"
+           (blur)="onTouched()"
+           [class.is-invalid]="control?.invalid && control?.touched"
+           [disabled]="disabled">
 
-  <span class="input-group-text">
-    <i class="fa-regular fa-calendar-days"></i>
-  </span>
+    <span class="input-group-text">
+      <i class="fa-regular fa-calendar-days"></i>
+    </span>
 
-  <ng-container *ngIf="control">
-    <div class="invalid-feedback" *ngIf="control.invalid && control.touched">
-      {{errorMessage | translate}}
-    </div>
-  </ng-container>
+    <ng-container *ngIf="control">
+      <div class="invalid-feedback" *ngIf="control.invalid && control.touched">
+        {{errorMessage | translate}}
+      </div>
+    </ng-container>
+
+    <small class="form-text text-muted help-text" *ngIf="helpText">
+      {{helpText | translate}}
+    </small>
+  </div>
 </div>
-<small class="form-text text-muted" *ngIf="helpText">
-  {{helpText | translate}}
-</small>

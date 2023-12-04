@@ -17,6 +17,7 @@ export class GrootTimePickerComponent extends GrootBaseInput {
   @Input() minTime: string | null;
   @Input() maxTime: string | null;
   @Input() step: number | null;
+  @Input() horizontalLabel: boolean = false;
   selectedTime: string | null = null;
   @ViewChild('inputElement') inputElement: ElementRef;
 

@@ -35,6 +35,7 @@ export class GrootInputComponent extends GrootBaseInput {
     @Input() errorMessage = 'common.required';
     @Input() hidePlaceholder = false;
     @Input() maxLength: number | undefined = undefined;
+    @Input() horizontalLabel: boolean = false;
     @Output() enter: EventEmitter<string> = new EventEmitter();
     @ViewChild('htmlInput') private htmlInput: ElementRef;
     text: string;

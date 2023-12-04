@@ -1,16 +1,18 @@
-<div class="display-label-value-label"
-     *ngIf="label">
-  {{label | translate}}
-</div>
+<div [class.horizontal]="horizontalLabel">
+  <div class="display-label-value-label"
+       *ngIf="label">
+    {{label | translate}}
+  </div>
 
-<groot-display-value
-  [separator]="separator"
-  [translateValue]="translateValue"
-  [dataType]="dataType"
-  [value]="value"
-  [align]="align"
-  [doubleFormat]="doubleFormat"
-  [dateFormat]="dateFormat"
-  [hoursFormat]="hoursFormat"
-  [locale]="locale"
-></groot-display-value>
+  <groot-display-value
+    [separator]="separator"
+    [translateValue]="translateValue"
+    [dataType]="dataType"
+    [value]="value"
+    [align]="align"
+    [doubleFormat]="doubleFormat"
+    [dateFormat]="dateFormat"
+    [hoursFormat]="hoursFormat"
+    [locale]="locale"
+  ></groot-display-value>
+</div>

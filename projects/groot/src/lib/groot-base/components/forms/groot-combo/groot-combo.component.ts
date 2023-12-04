@@ -63,6 +63,7 @@ export class GrootComboComponent extends GrootBaseInput implements OnInit {
   @Input() showSelectButtons = false;
   @Input() groupBy: string | null = null;
   @Input() groupValue: GroupValueFn | null = null;
+  @Input() horizontalLabel: boolean = false;
 
   @ViewChild(NgSelectComponent) ngCombo: NgSelectComponent;
 
