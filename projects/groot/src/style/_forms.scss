@@ -5,6 +5,26 @@ label {
   font-size: 0.9em;
 }
 
+.horizontal {
+  display: flex;
+  flex-direction: row;
+
+  label {
+    display: inline-block;
+    margin-right: 0.75rem;
+    padding-top: 0.5rem;
+  }
+
+  .input-group {
+    flex: 1;
+  }
+}
+
+.help-text {
+  display: block;
+  width: 100%;
+}
+
 // Checkbox style
 .form-check-label::before, .form-check-label::after {
   top: 0.1em;
