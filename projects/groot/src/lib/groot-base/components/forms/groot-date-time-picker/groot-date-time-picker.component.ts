@@ -57,6 +57,7 @@ export class GrootDateTimePickerComponent extends GrootBaseInput implements OnIn
     @Input() datesEnabled: Date[] | null = null;
     @Input() dateCustomClasses: DatepickerDateCustomClasses[] | null = null;
     @Input() hidePlaceholder = false;
+    @Input() horizontalLabel: boolean = false;
     @ViewChild('datePickerDirective') private datePickerDirective: BsDatepickerDirective;
     @ViewChild('datePickerElement') private datePickerElement: ElementRef;
     @ViewChild('datePickerInputElement') private datePickerInputElement: ElementRef;
