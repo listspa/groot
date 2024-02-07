@@ -1,6 +1,6 @@
 {
   "name": "@listgroup/groot",
-  "version": "3.4.6-alpha1",
+  "version": "3.4.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/listspa/groot"
