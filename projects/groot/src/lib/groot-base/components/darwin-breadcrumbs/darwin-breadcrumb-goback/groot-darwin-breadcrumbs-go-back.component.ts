@@ -9,6 +9,7 @@ export class GrootDarwinBreadcrumbsGoBackComponent {
   @Input() label: string;
   @Input() labelArgs: any;
   @Input() action: any | any[] = null;
+  @Input() queryParams: any | any[] = null;
 
   constructor(private location: Location) {}
 
