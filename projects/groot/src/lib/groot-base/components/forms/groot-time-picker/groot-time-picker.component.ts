@@ -49,7 +49,6 @@ export class GrootTimePickerComponent extends GrootBaseInput {
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
-  @HostListener('click', ['$event'])
   onClick(): void {
     if (this.inputElement?.nativeElement?.showPicker) {
       this.inputElement.nativeElement.showPicker();

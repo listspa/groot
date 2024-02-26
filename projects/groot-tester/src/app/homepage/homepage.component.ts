@@ -51,6 +51,22 @@ const RELEASE_NOTES: Release[] = [
     }]
   },
   {
+    version: '3.4.5', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Open the picker of groot-time-picker only by clicking the clock icon`
+      }
+    ]
+  },
+  {
+    version: '3.4.4', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Add default behaviour to groot-darwin-breadcrumbs-go-back component: use browser's back functionality when 'action' is not set`
+      }
+    ]
+  },
+  {
     version: '3.4.3', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
