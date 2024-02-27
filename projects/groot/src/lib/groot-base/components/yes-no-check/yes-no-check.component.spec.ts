@@ -30,7 +30,7 @@ describe('YesNoCheckComponent', () => {
   it('should show the yes symbol', () => {
     component.value = true;
     fixture.detectChanges();
-    expect(fixture.debugElement.nativeElement.querySelector('i.fa-magnifying-glass')).not.toBeNull();
+    expect(fixture.debugElement.nativeElement.querySelector('i.fa-check')).not.toBeNull();
   });
 
   it('should show the no symbol', () => {
