@@ -1,9 +1,16 @@
 {
-  "pkgFiles": [
-    "package.json",
-    "projects/groot/package.json"
-  ],
-  "use": "pkg.version",
+  "plugins": {
+    "@release-it/bumper": {
+      "in":{
+        "file": "package.json",
+        "type":"application/json"
+      },
+      "out":{
+        "file": "projects/groot/package.json",
+        "type":"application/json"
+      }
+    }
+  },
   "git": {
     "requireUpstream": false,
     "tagName": "v${version}"
