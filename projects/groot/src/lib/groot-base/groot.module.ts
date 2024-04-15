@@ -39,7 +39,6 @@ import {FooterComponent} from './components/footer/footer.component';
 import {GrootTableBodyDirective, GrootTableHeaderDirective, GrootTableTitleRightAreaDirective} from './components/tables/groot-table/groot-table.directive';
 import {GrootAccordionIndicatorComponent} from './components/tables/groot-accordion-indicator/groot-accordion-indicator.component';
 import {GrootInputIconLeftDirective, GrootInputIconRightDirective} from './components/forms/groot-input/groot-input.directive';
-import './polyfills/polyfill-element-closest';
 import {YesNoCheckComponent} from './components/yes-no-check/yes-no-check.component';
 import {ActionsButtonComponent} from './components/actions-button/actions-button.component';
 import {ActionsButtonEntryComponent} from './components/actions-button/actions-button-entry/actions-button-entry.component';

@@ -17,7 +17,6 @@
     "file-saver": "^2.0.5",
     "filesize": "^10.0.7",
     "@fortawesome/fontawesome-free": "^6.4.2",
-    "mdn-polyfills": "^5.20.0",
     "ngx-bootstrap": "^10.3.0",
     "ngx-currency": "^3.0.0"
   },

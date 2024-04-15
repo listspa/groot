@@ -21,7 +21,7 @@ const RELEASE_NOTES: Release[] = [
           <li>filesize@10</li>
           <li>core-js@3.31.1</li>
         </ul>
-        <p></p>
+        <p>IE deprecation due to angular 15 drop support</p>
         <p>@use and @import scss no longer maps correctly <code>~</code> to <code>node_modules/</code> folder. Solve this by adding the following options in <code>angular.json</code> file under <code>projects.$PROJECT_NAME.architect.build.options</code>:</p>
         <pre><code>"stylePreprocessorOptions": {
     "includePaths": [
