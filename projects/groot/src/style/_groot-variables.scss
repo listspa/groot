@@ -35,13 +35,13 @@ $light-green: #7DBC00 !default;
 $lighter-green: #A8DF00 !default;
 $teal: #00BCBE !default;
 $cyan: #00A0FD !default;
-$light: $gray-200 !default;
+$light: $gray-200  !default;
 $list-blue: #002D69;
 $excel-green: #307345;
-$gray-darwin-bg: #f2f2f2;
-$gray-darwin-bg-dark: #e4e4e4;
-$gray-darwin-border: #cbcbcb;
-$gray-darwin-contrast-default-bg: #bbb;
+$gray-darwin-bg: #f2f2f2 !default;
+$gray-darwin-bg-dark: #e4e4e4 !default;
+$gray-darwin-border: #cbcbcb !default;
+$gray-darwin-contrast-default-bg: #bbb !default;
 $dark: $gray-800 !default;
 
 $colors: (
@@ -64,7 +64,7 @@ $colors: (
         'cyan': $cyan,
         'light': $light,
         'dark': $dark,
-);
+) !default;
 
 $primary: $blue !default;
 $secondary: $green !default; // In Bootstrap it's gray by default
@@ -147,8 +147,8 @@ $table-selected-bg: $lightest-primary !default;
 $table-header-active-color: $white !default;
 $table-filters-applied-color: $yellow !default;
 $table-header-inactive-color: rgba($white, 0.5) !default;
-$table-cell-padding-y: 0.77rem;
-$table-cell-padding-x: 0.75rem;
+$table-cell-padding-y: 0.77rem !default;
+$table-cell-padding-x: 0.75rem !default;
 
 // Buttons
 
@@ -173,7 +173,16 @@ $ng-select-selected-bg-color: $lightest-primary !default;
 $ng-select-border-color: #ccc !default;
 $ng-select-arrow: $gray-500 !default;
 $ng-select-arrow-hover: $gray-600 !default;
-$input-placeholder-color: #AAAAAA;
+$input-placeholder-color: #AAAAAA !default;
+$ng-select-clear-wrapper-color: #999 !default;
+$ng-select-selected-border-color: #c2e0ff !default;
+$ng-select-multiple-disabled-bg-color: #f9f9f9 !default;
+$ng-select-multiple-disabled-border-color: #e3e3e3 !default;
+$ng-select-bx-shadow: rgba(0, 0, 0, 0.06) !default;
+$input-border-color: #e6e6e6 !default;
+$input-dropdown-opt-group-color: rgba(0, 0, 0, 0.54) !default;
+$input-option-dropdown-color: rgba(0, 0, 0, .87) !default;
+$ng-select-focused-hover-box-shadow-color: rgba(0, 0, 0, 0.06) !default;
 
 // Checkbox
 $custom-control-indicator-bg-size: 60% 60% !default;
@@ -194,7 +203,7 @@ $tab-border-radius: 3px !default; // Slightly more than usual
 
 // Transitions
 
-$fast-transition-speed: 0.15s;
+$fast-transition-speed: 0.15s !default;
 
 // Tooltips
 

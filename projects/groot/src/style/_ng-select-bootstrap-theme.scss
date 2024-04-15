@@ -95,7 +95,7 @@
     align-items: center;
 
     &:hover {
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+      box-shadow: 0 1px 0 $ng-select-focused-hover-box-shadow-color;
     }
 
     .ng-value-container {
@@ -126,8 +126,8 @@
   &.ng-select-multiple {
     &.ng-select-disabled {
       > .ng-select-container .ng-value-container .ng-value {
-        background-color: #f9f9f9;
-        border: 1px solid #e3e3e3;
+        background-color: $ng-select-multiple-disabled-bg-color;
+        border: 1px solid $ng-select-multiple-disabled-border-color;
 
         .ng-value-label {
           padding: 0 5px;
@@ -146,12 +146,12 @@
           background-color: $ng-select-selected-bg-color;
           color: $black;
           border-radius: 2px;
-          border: 1px solid #c2e0ff;
+          border: 1px solid $ng-select-selected-border-color;
           margin-right: 5px;
 
           &.ng-value-disabled {
-            background-color: #f9f9f9;
-            border: 1px solid #e3e3e3;
+            background-color: $ng-select-multiple-disabled-bg-color;
+            border: 1px solid $ng-select-multiple-disabled-border-color;
 
             .ng-value-label {
               padding-left: 5px;
@@ -200,7 +200,7 @@
   }
 
   .ng-clear-wrapper {
-    color: #999;
+    color: $ng-select-clear-wrapper-color;
 
     &:hover .ng-clear {
       color: $danger;
@@ -232,14 +232,14 @@
 .ng-dropdown-panel {
   background-color: $input-bg;
   border: 1px solid $ng-select-border-color;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 0 $ng-select-bx-shadow;
   left: 0;
 
   &.ng-select-top {
     bottom: 100%;
     border-top-right-radius: $input-border-radius;
     border-top-left-radius: $input-border-radius;
-    border-bottom-color: #e6e6e6;
+    border-bottom-color: $input-border-color;
     margin-bottom: -1px;
 
     .ng-dropdown-panel-items {
@@ -258,7 +258,7 @@
     border-top-right-radius: $input-border-radius;
     border-bottom-right-radius: $input-border-radius;
     border-bottom-left-radius: $input-border-radius;
-    border-bottom-color: #e6e6e6;
+    border-bottom-color: $input-border-color;
     margin-bottom: -1px;
 
     .ng-dropdown-panel-items {
@@ -274,7 +274,7 @@
     top: 100%;
     border-bottom-right-radius: $input-border-radius;
     border-bottom-left-radius: $input-border-radius;
-    border-top-color: #e6e6e6;
+    border-top-color: $input-border-color;
     margin-top: -1px;
 
     .ng-dropdown-panel-items {
@@ -293,7 +293,7 @@
     border-top-left-radius: $input-border-radius;
     border-bottom-right-radius: $input-border-radius;
     border-bottom-left-radius: $input-border-radius;
-    border-bottom-color: #e6e6e6;
+    border-bottom-color: $input-border-color;
     margin-bottom: -1px;
 
     .ng-dropdown-panel-items {
@@ -322,7 +322,7 @@
       user-select: none;
       padding: 8px 10px;
       font-weight: $font-weight-normal;
-      color: rgba(0, 0, 0, 0.54);
+      color: $input-dropdown-opt-group-color;
       cursor: pointer;
 
       &.ng-option-disabled {
@@ -340,7 +340,7 @@
 
     .ng-option {
       background-color: $input-bg;
-      color: rgba(0, 0, 0, .87);
+      color: $input-option-dropdown-color;
       padding: 8px 10px;
 
       &.ng-option-selected {
