@@ -60,6 +60,6 @@ groot-toggle-button label {
     font-weight: bold;
     color: $label-fg-color;
     font-size: 0.9em;
-    margin-bottom: math.div($input-height-inner, 2);
+    margin-bottom: $input-height-inner / 2;
   }
 }
