@@ -7,8 +7,14 @@
   @include standard-hover-style;
 }
 
-.btn:hover:disabled {
+groot-button .btn:disabled {
+  pointer-events: auto !important;
   cursor: not-allowed;
+}
+
+.btn:first-child:active:disabled {
+  color: $btn-active-disabled-color;
+  background-color: $btn-active-disabled-bg;
 }
 
 .buttons-list-left {

@@ -1,6 +1,16 @@
-<button class="btn"
+<button *ngIf="!disabled"
+        class="btn"
+        [ngClass]="classes">
+  <i *ngIf="icon" [ngClass]="icon"></i>
+  {{label | translate}}
+</button>
+
+<button *ngIf="disabled"
+        class="btn"
         [ngClass]="classes"
-        [disabled]="disabled">
+        tabindex="-1"
+        onfocus="blur()"
+        disabled>
   <i *ngIf="icon" [ngClass]="icon"></i>
   {{label | translate}}
 </button>

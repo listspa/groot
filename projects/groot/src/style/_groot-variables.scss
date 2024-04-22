@@ -160,6 +160,9 @@ $btn-font-weight: bold !default;
 $standard-hover-bg-color: $gray-800 !default;
 $standard-hover-border-color: $standard-hover-bg-color !default;
 $standard-hover-fg-color: $white !default;
+// the two following properties fix bootstrap 5 management of disabled state https://list-group.atlassian.net/browse/ISPGROOT-184
+$btn-active-disabled-color: var(--bs-btn-disabled-color);
+$btn-active-disabled-bg: var(--bs-btn-disabled-bg);
 
 // Forms
 
