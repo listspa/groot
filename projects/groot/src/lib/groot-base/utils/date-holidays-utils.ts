@@ -39,9 +39,10 @@ export function isTarget2Holiday(theDate: Date): boolean {
   const isSaintStephenDay = theDate.getMonth() === 11 && theDate.getDate() === 26; // Saint Stephan
   const isFirstYearDay = theDate.getMonth() === 0 && theDate.getDate() === 1; // First Year's Day
   const easterDayDate = getEaster(theDate.getFullYear());
-  const easterDayDateTemp = new Date(easterDayDate.getTime());
-  const easterMondayDate = new Date(easterDayDateTemp.setDate(easterDayDate.getDate() + 1));
-  const goodFridayDate = new Date(easterDayDateTemp.setDate(easterDayDate.getDate() - 2));
+  const easterMondayDate = new Date(easterDayDate.getTime());
+  easterMondayDate.setDate(easterDayDate.getDate() + 1);
+  const goodFridayDate = new Date(easterDayDate.getTime());
+  goodFridayDate.setDate(easterDayDate.getDate() - 2);
   const isEasterMonday = theDate.getMonth() === easterMondayDate.getMonth() && theDate.getDate() === easterMondayDate.getDate(); // Easter Monday
   const isGoodFriday = theDate.getMonth() === goodFridayDate.getMonth() && theDate.getDate() === goodFridayDate.getDate(); // Good Friday
 
@@ -59,9 +60,10 @@ export function getTarget2HolidaysForYear(year: number): Date[] {
   const saintStephenDay = new Date(year, 11, 26); // Saint Stephan
   const firstYearDay = new Date(year, 0, 1); // First Year's Day
   const easterDayDate = getEaster(year);
-  const easterDayDateTemp = new Date(easterDayDate.getTime());
-  const easterMondayDate = new Date(easterDayDateTemp.setDate(easterDayDate.getDate() + 1));
-  const goodFridayDate = new Date(easterDayDateTemp.setDate(easterDayDate.getDate() - 2));
+  const easterMondayDate = new Date(easterDayDate.getTime());
+  easterMondayDate.setDate(easterDayDate.getDate() + 1);
+  const goodFridayDate = new Date(easterDayDate.getTime());
+  goodFridayDate.setDate(easterDayDate.getDate() - 2);
 
   return [firstOfMay, christmasDay, saintStephenDay, firstYearDay, easterMondayDate, goodFridayDate];
 }
