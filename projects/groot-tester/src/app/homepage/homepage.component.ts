@@ -59,6 +59,22 @@ const RELEASE_NOTES: Release[] = [
     ]
   },
   {
+    version: '3.4.7', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fix Date management for Easter as last day of month in Target2Holiday check`
+      }
+    ]
+  },
+  {
+    version: '3.4.6', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Add queryParams to groot-darwin-breadcrumbs-go-back component`
+      }
+    ]
+  },
+  {
     version: '3.4.4', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
