@@ -41,6 +41,36 @@
 </div>
 
 <div class="row">
+  <div class="col-md-2">
+    <div class="form-field-explanation">Horizontal label</div>
+  </div>
+  <div class="col-md-3">
+    <form novalidate>
+      <groot-input
+        placeholder="Name placeholder"
+        label="Name 0"
+        name="name 0"
+        [required]="true"
+        [(ngModel)]="form.name"
+        (ngModelChange)="onModelChange('name input', $event)"
+        [horizontalLabel]="true"
+      ></groot-input>
+    </form>
+  </div>
+  <div class="col-md-7">
+    <pre><code>&lt;groot-input
+  placeholder="Name placeholder"
+  label="Name 0"
+  name="name 0"
+  [required]="true"
+  [(ngModel)]="form.name"
+  (ngModelChange)="onModelChange('name input', $event)"
+  [horizontalLabel]="true"
+>&lt;/groot-input></code></pre>
+  </div>
+</div>
+
+<div class="row">
     <div class="col-md-2">
         <div class="form-field-explanation">Help text and template right</div>
     </div>
@@ -116,7 +146,7 @@
                     [required]="false"
                     [(ngModel)]="form.name"
                     helpText="your first name, not your last name!"
-                    iconLeft="fa fa-image"
+                    iconLeft="fa-regular fa-image"
             ></groot-input>
         </form>
     </div>
@@ -127,7 +157,7 @@
   [required]="false"
   [(ngModel)]="form.name"
   helpText="your first name, not your last name!"
-  iconLeft="fa fa-image"
+  iconLeft="fa-regular fa-image"
 >&lt;/groot-input></code></pre>
     </div>
 </div>
@@ -571,7 +601,7 @@
             ></groot-combo>
         </form>
     </div>
-    <div class="col-md-4 pr-0">
+    <div class="col-md-4 pe-0">
     <pre><code>&lt;groot-combo
   label="Currency"
   name="currenciesAndDisabled"
@@ -971,7 +1001,7 @@
             >
                 <ng-template #templateCurrItem1 let-item="item">
           <span class="ng-option-label">
-            <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
+            <i class="fa-solid text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
               {{item}}
           </span>
                 </ng-template>
@@ -988,7 +1018,7 @@
   [labelTemplate]="templateCurrItem1">
   &lt;ng-template #templateCurrItem1 let-item="item">
     &lt;span class="ng-option-label">
-      &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+      &lt;i class="fa-solid text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
       &lt;/span>
   &lt;/ng-template>
@@ -1012,7 +1042,7 @@
             >
                 <ng-template #templateCurrItem2 let-item="item">
           <span class="ng-option-label">
-            <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
+            <i class="fa-solid text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
               {{item}}
           </span>
                 </ng-template>
@@ -1020,7 +1050,7 @@
                 <ng-template #templateCurrLabel2 let-item="item" let-clear="clear">
                     <span class="ng-value-icon left" (click)="clear(item)">×</span>
                     <span class="ng-value-label">
-            <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
+            <i class="fa-solid text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
                         {{item}}
           </span>
                 </ng-template>
@@ -1038,7 +1068,7 @@
   [multiple]="true">
   &lt;ng-template #templateCurrItem2 let-item="item">
     &lt;span class="ng-option-label">
-      &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+      &lt;i class="fa-solid text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
       &lt;/span>
   &lt;/ng-template>
@@ -1046,7 +1076,7 @@
   &lt;ng-template #templateCurrLabel2 let-item="item" let-clear="clear">
     &lt;span class="ng-value-icon left" (click)="clear(item)">×&lt;/span>
     &lt;span class="ng-value-label">
-      &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+      &lt;i class="fa-solid text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
       &lt;/span>
   &lt;/ng-template>
@@ -1070,7 +1100,7 @@
             >
                 <ng-template #templateCurrItem3 let-item="item">
           <span class="ng-option-label">
-            <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
+            <i class="fa-solid text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
               {{item}}
           </span>
                 </ng-template>
@@ -1094,7 +1124,7 @@
   [multiple]="true">
   &lt;ng-template #templateCurrItem3 let-item="item">
     &lt;span class="ng-option-label">
-      &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+      &lt;i class="fa-solid text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
       &lt;/span>
   &lt;/ng-template>
@@ -1123,7 +1153,7 @@
                     [checkboxes]="true">
                 <ng-template #templateCurrItem4 let-item="item">
           <span class="ng-option-label">
-            <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
+            <i class="fa-solid text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
               {{item}}
           </span>
                 </ng-template>
@@ -1131,7 +1161,7 @@
                 <ng-template #templateCurrLabel4 let-item="item" let-clear="clear">
                     <span class="ng-value-icon left" (click)="clear(item)">×</span>
                     <span class="ng-value-label">
-            <i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
+            <i class="fa-solid text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()"></i>
                         {{item}}
           </span>
                 </ng-template>
@@ -1149,14 +1179,14 @@
 
   &lt;ng-template #templateCurrItem4 let-item="item">
     &lt;span class="ng-option-label">
-      &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+      &lt;i class="fa-solid text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
     &lt;/span>
   &lt;/ng-template>
 
   &lt;ng-template #templateCurrItem4 let-item="item">
     &lt;span class="ng-option-label">
-      &lt;i class="fa text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
+      &lt;i class="fa-solid text-danger" [ngClass]="'fa-' + item.toString().toLowerCase()">&lt;/i>
       {{item}}
       &lt;/span>
   &lt;/ng-template>

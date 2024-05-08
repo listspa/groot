@@ -1,6 +1,6 @@
 @import '../groot-variables';
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/variables';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
 
 $toast-border-radius: 10px;
 
@@ -32,10 +32,11 @@ $toast-border-radius: 10px;
 }
 
 // Create a background style for each bootstrap color class
-@each $color, $value in $theme-colors {
+@each $color,
+$value in $theme-colors {
   .toaster-style-#{$color} {
     background-color: $value;
-    color: color-yiq($value);
+    color: color-contrast($value);
   }
 }
 

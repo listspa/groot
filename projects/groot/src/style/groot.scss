@@ -1,14 +1,17 @@
 // Fontawesome
-$groot-assets-base-dir: '~@listgroup/groot/src/assets' !default;
-$fa-font-path: '~font-awesome/fonts' !default;
-@import "~font-awesome/scss/font-awesome";
+$groot-assets-base-dir: '../assets' !default;
+$fa-font-path: '../webfonts' !default;
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/brands";
 
 // Our variables
 @import 'groot-variables';
 
-// Bootstrap 4 and ngx-bootstrap
-@import "~bootstrap/scss/bootstrap";
-@import "~ngx-bootstrap/datepicker/bs-datepicker.scss";
+// Bootstrap 5 and ngx-bootstrap
+@import "bootstrap/scss/bootstrap";
+@import "ngx-bootstrap/datepicker/bs-datepicker.scss";
 @import "ng-select-bootstrap-theme"; // Our file, not from the library
 
 // Our css overriding bootstrap or adding new classes

@@ -9,7 +9,7 @@ import {NotificationToastService} from '../../services/notification-toast.servic
 })
 export class DownloadButtonComponent {
   @Input() label = 'common.downloadExcel';
-  @Input() icon: string[] = ['fa', 'fa-file-excel-o'];
+  @Input() icon: string[] = ['fa-regular', 'fa-file-excel'];
   @Input() labelArgs: any = {};
   @Input() url: string;
   @Input() urlProvider: () => string;

@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {waitForAsync, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {YesNoCheckComponent} from './yes-no-check.component';
 import {TranslateModule} from '@ngx-translate/core';
@@ -7,7 +7,7 @@ describe('YesNoCheckComponent', () => {
   let component: YesNoCheckComponent;
   let fixture: ComponentFixture<YesNoCheckComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [YesNoCheckComponent],
       imports: [
@@ -36,6 +36,6 @@ describe('YesNoCheckComponent', () => {
   it('should show the no symbol', () => {
     component.value = false;
     fixture.detectChanges();
-    expect(fixture.debugElement.nativeElement.querySelector('i.fa-times')).not.toBeNull();
+    expect(fixture.debugElement.nativeElement.querySelector('i.fa-xmark')).not.toBeNull();
   });
 });

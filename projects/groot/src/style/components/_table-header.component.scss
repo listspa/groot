@@ -6,7 +6,7 @@ groot-table-header .buttons {
   cursor: pointer;
   position: relative;
   margin-left: 0.5rem;
-  margin-right: extract-from-compact($table-cell-padding, right);
+  margin-right: extract-from-compact($table-cell-padding-x, right);
 
   > span {
     position: absolute;

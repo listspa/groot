@@ -23,7 +23,7 @@ export class DemoToasterComponent {
       this.toastService.addToast({
         label: 'common.search',
         title: 'title',
-        icon: ['fa', 'fa-info']
+        icon: ['fa-solid', 'fa-info']
       }).subscribe(() => console.log('info clicked')), 1000);
 
     setTimeout(() =>
@@ -38,7 +38,7 @@ export class DemoToasterComponent {
       this.toastService.addToast({
         label: 'warning',
         style: ToastStyle.WARNING,
-        icon: 'fa fa-calendar'
+        icon: 'fa-regular fa-calendar-days'
       }).subscribe(() => console.log('warning clicked')), 3500);
 
     setTimeout(() =>

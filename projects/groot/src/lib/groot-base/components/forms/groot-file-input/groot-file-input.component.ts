@@ -1,32 +1,26 @@
-import {ChangeDetectorRef, Component, EventEmitter, forwardRef, Input, Output, ViewChild} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {ChangeDetectorRef, Component, EventEmitter, Input, Optional, Output, Self, ViewChild} from '@angular/core';
+import {NgControl} from '@angular/forms';
+import {GrootBaseInput} from '../groot-base-input';
 
 @Component({
   selector: 'groot-file-input',
   templateUrl: './groot-file-input.component.html',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => GrootFileInputComponent),
-      multi: true
-    }
-  ],
   styles: [`:host {
     display: block;
   }`],
 })
-export class GrootFileInputComponent implements ControlValueAccessor {
+export class GrootFileInputComponent extends GrootBaseInput {
   @Output() clear = new EventEmitter<void>();
   @Input() label: string | null = null;
   @Input() placeholder: string | null = null;
   @Input() name: string;
-  @Input() required = false;
   @Input() disabled = false;
   @Input() buttonText = 'common.browse';
-  @Input() icon = 'fa fa-upload';
+  @Input() icon = 'fa-solid fa-upload';
   @Input() multiple = false;
   @Input() showClear = true;
   @Input() hidePlaceholder = false;
+  @Input() horizontalLabel: boolean = false;
   touched = false;
   invalid = false;
   files: File | File[];
@@ -35,14 +29,14 @@ export class GrootFileInputComponent implements ControlValueAccessor {
   filled = false;
   onChange = (files: File | File[]) => null;
   onTouched = () => null;
-
-  @ViewChild('input') inputNgModel: NgModel;
   @ViewChild('fileInput') fileInput;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              @Self() @Optional() public control: NgControl) {
+    super(control);
   }
 
-  fileEvent($event) {
+  fileEvent($event): void {
     this.touched = true;
     this.writeValue($event.target.files);
     this.onChange(this.files);
@@ -66,12 +60,12 @@ export class GrootFileInputComponent implements ControlValueAccessor {
     }
   }
 
-  private mapFileListToFileOrArrayOfFiles(files: File | File[]) {
+  private mapFileListToFileOrArrayOfFiles(files: File | File[]): void {
     if (Array.isArray(files) && files.length > 0) {
       if (this.multiple) {
         this.files = [];
-        for (let i = 0; i < files.length; ++i) {
-          this.files.push(files[i]);
+        for (const item of files) {
+          this.files.push(item);
         }
         this.filled = this.files.length > 0;
         this.text = this.files.map(f => f.name).join(', ');
@@ -91,14 +85,14 @@ export class GrootFileInputComponent implements ControlValueAccessor {
     }
   }
 
-  private clearFiles() {
+  private clearFiles(): void {
     this.files = this.multiple ? [] : null;
     this.text = '';
     this.filled = false;
     this.invalid = true;
   }
 
-  clearClicked(event: MouseEvent) {
+  clearClicked(event: MouseEvent): void {
     this.fileInput.nativeElement.value = '';
     event.stopPropagation();
     this.touched = true;

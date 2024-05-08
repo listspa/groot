@@ -5,10 +5,72 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '4.0.0', released: true, changes: [{
+      type: ReleaseChangeType.BREAKING_CHANGE,
+      html: `Updated to Angular 15.2.9. This requires to update your Angular project from v11 to v15 by following the update guide <a href="https://update.angular.io/?v=11.0-15.0">https://update.angular.io/?v=11.0-15.0</a>.`
+    }, {
+      type: ReleaseChangeType.BREAKING_CHANGE,
+      html: `Updated to Bootstrap 5.3. This requires to turn updates to the third parties dependencies:
+        <ul>
+          <li>bootstrap@5</li>
+          <li>ngx-bootstrap@10</li>
+          <li>@ngx-translate/core@14</li>
+          <li>@ngx-translate/http-loader@7</li>
+          <li>@ng-select/ng-select@10</li>
+          <li>ngx-currency@3</li>
+          <li>filesize@10</li>
+          <li>core-js@3.31.1</li>
+        </ul>
+        <p>IE deprecation due to angular 15 drop support</p>
+        <p>@use and @import scss no longer maps correctly <code>~</code> to <code>node_modules/</code> folder. Solve this by adding the following options in <code>angular.json</code> file under <code>projects.$PROJECT_NAME.architect.build.options</code>:</p>
+        <pre><code>"stylePreprocessorOptions": {
+    "includePaths": [
+      "node_modules/"
+    ]
+},</code></pre>
+
+        <p>and remove <code>~</code> in your scss where necessary.</p>
+
+        <p>Then follow the migration guide from Bootstrap4 to Bootstrap5 available here <a href="https://getbootstrap.com/docs/5.0/migration/">https://getbootstrap.com/docs/5.0/migration/</a>.</p>
+        <p>If your application builds without errors, but you experience the following error (or a similar one) in the browser console:</p>
+
+        <pre><code>Error: NG0203: inject() must be called from an injection context such as a constructor, a factory function, a field initializer, or a function used with \`EnvironmentInjector#runInContext\`</code></pre>
+
+        <p>add in the <code>angular.json</code> file under <code>projects.$PROJECT_NAME.architect.build.options</code> the following property:</p>
+
+        <pre><code>"preserveSymlinks": true,</code></pre>`
+    }, {
+      type: ReleaseChangeType.BREAKING_CHANGE,
+      html: `Updated to Font Awesome 6.4 <code>@fortawesome/fontawesome-free</code>. This will give you more choice with free icons to use, you just have to update your icons after the install. It's also possible to update while still using version 4, making them coexist, more on this in the <a href="#/docs/icons" target="_blank">icons section</a>.`
+    }, {
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `Provided default and customizable styles to new bs5 <code>.btn-close</code> by following it with <code>.btn-close-*</code> classes with default bootstrap colors (primary, success, ...), or <code>.btn-close-darwin</code>, or by creating your custom style with the <code>create-btn-close($color, $value, $close-width)</code> mixin.`
+    }, {
+      type: ReleaseChangeType.NEW_FEATURE,
+      html: `All forms can be adopted in their horizontal label version adding the new available input property <code>[horizontalLabel]="true"</code>.`
+    }]
+  },
+  {
     version: '3.4.5', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
         html: `Open the picker of groot-time-picker only by clicking the clock icon`
+      }
+    ]
+  },
+  {
+    version: '3.4.7', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `Fix Date management for Easter as last day of month in Target2Holiday check`
+      }
+    ]
+  },
+  {
+    version: '3.4.6', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `Add queryParams to groot-darwin-breadcrumbs-go-back component`
       }
     ]
   },
@@ -1460,7 +1522,7 @@ TranslationsLanguageService</code> rather than <code>TranslateService</code> and
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `You need to add two labels to your translations:
 <table class="table table-sm">
-  <thead class="thead-light">
+  <thead class="table-light">
     <tr>
       <th>Label</th>
       <th>en</th>
@@ -1525,7 +1587,7 @@ for a sample and the documentation.`
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `You need to add two labels to your translations:
 <table class="table table-sm">
-  <thead class="thead-light">
+  <thead class="table-light">
     <tr>
       <th>Label</th>
       <th>en</th>
@@ -1555,7 +1617,7 @@ for a sample and the documentation.`
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `You need to add five labels to your translations:
               <table class="table table-sm">
-                <thead class="thead-light">
+                <thead class="table-light">
                   <tr>
                     <th>Label</th>
                     <th>en</th>
@@ -1623,7 +1685,7 @@ for a sample and the documentation.`
       {
         type: ReleaseChangeType.BREAKING_CHANGE,
         html: `You need to add four labels to your translations: <table class="table table-sm">
-<thead class="thead-light">
+<thead class="table-light">
 <tr><th>Label</th><th>en</th><th>it</th></tr>
 </thead>
 <tr><td>common.dynamicGui.cannotLoad.title</td><td>Error</td><td>Errore</td></tr>
@@ -1845,7 +1907,8 @@ Removed week numbers in the date picker.
 
 @Component({
   selector: 'app-homepage',
-  templateUrl: './homepage.component.html'
+  templateUrl: './homepage.component.html',
+  styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent {
   releases: Release[] = RELEASE_NOTES;

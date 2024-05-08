@@ -6,15 +6,13 @@ export function calculateDatePickerPosition(element: ElementRef): Placement {
   const position: Placement = 'bottom';
 
   if (
-    !element ||
-    !element.nativeElement ||
-    !element.nativeElement.childNodes ||
+    !element?.nativeElement?.childNodes ||
     !element.nativeElement.childNodes[2] ||
     !element.nativeElement.childNodes[2].getBoundingClientRect) {
     return position;
   }
 
-  const rect: ClientRect | DOMRect = element.nativeElement.childNodes[2].getBoundingClientRect();
+  const rect: DOMRect = element.nativeElement.childNodes[2].getBoundingClientRect();
 
   const height = 315;
   const width = 308;

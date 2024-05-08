@@ -1,37 +1,25 @@
-<label for="{{name}}" *ngIf="label">
-  {{label | translate}}
-  <span *ngIf="required">*</span>
-</label>
-<div class="input-group input-group-sm mb-2"
-     [class.filled]="formControl ? formControl.value : text">
-  <input #htmlInput
-         type="text"
-         autocomplete="off"
-         class="form-control"
-         [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
-         [required]="required"
-         [id]="name"
-         [name]="name"
-         #input="ngModel"
-         [ngModel]="text"
-         (ngModelChange)="writeValueFromGui($event)"
-         (blur)="onTouched()"
-         (keyup.enter)="onEnterPressed()"
-         [class.is-invalid]="input.invalid && input.touched"
-         [disabled]="disabled"
-         *ngIf="!formControl">
-  <input #htmlInput
-         type="text"
-         autocomplete="off"
-         class="form-control"
-         [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
-         [required]="required"
-         [id]="name"
-         [name]="name"
-         (keyup.enter)="onEnterPressed()"
-         [formControl]="formControl"
-         [class.is-invalid]="formControl.invalid && formControl.touched"
-         *ngIf="formControl">
-  <i class="fa fa-search"></i>
-  <i class="fa fa-times" (click)="resetQuickSearch()"></i>
+<div [class.horizontal]="horizontalLabel">
+  <label class="form-label" for="{{name}}" *ngIf="label">
+    {{label | translate}}
+    <span *ngIf="required">*</span>
+  </label>
+  <div class="input-group input-group-sm mb-2"
+       [class.filled]="text">
+    <input #htmlInput
+           type="text"
+           autocomplete="off"
+           class="form-control"
+           [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
+           [required]="required"
+           [id]="name"
+           [name]="name"
+           [ngModel]="text"
+           (ngModelChange)="writeValueFromGui($event)"
+           (blur)="onTouched()"
+           (keyup.enter)="onEnterPressed()"
+           [class.is-invalid]="control?.invalid && control?.touched"
+           [disabled]="disabled">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-xmark" (click)="resetQuickSearch()"></i>
+  </div>
 </div>

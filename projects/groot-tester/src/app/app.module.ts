@@ -63,6 +63,7 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import {PopoverModule} from 'ngx-bootstrap/popover';
 import {DemoBaseSearchFormComponent} from './demo-pages/demo-base-search-form/demo-base-search-form.component';
 import {GrootCurrencyModule} from '../../../groot/src/lib/groot-currency/groot-currency.module';
+import { DemoTestFormComponent } from './demo-pages/demo-test-form/demo-test-form.component';
 
 // Enable italian locale
 registerLocaleData(localeIt);
@@ -107,6 +108,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DemoSmallComponentsComponent,
     DemoSidebarComponent,
     DemoBaseSearchFormComponent,
+    DemoTestFormComponent,
   ],
   imports: [
     BrowserModule,

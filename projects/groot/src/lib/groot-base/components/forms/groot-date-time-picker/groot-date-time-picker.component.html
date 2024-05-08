@@ -1,64 +1,72 @@
-<label for="{{name}}" *ngIf="label">
-  {{label | translate}}
-  <span *ngIf="required">*</span>
-</label>
+<div [class.horizontal]="horizontalLabel">
+  <label class="form-label flex-shrink-0" for="{{name}}" *ngIf="label">
+    {{label | translate}}
+    <span *ngIf="required">*</span>
+  </label>
 
-<div class="d-flex">
-  <div class="input-group mr-2" (click)="clickOnDate()" #datePickerElement>
-    <input type="text"
-           autocomplete="off"
-           class="form-control"
-           [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
-           [required]="required"
-           [id]="name"
-           [name]="name"
-           [minDate]="minDate"
-           [maxDate]="maxDate"
-           [daysDisabled]="daysDisabled"
-           [datesDisabled]="datesDisabled"
-           [datesEnabled]="datesEnabled"
-           [dateCustomClasses]="dateCustomClasses"
-           bsDatepicker
-           #datePickerDirective="bsDatepicker"
-           #datePickerInputElement
-           #inputDate=ngModel
-           [placement]="placement"
-           [ngModel]="selectedDate"
-           triggers=""
-           (ngModelChange)="writeDateFromGui($event)"
-           (blur)="onTouched()"
-           [class.is-invalid]="inputDate.invalid && inputDate.touched"
-           [disabled]="disabled">
+  <div class="d-flex" [class.flex-wrap]="horizontalLabel">
+      <div class="input-group me-2" (click)="clickOnDate()" #datePickerElement>
+        <input type="text"
+               autocomplete="off"
+               class="form-control"
+               [attr.placeholder]="hidePlaceholder ? null : ((placeholder || label) | translate)"
+               [required]="required"
+               [id]="name"
+               [name]="name"
+               [minDate]="minDate"
+               [maxDate]="maxDate"
+               [daysDisabled]="daysDisabled"
+               [datesDisabled]="datesDisabled"
+               [datesEnabled]="datesEnabled"
+               [dateCustomClasses]="dateCustomClasses"
+               bsDatepicker
+               #datePickerDirective="bsDatepicker"
+               #datePickerInputElement
+               #inputDate=ngModel
+               [placement]="placement"
+               [ngModel]="selectedDate"
+               triggers=""
+               (ngModelChange)="writeDateFromGui($event)"
+               (blur)="onTouched()"
+               [class.is-invalid]="inputDate.invalid && inputDate.touched"
+               [disabled]="disabled">
 
-    <div class="input-group-append">
-      <span class="input-group-text">
-        <i class="fa fa-calendar"></i>
-      </span>
-    </div>
+        <span class="input-group-text">
+          <i class="fa-regular fa-calendar-days"></i>
+        </span>
+      </div>
 
-    <div class="invalid-feedback" *ngIf="!valid">
+      <div class="input-group">
+        <input
+          class="form-control"
+          type="time"
+          [name]="name"
+          [id]="name"
+          [required]="required"
+          [disabled]="disabled"
+          [min]="minTime"
+          [max]="maxTime"
+          [step]="step"
+          [class.is-invalid]="!valid"
+          [(ngModel)]="timePart"
+          (ngModelChange)="writeTimeFromGui($event)"
+          (blur)="onTouched()">
+      </div>
+
+    <div class="invalid-feedback form-text help-text" *ngIf="horizontalLabel && !valid">
       {{'common.required' | translate}}
     </div>
+
+    <small class="form-text text-muted help-text" *ngIf="horizontalLabel && helpText">
+      {{helpText | translate}}
+    </small>
   </div>
 
-  <div class="input-group">
-    <input
-      class="form-control"
-      type="time"
-      [name]="name"
-      [id]="name"
-      [required]="required"
-      [disabled]="disabled"
-      [min]="minTime"
-      [max]="maxTime"
-      [step]="step"
-      [class.is-invalid]="!valid"
-      [(ngModel)]="timePart"
-      (ngModelChange)="writeTimeFromGui($event)"
-      (blur)="onTouched()">
+  <div class="invalid-feedback form-text help-text" *ngIf="!horizontalLabel && !valid">
+    {{'common.required' | translate}}
   </div>
+
+  <small class="form-text text-muted help-text" *ngIf="!horizontalLabel && helpText">
+    {{helpText | translate}}
+  </small>
 </div>
-
-<small class="form-text text-muted" *ngIf="helpText">
-  {{helpText | translate}}
-</small>

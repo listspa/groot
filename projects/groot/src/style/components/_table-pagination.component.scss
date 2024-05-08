@@ -1,7 +1,7 @@
 $paginator-margin: 0.5rem;
 $paginator-size: 1.8rem;
 $paginator-icon-size: 3rem;
-$active-page-number-color: color-yiq($primary);
+$active-page-number-color: color-contrast($primary);
 
 groot-table-pagination {
   nav {
@@ -22,9 +22,13 @@ groot-table-pagination {
   .paginator-first-last {
     font-weight: bold;
     text-transform: uppercase;
+
+    .paginator-first-last-text {
+      vertical-align: 0.25rem;
+    }
   }
 
-  i.fa {
+  i.fa-solid {
     font-size: $paginator-icon-size;
     position: relative;
     top: 0.5rem;
@@ -53,6 +57,7 @@ groot-table-pagination {
     @include page-indicator();
     border-radius: 1rem;
     border: 1px solid $primary;
+    vertical-align: 0.25rem;
 
     &.active {
       background-color: $primary;
@@ -62,6 +67,7 @@ groot-table-pagination {
 
   a {
     cursor: pointer;
+    text-decoration: none;
 
     &.disabled {
       opacity: 0.5;
@@ -71,6 +77,14 @@ groot-table-pagination {
     &:not([href]):not([tabindex]):hover.active,
     &:not([href]):not([tabindex]):focus.active {
       color: $active-page-number-color;
+    }
+  }
+
+  a:hover {
+    text-decoration: underline;
+
+    &.disabled {
+      text-decoration: none;
     }
   }
 }

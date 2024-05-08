@@ -3,6 +3,10 @@ groot-file-input {
     display: block;
   }
 
+  .input-group .btn {
+    position: static;
+  }
+
   .file-input-name {
     display: inline-flex;
     border-radius: $input-border-radius;

@@ -10,7 +10,7 @@
         <i [ngClass]="toast.icon" *ngIf="toast.icon.length > 0"></i>
         {{toast.title}}
       </strong>
-      <i class="notification-toast-close-icon fa fa-times"
+      <i class="notification-toast-close-icon fa-solid fa-xmark"
          (click)="toast.doRemove(); $event.stopPropagation()"></i>
     </div>
     <p>{{toast.label}}</p>

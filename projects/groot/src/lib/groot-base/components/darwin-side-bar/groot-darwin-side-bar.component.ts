@@ -11,7 +11,7 @@ import {
 import {debounceTime, distinctUntilChanged, filter} from 'rxjs/operators';
 import {Subscription} from 'rxjs';
 import {dropDownOnCreateAnimation} from '../../utils/animations-utils';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
@@ -29,7 +29,7 @@ export class GrootDarwinSideBarComponent implements OnInit, OnDestroy {
    * If true, a second click on the current menu entry will reload it.
    */
   @Input() forceReloadStates = false;
-  searchTextFormControl = new FormControl();
+  searchTextFormControl = new UntypedFormControl();
   lastSearchText = '';
   searchResults: DarwinSideBarFirstLevel[] = [];
 

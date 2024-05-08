@@ -1,14 +1,14 @@
 <h1>Cards</h1>
 
 <p>
-  Bootstrap supports the <a href="https://getbootstrap.com/docs/4.3/components/card/" target="_blank">cards</a>
+  Bootstrap supports the <a href="https://getbootstrap.com/docs/5.3/components/card/" target="_blank">cards</a>
   to wrap some content, such as a form. It looks pretty good and can be useful if you have a page with a couple
   of forms. We do not have a specific component at the moment, but rather simply a css customization.
 </p>
 
 <p>
   The header by default looks the same as a <code>groot-collapsible-box</code>. However you can
-  customize its color by using the classes <code>card-header-primary</code> (and similar).
+  customize its color by using the classes <code>card-header-primary</code> (and similar) following the <code>card-header</code> class.
 </p>
 
 <p>
@@ -24,7 +24,7 @@
     </div>
 
     <div class="card-body">
-      <div class="form-row">
+      <div class="row">
         <div class="col-sm-8">
           <groot-input
             label="Name"
@@ -48,14 +48,14 @@
       <div class="buttons-list-bottom-right">
         <groot-button
           label="common.cancel"
-          icon="fa fa-times"
+          icon="fa-solid fa-xmark"
           (click)="resetForm()"
           classes="btn-outline-danger"
         ></groot-button>
 
         <groot-button
           label="common.save"
-          icon="fa fa-check"
+          icon="fa-solid fa-check"
           (click)="submitForm()"
           [disabled]="form.invalid"
         ></groot-button>
@@ -64,3 +64,57 @@
   </div>
 </form>
 
+<hr>
+
+<h3>Card code</h3>
+
+<pre><code>
+  &lt;form #form="ngForm"&gt;
+    &lt;div class="card"
+         style="width: 40rem"&gt;
+
+      &lt;div class="card-header"&gt;
+        &lt;h4&gt;Card title&lt;/h4&gt;
+      &lt;/div&gt;
+
+      &lt;div class="card-body"&gt;
+        &lt;div class="row"&gt;
+          &lt;div class="col-sm-8"&gt;
+            &lt;groot-input
+              label="Name"
+              name="name"
+              [(ngModel)]="record.name"
+              [required]="true"
+            &gt;&lt;/groot-input&gt;
+          &lt;/div&gt;
+
+          &lt;div class="col-sm-4"&gt;
+            &lt;groot-checkbox
+              label="Spam me!"
+              name="spamMe"
+              [(ngModel)]="record.spamMe"
+            &gt;&lt;/groot-checkbox&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class="card-footer"&gt;
+        &lt;div class="buttons-list-bottom-right"&gt;
+          &lt;groot-button
+            label="common.cancel"
+            icon="fa-solid fa-xmark"
+            (click)="resetForm()"
+            classes="btn-outline-danger"
+          &gt;&lt;/groot-button&gt;
+
+          &lt;groot-button
+            label="common.save"
+            icon="fa-solid fa-check"
+            (click)="submitForm()"
+            [disabled]="form.invalid"
+          &gt;&lt;/groot-button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+</code></pre>

@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {CollapsibleBoxComponent} from './collapsible-box.component';
 import {TranslateModule} from '@ngx-translate/core';
@@ -8,7 +8,7 @@ describe('CollapsibleBoxComponent', () => {
   let component: CollapsibleBoxComponent;
   let fixture: ComponentFixture<CollapsibleBoxComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CollapsibleBoxComponent],
       imports: [

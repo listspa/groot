@@ -1,27 +1,26 @@
 {
   "name": "@listgroup/groot",
-  "version": "3.4.7",
+  "version": "4.0.0-alpha.9",
   "repository": {
     "type": "git",
     "url": "https://github.com/listspa/groot"
   },
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@angular/cdk": "^11.1.0",
-    "@angular/common": "^11.1.0",
-    "@angular/core": "^11.1.0",
-    "@ng-select/ng-select": "^6.1.0",
-    "@ngx-translate/http-loader": "^6.0.0",
-    "@ngx-translate/core": "^13.0.0",
-    "bootstrap": "^4.5.3",
+    "@angular/cdk": "^15.2.9",
+    "@angular/common": "^15.2.9",
+    "@angular/core": "^15.2.9",
+    "@ng-select/ng-select": "^10.0.4",
+    "@ngx-translate/http-loader": "^7.0.0",
+    "@ngx-translate/core": "^14.0.0",
+    "bootstrap": "^5.3.1",
     "file-saver": "^2.0.5",
-    "filesize": "^6.1.0",
-    "font-awesome": "^4.7.0",
-    "mdn-polyfills": "^5.19.0",
-    "ngx-bootstrap": "^6.2.0",
-    "ngx-currency": "^2.5.2"
+    "filesize": "^10.0.7",
+    "@fortawesome/fontawesome-free": "^6.4.2",
+    "ngx-bootstrap": "^10.3.0",
+    "ngx-currency": "^3.0.0"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.6.1"
   }
 }

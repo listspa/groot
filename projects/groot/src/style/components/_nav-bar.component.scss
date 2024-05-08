@@ -21,6 +21,10 @@ groot-nav-bar {
     }
   }
 
+  a:hover {
+    text-decoration: none;
+  }
+
   // Toggle icon
   .nav-row {
     flex-grow: 1;
@@ -62,12 +66,12 @@ groot-nav-bar {
 
           &:hover {
             background-color: $primary;
-            color: color-yiq($primary);
+            color: color-contrast($primary);
           }
 
           &.active {
             background-color: $navbar-dropdown-active-bg;
-            color: color-yiq($navbar-dropdown-active-bg);
+            color: color-contrast($navbar-dropdown-active-bg);
           }
         }
       }
@@ -147,6 +151,9 @@ groot-nav-bar {
 
   .form-inline {
     margin-right: $navbar-form-margin-right;
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
   }
 
   // Menu items

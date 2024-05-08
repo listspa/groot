@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $toggle-bar-width: 2.8rem;
 $toggle-bar-height: 1.1rem;
 $toggle-button-size: 1.5rem;
@@ -7,7 +9,7 @@ $toggle-margin: 0.5rem;
   display: inline-block;
   width: $toggle-bar-width;
   height: $toggle-bar-height;
-  border-radius: $toggle-bar-height / 2;
+  border-radius: $toggle-bar-height * 0.5;
   position: relative;
   cursor: pointer;
   transition: background-color 0.15s ease-in-out;
@@ -15,7 +17,7 @@ $toggle-margin: 0.5rem;
 
   .toggle-button {
     position: absolute;
-    top: -$toggle-button-size / 2 + $toggle-bar-height / 2;
+    top: -$toggle-button-size * 0.5 + $toggle-bar-height * 0.5;
     height: $toggle-button-size;
     width: $toggle-button-size;
     border-radius: $toggle-button-size;
@@ -61,4 +63,3 @@ groot-toggle-button label {
     margin-bottom: $input-height-inner / 2;
   }
 }
-

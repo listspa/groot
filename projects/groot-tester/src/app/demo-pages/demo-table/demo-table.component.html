@@ -5,7 +5,7 @@
 <p>
   We have customized a bit the look&amp;feel of tables, as you can see from the example below.
   We also have a relatively simple-to-use component that displays a generic sortable table, paginaged,
-  with a nice looking heade, called <code>groot-table</code>.
+  with a nice looking header, called <code>groot-table</code>.
 </p>
 
 <p>
@@ -16,7 +16,7 @@
 </p>
 
 <p>We also have various classes for the look and feel of tables: the standard Bootstrap
-  <code>thead-light</code> and <code>thead-dark</code>, or our own <code>thread-primary</code>. You can pass those as
+  <code>table-light</code>, <code>table-dark</code>, and similar others, or our own <code>thead-primary</code>. You can pass those as
   the property <code>tHeadClassName</code> of the component.
 </p>
 
@@ -37,16 +37,16 @@
     &lt;groot-input
       name="search"
       type="search"
-      iconRight="fa fa-search"
+      iconRight="fa-solid fa-magnifying-glass"
     >&lt;/groot-input>
 
-    &lt;groot-button label="New" icon="fa fa-plus" classes="btn-outline-primary">&lt;/groot-button>
+    &lt;groot-button label="New" icon="fa-solid fa-plus" classes="btn-outline-primary">&lt;/groot-button>
   &lt;/ng-template>
 
   &lt;ng-template grootTableHeader>
     &lt;tr>
       &lt;th>
-        &lt;groot-table-header label="people.name" columnName="NAME" icon="fa fa-user-o">&lt;/groot-table-header>
+        &lt;groot-table-header label="people.name" columnName="NAME" icon="fa-regular fa-user">&lt;/groot-table-header>
       &lt;/th>
       &lt;th>
         &lt;groot-table-header literalLabel="date of birth" columnName="DATE_OF_BIRTH">&lt;/groot-table-header>
@@ -141,16 +141,16 @@
     <groot-input
       name="search"
       type="search"
-      iconRight="fa fa-search"
+      iconRight="fa-solid fa-magnifying-glass"
     ></groot-input>
 
-    <groot-button label="New" icon="fa fa-plus" classes="btn-outline-primary"></groot-button>
+    <groot-button label="New" icon="fa-solid fa-plus" classes="btn-outline-primary"></groot-button>
   </ng-template>
 
   <ng-template grootTableHeader>
     <tr>
       <th>
-        <groot-table-header label="people.name" columnName="NAME" icon="fa fa-user-o"></groot-table-header>
+        <groot-table-header label="people.name" columnName="NAME" icon="fa-regular fa-user"></groot-table-header>
       </th>
       <th>
         <groot-table-header literalLabel="date of birth" columnName="DATE_OF_BIRTH"></groot-table-header>
@@ -172,7 +172,7 @@
 
 <div class="alert alert-warning">
   <h4 class="alert-heading">
-    <i class="fa fa-info-circle"></i>
+    <i class="fa-solid fa-circle-info"></i>
     Warning!
   </h4>
   In this example page the sorting and the pagination do NOT work; we do not have a real server but a hard-coded
@@ -197,7 +197,7 @@
   <ng-template grootTableHeader>
     <tr>
       <th>
-        <groot-table-header label="people.name" columnName="NAME" icon="fa fa-user-o"></groot-table-header>
+        <groot-table-header label="people.name" columnName="NAME" icon="fa-regular fa-user"></groot-table-header>
       </th>
       <th>
         <groot-table-header literalLabel="date of birth" columnName="DATE_OF_BIRTH"></groot-table-header>
@@ -227,6 +227,7 @@
 <groot-table
   defaultSortColumn="NAME"
   [striped]="false"
+  [selectable]="true"
   [defaultSortReverseFlag]="true"
   [pageSize]="3"
   (search)="doSearch($event)"
@@ -235,7 +236,7 @@
   <ng-template grootTableHeader>
     <tr>
       <th>
-        <groot-table-header label="people.name" columnName="NAME" icon="fa fa-user-o"></groot-table-header>
+        <groot-table-header label="people.name" columnName="NAME" icon="fa-regular fa-user"></groot-table-header>
       </th>
       <th>
         <groot-table-header literalLabel="date of birth" columnName="DATE_OF_BIRTH"></groot-table-header>
@@ -249,8 +250,7 @@
 
   <ng-template grootTableBody let-searchResults>
     <ng-container *ngFor="let row of searchResults.records">
-      <tr class="table-row-selectable"
-          (click)="row.$accordionVisible = !row.$accordionVisible"
+      <tr (click)="row.$accordionVisible = !row.$accordionVisible"
           [class.accordion-expanded]="row.$accordionVisible">
         <td>{{row.name}}</td>
         <td>{{row.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
@@ -259,8 +259,8 @@
           <groot-accordion-indicator [row]="row"></groot-accordion-indicator>
         </td>
       </tr>
-      <tr *ngIf="row.$accordionVisible" class="accordion-row">
-        <td colspan="4" class="accordion-container">
+      <tr *ngIf="row.$accordionVisible" class="accordion-row accordion-expanded">
+        <td colspan="4" class="accordion-container no-hover">
           <div class="accordion-content">
             accordion content here
           </div>
@@ -277,6 +277,7 @@
 <pre><code ngNonBindable>&lt;groot-table
   defaultSortColumn="NAME"
   [striped]="false"
+  [selectable]="true"
   [defaultSortReverseFlag]="true"
   [pageSize]="3"
   (search)="doSearch($event)"
@@ -285,7 +286,7 @@
   &lt;ng-template grootTableHeader>
     &lt;tr>
       &lt;th>
-        &lt;groot-table-header label="people.name" columnName="NAME" icon="fa fa-user-o">&lt;/groot-table-header>
+        &lt;groot-table-header label="people.name" columnName="NAME" icon="fa-regular fa-user">&lt;/groot-table-header>
       &lt;/th>
       &lt;th>
         &lt;groot-table-header literalLabel="date of birth" columnName="DATE_OF_BIRTH">&lt;/groot-table-header>
@@ -299,8 +300,7 @@
 
   &lt;ng-template grootTableBody let-searchResults>
     &lt;ng-container *ngFor="let row of searchResults.records">
-      &lt;tr class="table-row-selectable"
-          (click)="row.$accordionVisible = !row.$accordionVisible"
+      &lt;tr (click)="row.$accordionVisible = !row.$accordionVisible"
           [class.accordion-expanded]="row.$accordionVisible">
         &lt;td>{{row.name}}&lt;/td>
         &lt;td>{{row.dateOfBirth | date: 'dd/MM/yyyy'}}&lt;/td>
@@ -309,8 +309,8 @@
           &lt;groot-accordion-indicator [row]="row">&lt;/groot-accordion-indicator>
         &lt;/td>
       &lt;/tr>
-      &lt;tr *ngIf="row.$accordionVisible" class="accordion-row">
-        &lt;td colspan="4" class="accordion-container">
+      &lt;tr *ngIf="row.$accordionVisible" class="accordion-row accordion-expanded">
+        &lt;td colspan="4" class="accordion-container no-hover">
           &lt;div class="accordion-content">
             accordion content here
           &lt;/div>

@@ -1,3 +1,7 @@
+.table {
+  --bs-table-accent-bg: transparent;
+}
+
 th {
   vertical-align: middle;
   white-space: nowrap;
@@ -5,6 +9,14 @@ th {
 
 table.table-bordered {
   border: $table-border-width solid $table-border-color;
+
+  > :not(caption) > * {
+    border-width: $table-border-width;
+
+    > * {
+      border-width: $table-border-width;
+    }
+  }
 
   td {
     border: none;
@@ -14,7 +26,7 @@ table.table-bordered {
     border: $table-border-width solid $table-border-color;
   }
 
-  .thead-light th {
+  .table-light th {
     border: $table-border-width solid $white;
     border-top-color: $table-border-color;
 
@@ -40,10 +52,15 @@ table.table-bordered {
       border-right-color: $light-primary;
     }
   }
+
+  .accordion-expanded {
+    --bs-table-accent-bg: #F8F8F8;
+    border-bottom: 0;
+  }
 }
 
 .thead-primary th {
-  color: color-yiq($light-primary);
+  color: white;
   background-color: $light-primary;
 }
 
@@ -88,9 +105,17 @@ table.table-bordered {
   }
 }
 
-.table-row-selectable:hover {
-  cursor: pointer;
-  background-color: $table-hover-bg;
+.table-hover {
+
+  &:hover {
+    cursor: pointer;
+    background-color: $table-hover-bg;
+  }
+
+  .no-hover:hover {
+    cursor: default;
+    --bs-table-bg-state: var(--bs-table-accent-bg);
+  }
 }
 
 // Accordions
@@ -99,10 +124,6 @@ table.table-bordered {
   width: 1rem;
 }
 
-table.table-bordered tr.accordion-expanded {
-  background-color: $box-bg-color;
-  border-bottom: 0;
-}
 
 table.table-bordered tr.accordion-row {
   border-top: none;

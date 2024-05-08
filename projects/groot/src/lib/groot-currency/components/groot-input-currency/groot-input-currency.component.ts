@@ -1,22 +1,28 @@
-import {ChangeDetectorRef, Component, EventEmitter, forwardRef, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, NgModel} from '@angular/forms';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Optional,
+  Output,
+  Self,
+  SimpleChanges
+} from '@angular/core';
+import {ControlValueAccessor, NgControl} from '@angular/forms';
 import {CurrencyMaskConfig, CurrencyMaskInputMode} from 'ngx-currency';
 import {Subscription} from 'rxjs';
 import {unsubscribeSafe} from '../../../groot-base/utils/subscription-utils';
 import {GrootInputCurrencyService} from '../../services/groot-input-currency.service';
+import {GrootBaseInput} from '../../../groot-base/components/forms/groot-base-input';
 
 @Component({
   selector: 'groot-input-currency',
   templateUrl: './groot-input-currency.component.html',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => GrootInputCurrencyComponent),
-      multi: true
-    }
-  ]
 })
-export class GrootInputCurrencyComponent implements ControlValueAccessor, OnInit, OnChanges, OnDestroy {
+export class GrootInputCurrencyComponent extends GrootBaseInput implements ControlValueAccessor, OnInit, OnChanges, OnDestroy {
 
   @Input() label: string | null = null;
   @Input() placeholder: string | null = null;
@@ -26,13 +32,11 @@ export class GrootInputCurrencyComponent implements ControlValueAccessor, OnInit
   @Input() helpText: string | null = null;
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
-
-  @Input() formControl: FormControl | null = null;
+  @Input() horizontalLabel: boolean = false;
 
   @Output() enter: EventEmitter<number> = new EventEmitter();
   value: number;
   private valueSent: number;
-  input: NgModel;
 
   private readonly defaultConfig: CurrencyMaskConfig = {
     align: 'right',
@@ -71,10 +75,13 @@ export class GrootInputCurrencyComponent implements ControlValueAccessor, OnInit
   onTouched = () => null;
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
-              private grootInputCurrencyService: GrootInputCurrencyService) {
+              private grootInputCurrencyService: GrootInputCurrencyService,
+              @Self() @Optional() public control: NgControl) {
+    super(control);
   }
 
   ngOnInit(): void {
+    super.ngOnInit();
     this.eventConfigSubscription = this.grootInputCurrencyService.onChangeConfig()
       .subscribe(conf => {
         this.eventConfig = conf;
@@ -103,7 +110,7 @@ export class GrootInputCurrencyComponent implements ControlValueAccessor, OnInit
     }
   }
 
-  private updateConfig() {
+  private updateConfig(): void {
     const defaultConfig = (this.defaultConfig || {});
     const eventConfig = (this.eventConfig || {});
     const currencyOptions = (this.currencyOptions || {});
@@ -126,7 +133,7 @@ export class GrootInputCurrencyComponent implements ControlValueAccessor, OnInit
     this.overrideOptionIfEmpty(defaultConfig);
   }
 
-  private overrideOptionIfEmpty(options: Partial<CurrencyMaskConfig>) {
+  private overrideOptionIfEmpty(options: Partial<CurrencyMaskConfig>): void {
     Object.keys(this.options)
       .filter(o => this.options[o] == null)
       .forEach(o => this.options[o] = options[o]);
@@ -153,12 +160,12 @@ export class GrootInputCurrencyComponent implements ControlValueAccessor, OnInit
     this.changeDetectorRef.detectChanges();
   }
 
-  writeValueFromGui(value: any) {
+  writeValueFromGui(value: any): void {
     this.writeValue(value);
     this.onChange(this.value);
   }
 
-  onEnterPressed() {
+  onEnterPressed(): void {
     if (this.value !== this.valueSent) {
       this.valueSent = this.value;
       this.enter.emit(this.value);

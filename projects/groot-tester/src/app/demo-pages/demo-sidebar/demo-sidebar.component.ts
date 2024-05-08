@@ -10,13 +10,13 @@ export class DemoSidebarComponent {
   sidebarMenu: DarwinSideBarMenu = [
     {
       label: 'Home',
-      icon: 'fa fa-home',
+      icon: 'fa-solid fa-home',
       routingTarget: '/',
       children: [],
     },
     {
       label: 'Library Comp',
-      icon: 'fa fa-flash',
+      icon: 'fa-solid fa-bolt',
       children: [
         {
           label: 'Basic components',
@@ -92,7 +92,7 @@ export class DemoSidebarComponent {
     null,
     {
       label: 'search',
-      icon: 'fa fa-search',
+      icon: 'fa-solid fa-magnifying-glass',
       children: [],
       isSearchButton: true,
     }

@@ -5,17 +5,35 @@ label {
   font-size: 0.9em;
 }
 
-// Checkbox style
+.horizontal {
+  display: flex;
+  flex-direction: row;
 
-.custom-control-label::before, .custom-control-label::after {
+  label {
+    display: inline-block;
+    margin-right: 0.75rem;
+    padding-top: 0.5rem;
+  }
+
+  .input-group {
+    flex: 1;
+  }
+}
+
+.help-text {
+  display: block;
+  width: 100%;
+}
+
+// Checkbox style
+.form-check-label::before, .form-check-label::after {
   top: 0.1em;
 }
 
 // Radio button style
-
 $indicator-icon-checked: str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='#{$primary}'/%3e%3c/svg%3e"), "#", "%23");
-.custom-control.custom-radio {
-  .custom-control-label {
+.form-check.custom-radio {
+  .form-check-label {
     &::after {
       background-size: 9px;
     }
@@ -25,7 +43,7 @@ $indicator-icon-checked: str-replace(url("data:image/svg+xml,%3csvg xmlns='http:
     }
   }
 
-  .custom-control-input:checked ~ .custom-control-label {
+  .form-check-input:checked ~ .form-check-label {
     &::after {
       background-image: $indicator-icon-checked;
     }
@@ -43,7 +61,7 @@ $indicator-icon-checked: str-replace(url("data:image/svg+xml,%3csvg xmlns='http:
 }
 
 groot-radio {
-  .custom-control-label::before, .custom-control-label::after {
+  .form-check-label::before, .form-check-label::after {
     top: 0.09em;
   }
 }

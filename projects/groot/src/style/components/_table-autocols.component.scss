@@ -27,7 +27,7 @@ groot-table-autocol {
 
   .groot-table-header-filter-icon {
     position: absolute;
-    left: extract-from-compact($table-cell-padding, left);
+    left: extract-from-compact($table-cell-padding-x, left);
     display: block;
     cursor: pointer;
     color: $table-header-inactive-color;
@@ -54,7 +54,7 @@ groot-table-autocol {
   border: 1px solid $gray-200;
   color: $white;
   background-color: $primary;
-  padding: $table-cell-padding;
+  padding: $table-cell-padding-y;
   opacity: 0.9;
 
   .groot-table-header-filter-icon {

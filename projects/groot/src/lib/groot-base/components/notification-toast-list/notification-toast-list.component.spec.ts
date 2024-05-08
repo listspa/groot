@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import {NotificationToastListComponent} from './notification-toast-list.component';
 import {TranslateModule} from '@ngx-translate/core';
@@ -10,7 +10,7 @@ describe('NotificationToastListComponent', () => {
   let component: NotificationToastListComponent;
   let fixture: ComponentFixture<NotificationToastListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         TranslateModule.forRoot(),
@@ -19,7 +19,7 @@ describe('NotificationToastListComponent', () => {
       providers: [NotificationToastService],
       declarations: [NotificationToastListComponent]
     }).compileComponents();
-    service = TestBed.get(NotificationToastService);
+    service = TestBed.inject(NotificationToastService);
   }));
 
   beforeEach(() => {

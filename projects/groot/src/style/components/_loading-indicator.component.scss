@@ -3,7 +3,7 @@ $loader-size: 80px;
 
 .groot-loading-indicator-background-mask {
   background-image: linear-gradient(100deg, $white, $gray-400);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -14,10 +14,10 @@ $loader-size: 80px;
 
 .groot-loading-indicator-spinner {
   animation: groot-loading-indicator-rotate 2s linear infinite;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
-  margin: -($loader-size/2) 0 0 -($loader-size/2);
+  margin: (-($loader-size * 0.5)) 0 0 (-($loader-size * 0.5));
   width: $loader-size;
   height: $loader-size;
   z-index: $loader-z-index + 1;
@@ -42,10 +42,12 @@ $loader-size: 80px;
     stroke-dasharray: 1, 150;
     stroke-dashoffset: 0;
   }
+
   50% {
     stroke-dasharray: 90, 150;
     stroke-dashoffset: -35;
   }
+
   100% {
     stroke-dasharray: 90, 150;
     stroke-dashoffset: -124;

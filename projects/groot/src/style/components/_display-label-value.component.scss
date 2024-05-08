@@ -11,3 +11,18 @@ groot-display-value {
   margin-bottom: $display-value-margin-bottom;
   display: block;
 }
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+
+  .display-label-value-label {
+    display: inline-block;
+    margin-right: 0.75rem;
+  }
+
+  groot-display-value {
+    flex: 1;
+    text-align: right;
+  }
+}

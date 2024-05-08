@@ -84,7 +84,7 @@
     </ng-container>
     <ng-template #loadingErrorTemplate>
       <div class="loading-indicator">
-        <i class="fa fa-exclamation-triangle text-danger"></i>
+        <i class="fa-solid fa-triangle-exclamation text-danger"></i>
         {{'common.cannotLoadFilters' | translate}}
       </div>
     </ng-template>
@@ -95,7 +95,7 @@
     <div class="buttons-list-bottom-left">
       <groot-button
         classes="btn-outline-info"
-        icon="fa fa-trash-o"
+        icon="fa-regular fa-trash-can"
         label="common.clear"
         (click)="clear()"
       ></groot-button>
@@ -104,14 +104,14 @@
     <div class="buttons-list-bottom-right">
       <groot-button
         classes="btn-outline-danger"
-        icon="fa fa-cross"
+        icon="fa-solid fa-xmark"
         label="common.cancel"
         (click)="close()"
       ></groot-button>
 
       <groot-button
         classes="btn-success"
-        icon="fa fa-filter"
+        icon="fa-solid fa-filter"
         label="common.apply"
         (click)="apply()"
       ></groot-button>

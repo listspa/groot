@@ -198,7 +198,7 @@ export class GrootTranslateHttpLoader implements TranslateLoader {
    */
   public getTranslation(lang: string): Observable<object> {
     const observables = this._translationFiles.map(value => this.http.get(`${value.prefix}${lang}${value.suffix}`));
-    return forkJoin<object>(observables).pipe(map(forkResult => {
+    return forkJoin<Array<object>>(observables).pipe(map(forkResult => {
         const grootBuiltinTranslations = getBuiltInTranslations(lang);
         let ret: object = {...grootBuiltinTranslations};
         forkResult.forEach(tr => ret = {...ret, ...tr});

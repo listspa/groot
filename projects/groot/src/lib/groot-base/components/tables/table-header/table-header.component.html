@@ -6,10 +6,10 @@
       (click)="toggle()">
   <span [class.deselected]="!(sort.column == columnName && !sort.reverse)"
         [class.active]="sort.column == columnName && !sort.reverse">
-    <i class="fa fa-caret-up"></i>
+    <i class="fa-solid fa-caret-up"></i>
   </span>
   <span [class.deselected]="!(sort.column == columnName && sort.reverse)"
         [class.active]="sort.column == columnName && sort.reverse">
-    <i class="fa fa-caret-down"></i>
+    <i class="fa-solid fa-caret-down"></i>
   </span>
 </span>

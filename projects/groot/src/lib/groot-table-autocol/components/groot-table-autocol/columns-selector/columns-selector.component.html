@@ -1,7 +1,6 @@
 <div class="modal-header bg-primary">
   <h4 class="modal-title pull-left">{{'common.selectColumnsDragging' | translate}}</h4>
-  <button type="button" class="close pull-right" aria-label="Close" (click)="onCancel()">
-    <span aria-hidden="true">&times;</span>
+  <button type="button" class="btn-close btn-close-light" aria-label="Close" (click)="onCancel()">
   </button>
 </div>
 <div class="modal-body container-fluid"
@@ -10,7 +9,7 @@
     <div class="col-sm-12 col-lg-4">
       <groot-columns-selector-list
         label="common.columnsAvailable"
-        icon="fa fa-align-justify"
+        icon="fa-solid fa-align-justify"
         [columns]="unselected"
         (columnDropped)="moveColumn($event)"
       ></groot-columns-selector-list>
@@ -19,7 +18,7 @@
     <div class="col-sm-12 col-lg-4">
       <groot-columns-selector-list
         label="common.columnsSelected"
-        icon="fa fa-table"
+        icon="fa-solid fa-table"
         [columns]="selected"
         (columnDropped)="moveColumn($event)"
       ></groot-columns-selector-list>
@@ -28,7 +27,7 @@
     <div class="col-sm-12 col-lg-4">
       <groot-columns-selector-list
         label="common.columnsAccordion"
-        icon="fa fa-chevron-down"
+        icon="fa-solid fa-chevron-down"
         [columns]="accordion"
         (columnDropped)="moveColumn($event)"
       ></groot-columns-selector-list>
@@ -39,14 +38,14 @@
   <groot-button
     classes="btn-outline-danger"
     label="common.cancel"
-    icon="fa fa-times"
+    icon="fa-solid fa-xmark"
     (click)="onCancel()"
   ></groot-button>
 
   <groot-button
     classes="btn-outline-success"
     label="common.confirm"
-    icon="fa fa-check"
+    icon="fa-solid fa-check"
     (click)="onConfirm()"
   ></groot-button>
 </div>

@@ -1,31 +1,26 @@
-import {ChangeDetectorRef, Component, forwardRef, Input} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {ChangeDetectorRef, Component, Input, Optional, Self} from '@angular/core';
+import {NgControl} from '@angular/forms';
+import {GrootBaseInput} from '../groot-base-input';
 
 @Component({
   selector: 'groot-checkbox',
   templateUrl: './groot-checkbox.component.html',
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => GrootCheckboxComponent),
-      multi: true
-    }
-  ],
   styles: [`:host {
     display: block;
   }`],
 })
-export class GrootCheckboxComponent implements ControlValueAccessor {
+export class GrootCheckboxComponent extends GrootBaseInput {
   @Input() public name: string;
   @Input() public label: string | null = null;
   @Input() public disabled = false;
   @Input() public checked = false;
-  @Input() formControl: FormControl | null = null;
 
   onChange = (checked: boolean) => null;
   onTouched = () => null;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              @Self() @Optional() public control: NgControl) {
+    super(control);
   }
 
   registerOnChange(fn: (checked: boolean) => null): void {

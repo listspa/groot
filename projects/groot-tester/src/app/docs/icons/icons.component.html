@@ -1,23 +1,30 @@
 <h1>Icons</h1>
 
 <p>
-  Groot uses <a href="https://fontawesome.com/v4.7.0/" target="_blank">Font Awesome 4.7</a> for the icon set.
-  Please refer to their <a href="https://fontawesome.com/v4.7.0/icons/" target="_blank">icon search page</a>.
+  Groot v4 uses <a href="https://fontawesome.com" target="_blank">Font Awesome 6.4</a> for the icon set.
+  Please refer to their <a href="https://fontawesome.com/icons" target="_blank">icon search page</a>.
 </p>
 
-<p>To use an icon, simply use <code>&lt;i class="fa fa-XXX">&lt;/fa></code>, where XXX is the icon name you have found
+<p>To use an icon, simply use <code>&lt;i class="fa-YYY fa-XXX">&lt;/fa></code>, where YYY is the style (solid, regular, brand) of the icon and XXX is the icon name you have found
   on FontAwesome's site.</p>
 
 <div class="alert alert-info">
   <div class="alert-heading">
-    <i class="fa fa-question-circle"></i>
-    Why not using Font Awesome 5?
+    <p><i class="fa-solid fa-circle-question"></i>
+    Do you still want Font Awesome 4?</p>
   </div>
 
   <p>
-    We have decided against using Font Awesome 5 because of its license; many useful icons
-    are locked behind the Pro license. Therefore, we have - at least for the moment -
-    decided that we're better off with the old version, which has a good set of icons
-    and no licence issues.
+    Is it possible to make the two Font Awesome versions coexist, you just have to override fonts and the core Font Awesome version 6 scss with the respective version 4 references, just override them after the main Groot scss import <code>@import "@listgroup/groot/src/style/groot";</code>.
   </p>
+  <p>
+    To give you an example in your application:
+  </p>
+
+  <pre><code>@import "@listgroup/groot/src/style/groot";
+
+// Override Font Awesome v6 with v4
+$fa-font-path: "~font-awesome/fonts";
+@import "font-awesome/scss/font-awesome";</code></pre>
+
 </div>

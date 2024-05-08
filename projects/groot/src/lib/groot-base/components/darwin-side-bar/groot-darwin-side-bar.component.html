@@ -37,8 +37,8 @@
             <span class="title">{{secondLevel.label | translate}}</span>
 
             <ng-container *ngIf="!secondLevel.forcedOpen">
-              <i class="fa fa-angle-down" *ngIf="!secondLevel.open"></i>
-              <i class="fa fa-angle-up" *ngIf="secondLevel.open"></i>
+              <i class="fa-solid fa-angle-down" *ngIf="!secondLevel.open"></i>
+              <i class="fa-solid fa-angle-up" *ngIf="secondLevel.open"></i>
             </ng-container>
           </div>
 
@@ -75,8 +75,8 @@
               </span>
 
               <ng-container *ngIf="firstLevel.children && firstLevel.children.length">
-                <i class="fa fa-angle-down" *ngIf="!firstLevel.open"></i>
-                <i class="fa fa-angle-up" *ngIf="firstLevel.open"></i>
+                <i class="fa-solid fa-angle-down" *ngIf="!firstLevel.open"></i>
+                <i class="fa-solid fa-angle-up" *ngIf="firstLevel.open"></i>
               </ng-container>
             </div>
 
@@ -89,8 +89,8 @@
                 <div class="accordion-title clickable" (click)="openSearchResult2nd(secondLevel)">
                   <span class="title">{{secondLevel.label | translate}}</span>
                   <ng-container *ngIf="secondLevel.children && secondLevel.children.length">
-                    <i class="fa fa-angle-down" *ngIf="!secondLevel.open"></i>
-                    <i class="fa fa-angle-up" *ngIf="secondLevel.open"></i>
+                    <i class="fa-solid fa-angle-down" *ngIf="!secondLevel.open"></i>
+                    <i class="fa-solid fa-angle-up" *ngIf="secondLevel.open"></i>
                   </ng-container>
                 </div>
 

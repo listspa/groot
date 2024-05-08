@@ -7,7 +7,7 @@
 
       <!-- refresh icon -->
       <small *ngIf="showRefreshIcon" class="refresh text-muted" (click)="refreshTable()">
-        <i class="fa fa-refresh" [ngClass]="{'fa-spin': loading}"></i>
+        <i class="fa-solid fa-rotate" [ngClass]="{'fa-spin': loading}"></i>
       </small>
 
       <small *ngIf="lastRefreshTimestamp" class="last-refresh-ts text-muted">

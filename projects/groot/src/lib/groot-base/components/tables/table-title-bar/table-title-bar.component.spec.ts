@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {waitForAsync, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {TableTitleBarComponent} from './table-title-bar.component';
 import {DownloadButtonComponent} from '../../download-button/download-button.component';
@@ -15,7 +15,7 @@ describe('TableTitleBarComponent', () => {
   let component: TableTitleBarComponent;
   let fixture: ComponentFixture<TableTitleBarComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [TableTitleBarComponent, DownloadButtonComponent],
       imports: [TranslateModule.forRoot(), HttpClientTestingModule]

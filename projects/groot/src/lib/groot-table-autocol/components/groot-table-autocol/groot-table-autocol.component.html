@@ -16,6 +16,7 @@
   (search)="onSearch($event)"
   [searchResultsData]="searchResultsData"
   [striped]="false"
+  [selectable]="true"
   #grootTable
 >
   <ng-template grootTableTitleRightArea>
@@ -27,7 +28,7 @@
       <groot-button
         label="common.selectColumns"
         classes="btn-outline-primary"
-        icon="fa fa-list"
+        icon="fa-solid fa-list"
         (click)="selectColumns()"
         class="mb-2"
       ></groot-button>
@@ -53,7 +54,7 @@
              [class.active]="popoverFilters[column.key]"
              (click)="showFilterPopover(column, $event)"
              [attr.title]="'common.filter' | translate">
-          <i class="fa fa-filter"></i>
+          <i class="fa-solid fa-filter"></i>
         </div>
 
         <groot-table-header [label]="column.label"
@@ -75,7 +76,6 @@
     <ng-container *ngFor="let row of searchResults.records">
       <!-- Row -->
       <tr [ngClass]="trClassName"
-          [class.table-row-selectable]="accordionColumns.length > 0"
           [class.accordion-expanded]="row.$accordionVisible"
           (click)="toggleAccordion(row)">
         <!-- Actions button -->
@@ -105,10 +105,10 @@
 
       <!-- Accordion -->
       <tr *ngIf="row.$accordionVisible"
-          class="accordion-row"
+          class="accordion-row accordion-expanded"
           [@dropDown]>
         <td [attr.colspan]="selectedColumns.length + 1 + (actionsTemplate ? 1 : 0)"
-            class="accordion-container">
+            class="accordion-container no-hover">
           <div class="container-fluid accordion-content">
             <div class="row">
               <div class="col-sm-6 col-md-4 col-lg-3 mb-2"

@@ -30,6 +30,7 @@ import {DemoTableAutocolComponent} from './demo-pages/demo-table-autocol/demo-ta
 import {DemoSmallComponentsComponent} from './demo-pages/demo-small-components/demo-small-components.component';
 import {DemoSidebarComponent} from './demo-pages/demo-sidebar/demo-sidebar.component';
 import {DemoBaseSearchFormComponent} from './demo-pages/demo-base-search-form/demo-base-search-form.component';
+import {DemoTestFormComponent} from './demo-pages/demo-test-form/demo-test-form.component';
 
 const routes: Routes = [
   {component: HomepageComponent, path: 'home'},
@@ -62,6 +63,7 @@ const routes: Routes = [
   {component: DemoSmallComponentsComponent, path: 'demo/misc-small-components'},
   {component: DemoSidebarComponent, path: 'demo/sidebar'},
   {component: DemoBaseSearchFormComponent, path: 'demo/base-search-form'},
+  {component: DemoTestFormComponent, path: 'demo/test/form'},
   {path: '', pathMatch: 'full', redirectTo: 'home'},
 
   {
