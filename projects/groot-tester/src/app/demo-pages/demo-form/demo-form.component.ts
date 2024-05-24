@@ -3,8 +3,8 @@ import {ComboDataRequest, ComboDataRequestWithSelected, PaginatedResponse} from 
 import {endIndex, startIndex} from '../../../../../groot/src/lib/groot-base/utils/pagination-utils';
 import {UntypedFormControl, Validators} from '@angular/forms';
 import {debounceTime} from 'rxjs/operators';
-import {CurrencyMaskInputMode} from 'ngx-currency';
 import {DatepickerDateCustomClasses} from 'ngx-bootstrap/datepicker';
+import {NgxCurrencyInputMode} from 'ngx-currency';
 
 @Component({
   selector: 'app-demo-form',
@@ -278,13 +278,13 @@ export class DemoFormComponent implements OnInit {
 
   dateCustomClasses = new Array<DatepickerDateCustomClasses>();
 
-  currencyInputMode = CurrencyMaskInputMode;
+  currencyInputMode = NgxCurrencyInputMode;
 
-  onModelChange(field: string, value: any) {
+  onModelChange(field: string, value: any): void {
     console.log('field %o changed: %o', field, value);
   }
 
-  loadCurrenciesFiltered(event: ComboDataRequest) {
+  loadCurrenciesFiltered(event: ComboDataRequest): void {
     console.log('asked for filtered set of currencies: %o', event);
 
     // Filter in javascript, with a timeout to show the "loading" indicator.
@@ -306,7 +306,7 @@ export class DemoFormComponent implements OnInit {
     }, 400);
   }
 
-  loadCurrenciesPage(event: ComboDataRequest) {
+  loadCurrenciesPage(event: ComboDataRequest): void {
     console.log('asked for page of currencies: %o', event);
     const filteredCurrencies = this.manyCurrencies
       .filter(text => DemoFormComponent.currencyMatches(text, event));
@@ -320,13 +320,14 @@ export class DemoFormComponent implements OnInit {
   }
 
   // tslint:disable-next-line:member-ordering
-  private static currencyMatches(text, event: ComboDataRequest) {
+  private static currencyMatches(text, event: ComboDataRequest): boolean {
     return text.indexOf(event.filterText || '') !== -1;
   }
 
   // tslint:disable-next-line:member-ordering
-  private static currencyMatchesWithSelected(text, event: ComboDataRequestWithSelected) {
-    return (!event.showOnlySelected || (event.selected && event.selected.indexOf(text) !== -1)) && text.indexOf(event.filterText || '') !== -1;
+  private static currencyMatchesWithSelected(text, event: ComboDataRequestWithSelected): boolean {
+    return (!event.showOnlySelected || (event.selected && event.selected.indexOf(text) !== -1))
+            && text.indexOf(event.filterText || '') !== -1;
   }
 
   ngOnInit(): void {

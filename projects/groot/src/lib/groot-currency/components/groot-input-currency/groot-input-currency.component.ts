@@ -12,11 +12,11 @@ import {
   SimpleChanges
 } from '@angular/core';
 import {ControlValueAccessor, NgControl} from '@angular/forms';
-import {CurrencyMaskConfig, CurrencyMaskInputMode} from 'ngx-currency';
 import {Subscription} from 'rxjs';
 import {unsubscribeSafe} from '../../../groot-base/utils/subscription-utils';
 import {GrootInputCurrencyService} from '../../services/groot-input-currency.service';
 import {GrootBaseInput} from '../../../groot-base/components/forms/groot-base-input';
+import {NgxCurrencyConfig, NgxCurrencyInputMode} from 'ngx-currency';
 
 @Component({
   selector: 'groot-input-currency',
@@ -32,13 +32,13 @@ export class GrootInputCurrencyComponent extends GrootBaseInput implements Contr
   @Input() helpText: string | null = null;
   @Input() errorMessage = 'common.required';
   @Input() hidePlaceholder = false;
-  @Input() horizontalLabel: boolean = false;
+  @Input() horizontalLabel = false;
 
   @Output() enter: EventEmitter<number> = new EventEmitter();
   value: number;
   private valueSent: number;
 
-  private readonly defaultConfig: CurrencyMaskConfig = {
+  private readonly defaultConfig: NgxCurrencyConfig = {
     align: 'right',
     allowNegative: true,
     allowZero: true,
@@ -50,10 +50,10 @@ export class GrootInputCurrencyComponent extends GrootBaseInput implements Contr
     nullable: true,
     min: null,
     max: null,
-    inputMode: CurrencyMaskInputMode.NATURAL
+    inputMode: NgxCurrencyInputMode.Natural
   };
 
-  private eventConfig: Partial<CurrencyMaskConfig> = {};
+  private eventConfig: Partial<NgxCurrencyConfig> = {};
   private eventConfigSubscription: Subscription;
 
   @Input() align: 'left' | 'right' | 'center' | 'justify' | 'initial' | 'inherit';
@@ -67,10 +67,10 @@ export class GrootInputCurrencyComponent extends GrootBaseInput implements Contr
   @Input() nullable: true;
   @Input() min: number;
   @Input() max: number;
-  @Input() inputMode: CurrencyMaskInputMode;
+  @Input() inputMode: NgxCurrencyInputMode;
 
-  @Input() currencyOptions: Partial<CurrencyMaskConfig> = {};
-  options: CurrencyMaskConfig = {...this.defaultConfig};
+  @Input() currencyOptions: Partial<NgxCurrencyConfig> = {};
+  options: NgxCurrencyConfig = {...this.defaultConfig};
   onChange = (value: number) => null;
   onTouched = () => null;
 
@@ -105,7 +105,9 @@ export class GrootInputCurrencyComponent extends GrootBaseInput implements Contr
       inputMode,
       currencyOptions
     } = changes;
-    if (align || allowNegative || allowZero || decimal || precision || prefix || suffix || thousands || nullable || min || max || inputMode || currencyOptions) {
+    if (align || allowNegative || allowZero || decimal
+        || precision || prefix || suffix || thousands
+        || nullable || min || max || inputMode || currencyOptions) {
       this.updateConfig();
     }
   }
@@ -133,7 +135,7 @@ export class GrootInputCurrencyComponent extends GrootBaseInput implements Contr
     this.overrideOptionIfEmpty(defaultConfig);
   }
 
-  private overrideOptionIfEmpty(options: Partial<CurrencyMaskConfig>): void {
+  private overrideOptionIfEmpty(options: Partial<NgxCurrencyConfig>): void {
     Object.keys(this.options)
       .filter(o => this.options[o] == null)
       .forEach(o => this.options[o] = options[o]);
