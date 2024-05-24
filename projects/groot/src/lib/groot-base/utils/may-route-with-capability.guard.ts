@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import {Observable} from 'rxjs';
 import {GrootCapabilityService} from '../services/capability.service';
 
@@ -9,7 +9,7 @@ import {GrootCapabilityService} from '../services/capability.service';
 @Injectable({
   providedIn: 'root'
 })
-export class GrootMayRouteWithCapabilityGuard implements CanActivate {
+export class GrootMayRouteWithCapabilityGuard  {
   constructor(private capabilitiesService: GrootCapabilityService) {
   }
 
