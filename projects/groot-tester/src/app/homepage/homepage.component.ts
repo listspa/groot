@@ -5,23 +5,25 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
-    version: '4.0.0', released: true, changes: [{
+    version: '4.1.0', released: true, changes: [{
       type: ReleaseChangeType.BREAKING_CHANGE,
-      html: `Updated to Angular 15.2.9. This requires to update your Angular project from v11 to v15 by following the update guide <a href="https://update.angular.io/?v=11.0-15.0">https://update.angular.io/?v=11.0-15.0</a>.`
+      html: `Updated to Angular 17.3.10. This requires to update your Angular project from v11 to v17 by following the update guide <a href="https://angular.dev/update-guide?v=11.0-17.0">https://update.angular.io/?v=11.0-17.0</a>
+        <br><br><p>IE deprecation due to angular 15 drop support</p>
+        <p>CanActivate is now deprecated, so we removed it. An injectable class can be used as a functional guard using the inject function: <code>canActivate: [() => inject(myGuard).canActivate()]</code>. See <a href="https://v17.angular.io/api/router/CanActivate">https://v17.angular.io/api/router/CanActivate</a> </p>`
     }, {
       type: ReleaseChangeType.BREAKING_CHANGE,
-      html: `Updated to Bootstrap 5.3. This requires to turn updates to the third parties dependencies:
+      html: `Updated to Bootstrap 5.3 and other third parties dependencies:
         <ul>
           <li>bootstrap@5</li>
-          <li>ngx-bootstrap@10</li>
+          <li>ngx-bootstrap@12</li>
           <li>@ngx-translate/core@14</li>
           <li>@ngx-translate/http-loader@7</li>
-          <li>@ng-select/ng-select@10</li>
-          <li>ngx-currency@3</li>
+          <li>@ng-select/ng-select@12</li>
+          <li>ngx-currency@17</li>
           <li>filesize@10</li>
           <li>core-js@3.31.1</li>
         </ul>
-        <p>IE deprecation due to angular 15 drop support</p>
+        <br>
         <p>@use and @import scss no longer maps correctly <code>~</code> to <code>node_modules/</code> folder. Solve this by adding the following options in <code>angular.json</code> file under <code>projects.$PROJECT_NAME.architect.build.options</code>:</p>
         <pre><code>"stylePreprocessorOptions": {
     "includePaths": [
@@ -41,7 +43,10 @@ const RELEASE_NOTES: Release[] = [
         <pre><code>"preserveSymlinks": true,</code></pre>`
     }, {
       type: ReleaseChangeType.BREAKING_CHANGE,
-      html: `Updated to Font Awesome 6.4 <code>@fortawesome/fontawesome-free</code>. This will give you more choice with free icons to use, you just have to update your icons after the install. It's also possible to update while still using version 4, making them coexist, more on this in the <a href="#/docs/icons" target="_blank">icons section</a>.`
+      html: `Updated to ngx-currency 17 <code>ngx-currency@17</code>. CurrencyMaskConfig is removed and replaced by NgxCurrencyConfig, CurrencyMaskInputMode is removed and replaced by NgxCurrencyInputMode.`
+    }, {
+      type: ReleaseChangeType.BREAKING_CHANGE,
+      html: `Updated to Font Awesome 6.4 <code>@fortawesome/fontawesome-free</code>. This will give you more choice with free icons to use, you just have to update your icons after the installation. It's also possible to update while still using version 4, making them coexist, more on this in the <a href="#/docs/icons" target="_blank">icons section</a>.`
     }, {
       type: ReleaseChangeType.NEW_FEATURE,
       html: `Provided default and customizable styles to new bs5 <code>.btn-close</code> by following it with <code>.btn-close-*</code> classes with default bootstrap colors (primary, success, ...), or <code>.btn-close-darwin</code>, or by creating your custom style with the <code>create-btn-close($color, $value, $close-width)</code> mixin.`
