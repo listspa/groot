@@ -25,10 +25,10 @@
 </p>
 
 <pre><code>const routes: Route[] = [
-  &#123;component: DocsArchPluginsComponent, path: 'plugins'}
+  &#123;component: DocsArchPluginsComponent, path: 'plugins'&#125;
 ];
 
-@NgModule(&#123;
+&#64;NgModule(&#123;
   declarations: [
     DocsArchPluginsComponent
   ],
@@ -36,9 +36,9 @@
     CommonModule,
     RouterModule.forChild(routes)
   ]
-})
+&#125;)
 export class DocsArchModule &#123;
-}
+&#125;
 </code></pre>
 
 <p>
@@ -56,7 +56,7 @@ export class DocsArchModule &#123;
 &#123;
   path: 'docs-arch',
   loadChildren: () => import('./docs-arch/docs-arch-wrapper.module').then(m => m.DocsArchWrapperModule)
-},
+&#125;,
 </code></pre>
 
 <p>
@@ -66,10 +66,10 @@ export class DocsArchModule &#123;
 <pre><code>export class DocsArchGrootPlugin extends GrootPlugin &#123;
   constructor() &#123;
     super('Demo Arch');
-  }
+  &#125;
 
   // Other overrides
-}
+&#125;
 </code></pre>
 
 <p>
@@ -84,7 +84,7 @@ export class DocsArchModule &#123;
 </p>
 
 <pre><code>
-  &#123;provide: GROOT_PLUGIN, useClass: DocsArchGrootPlugin, multi: true},
+  &#123;provide: GROOT_PLUGIN, useClass: DocsArchGrootPlugin, multi: true&#125;,
   INIT_GROOT_ARCH_PROVIDER
 </code></pre>
 
@@ -107,7 +107,7 @@ export class DocsArchModule &#123;
 
 <pre><code>getTranslations(http: HttpClient, lang: string): Observable&lt;any&gt;&#123;
     return super.loadTranslationsFromFile(http, lang, 'assets/i18n/docs-arch.');
-  }
+  &#125;
 </code></pre>
 
 <p>

@@ -4,8 +4,8 @@
 
 <p>
   First install the <a href="https://cli.angular.io/">Angular CLI</a>, version 15.2.9 or above, via <code>npm install -g
-  @angular/cli@15.2.9</code>.<br>
-  If you have already installed it but aren't sure of the version, run a <code>npm update -g @angular/cli</code>.<br>
+  &#64;angular/cli&#64;15.2.9</code>.<br>
+  If you have already installed it but aren't sure of the version, run a <code>npm update -g &#64;angular/cli</code>.<br>
   Then, to create a new project foo:
 </p>
 <pre><code>ng new foo</code></pre>
@@ -32,7 +32,7 @@
 
 <p>You can now install the Groot library and the required dependencies:</p>
 
-<pre><code>npm install @listgroup/groot @ngx-translate/core@14 @ng-select/ng-select@10 bootstrap@5 filesize font-awesome ngx-bootstrap@10 @ngx-translate/http-loader@7 @angular/cdk@15 file-saver mdn-polyfills ngx-currency@3 @fortawesome/fontawesome-free</code></pre>
+<pre><code>npm install &#64;listgroup/groot &#64;ngx-translate/core&#64;14 &#64;ng-select/ng-select&#64;10 bootstrap&#64;5 filesize font-awesome ngx-bootstrap&#64;10 &#64;ngx-translate/http-loader&#64;7 &#64;angular/cdk&#64;15 file-saver mdn-polyfills ngx-currency&#64;3 &#64;fortawesome/fontawesome-free</code></pre>
 
 <p>Note: we support Angular15 and Bootstrap5, which is why you should install some of them with specific versions.</p>
 
@@ -40,7 +40,7 @@
 
 <p>The Angular CLI will have created a <code>style.scss</code> file. In it you need to add, at the beginning:</p>
 
-<pre><code>@import "@listgroup/groot/src/style/groot";</code></pre>
+<pre><code>&#64;import "&#64;listgroup/groot/src/style/groot";</code></pre>
 
 <p>while in the <code>angular.json</code> file under <code>projects.$PROJECT_NAME.architect.build.options</code> you need to add
   the following properties:</p>
@@ -49,7 +49,7 @@
     "includePaths": [
       "node_modules/"
     ]
-  },
+  &#125;,
 </code></pre>
 
 <p>This will add all the GRooT style rules. Please refer to <a routerLink="/docs/groot-style">the specific stylesheet
@@ -77,13 +77,13 @@
   NgSelectModule,
   HttpClientModule,
   TranslateModule.forRoot(&#123;
-    loader: &#123;provide: TranslateLoader, useFactory: HttpLoaderFactory, deps: [HttpClient]},
+    loader: &#123;provide: TranslateLoader, useFactory: HttpLoaderFactory, deps: [HttpClient]&#125;,
     missingTranslationHandler: &#123;
       provide: MissingTranslationHandler,
       useClass: GrootMissingTranslationLogger,
       deps: [ConsoleLoggingService]
-    }
-  }),
+    &#125;
+  &#125;),
   BsDatepickerModule.forRoot(),
   BsDropdownModule.forRoot(),
   TimepickerModule.forRoot(),
@@ -99,18 +99,18 @@
 <p>In your <code>providers</code> section of your app module, add this:</p>
 
 <pre><code>providers: [
-  &#123;provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker},
-  &#123;provide: HTTP_INTERCEPTORS, useClass: NoCacheInterceptor, multi: true},
-  &#123;provide: GrootCapabilityService, useClass: NoCheckCapabilityService},
+  &#123;provide: BsDatepickerConfig, useFactory: grootConfigBsDatePicker&#125;,
+  &#123;provide: HTTP_INTERCEPTORS, useClass: NoCacheInterceptor, multi: true&#125;,
+  &#123;provide: GrootCapabilityService, useClass: NoCheckCapabilityService&#125;,
 ],
 </code></pre>
 
-<p>Before the <code>@NgModule</code> class add this:</p>
+<p>Before the <code>&#64;NgModule</code> class add this:</p>
 
 <pre><code>// Required as a separate function for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) &#123;
   return new GrootTranslateHttpLoader(http);
-}</code></pre>
+&#125;</code></pre>
 
 <h2>Supporting IE11</h2>
 

@@ -74,13 +74,13 @@
   headerLabel = 'common.searchResults';
 
   constructor(private peopleService: PeopleService) &#123;
-  }
+  &#125;
 
   doSearch(paginationAndSorting: PaginationOptions) &#123;
     this.peopleService.searchPeople(paginationAndSorting)
       .subscribe(data => this.searchResultsData = data);
-  }
-}</code></pre>
+  &#125;
+&#125;</code></pre>
 
 
 <p>You can also take a look

@@ -15,16 +15,16 @@
   </div>
 
   <p>
-    Is it possible to make the two Font Awesome versions coexist, you just have to override fonts and the core Font Awesome version 6 scss with the respective version 4 references, just override them after the main Groot scss import <code>@import "@listgroup/groot/src/style/groot";</code>.
+    Is it possible to make the two Font Awesome versions coexist, you just have to override fonts and the core Font Awesome version 6 scss with the respective version 4 references, just override them after the main Groot scss import <code>&#64;import "&#64;listgroup/groot/src/style/groot";</code>.
   </p>
   <p>
     To give you an example in your application:
   </p>
 
-  <pre><code>@import "@listgroup/groot/src/style/groot";
+  <pre><code>&#64;import "&#64;listgroup/groot/src/style/groot";
 
 // Override Font Awesome v6 with v4
 $fa-font-path: "~font-awesome/fonts";
-@import "font-awesome/scss/font-awesome";</code></pre>
+&#64;import "font-awesome/scss/font-awesome";</code></pre>
 
 </div>

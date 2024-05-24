@@ -16,8 +16,8 @@
 
 <pre><code>// Required as a separate function for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) &#123;
-  return new GrootTranslateHttpLoader(http, `$&#123;BASE_URL}/labels?lang=`, '');
-}
+  return new GrootTranslateHttpLoader(http, `$&#123;BASE_URL&#125;/labels?lang=`, '');
+&#125;
 </code></pre>
 
 <p>
@@ -33,8 +33,8 @@ export function HttpLoaderFactory(http: HttpClient) &#123;
 
 <pre><code>// Required as a separate function for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) &#123;
-  return new GrootTranslateHttpLoader(http, `$&#123;BASE_URL}/assets/i18n/`);
-}
+  return new GrootTranslateHttpLoader(http, `$&#123;BASE_URL&#125;/assets/i18n/`);
+&#125;
 </code></pre>
 
 <p>
@@ -48,9 +48,9 @@ export function HttpLoaderFactory(http: HttpClient) &#123;
 </p>
 
 <pre><code>export function HttpLoaderFactory(http: HttpClient) &#123;
-  return new GrootTranslateHttpLoader(http, `$&#123;BASE_URL}/assets/i18n/`, '/translations.json')
-    .withAdditionalTranslation(`$&#123;BASE_URL}/assets/liqman/i18n/`, '/translations.json');
-}</code></pre>
+  return new GrootTranslateHttpLoader(http, `$&#123;BASE_URL&#125;/assets/i18n/`, '/translations.json')
+    .withAdditionalTranslation(`$&#123;BASE_URL&#125;/assets/liqman/i18n/`, '/translations.json');
+&#125;</code></pre>
 
 
 <h2>Setting the current language</h2>
@@ -67,7 +67,7 @@ export function HttpLoaderFactory(http: HttpClient) &#123;
   To change the default language, say to English, register a provider in your application module:
 </p>
 
-<code><pre>&#123;provide: DEFAULT_LANGUAGE, useValue: 'en'}</pre></code>
+<code><pre>&#123;provide: DEFAULT_LANGUAGE, useValue: 'en'&#125;</pre></code>
 
 <p>
   A possibility to show a language switcher is to use the <a routerLink="/demo/footer">groot-footer</a> component:
@@ -82,7 +82,7 @@ export function HttpLoaderFactory(http: HttpClient) &#123;
 <code><pre>export class AppComponent &#123;
   constructor(translationsLanguageService: TranslationsLanguageService) &#123;
     // ...
-  }</pre></code>
+  &#125;</pre></code>
 
 <h1>Italian support</h1>
 
@@ -90,10 +90,10 @@ export function HttpLoaderFactory(http: HttpClient) &#123;
   To correctly support the italian language, you need to add in your <code>AppModule</code> file this at the beginning:
 </p>
 
-<pre><code>import localeIt from '@angular/common/locales/it';
-import &#123;registerLocaleData} from '@angular/common';
-import &#123;itLocale} from 'ngx-bootstrap/locale';
-import &#123;defineLocale} from 'ngx-bootstrap/chronos';
+<pre><code>import localeIt from '&#64;angular/common/locales/it';
+import &#123;registerLocaleData&#125; from '&#64;angular/common';
+import &#123;itLocale&#125; from 'ngx-bootstrap/locale';
+import &#123;defineLocale&#125; from 'ngx-bootstrap/chronos';
 
 // Enable italian locale
 registerLocaleData(localeIt);

@@ -21,7 +21,7 @@
 
 <pre><code>"architect": &#123;
   "build": &#123;
-    "builder": "@angular-devkit/build-angular:browser",
+    "builder": "&#64;angular-devkit/build-angular:browser",
     "options": &#123;
       "baseHref": "/scriptApp0/app-frontend/",
       "deployUrl": "/portalApp0/app-frontend/",</code></pre>
@@ -38,7 +38,7 @@
   Then, in your servers, when you are doing an http call you can write:
 </p>
 
-<pre><code>return this.http.get&lt;MyObj>(`$&#123;BASE_URL}/spring/mapped/path`);</code></pre>
+<pre><code>return this.http.get&lt;MyObj>(`$&#123;BASE_URL&#125;/spring/mapped/path`);</code></pre>
 
 <h2>Calling the server</h2>
 
@@ -56,9 +56,9 @@
     "logLevel": "debug",
     "pathRewrite": &#123;
       "^/scriptEinv0/einv-frontend/": ""
-    }
-  }
-}
+    &#125;
+  &#125;
+&#125;
 </code></pre>
 
 <p>

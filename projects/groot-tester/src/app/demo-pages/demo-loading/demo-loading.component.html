@@ -35,7 +35,7 @@
 
 <pre><code>public search(request: SearchRequest): Observable&lt;SearchResponse> &#123;
   const doneCallback = this.loadingService.startLoading();
-  return this.http.post&lt;SearchResponse>(`$&#123;BASE_URL}/exchangeRates/get`, request)
+  return this.http.post&lt;SearchResponse>(`$&#123;BASE_URL&#125;/exchangeRates/get`, request)
     .pipe(finalize(doneCallback));
-}
+&#125;
 </code></pre>

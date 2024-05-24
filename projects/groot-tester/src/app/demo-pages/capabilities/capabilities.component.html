@@ -23,7 +23,7 @@
   </p>
 
   <pre><code>providers: [
-    &#123;provide: GrootCapabilityService, useClass: DemoCapabilityService}
+    &#123;provide: GrootCapabilityService, useClass: DemoCapabilityService&#125;
   ]</code></pre>
 </div>
 
@@ -53,11 +53,11 @@
   component: MyComponent,
   path: 'myUrl',
   data: &#123;
-    pageTitle: &#123;title: 'myPageTitle'},
+    pageTitle: &#123;title: 'myPageTitle'&#125;,
     requiredCapability: WebCapability.SEE_DATA_QUALITY
-  },
+  &#125;,
   canActivate: [GrootMayRouteWithCapabilityGuard]
-},
+&#125;,
 </code></pre>
 
 <p>
