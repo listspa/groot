@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '4.1.1', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `groot-date-picker component can now has the option to enable the adaptive position behaviour`
+      }
+    ]
+  },
+  {
     version: '4.1.0', released: true, changes: [{
       type: ReleaseChangeType.BREAKING_CHANGE,
       html: `Updated to Angular 17.3.10. This requires to update your Angular project from v11 to v17 by following the update guide <a href="https://angular.dev/update-guide?v=11.0-17.0">https://update.angular.io/?v=11.0-17.0</a>
