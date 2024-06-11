@@ -43,7 +43,8 @@ export class GrootDatePickerComponent extends GrootBaseInput implements AfterVie
     @Input() dateCustomClasses: DatepickerDateCustomClasses[] | null = null;
     @Input() hidePlaceholder = false;
     @Input() errorMessage = 'common.required';
-    @Input() horizontalLabel: boolean = false;
+    @Input() horizontalLabel = false;
+    @Input() adaptivePosition = false;
     placement: Placement = 'bottom';
     selectedDate: Date;
     @ViewChild('datePickerDirective') private datePickerDirective: BsDatepickerDirective;

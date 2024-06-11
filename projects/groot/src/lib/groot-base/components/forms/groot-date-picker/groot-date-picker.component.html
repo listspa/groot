@@ -22,6 +22,7 @@
            #datePickerDirective="bsDatepicker"
            #inputElement
            [placement]="placement"
+           [bsConfig]="{adaptivePosition: adaptivePosition}"
            [ngModel]="selectedDate"
            triggers=""
            (ngModelChange)="writeValueFromGui($event)"
