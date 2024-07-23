@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '4.1.2', released: true, changes: [
+      {
+        type: ReleaseChangeType.BUG_FIX,
+        html: `use @ngx-translate/core@15 and @ngx-translate/http-loader@8 to match angular 16+. See https://github.com/ngx-translate/core`
+      }
+    ]
+  },
+  {
     version: '4.1.1', released: true, changes: [
       {
         type: ReleaseChangeType.NEW_FEATURE,
