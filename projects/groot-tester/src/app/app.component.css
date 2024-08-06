@@ -1,0 +1,8 @@
+.groot-notification-toasts-button {
+  position: relative;
+  padding: 1rem;
+
+  .toaster-button {
+    border-radius: 10px;
+  }
+}

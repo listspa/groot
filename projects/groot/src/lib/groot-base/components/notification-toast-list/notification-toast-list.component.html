@@ -16,4 +16,5 @@
     <p>{{toast.label}}</p>
     <p *ngIf="toast.additionalDetails">{{toast.additionalDetails}}</p>
   </div>
+  <ng-content select="[end-list-widget]"></ng-content>
 </div>

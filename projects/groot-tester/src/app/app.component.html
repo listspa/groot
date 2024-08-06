@@ -10,7 +10,16 @@
 </groot-nav-bar>
 <groot-page-title></groot-page-title>
 <groot-loading-indicator></groot-loading-indicator>
-<groot-notification-toast-list></groot-notification-toast-list>
+<groot-notification-toast-list #toastList>
+  <div end-list-widget class="groot-notification-toasts-button" *ngIf="toastList.displayedToast.length>0">
+    <groot-button
+      [label]="'button.closeAllNotification'"
+      [classes]="'btn-primary toaster-button'"
+      (click)="closeAllNotification()">
+    </groot-button>
+  </div>
+</groot-notification-toast-list>
+
 
 <div class="container-fluid">
   <router-outlet></router-outlet>

@@ -1,6 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {Menu, SimpleNavBarItem} from '../../../groot/src/lib/groot-base/components/nav-bar/nav-bar.model';
 import {TranslationsLanguageService} from '../../../groot/src/lib/groot-base/services/translations-language.service';
+import {
+  NotificationToastListComponent
+} from '../../../groot/src/lib/groot-base/components/notification-toast-list/notification-toast-list.component';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +11,7 @@ import {TranslationsLanguageService} from '../../../groot/src/lib/groot-base/ser
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild('toastList') toastList: NotificationToastListComponent;
   readonly navBarItems: SimpleNavBarItem[] = [
     {
       label: 'Documentation', url: '/docs', icon: 'fa-regular fa-star', children: [
@@ -142,4 +146,11 @@ export class AppComponent {
 
   constructor(translationsLanguageService: TranslationsLanguageService) {
   }
+
+  closeAllNotification(): void {
+    while (this.toastList.displayedToast.length > 0 ) {
+      this.toastList.displayedToast.forEach(t => t.doRemove());
+    }
+  }
+
 }
