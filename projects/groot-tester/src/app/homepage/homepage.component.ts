@@ -5,6 +5,14 @@ import {Release, ReleaseChangeType} from './release.model';
 /* tslint:disable:no-trailing-whitespace */
 const RELEASE_NOTES: Release[] = [
   {
+    version: '4.1.3', released: true, changes: [
+      {
+        type: ReleaseChangeType.NEW_FEATURE,
+        html: `introduce the possibility to have a button at the end of the toast list`
+      }
+    ]
+  },
+  {
     version: '4.1.2', released: true, changes: [
       {
         type: ReleaseChangeType.BUG_FIX,
